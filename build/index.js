@@ -5020,6 +5020,9 @@ var Inspector = /*#__PURE__*/function (_Component) {
         title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Gradient Colors"),
         initialOpen: false
       }, /*#__PURE__*/React.createElement(_util_gradient_color_controller__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        colorOne: "#0072ff",
+        colorTwo: "#00c6ff",
+        angle: 45,
         onChange: function onChange(newValue) {
           return setAttributes({
             backgroundGradient: newValue
