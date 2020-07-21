@@ -671,6 +671,79 @@ class Inspector extends Component {
 							)}
 						/>
 					</BaseControl>
+
+					{imageOrIcon === "icon" && selectedIcon && (
+						<BaseControl label={__("Icon")} className="eb-typography-base">
+							<Dropdown
+								className="eb-typography-dropdown"
+								contentClassName="my-popover-content-classname"
+								position="bottom right"
+								renderToggle={({ isOpen, onToggle }) => (
+									<Button
+										isSmall
+										onClick={onToggle}
+										aria-expanded={isOpen}
+										icon="edit"
+									></Button>
+								)}
+								renderContent={() => (
+									<Fragment>
+										<UnitControl
+											selectedUnit={iconSizeUnit}
+											unitTypes={[
+												{ label: "px", value: "px" },
+												{ label: "em", value: "em" },
+												{ label: "%", value: "%" },
+											]}
+											onClick={(iconSizeUnit) =>
+												setAttributes({ iconSizeUnit })
+											}
+										/>
+
+										<RangeControl
+											label={__("Icon Size")}
+											value={iconSize}
+											allowReset
+											onChange={(newSize) =>
+												setAttributes({ iconSize: newSize })
+											}
+											min={8}
+											max={100}
+										/>
+									</Fragment>
+								)}
+							/>
+						</BaseControl>
+					)}
+
+					{imageOrIcon === "number" && selectedIcon && (
+						<BaseControl label={__("Number")} className="eb-typography-base">
+							<Dropdown
+								className="eb-typography-dropdown"
+								contentClassName="my-popover-content-classname"
+								position="bottom right"
+								renderToggle={({ isOpen, onToggle }) => (
+									<Button
+										isSmall
+										onClick={onToggle}
+										aria-expanded={isOpen}
+										icon="edit"
+									></Button>
+								)}
+								renderContent={() => (
+									<RangeControl
+										label={__("Number Size")}
+										value={numberSize}
+										onChange={(newSize) =>
+											setAttributes({ numberSize: newSize })
+										}
+										min={8}
+										max={64}
+									/>
+								)}
+							/>
+						</BaseControl>
+					)}
 				</PanelBody>
 
 				{backgroundType === "fill" && (

@@ -5313,6 +5313,84 @@ var Inspector = /*#__PURE__*/function (_Component) {
             step: CONTENT_LINE_HEIGHT_STEP
           }));
         }
+      })), imageOrIcon === "icon" && selectedIcon && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon"),
+        className: "eb-typography-base"
+      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Dropdown"], {
+        className: "eb-typography-dropdown",
+        contentClassName: "my-popover-content-classname",
+        position: "bottom right",
+        renderToggle: function renderToggle(_ref4) {
+          var isOpen = _ref4.isOpen,
+              onToggle = _ref4.onToggle;
+          return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+            isSmall: true,
+            onClick: onToggle,
+            "aria-expanded": isOpen,
+            icon: "edit"
+          });
+        },
+        renderContent: function renderContent() {
+          return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+            selectedUnit: iconSizeUnit,
+            unitTypes: [{
+              label: "px",
+              value: "px"
+            }, {
+              label: "em",
+              value: "em"
+            }, {
+              label: "%",
+              value: "%"
+            }],
+            onClick: function onClick(iconSizeUnit) {
+              return setAttributes({
+                iconSizeUnit: iconSizeUnit
+              });
+            }
+          }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
+            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon Size"),
+            value: iconSize,
+            allowReset: true,
+            onChange: function onChange(newSize) {
+              return setAttributes({
+                iconSize: newSize
+              });
+            },
+            min: 8,
+            max: 100
+          }));
+        }
+      })), imageOrIcon === "number" && selectedIcon && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Number"),
+        className: "eb-typography-base"
+      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Dropdown"], {
+        className: "eb-typography-dropdown",
+        contentClassName: "my-popover-content-classname",
+        position: "bottom right",
+        renderToggle: function renderToggle(_ref5) {
+          var isOpen = _ref5.isOpen,
+              onToggle = _ref5.onToggle;
+          return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+            isSmall: true,
+            onClick: onToggle,
+            "aria-expanded": isOpen,
+            icon: "edit"
+          });
+        },
+        renderContent: function renderContent() {
+          return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
+            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Number Size"),
+            value: numberSize,
+            onChange: function onChange(newSize) {
+              return setAttributes({
+                numberSize: newSize
+              });
+            },
+            min: 8,
+            max: 64
+          });
+        }
       }))), backgroundType === "fill" && /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["PanelColorSettings"], {
         title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Color"),
         initialOpen: false,
@@ -5371,11 +5449,11 @@ var Inspector = /*#__PURE__*/function (_Component) {
         right: marginRight,
         bottom: marginBottom,
         left: marginLeft,
-        onChange: function onChange(_ref4) {
-          var top = _ref4.top,
-              right = _ref4.right,
-              bottom = _ref4.bottom,
-              left = _ref4.left;
+        onChange: function onChange(_ref6) {
+          var top = _ref6.top,
+              right = _ref6.right,
+              bottom = _ref6.bottom,
+              left = _ref6.left;
           return setAttributes({
             marginTop: top,
             marginRight: right,
@@ -5406,11 +5484,11 @@ var Inspector = /*#__PURE__*/function (_Component) {
         right: paddingRight,
         bottom: paddingBottom,
         left: paddingLeft,
-        onChange: function onChange(_ref5) {
-          var top = _ref5.top,
-              right = _ref5.right,
-              bottom = _ref5.bottom,
-              left = _ref5.left;
+        onChange: function onChange(_ref7) {
+          var top = _ref7.top,
+              right = _ref7.right,
+              bottom = _ref7.bottom,
+              left = _ref7.left;
           return setAttributes({
             paddingTop: top,
             paddingRight: right,
@@ -5495,11 +5573,11 @@ var Inspector = /*#__PURE__*/function (_Component) {
         right: headerPaddingRight,
         bottom: headerPaddingBottom,
         left: headerPaddingLeft,
-        onChange: function onChange(_ref6) {
-          var top = _ref6.top,
-              right = _ref6.right,
-              bottom = _ref6.bottom,
-              left = _ref6.left;
+        onChange: function onChange(_ref8) {
+          var top = _ref8.top,
+              right = _ref8.right,
+              bottom = _ref8.bottom,
+              left = _ref8.left;
           return setAttributes({
             headerPaddingTop: top,
             headerPaddingRight: right,
@@ -5513,11 +5591,11 @@ var Inspector = /*#__PURE__*/function (_Component) {
         right: imageMarginTop,
         bottom: imageMarginBottom,
         left: imageMarginLeft,
-        onChange: function onChange(_ref7) {
-          var top = _ref7.top,
-              right = _ref7.right,
-              bottom = _ref7.bottom,
-              left = _ref7.left;
+        onChange: function onChange(_ref9) {
+          var top = _ref9.top,
+              right = _ref9.right,
+              bottom = _ref9.bottom,
+              left = _ref9.left;
           return setAttributes({
             imageMarginTop: top,
             imageMarginRight: right,
@@ -5548,11 +5626,11 @@ var Inspector = /*#__PURE__*/function (_Component) {
         right: buttonPaddingRight,
         bottom: buttonPaddingBottom,
         left: buttonPaddingLeft,
-        onChange: function onChange(_ref8) {
-          var top = _ref8.top,
-              right = _ref8.right,
-              bottom = _ref8.bottom,
-              left = _ref8.left;
+        onChange: function onChange(_ref10) {
+          var top = _ref10.top,
+              right = _ref10.right,
+              bottom = _ref10.bottom,
+              left = _ref10.left;
           return setAttributes({
             buttonPaddingTop: top,
             buttonPaddingRight: right,
@@ -5583,11 +5661,11 @@ var Inspector = /*#__PURE__*/function (_Component) {
         right: iconPaddingRight,
         bottom: iconPaddingBottom,
         left: iconPaddingLeft,
-        onChange: function onChange(_ref9) {
-          var top = _ref9.top,
-              right = _ref9.right,
-              bottom = _ref9.bottom,
-              left = _ref9.left;
+        onChange: function onChange(_ref11) {
+          var top = _ref11.top,
+              right = _ref11.right,
+              bottom = _ref11.bottom,
+              left = _ref11.left;
           return setAttributes({
             iconPaddingTop: top,
             iconPaddingRight: right,
