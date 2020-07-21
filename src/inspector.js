@@ -34,7 +34,10 @@ import {
 	BUTTON_ALIGN,
 	BORDER_STYLES,
 	BACKGROUND_TYPE,
+	FONT_WEIGHTS,
+	TEXT_DECORATION,
 } from "./constants.js";
+import FontPicker from "../util/typography-control/FontPicker";
 import DimensionsControl from "../util/dimensions-control";
 import ImageAvatar from "../util/image-avatar/ImageAvater.js";
 import GradientColorControl from "../util/gradient-color-controller";
@@ -166,6 +169,22 @@ class Inspector extends Component {
 			iconPaddingUnit,
 			borderWidthUnit,
 			buttonPaddingUnit,
+			headerFontFamily,
+			headerFontSize,
+			headerSizeUnit,
+			headerFontWeight,
+			headerTextDedocation,
+			headerLetterSpacing,
+			headerLetterSpacingUnit,
+			headerLineHeight,
+			headerLineHeightUnit,
+			contentFontFamily,
+			contentFontWeight,
+			contentTextDedocation,
+			contentLetterSpacing,
+			contentLetterSpacingUnit,
+			contentLineHeight,
+			contentLineHeightUnit,
 		} = attributes;
 
 		// Change flex order based on icon position
@@ -178,6 +197,15 @@ class Inspector extends Component {
 		} else if (iconPosition === "right") {
 			setAttributes({ order: 1, flexDirection: "row" });
 		}
+
+		const HEADER_SIZE_STEP = headerSizeUnit === "em" ? 0.1 : 1;
+		const HEADER_SIZE_MAX = headerSizeUnit === "em" ? 10 : 100;
+
+		const HEADER_SPACING_STEP = headerLetterSpacingUnit === "em" ? 0.1 : 1;
+		const HEADER_SPACING_MAX = headerLetterSpacingUnit === "em" ? 10 : 100;
+
+		const HEADER_LINE_HEIGHT_STEP = headerLineHeightUnit === "em" ? 0.1 : 1;
+		const HEADER_LINE_HEIGHT_MAX = headerLineHeightUnit === "em" ? 10 : 100;
 
 		return (
 			<InspectorControls key="controls">
@@ -301,6 +329,218 @@ class Inspector extends Component {
 						/>
 					)}
 
+					{showButton && (
+						<PanelBody title={__("Button Settings")}>
+							<TextControl
+								label={__("Button Text")}
+								value={buttonText}
+								onChange={(newText) => setAttributes({ buttonText: newText })}
+							/>
+
+							<TextControl
+								label={__("Link URL")}
+								placeholder="https://your-link.com"
+								value={clickableLink}
+								onChange={(link) => setAttributes({ clickableLink: link })}
+							/>
+
+							<SelectControl
+								label={__("Button Size")}
+								value={buttonSize}
+								options={BUTTON_SIZES}
+								onChange={(newSize) => this.changeButtonSize(newSize)}
+							/>
+
+							<SelectControl
+								label={__("Button Align")}
+								value={buttonAlign}
+								options={BUTTON_ALIGN}
+								onChange={(buttonAlign) => setAttributes({ buttonAlign })}
+							/>
+						</PanelBody>
+					)}
+
+					{isClickable && (
+						<TextControl
+							label={__("Infobox Link")}
+							placeholder="https://your-link.com"
+							value={clickableLink}
+							onChange={(link) => setAttributes({ clickableLink: link })}
+						/>
+					)}
+				</PanelBody>
+
+				{backgroundType === "image" && (
+					<PanelBody title={__("Background Image")}>
+						<MediaUpload
+							onSelect={(media) =>
+								setAttributes({
+									backgroundImageURL: media.url,
+									backgroundImageID: media.id,
+								})
+							}
+							type="image"
+							value={backgroundImageID}
+							render={({ open }) =>
+								!backgroundImageURL && (
+									<Button
+										className="eb-infobox-bg-upload-button components-button"
+										label={__("Upload Image")}
+										icon="format-image"
+										onClick={open}
+									/>
+								)
+							}
+						/>
+
+						{backgroundImageURL && (
+							<ImageAvatar
+								imageUrl={backgroundImageURL}
+								onDeleteImage={() =>
+									setAttributes({ backgroundImageURL: null })
+								}
+							/>
+						)}
+					</PanelBody>
+				)}
+
+				<PanelBody title={__("Typography")} initialOpen={false}>
+					<BaseControl label={__("Header")} className="eb-typography-base">
+						<Dropdown
+							className="eb-typography-dropdown"
+							contentClassName="my-popover-content-classname"
+							position="bottom right"
+							renderToggle={({ isOpen, onToggle }) => (
+								<Button
+									isSmall
+									onClick={onToggle}
+									aria-expanded={isOpen}
+									icon="edit"
+								></Button>
+							)}
+							renderContent={() => (
+								<div style={{ padding: "1rem" }}>
+									<BaseControl label={__("Heading")}>
+										<ButtonGroup className="infobox-button-group">
+											{HEADER_TAGS.map((header) => (
+												<Button
+													isSmall
+													isSecondary={headerTag !== header}
+													isPrimary={headerTag === header}
+													onClick={() => setAttributes({ headerTag: header })}
+												>
+													{header.toUpperCase()}
+												</Button>
+											))}
+										</ButtonGroup>
+									</BaseControl>
+
+									<FontPicker
+										label={__("Font Family")}
+										value={headerFontFamily}
+										onChange={(headerFontFamily) =>
+											setAttributes({ headerFontFamily })
+										}
+									/>
+
+									<UnitControl
+										selectedUnit={headerSizeUnit}
+										unitTypes={[
+											{ label: "px", value: "px" },
+											{ label: "%", value: "%" },
+											{ label: "em", value: "em" },
+										]}
+										onClick={(headerSizeUnit) =>
+											setAttributes({ headerSizeUnit })
+										}
+									/>
+
+									<RangeControl
+										label={__("Font Size")}
+										value={headerFontSize}
+										onChange={(headerFontSize) =>
+											setAttributes({ headerFontSize })
+										}
+										step={HEADER_SIZE_STEP}
+										min={0}
+										max={HEADER_SIZE_MAX}
+									/>
+
+									<SelectControl
+										label={__("Font Weight")}
+										value={headerFontWeight}
+										options={FONT_WEIGHTS}
+										onChange={(headerFontWeight) =>
+											setAttributes({ headerFontWeight })
+										}
+									/>
+
+									<SelectControl
+										label={__("Text Transform")}
+										value={headerTextTransform}
+										options={TEXT_TRANSFORM}
+										onChange={(headerTextTransform) =>
+											setAttributes({ headerTextTransform })
+										}
+									/>
+
+									<SelectControl
+										label={__("Text Decoration")}
+										value={headerTextDedocation}
+										options={TEXT_DECORATION}
+										onChange={(headerTextDecoration) =>
+											setAttributes({ headerTextDecoration })
+										}
+									/>
+
+									<UnitControl
+										selectedUnit={headerLetterSpacingUnit}
+										unitTypes={[
+											{ label: "px", value: "px" },
+											{ label: "em", value: "em" },
+										]}
+										onClick={(headerLetterSpacingUnit) =>
+											setAttributes({ headerLetterSpacingUnit })
+										}
+									/>
+
+									<RangeControl
+										label={__("Letter Spacing")}
+										value={headerLetterSpacing}
+										onChange={(headerLetterSpacing) =>
+											setAttributes({ headerLetterSpacing })
+										}
+										min={0}
+										max={HEADER_SPACING_MAX}
+										step={HEADER_SPACING_STEP}
+									/>
+
+									<UnitControl
+										selectedUnit={headerLineHeightUnit}
+										unitTypes={[
+											{ label: "px", value: "px" },
+											{ label: "em", value: "em" },
+										]}
+										onClick={(headerLineHeightUnit) =>
+											setAttributes({ headerLineHeightUnit })
+										}
+									/>
+
+									<RangeControl
+										label={__("Line Height")}
+										value={headerLineHeight}
+										onChange={(headerLineHeight) =>
+											setAttributes({ headerLineHeight })
+										}
+										min={0}
+										max={HEADER_LINE_HEIGHT_MAX}
+										step={HEADER_LINE_HEIGHT_STEP}
+									/>
+								</div>
+							)}
+						/>
+					</BaseControl>
+
 					<BaseControl label={__("Typography")} className="eb-typography-base">
 						<Dropdown
 							className="eb-typography-dropdown"
@@ -404,81 +644,7 @@ class Inspector extends Component {
 							)}
 						/>
 					</BaseControl>
-
-					{showButton && (
-						<PanelBody title={__("Button Settings")}>
-							<TextControl
-								label={__("Button Text")}
-								value={buttonText}
-								onChange={(newText) => setAttributes({ buttonText: newText })}
-							/>
-
-							<TextControl
-								label={__("Link URL")}
-								placeholder="https://your-link.com"
-								value={clickableLink}
-								onChange={(link) => setAttributes({ clickableLink: link })}
-							/>
-
-							<SelectControl
-								label={__("Button Size")}
-								value={buttonSize}
-								options={BUTTON_SIZES}
-								onChange={(newSize) => this.changeButtonSize(newSize)}
-							/>
-
-							<SelectControl
-								label={__("Button Align")}
-								value={buttonAlign}
-								options={BUTTON_ALIGN}
-								onChange={(buttonAlign) => setAttributes({ buttonAlign })}
-							/>
-						</PanelBody>
-					)}
-
-					{isClickable && (
-						<TextControl
-							label={__("Infobox Link")}
-							placeholder="https://your-link.com"
-							value={clickableLink}
-							onChange={(link) => setAttributes({ clickableLink: link })}
-						/>
-					)}
 				</PanelBody>
-
-				{backgroundType === "image" && (
-					<PanelBody title={__("Background Image")}>
-						<MediaUpload
-							onSelect={(media) =>
-								setAttributes({
-									backgroundImageURL: media.url,
-									backgroundImageID: media.id,
-								})
-							}
-							type="image"
-							value={backgroundImageID}
-							render={({ open }) =>
-								!backgroundImageURL && (
-									<Button
-										className="eb-infobox-bg-upload-button components-button"
-										label={__("Upload Image")}
-										icon="format-image"
-										onClick={open}
-									/>
-								)
-							}
-						/>
-
-						{backgroundImageURL && (
-							<ImageAvatar
-								imageUrl={backgroundImageURL}
-								onDeleteImage={() =>
-									setAttributes({ backgroundImageURL: null })
-								}
-							/>
-						)}
-					</PanelBody>
-				)}
 
 				{backgroundType === "fill" && (
 					<PanelColorSettings

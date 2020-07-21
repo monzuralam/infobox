@@ -296,6 +296,61 @@ const attributes = {
 		type: "string",
 		default: "px",
 	},
+	headerFontFamily: {
+		type: "string",
+	},
+	headerFontSize: {
+		type: "number",
+	},
+	headerSizeUnit: {
+		type: "string",
+		default: "px",
+	},
+	headerFontWeight: {
+		type: "string",
+		default: "normal",
+	},
+	headerTextDecoration: {
+		type: "string",
+	},
+	headerLetterSpacing: {
+		type: "number",
+	},
+	headerLetterSpacingUnit: {
+		type: "string",
+		default: "px",
+	},
+	headerLineHeight: {
+		type: "number",
+	},
+	headerLineHeightUnit: {
+		type: "string",
+		default: "px",
+	},
+	contentFontFamily: {
+		type: "string",
+	},
+	contentFontWeight: {
+		type: "string",
+		default: "normal",
+	},
+	contentTextDecoration: {
+		type: "string",
+	},
+	contentLetterSpacing: {
+		type: "number",
+	},
+	contentLetterSpacingUnit: {
+		type: "string",
+		default: "px",
+	},
+	contentLineHeight: {
+		type: "number",
+	},
+	contentLineHeightUnit: {
+		type: "string",
+		default: "px",
+	},
 };
 
 export default attributes;
