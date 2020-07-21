@@ -337,6 +337,10 @@ const attributes = {
 	contentTextDecoration: {
 		type: "string",
 	},
+	contentTextTransform: {
+		type: "string",
+		default: "none",
+	},
 	contentLetterSpacing: {
 		type: "number",
 	},

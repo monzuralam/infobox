@@ -181,6 +181,7 @@ class Inspector extends Component {
 			contentFontFamily,
 			contentFontWeight,
 			contentTextDedocation,
+			contentTextTransform,
 			contentLetterSpacing,
 			contentLetterSpacingUnit,
 			contentLineHeight,
@@ -206,6 +207,15 @@ class Inspector extends Component {
 
 		const HEADER_LINE_HEIGHT_STEP = headerLineHeightUnit === "em" ? 0.1 : 1;
 		const HEADER_LINE_HEIGHT_MAX = headerLineHeightUnit === "em" ? 10 : 100;
+
+		const CONTENT_SIZE_STEP = contentSizeUnit === "em" ? 0.1 : 1;
+		const CONTENT_SIZE_MAX = contentSizeUnit === "em" ? 10 : 100;
+
+		const CONTENT_SPACING_STEP = contentLetterSpacingUnit === "em" ? 0.1 : 1;
+		const CONTENT_SPACING_MAX = contentLetterSpacingUnit === "em" ? 10 : 100;
+
+		const CONTENT_LINE_HEIGHT_STEP = contentLineHeightUnit === "em" ? 0.1 : 1;
+		const CONTENT_LINE_HEIGHT_MAX = contentLineHeightUnit === "em" ? 10 : 100;
 
 		return (
 			<InspectorControls key="controls">
@@ -541,7 +551,7 @@ class Inspector extends Component {
 						/>
 					</BaseControl>
 
-					<BaseControl label={__("Typography")} className="eb-typography-base">
+					<BaseControl label={__("Content")} className="eb-typography-base">
 						<Dropdown
 							className="eb-typography-dropdown"
 							contentClassName="my-popover-content-classname"
@@ -556,26 +566,11 @@ class Inspector extends Component {
 							)}
 							renderContent={() => (
 								<div style={{ padding: "1rem" }}>
-									<BaseControl label={__("Heading")}>
-										<ButtonGroup className="infobox-button-group">
-											{HEADER_TAGS.map((header) => (
-												<Button
-													isSecondary={headerTag !== header}
-													isPrimary={headerTag === header}
-													onClick={() => setAttributes({ headerTag: header })}
-												>
-													{header.toUpperCase()}
-												</Button>
-											))}
-										</ButtonGroup>
-									</BaseControl>
-
-									<SelectControl
-										label={__("Heading Text Transform")}
-										value={headerTextTransform}
-										options={TEXT_TRANSFORM}
-										onChange={(newValue) =>
-											setAttributes({ headerTextTransform: newValue })
+									<FontPicker
+										label={__("Font Family")}
+										value={contentFontFamily}
+										onChange={(contentFontFamily) =>
+											setAttributes({ contentFontFamily })
 										}
 									/>
 
@@ -583,8 +578,8 @@ class Inspector extends Component {
 										selectedUnit={contentSizeUnit}
 										unitTypes={[
 											{ label: "px", value: "px" },
-											{ label: "em", value: "em" },
 											{ label: "%", value: "%" },
+											{ label: "em", value: "em" },
 										]}
 										onClick={(contentSizeUnit) =>
 											setAttributes({ contentSizeUnit })
@@ -592,54 +587,86 @@ class Inspector extends Component {
 									/>
 
 									<RangeControl
-										label={__("Content Font Size")}
+										label={__("Font Size")}
 										value={contentFontSize}
-										allowReset
-										onChange={(newSize) =>
-											setAttributes({ contentFontSize: newSize })
+										onChange={(contentFontSize) =>
+											setAttributes({ contentFontSize })
 										}
-										min={8}
-										max={100}
+										step={CONTENT_SIZE_STEP}
+										min={0}
+										max={CONTENT_SIZE_MAX}
 									/>
 
-									{imageOrIcon === "icon" && selectedIcon && (
-										<Fragment>
-											<UnitControl
-												selectedUnit={iconSizeUnit}
-												unitTypes={[
-													{ label: "px", value: "px" },
-													{ label: "em", value: "em" },
-													{ label: "%", value: "%" },
-												]}
-												onClick={(iconSizeUnit) =>
-													setAttributes({ iconSizeUnit })
-												}
-											/>
+									<SelectControl
+										label={__("Font Weight")}
+										value={contentFontWeight}
+										options={FONT_WEIGHTS}
+										onChange={(contentFontWeight) =>
+											setAttributes({ contentFontWeight })
+										}
+									/>
 
-											<RangeControl
-												label={__("Icon Size")}
-												value={iconSize}
-												allowReset
-												onChange={(newSize) =>
-													setAttributes({ iconSize: newSize })
-												}
-												min={8}
-												max={100}
-											/>
-										</Fragment>
-									)}
+									<SelectControl
+										label={__("Text Transform")}
+										value={contentTextTransform}
+										options={TEXT_TRANSFORM}
+										onChange={(contentTextTransform) =>
+											setAttributes({ contentTextTransform })
+										}
+									/>
 
-									{imageOrIcon === "number" && (
-										<RangeControl
-											label={__("Number Size")}
-											value={numberSize}
-											onChange={(newSize) =>
-												setAttributes({ numberSize: newSize })
-											}
-											min={8}
-											max={64}
-										/>
-									)}
+									<SelectControl
+										label={__("Text Decoration")}
+										value={contentTextDedocation}
+										options={TEXT_DECORATION}
+										onChange={(contentTextDecoration) =>
+											setAttributes({ contentTextDecoration })
+										}
+									/>
+
+									<UnitControl
+										selectedUnit={contentLetterSpacingUnit}
+										unitTypes={[
+											{ label: "px", value: "px" },
+											{ label: "em", value: "em" },
+										]}
+										onClick={(contentLetterSpacingUnit) =>
+											setAttributes({ contentLetterSpacingUnit })
+										}
+									/>
+
+									<RangeControl
+										label={__("Letter Spacing")}
+										value={contentLetterSpacing}
+										onChange={(contentLetterSpacing) =>
+											setAttributes({ contentLetterSpacing })
+										}
+										min={0}
+										max={CONTENT_SPACING_MAX}
+										step={CONTENT_SPACING_STEP}
+									/>
+
+									<UnitControl
+										selectedUnit={contentLineHeightUnit}
+										unitTypes={[
+											{ label: "px", value: "px" },
+											{ label: "em", value: "em" },
+										]}
+										onClick={(contentLineHeightUnit) =>
+											setAttributes({ contentLineHeightUnit })
+										}
+									/>
+
+									<RangeControl
+										label={__("Line Height")}
+										value={contentLineHeight}
+										onChange={(contentLineHeight) =>
+											setAttributes({ contentLineHeight })
+										}
+										min={0}
+										max={CONTENT_LINE_HEIGHT_MAX}
+										step={CONTENT_LINE_HEIGHT_STEP}
+									/>
 								</div>
 							)}
 						/>
