@@ -88,6 +88,23 @@ const Edit = ({ attributes, setAttributes, isSelected }) => {
 		borderWidthUnit,
 		buttonPaddingUnit,
 		iconBackground,
+		headerFontFamily,
+		headerFontSize,
+		headerSizeUnit,
+		headerFontWeight,
+		headerTextDecoration,
+		headerLetterSpacing,
+		headerLetterSpacingUnit,
+		headerLineHeight,
+		headerLineHeightUnit,
+		contentFontFamily,
+		contentFontWeight,
+		contentTextTransform,
+		contentTextDecoration,
+		contentLetterSpacing,
+		contentLetterSpacingUnit,
+		contentLineHeight,
+		contentLineHeightUnit,
 	} = attributes;
 
 	const boxWrapperStyle = {
@@ -152,7 +169,17 @@ const Edit = ({ attributes, setAttributes, isSelected }) => {
 	};
 
 	const headerStyle = {
+		fontFamily: headerFontFamily,
+		fontSize: headerFontSize ? headerFontSize + headerSizeUnit : undefined,
+		fontWeight: headerFontWeight,
+		textDecoration: headerTextDecoration,
 		textTransform: headerTextTransform,
+		letterSpacing: headerLetterSpacing
+			? headerLetterSpacing + headerLetterSpacingUnit
+			: undefined,
+		lineHeight: headerLineHeight
+			? headerLineHeight + headerLineHeightUnit
+			: undefined,
 		color: headerColor || "#4a5059",
 		paddingTop: `${headerPaddingTop || 0}${headerPaddingUnit}`,
 		paddingRight: `${headerPaddingRight || 0}${headerPaddingUnit}`,
@@ -161,7 +188,17 @@ const Edit = ({ attributes, setAttributes, isSelected }) => {
 	};
 
 	const contentStyle = {
+		fontFamily: contentFontFamily,
 		fontSize: `${contentFontSize || 16}${contentSizeUnit}`,
+		fontWeight: contentFontWeight,
+		textDecoration: contentTextDecoration,
+		textTransform: contentTextTransform,
+		letterSpacing: contentLetterSpacing
+			? contentLetterSpacing + contentLetterSpacingUnit
+			: undefined,
+		lineHeight: contentLineHeight
+			? contentLineHeight + contentLineHeightUnit
+			: undefined,
 		color: contentColor || "#5b5b5b",
 	};
 

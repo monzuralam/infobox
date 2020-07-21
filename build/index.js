@@ -4151,7 +4151,24 @@ var Edit = function Edit(_ref) {
       iconPaddingUnit = attributes.iconPaddingUnit,
       borderWidthUnit = attributes.borderWidthUnit,
       buttonPaddingUnit = attributes.buttonPaddingUnit,
-      iconBackground = attributes.iconBackground;
+      iconBackground = attributes.iconBackground,
+      headerFontFamily = attributes.headerFontFamily,
+      headerFontSize = attributes.headerFontSize,
+      headerSizeUnit = attributes.headerSizeUnit,
+      headerFontWeight = attributes.headerFontWeight,
+      headerTextDecoration = attributes.headerTextDecoration,
+      headerLetterSpacing = attributes.headerLetterSpacing,
+      headerLetterSpacingUnit = attributes.headerLetterSpacingUnit,
+      headerLineHeight = attributes.headerLineHeight,
+      headerLineHeightUnit = attributes.headerLineHeightUnit,
+      contentFontFamily = attributes.contentFontFamily,
+      contentFontWeight = attributes.contentFontWeight,
+      contentTextTransform = attributes.contentTextTransform,
+      contentTextDecoration = attributes.contentTextDecoration,
+      contentLetterSpacing = attributes.contentLetterSpacing,
+      contentLetterSpacingUnit = attributes.contentLetterSpacingUnit,
+      contentLineHeight = attributes.contentLineHeight,
+      contentLineHeightUnit = attributes.contentLineHeightUnit;
   var boxWrapperStyle = {
     flexDirection: flexDirection,
     backgroundImage: backgroundType === "image" && backgroundImageURL ? "url('".concat(backgroundImageURL, "')") : backgroundType === "gradient" && backgroundGradient || "none",
@@ -4195,7 +4212,13 @@ var Edit = function Edit(_ref) {
     fontSize: numberSize
   };
   var headerStyle = {
+    fontFamily: headerFontFamily,
+    fontSize: headerFontSize ? headerFontSize + headerSizeUnit : undefined,
+    fontWeight: headerFontWeight,
+    textDecoration: headerTextDecoration,
     textTransform: headerTextTransform,
+    letterSpacing: headerLetterSpacing ? headerLetterSpacing + headerLetterSpacingUnit : undefined,
+    lineHeight: headerLineHeight ? headerLineHeight + headerLineHeightUnit : undefined,
     color: headerColor || "#4a5059",
     paddingTop: "".concat(headerPaddingTop || 0).concat(headerPaddingUnit),
     paddingRight: "".concat(headerPaddingRight || 0).concat(headerPaddingUnit),
@@ -4203,7 +4226,13 @@ var Edit = function Edit(_ref) {
     paddingLeft: "".concat(headerPaddingLeft || 0).concat(headerPaddingUnit)
   };
   var contentStyle = {
+    fontFamily: contentFontFamily,
     fontSize: "".concat(contentFontSize || 16).concat(contentSizeUnit),
+    fontWeight: contentFontWeight,
+    textDecoration: contentTextDecoration,
+    textTransform: contentTextTransform,
+    letterSpacing: contentLetterSpacing ? contentLetterSpacing + contentLetterSpacingUnit : undefined,
+    lineHeight: contentLineHeight ? contentLineHeight + contentLineHeightUnit : undefined,
     color: contentColor || "#5b5b5b"
   };
   var buttonWrapperStyles = {
