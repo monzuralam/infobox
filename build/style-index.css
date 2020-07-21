@@ -34,6 +34,10 @@
   color: #666666;
   display: inline-block; }
 
+.eb-typography-base div {
+  display: flex;
+  justify-content: space-between; }
+
 .input-wrapper {
   width: 20%;
   display: flex;

@@ -17,6 +17,14 @@
  *
  * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/applying-styles-with-stylesheets/
  */
+
+if( ! class_exists('EB_Font_Loader') ) {
+	require_once __DIR__ . '/includes/font-loader.php';
+}
+if( ! class_exists('EB_Post_Meta') ) {
+	require_once __DIR__ . '/includes/post-meta.php';
+}
+
 function create_block_infobox_block_init() {
 	$dir = dirname( __FILE__ );
 
@@ -50,11 +58,41 @@ function create_block_infobox_block_init() {
 		array(),
 		filemtime( "$dir/$style_css" )
 	);
+	$fontpicker_theme = 'src/css/fonticonpicker.base-theme.react.css';
+	wp_enqueue_style(
+		'fontpicker-default-theme',
+		plugins_url( $fontpicker_theme, __FILE__),
+		array()
+	);
 
-	register_block_type( 'create-block/infobox', array(
-		'editor_script' => 'create-block-infobox-block-editor',
-		'editor_style'  => 'create-block-infobox-block-editor',
-		'style'         => 'create-block-infobox-block',
-	) );
+	$fontpicker_material_theme = 'src/css/fonticonpicker.material-theme.react.css';
+	wp_enqueue_style(
+		'fontpicker-matetial-theme',
+		plugins_url( $fontpicker_material_theme, __FILE__),
+		array()
+	);
+
+	$fontawesome_css = 'src/css/font-awesome5.css';
+	wp_enqueue_style(
+		'fontawesome-frontend-css',
+		plugins_url( $fontawesome_css, __FILE__),
+		array()
+	);
+
+	$frontend_js = 'src/frontend.js';
+	wp_enqueue_script(
+		'essential-blocks-accordion-frontend',
+		plugins_url( $frontend_js, __FILE__),
+		array( "jquery","wp-editor"),
+		true
+	);
+
+	if( ! WP_Block_Type_Registry::get_instance()->is_registered( 'essential-blocks/infobox' ) ) {
+		register_block_type( 'create-block/infobox', array(
+			'editor_script' => 'create-block-infobox-block-editor',
+			'editor_style'  => 'create-block-infobox-block-editor',
+			'style'         => 'create-block-infobox-block',
+		) );
+	}
 }
 add_action( 'init', 'create_block_infobox_block_init' );

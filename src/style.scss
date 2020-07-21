@@ -38,6 +38,13 @@
   height: 100px;
   width: 100%;
   background: #e3e3e3;
-  color: #666666;
+	color: #666666;
   display: inline-block;
 }
+
+// Typography style
+.eb-typography-base div{
+		display: flex;
+		justify-content: space-between;
+}
+
