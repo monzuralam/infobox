@@ -1,13 +1,38 @@
-/**
- * The following styles get applied both on the front of your site
- * and in the editor.
- *
- * Replace them with your own styles or remove the file completely.
- */
-.wp-block-create-block-infobox {
-  background-color: var(--wp-admin-theme-color);
-  color: #fff;
-  padding: 2px; }
+.infobox-container {
+  display: flex;
+  text-align: center;
+  align-items: center; }
+
+.infobox-header {
+  padding: 5px; }
+
+.infobox-content {
+  padding: 5px; }
+
+.infobox-button {
+  text-align: center; }
+
+.infobox-button-group {
+  margin-bottom: 8px; }
+
+.eb-infobox-link {
+  display: inline;
+  border-radius: 5px;
+  padding: 5px;
+  line-height: inherit; }
+
+.eb-infobox-image {
+  height: 150px;
+  width: 150px;
+  background: #e3e3e3;
+  display: inline; }
+
+.eb-infobox-bg-upload-button {
+  height: 100px;
+  width: 100%;
+  background: #e3e3e3;
+  color: #666666;
+  display: inline-block; }
 
 
 /*# sourceMappingURL=style-index.css.map*/
