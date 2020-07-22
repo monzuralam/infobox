@@ -6,9 +6,9 @@
  * Author:          The WordPress Contributors
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:     create-block
+ * Text Domain:     infobox
  *
- * @package         create-block
+ * @package         block
  */
 
 /**
@@ -41,14 +41,6 @@ function create_block_infobox_block_init() {
 		plugins_url( $index_js, __FILE__ ),
 		$script_asset['dependencies'],
 		$script_asset['version']
-	);
-
-	$editor_css = 'build/index.css';
-	wp_register_style(
-		'create-block-infobox-block-editor',
-		plugins_url( $editor_css, __FILE__ ),
-		array(),
-		filemtime( "$dir/$editor_css" )
 	);
 
 	$style_css = 'build/style-index.css';
@@ -88,7 +80,7 @@ function create_block_infobox_block_init() {
 	);
 
 	if( ! WP_Block_Type_Registry::get_instance()->is_registered( 'essential-blocks/infobox' ) ) {
-		register_block_type( 'create-block/infobox', array(
+		register_block_type( 'block/infobox', array(
 			'editor_script' => 'create-block-infobox-block-editor',
 			'editor_style'  => 'create-block-infobox-block-editor',
 			'style'         => 'create-block-infobox-block',

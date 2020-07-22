@@ -7,9 +7,9 @@ import save from "./save";
 import icon from "./icon";
 import attributes from "./attributes";
 
-registerBlockType("create-block/infobox", {
-	title: __("Infobox", "essential-blocks"),
-	description: __("", "essential-blocks"),
+registerBlockType("block/infobox", {
+	title: __("Infobox", "block"),
+	description: __("", "block"),
 	category: "widgets",
 	icon,
 	attributes,
