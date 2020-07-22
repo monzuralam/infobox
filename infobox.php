@@ -1,14 +1,14 @@
 <?php
 /**
  * Plugin Name:     Infobox
- * Description:     Example block written with ESNext standard and JSX support – build step required.
- * Version:         0.1.0
- * Author:          The WordPress Contributors
+ * Description:     Highlight Your Key Features & Hold Audience Attention with Info Box Block.
+ * Version:         1.0.0
+ * Author:          WPDeveloper
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:     infobox
  *
- * @package         block
+ * @package         infobox
  */
 
 /**
