@@ -12,8 +12,11 @@ Deliver your content beautifully to grab attention with an animated Infobox bloc
 == Description ==
 
 Using **Infobox**, you can display your features, key points etc in a very attractive way that users can’t ignore. This plugin will help you easily create an Infobox within the **Gutenberg Block Editor** & improve user experience for your visitors.
+
 **Completely Customizable:** You can customize Infobox content, colors, etc to make it just the way you need.
+
 **Super Light-weight:** No extra resources used and it's highly optimized for super fast loading & instant Live editing.
+
 **Dedicated Support:** We’ve an extraordinary support team ready to help you. Ask your questions in the support forum, we’ll get back to you immediately.
 
 
@@ -30,10 +33,11 @@ This Block is brought to you by [WPDeveloper](https://wpdeveloper.net), the team
 
 ## 🙌 JOIN THE COMMUNITY ##
 
-- 🎦 Subscribe to our [Youtube Channel](https://www.youtube.com/wpdevelopernet/?sub_confirmation=1) to watch video tutorials on WordPress.
-- 🤝 Join our [Facebook Community](https://www.facebook.com/groups/wpdeveloper.net/) & get connected with expert web creators like yourself.
+🎦 Subscribe to our [Youtube Channel](https://www.youtube.com/wpdevelopernet/?sub_confirmation=1) to watch video tutorials on WordPress.
 
-🧡 LOVED Countdown Block? Rate us on WordPress Repository
+🤝 Join our [Facebook Community](https://www.facebook.com/groups/wpdeveloper.net/) & get connected with expert web creators like yourself.
+
+🧡 LOVED FLIPBOX? Rate us on [WordPress Repository](https://wordpress.org/support/plugin/infobox/reviews/#new-post)
 
 🔥 GET FREEBIES FOR YOUR WORDPRESS SITE
 
