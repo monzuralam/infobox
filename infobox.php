@@ -69,14 +69,6 @@ function create_block_infobox_block_init() {
 		array()
 	);
 
-	$frontend_js = 'src/frontend.js';
-	wp_enqueue_script(
-		'essential-blocks-accordion-frontend',
-		plugins_url( $frontend_js, __FILE__),
-		array( "jquery","wp-editor"),
-		true
-	);
-
 	if( ! WP_Block_Type_Registry::get_instance()->is_registered( 'essential-blocks/infobox' ) ) {
 		register_block_type( 'block/infobox', array(
 			'editor_script' => 'create-block-infobox-block-editor',
