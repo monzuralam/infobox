@@ -6651,6 +6651,7 @@ var GradientColorControl = function GradientColorControl(_ref) {
     label: __("Gradient Type"),
     className: "eb-gradient-toggle-label"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_toggle_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    defaultSelected: gradientType === "ellipse" ? _constants__WEBPACK_IMPORTED_MODULE_4__["GRADIENT_TYPE"][0] : _constants__WEBPACK_IMPORTED_MODULE_4__["GRADIENT_TYPE"][1],
     options: _constants__WEBPACK_IMPORTED_MODULE_4__["GRADIENT_TYPE"],
     onChange: function onChange(gradientType) {
       return setGradientType(gradientType);
@@ -6660,6 +6661,7 @@ var GradientColorControl = function GradientColorControl(_ref) {
     label: __("Radial Type"),
     className: "eb-gradient-toggle-label"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_toggle_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    defaultSelected: radialShape === "linear" ? _constants__WEBPACK_IMPORTED_MODULE_4__["RADIAL_TYPES"][0] : _constants__WEBPACK_IMPORTED_MODULE_4__["RADIAL_TYPES"][1],
     options: _constants__WEBPACK_IMPORTED_MODULE_4__["RADIAL_TYPES"],
     onChange: function onChange(radialShape) {
       return setRadialShape(radialShape);
@@ -6800,9 +6802,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var ToggleButton = function ToggleButton(_ref) {
   var options = _ref.options,
       focusColor = _ref.focusColor,
-      onChange = _ref.onChange;
+      onChange = _ref.onChange,
+      defaultSelected = _ref.defaultSelected;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(options[0]),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(defaultSelected || options[0]),
       _useState2 = _slicedToArray(_useState, 2),
       selected = _useState2[0],
       setSelected = _useState2[1];

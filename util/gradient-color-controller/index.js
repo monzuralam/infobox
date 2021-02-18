@@ -81,6 +81,9 @@ const GradientColorControl = ({ gradientColor, onChange }) => {
 				className="eb-gradient-toggle-label"
 			>
 				<ToggleButton
+					defaultSelected={
+						gradientType === "ellipse" ? GRADIENT_TYPE[0] : GRADIENT_TYPE[1]
+					}
 					options={GRADIENT_TYPE}
 					onChange={(gradientType) => setGradientType(gradientType)}
 					focusColor={FOCUS_COLOR}
@@ -93,6 +96,9 @@ const GradientColorControl = ({ gradientColor, onChange }) => {
 					className="eb-gradient-toggle-label"
 				>
 					<ToggleButton
+						defaultSelected={
+							radialShape === "linear" ? RADIAL_TYPES[0] : RADIAL_TYPES[1]
+						}
 						options={RADIAL_TYPES}
 						onChange={(radialShape) => setRadialShape(radialShape)}
 						focusColor={FOCUS_COLOR}
