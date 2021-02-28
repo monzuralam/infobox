@@ -13,3 +13,6 @@
 [submodule "util/toggle-button"]
 	path = util/toggle-button
 	url = git@github.com:EssentialBlocks/toggle-button.git
+[submodule "util/typography-control"]
+	path = util/typography-control
+	url = git@github.com:EssentialBlocks/typography-control.git
