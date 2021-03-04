@@ -6149,6 +6149,12 @@ var ColorControl = function ColorControl(_ref) {
     onChange(color);
   };
 
+  var colorStyles = {
+    padding: 2,
+    borderRadius: 0,
+    background: "white",
+    border: "1px solid #ebebeb"
+  };
   return /*#__PURE__*/React.createElement(BaseControl, {
     label: label || "",
     className: "eb-color-base"
@@ -6159,12 +6165,13 @@ var ColorControl = function ColorControl(_ref) {
       return /*#__PURE__*/React.createElement(Tooltip, {
         text: color || "default"
       }, /*#__PURE__*/React.createElement("div", {
-        className: "eb-color-ball"
+        className: "eb-color-ball",
+        style: color && colorStyles
       }, /*#__PURE__*/React.createElement("div", {
         style: {
-          height: 32,
-          width: 32,
-          borderRadius: "50%",
+          height: 16,
+          width: 16,
+          borderRadius: "0%",
           boxShadow: "inset 0 0 0 1px rgba(0,0,0,.1)",
           backgroundColor: bgColor
         },
@@ -6185,6 +6192,9 @@ var ColorControl = function ColorControl(_ref) {
     isSmall: true,
     className: "eb-color-undo",
     icon: "image-rotate",
+    style: {
+      transform: "scaleX(-1) rotate(90deg)"
+    },
     onClick: function onClick() {
       return onChange(undefined);
     }
@@ -6338,6 +6348,8 @@ var DimensionsControl = /*#__PURE__*/function (_Component) {
       }, this.props.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "input-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-wrapper-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "input-wrapper"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "number",
@@ -6373,10 +6385,10 @@ var DimensionsControl = /*#__PURE__*/function (_Component) {
         onChange: this.onInputChange
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "dimentions-input-label"
-      }, "Left")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Left"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "linked-btn components-button is-button dashicons dashicons-".concat(isLinked ? "admin-links is-primary" : "editor-unlink is-default"),
         onClick: this.onButtonClick
-      }))));
+      })));
     }
   }]);
 
@@ -6743,24 +6755,74 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./util/image-avatar/style.scss");
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_style_scss__WEBPACK_IMPORTED_MODULE_1__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
-var Button = wp.components.Button;
+
+var useState = wp.element.useState;
 
 var ImageAvater = function ImageAvater(_ref) {
   var imageUrl = _ref.imageUrl,
       onDeleteImage = _ref.onDeleteImage;
+
+  var _useState = useState(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      hover = _useState2[0],
+      setHover = _useState2[1];
+
+  var _useState3 = useState(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      deleteHover = _useState4[0],
+      setDeleteHover = _useState4[1];
+
+  var deleteButtonStyle = {
+    visibility: hover ? "visible" : "hidden",
+    backgroundColor: deleteHover ? "white" : "#64666a",
+    color: "#b4b5b7",
+    position: "absolute",
+    right: 34,
+    fontSize: 16,
+    alignSelf: "center",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 3,
+    cursor: "pointer"
+  };
   return /*#__PURE__*/React.createElement("div", {
     className: "image-avatar",
     style: {
       backgroundImage: "url(".concat(imageUrl, ")")
+    },
+    onMouseEnter: function onMouseEnter() {
+      return setHover(true);
+    },
+    onMouseLeave: function onMouseLeave() {
+      return setHover(false);
     }
-  }, /*#__PURE__*/React.createElement(Button, {
-    className: "button",
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "image-avatar-delete dashicons dashicons-trash",
+    onMouseEnter: function onMouseEnter() {
+      return setDeleteHover(true);
+    },
+    onMouseLeave: function onMouseLeave() {
+      return setDeleteHover(false);
+    },
+    style: deleteButtonStyle,
     onClick: function onClick() {
       return onDeleteImage();
     }
-  }, "Delete"));
+  }));
 };
 
 ImageAvater.propTypes = {
@@ -6802,10 +6864,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var ToggleButton = function ToggleButton(_ref) {
   var options = _ref.options,
       focusColor = _ref.focusColor,
-      onChange = _ref.onChange,
-      defaultSelected = _ref.defaultSelected;
+      onChange = _ref.onChange;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(defaultSelected || options[0]),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(options[0]),
       _useState2 = _slicedToArray(_useState, 2),
       selected = _useState2[0],
       setSelected = _useState2[1];
@@ -7111,7 +7172,6 @@ __webpack_require__.r(__webpack_exports__);
  * WordPress dependencies
  */
 
-var __ = wp.i18n.__;
 var _wp$components = wp.components,
     ButtonGroup = _wp$components.ButtonGroup,
     Button = _wp$components.Button;
