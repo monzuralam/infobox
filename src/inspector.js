@@ -819,10 +819,10 @@ class Inspector extends Component {
 
 					<DimensionsControl
 						label={__("Padding")}
-						top={paddingTop >= 0 ? paddingTop : 30}
-						right={paddingRight >= 0 ? paddingRight : 70}
-						bottom={paddingBottom >= 0 ? paddingBottom : 30}
-						left={paddingLeft >= 0 ? paddingLeft : 70}
+						top={paddingTop}
+						right={paddingRight}
+						bottom={paddingBottom}
+						left={paddingLeft}
 						onChange={({ top, right, bottom, left }) =>
 							setAttributes({
 								paddingTop: top,
