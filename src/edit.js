@@ -119,10 +119,10 @@ const Edit = ({ attributes, setAttributes, isSelected }) => {
 		margin: `${marginTop || 0}${marginUnit} ${marginRight || 0}${marginUnit} ${
 			marginBottom || 0
 		}${marginUnit} ${marginLeft || 0}${marginUnit} `,
-		padding: `${paddingTop || 30}${paddingUnit} ${
-			paddingRight || 70
-		}${paddingUnit} ${paddingBottom || 30}${paddingUnit} ${
-			paddingLeft || 70
+		padding: `${paddingTop >= 0 ? paddingTop : 30}${paddingUnit} ${
+      paddingRight >=0 ? paddingRight : 70
+    }${paddingUnit} ${paddingBottom >= 0 ? paddingBottom : 30}${paddingUnit} ${
+      paddingLeft >= 0 ? paddingLeft : 70
 		}${paddingUnit} `,
 		border: `${borderWidth || 0}${borderWidthUnit} ${borderStyle} ${
 			borderColor || "#000000"
