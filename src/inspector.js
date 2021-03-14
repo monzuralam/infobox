@@ -772,9 +772,7 @@ class Inspector extends Component {
 				{backgroundType === "gradient" && (
 					<PanelBody title={__("Gradient Colors")} initialOpen={false}>
 						<GradientColorControl
-							colorOne="#0072ff"
-							colorTwo="#00c6ff"
-							angle={45}
+							gradientColor={backgroundGradient}
 							onChange={(newValue) =>
 								setAttributes({ backgroundGradient: newValue })
 							}
