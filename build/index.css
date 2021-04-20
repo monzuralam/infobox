@@ -637,4 +637,8 @@ body.eb-res-option-mobile .editor-styles-wrapper {
   justify-content: space-between;
 }
 
+.components-button.has-icon .dashicon.dashicons-format-image {
+  margin: 0;
+}
+
 /*# sourceMappingURL=index.css.map*/

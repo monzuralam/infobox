@@ -707,3 +707,8 @@ body.eb-res-option-mobile .editor-styles-wrapper {
 	display: flex;
 	justify-content: space-between;
 }
+
+// fix image placeholder design
+.components-button.has-icon .dashicon.dashicons-format-image {
+	margin: 0;
+}

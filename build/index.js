@@ -4628,50 +4628,23 @@ var InfoboxContainer = function InfoboxContainer(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _util_faIcons_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util/faIcons.js */ "./util/faIcons.js");
-/* harmony import */ var _fonticonpicker_react_fonticonpicker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fonticonpicker/react-fonticonpicker */ "./node_modules/@fonticonpicker/react-fonticonpicker/dist/fonticonpicker.react.js");
-/* harmony import */ var _fonticonpicker_react_fonticonpicker__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_fonticonpicker_react_fonticonpicker__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./constants.js */ "./src/constants.js");
-/* harmony import */ var _util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../util/typography-control/FontPicker */ "./util/typography-control/FontPicker.js");
-/* harmony import */ var _util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../util/dimensions-control */ "./util/dimensions-control/index.js");
-/* harmony import */ var _util_image_avatar_ImageAvater_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../util/image-avatar/ImageAvater.js */ "./util/image-avatar/ImageAvater.js");
-/* harmony import */ var _util_gradient_color_controller__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../util/gradient-color-controller */ "./util/gradient-color-controller/index.js");
-/* harmony import */ var _util_unit_control__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../util/unit-control */ "./util/unit-control/index.js");
-/* harmony import */ var _util_color_control__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../util/color-control */ "./util/color-control/index.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _util_faIcons_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/faIcons.js */ "./util/faIcons.js");
+/* harmony import */ var _fonticonpicker_react_fonticonpicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fonticonpicker/react-fonticonpicker */ "./node_modules/@fonticonpicker/react-fonticonpicker/dist/fonticonpicker.react.js");
+/* harmony import */ var _fonticonpicker_react_fonticonpicker__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_fonticonpicker_react_fonticonpicker__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./constants.js */ "./src/constants.js");
+/* harmony import */ var _util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../util/typography-control/FontPicker */ "./util/typography-control/FontPicker.js");
+/* harmony import */ var _util_dimensions_control__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../util/dimensions-control */ "./util/dimensions-control/index.js");
+/* harmony import */ var _util_image_avatar_ImageAvater_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../util/image-avatar/ImageAvater.js */ "./util/image-avatar/ImageAvater.js");
+/* harmony import */ var _util_gradient_color_controller__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../util/gradient-color-controller */ "./util/gradient-color-controller/index.js");
+/* harmony import */ var _util_unit_control__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../util/unit-control */ "./util/unit-control/index.js");
+/* harmony import */ var _util_color_control__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../util/color-control */ "./util/color-control/index.js");
 /**
  * WordPress dependencies
  */
-
 
 
 
@@ -4689,1183 +4662,1151 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var Inspector = /*#__PURE__*/function (_Component) {
-  _inherits(Inspector, _Component);
+function Inspector(props) {
+  var changeButtonSize = function changeButtonSize(newSize) {
+    switch (newSize) {
+      case "small":
+        props.setAttributes({
+          buttonPaddingTop: 5,
+          buttonPaddingRight: 10,
+          buttonPaddingBottom: 5,
+          buttonPaddingLeft: 10,
+          buttonSize: newSize
+        });
+        break;
 
-  var _super = _createSuper(Inspector);
+      case "medium":
+        props.setAttributes({
+          buttonPaddingTop: 10,
+          buttonPaddingRight: 20,
+          buttonPaddingBottom: 10,
+          buttonPaddingLeft: 30,
+          buttonSize: newSize
+        });
+        break;
 
-  function Inspector() {
-    var _this;
+      case "large":
+        props.setAttributes({
+          buttonPaddingTop: 20,
+          buttonPaddingRight: 30,
+          buttonPaddingBottom: 20,
+          buttonPaddingLeft: 30,
+          buttonSize: newSize
+        });
+        break;
 
-    _classCallCheck(this, Inspector);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
+      case "extra-large":
+        props.setAttributes({
+          buttonPaddingTop: 20,
+          buttonPaddingRight: 60,
+          buttonPaddingBottom: 20,
+          buttonPaddingLeft: 60,
+          buttonSize: newSize
+        });
+        break;
     }
+  };
 
-    _this = _super.call.apply(_super, [this].concat(args));
+  var attributes = props.attributes,
+      setAttributes = props.setAttributes;
+  var backgroundType = attributes.backgroundType,
+      backgroundImageURL = attributes.backgroundImageURL,
+      backgroundImageID = attributes.backgroundImageID,
+      backgroundColor = attributes.backgroundColor,
+      backgroundGradient = attributes.backgroundGradient,
+      imageOrIcon = attributes.imageOrIcon,
+      iconPosition = attributes.iconPosition,
+      selectedIcon = attributes.selectedIcon,
+      isClickable = attributes.isClickable,
+      clickableLink = attributes.clickableLink,
+      header = attributes.header,
+      content = attributes.content,
+      imageUrl = attributes.imageUrl,
+      imageId = attributes.imageId,
+      flexDirection = attributes.flexDirection,
+      order = attributes.order,
+      showButton = attributes.showButton,
+      buttonText = attributes.buttonText,
+      imageHeight = attributes.imageHeight,
+      imageWidth = attributes.imageWidth,
+      number = attributes.number,
+      headerTag = attributes.headerTag,
+      contentFontSize = attributes.contentFontSize,
+      contentColor = attributes.contentColor,
+      headerColor = attributes.headerColor,
+      headerTextTransform = attributes.headerTextTransform,
+      numberColor = attributes.numberColor,
+      numberSize = attributes.numberSize,
+      iconSize = attributes.iconSize,
+      iconColor = attributes.iconColor,
+      iconBackground = attributes.iconBackground,
+      buttonColor = attributes.buttonColor,
+      buttonTextColor = attributes.buttonTextColor,
+      iconPaddingTop = attributes.iconPaddingTop,
+      iconPaddingRight = attributes.iconPaddingRight,
+      iconPaddingBottom = attributes.iconPaddingBottom,
+      iconPaddingLeft = attributes.iconPaddingLeft,
+      headerPaddingTop = attributes.headerPaddingTop,
+      headerPaddingRight = attributes.headerPaddingRight,
+      headerPaddingBottom = attributes.headerPaddingBottom,
+      headerPaddingLeft = attributes.headerPaddingLeft,
+      imageMarginTop = attributes.imageMarginTop,
+      imageMarginRight = attributes.imageMarginRight,
+      imageMarginBottom = attributes.imageMarginBottom,
+      imageMarginLeft = attributes.imageMarginLeft,
+      buttonPaddingTop = attributes.buttonPaddingTop,
+      buttonPaddingRight = attributes.buttonPaddingRight,
+      buttonPaddingBottom = attributes.buttonPaddingBottom,
+      buttonPaddingLeft = attributes.buttonPaddingLeft,
+      buttonSize = attributes.buttonSize,
+      buttonAlign = attributes.buttonAlign,
+      marginTop = attributes.marginTop,
+      marginRight = attributes.marginRight,
+      marginBottom = attributes.marginBottom,
+      marginLeft = attributes.marginLeft,
+      paddingTop = attributes.paddingTop,
+      paddingRight = attributes.paddingRight,
+      paddingBottom = attributes.paddingBottom,
+      paddingLeft = attributes.paddingLeft,
+      borderWidth = attributes.borderWidth,
+      borderStyle = attributes.borderStyle,
+      borderColor = attributes.borderColor,
+      borderRadius = attributes.borderRadius,
+      shadowColor = attributes.shadowColor,
+      shadowHOffset = attributes.shadowHOffset,
+      shadowVOffset = attributes.shadowVOffset,
+      shadowBlur = attributes.shadowBlur,
+      shadowSpread = attributes.shadowSpread,
+      contentSizeUnit = attributes.contentSizeUnit,
+      iconSizeUnit = attributes.iconSizeUnit,
+      marginUnit = attributes.marginUnit,
+      paddingUnit = attributes.paddingUnit,
+      radiusUnit = attributes.radiusUnit,
+      headerPaddingUnit = attributes.headerPaddingUnit,
+      iconPaddingUnit = attributes.iconPaddingUnit,
+      borderWidthUnit = attributes.borderWidthUnit,
+      buttonPaddingUnit = attributes.buttonPaddingUnit,
+      headerFontFamily = attributes.headerFontFamily,
+      headerFontSize = attributes.headerFontSize,
+      headerSizeUnit = attributes.headerSizeUnit,
+      headerFontWeight = attributes.headerFontWeight,
+      headerTextDedocation = attributes.headerTextDedocation,
+      headerLetterSpacing = attributes.headerLetterSpacing,
+      headerLetterSpacingUnit = attributes.headerLetterSpacingUnit,
+      headerLineHeight = attributes.headerLineHeight,
+      headerLineHeightUnit = attributes.headerLineHeightUnit,
+      contentFontFamily = attributes.contentFontFamily,
+      contentFontWeight = attributes.contentFontWeight,
+      contentTextDedocation = attributes.contentTextDedocation,
+      contentTextTransform = attributes.contentTextTransform,
+      contentLetterSpacing = attributes.contentLetterSpacing,
+      contentLetterSpacingUnit = attributes.contentLetterSpacingUnit,
+      contentLineHeight = attributes.contentLineHeight,
+      contentLineHeightUnit = attributes.contentLineHeightUnit; // Change flex order based on icon position
 
-    _defineProperty(_assertThisInitialized(_this), "changeButtonSize", function (newSize) {
-      switch (newSize) {
-        case "small":
-          _this.props.setAttributes({
-            buttonPaddingTop: 5,
-            buttonPaddingRight: 10,
-            buttonPaddingBottom: 5,
-            buttonPaddingLeft: 10,
-            buttonSize: newSize
-          });
-
-          break;
-
-        case "medium":
-          _this.props.setAttributes({
-            buttonPaddingTop: 10,
-            buttonPaddingRight: 20,
-            buttonPaddingBottom: 10,
-            buttonPaddingLeft: 30,
-            buttonSize: newSize
-          });
-
-          break;
-
-        case "large":
-          _this.props.setAttributes({
-            buttonPaddingTop: 20,
-            buttonPaddingRight: 30,
-            buttonPaddingBottom: 20,
-            buttonPaddingLeft: 30,
-            buttonSize: newSize
-          });
-
-          break;
-
-        case "extra-large":
-          _this.props.setAttributes({
-            buttonPaddingTop: 20,
-            buttonPaddingRight: 60,
-            buttonPaddingBottom: 20,
-            buttonPaddingLeft: 60,
-            buttonSize: newSize
-          });
-
-          break;
-      }
+  if (iconPosition === "top") {
+    setAttributes({
+      order: 0,
+      flexDirection: "column"
     });
-
-    return _this;
+  } else if (iconPosition === "bottom") {
+    setAttributes({
+      order: 1,
+      flexDirection: "column"
+    });
+  } else if (iconPosition === "left") {
+    setAttributes({
+      order: 0,
+      flexDirection: "row"
+    });
+  } else if (iconPosition === "right") {
+    setAttributes({
+      order: 1,
+      flexDirection: "row"
+    });
   }
 
-  _createClass(Inspector, [{
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      var _this$props = this.props,
-          attributes = _this$props.attributes,
-          setAttributes = _this$props.setAttributes;
-      var backgroundType = attributes.backgroundType,
-          backgroundImageURL = attributes.backgroundImageURL,
-          backgroundImageID = attributes.backgroundImageID,
-          backgroundColor = attributes.backgroundColor,
-          backgroundGradient = attributes.backgroundGradient,
-          imageOrIcon = attributes.imageOrIcon,
-          iconPosition = attributes.iconPosition,
-          selectedIcon = attributes.selectedIcon,
-          isClickable = attributes.isClickable,
-          clickableLink = attributes.clickableLink,
-          header = attributes.header,
-          content = attributes.content,
-          imageUrl = attributes.imageUrl,
-          imageId = attributes.imageId,
-          flexDirection = attributes.flexDirection,
-          order = attributes.order,
-          showButton = attributes.showButton,
-          buttonText = attributes.buttonText,
-          imageHeight = attributes.imageHeight,
-          imageWidth = attributes.imageWidth,
-          number = attributes.number,
-          headerTag = attributes.headerTag,
-          contentFontSize = attributes.contentFontSize,
-          contentColor = attributes.contentColor,
-          headerColor = attributes.headerColor,
-          headerTextTransform = attributes.headerTextTransform,
-          numberColor = attributes.numberColor,
-          numberSize = attributes.numberSize,
-          iconSize = attributes.iconSize,
-          iconColor = attributes.iconColor,
-          iconBackground = attributes.iconBackground,
-          buttonColor = attributes.buttonColor,
-          buttonTextColor = attributes.buttonTextColor,
-          iconPaddingTop = attributes.iconPaddingTop,
-          iconPaddingRight = attributes.iconPaddingRight,
-          iconPaddingBottom = attributes.iconPaddingBottom,
-          iconPaddingLeft = attributes.iconPaddingLeft,
-          headerPaddingTop = attributes.headerPaddingTop,
-          headerPaddingRight = attributes.headerPaddingRight,
-          headerPaddingBottom = attributes.headerPaddingBottom,
-          headerPaddingLeft = attributes.headerPaddingLeft,
-          imageMarginTop = attributes.imageMarginTop,
-          imageMarginRight = attributes.imageMarginRight,
-          imageMarginBottom = attributes.imageMarginBottom,
-          imageMarginLeft = attributes.imageMarginLeft,
-          buttonPaddingTop = attributes.buttonPaddingTop,
-          buttonPaddingRight = attributes.buttonPaddingRight,
-          buttonPaddingBottom = attributes.buttonPaddingBottom,
-          buttonPaddingLeft = attributes.buttonPaddingLeft,
-          buttonSize = attributes.buttonSize,
-          buttonAlign = attributes.buttonAlign,
-          marginTop = attributes.marginTop,
-          marginRight = attributes.marginRight,
-          marginBottom = attributes.marginBottom,
-          marginLeft = attributes.marginLeft,
-          paddingTop = attributes.paddingTop,
-          paddingRight = attributes.paddingRight,
-          paddingBottom = attributes.paddingBottom,
-          paddingLeft = attributes.paddingLeft,
-          borderWidth = attributes.borderWidth,
-          borderStyle = attributes.borderStyle,
-          borderColor = attributes.borderColor,
-          borderRadius = attributes.borderRadius,
-          shadowColor = attributes.shadowColor,
-          shadowHOffset = attributes.shadowHOffset,
-          shadowVOffset = attributes.shadowVOffset,
-          shadowBlur = attributes.shadowBlur,
-          shadowSpread = attributes.shadowSpread,
-          contentSizeUnit = attributes.contentSizeUnit,
-          iconSizeUnit = attributes.iconSizeUnit,
-          marginUnit = attributes.marginUnit,
-          paddingUnit = attributes.paddingUnit,
-          radiusUnit = attributes.radiusUnit,
-          headerPaddingUnit = attributes.headerPaddingUnit,
-          iconPaddingUnit = attributes.iconPaddingUnit,
-          borderWidthUnit = attributes.borderWidthUnit,
-          buttonPaddingUnit = attributes.buttonPaddingUnit,
-          headerFontFamily = attributes.headerFontFamily,
-          headerFontSize = attributes.headerFontSize,
-          headerSizeUnit = attributes.headerSizeUnit,
-          headerFontWeight = attributes.headerFontWeight,
-          headerTextDedocation = attributes.headerTextDedocation,
-          headerLetterSpacing = attributes.headerLetterSpacing,
-          headerLetterSpacingUnit = attributes.headerLetterSpacingUnit,
-          headerLineHeight = attributes.headerLineHeight,
-          headerLineHeightUnit = attributes.headerLineHeightUnit,
-          contentFontFamily = attributes.contentFontFamily,
-          contentFontWeight = attributes.contentFontWeight,
-          contentTextDedocation = attributes.contentTextDedocation,
-          contentTextTransform = attributes.contentTextTransform,
-          contentLetterSpacing = attributes.contentLetterSpacing,
-          contentLetterSpacingUnit = attributes.contentLetterSpacingUnit,
-          contentLineHeight = attributes.contentLineHeight,
-          contentLineHeightUnit = attributes.contentLineHeightUnit; // Change flex order based on icon position
-
-      if (iconPosition === "top") {
-        setAttributes({
-          order: 0,
-          flexDirection: "column"
-        });
-      } else if (iconPosition === "bottom") {
-        setAttributes({
-          order: 1,
-          flexDirection: "column"
-        });
-      } else if (iconPosition === "left") {
-        setAttributes({
-          order: 0,
-          flexDirection: "row"
-        });
-      } else if (iconPosition === "right") {
-        setAttributes({
-          order: 1,
-          flexDirection: "row"
+  var HEADER_SIZE_STEP = headerSizeUnit === "em" ? 0.1 : 1;
+  var HEADER_SIZE_MAX = headerSizeUnit === "em" ? 10 : 100;
+  var HEADER_SPACING_STEP = headerLetterSpacingUnit === "em" ? 0.1 : 1;
+  var HEADER_SPACING_MAX = headerLetterSpacingUnit === "em" ? 10 : 100;
+  var HEADER_LINE_HEIGHT_STEP = headerLineHeightUnit === "em" ? 0.1 : 1;
+  var HEADER_LINE_HEIGHT_MAX = headerLineHeightUnit === "em" ? 10 : 100;
+  var CONTENT_SIZE_STEP = contentSizeUnit === "em" ? 0.1 : 1;
+  var CONTENT_SIZE_MAX = contentSizeUnit === "em" ? 10 : 100;
+  var CONTENT_SPACING_STEP = contentLetterSpacingUnit === "em" ? 0.1 : 1;
+  var CONTENT_SPACING_MAX = contentLetterSpacingUnit === "em" ? 10 : 100;
+  var CONTENT_LINE_HEIGHT_STEP = contentLineHeightUnit === "em" ? 0.1 : 1;
+  var CONTENT_LINE_HEIGHT_MAX = contentLineHeightUnit === "em" ? 10 : 100;
+  return /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["InspectorControls"], {
+    key: "controls"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "eb-panel-control"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Infobox Settings")
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["BaseControl"], {
+    id: "eb-infobox-background-type",
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Infobox Background")
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["ButtonGroup"], {
+    id: "eb-infobox-infobox-background"
+  }, _constants_js__WEBPACK_IMPORTED_MODULE_5__["BACKGROUND_TYPE"].map(function (item) {
+    return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+      isLarge: true,
+      isSecondary: backgroundType !== item.value,
+      isPrimary: backgroundType === item.value,
+      onClick: function onClick() {
+        return setAttributes({
+          backgroundType: item.value
         });
       }
-
-      var HEADER_SIZE_STEP = headerSizeUnit === "em" ? 0.1 : 1;
-      var HEADER_SIZE_MAX = headerSizeUnit === "em" ? 10 : 100;
-      var HEADER_SPACING_STEP = headerLetterSpacingUnit === "em" ? 0.1 : 1;
-      var HEADER_SPACING_MAX = headerLetterSpacingUnit === "em" ? 10 : 100;
-      var HEADER_LINE_HEIGHT_STEP = headerLineHeightUnit === "em" ? 0.1 : 1;
-      var HEADER_LINE_HEIGHT_MAX = headerLineHeightUnit === "em" ? 10 : 100;
-      var CONTENT_SIZE_STEP = contentSizeUnit === "em" ? 0.1 : 1;
-      var CONTENT_SIZE_MAX = contentSizeUnit === "em" ? 10 : 100;
-      var CONTENT_SPACING_STEP = contentLetterSpacingUnit === "em" ? 0.1 : 1;
-      var CONTENT_SPACING_MAX = contentLetterSpacingUnit === "em" ? 10 : 100;
-      var CONTENT_LINE_HEIGHT_STEP = contentLineHeightUnit === "em" ? 0.1 : 1;
-      var CONTENT_LINE_HEIGHT_MAX = contentLineHeightUnit === "em" ? 10 : 100;
-      return /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], {
-        key: "controls"
-      }, /*#__PURE__*/React.createElement("span", {
-        className: "eb-panel-control"
-      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-        title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Infobox Settings")
-      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-        id: "eb-infobox-background-type",
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Infobox Background")
-      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
-        id: "eb-infobox-infobox-background"
-      }, _constants_js__WEBPACK_IMPORTED_MODULE_6__["BACKGROUND_TYPE"].map(function (item) {
-        return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-          isLarge: true,
-          isSecondary: backgroundType !== item.value,
-          isPrimary: backgroundType === item.value,
-          onClick: function onClick() {
-            return setAttributes({
-              backgroundType: item.value
-            });
-          }
-        }, item.label);
-      }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-        id: "eb-infobox-image-icon",
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Image or Icon")
-      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
-        id: "eb-infobox-image-icon"
-      }, _constants_js__WEBPACK_IMPORTED_MODULE_6__["INFOBOX_TYPES"].map(function (value) {
-        return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-          isLarge: true,
-          isSecondary: imageOrIcon !== value,
-          isPrimary: imageOrIcon === value,
-          onClick: function onClick() {
-            return setAttributes({
-              imageOrIcon: value
-            });
-          }
-        }, value);
-      }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-        id: "eb-infobox-position",
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("".concat(imageOrIcon, "  Position"))
-      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
-        id: "eb-infobox-position"
-      }, _constants_js__WEBPACK_IMPORTED_MODULE_6__["POSITIONS"].map(function (value) {
-        return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-          isLarge: true,
-          isSecondary: iconPosition !== value,
-          isPrimary: iconPosition === value,
-          onClick: function onClick() {
-            return setAttributes({
-              iconPosition: value
-            });
-          }
-        }, value);
-      }))), imageOrIcon === "icon" && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Select Icon")
-      }, /*#__PURE__*/React.createElement(_fonticonpicker_react_fonticonpicker__WEBPACK_IMPORTED_MODULE_5___default.a, {
-        icons: _util_faIcons_js__WEBPACK_IMPORTED_MODULE_4__["default"],
-        onChange: function onChange(icon) {
-          return setAttributes({
-            selectedIcon: icon
-          });
-        },
-        value: selectedIcon,
-        appendTo: "body",
-        isMulti: false
-      })), imageOrIcon === "image" && imageId && /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Image Height"),
-        value: imageHeight,
-        onChange: function onChange(newSize) {
-          return setAttributes({
-            imageHeight: newSize
-          });
-        },
-        min: 0,
-        max: 400
-      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Image Width"),
-        value: imageWidth,
-        onChange: function onChange(newSize) {
-          return setAttributes({
-            imageWidth: newSize
-          });
-        },
-        min: 0,
-        max: 400
-      })), imageOrIcon === "number" && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Number"),
-        id: "eb-infobox-number-id"
-      }, /*#__PURE__*/React.createElement("input", {
-        type: "number",
-        value: number,
-        id: "eb-infobox-number-id",
-        onChange: function onChange(event) {
-          return setAttributes({
-            number: parseInt(event.target.value, 10)
-          });
-        },
-        min: 0
-      })), !isClickable && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ToggleControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Show Button"),
-        checked: showButton,
-        onChange: function onChange() {
-          return setAttributes({
-            showButton: !showButton
-          });
-        }
-      }), !showButton && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ToggleControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Infobox Clickable"),
-        checked: isClickable,
-        onChange: function onChange() {
-          return setAttributes({
-            isClickable: !isClickable
-          });
-        }
-      }), showButton && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-        title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Settings")
-      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["TextControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Text"),
-        value: buttonText,
-        onChange: function onChange(newText) {
-          return setAttributes({
-            buttonText: newText
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["TextControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Link URL"),
-        placeholder: "https://your-link.com",
-        value: clickableLink,
-        onChange: function onChange(link) {
-          return setAttributes({
-            clickableLink: link
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Size"),
-        value: buttonSize,
-        options: _constants_js__WEBPACK_IMPORTED_MODULE_6__["BUTTON_SIZES"],
-        onChange: function onChange(newSize) {
-          return _this2.changeButtonSize(newSize);
-        }
-      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Align"),
-        value: buttonAlign,
-        options: _constants_js__WEBPACK_IMPORTED_MODULE_6__["BUTTON_ALIGN"],
-        onChange: function onChange(buttonAlign) {
-          return setAttributes({
-            buttonAlign: buttonAlign
-          });
-        }
-      })), isClickable && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["TextControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Infobox Link"),
-        placeholder: "https://your-link.com",
-        value: clickableLink,
-        onChange: function onChange(link) {
-          return setAttributes({
-            clickableLink: link
-          });
-        }
-      })), backgroundType === "image" && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-        title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Image")
-      }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["MediaUpload"], {
-        onSelect: function onSelect(media) {
-          return setAttributes({
-            backgroundImageURL: media.url,
-            backgroundImageID: media.id
-          });
-        },
-        type: "image",
-        value: backgroundImageID,
-        render: function render(_ref) {
-          var open = _ref.open;
-          return !backgroundImageURL && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-            className: "eb-infobox-bg-upload-button components-button",
-            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Upload Image"),
-            icon: "format-image",
-            onClick: open
-          });
-        }
-      }), backgroundImageURL && /*#__PURE__*/React.createElement(_util_image_avatar_ImageAvater_js__WEBPACK_IMPORTED_MODULE_9__["default"], {
-        imageUrl: backgroundImageURL,
-        onDeleteImage: function onDeleteImage() {
-          return setAttributes({
-            backgroundImageURL: null
-          });
-        }
-      })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-        title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Typography"),
-        initialOpen: false
-      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Header"),
-        className: "eb-typography-base"
-      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Dropdown"], {
-        className: "eb-typography-dropdown",
-        contentClassName: "my-popover-content-classname",
-        position: "bottom right",
-        renderToggle: function renderToggle(_ref2) {
-          var isOpen = _ref2.isOpen,
-              onToggle = _ref2.onToggle;
-          return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-            isSmall: true,
-            onClick: onToggle,
-            "aria-expanded": isOpen,
-            icon: "edit"
-          });
-        },
-        renderContent: function renderContent() {
-          return /*#__PURE__*/React.createElement("div", {
-            style: {
-              padding: "1rem"
-            }
-          }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Heading")
-          }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
-            className: "infobox-button-group"
-          }, _constants_js__WEBPACK_IMPORTED_MODULE_6__["HEADER_TAGS"].map(function (header) {
-            return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-              isSmall: true,
-              isSecondary: headerTag !== header,
-              isPrimary: headerTag === header,
-              onClick: function onClick() {
-                return setAttributes({
-                  headerTag: header
-                });
-              }
-            }, header.toUpperCase());
-          }))), /*#__PURE__*/React.createElement(_util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_7__["default"], {
-            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Font Family"),
-            value: headerFontFamily,
-            onChange: function onChange(headerFontFamily) {
-              return setAttributes({
-                headerFontFamily: headerFontFamily
-              });
-            }
-          }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
-            selectedUnit: headerSizeUnit,
-            unitTypes: [{
-              label: "px",
-              value: "px"
-            }, {
-              label: "%",
-              value: "%"
-            }, {
-              label: "em",
-              value: "em"
-            }],
-            onClick: function onClick(headerSizeUnit) {
-              return setAttributes({
-                headerSizeUnit: headerSizeUnit
-              });
-            }
-          }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Font Size"),
-            value: headerFontSize,
-            onChange: function onChange(headerFontSize) {
-              return setAttributes({
-                headerFontSize: headerFontSize
-              });
-            },
-            step: HEADER_SIZE_STEP,
-            min: 0,
-            max: HEADER_SIZE_MAX
-          }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
-            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Font Weight"),
-            value: headerFontWeight,
-            options: _constants_js__WEBPACK_IMPORTED_MODULE_6__["FONT_WEIGHTS"],
-            onChange: function onChange(headerFontWeight) {
-              return setAttributes({
-                headerFontWeight: headerFontWeight
-              });
-            }
-          }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
-            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Text Transform"),
-            value: headerTextTransform,
-            options: _constants_js__WEBPACK_IMPORTED_MODULE_6__["TEXT_TRANSFORM"],
-            onChange: function onChange(headerTextTransform) {
-              return setAttributes({
-                headerTextTransform: headerTextTransform
-              });
-            }
-          }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
-            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Text Decoration"),
-            value: headerTextDedocation,
-            options: _constants_js__WEBPACK_IMPORTED_MODULE_6__["TEXT_DECORATION"],
-            onChange: function onChange(headerTextDecoration) {
-              return setAttributes({
-                headerTextDecoration: headerTextDecoration
-              });
-            }
-          }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
-            selectedUnit: headerLetterSpacingUnit,
-            unitTypes: [{
-              label: "px",
-              value: "px"
-            }, {
-              label: "em",
-              value: "em"
-            }],
-            onClick: function onClick(headerLetterSpacingUnit) {
-              return setAttributes({
-                headerLetterSpacingUnit: headerLetterSpacingUnit
-              });
-            }
-          }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Letter Spacing"),
-            value: headerLetterSpacing,
-            onChange: function onChange(headerLetterSpacing) {
-              return setAttributes({
-                headerLetterSpacing: headerLetterSpacing
-              });
-            },
-            min: 0,
-            max: HEADER_SPACING_MAX,
-            step: HEADER_SPACING_STEP
-          }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
-            selectedUnit: headerLineHeightUnit,
-            unitTypes: [{
-              label: "px",
-              value: "px"
-            }, {
-              label: "em",
-              value: "em"
-            }],
-            onClick: function onClick(headerLineHeightUnit) {
-              return setAttributes({
-                headerLineHeightUnit: headerLineHeightUnit
-              });
-            }
-          }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Line Height"),
-            value: headerLineHeight,
-            onChange: function onChange(headerLineHeight) {
-              return setAttributes({
-                headerLineHeight: headerLineHeight
-              });
-            },
-            min: 0,
-            max: HEADER_LINE_HEIGHT_MAX,
-            step: HEADER_LINE_HEIGHT_STEP
-          }));
-        }
-      })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Content"),
-        className: "eb-typography-base"
-      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Dropdown"], {
-        className: "eb-typography-dropdown",
-        contentClassName: "my-popover-content-classname",
-        position: "bottom right",
-        renderToggle: function renderToggle(_ref3) {
-          var isOpen = _ref3.isOpen,
-              onToggle = _ref3.onToggle;
-          return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-            isSmall: true,
-            onClick: onToggle,
-            "aria-expanded": isOpen,
-            icon: "edit"
-          });
-        },
-        renderContent: function renderContent() {
-          return /*#__PURE__*/React.createElement("div", {
-            style: {
-              padding: "1rem"
-            }
-          }, /*#__PURE__*/React.createElement(_util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_7__["default"], {
-            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Font Family"),
-            value: contentFontFamily,
-            onChange: function onChange(contentFontFamily) {
-              return setAttributes({
-                contentFontFamily: contentFontFamily
-              });
-            }
-          }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
-            selectedUnit: contentSizeUnit,
-            unitTypes: [{
-              label: "px",
-              value: "px"
-            }, {
-              label: "%",
-              value: "%"
-            }, {
-              label: "em",
-              value: "em"
-            }],
-            onClick: function onClick(contentSizeUnit) {
-              return setAttributes({
-                contentSizeUnit: contentSizeUnit
-              });
-            }
-          }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Font Size"),
-            value: contentFontSize,
-            onChange: function onChange(contentFontSize) {
-              return setAttributes({
-                contentFontSize: contentFontSize
-              });
-            },
-            step: CONTENT_SIZE_STEP,
-            min: 0,
-            max: CONTENT_SIZE_MAX
-          }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
-            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Font Weight"),
-            value: contentFontWeight,
-            options: _constants_js__WEBPACK_IMPORTED_MODULE_6__["FONT_WEIGHTS"],
-            onChange: function onChange(contentFontWeight) {
-              return setAttributes({
-                contentFontWeight: contentFontWeight
-              });
-            }
-          }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
-            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Text Transform"),
-            value: contentTextTransform,
-            options: _constants_js__WEBPACK_IMPORTED_MODULE_6__["TEXT_TRANSFORM"],
-            onChange: function onChange(contentTextTransform) {
-              return setAttributes({
-                contentTextTransform: contentTextTransform
-              });
-            }
-          }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
-            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Text Decoration"),
-            value: contentTextDedocation,
-            options: _constants_js__WEBPACK_IMPORTED_MODULE_6__["TEXT_DECORATION"],
-            onChange: function onChange(contentTextDecoration) {
-              return setAttributes({
-                contentTextDecoration: contentTextDecoration
-              });
-            }
-          }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
-            selectedUnit: contentLetterSpacingUnit,
-            unitTypes: [{
-              label: "px",
-              value: "px"
-            }, {
-              label: "em",
-              value: "em"
-            }],
-            onClick: function onClick(contentLetterSpacingUnit) {
-              return setAttributes({
-                contentLetterSpacingUnit: contentLetterSpacingUnit
-              });
-            }
-          }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Letter Spacing"),
-            value: contentLetterSpacing,
-            onChange: function onChange(contentLetterSpacing) {
-              return setAttributes({
-                contentLetterSpacing: contentLetterSpacing
-              });
-            },
-            min: 0,
-            max: CONTENT_SPACING_MAX,
-            step: CONTENT_SPACING_STEP
-          }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
-            selectedUnit: contentLineHeightUnit,
-            unitTypes: [{
-              label: "px",
-              value: "px"
-            }, {
-              label: "em",
-              value: "em"
-            }],
-            onClick: function onClick(contentLineHeightUnit) {
-              return setAttributes({
-                contentLineHeightUnit: contentLineHeightUnit
-              });
-            }
-          }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Line Height"),
-            value: contentLineHeight,
-            onChange: function onChange(contentLineHeight) {
-              return setAttributes({
-                contentLineHeight: contentLineHeight
-              });
-            },
-            min: 0,
-            max: CONTENT_LINE_HEIGHT_MAX,
-            step: CONTENT_LINE_HEIGHT_STEP
-          }));
-        }
-      })), imageOrIcon === "icon" && selectedIcon && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon"),
-        className: "eb-typography-base"
-      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Dropdown"], {
-        className: "eb-typography-dropdown",
-        contentClassName: "my-popover-content-classname",
-        position: "bottom right",
-        renderToggle: function renderToggle(_ref4) {
-          var isOpen = _ref4.isOpen,
-              onToggle = _ref4.onToggle;
-          return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-            isSmall: true,
-            onClick: onToggle,
-            "aria-expanded": isOpen,
-            icon: "edit"
-          });
-        },
-        renderContent: function renderContent() {
-          return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
-            selectedUnit: iconSizeUnit,
-            unitTypes: [{
-              label: "px",
-              value: "px"
-            }, {
-              label: "em",
-              value: "em"
-            }, {
-              label: "%",
-              value: "%"
-            }],
-            onClick: function onClick(iconSizeUnit) {
-              return setAttributes({
-                iconSizeUnit: iconSizeUnit
-              });
-            }
-          }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon Size"),
-            value: iconSize,
-            allowReset: true,
-            onChange: function onChange(newSize) {
-              return setAttributes({
-                iconSize: newSize
-              });
-            },
-            min: 8,
-            max: 100
-          }));
-        }
-      })), imageOrIcon === "number" && selectedIcon && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Number"),
-        className: "eb-typography-base"
-      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Dropdown"], {
-        className: "eb-typography-dropdown",
-        contentClassName: "my-popover-content-classname",
-        position: "bottom right",
-        renderToggle: function renderToggle(_ref5) {
-          var isOpen = _ref5.isOpen,
-              onToggle = _ref5.onToggle;
-          return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-            isSmall: true,
-            onClick: onToggle,
-            "aria-expanded": isOpen,
-            icon: "edit"
-          });
-        },
-        renderContent: function renderContent() {
-          return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-            label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Number Size"),
-            value: numberSize,
-            onChange: function onChange(newSize) {
-              return setAttributes({
-                numberSize: newSize
-              });
-            },
-            min: 8,
-            max: 64
-          });
-        }
-      }))), backgroundType === "fill" && /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["PanelColorSettings"], {
-        title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Color"),
-        initialOpen: false,
-        colorSettings: [{
-          value: backgroundColor,
-          onChange: function onChange(newColor) {
-            return setAttributes({
-              backgroundColor: newColor
-            });
-          },
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Color")
-        }, {
-          value: iconBackground,
-          onChange: function onChange(newColor) {
-            return setAttributes({
-              iconBackground: newColor
-            });
-          },
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon Background Color")
-        }]
-      }), backgroundType === "gradient" && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-        title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Gradient Colors"),
-        initialOpen: false
-      }, /*#__PURE__*/React.createElement(_util_gradient_color_controller__WEBPACK_IMPORTED_MODULE_10__["default"], {
-        gradientColor: backgroundGradient,
-        onChange: function onChange(newValue) {
-          return setAttributes({
-            backgroundGradient: newValue
-          });
-        }
-      })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-        title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Margin & Padding"),
-        initialOpen: false
-      }, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
-        selectedUnit: marginUnit,
-        unitTypes: [{
-          label: "px",
-          value: "px"
-        }, {
-          label: "em",
-          value: "em"
-        }, {
-          label: "%",
-          value: "%"
-        }],
-        onClick: function onClick(marginUnit) {
-          return setAttributes({
-            marginUnit: marginUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Margin"),
-        top: marginTop,
-        right: marginRight,
-        bottom: marginBottom,
-        left: marginLeft,
-        onChange: function onChange(_ref6) {
-          var top = _ref6.top,
-              right = _ref6.right,
-              bottom = _ref6.bottom,
-              left = _ref6.left;
-          return setAttributes({
-            marginTop: top,
-            marginRight: right,
-            marginBottom: bottom,
-            marginLeft: left
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
-        selectedUnit: paddingUnit,
-        unitTypes: [{
-          label: "px",
-          value: "px"
-        }, {
-          label: "em",
-          value: "em"
-        }, {
-          label: "%",
-          value: "%"
-        }],
-        onClick: function onClick(paddingUnit) {
-          return setAttributes({
-            paddingUnit: paddingUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Padding"),
-        top: paddingTop,
-        right: paddingRight,
-        bottom: paddingBottom,
-        left: paddingLeft,
-        onChange: function onChange(_ref7) {
-          var top = _ref7.top,
-              right = _ref7.right,
-              bottom = _ref7.bottom,
-              left = _ref7.left;
-          return setAttributes({
-            paddingTop: top,
-            paddingRight: right,
-            paddingBottom: bottom,
-            paddingLeft: left
-          });
-        }
-      })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-        title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Colors"),
-        initialOpen: false
-      }, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Header Color"),
-        color: headerColor,
-        onChange: function onChange(headerColor) {
-          return setAttributes({
-            headerColor: headerColor
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Content Color"),
-        color: contentColor,
-        onChange: function onChange(contentColor) {
-          return setAttributes({
-            contentColor: contentColor
-          });
-        }
-      }), imageOrIcon === "icon" && /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon Color"),
-        color: iconColor,
-        onChange: function onChange(iconColor) {
-          return setAttributes({
-            iconColor: iconColor
-          });
-        }
-      }), imageOrIcon === "number" && /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Number Color"),
-        color: numberColor,
-        onChange: function onChange(numberColor) {
-          return setAttributes({
-            numberColor: numberColor
-          });
-        }
-      }), showButton && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Color"),
-        color: buttonColor,
-        onChange: function onChange(buttonColor) {
-          return setAttributes({
-            buttonColor: buttonColor
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Text Color"),
-        color: buttonTextColor,
-        onChange: function onChange(buttonTextColor) {
-          return setAttributes({
-            buttonTextColor: buttonTextColor
-          });
-        }
-      }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-        title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Spacing"),
-        initialOpen: false
-      }, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
-        selectedUnit: headerPaddingUnit,
-        unitTypes: [{
-          label: "px",
-          value: "px"
-        }, {
-          label: "em",
-          value: "em"
-        }, {
-          label: "%",
-          value: "%"
-        }],
-        onClick: function onClick(headerPaddingUnit) {
-          return setAttributes({
-            headerPaddingUnit: headerPaddingUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Header Padding"),
-        top: headerPaddingTop,
-        right: headerPaddingRight,
-        bottom: headerPaddingBottom,
-        left: headerPaddingLeft,
-        onChange: function onChange(_ref8) {
-          var top = _ref8.top,
-              right = _ref8.right,
-              bottom = _ref8.bottom,
-              left = _ref8.left;
-          return setAttributes({
-            headerPaddingTop: top,
-            headerPaddingRight: right,
-            headerPaddingBottom: bottom,
-            headerPaddingLeft: left
-          });
-        }
-      }), imageOrIcon === "image" && /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Image Margin"),
-        top: imageMarginTop,
-        right: imageMarginTop,
-        bottom: imageMarginBottom,
-        left: imageMarginLeft,
-        onChange: function onChange(_ref9) {
-          var top = _ref9.top,
-              right = _ref9.right,
-              bottom = _ref9.bottom,
-              left = _ref9.left;
-          return setAttributes({
-            imageMarginTop: top,
-            imageMarginRight: right,
-            imageMarginBottom: bottom,
-            imageMarginLeft: left
-          });
-        }
-      }), showButton && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
-        selectedUnit: buttonPaddingUnit,
-        unitTypes: [{
-          label: "px",
-          value: "px"
-        }, {
-          label: "em",
-          value: "em"
-        }, {
-          label: "%",
-          value: "%"
-        }],
-        onClick: function onClick(buttonPaddingUnit) {
-          return setAttributes({
-            buttonPaddingUnit: buttonPaddingUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Padding"),
-        top: buttonPaddingTop,
-        right: buttonPaddingRight,
-        bottom: buttonPaddingBottom,
-        left: buttonPaddingLeft,
-        onChange: function onChange(_ref10) {
-          var top = _ref10.top,
-              right = _ref10.right,
-              bottom = _ref10.bottom,
-              left = _ref10.left;
-          return setAttributes({
-            buttonPaddingTop: top,
-            buttonPaddingRight: right,
-            buttonPaddingBottom: bottom,
-            buttonPaddingLeft: left
-          });
-        }
-      })), imageOrIcon === "icon" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
-        selectedUnit: iconPaddingUnit,
-        unitTypes: [{
-          label: "px",
-          value: "px"
-        }, {
-          label: "em",
-          value: "em"
-        }, {
-          label: "%",
-          value: "%"
-        }],
-        onClick: function onClick(iconPaddingUnit) {
-          return setAttributes({
-            iconPaddingUnit: iconPaddingUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon Padding"),
-        top: iconPaddingTop,
-        right: iconPaddingRight,
-        bottom: iconPaddingBottom,
-        left: iconPaddingLeft,
-        onChange: function onChange(_ref11) {
-          var top = _ref11.top,
-              right = _ref11.right,
-              bottom = _ref11.bottom,
-              left = _ref11.left;
-          return setAttributes({
-            iconPaddingTop: top,
-            iconPaddingRight: right,
-            iconPaddingBottom: bottom,
-            iconPaddingLeft: left
-          });
-        }
-      }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-        title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border"),
-        initialOpen: false
-      }, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border Color"),
-        color: borderColor,
-        onChange: function onChange(borderColor) {
-          return setAttributes({
-            borderColor: borderColor
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border Style"),
-        value: borderStyle,
-        options: _constants_js__WEBPACK_IMPORTED_MODULE_6__["BORDER_STYLES"],
-        onChange: function onChange(borderStyle) {
-          return setAttributes({
-            borderStyle: borderStyle
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
-        selectedUnit: borderWidthUnit,
-        unitTypes: [{
-          label: "px",
-          value: "px"
-        }, {
-          label: "em",
-          value: "em"
-        }, {
-          label: "%",
-          value: "%"
-        }],
-        onClick: function onClick(borderWidthUnit) {
-          return setAttributes({
-            borderWidthUnit: borderWidthUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border Width"),
-        value: borderWidth,
-        allowReset: true,
-        onChange: function onChange(borderWidth) {
-          return setAttributes({
-            borderWidth: borderWidth
-          });
-        },
-        min: 0,
-        max: 100
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
-        selectedUnit: radiusUnit,
-        unitTypes: [{
-          label: "px",
-          value: "px"
-        }, {
-          label: "em",
-          value: "em"
-        }, {
-          label: "%",
-          value: "%"
-        }],
-        onClick: function onClick(radiusUnit) {
-          return setAttributes({
-            radiusUnit: radiusUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border Radius"),
-        value: borderRadius,
-        allowReset: true,
-        onChange: function onChange(borderRadius) {
-          return setAttributes({
-            borderRadius: borderRadius
-          });
-        },
-        min: 0,
-        max: 100
-      })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-        title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shadow"),
-        initialOpen: false
-      }, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shadow Color"),
-        color: shadowColor,
-        onChange: function onChange(shadowColor) {
-          return setAttributes({
-            shadowColor: shadowColor
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Horizontal Offset"),
-        value: shadowHOffset,
-        allowReset: true,
-        onChange: function onChange(shadowHOffset) {
-          return setAttributes({
-            shadowHOffset: shadowHOffset
-          });
-        },
-        min: 0,
-        max: 100
-      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Vertical Offset"),
-        value: shadowVOffset,
-        allowReset: true,
-        onChange: function onChange(shadowVOffset) {
-          return setAttributes({
-            shadowVOffset: shadowVOffset
-          });
-        },
-        min: 0,
-        max: 100
-      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Blur"),
-        value: shadowBlur,
-        allowReset: true,
-        onChange: function onChange(shadowBlur) {
-          return setAttributes({
-            shadowBlur: shadowBlur
-          });
-        },
-        min: 0,
-        max: 20
-      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Spread"),
-        value: shadowSpread,
-        allowReset: true,
-        onChange: function onChange(shadowSpread) {
-          return setAttributes({
-            shadowSpread: shadowSpread
-          });
-        },
-        min: 0,
-        max: 20
-      }))));
+    }, item.label);
+  }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["BaseControl"], {
+    id: "eb-infobox-image-icon",
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Image or Icon")
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["ButtonGroup"], {
+    id: "eb-infobox-image-icon"
+  }, _constants_js__WEBPACK_IMPORTED_MODULE_5__["INFOBOX_TYPES"].map(function (value) {
+    return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+      isLarge: true,
+      isSecondary: imageOrIcon !== value,
+      isPrimary: imageOrIcon === value,
+      onClick: function onClick() {
+        return setAttributes({
+          imageOrIcon: value
+        });
+      }
+    }, value);
+  }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["BaseControl"], {
+    id: "eb-infobox-position",
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("".concat(imageOrIcon, "  Position"))
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["ButtonGroup"], {
+    id: "eb-infobox-position"
+  }, _constants_js__WEBPACK_IMPORTED_MODULE_5__["POSITIONS"].map(function (value) {
+    return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+      isLarge: true,
+      isSecondary: iconPosition !== value,
+      isPrimary: iconPosition === value,
+      onClick: function onClick() {
+        return setAttributes({
+          iconPosition: value
+        });
+      }
+    }, value);
+  }))), imageOrIcon === "icon" && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["BaseControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Select Icon")
+  }, /*#__PURE__*/React.createElement(_fonticonpicker_react_fonticonpicker__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    icons: _util_faIcons_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+    onChange: function onChange(icon) {
+      return setAttributes({
+        selectedIcon: icon
+      });
+    },
+    value: selectedIcon,
+    appendTo: "body",
+    isMulti: false
+  })), imageOrIcon === "image" && imageId && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Image Height"),
+    value: imageHeight,
+    onChange: function onChange(newSize) {
+      return setAttributes({
+        imageHeight: newSize
+      });
+    },
+    min: 0,
+    max: 400
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Image Width"),
+    value: imageWidth,
+    onChange: function onChange(newSize) {
+      return setAttributes({
+        imageWidth: newSize
+      });
+    },
+    min: 0,
+    max: 400
+  })), imageOrIcon === "number" && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["BaseControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Number"),
+    id: "eb-infobox-number-id"
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "number",
+    value: number,
+    id: "eb-infobox-number-id",
+    onChange: function onChange(event) {
+      return setAttributes({
+        number: parseInt(event.target.value, 10)
+      });
+    },
+    min: 0
+  })), !isClickable && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["ToggleControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Show Button"),
+    checked: showButton,
+    onChange: function onChange() {
+      return setAttributes({
+        showButton: !showButton
+      });
     }
-  }]);
-
-  return Inspector;
-}(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+  }), !showButton && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["ToggleControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Infobox Clickable"),
+    checked: isClickable,
+    onChange: function onChange() {
+      return setAttributes({
+        isClickable: !isClickable
+      });
+    }
+  }), showButton && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Settings")
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["TextControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Text"),
+    value: buttonText,
+    onChange: function onChange(newText) {
+      return setAttributes({
+        buttonText: newText
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["TextControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Link URL"),
+    placeholder: "https://your-link.com",
+    value: clickableLink,
+    onChange: function onChange(link) {
+      return setAttributes({
+        clickableLink: link
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Size"),
+    value: buttonSize,
+    options: _constants_js__WEBPACK_IMPORTED_MODULE_5__["BUTTON_SIZES"],
+    onChange: function onChange(newSize) {
+      return changeButtonSize(newSize);
+    }
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Align"),
+    value: buttonAlign,
+    options: _constants_js__WEBPACK_IMPORTED_MODULE_5__["BUTTON_ALIGN"],
+    onChange: function onChange(buttonAlign) {
+      return setAttributes({
+        buttonAlign: buttonAlign
+      });
+    }
+  })), isClickable && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["TextControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Infobox Link"),
+    placeholder: "https://your-link.com",
+    value: clickableLink,
+    onChange: function onChange(link) {
+      return setAttributes({
+        clickableLink: link
+      });
+    }
+  })), backgroundType === "image" && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Image")
+  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["MediaUpload"], {
+    onSelect: function onSelect(media) {
+      return setAttributes({
+        backgroundImageURL: media.url,
+        backgroundImageID: media.id
+      });
+    },
+    type: "image",
+    value: backgroundImageID,
+    render: function render(_ref) {
+      var open = _ref.open;
+      return !backgroundImageURL && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+        className: "eb-infobox-bg-upload-button components-button",
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Upload Image"),
+        icon: "format-image",
+        onClick: open
+      });
+    }
+  }), backgroundImageURL && /*#__PURE__*/React.createElement(_util_image_avatar_ImageAvater_js__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    imageUrl: backgroundImageURL,
+    onDeleteImage: function onDeleteImage() {
+      return setAttributes({
+        backgroundImageURL: null
+      });
+    }
+  })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Typography"),
+    initialOpen: false
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["BaseControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Header"),
+    className: "eb-typography-base"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Dropdown"], {
+    className: "eb-typography-dropdown",
+    contentClassName: "my-popover-content-classname",
+    position: "bottom right",
+    renderToggle: function renderToggle(_ref2) {
+      var isOpen = _ref2.isOpen,
+          onToggle = _ref2.onToggle;
+      return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+        isSmall: true,
+        onClick: onToggle,
+        "aria-expanded": isOpen,
+        icon: "edit"
+      });
+    },
+    renderContent: function renderContent() {
+      return /*#__PURE__*/React.createElement("div", {
+        style: {
+          padding: "1rem"
+        }
+      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["BaseControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Heading")
+      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["ButtonGroup"], {
+        className: "infobox-button-group"
+      }, _constants_js__WEBPACK_IMPORTED_MODULE_5__["HEADER_TAGS"].map(function (header) {
+        return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+          isSmall: true,
+          isSecondary: headerTag !== header,
+          isPrimary: headerTag === header,
+          onClick: function onClick() {
+            return setAttributes({
+              headerTag: header
+            });
+          }
+        }, header.toUpperCase());
+      }))), /*#__PURE__*/React.createElement(_util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Font Family"),
+        value: headerFontFamily,
+        onChange: function onChange(headerFontFamily) {
+          return setAttributes({
+            headerFontFamily: headerFontFamily
+          });
+        }
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        selectedUnit: headerSizeUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "%",
+          value: "%"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(headerSizeUnit) {
+          return setAttributes({
+            headerSizeUnit: headerSizeUnit
+          });
+        }
+      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Font Size"),
+        value: headerFontSize,
+        onChange: function onChange(headerFontSize) {
+          return setAttributes({
+            headerFontSize: headerFontSize
+          });
+        },
+        step: HEADER_SIZE_STEP,
+        min: 0,
+        max: HEADER_SIZE_MAX
+      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Font Weight"),
+        value: headerFontWeight,
+        options: _constants_js__WEBPACK_IMPORTED_MODULE_5__["FONT_WEIGHTS"],
+        onChange: function onChange(headerFontWeight) {
+          return setAttributes({
+            headerFontWeight: headerFontWeight
+          });
+        }
+      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Text Transform"),
+        value: headerTextTransform,
+        options: _constants_js__WEBPACK_IMPORTED_MODULE_5__["TEXT_TRANSFORM"],
+        onChange: function onChange(headerTextTransform) {
+          return setAttributes({
+            headerTextTransform: headerTextTransform
+          });
+        }
+      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Text Decoration"),
+        value: headerTextDedocation,
+        options: _constants_js__WEBPACK_IMPORTED_MODULE_5__["TEXT_DECORATION"],
+        onChange: function onChange(headerTextDecoration) {
+          return setAttributes({
+            headerTextDecoration: headerTextDecoration
+          });
+        }
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        selectedUnit: headerLetterSpacingUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(headerLetterSpacingUnit) {
+          return setAttributes({
+            headerLetterSpacingUnit: headerLetterSpacingUnit
+          });
+        }
+      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Letter Spacing"),
+        value: headerLetterSpacing,
+        onChange: function onChange(headerLetterSpacing) {
+          return setAttributes({
+            headerLetterSpacing: headerLetterSpacing
+          });
+        },
+        min: 0,
+        max: HEADER_SPACING_MAX,
+        step: HEADER_SPACING_STEP
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        selectedUnit: headerLineHeightUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(headerLineHeightUnit) {
+          return setAttributes({
+            headerLineHeightUnit: headerLineHeightUnit
+          });
+        }
+      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Line Height"),
+        value: headerLineHeight,
+        onChange: function onChange(headerLineHeight) {
+          return setAttributes({
+            headerLineHeight: headerLineHeight
+          });
+        },
+        min: 0,
+        max: HEADER_LINE_HEIGHT_MAX,
+        step: HEADER_LINE_HEIGHT_STEP
+      }));
+    }
+  })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["BaseControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Content"),
+    className: "eb-typography-base"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Dropdown"], {
+    className: "eb-typography-dropdown",
+    contentClassName: "my-popover-content-classname",
+    position: "bottom right",
+    renderToggle: function renderToggle(_ref3) {
+      var isOpen = _ref3.isOpen,
+          onToggle = _ref3.onToggle;
+      return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+        isSmall: true,
+        onClick: onToggle,
+        "aria-expanded": isOpen,
+        icon: "edit"
+      });
+    },
+    renderContent: function renderContent() {
+      return /*#__PURE__*/React.createElement("div", {
+        style: {
+          padding: "1rem"
+        }
+      }, /*#__PURE__*/React.createElement(_util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Font Family"),
+        value: contentFontFamily,
+        onChange: function onChange(contentFontFamily) {
+          return setAttributes({
+            contentFontFamily: contentFontFamily
+          });
+        }
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        selectedUnit: contentSizeUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "%",
+          value: "%"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(contentSizeUnit) {
+          return setAttributes({
+            contentSizeUnit: contentSizeUnit
+          });
+        }
+      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Font Size"),
+        value: contentFontSize,
+        onChange: function onChange(contentFontSize) {
+          return setAttributes({
+            contentFontSize: contentFontSize
+          });
+        },
+        step: CONTENT_SIZE_STEP,
+        min: 0,
+        max: CONTENT_SIZE_MAX
+      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Font Weight"),
+        value: contentFontWeight,
+        options: _constants_js__WEBPACK_IMPORTED_MODULE_5__["FONT_WEIGHTS"],
+        onChange: function onChange(contentFontWeight) {
+          return setAttributes({
+            contentFontWeight: contentFontWeight
+          });
+        }
+      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Text Transform"),
+        value: contentTextTransform,
+        options: _constants_js__WEBPACK_IMPORTED_MODULE_5__["TEXT_TRANSFORM"],
+        onChange: function onChange(contentTextTransform) {
+          return setAttributes({
+            contentTextTransform: contentTextTransform
+          });
+        }
+      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Text Decoration"),
+        value: contentTextDedocation,
+        options: _constants_js__WEBPACK_IMPORTED_MODULE_5__["TEXT_DECORATION"],
+        onChange: function onChange(contentTextDecoration) {
+          return setAttributes({
+            contentTextDecoration: contentTextDecoration
+          });
+        }
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        selectedUnit: contentLetterSpacingUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(contentLetterSpacingUnit) {
+          return setAttributes({
+            contentLetterSpacingUnit: contentLetterSpacingUnit
+          });
+        }
+      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Letter Spacing"),
+        value: contentLetterSpacing,
+        onChange: function onChange(contentLetterSpacing) {
+          return setAttributes({
+            contentLetterSpacing: contentLetterSpacing
+          });
+        },
+        min: 0,
+        max: CONTENT_SPACING_MAX,
+        step: CONTENT_SPACING_STEP
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        selectedUnit: contentLineHeightUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(contentLineHeightUnit) {
+          return setAttributes({
+            contentLineHeightUnit: contentLineHeightUnit
+          });
+        }
+      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Line Height"),
+        value: contentLineHeight,
+        onChange: function onChange(contentLineHeight) {
+          return setAttributes({
+            contentLineHeight: contentLineHeight
+          });
+        },
+        min: 0,
+        max: CONTENT_LINE_HEIGHT_MAX,
+        step: CONTENT_LINE_HEIGHT_STEP
+      }));
+    }
+  })), imageOrIcon === "icon" && selectedIcon && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["BaseControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon"),
+    className: "eb-typography-base"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Dropdown"], {
+    className: "eb-typography-dropdown",
+    contentClassName: "my-popover-content-classname",
+    position: "bottom right",
+    renderToggle: function renderToggle(_ref4) {
+      var isOpen = _ref4.isOpen,
+          onToggle = _ref4.onToggle;
+      return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+        isSmall: true,
+        onClick: onToggle,
+        "aria-expanded": isOpen,
+        icon: "edit"
+      });
+    },
+    renderContent: function renderContent() {
+      return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        selectedUnit: iconSizeUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "em",
+          value: "em"
+        }, {
+          label: "%",
+          value: "%"
+        }],
+        onClick: function onClick(iconSizeUnit) {
+          return setAttributes({
+            iconSizeUnit: iconSizeUnit
+          });
+        }
+      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon Size"),
+        value: iconSize,
+        allowReset: true,
+        onChange: function onChange(newSize) {
+          return setAttributes({
+            iconSize: newSize
+          });
+        },
+        min: 8,
+        max: 100
+      }));
+    }
+  })), imageOrIcon === "number" && selectedIcon && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["BaseControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Number"),
+    className: "eb-typography-base"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Dropdown"], {
+    className: "eb-typography-dropdown",
+    contentClassName: "my-popover-content-classname",
+    position: "bottom right",
+    renderToggle: function renderToggle(_ref5) {
+      var isOpen = _ref5.isOpen,
+          onToggle = _ref5.onToggle;
+      return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+        isSmall: true,
+        onClick: onToggle,
+        "aria-expanded": isOpen,
+        icon: "edit"
+      });
+    },
+    renderContent: function renderContent() {
+      return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Number Size"),
+        value: numberSize,
+        onChange: function onChange(newSize) {
+          return setAttributes({
+            numberSize: newSize
+          });
+        },
+        min: 8,
+        max: 64
+      });
+    }
+  }))), backgroundType === "fill" && /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["PanelColorSettings"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Color"),
+    initialOpen: false,
+    colorSettings: [{
+      value: backgroundColor,
+      onChange: function onChange(newColor) {
+        return setAttributes({
+          backgroundColor: newColor
+        });
+      },
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Color")
+    }, {
+      value: iconBackground,
+      onChange: function onChange(newColor) {
+        return setAttributes({
+          iconBackground: newColor
+        });
+      },
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon Background Color")
+    }]
+  }), backgroundType === "gradient" && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Gradient Colors"),
+    initialOpen: false
+  }, /*#__PURE__*/React.createElement(_util_gradient_color_controller__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    gradientColor: backgroundGradient,
+    onChange: function onChange(newValue) {
+      return setAttributes({
+        backgroundGradient: newValue
+      });
+    }
+  })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Margin & Padding"),
+    initialOpen: false
+  }, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    selectedUnit: marginUnit,
+    unitTypes: [{
+      label: "px",
+      value: "px"
+    }, {
+      label: "em",
+      value: "em"
+    }, {
+      label: "%",
+      value: "%"
+    }],
+    onClick: function onClick(marginUnit) {
+      return setAttributes({
+        marginUnit: marginUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Margin"),
+    top: marginTop,
+    right: marginRight,
+    bottom: marginBottom,
+    left: marginLeft,
+    onChange: function onChange(_ref6) {
+      var top = _ref6.top,
+          right = _ref6.right,
+          bottom = _ref6.bottom,
+          left = _ref6.left;
+      return setAttributes({
+        marginTop: top,
+        marginRight: right,
+        marginBottom: bottom,
+        marginLeft: left
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    selectedUnit: paddingUnit,
+    unitTypes: [{
+      label: "px",
+      value: "px"
+    }, {
+      label: "em",
+      value: "em"
+    }, {
+      label: "%",
+      value: "%"
+    }],
+    onClick: function onClick(paddingUnit) {
+      return setAttributes({
+        paddingUnit: paddingUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Padding"),
+    top: paddingTop,
+    right: paddingRight,
+    bottom: paddingBottom,
+    left: paddingLeft,
+    onChange: function onChange(_ref7) {
+      var top = _ref7.top,
+          right = _ref7.right,
+          bottom = _ref7.bottom,
+          left = _ref7.left;
+      return setAttributes({
+        paddingTop: top,
+        paddingRight: right,
+        paddingBottom: bottom,
+        paddingLeft: left
+      });
+    }
+  })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Colors"),
+    initialOpen: false
+  }, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Header Color"),
+    color: headerColor,
+    onChange: function onChange(headerColor) {
+      return setAttributes({
+        headerColor: headerColor
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Content Color"),
+    color: contentColor,
+    onChange: function onChange(contentColor) {
+      return setAttributes({
+        contentColor: contentColor
+      });
+    }
+  }), imageOrIcon === "icon" && /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon Color"),
+    color: iconColor,
+    onChange: function onChange(iconColor) {
+      return setAttributes({
+        iconColor: iconColor
+      });
+    }
+  }), imageOrIcon === "number" && /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Number Color"),
+    color: numberColor,
+    onChange: function onChange(numberColor) {
+      return setAttributes({
+        numberColor: numberColor
+      });
+    }
+  }), showButton && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Color"),
+    color: buttonColor,
+    onChange: function onChange(buttonColor) {
+      return setAttributes({
+        buttonColor: buttonColor
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Text Color"),
+    color: buttonTextColor,
+    onChange: function onChange(buttonTextColor) {
+      return setAttributes({
+        buttonTextColor: buttonTextColor
+      });
+    }
+  }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Spacing"),
+    initialOpen: false
+  }, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    selectedUnit: headerPaddingUnit,
+    unitTypes: [{
+      label: "px",
+      value: "px"
+    }, {
+      label: "em",
+      value: "em"
+    }, {
+      label: "%",
+      value: "%"
+    }],
+    onClick: function onClick(headerPaddingUnit) {
+      return setAttributes({
+        headerPaddingUnit: headerPaddingUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Header Padding"),
+    top: headerPaddingTop,
+    right: headerPaddingRight,
+    bottom: headerPaddingBottom,
+    left: headerPaddingLeft,
+    onChange: function onChange(_ref8) {
+      var top = _ref8.top,
+          right = _ref8.right,
+          bottom = _ref8.bottom,
+          left = _ref8.left;
+      return setAttributes({
+        headerPaddingTop: top,
+        headerPaddingRight: right,
+        headerPaddingBottom: bottom,
+        headerPaddingLeft: left
+      });
+    }
+  }), imageOrIcon === "image" && /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Image Margin"),
+    top: imageMarginTop,
+    right: imageMarginTop,
+    bottom: imageMarginBottom,
+    left: imageMarginLeft,
+    onChange: function onChange(_ref9) {
+      var top = _ref9.top,
+          right = _ref9.right,
+          bottom = _ref9.bottom,
+          left = _ref9.left;
+      return setAttributes({
+        imageMarginTop: top,
+        imageMarginRight: right,
+        imageMarginBottom: bottom,
+        imageMarginLeft: left
+      });
+    }
+  }), showButton && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    selectedUnit: buttonPaddingUnit,
+    unitTypes: [{
+      label: "px",
+      value: "px"
+    }, {
+      label: "em",
+      value: "em"
+    }, {
+      label: "%",
+      value: "%"
+    }],
+    onClick: function onClick(buttonPaddingUnit) {
+      return setAttributes({
+        buttonPaddingUnit: buttonPaddingUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Padding"),
+    top: buttonPaddingTop,
+    right: buttonPaddingRight,
+    bottom: buttonPaddingBottom,
+    left: buttonPaddingLeft,
+    onChange: function onChange(_ref10) {
+      var top = _ref10.top,
+          right = _ref10.right,
+          bottom = _ref10.bottom,
+          left = _ref10.left;
+      return setAttributes({
+        buttonPaddingTop: top,
+        buttonPaddingRight: right,
+        buttonPaddingBottom: bottom,
+        buttonPaddingLeft: left
+      });
+    }
+  })), imageOrIcon === "icon" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    selectedUnit: iconPaddingUnit,
+    unitTypes: [{
+      label: "px",
+      value: "px"
+    }, {
+      label: "em",
+      value: "em"
+    }, {
+      label: "%",
+      value: "%"
+    }],
+    onClick: function onClick(iconPaddingUnit) {
+      return setAttributes({
+        iconPaddingUnit: iconPaddingUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon Padding"),
+    top: iconPaddingTop,
+    right: iconPaddingRight,
+    bottom: iconPaddingBottom,
+    left: iconPaddingLeft,
+    onChange: function onChange(_ref11) {
+      var top = _ref11.top,
+          right = _ref11.right,
+          bottom = _ref11.bottom,
+          left = _ref11.left;
+      return setAttributes({
+        iconPaddingTop: top,
+        iconPaddingRight: right,
+        iconPaddingBottom: bottom,
+        iconPaddingLeft: left
+      });
+    }
+  }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border"),
+    initialOpen: false
+  }, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border Color"),
+    color: borderColor,
+    onChange: function onChange(borderColor) {
+      return setAttributes({
+        borderColor: borderColor
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border Style"),
+    value: borderStyle,
+    options: _constants_js__WEBPACK_IMPORTED_MODULE_5__["BORDER_STYLES"],
+    onChange: function onChange(borderStyle) {
+      return setAttributes({
+        borderStyle: borderStyle
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    selectedUnit: borderWidthUnit,
+    unitTypes: [{
+      label: "px",
+      value: "px"
+    }, {
+      label: "em",
+      value: "em"
+    }, {
+      label: "%",
+      value: "%"
+    }],
+    onClick: function onClick(borderWidthUnit) {
+      return setAttributes({
+        borderWidthUnit: borderWidthUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border Width"),
+    value: borderWidth,
+    allowReset: true,
+    onChange: function onChange(borderWidth) {
+      return setAttributes({
+        borderWidth: borderWidth
+      });
+    },
+    min: 0,
+    max: 100
+  }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    selectedUnit: radiusUnit,
+    unitTypes: [{
+      label: "px",
+      value: "px"
+    }, {
+      label: "em",
+      value: "em"
+    }, {
+      label: "%",
+      value: "%"
+    }],
+    onClick: function onClick(radiusUnit) {
+      return setAttributes({
+        radiusUnit: radiusUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border Radius"),
+    value: borderRadius,
+    allowReset: true,
+    onChange: function onChange(borderRadius) {
+      return setAttributes({
+        borderRadius: borderRadius
+      });
+    },
+    min: 0,
+    max: 100
+  })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shadow"),
+    initialOpen: false
+  }, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shadow Color"),
+    color: shadowColor,
+    onChange: function onChange(shadowColor) {
+      return setAttributes({
+        shadowColor: shadowColor
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Horizontal Offset"),
+    value: shadowHOffset,
+    allowReset: true,
+    onChange: function onChange(shadowHOffset) {
+      return setAttributes({
+        shadowHOffset: shadowHOffset
+      });
+    },
+    min: 0,
+    max: 100
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Vertical Offset"),
+    value: shadowVOffset,
+    allowReset: true,
+    onChange: function onChange(shadowVOffset) {
+      return setAttributes({
+        shadowVOffset: shadowVOffset
+      });
+    },
+    min: 0,
+    max: 100
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Blur"),
+    value: shadowBlur,
+    allowReset: true,
+    onChange: function onChange(shadowBlur) {
+      return setAttributes({
+        shadowBlur: shadowBlur
+      });
+    },
+    min: 0,
+    max: 20
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Spread"),
+    value: shadowSpread,
+    allowReset: true,
+    onChange: function onChange(shadowSpread) {
+      return setAttributes({
+        shadowSpread: shadowSpread
+      });
+    },
+    min: 0,
+    max: 20
+  }))));
+}
 
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);
 
@@ -7256,17 +7197,6 @@ UnitControl.propTypes = {
 /***/ (function(module, exports) {
 
 (function() { module.exports = window["wp"]["components"]; }());
-
-/***/ }),
-
-/***/ "@wordpress/element":
-/*!*********************************!*\
-  !*** external ["wp","element"] ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-(function() { module.exports = window["wp"]["element"]; }());
 
 /***/ }),
 
