@@ -2,9 +2,9 @@
  * WordPress dependencies
  */
 import { __ } from "@wordpress/i18n";
-import { MediaUpload, RichText } from "@wordpress/block-editor";
+import { useBlockProps, MediaUpload, RichText } from "@wordpress/block-editor";
 import { Button } from "@wordpress/components";
-import { Fragment } from "@wordpress/element";
+import "./editor.scss";
 
 /**
  * Internal dependencies
@@ -218,13 +218,17 @@ const Edit = ({ attributes, setAttributes, isSelected }) => {
 		paddingLeft: `${buttonPaddingLeft}${buttonPaddingUnit}`,
 	};
 
+	const blockProps = useBlockProps({
+		className: `eb-guten-block-main-parent-wrapper`,
+	});
+
 	return [
 		isSelected && (
 			<Inspector attributes={attributes} setAttributes={setAttributes} />
 		),
 
 		// Edit view
-		<Fragment>
+		<div {...blockProps}>
 			<div className="infobox-container" style={boxWrapperStyle}>
 				<IconBox selectedIcon={selectedIcon} iconStyle={iconStyle} />
 
@@ -281,7 +285,7 @@ const Edit = ({ attributes, setAttributes, isSelected }) => {
 					</a>
 				</div>
 			</div>
-		</Fragment>,
+		</div>,
 	];
 };
 

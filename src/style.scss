@@ -1,50 +1,49 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ */
+
 .infobox-container {
-  display: flex;
-  text-align: center;
-  align-items: center;
+	display: flex;
+	text-align: center;
+	align-items: center;
 }
 
 .infobox-header {
-  padding: 5px;
+	padding: 5px;
 }
 
 .infobox-content {
-  padding: 5px;
+	padding: 5px;
 }
 
 .infobox-button {
-  text-align: center;
+	text-align: center;
 }
 
 .infobox-button-group {
-  margin-bottom: 8px;
+	margin-bottom: 8px;
 }
 
 .eb-infobox-link {
-  display: inline;
-  border-radius: 5px;
-  padding: 5px;
+	display: inline;
+	border-radius: 5px;
+	padding: 5px;
 	line-height: inherit;
 }
 
-.eb-infobox-image{
-  height:150px;
-  width:150px;
-  background:#e3e3e3;
-  display:inline;
+.eb-infobox-image {
+	height: 150px;
+	width: 150px;
+	background: #e3e3e3;
+	display: inline;
 }
 
 .eb-infobox-bg-upload-button {
-  height: 100px;
-  width: 100%;
-  background: #e3e3e3;
+	height: 100px;
+	width: 100%;
+	background: #e3e3e3;
 	color: #666666;
-  display: inline-block;
+	display: inline-block;
 }
-
-// Typography style
-.eb-typography-base div{
-		display: flex;
-		justify-content: space-between;
-}
-

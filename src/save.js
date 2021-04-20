@@ -1,3 +1,4 @@
+import { useBlockProps } from "@wordpress/block-editor";
 /**
  * Internal dependencies
  */
@@ -209,7 +210,7 @@ const Save = ({ attributes }) => {
 	};
 
 	return (
-		<div>
+		<div {...useBlockProps.save()}>
 			<a
 				href={clickableLink}
 				style={{ display: isClickable && clickableLink ? "block" : "none" }}

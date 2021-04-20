@@ -7,10 +7,16 @@ import save from "./save";
 import icon from "./icon";
 import attributes from "./attributes";
 
-registerBlockType("block/infobox", {
+registerBlockType("infobox/infobox", {
+	apiVersion: 2,
 	title: __("Infobox", "block"),
 	description: __("", "block"),
 	category: "widgets",
+	keywords: [
+		__("EB infobox", "essential-blocks"),
+		__("infobox", "essential-blocks"),
+		__("infobox block", "essential-blocks"),
+	],
 	icon,
 	attributes,
 	edit: Edit,

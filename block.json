@@ -1,9 +1,11 @@
 {
-	"name": "block/infobox",
+	"apiVersion": 2,
+	"name": "infobox/infobox",
 	"title": "Infobox",
 	"category": "widgets",
-	"description": "",
+	"description": "Highlight Your Key Features & Hold Audience Attention with Info Box Block.",
 	"textdomain": "infobox",
 	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
 	"style": "file:./build/style-index.css"
 }
