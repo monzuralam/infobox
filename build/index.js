@@ -4895,6 +4895,8 @@ var Inspector = /*#__PURE__*/function (_Component) {
       var CONTENT_LINE_HEIGHT_MAX = contentLineHeightUnit === "em" ? 10 : 100;
       return /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], {
         key: "controls"
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "eb-panel-control"
       }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
         title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Infobox Settings")
       }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
@@ -5858,7 +5860,7 @@ var Inspector = /*#__PURE__*/function (_Component) {
         },
         min: 0,
         max: 20
-      })));
+      }))));
     }
   }]);
 
