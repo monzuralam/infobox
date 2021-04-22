@@ -1,5 +1,4 @@
-const { RichText } = wp.blockEditor;
-const { Fragment } = wp.element;
+import { RichText } from "@wordpress/block-editor";
 
 const InfoboxContainer = ({
 	imageOrIcon,
@@ -13,14 +12,14 @@ const InfoboxContainer = ({
 	headerStyle,
 	contentStyle,
 	numberStyle,
-	iconStyle
+	iconStyle,
 }) => (
-	<Fragment>
+	<>
 		<div
 			className="infobox-image-wrapper"
 			style={{
 				...imageWrapperStyle,
-				display: imageOrIcon === "image" ? "block" : "none"
+				display: imageOrIcon === "image" ? "block" : "none",
 			}}
 			data-image-url={imageUrl ? imageUrl : ""}
 		/>
@@ -28,7 +27,7 @@ const InfoboxContainer = ({
 		<span
 			style={{
 				...iconStyle,
-				display: imageOrIcon === "icon" && selectedIcon ? "block" : "none"
+				display: imageOrIcon === "icon" && selectedIcon ? "block" : "none",
 			}}
 		>
 			<span
@@ -41,7 +40,7 @@ const InfoboxContainer = ({
 			className="infobox-number"
 			style={{
 				...numberStyle,
-				display: imageOrIcon === "number" ? "block" : "none"
+				display: imageOrIcon === "number" ? "block" : "none",
 			}}
 		>
 			{number ? number : ""}
@@ -49,7 +48,7 @@ const InfoboxContainer = ({
 
 		<RichText.Content tagName={headerTag} value={header} style={headerStyle} />
 		<RichText.Content tagName="p" value={content} style={contentStyle} />
-	</Fragment>
+	</>
 );
 
 export default InfoboxContainer;

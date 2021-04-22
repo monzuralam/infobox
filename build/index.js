@@ -4562,14 +4562,15 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])("inf
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var RichText = wp.blockEditor.RichText;
-var Fragment = wp.element.Fragment;
+
 
 var InfoboxContainer = function InfoboxContainer(_ref) {
   var imageOrIcon = _ref.imageOrIcon,
@@ -4584,7 +4585,7 @@ var InfoboxContainer = function InfoboxContainer(_ref) {
       contentStyle = _ref.contentStyle,
       numberStyle = _ref.numberStyle,
       iconStyle = _ref.iconStyle;
-  return /*#__PURE__*/React.createElement(Fragment, null, /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "infobox-image-wrapper",
     style: _objectSpread(_objectSpread({}, imageWrapperStyle), {}, {
       display: imageOrIcon === "image" ? "block" : "none"
@@ -4602,11 +4603,11 @@ var InfoboxContainer = function InfoboxContainer(_ref) {
     style: _objectSpread(_objectSpread({}, numberStyle), {}, {
       display: imageOrIcon === "number" ? "block" : "none"
     })
-  }, number ? number : ""), /*#__PURE__*/React.createElement(RichText.Content, {
+  }, number ? number : ""), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     tagName: headerTag,
     value: header,
     style: headerStyle
-  }), /*#__PURE__*/React.createElement(RichText.Content, {
+  }), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     tagName: "p",
     value: content,
     style: contentStyle
