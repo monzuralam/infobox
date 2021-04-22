@@ -3542,6 +3542,24 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var attributes = {
+  // the following 4 attributes is must required for responsive options and asset generation for frontend
+  // responsive control attributes ⬇
+  resOption: {
+    type: "string",
+    "default": "desktop"
+  },
+  // blockId attribute for making unique className and other uniqueness
+  blockId: {
+    type: "string"
+  },
+  blockRoot: {
+    type: "string",
+    "default": "essential_block"
+  },
+  // blockMeta is for keeping all the styles
+  blockMeta: {
+    type: "object"
+  },
   backgroundType: {
     type: "string",
     "default": "fill"
@@ -4066,14 +4084,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_editor_scss__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _iconbox_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./iconbox.js */ "./src/iconbox.js");
-/* harmony import */ var _inspector__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./inspector */ "./src/inspector.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./constants */ "./src/constants.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_editor_scss__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _iconbox_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./iconbox.js */ "./src/iconbox.js");
+/* harmony import */ var _inspector__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./inspector */ "./src/inspector.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./constants */ "./src/constants.js");
 /**
  * WordPress dependencies
  */
+
 
 
 
@@ -4090,7 +4111,8 @@ var Edit = function Edit(_ref) {
   var attributes = _ref.attributes,
       setAttributes = _ref.setAttributes,
       isSelected = _ref.isSelected;
-  var backgroundType = attributes.backgroundType,
+  var blockMeta = attributes.blockMeta,
+      backgroundType = attributes.backgroundType,
       backgroundImageURL = attributes.backgroundImageURL,
       backgroundColor = attributes.backgroundColor,
       backgroundGradient = attributes.backgroundGradient,
@@ -4183,7 +4205,7 @@ var Edit = function Edit(_ref) {
   var boxWrapperStyle = {
     flexDirection: flexDirection,
     backgroundImage: backgroundType === "image" && backgroundImageURL ? "url('".concat(backgroundImageURL, "')") : backgroundType === "gradient" && backgroundGradient || "none",
-    backgroundColor: backgroundColor || _constants__WEBPACK_IMPORTED_MODULE_6__["DEFAULT_BACKGROUND"],
+    backgroundColor: backgroundColor || _constants__WEBPACK_IMPORTED_MODULE_7__["DEFAULT_BACKGROUND"],
     backgroundSize: backgroundType === "image" && backgroundImageURL ? "cover" : "unset",
     margin: "".concat(marginTop || 0).concat(marginUnit, " ").concat(marginRight || 0).concat(marginUnit, " ").concat(marginBottom || 0).concat(marginUnit, " ").concat(marginLeft || 0).concat(marginUnit, " "),
     padding: "".concat(paddingTop || 30).concat(paddingUnit, " ").concat(paddingRight || 70).concat(paddingUnit, " ").concat(paddingBottom || 30).concat(paddingUnit, " ").concat(paddingLeft || 70).concat(paddingUnit, " "),
@@ -4262,8 +4284,22 @@ var Edit = function Edit(_ref) {
   };
   var blockProps = Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["useBlockProps"])({
     className: "eb-guten-block-main-parent-wrapper"
-  });
-  return [isSelected && /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }); // Set All Style in "blockMeta" Attribute
+
+  Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
+    var styleObject = {
+      desktop: "\n\t\t\t.infobox-container{\n\t\t\t\tcolor: #6c40f7 !important;\n\t\t\t\tbackground: #f0f !important;\n\t\t\t}\n\t\t\t",
+      tab: "\n\t\t\t.infobox-container{\n\t\t\t\tcolor: #ff0 !important;\n\t\t\t\tbackground: #0ff !important;\n\t\t\t}\n\t\t\t",
+      mobile: "\n\t\t\t.infobox-container{\n\t\t\t\tcolor: #34f !important;\n\t\t\t\tbackground: #ccc !important;\n\t\t\t}\n\t\t\t"
+    };
+
+    if (JSON.stringify(blockMeta) != JSON.stringify(styleObject)) {
+      setAttributes({
+        blockMeta: styleObject
+      });
+    }
+  }, [attributes]);
+  return [isSelected && /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_6__["default"], {
     attributes: attributes,
     setAttributes: setAttributes
   }),
@@ -4272,7 +4308,7 @@ var Edit = function Edit(_ref) {
   React.createElement("div", blockProps, /*#__PURE__*/React.createElement("div", {
     className: "infobox-container",
     style: boxWrapperStyle
-  }, /*#__PURE__*/React.createElement(_iconbox_js__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, /*#__PURE__*/React.createElement(_iconbox_js__WEBPACK_IMPORTED_MODULE_5__["default"], {
     selectedIcon: selectedIcon,
     iconStyle: iconStyle
   }), /*#__PURE__*/React.createElement("div", {
@@ -7195,6 +7231,17 @@ UnitControl.propTypes = {
 /***/ (function(module, exports) {
 
 (function() { module.exports = window["wp"]["components"]; }());
+
+/***/ }),
+
+/***/ "@wordpress/element":
+/*!*********************************!*\
+  !*** external ["wp","element"] ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = window["wp"]["element"]; }());
 
 /***/ }),
 

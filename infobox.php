@@ -23,6 +23,7 @@
 
 require_once __DIR__ . '/includes/font-loader.php';
 require_once __DIR__ . '/includes/post-meta.php';
+require_once __DIR__ . '/util/style-handler/style-handler.php';
 
 function create_block_infobox_block_init()
 {

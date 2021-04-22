@@ -4,6 +4,7 @@
 import { __ } from "@wordpress/i18n";
 import { useBlockProps, MediaUpload, RichText } from "@wordpress/block-editor";
 import { Button } from "@wordpress/components";
+import { useEffect } from "@wordpress/element";
 import "./editor.scss";
 
 /**
@@ -15,6 +16,9 @@ import { DEFAULT_BACKGROUND } from "./constants";
 
 const Edit = ({ attributes, setAttributes, isSelected }) => {
 	const {
+		// blockMeta is for keeping all the styles
+		blockMeta,
+
 		backgroundType,
 		backgroundImageURL,
 		backgroundColor,
@@ -222,6 +226,32 @@ const Edit = ({ attributes, setAttributes, isSelected }) => {
 		className: `eb-guten-block-main-parent-wrapper`,
 	});
 
+	// Set All Style in "blockMeta" Attribute
+	useEffect(() => {
+		const styleObject = {
+			desktop: `
+			.infobox-container{
+				color: #6c40f7 !important;
+				background: #f0f !important;
+			}
+			`,
+			tab: `
+			.infobox-container{
+				color: #ff0 !important;
+				background: #0ff !important;
+			}
+			`,
+			mobile: `
+			.infobox-container{
+				color: #34f !important;
+				background: #ccc !important;
+			}
+			`,
+		};
+		if (JSON.stringify(blockMeta) != JSON.stringify(styleObject)) {
+			setAttributes({ blockMeta: styleObject });
+		}
+	}, [attributes]);
 	return [
 		isSelected && (
 			<Inspector attributes={attributes} setAttributes={setAttributes} />
