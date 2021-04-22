@@ -7,6 +7,7 @@ import {
 	PanelColorSettings,
 	MediaUpload,
 } from "@wordpress/block-editor";
+import { useEffect } from "@wordpress/element";
 import {
 	PanelBody,
 	SelectControl,
@@ -44,52 +45,12 @@ import UnitControl from "../util/unit-control";
 import ColorControl from "../util/color-control";
 
 function Inspector(props) {
-	const changeButtonSize = (newSize) => {
-		switch (newSize) {
-			case "small":
-				props.setAttributes({
-					buttonPaddingTop: 5,
-					buttonPaddingRight: 10,
-					buttonPaddingBottom: 5,
-					buttonPaddingLeft: 10,
-					buttonSize: newSize,
-				});
-				break;
-
-			case "medium":
-				props.setAttributes({
-					buttonPaddingTop: 10,
-					buttonPaddingRight: 20,
-					buttonPaddingBottom: 10,
-					buttonPaddingLeft: 30,
-					buttonSize: newSize,
-				});
-				break;
-
-			case "large":
-				props.setAttributes({
-					buttonPaddingTop: 20,
-					buttonPaddingRight: 30,
-					buttonPaddingBottom: 20,
-					buttonPaddingLeft: 30,
-					buttonSize: newSize,
-				});
-				break;
-
-			case "extra-large":
-				props.setAttributes({
-					buttonPaddingTop: 20,
-					buttonPaddingRight: 60,
-					buttonPaddingBottom: 20,
-					buttonPaddingLeft: 60,
-					buttonSize: newSize,
-				});
-				break;
-		}
-	};
-
 	const { attributes, setAttributes } = props;
+
 	const {
+		// responsive control attributes ⬇
+		resOption,
+
 		backgroundType,
 		backgroundImageURL,
 		backgroundImageID,
@@ -186,6 +147,50 @@ function Inspector(props) {
 		contentLineHeightUnit,
 	} = attributes;
 
+	const changeButtonSize = (newSize) => {
+		switch (newSize) {
+			case "small":
+				setAttributes({
+					buttonPaddingTop: 5,
+					buttonPaddingRight: 10,
+					buttonPaddingBottom: 5,
+					buttonPaddingLeft: 10,
+					buttonSize: newSize,
+				});
+				break;
+
+			case "medium":
+				setAttributes({
+					buttonPaddingTop: 10,
+					buttonPaddingRight: 20,
+					buttonPaddingBottom: 10,
+					buttonPaddingLeft: 30,
+					buttonSize: newSize,
+				});
+				break;
+
+			case "large":
+				setAttributes({
+					buttonPaddingTop: 20,
+					buttonPaddingRight: 30,
+					buttonPaddingBottom: 20,
+					buttonPaddingLeft: 30,
+					buttonSize: newSize,
+				});
+				break;
+
+			case "extra-large":
+				setAttributes({
+					buttonPaddingTop: 20,
+					buttonPaddingRight: 60,
+					buttonPaddingBottom: 20,
+					buttonPaddingLeft: 60,
+					buttonSize: newSize,
+				});
+				break;
+		}
+	};
+
 	// Change flex order based on icon position
 	if (iconPosition === "top") {
 		setAttributes({ order: 0, flexDirection: "column" });
@@ -214,6 +219,77 @@ function Inspector(props) {
 
 	const CONTENT_LINE_HEIGHT_STEP = contentLineHeightUnit === "em" ? 0.1 : 1;
 	const CONTENT_LINE_HEIGHT_MAX = contentLineHeightUnit === "em" ? 10 : 100;
+
+	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
+	useEffect(() => {
+		const bodyClasses = document.body.className;
+		// console.log("----log from inspector useEffect with empty []", {
+		// 	bodyClasses,
+		// });
+
+		if (!/eb\-res\-option\-/i.test(bodyClasses)) {
+			document.body.classList.add("eb-res-option-desktop");
+			setAttributes({
+				resOption: "desktop",
+			});
+		} else {
+			const resOption = bodyClasses
+				.match(/eb-res-option-[^\s]+/g)[0]
+				.split("-")[3];
+			setAttributes({ resOption });
+		}
+	}, []);
+
+	// this useEffect is for mimmiking css for all the eb blocks on resOption changing
+	useEffect(() => {
+		const allEbBlocksWrapper = document.querySelectorAll(
+			".eb-guten-block-main-parent-wrapper:not(.is-selected) > style"
+		);
+		// console.log("---inspector", { allEbBlocksWrapper });
+		if (allEbBlocksWrapper.length < 1) return;
+		allEbBlocksWrapper.forEach((styleTag) => {
+			const cssStrings = styleTag.textContent;
+			const minCss = cssStrings.replace(/\s+/g, " ");
+			const regexCssMimmikSpace = /(?<=mimmikcssStart\s\*\/).+(?=\/\*\smimmikcssEnd)/i;
+			let newCssStrings = " ";
+			if (resOption === "tab") {
+				const tabCssStrings = (minCss.match(
+					/(?<=tabcssStart\s\*\/).+(?=\/\*\stabcssEnd)/i
+				) || [" "])[0];
+				// console.log({ tabCssStrings });
+				newCssStrings = minCss.replace(regexCssMimmikSpace, tabCssStrings);
+			} else if (resOption === "mobile") {
+				const tabCssStrings = (minCss.match(
+					/(?<=tabcssStart\s\*\/).+(?=\/\*\stabcssEnd)/i
+				) || [" "])[0];
+
+				const mobCssStrings = (minCss.match(
+					/(?<=mobcssStart\s\*\/).+(?=\/\*\smobcssEnd)/i
+				) || [" "])[0];
+
+				// console.log({ tabCssStrings, mobCssStrings });
+
+				newCssStrings = minCss.replace(
+					regexCssMimmikSpace,
+					`${tabCssStrings} ${mobCssStrings}`
+				);
+			} else {
+				newCssStrings = minCss.replace(regexCssMimmikSpace, " ");
+			}
+			styleTag.textContent = newCssStrings;
+		});
+	}, [resOption]);
+
+	const resRequiredProps = {
+		setAttributes,
+		resOption,
+	};
+
+	const typoRequiredProps = {
+		attributes,
+		setAttributes,
+		resOption,
+	};
 
 	return (
 		<InspectorControls key="controls">

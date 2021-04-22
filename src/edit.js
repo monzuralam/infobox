@@ -14,10 +14,13 @@ import IconBox from "./iconbox.js";
 import Inspector from "./inspector";
 import { DEFAULT_BACKGROUND } from "./constants";
 
-const Edit = ({ attributes, setAttributes, isSelected }) => {
+const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	const {
 		// blockMeta is for keeping all the styles
 		blockMeta,
+
+		// blockId attribute for making unique className and other uniqueness
+		blockId,
 
 		backgroundType,
 		backgroundImageURL,
@@ -110,6 +113,75 @@ const Edit = ({ attributes, setAttributes, isSelected }) => {
 		contentLineHeight,
 		contentLineHeightUnit,
 	} = attributes;
+
+	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
+	useEffect(() => {
+		const bodyClasses = document.body.className;
+
+		if (!/eb\-res\-option\-/i.test(bodyClasses)) {
+			document.body.classList.add("eb-res-option-desktop");
+			setAttributes({
+				resOption: "desktop",
+			});
+		} else {
+			const resOption = bodyClasses
+				.match(/eb-res-option-[^\s]+/g)[0]
+				.split("-")[3];
+			setAttributes({ resOption });
+		}
+	}, []);
+
+	// this useEffect is for creating a unique blockId for each block's unique className
+	useEffect(() => {
+		// const current_block_id = attributes.blockId;
+
+		const BLOCK_PREFIX = "eb-infobox";
+		const unique_id =
+			BLOCK_PREFIX + "-" + Math.random().toString(36).substr(2, 7);
+
+		/**
+		 * Define and Generate Unique Block ID
+		 */
+		if (!blockId) {
+			setAttributes({ blockId: unique_id });
+		}
+
+		/**
+		 * Assign New Unique ID when duplicate BlockId found
+		 * Mostly happens when User Duplicate a Block
+		 */
+		const all_blocks = wp.data.select("core/block-editor").getBlocks();
+
+		// console.log({ all_blocks });
+
+		let duplicateFound = false;
+		const fixDuplicateBlockId = (blocks) => {
+			if (duplicateFound) return;
+			for (const item of blocks) {
+				const { innerBlocks } = item;
+				if (item.attributes.blockId === blockId) {
+					if (item.clientId !== clientId) {
+						setAttributes({ blockId: unique_id });
+						// console.log("found a duplicate");
+						duplicateFound = true;
+						return;
+					} else if (innerBlocks.length > 0) {
+						fixDuplicateBlockId(innerBlocks);
+					}
+				} else if (innerBlocks.length > 0) {
+					fixDuplicateBlockId(innerBlocks);
+				}
+			}
+		};
+
+		fixDuplicateBlockId(all_blocks);
+
+		// console.log({ blockId });
+	}, []);
+
+	const blockProps = useBlockProps({
+		className: `eb-guten-block-main-parent-wrapper`,
+	});
 
 	const boxWrapperStyle = {
 		flexDirection: flexDirection,
@@ -221,10 +293,6 @@ const Edit = ({ attributes, setAttributes, isSelected }) => {
 		paddingBottom: `${buttonPaddingBottom}${buttonPaddingUnit}`,
 		paddingLeft: `${buttonPaddingLeft}${buttonPaddingUnit}`,
 	};
-
-	const blockProps = useBlockProps({
-		className: `eb-guten-block-main-parent-wrapper`,
-	});
 
 	// Set All Style in "blockMeta" Attribute
 	useEffect(() => {
