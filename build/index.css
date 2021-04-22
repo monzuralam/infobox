@@ -632,6 +632,10 @@ body.eb-res-option-mobile .editor-styles-wrapper {
   left: 83px;
 }
 
+#editor .interface-complementary-area .components-panel__header {
+  z-index: 2;
+}
+
 .eb-typography-base div {
   display: flex;
   justify-content: space-between;

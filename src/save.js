@@ -211,10 +211,28 @@ const Save = ({ attributes }) => {
 
 	return (
 		<div {...useBlockProps.save()}>
-			<a
-				href={clickableLink}
-				style={{ display: isClickable && clickableLink ? "block" : "none" }}
-			>
+			{isClickable && clickableLink ? (
+				<>
+					<a href={clickableLink}>
+						<div className="infobox-container" style={boxWrapperStyle}>
+							<InfoboxContainer
+								imageOrIcon={imageOrIcon}
+								imageUrl={imageUrl}
+								imageWrapperStyle={imageWrapperStyle}
+								selectedIcon={selectedIcon}
+								iconStyle={iconStyle}
+								header={header}
+								headerTag={headerTag}
+								headerStyle={headerStyle}
+								content={content}
+								contentStyle={contentStyle}
+								number={number}
+								numberStyle={numberStyle}
+							/>
+						</div>
+					</a>
+				</>
+			) : (
 				<div className="infobox-container" style={boxWrapperStyle}>
 					<InfoboxContainer
 						imageOrIcon={imageOrIcon}
@@ -230,35 +248,22 @@ const Save = ({ attributes }) => {
 						number={number}
 						numberStyle={numberStyle}
 					/>
-				</div>
-			</a>
 
-			<div className="infobox-container" style={boxWrapperStyle}>
-				<InfoboxContainer
-					imageOrIcon={imageOrIcon}
-					imageUrl={imageUrl}
-					imageWrapperStyle={imageWrapperStyle}
-					selectedIcon={selectedIcon}
-					iconStyle={iconStyle}
-					header={header}
-					headerTag={headerTag}
-					headerStyle={headerStyle}
-					content={content}
-					contentStyle={contentStyle}
-					number={number}
-					numberStyle={numberStyle}
-				/>
-
-				<div className="infobox-button" style={buttonWrapperStyles}>
-					<a
-						href={clickableLink}
-						className="eb-infobox-link"
-						style={linkStyles}
-					>
-						{buttonText}
-					</a>
+					{showButton ? (
+						<>
+							<div className="infobox-button" style={buttonWrapperStyles}>
+								<a
+									href={clickableLink}
+									className="eb-infobox-link"
+									style={linkStyles}
+								>
+									{buttonText}
+								</a>
+							</div>
+						</>
+					) : null}
 				</div>
-			</div>
+			)}
 		</div>
 	);
 };

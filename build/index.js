@@ -6005,11 +6005,8 @@ var Save = function Save(_ref) {
     paddingBottom: "".concat(buttonPaddingBottom).concat(buttonPaddingUnit),
     paddingLeft: "".concat(buttonPaddingLeft).concat(buttonPaddingUnit)
   };
-  return /*#__PURE__*/React.createElement("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["useBlockProps"].save(), /*#__PURE__*/React.createElement("a", {
-    href: clickableLink,
-    style: {
-      display: isClickable && clickableLink ? "block" : "none"
-    }
+  return /*#__PURE__*/React.createElement("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["useBlockProps"].save(), isClickable && clickableLink ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("a", {
+    href: clickableLink
   }, /*#__PURE__*/React.createElement("div", {
     className: "infobox-container",
     style: boxWrapperStyle
@@ -6026,7 +6023,7 @@ var Save = function Save(_ref) {
     contentStyle: contentStyle,
     number: number,
     numberStyle: numberStyle
-  }))), /*#__PURE__*/React.createElement("div", {
+  })))) : /*#__PURE__*/React.createElement("div", {
     className: "infobox-container",
     style: boxWrapperStyle
   }, /*#__PURE__*/React.createElement(_infobox_container_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -6042,14 +6039,14 @@ var Save = function Save(_ref) {
     contentStyle: contentStyle,
     number: number,
     numberStyle: numberStyle
-  }), /*#__PURE__*/React.createElement("div", {
+  }), showButton ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "infobox-button",
     style: buttonWrapperStyles
   }, /*#__PURE__*/React.createElement("a", {
     href: clickableLink,
     className: "eb-infobox-link",
     style: linkStyles
-  }, buttonText))));
+  }, buttonText))) : null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Save);
