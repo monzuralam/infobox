@@ -39,7 +39,7 @@ const InfoboxContainer = ({
 				...numberStyle,
 			}}
 		>
-			{number ? number : ""}
+			{number || number === 0 ? number : ""}
 		</div>
 
 		<RichText.Content tagName={headerTag} value={header} style={headerStyle} />

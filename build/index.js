@@ -4718,7 +4718,7 @@ var InfoboxContainer = function InfoboxContainer(_ref) {
   })), /*#__PURE__*/React.createElement("div", {
     className: "infobox-number",
     style: _objectSpread({}, numberStyle)
-  }, number ? number : ""), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
+  }, number || number === 0 ? number : ""), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     tagName: headerTag,
     value: header,
     style: headerStyle
