@@ -179,6 +179,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		// console.log({ blockId });
 	}, []);
 
+	console.log({ attributes });
+
 	const blockProps = useBlockProps({
 		className: `eb-guten-block-main-parent-wrapper`,
 	});

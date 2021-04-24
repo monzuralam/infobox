@@ -127,6 +127,7 @@ const Save = ({ attributes }) => {
 	};
 
 	const imageWrapperStyle = {
+		display: imageOrIcon === "image" ? "block" : "none",
 		backgroundImage: imageUrl ? `url(${imageUrl})` : undefined,
 		height: `${imageHeight}px`,
 		width: `${imageWidth}px`,
@@ -216,7 +217,6 @@ const Save = ({ attributes }) => {
 					<a href={clickableLink}>
 						<div className="infobox-container" style={boxWrapperStyle}>
 							<InfoboxContainer
-								imageOrIcon={imageOrIcon}
 								imageUrl={imageUrl}
 								imageWrapperStyle={imageWrapperStyle}
 								selectedIcon={selectedIcon}

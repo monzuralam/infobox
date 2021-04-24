@@ -1,7 +1,6 @@
 import { RichText } from "@wordpress/block-editor";
 
 const InfoboxContainer = ({
-	imageOrIcon,
 	imageUrl,
 	selectedIcon,
 	header,
@@ -19,7 +18,6 @@ const InfoboxContainer = ({
 			className="infobox-image-wrapper"
 			style={{
 				...imageWrapperStyle,
-				display: imageOrIcon === "image" ? "block" : "none",
 			}}
 			data-image-url={imageUrl ? imageUrl : ""}
 		/>
@@ -27,7 +25,6 @@ const InfoboxContainer = ({
 		<span
 			style={{
 				...iconStyle,
-				display: imageOrIcon === "icon" && selectedIcon ? "block" : "none",
 			}}
 		>
 			<span
@@ -40,7 +37,6 @@ const InfoboxContainer = ({
 			className="infobox-number"
 			style={{
 				...numberStyle,
-				display: imageOrIcon === "number" ? "block" : "none",
 			}}
 		>
 			{number ? number : ""}

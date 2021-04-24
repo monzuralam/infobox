@@ -4285,6 +4285,9 @@ var Edit = function Edit(_ref) {
 
     fixDuplicateBlockId(all_blocks); // console.log({ blockId });
   }, []);
+  console.log({
+    attributes: attributes
+  });
   var blockProps = Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["useBlockProps"])({
     className: "eb-guten-block-main-parent-wrapper"
   });
@@ -4692,8 +4695,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var InfoboxContainer = function InfoboxContainer(_ref) {
-  var imageOrIcon = _ref.imageOrIcon,
-      imageUrl = _ref.imageUrl,
+  var imageUrl = _ref.imageUrl,
       selectedIcon = _ref.selectedIcon,
       header = _ref.header,
       content = _ref.content,
@@ -4706,22 +4708,16 @@ var InfoboxContainer = function InfoboxContainer(_ref) {
       iconStyle = _ref.iconStyle;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "infobox-image-wrapper",
-    style: _objectSpread(_objectSpread({}, imageWrapperStyle), {}, {
-      display: imageOrIcon === "image" ? "block" : "none"
-    }),
+    style: _objectSpread({}, imageWrapperStyle),
     "data-image-url": imageUrl ? imageUrl : ""
   }), /*#__PURE__*/React.createElement("span", {
-    style: _objectSpread(_objectSpread({}, iconStyle), {}, {
-      display: imageOrIcon === "icon" && selectedIcon ? "block" : "none"
-    })
+    style: _objectSpread({}, iconStyle)
   }, /*#__PURE__*/React.createElement("span", {
     className: "".concat(selectedIcon, " infobox-icon"),
     "data-icon": selectedIcon
   })), /*#__PURE__*/React.createElement("div", {
     className: "infobox-number",
-    style: _objectSpread(_objectSpread({}, numberStyle), {}, {
-      display: imageOrIcon === "number" ? "block" : "none"
-    })
+    style: _objectSpread({}, numberStyle)
   }, number ? number : ""), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     tagName: headerTag,
     value: header,
@@ -6117,6 +6113,7 @@ var Save = function Save(_ref) {
     boxShadow: "".concat(shadowHOffset || 0, "px ").concat(shadowVOffset || 0, "px ").concat(shadowBlur || 0, "px ").concat(shadowSpread || 0, "px ").concat(shadowColor || "#000000")
   };
   var imageWrapperStyle = {
+    display: imageOrIcon === "image" ? "block" : "none",
     backgroundImage: imageUrl ? "url(".concat(imageUrl, ")") : undefined,
     height: "".concat(imageHeight, "px"),
     width: "".concat(imageWidth, "px"),
@@ -6190,7 +6187,6 @@ var Save = function Save(_ref) {
     className: "infobox-container",
     style: boxWrapperStyle
   }, /*#__PURE__*/React.createElement(_infobox_container_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    imageOrIcon: imageOrIcon,
     imageUrl: imageUrl,
     imageWrapperStyle: imageWrapperStyle,
     selectedIcon: selectedIcon,

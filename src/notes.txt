@@ -1,0 +1,1 @@
+inspector panel: infobox-settings -> image or Icon -> number ->  number input-field attribute must be string type. Because of the issue: when number is 0 it doesn't show in the frontend
