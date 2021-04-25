@@ -2,11 +2,7 @@
  * WordPress dependencies
  */
 import { __ } from "@wordpress/i18n";
-import {
-	InspectorControls,
-	PanelColorSettings,
-	MediaUpload,
-} from "@wordpress/block-editor";
+import { InspectorControls, MediaUpload } from "@wordpress/block-editor";
 import { useEffect } from "@wordpress/element";
 import {
 	PanelBody,
