@@ -341,11 +341,17 @@ function Inspector(props) {
 					{imageOrIcon === "image" && imageUrl && (
 						<ImageAvatar
 							imageUrl={imageUrl}
-							onDeleteImage={() => setAttributes({ imageUrl: null })}
+							onDeleteImage={() =>
+								setAttributes({
+									imageUrl: null,
+									imageHeight: 150,
+									imageWidth: 150,
+								})
+							}
 						/>
 					)}
 
-					{imageOrIcon === "image" && imageId && (
+					{imageOrIcon === "image" && imageUrl && (
 						<>
 							<RangeControl
 								label={__("Image Height")}
