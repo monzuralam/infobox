@@ -5082,7 +5082,14 @@ function Inspector(props) {
     value: selectedIcon,
     appendTo: "body",
     isMulti: false
-  })), imageOrIcon === "image" && imageId && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
+  })), imageOrIcon === "image" && imageUrl && /*#__PURE__*/React.createElement(_util_image_avatar_ImageAvater_js__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    imageUrl: imageUrl,
+    onDeleteImage: function onDeleteImage() {
+      return setAttributes({
+        imageUrl: null
+      });
+    }
+  }), imageOrIcon === "image" && imageId && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Image Height"),
     value: imageHeight,
     onChange: function onChange(newSize) {

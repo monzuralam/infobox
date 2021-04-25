@@ -342,6 +342,13 @@ function Inspector(props) {
 						</BaseControl>
 					)}
 
+					{imageOrIcon === "image" && imageUrl && (
+						<ImageAvatar
+							imageUrl={imageUrl}
+							onDeleteImage={() => setAttributes({ imageUrl: null })}
+						/>
+					)}
+
 					{imageOrIcon === "image" && imageId && (
 						<>
 							<RangeControl
