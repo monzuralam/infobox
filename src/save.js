@@ -230,29 +230,25 @@ const Save = ({ attributes }) => {
 	return (
 		<div {...useBlockProps.save()}>
 			{isClickable && clickableLink ? (
-				<>
-					<a href={clickableLink}>
-						<div className="infobox-container" style={boxWrapperStyle}>
-							<InfoboxContainer infoBoxProps={infoBoxProps} />
-						</div>
-					</a>
-				</>
+				<a href={clickableLink}>
+					<div className="infobox-container" style={boxWrapperStyle}>
+						<InfoboxContainer infoBoxProps={infoBoxProps} />
+					</div>
+				</a>
 			) : (
 				<div className="infobox-container" style={boxWrapperStyle}>
 					<InfoboxContainer infoBoxProps={infoBoxProps} />
 
 					{showButton ? (
-						<>
-							<div className="infobox-button" style={buttonWrapperStyles}>
-								<a
-									href={clickableLink}
-									className="eb-infobox-link"
-									style={linkStyles}
-								>
-									{buttonText}
-								</a>
-							</div>
-						</>
+						<div className="infobox-button" style={buttonWrapperStyles}>
+							<a
+								href={clickableLink}
+								className="eb-infobox-link"
+								style={linkStyles}
+							>
+								{buttonText}
+							</a>
+						</div>
 					) : null}
 				</div>
 			)}

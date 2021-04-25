@@ -3560,6 +3560,7 @@ var attributes = {
   blockMeta: {
     type: "object"
   },
+  // background attributes ⬇
   backgroundType: {
     type: "string",
     "default": "fill"
@@ -3580,6 +3581,7 @@ var attributes = {
     type: "string",
     "default": "linear-gradient(45deg,#0072ff,#00c6ff)"
   },
+  // infobox top head (image/icon/number) control attributes ⬇
   imageOrIcon: {
     type: "string",
     "default": "icon"
@@ -3601,6 +3603,14 @@ var attributes = {
   clickableLink: {
     type: "string"
   },
+  imageUrl: {
+    source: "attribute",
+    selector: ".infobox-image-wrapper",
+    attribute: "data-image-url"
+  },
+  imageId: {
+    type: "string"
+  },
   header: {
     type: "text",
     selector: ".eb-infobox-header",
@@ -3610,14 +3620,6 @@ var attributes = {
     type: "text",
     selector: ".eb-infobox-content",
     "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-  },
-  imageUrl: {
-    source: "attribute",
-    selector: ".infobox-image-wrapper",
-    attribute: "data-image-url"
-  },
-  imageId: {
-    type: "string"
   },
   flexDirection: {
     eype: "string",
@@ -6230,26 +6232,26 @@ var Save = function Save(_ref) {
     number: number,
     numberStyle: numberStyle
   };
-  return /*#__PURE__*/React.createElement("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["useBlockProps"].save(), isClickable && clickableLink ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("a", {
+  return /*#__PURE__*/React.createElement("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["useBlockProps"].save(), isClickable && clickableLink ? /*#__PURE__*/React.createElement("a", {
     href: clickableLink
   }, /*#__PURE__*/React.createElement("div", {
     className: "infobox-container",
     style: boxWrapperStyle
   }, /*#__PURE__*/React.createElement(_infobox_container_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
     infoBoxProps: infoBoxProps
-  })))) : /*#__PURE__*/React.createElement("div", {
+  }))) : /*#__PURE__*/React.createElement("div", {
     className: "infobox-container",
     style: boxWrapperStyle
   }, /*#__PURE__*/React.createElement(_infobox_container_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
     infoBoxProps: infoBoxProps
-  }), showButton ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+  }), showButton ? /*#__PURE__*/React.createElement("div", {
     className: "infobox-button",
     style: buttonWrapperStyles
   }, /*#__PURE__*/React.createElement("a", {
     href: clickableLink,
     className: "eb-infobox-link",
     style: linkStyles
-  }, buttonText))) : null));
+  }, buttonText)) : null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Save);

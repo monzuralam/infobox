@@ -20,6 +20,7 @@ const attributes = {
 		type: "object",
 	},
 
+	// background attributes ⬇
 	backgroundType: {
 		type: "string",
 		default: "fill",
@@ -40,6 +41,8 @@ const attributes = {
 		type: "string",
 		default: "linear-gradient(45deg,#0072ff,#00c6ff)",
 	},
+
+	// infobox top head (image/icon/number) control attributes ⬇
 	imageOrIcon: {
 		type: "string",
 		default: "icon",
@@ -61,6 +64,15 @@ const attributes = {
 	clickableLink: {
 		type: "string",
 	},
+	imageUrl: {
+		source: "attribute",
+		selector: ".infobox-image-wrapper",
+		attribute: "data-image-url",
+	},
+	imageId: {
+		type: "string",
+	},
+
 	header: {
 		type: "text",
 		selector: ".eb-infobox-header",
@@ -71,14 +83,6 @@ const attributes = {
 		selector: ".eb-infobox-content",
 		default:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-	},
-	imageUrl: {
-		source: "attribute",
-		selector: ".infobox-image-wrapper",
-		attribute: "data-image-url",
-	},
-	imageId: {
-		type: "string",
 	},
 	flexDirection: {
 		eype: "string",
