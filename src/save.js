@@ -213,44 +213,33 @@ const Save = ({ attributes }) => {
 		paddingLeft: `${buttonPaddingLeft}${buttonPaddingUnit}`,
 	};
 
+	const infoBoxProps = {
+		imageUrl,
+		imageWrapperStyle,
+		selectedIcon,
+		iconStyle,
+		header,
+		headerTag,
+		headerStyle,
+		content,
+		contentStyle,
+		number,
+		numberStyle,
+	};
+
 	return (
 		<div {...useBlockProps.save()}>
 			{isClickable && clickableLink ? (
 				<>
 					<a href={clickableLink}>
 						<div className="infobox-container" style={boxWrapperStyle}>
-							<InfoboxContainer
-								imageUrl={imageUrl}
-								imageWrapperStyle={imageWrapperStyle}
-								selectedIcon={selectedIcon}
-								iconStyle={iconStyle}
-								header={header}
-								headerTag={headerTag}
-								headerStyle={headerStyle}
-								content={content}
-								contentStyle={contentStyle}
-								number={number}
-								numberStyle={numberStyle}
-							/>
+							<InfoboxContainer infoBoxProps={infoBoxProps} />
 						</div>
 					</a>
 				</>
 			) : (
 				<div className="infobox-container" style={boxWrapperStyle}>
-					<InfoboxContainer
-						imageOrIcon={imageOrIcon}
-						imageUrl={imageUrl}
-						imageWrapperStyle={imageWrapperStyle}
-						selectedIcon={selectedIcon}
-						iconStyle={iconStyle}
-						header={header}
-						headerTag={headerTag}
-						headerStyle={headerStyle}
-						content={content}
-						contentStyle={contentStyle}
-						number={number}
-						numberStyle={numberStyle}
-					/>
+					<InfoboxContainer infoBoxProps={infoBoxProps} />
 
 					{showButton ? (
 						<>

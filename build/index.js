@@ -4713,17 +4713,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var InfoboxContainer = function InfoboxContainer(_ref) {
-  var imageUrl = _ref.imageUrl,
-      selectedIcon = _ref.selectedIcon,
-      header = _ref.header,
-      content = _ref.content,
-      imageWrapperStyle = _ref.imageWrapperStyle,
-      number = _ref.number,
-      headerTag = _ref.headerTag,
-      headerStyle = _ref.headerStyle,
-      contentStyle = _ref.contentStyle,
-      numberStyle = _ref.numberStyle,
-      iconStyle = _ref.iconStyle;
+  var infoBoxProps = _ref.infoBoxProps;
+  var imageUrl = infoBoxProps.imageUrl,
+      selectedIcon = infoBoxProps.selectedIcon,
+      header = infoBoxProps.header,
+      content = infoBoxProps.content,
+      imageWrapperStyle = infoBoxProps.imageWrapperStyle,
+      number = infoBoxProps.number,
+      headerTag = infoBoxProps.headerTag,
+      headerStyle = infoBoxProps.headerStyle,
+      contentStyle = infoBoxProps.contentStyle,
+      numberStyle = infoBoxProps.numberStyle,
+      iconStyle = infoBoxProps.iconStyle;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "infobox-image-wrapper",
     style: _objectSpread({}, imageWrapperStyle),
@@ -6216,39 +6217,31 @@ var Save = function Save(_ref) {
     paddingBottom: "".concat(buttonPaddingBottom).concat(buttonPaddingUnit),
     paddingLeft: "".concat(buttonPaddingLeft).concat(buttonPaddingUnit)
   };
+  var infoBoxProps = {
+    imageUrl: imageUrl,
+    imageWrapperStyle: imageWrapperStyle,
+    selectedIcon: selectedIcon,
+    iconStyle: iconStyle,
+    header: header,
+    headerTag: headerTag,
+    headerStyle: headerStyle,
+    content: content,
+    contentStyle: contentStyle,
+    number: number,
+    numberStyle: numberStyle
+  };
   return /*#__PURE__*/React.createElement("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["useBlockProps"].save(), isClickable && clickableLink ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("a", {
     href: clickableLink
   }, /*#__PURE__*/React.createElement("div", {
     className: "infobox-container",
     style: boxWrapperStyle
   }, /*#__PURE__*/React.createElement(_infobox_container_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    imageUrl: imageUrl,
-    imageWrapperStyle: imageWrapperStyle,
-    selectedIcon: selectedIcon,
-    iconStyle: iconStyle,
-    header: header,
-    headerTag: headerTag,
-    headerStyle: headerStyle,
-    content: content,
-    contentStyle: contentStyle,
-    number: number,
-    numberStyle: numberStyle
+    infoBoxProps: infoBoxProps
   })))) : /*#__PURE__*/React.createElement("div", {
     className: "infobox-container",
     style: boxWrapperStyle
   }, /*#__PURE__*/React.createElement(_infobox_container_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    imageOrIcon: imageOrIcon,
-    imageUrl: imageUrl,
-    imageWrapperStyle: imageWrapperStyle,
-    selectedIcon: selectedIcon,
-    iconStyle: iconStyle,
-    header: header,
-    headerTag: headerTag,
-    headerStyle: headerStyle,
-    content: content,
-    contentStyle: contentStyle,
-    number: number,
-    numberStyle: numberStyle
+    infoBoxProps: infoBoxProps
   }), showButton ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "infobox-button",
     style: buttonWrapperStyles
