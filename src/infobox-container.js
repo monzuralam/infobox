@@ -42,7 +42,7 @@ const InfoboxContainer = ({ infoBoxProps }) => {
 					...numberStyle,
 				}}
 			>
-				{number || number === 0 ? number : ""}
+				{number || "0"}
 			</div>
 
 			<RichText.Content
