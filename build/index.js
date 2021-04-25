@@ -5042,6 +5042,21 @@ function Inspector(props) {
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Infobox Settings")
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Heading Tag")
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
+    className: "infobox-button-group"
+  }, _constants_js__WEBPACK_IMPORTED_MODULE_6__["HEADER_TAGS"].map(function (header) {
+    return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+      isSmall: true,
+      isSecondary: headerTag !== header,
+      isPrimary: headerTag === header,
+      onClick: function onClick() {
+        return setAttributes({
+          headerTag: header
+        });
+      }
+    }, header.toUpperCase());
+  }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
     id: "eb-infobox-image-icon",
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Image or Icon")
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
@@ -5085,6 +5100,18 @@ function Inspector(props) {
     value: selectedIcon,
     appendTo: "body",
     isMulti: false
+  })), imageOrIcon === "icon" && selectedIcon && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon Size")
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
+    value: iconSize,
+    allowReset: true,
+    onChange: function onChange(newSize) {
+      return setAttributes({
+        iconSize: newSize
+      });
+    },
+    min: 8,
+    max: 100
   })), imageOrIcon === "image" && imageUrl && /*#__PURE__*/React.createElement(_util_image_avatar_ImageAvater_js__WEBPACK_IMPORTED_MODULE_9__["default"], {
     imageUrl: imageUrl,
     onDeleteImage: function onDeleteImage() {
@@ -5127,7 +5154,17 @@ function Inspector(props) {
       });
     },
     min: 0
-  })), !isClickable && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ToggleControl"], {
+  })), imageOrIcon === "number" && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Number Size"),
+    value: numberSize,
+    onChange: function onChange(newSize) {
+      return setAttributes({
+        numberSize: newSize
+      });
+    },
+    min: 8,
+    max: 64
+  }), /*#__PURE__*/React.createElement(React.Fragment, null), !isClickable && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ToggleControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Show Button"),
     checked: showButton,
     onChange: function onChange() {
@@ -5212,22 +5249,7 @@ function Inspector(props) {
         style: {
           padding: "1rem"
         }
-      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Heading")
-      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
-        className: "infobox-button-group"
-      }, _constants_js__WEBPACK_IMPORTED_MODULE_6__["HEADER_TAGS"].map(function (header) {
-        return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-          isSmall: true,
-          isSecondary: headerTag !== header,
-          isPrimary: headerTag === header,
-          onClick: function onClick() {
-            return setAttributes({
-              headerTag: header
-            });
-          }
-        }, header.toUpperCase());
-      }))), /*#__PURE__*/React.createElement(_util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }, /*#__PURE__*/React.createElement(_util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_7__["default"], {
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Font Family"),
         value: headerFontFamily,
         onChange: function onChange(headerFontFamily) {
@@ -5479,84 +5501,6 @@ function Inspector(props) {
         step: CONTENT_LINE_HEIGHT_STEP
       }));
     }
-  })), imageOrIcon === "icon" && selectedIcon && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon"),
-    className: "eb-typography-base"
-  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Dropdown"], {
-    className: "eb-typography-dropdown",
-    contentClassName: "my-popover-content-classname",
-    position: "bottom right",
-    renderToggle: function renderToggle(_ref3) {
-      var isOpen = _ref3.isOpen,
-          onToggle = _ref3.onToggle;
-      return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-        isSmall: true,
-        onClick: onToggle,
-        "aria-expanded": isOpen,
-        icon: "edit"
-      });
-    },
-    renderContent: function renderContent() {
-      return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
-        selectedUnit: iconSizeUnit,
-        unitTypes: [{
-          label: "px",
-          value: "px"
-        }, {
-          label: "em",
-          value: "em"
-        }, {
-          label: "%",
-          value: "%"
-        }],
-        onClick: function onClick(iconSizeUnit) {
-          return setAttributes({
-            iconSizeUnit: iconSizeUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon Size"),
-        value: iconSize,
-        allowReset: true,
-        onChange: function onChange(newSize) {
-          return setAttributes({
-            iconSize: newSize
-          });
-        },
-        min: 8,
-        max: 100
-      }));
-    }
-  })), imageOrIcon === "number" && selectedIcon && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Number"),
-    className: "eb-typography-base"
-  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Dropdown"], {
-    className: "eb-typography-dropdown",
-    contentClassName: "my-popover-content-classname",
-    position: "bottom right",
-    renderToggle: function renderToggle(_ref4) {
-      var isOpen = _ref4.isOpen,
-          onToggle = _ref4.onToggle;
-      return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-        isSmall: true,
-        onClick: onToggle,
-        "aria-expanded": isOpen,
-        icon: "edit"
-      });
-    },
-    renderContent: function renderContent() {
-      return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Number Size"),
-        value: numberSize,
-        onChange: function onChange(newSize) {
-          return setAttributes({
-            numberSize: newSize
-          });
-        },
-        min: 8,
-        max: 64
-      });
-    }
   }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Margin & Padding"),
     initialOpen: false
@@ -5583,11 +5527,11 @@ function Inspector(props) {
     right: marginRight,
     bottom: marginBottom,
     left: marginLeft,
-    onChange: function onChange(_ref5) {
-      var top = _ref5.top,
-          right = _ref5.right,
-          bottom = _ref5.bottom,
-          left = _ref5.left;
+    onChange: function onChange(_ref3) {
+      var top = _ref3.top,
+          right = _ref3.right,
+          bottom = _ref3.bottom,
+          left = _ref3.left;
       return setAttributes({
         marginTop: top,
         marginRight: right,
@@ -5618,11 +5562,11 @@ function Inspector(props) {
     right: paddingRight,
     bottom: paddingBottom,
     left: paddingLeft,
-    onChange: function onChange(_ref6) {
-      var top = _ref6.top,
-          right = _ref6.right,
-          bottom = _ref6.bottom,
-          left = _ref6.left;
+    onChange: function onChange(_ref4) {
+      var top = _ref4.top,
+          right = _ref4.right,
+          bottom = _ref4.bottom,
+          left = _ref4.left;
       return setAttributes({
         paddingTop: top,
         paddingRight: right,
@@ -5707,11 +5651,11 @@ function Inspector(props) {
     right: headerPaddingRight,
     bottom: headerPaddingBottom,
     left: headerPaddingLeft,
-    onChange: function onChange(_ref7) {
-      var top = _ref7.top,
-          right = _ref7.right,
-          bottom = _ref7.bottom,
-          left = _ref7.left;
+    onChange: function onChange(_ref5) {
+      var top = _ref5.top,
+          right = _ref5.right,
+          bottom = _ref5.bottom,
+          left = _ref5.left;
       return setAttributes({
         headerPaddingTop: top,
         headerPaddingRight: right,
@@ -5725,11 +5669,11 @@ function Inspector(props) {
     right: imageMarginTop,
     bottom: imageMarginBottom,
     left: imageMarginLeft,
-    onChange: function onChange(_ref8) {
-      var top = _ref8.top,
-          right = _ref8.right,
-          bottom = _ref8.bottom,
-          left = _ref8.left;
+    onChange: function onChange(_ref6) {
+      var top = _ref6.top,
+          right = _ref6.right,
+          bottom = _ref6.bottom,
+          left = _ref6.left;
       return setAttributes({
         imageMarginTop: top,
         imageMarginRight: right,
@@ -5760,11 +5704,11 @@ function Inspector(props) {
     right: buttonPaddingRight,
     bottom: buttonPaddingBottom,
     left: buttonPaddingLeft,
-    onChange: function onChange(_ref9) {
-      var top = _ref9.top,
-          right = _ref9.right,
-          bottom = _ref9.bottom,
-          left = _ref9.left;
+    onChange: function onChange(_ref7) {
+      var top = _ref7.top,
+          right = _ref7.right,
+          bottom = _ref7.bottom,
+          left = _ref7.left;
       return setAttributes({
         buttonPaddingTop: top,
         buttonPaddingRight: right,
@@ -5795,11 +5739,11 @@ function Inspector(props) {
     right: iconPaddingRight,
     bottom: iconPaddingBottom,
     left: iconPaddingLeft,
-    onChange: function onChange(_ref10) {
-      var top = _ref10.top,
-          right = _ref10.right,
-          bottom = _ref10.bottom,
-          left = _ref10.left;
+    onChange: function onChange(_ref8) {
+      var top = _ref8.top,
+          right = _ref8.right,
+          bottom = _ref8.bottom,
+          left = _ref8.left;
       return setAttributes({
         iconPaddingTop: top,
         iconPaddingRight: right,
@@ -5814,9 +5758,9 @@ function Inspector(props) {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Type")
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
     id: "eb-infobox-infobox-background"
-  }, _constants_js__WEBPACK_IMPORTED_MODULE_6__["BACKGROUND_TYPES"].map(function (_ref11) {
-    var value = _ref11.value,
-        label = _ref11.label;
+  }, _constants_js__WEBPACK_IMPORTED_MODULE_6__["BACKGROUND_TYPES"].map(function (_ref9) {
+    var value = _ref9.value,
+        label = _ref9.label;
     return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
       isLarge: true,
       isPrimary: backgroundType === value,
@@ -5848,9 +5792,9 @@ function Inspector(props) {
   })), backgroundType === "image" && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Image")
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["MediaUpload"], {
-    onSelect: function onSelect(_ref12) {
-      var url = _ref12.url,
-          id = _ref12.id;
+    onSelect: function onSelect(_ref10) {
+      var url = _ref10.url,
+          id = _ref10.id;
       return setAttributes({
         backgroundImageURL: url,
         backgroundImageID: id
@@ -5858,8 +5802,8 @@ function Inspector(props) {
     },
     type: "image",
     value: backgroundImageID,
-    render: function render(_ref13) {
-      var open = _ref13.open;
+    render: function render(_ref11) {
+      var open = _ref11.open;
       return !backgroundImageURL && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
         className: "eb-wrapper-upload-button eb-infobox-bg-upload-button components-button",
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Upload Image"),
@@ -5876,9 +5820,9 @@ function Inspector(props) {
     }
   }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Size")
-  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], null, _constants_js__WEBPACK_IMPORTED_MODULE_6__["BACKGROUND_SIZES"].map(function (_ref14) {
-    var value = _ref14.value,
-        label = _ref14.label;
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], null, _constants_js__WEBPACK_IMPORTED_MODULE_6__["BACKGROUND_SIZES"].map(function (_ref12) {
+    var value = _ref12.value,
+        label = _ref12.label;
     return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
       isPrimary: backgroundSize === value,
       isSecondary: backgroundSize !== value,

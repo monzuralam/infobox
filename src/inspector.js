@@ -293,6 +293,21 @@ function Inspector(props) {
 		<InspectorControls key="controls">
 			<span className="eb-panel-control">
 				<PanelBody title={__("Infobox Settings")}>
+					<BaseControl label={__("Heading Tag")}>
+						<ButtonGroup className="infobox-button-group">
+							{HEADER_TAGS.map((header) => (
+								<Button
+									isSmall
+									isSecondary={headerTag !== header}
+									isPrimary={headerTag === header}
+									onClick={() => setAttributes({ headerTag: header })}
+								>
+									{header.toUpperCase()}
+								</Button>
+							))}
+						</ButtonGroup>
+					</BaseControl>
+
 					<BaseControl id="eb-infobox-image-icon" label={__("Image or Icon")}>
 						<ButtonGroup id="eb-infobox-image-icon">
 							{INFOBOX_TYPES.map((value) => (
@@ -334,6 +349,18 @@ function Inspector(props) {
 								value={selectedIcon}
 								appendTo="body"
 								isMulti={false}
+							/>
+						</BaseControl>
+					)}
+
+					{imageOrIcon === "icon" && selectedIcon && (
+						<BaseControl label={__("Icon Size")}>
+							<RangeControl
+								value={iconSize}
+								allowReset
+								onChange={(newSize) => setAttributes({ iconSize: newSize })}
+								min={8}
+								max={100}
 							/>
 						</BaseControl>
 					)}
@@ -387,6 +414,94 @@ function Inspector(props) {
 						</BaseControl>
 					)}
 
+					{imageOrIcon === "number" && (
+						<RangeControl
+							label={__("Number Size")}
+							value={numberSize}
+							onChange={(newSize) => setAttributes({ numberSize: newSize })}
+							min={8}
+							max={64}
+						/>
+					)}
+					{
+						<>
+							{/* {imageOrIcon === "icon" && selectedIcon && (
+								<BaseControl label={__("Icon")} className="eb-typography-base">
+									<Dropdown
+										className="eb-typography-dropdown"
+										contentClassName="my-popover-content-classname"
+										position="bottom right"
+										renderToggle={({ isOpen, onToggle }) => (
+											<Button
+												isSmall
+												onClick={onToggle}
+												aria-expanded={isOpen}
+												icon="edit"
+											></Button>
+										)}
+										renderContent={() => (
+											<>
+												<UnitControl
+													selectedUnit={iconSizeUnit}
+													unitTypes={[
+														{ label: "px", value: "px" },
+														{ label: "em", value: "em" },
+														{ label: "%", value: "%" },
+													]}
+													onClick={(iconSizeUnit) =>
+														setAttributes({ iconSizeUnit })
+													}
+												/>
+
+												<RangeControl
+													label={__("Icon Size")}
+													value={iconSize}
+													allowReset
+													onChange={(newSize) =>
+														setAttributes({ iconSize: newSize })
+													}
+													min={8}
+													max={100}
+												/>
+											</>
+										)}
+									/>
+								</BaseControl>
+							)}
+
+							{imageOrIcon === "number" && selectedIcon && (
+								<BaseControl
+									label={__("Number")}
+									className="eb-typography-base"
+								>
+									<Dropdown
+										className="eb-typography-dropdown"
+										contentClassName="my-popover-content-classname"
+										position="bottom right"
+										renderToggle={({ isOpen, onToggle }) => (
+											<Button
+												isSmall
+												onClick={onToggle}
+												aria-expanded={isOpen}
+												icon="edit"
+											></Button>
+										)}
+										renderContent={() => (
+											<RangeControl
+												label={__("Number Size")}
+												value={numberSize}
+												onChange={(newSize) =>
+													setAttributes({ numberSize: newSize })
+												}
+												min={8}
+												max={64}
+											/>
+										)}
+									/>
+								</BaseControl>
+							)} */}
+						</>
+					}
 					{!isClickable && (
 						<ToggleControl
 							label={__("Show Button")}
@@ -460,21 +575,6 @@ function Inspector(props) {
 							)}
 							renderContent={() => (
 								<div style={{ padding: "1rem" }}>
-									<BaseControl label={__("Heading")}>
-										<ButtonGroup className="infobox-button-group">
-											{HEADER_TAGS.map((header) => (
-												<Button
-													isSmall
-													isSecondary={headerTag !== header}
-													isPrimary={headerTag === header}
-													onClick={() => setAttributes({ headerTag: header })}
-												>
-													{header.toUpperCase()}
-												</Button>
-											))}
-										</ButtonGroup>
-									</BaseControl>
-
 									<FontPicker
 										label={__("Font Family")}
 										value={headerFontFamily}
@@ -701,79 +801,6 @@ function Inspector(props) {
 							)}
 						/>
 					</BaseControl>
-
-					{imageOrIcon === "icon" && selectedIcon && (
-						<BaseControl label={__("Icon")} className="eb-typography-base">
-							<Dropdown
-								className="eb-typography-dropdown"
-								contentClassName="my-popover-content-classname"
-								position="bottom right"
-								renderToggle={({ isOpen, onToggle }) => (
-									<Button
-										isSmall
-										onClick={onToggle}
-										aria-expanded={isOpen}
-										icon="edit"
-									></Button>
-								)}
-								renderContent={() => (
-									<>
-										<UnitControl
-											selectedUnit={iconSizeUnit}
-											unitTypes={[
-												{ label: "px", value: "px" },
-												{ label: "em", value: "em" },
-												{ label: "%", value: "%" },
-											]}
-											onClick={(iconSizeUnit) =>
-												setAttributes({ iconSizeUnit })
-											}
-										/>
-
-										<RangeControl
-											label={__("Icon Size")}
-											value={iconSize}
-											allowReset
-											onChange={(newSize) =>
-												setAttributes({ iconSize: newSize })
-											}
-											min={8}
-											max={100}
-										/>
-									</>
-								)}
-							/>
-						</BaseControl>
-					)}
-
-					{imageOrIcon === "number" && selectedIcon && (
-						<BaseControl label={__("Number")} className="eb-typography-base">
-							<Dropdown
-								className="eb-typography-dropdown"
-								contentClassName="my-popover-content-classname"
-								position="bottom right"
-								renderToggle={({ isOpen, onToggle }) => (
-									<Button
-										isSmall
-										onClick={onToggle}
-										aria-expanded={isOpen}
-										icon="edit"
-									></Button>
-								)}
-								renderContent={() => (
-									<RangeControl
-										label={__("Number Size")}
-										value={numberSize}
-										onChange={(newSize) =>
-											setAttributes({ numberSize: newSize })
-										}
-										min={8}
-										max={64}
-									/>
-								)}
-							/>
-						</BaseControl>
-					)}
 				</PanelBody>
 
 				<PanelBody title={__("Margin & Padding")} initialOpen={false}>
