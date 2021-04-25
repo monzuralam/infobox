@@ -5104,7 +5104,6 @@ function Inspector(props) {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon Size")
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
     value: iconSize,
-    allowReset: true,
     onChange: function onChange(newSize) {
       return setAttributes({
         iconSize: newSize

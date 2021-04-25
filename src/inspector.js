@@ -357,7 +357,6 @@ function Inspector(props) {
 						<BaseControl label={__("Icon Size")}>
 							<RangeControl
 								value={iconSize}
-								allowReset
 								onChange={(newSize) => setAttributes({ iconSize: newSize })}
 								min={8}
 								max={100}
