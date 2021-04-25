@@ -8,6 +8,7 @@ import { DEFAULT_BACKGROUND } from "./constants";
 const Save = ({ attributes }) => {
 	const {
 		backgroundType,
+		backgroundSize,
 		backgroundImageURL,
 		backgroundColor,
 		backgroundGradient,
@@ -107,7 +108,9 @@ const Save = ({ attributes }) => {
 				: (backgroundType === "gradient" && backgroundGradient) || "none",
 		backgroundColor: backgroundColor || DEFAULT_BACKGROUND,
 		backgroundSize:
-			backgroundType === "image" && backgroundImageURL ? "cover" : "unset",
+			backgroundType === "image" &&
+			backgroundImageURL &&
+			(backgroundSize || "cover"),
 		cursor: isClickable ? "pointer" : "default",
 		margin: `${marginTop || 0}${marginUnit} ${marginRight || 0}${marginUnit} ${
 			marginBottom || 0

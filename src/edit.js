@@ -23,6 +23,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		blockId,
 
 		backgroundType,
+		backgroundSize,
 		backgroundImageURL,
 		backgroundColor,
 		backgroundGradient,
@@ -193,7 +194,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				: (backgroundType === "gradient" && backgroundGradient) || "none",
 		backgroundColor: backgroundColor || DEFAULT_BACKGROUND,
 		backgroundSize:
-			backgroundType === "image" && backgroundImageURL ? "cover" : "unset",
+			backgroundType === "image" &&
+			backgroundImageURL &&
+			(backgroundSize || "cover"),
 		margin: `${marginTop || 0}${marginUnit} ${marginRight || 0}${marginUnit} ${
 			marginBottom || 0
 		}${marginUnit} ${marginLeft || 0}${marginUnit} `,
@@ -301,20 +304,20 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		const styleObject = {
 			desktop: `
 			.infobox-container{
-				color: #6c40f7 !important;
-				background: #f0f !important;
+				color: #6c40f7;
+				background: #f0f;
 			}
 			`,
 			tab: `
 			.infobox-container{
-				color: #ff0 !important;
-				background: #0ff !important;
+				color: #ff0;
+				background: #0ff;
 			}
 			`,
 			mobile: `
 			.infobox-container{
-				color: #34f !important;
-				background: #ccc !important;
+				color: #34f;
+				background: #ccc;
 			}
 			`,
 		};
@@ -322,6 +325,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			setAttributes({ blockMeta: styleObject });
 		}
 	}, [attributes]);
+
+	console.log({ attributes });
+
 	return [
 		isSelected && (
 			<Inspector attributes={attributes} setAttributes={setAttributes} />

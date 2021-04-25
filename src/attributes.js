@@ -24,6 +24,9 @@ const attributes = {
 		type: "string",
 		default: "fill",
 	},
+	backgroundSize: {
+		type: "string",
+	},
 	backgroundImageURL: {
 		type: "string",
 	},

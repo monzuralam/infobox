@@ -33,7 +33,8 @@ import {
 	BUTTON_SIZES,
 	BUTTON_ALIGN,
 	BORDER_STYLES,
-	BACKGROUND_TYPE,
+	BACKGROUND_TYPES,
+	BACKGROUND_SIZES,
 	FONT_WEIGHTS,
 	TEXT_DECORATION,
 } from "./constants.js";
@@ -52,6 +53,7 @@ function Inspector(props) {
 		resOption,
 
 		backgroundType,
+		backgroundSize,
 		backgroundImageURL,
 		backgroundImageID,
 		backgroundColor,
@@ -295,28 +297,6 @@ function Inspector(props) {
 		<InspectorControls key="controls">
 			<span className="eb-panel-control">
 				<PanelBody title={__("Infobox Settings")}>
-					<BaseControl
-						id="eb-infobox-background-type"
-						label={__("Infobox Background")}
-					>
-						<ButtonGroup id="eb-infobox-infobox-background">
-							{BACKGROUND_TYPE.map((item) => (
-								<Button
-									isLarge
-									isSecondary={backgroundType !== item.value}
-									isPrimary={backgroundType === item.value}
-									onClick={() =>
-										setAttributes({
-											backgroundType: item.value,
-										})
-									}
-								>
-									{item.label}
-								</Button>
-							))}
-						</ButtonGroup>
-					</BaseControl>
-
 					<BaseControl id="eb-infobox-image-icon" label={__("Image or Icon")}>
 						<ButtonGroup id="eb-infobox-image-icon">
 							{INFOBOX_TYPES.map((value) => (
@@ -454,40 +434,6 @@ function Inspector(props) {
 						/>
 					)}
 				</PanelBody>
-
-				{backgroundType === "image" && (
-					<PanelBody title={__("Background Image")}>
-						<MediaUpload
-							onSelect={(media) =>
-								setAttributes({
-									backgroundImageURL: media.url,
-									backgroundImageID: media.id,
-								})
-							}
-							type="image"
-							value={backgroundImageID}
-							render={({ open }) =>
-								!backgroundImageURL && (
-									<Button
-										className="eb-infobox-bg-upload-button components-button"
-										label={__("Upload Image")}
-										icon="format-image"
-										onClick={open}
-									/>
-								)
-							}
-						/>
-
-						{backgroundImageURL && (
-							<ImageAvatar
-								imageUrl={backgroundImageURL}
-								onDeleteImage={() =>
-									setAttributes({ backgroundImageURL: null })
-								}
-							/>
-						)}
-					</PanelBody>
-				)}
 
 				<PanelBody title={__("Typography")} initialOpen={false}>
 					<BaseControl label={__("Header")} className="eb-typography-base">
@@ -821,40 +767,6 @@ function Inspector(props) {
 					)}
 				</PanelBody>
 
-				{backgroundType === "fill" && (
-					<PanelColorSettings
-						title={__("Background Color")}
-						initialOpen={false}
-						colorSettings={[
-							{
-								value: backgroundColor,
-								onChange: (newColor) =>
-									setAttributes({
-										backgroundColor: newColor,
-									}),
-								label: __("Background Color"),
-							},
-							{
-								value: iconBackground,
-								onChange: (newColor) =>
-									setAttributes({ iconBackground: newColor }),
-								label: __("Icon Background Color"),
-							},
-						]}
-					/>
-				)}
-
-				{backgroundType === "gradient" && (
-					<PanelBody title={__("Gradient Colors")} initialOpen={false}>
-						<GradientColorControl
-							gradientColor={backgroundGradient}
-							onChange={(newValue) =>
-								setAttributes({ backgroundGradient: newValue })
-							}
-						/>
-					</PanelBody>
-				)}
-
 				<PanelBody title={__("Margin & Padding")} initialOpen={false}>
 					<UnitControl
 						selectedUnit={marginUnit}
@@ -1065,6 +977,99 @@ function Inspector(props) {
 								}
 							/>
 						</>
+					)}
+				</PanelBody>
+
+				<PanelBody title={__("Background")} initialOpen={false}>
+					<BaseControl label={__("Background Type")}>
+						<ButtonGroup id="eb-infobox-infobox-background">
+							{BACKGROUND_TYPES.map(({ value, label }) => (
+								<Button
+									isLarge
+									isPrimary={backgroundType === value}
+									isSecondary={backgroundType !== value}
+									onClick={() =>
+										setAttributes({
+											backgroundType: value,
+										})
+									}
+								>
+									{label}
+								</Button>
+							))}
+						</ButtonGroup>
+					</BaseControl>
+
+					{backgroundType === "fill" && (
+						<ColorControl
+							label={__("Background Color")}
+							color={backgroundColor}
+							onChange={(backgroundColor) => setAttributes({ backgroundColor })}
+						/>
+					)}
+
+					{backgroundType === "gradient" && (
+						<PanelBody title={__("Gradient")} initialOpen={false}>
+							<GradientColorControl
+								gradientColor={backgroundGradient}
+								onChange={(backgroundGradient) =>
+									setAttributes({ backgroundGradient })
+								}
+							/>
+						</PanelBody>
+					)}
+
+					{backgroundType === "image" && (
+						<PanelBody title={__("Background Image")}>
+							<MediaUpload
+								onSelect={({ url, id }) =>
+									setAttributes({
+										backgroundImageURL: url,
+										backgroundImageID: id,
+									})
+								}
+								type="image"
+								value={backgroundImageID}
+								render={({ open }) =>
+									!backgroundImageURL && (
+										<Button
+											className="eb-wrapper-upload-button eb-infobox-bg-upload-button components-button"
+											label={__("Upload Image")}
+											icon="format-image"
+											onClick={open}
+										/>
+									)
+								}
+							/>
+
+							{backgroundImageURL && (
+								<>
+									<ImageAvatar
+										imageUrl={backgroundImageURL}
+										onDeleteImage={() =>
+											setAttributes({ backgroundImageURL: null })
+										}
+									/>
+									<BaseControl label={__("Background Size")}>
+										<ButtonGroup>
+											{BACKGROUND_SIZES.map(({ value, label }) => (
+												<Button
+													isPrimary={backgroundSize === value}
+													isSecondary={backgroundSize !== value}
+													onClick={() =>
+														setAttributes({
+															backgroundSize: value,
+														})
+													}
+												>
+													{label}
+												</Button>
+											))}
+										</ButtonGroup>
+									</BaseControl>
+								</>
+							)}
+						</PanelBody>
 					)}
 				</PanelBody>
 

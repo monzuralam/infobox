@@ -1,9 +1,15 @@
 const { __ } = wp.i18n;
 
-export const BACKGROUND_TYPE = [
+export const BACKGROUND_TYPES = [
 	{ label: "Image", value: "image" },
 	{ label: "Fill", value: "fill" },
 	{ label: "Gradient", value: "gradient" },
+];
+
+export const BACKGROUND_SIZES = [
+	{ label: __("Auto"), value: "auto" },
+	{ label: __("Cover"), value: "cover" },
+	{ label: __("Contain"), value: "contain" },
 ];
 
 export const INFOBOX_TYPES = ["image", "icon", "number"];
