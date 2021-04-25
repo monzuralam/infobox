@@ -229,37 +229,117 @@ const attributes = {
 	buttonTextColor: {
 		type: "string",
 	},
-	linkedMargin: {
-		type: "boolean",
-		default: false,
+
+	// margin padding attributes ⬇
+	marginUnit: {
+		type: "string",
+		default: "px",
 	},
+
 	marginTop: {
-		type: "number",
+		type: "string",
 	},
 	marginRight: {
-		type: "number",
+		type: "string",
 	},
 	marginBottom: {
-		type: "number",
+		type: "string",
 	},
 	marginLeft: {
-		type: "number",
+		type: "string",
 	},
-	linkedPadding: {
-		type: "boolean",
+
+	paddingUnit: {
+		type: "string",
+		default: "px",
 	},
+
 	paddingTop: {
-		type: "number",
+		type: "string",
 	},
 	paddingRight: {
-		type: "number",
+		type: "string",
 	},
 	paddingBottom: {
-		type: "number",
+		type: "string",
 	},
 	paddingLeft: {
-		type: "number",
+		type: "string",
 	},
+
+	TABmarginUnit: {
+		type: "string",
+		default: "px",
+	},
+
+	TABmarginTop: {
+		type: "string",
+	},
+	TABmarginRight: {
+		type: "string",
+	},
+	TABmarginBottom: {
+		type: "string",
+	},
+	TABmarginLeft: {
+		type: "string",
+	},
+
+	TABpaddingUnit: {
+		type: "string",
+		default: "px",
+	},
+
+	TABpaddingTop: {
+		type: "string",
+	},
+	TABpaddingRight: {
+		type: "string",
+	},
+	TABpaddingBottom: {
+		type: "string",
+	},
+	TABpaddingLeft: {
+		type: "string",
+	},
+
+	MOBmarginUnit: {
+		type: "string",
+		default: "px",
+	},
+
+	MOBmarginTop: {
+		type: "string",
+	},
+	MOBmarginRight: {
+		type: "string",
+	},
+	MOBmarginBottom: {
+		type: "string",
+	},
+	MOBmarginLeft: {
+		type: "string",
+	},
+
+	MOBpaddingUnit: {
+		type: "string",
+		default: "px",
+	},
+
+	MOBpaddingTop: {
+		type: "string",
+	},
+	MOBpaddingRight: {
+		type: "string",
+	},
+	MOBpaddingBottom: {
+		type: "string",
+	},
+	MOBpaddingLeft: {
+		type: "string",
+	},
+
+	// Border attributes ⬇
 	borderWidth: {
 		type: "number",
 	},
@@ -273,6 +353,8 @@ const attributes = {
 	borderRadius: {
 		type: "number",
 	},
+
+	// Shadow attributes ⬇
 	shadowColor: {
 		type: "string",
 	},
@@ -296,14 +378,7 @@ const attributes = {
 		type: "string",
 		default: "px",
 	},
-	marginUnit: {
-		type: "string",
-		default: "px",
-	},
-	paddingUnit: {
-		type: "string",
-		default: "px",
-	},
+
 	radiusUnit: {
 		type: "string",
 		default: "px",

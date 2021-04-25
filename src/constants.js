@@ -73,3 +73,9 @@ export const TEXT_DECORATION = [
 	{ label: __("Underline"), value: "underline" },
 	{ label: __("Underline Oveline"), value: "underline overline" },
 ];
+
+export const FONT_SIZE_UNITS = [
+	{ label: "px", value: "px" },
+	{ label: "em", value: "em" },
+	{ label: "%", value: "%" },
+];

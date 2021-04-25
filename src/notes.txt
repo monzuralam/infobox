@@ -1,1 +1,8 @@
 inspector panel: infobox-settings -> image or Icon -> number ->  number input-field attribute must be string type. Because of the issue: when number is 0 it doesn't show in the frontend
+-------------------- changes -------------
+1) attributes.js: margin-padding attributes type changed to string and added the tab/mobile attributes for responsive options
+2) constants: added 'FONT_SIZE_UNITS' (actually: px/em/%) and imported in inspector for reuse
+3) helpers.js: it's brought here for using later
+4) ResPanelBody.js: it's brought here and used in 'margin-padding' panel of inspector
+5) inspector.js: 'margin-padding' responsive option added, haven't implemented them yet
+6) subodule:'dimensions-control' from 'hanzala-dev' checked-out and used

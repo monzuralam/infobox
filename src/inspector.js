@@ -19,8 +19,6 @@ import {
 /**
  * Internal dependencies
  */
-import faIcons from "../util/faIcons.js";
-import FontIconPicker from "@fonticonpicker/react-fonticonpicker";
 import {
 	INFOBOX_TYPES,
 	POSITIONS,
@@ -33,13 +31,17 @@ import {
 	BACKGROUND_SIZES,
 	FONT_WEIGHTS,
 	TEXT_DECORATION,
+	FONT_SIZE_UNITS,
 } from "./constants.js";
+import FontIconPicker from "@fonticonpicker/react-fonticonpicker";
+import faIcons from "../util/faIcons.js";
 import FontPicker from "../util/typography-control/FontPicker";
 import DimensionsControl from "../util/dimensions-control";
 import ImageAvatar from "../util/image-avatar/ImageAvater.js";
 import GradientColorControl from "../util/gradient-color-controller";
 import UnitControl from "../util/unit-control";
 import ColorControl from "../util/color-control";
+import ResPanelBody from "./ResPanelBody";
 
 function Inspector(props) {
 	const { attributes, setAttributes } = props;
@@ -48,12 +50,15 @@ function Inspector(props) {
 		// responsive control attributes ⬇
 		resOption,
 
+		// background attributes
 		backgroundType,
 		backgroundSize,
 		backgroundImageURL,
 		backgroundImageID,
 		backgroundColor,
 		backgroundGradient,
+
+		// infobox settings attributes
 		imageOrIcon,
 		iconPosition,
 		selectedIcon,
@@ -100,28 +105,66 @@ function Inspector(props) {
 		buttonPaddingLeft,
 		buttonSize,
 		buttonAlign,
+
+		// margin padding attributes ⬇
+		marginUnit,
+
 		marginTop,
 		marginRight,
 		marginBottom,
 		marginLeft,
+
+		paddingUnit,
+
 		paddingTop,
 		paddingRight,
 		paddingBottom,
 		paddingLeft,
+
+		TABmarginUnit,
+
+		TABmarginTop,
+		TABmarginRight,
+		TABmarginBottom,
+		TABmarginLeft,
+
+		TABpaddingUnit,
+
+		TABpaddingTop,
+		TABpaddingRight,
+		TABpaddingBottom,
+		TABpaddingLeft,
+
+		MOBmarginUnit,
+
+		MOBmarginTop,
+		MOBmarginRight,
+		MOBmarginBottom,
+		MOBmarginLeft,
+
+		MOBpaddingUnit,
+
+		MOBpaddingTop,
+		MOBpaddingRight,
+		MOBpaddingBottom,
+		MOBpaddingLeft,
+
+		// Border attributes ⬇
 		borderWidth,
 		borderStyle,
 		borderColor,
 		borderRadius,
+		radiusUnit,
+
+		// Shadow attributes ⬇
 		shadowColor,
 		shadowHOffset,
 		shadowVOffset,
 		shadowBlur,
 		shadowSpread,
+
 		contentSizeUnit,
 		iconSizeUnit,
-		marginUnit,
-		paddingUnit,
-		radiusUnit,
 		headerPaddingUnit,
 		iconPaddingUnit,
 		borderWidthUnit,
@@ -802,59 +845,153 @@ function Inspector(props) {
 					</BaseControl>
 				</PanelBody>
 
-				<PanelBody title={__("Margin & Padding")} initialOpen={false}>
-					<UnitControl
-						selectedUnit={marginUnit}
-						unitTypes={[
-							{ label: "px", value: "px" },
-							{ label: "em", value: "em" },
-							{ label: "%", value: "%" },
-						]}
-						onClick={(marginUnit) => setAttributes({ marginUnit })}
-					/>
+				<ResPanelBody
+					title={__("Margin & Padding")}
+					initialOpen={false}
+					resRequiredProps={resRequiredProps}
+				>
+					{resOption == "desktop" && (
+						<>
+							<UnitControl
+								selectedUnit={marginUnit}
+								unitTypes={FONT_SIZE_UNITS}
+								onClick={(marginUnit) => setAttributes({ marginUnit })}
+							/>
 
-					<DimensionsControl
-						label={__("Margin")}
-						top={marginTop}
-						right={marginRight}
-						bottom={marginBottom}
-						left={marginLeft}
-						onChange={({ top, right, bottom, left }) =>
-							setAttributes({
-								marginTop: top,
-								marginRight: right,
-								marginBottom: bottom,
-								marginLeft: left,
-							})
-						}
-					/>
+							<DimensionsControl
+								label={__("Margin")}
+								top={marginTop}
+								right={marginRight}
+								bottom={marginBottom}
+								left={marginLeft}
+								onChange={({ top, right, bottom, left }) =>
+									setAttributes({
+										marginTop: top,
+										marginRight: right,
+										marginBottom: bottom,
+										marginLeft: left,
+									})
+								}
+							/>
 
-					<UnitControl
-						selectedUnit={paddingUnit}
-						unitTypes={[
-							{ label: "px", value: "px" },
-							{ label: "em", value: "em" },
-							{ label: "%", value: "%" },
-						]}
-						onClick={(paddingUnit) => setAttributes({ paddingUnit })}
-					/>
+							<UnitControl
+								selectedUnit={paddingUnit}
+								unitTypes={FONT_SIZE_UNITS}
+								onClick={(paddingUnit) => setAttributes({ paddingUnit })}
+							/>
 
-					<DimensionsControl
-						label={__("Padding")}
-						top={paddingTop}
-						right={paddingRight}
-						bottom={paddingBottom}
-						left={paddingLeft}
-						onChange={({ top, right, bottom, left }) =>
-							setAttributes({
-								paddingTop: top,
-								paddingRight: right,
-								paddingBottom: bottom,
-								paddingLeft: left,
-							})
-						}
-					/>
-				</PanelBody>
+							<DimensionsControl
+								label={__("Padding")}
+								top={paddingTop}
+								right={paddingRight}
+								bottom={paddingBottom}
+								left={paddingLeft}
+								onChange={({ top, right, bottom, left }) =>
+									setAttributes({
+										paddingTop: top,
+										paddingRight: right,
+										paddingBottom: bottom,
+										paddingLeft: left,
+									})
+								}
+							/>
+						</>
+					)}
+					{resOption == "tab" && (
+						<>
+							<UnitControl
+								selectedUnit={TABmarginUnit}
+								unitTypes={FONT_SIZE_UNITS}
+								onClick={(TABmarginUnit) => setAttributes({ TABmarginUnit })}
+							/>
+
+							<DimensionsControl
+								label={__("Margin")}
+								top={TABmarginTop}
+								right={TABmarginRight}
+								bottom={TABmarginBottom}
+								left={TABmarginLeft}
+								onChange={({ top, right, bottom, left }) =>
+									setAttributes({
+										TABmarginTop: top,
+										TABmarginRight: right,
+										TABmarginBottom: bottom,
+										TABmarginLeft: left,
+									})
+								}
+							/>
+
+							<UnitControl
+								selectedUnit={TABpaddingUnit}
+								unitTypes={FONT_SIZE_UNITS}
+								onClick={(TABpaddingUnit) => setAttributes({ TABpaddingUnit })}
+							/>
+
+							<DimensionsControl
+								label={__("Padding")}
+								top={TABpaddingTop}
+								right={TABpaddingRight}
+								bottom={TABpaddingBottom}
+								left={TABpaddingLeft}
+								onChange={({ top, right, bottom, left }) =>
+									setAttributes({
+										TABpaddingTop: top,
+										TABpaddingRight: right,
+										TABpaddingBottom: bottom,
+										TABpaddingLeft: left,
+									})
+								}
+							/>
+						</>
+					)}
+					{resOption == "mobile" && (
+						<>
+							<UnitControl
+								selectedUnit={MOBmarginUnit}
+								unitTypes={FONT_SIZE_UNITS}
+								onClick={(MOBmarginUnit) => setAttributes({ MOBmarginUnit })}
+							/>
+
+							<DimensionsControl
+								label={__("Margin")}
+								top={MOBmarginTop}
+								right={MOBmarginRight}
+								bottom={MOBmarginBottom}
+								left={MOBmarginLeft}
+								onChange={({ top, right, bottom, left }) =>
+									setAttributes({
+										MOBmarginTop: top,
+										MOBmarginRight: right,
+										MOBmarginBottom: bottom,
+										MOBmarginLeft: left,
+									})
+								}
+							/>
+
+							<UnitControl
+								selectedUnit={MOBpaddingUnit}
+								unitTypes={FONT_SIZE_UNITS}
+								onClick={(MOBpaddingUnit) => setAttributes({ MOBpaddingUnit })}
+							/>
+
+							<DimensionsControl
+								label={__("Padding")}
+								top={MOBpaddingTop}
+								right={MOBpaddingRight}
+								bottom={MOBpaddingBottom}
+								left={MOBpaddingLeft}
+								onChange={({ top, right, bottom, left }) =>
+									setAttributes({
+										MOBpaddingTop: top,
+										MOBpaddingRight: right,
+										MOBpaddingBottom: bottom,
+										MOBpaddingLeft: left,
+									})
+								}
+							/>
+						</>
+					)}
+				</ResPanelBody>
 
 				<PanelBody title={__("Colors")} initialOpen={false}>
 					<ColorControl
