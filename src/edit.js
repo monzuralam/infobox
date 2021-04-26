@@ -56,22 +56,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		iconColor,
 		buttonColor,
 		buttonTextColor,
-		iconPaddingTop,
-		iconPaddingRight,
-		iconPaddingBottom,
-		iconPaddingLeft,
-		headerPaddingTop,
-		headerPaddingRight,
-		headerPaddingBottom,
-		headerPaddingLeft,
-		imageMarginTop,
-		imageMarginRight,
-		imageMarginBottom,
-		imageMarginLeft,
-		buttonPaddingTop,
-		buttonPaddingRight,
-		buttonPaddingBottom,
-		buttonPaddingLeft,
+
 		buttonAlign,
 
 		// margin padding attributes ⬇
@@ -117,6 +102,29 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		MOBpaddingBottom,
 		MOBpaddingLeft,
 
+		iconPaddingUnit,
+		iconPaddingTop,
+		iconPaddingRight,
+		iconPaddingBottom,
+		iconPaddingLeft,
+
+		headerPaddingUnit,
+		headerPaddingTop,
+		headerPaddingRight,
+		headerPaddingBottom,
+		headerPaddingLeft,
+
+		imageMarginTop,
+		imageMarginRight,
+		imageMarginBottom,
+		imageMarginLeft,
+
+		buttonPaddingUnit,
+		buttonPaddingTop,
+		buttonPaddingRight,
+		buttonPaddingBottom,
+		buttonPaddingLeft,
+
 		borderWidth,
 		borderColor,
 		borderStyle,
@@ -130,10 +138,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		iconSizeUnit,
 
 		radiusUnit,
-		headerPaddingUnit,
-		iconPaddingUnit,
 		borderWidthUnit,
-		buttonPaddingUnit,
 		iconBackground,
 		headerFontFamily,
 		headerFontSize,
@@ -467,9 +472,177 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	}
 	`;
 
+	const imageWrapperStyleDesktop = `
+		.${blockId} .eb-infobox-image-wrapper{
+			display: ${imageOrIcon === "image" && selectedIcon ? "block" : "none"};
+			${
+				imageOrIcon === "image" && imageUrl
+					? `background-image: url("${imageUrl}");`
+					: " "
+			}
+
+			height: ${imageHeight}px;
+			width: ${imageWidth}px;
+			order: ${order};
+
+			${imageMarginTop ? `margin-top: ${parseFloat(imageMarginTop)}px;` : " "}
+			${imageMarginRight ? `margin-right: ${parseFloat(imageMarginRight)}px;` : " "}
+			${imageMarginLeft ? `margin-left: ${parseFloat(imageMarginLeft)}px;` : " "}
+			${
+				imageMarginBottom
+					? `margin-bottom: ${parseFloat(imageMarginBottom)}px;`
+					: " "
+			}
+			
+			background-size: cover;
+
+		}	
+	`;
+
+	const iconStyleDesktop = `
+		.${blockId} .eb-infobox-icon{
+			display: ${imageOrIcon === "icon" && selectedIcon ? "block" : "none"};
+			order: ${order};
+			color: ${iconColor || "#fff"};
+			background: ${iconBackground || "#3074ff"};
+			font-size: ${iconSize}${iconSizeUnit};
+
+			${
+				iconPaddingTop
+					? `padding-top: ${parseFloat(iconPaddingTop)}${iconPaddingUnit};`
+					: " "
+			}
+			${
+				iconPaddingRight
+					? `padding-right: ${parseFloat(iconPaddingRight)}${iconPaddingUnit};`
+					: " "
+			}
+			${
+				iconPaddingLeft
+					? `padding-left: ${parseFloat(iconPaddingLeft)}${iconPaddingUnit};`
+					: " "
+			}
+			${
+				iconPaddingBottom
+					? `padding-bottom: ${parseFloat(
+							iconPaddingBottom
+					  )}${iconPaddingUnit};`
+					: " "
+			}
+			
+			line-height: 1em;
+			border-radius: 5px;
+		}
+	`;
+
+	const numberStylesDesktop = `
+		.${blockId} .eb-infobox-number{
+			${numberColor ? `color: ${numberColor};` : " "} 
+			display: ${imageOrIcon === "number" ? "block" : "none"};
+			order: ${order};
+			font-size: ${numberSize}px;
+		}
+	
+	`;
+
+	const headerStylesDesktop = `
+		.${blockId} .eb-infobox-header{
+			${
+				headerPaddingTop
+					? `padding-top: ${parseFloat(headerPaddingTop)}${headerPaddingUnit};`
+					: " "
+			}
+			${
+				headerPaddingRight
+					? `padding-right: ${parseFloat(
+							headerPaddingRight
+					  )}${headerPaddingUnit};`
+					: " "
+			}
+			${
+				headerPaddingLeft
+					? `padding-left: ${parseFloat(
+							headerPaddingLeft
+					  )}${headerPaddingUnit};`
+					: " "
+			}
+			${
+				headerPaddingBottom
+					? `padding-bottom: ${parseFloat(
+							headerPaddingBottom
+					  )}${headerPaddingUnit};`
+					: " "
+			}
+			
+			${headerColor ? `color: ${headerColor};` : " "}
+		
+		}
+	
+	`;
+
+	const contentStylesDesktop = `
+		.${blockId} .eb-infobox-content-main{
+			${contentColor ? `color: ${contentColor};` : " "}
+
+		}
+	
+	`;
+
+	const buttonWrapperStylesDesktop = `
+		.${blockId} .infobox-button{
+			display: ${showButton ? "flex" : "none"};			
+			align-self: ${buttonAlign};
+			margin-top: 10px;
+		}
+			
+	`;
+
+	const linkStylesDesktop = `
+		.${blockId} .eb-infobox-link{
+			${buttonColor ? `background: ${buttonColor};` : " "} 
+			${buttonTextColor ? `color: ${buttonTextColor};` : " "} 
+			${
+				buttonPaddingTop
+					? `padding-top: ${parseFloat(buttonPaddingTop)}${buttonPaddingUnit};`
+					: " "
+			}
+			${
+				buttonPaddingRight
+					? `padding-right: ${parseFloat(
+							buttonPaddingRight
+					  )}${buttonPaddingUnit};`
+					: " "
+			}
+			${
+				buttonPaddingLeft
+					? `padding-left: ${parseFloat(
+							buttonPaddingLeft
+					  )}${buttonPaddingUnit};`
+					: " "
+			}
+			${
+				buttonPaddingBottom
+					? `padding-bottom: ${parseFloat(
+							buttonPaddingBottom
+					  )}${buttonPaddingUnit};`
+					: " "
+			}
+			
+			text-decoration: none;
+		}
+	
+	`;
+
 	// all css styles for large screen width (desktop/laptop) in strings ⬇
 	const desktopAllStyles = softMinifyCssStrings(`
 		${isCssExists(wrapperStylesDesktop) ? wrapperStylesDesktop : " "}
+		${isCssExists(imageWrapperStyleDesktop) ? imageWrapperStyleDesktop : " "}
+		${isCssExists(iconStyleDesktop) ? iconStyleDesktop : " "}
+		${isCssExists(numberStylesDesktop) ? numberStylesDesktop : " "}
+		${isCssExists(headerStylesDesktop) ? headerStylesDesktop : " "}
+		${isCssExists(contentStylesDesktop) ? contentStylesDesktop : " "}
+		${isCssExists(buttonWrapperStylesDesktop) ? buttonWrapperStylesDesktop : " "}
+		${isCssExists(linkStylesDesktop) ? linkStylesDesktop : " "}
 	
 	`);
 
@@ -535,9 +708,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				`}
 			</style>
 			<div className={`eb-infobox-container ${blockId}`}>
-				<IconBox selectedIcon={selectedIcon} iconStyle={iconStyle} />
+				<IconBox selectedIcon={selectedIcon} />
 
-				<div style={imageWrapperStyle}>
+				<div className="eb-infobox-image-wrapper">
 					<MediaUpload
 						onSelect={(media) =>
 							setAttributes({ imageUrl: media.url, imageId: media.id })
@@ -557,11 +730,10 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					/>
 				</div>
 
-				<div style={numberStyle}>{isNaN(number) ? "0" : number}</div>
+				<div className="eb-infobox-number">{isNaN(number) ? "0" : number}</div>
 
 				<RichText
 					tagName={headerTag}
-					style={headerStyle}
 					keepPlaceholderOnFocus
 					className="eb-infobox-header"
 					value={header}
@@ -570,7 +742,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					allowedFormats={["italic", "strikethrough", "link"]}
 				/>
 
-				<span style={contentStyle}>
+				<span className="eb-infobox-content-main">
 					<RichText
 						className="eb-infobox-content"
 						keepPlaceholderOnFocus
@@ -580,12 +752,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					/>
 				</span>
 
-				<div className="infobox-button" style={buttonWrapperStyles}>
-					<a
-						href={clickableLink}
-						className="eb-infobox-link"
-						style={linkStyles}
-					>
+				<div className="infobox-button">
+					<a href={clickableLink} className="eb-infobox-link">
 						{buttonText}
 					</a>
 				</div>

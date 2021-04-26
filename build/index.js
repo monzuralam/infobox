@@ -3720,10 +3720,12 @@ var attributes = {
     type: "number"
   },
   contentColor: {
-    type: "string"
+    type: "string",
+    "default": "#5b5b5b"
   },
   headerColor: {
-    type: "string"
+    type: "string",
+    "default": "#4a5059"
   },
   headerTextTransform: {
     type: "string",
@@ -3740,79 +3742,14 @@ var attributes = {
     "default": 36
   },
   iconSize: {
-    type: "number"
+    type: "number",
+    "default": 36
   },
   iconColor: {
     type: "string"
   },
   iconBackground: {
     type: "string"
-  },
-  linkedIconPadding: {
-    type: "boolean"
-  },
-  iconPaddingTop: {
-    type: "number"
-  },
-  iconPaddingRight: {
-    type: "number"
-  },
-  iconPaddingBottom: {
-    type: "number"
-  },
-  iconPaddingLeft: {
-    type: "number"
-  },
-  linkedHeaderPadding: {
-    type: "boolean"
-  },
-  headerPaddingTop: {
-    type: "number"
-  },
-  headerPaddingRight: {
-    type: "number"
-  },
-  headerPaddingBottom: {
-    type: "number"
-  },
-  headerPaddingLeft: {
-    type: "number"
-  },
-  linkedImagePadding: {
-    type: "boolean",
-    "default": false
-  },
-  imagePaddingTop: {
-    type: "number"
-  },
-  imagePaddingRight: {
-    type: "number"
-  },
-  imagePaddingBottom: {
-    type: "number"
-  },
-  imagePaddingLeft: {
-    type: "number"
-  },
-  linkedButtonPadding: {
-    type: "boolean",
-    "default": false
-  },
-  buttonPaddingTop: {
-    type: "number",
-    "default": 12
-  },
-  buttonPaddingRight: {
-    type: "number",
-    "default": 28
-  },
-  buttonPaddingBottom: {
-    type: "number",
-    "default": 12
-  },
-  buttonPaddingLeft: {
-    type: "number",
-    "default": 28
   },
   buttonSize: {
     type: "string",
@@ -3928,6 +3865,76 @@ var attributes = {
   },
   MOBpaddingLeft: {
     type: "string"
+  },
+  linkedIconPadding: {
+    type: "boolean"
+  },
+  iconPaddingTop: {
+    type: "string",
+    "default": "20"
+  },
+  iconPaddingRight: {
+    type: "string",
+    "default": "30"
+  },
+  iconPaddingBottom: {
+    type: "string",
+    "default": "20"
+  },
+  iconPaddingLeft: {
+    type: "string",
+    "default": "30"
+  },
+  linkedHeaderPadding: {
+    type: "boolean"
+  },
+  headerPaddingTop: {
+    type: "string"
+  },
+  headerPaddingRight: {
+    type: "string"
+  },
+  headerPaddingBottom: {
+    type: "string"
+  },
+  headerPaddingLeft: {
+    type: "string"
+  },
+  linkedImagePadding: {
+    type: "boolean",
+    "default": false
+  },
+  imagePaddingTop: {
+    type: "string"
+  },
+  imagePaddingRight: {
+    type: "string"
+  },
+  imagePaddingBottom: {
+    type: "string"
+  },
+  imagePaddingLeft: {
+    type: "string"
+  },
+  linkedButtonPadding: {
+    type: "boolean",
+    "default": false
+  },
+  buttonPaddingTop: {
+    type: "string",
+    "default": "12"
+  },
+  buttonPaddingRight: {
+    type: "string",
+    "default": "28"
+  },
+  buttonPaddingBottom: {
+    type: "string",
+    "default": "12"
+  },
+  buttonPaddingLeft: {
+    type: "string",
+    "default": "28"
   },
   // Border attributes ⬇
   borderWidth: {
@@ -4306,22 +4313,6 @@ var Edit = function Edit(_ref) {
       iconColor = attributes.iconColor,
       buttonColor = attributes.buttonColor,
       buttonTextColor = attributes.buttonTextColor,
-      iconPaddingTop = attributes.iconPaddingTop,
-      iconPaddingRight = attributes.iconPaddingRight,
-      iconPaddingBottom = attributes.iconPaddingBottom,
-      iconPaddingLeft = attributes.iconPaddingLeft,
-      headerPaddingTop = attributes.headerPaddingTop,
-      headerPaddingRight = attributes.headerPaddingRight,
-      headerPaddingBottom = attributes.headerPaddingBottom,
-      headerPaddingLeft = attributes.headerPaddingLeft,
-      imageMarginTop = attributes.imageMarginTop,
-      imageMarginRight = attributes.imageMarginRight,
-      imageMarginBottom = attributes.imageMarginBottom,
-      imageMarginLeft = attributes.imageMarginLeft,
-      buttonPaddingTop = attributes.buttonPaddingTop,
-      buttonPaddingRight = attributes.buttonPaddingRight,
-      buttonPaddingBottom = attributes.buttonPaddingBottom,
-      buttonPaddingLeft = attributes.buttonPaddingLeft,
       buttonAlign = attributes.buttonAlign,
       marginUnit = attributes.marginUnit,
       marginTop = attributes.marginTop,
@@ -4353,6 +4344,25 @@ var Edit = function Edit(_ref) {
       MOBpaddingRight = attributes.MOBpaddingRight,
       MOBpaddingBottom = attributes.MOBpaddingBottom,
       MOBpaddingLeft = attributes.MOBpaddingLeft,
+      iconPaddingUnit = attributes.iconPaddingUnit,
+      iconPaddingTop = attributes.iconPaddingTop,
+      iconPaddingRight = attributes.iconPaddingRight,
+      iconPaddingBottom = attributes.iconPaddingBottom,
+      iconPaddingLeft = attributes.iconPaddingLeft,
+      headerPaddingUnit = attributes.headerPaddingUnit,
+      headerPaddingTop = attributes.headerPaddingTop,
+      headerPaddingRight = attributes.headerPaddingRight,
+      headerPaddingBottom = attributes.headerPaddingBottom,
+      headerPaddingLeft = attributes.headerPaddingLeft,
+      imageMarginTop = attributes.imageMarginTop,
+      imageMarginRight = attributes.imageMarginRight,
+      imageMarginBottom = attributes.imageMarginBottom,
+      imageMarginLeft = attributes.imageMarginLeft,
+      buttonPaddingUnit = attributes.buttonPaddingUnit,
+      buttonPaddingTop = attributes.buttonPaddingTop,
+      buttonPaddingRight = attributes.buttonPaddingRight,
+      buttonPaddingBottom = attributes.buttonPaddingBottom,
+      buttonPaddingLeft = attributes.buttonPaddingLeft,
       borderWidth = attributes.borderWidth,
       borderColor = attributes.borderColor,
       borderStyle = attributes.borderStyle,
@@ -4365,10 +4375,7 @@ var Edit = function Edit(_ref) {
       contentSizeUnit = attributes.contentSizeUnit,
       iconSizeUnit = attributes.iconSizeUnit,
       radiusUnit = attributes.radiusUnit,
-      headerPaddingUnit = attributes.headerPaddingUnit,
-      iconPaddingUnit = attributes.iconPaddingUnit,
       borderWidthUnit = attributes.borderWidthUnit,
-      buttonPaddingUnit = attributes.buttonPaddingUnit,
       iconBackground = attributes.iconBackground,
       headerFontFamily = attributes.headerFontFamily,
       headerFontSize = attributes.headerFontSize,
@@ -4540,9 +4547,16 @@ var Edit = function Edit(_ref) {
 
   var wrapperStylesDesktop = "\n\t.".concat(blockId, "{\n\n\t\tdisplay: flex;\n\t\ttext-align: center;\n\t\talign-items: center;\n\t\tflex-direction: column;\n\n\t\t").concat(marginTop ? "margin-top: ".concat(parseFloat(marginTop)).concat(marginUnit, ";") : " ", "\n\t\t").concat(marginRight ? "margin-right: ".concat(parseFloat(marginRight)).concat(marginUnit, ";") : " ", "\n\t\t").concat(marginLeft ? "margin-left: ".concat(parseFloat(marginLeft)).concat(marginUnit, ";") : " ", "\n\t\t").concat(marginBottom ? "margin-bottom: ".concat(parseFloat(marginBottom)).concat(marginUnit, ";") : " ", "\n\n\t\tpadding: \n\t\t\t").concat(paddingTop || 0).concat(paddingUnit, " \n\t\t\t").concat(paddingRight || 0).concat(paddingUnit, " \n\t\t\t").concat(paddingBottom || 0).concat(paddingUnit, " \n\t\t\t").concat(paddingLeft || 0).concat(paddingUnit, ";\n\n\t\t").concat(backgroundType === "image" && backgroundImageURL || backgroundType === "gradient" && backgroundGradient ? "background-image: ".concat(backgroundType === "image" && backgroundImageURL ? "url('".concat(backgroundImageURL, "')") : backgroundType === "gradient" && backgroundGradient || "none", ";") : " ", "\n\n\t\tbackground-color: ").concat(backgroundColor || _constants__WEBPACK_IMPORTED_MODULE_8__["DEFAULT_BACKGROUND"], ";\n\t\t\n\t\t").concat(backgroundType === "image" && backgroundImageURL ? "background-size: ".concat(backgroundSize || "cover", ";") : " ", "\n\t\t\n\t\t").concat(shadowColor ? "box-shadow: \n\t\t\t\t\t".concat(shadowHOffset || 0, "px \n\t\t\t\t\t").concat(shadowVOffset || 0, "px \n\t\t\t\t\t").concat(shadowBlur || 0, "px \n\t\t\t\t\t").concat(shadowSpread || 0, "px \n\t\t\t\t\t").concat(shadowColor, ";") : " ", "\n\n\t\t").concat(borderWidth && borderColor ? "border: ".concat(borderWidth).concat(borderWidthUnit, " ").concat(borderStyle, " ").concat(borderColor, ";") : " ", "\n\n\t\t").concat(borderRadius ? "border-radius: ".concat(borderRadius).concat(radiusUnit, ";") : " ", "\n\t\n\t}\n\t");
   var wrapperStylesTab = "\n\t.".concat(blockId, "{\n\t\t").concat(TABmarginTop ? "margin-top: ".concat(parseFloat(TABmarginTop)).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABmarginRight ? "margin-right: ".concat(parseFloat(TABmarginRight)).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABmarginLeft ? "margin-left: ".concat(parseFloat(TABmarginLeft)).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABmarginBottom ? "margin-bottom: ".concat(parseFloat(TABmarginBottom)).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABpaddingTop ? "padding-top: ".concat(parseFloat(TABpaddingTop)).concat(TABpaddingUnit, ";") : " ", "\n\t\t").concat(TABpaddingRight ? "padding-right: ".concat(parseFloat(TABpaddingRight)).concat(TABpaddingUnit, ";") : " ", "\n\t\t").concat(TABpaddingLeft ? "padding-left: ".concat(parseFloat(TABpaddingLeft)).concat(TABpaddingUnit, ";") : " ", "\n\t\t").concat(TABpaddingBottom ? "padding-bottom: ".concat(parseFloat(TABpaddingBottom)).concat(TABpaddingUnit, ";") : " ", "\n\t\n\t}\n\t");
-  var wrapperStylesMobile = "\n\t.".concat(blockId, "{\n\t\t").concat(MOBmarginTop ? "margin-top: ".concat(parseFloat(MOBmarginTop)).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginRight ? "margin-right: ".concat(parseFloat(MOBmarginRight)).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginLeft ? "margin-left: ".concat(parseFloat(MOBmarginLeft)).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginBottom ? "margin-bottom: ".concat(parseFloat(MOBmarginBottom)).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBpaddingTop ? "padding-top: ".concat(parseFloat(MOBpaddingTop)).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingRight ? "padding-right: ".concat(parseFloat(MOBpaddingRight)).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingLeft ? "padding-left: ".concat(parseFloat(MOBpaddingLeft)).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingBottom ? "padding-bottom: ".concat(parseFloat(MOBpaddingBottom)).concat(MOBpaddingUnit, ";") : " ", "\n\t\n\t}\n\t"); // all css styles for large screen width (desktop/laptop) in strings ⬇
+  var wrapperStylesMobile = "\n\t.".concat(blockId, "{\n\t\t").concat(MOBmarginTop ? "margin-top: ".concat(parseFloat(MOBmarginTop)).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginRight ? "margin-right: ".concat(parseFloat(MOBmarginRight)).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginLeft ? "margin-left: ".concat(parseFloat(MOBmarginLeft)).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginBottom ? "margin-bottom: ".concat(parseFloat(MOBmarginBottom)).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBpaddingTop ? "padding-top: ".concat(parseFloat(MOBpaddingTop)).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingRight ? "padding-right: ".concat(parseFloat(MOBpaddingRight)).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingLeft ? "padding-left: ".concat(parseFloat(MOBpaddingLeft)).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingBottom ? "padding-bottom: ".concat(parseFloat(MOBpaddingBottom)).concat(MOBpaddingUnit, ";") : " ", "\n\t\n\t}\n\t");
+  var imageWrapperStyleDesktop = "\n\t\t.".concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\tdisplay: ").concat(imageOrIcon === "image" && selectedIcon ? "block" : "none", ";\n\t\t\t").concat(imageOrIcon === "image" && imageUrl ? "background-image: url(\"".concat(imageUrl, "\");") : " ", "\n\n\t\t\theight: ").concat(imageHeight, "px;\n\t\t\twidth: ").concat(imageWidth, "px;\n\t\t\torder: ").concat(order, ";\n\n\t\t\t").concat(imageMarginTop ? "margin-top: ".concat(parseFloat(imageMarginTop), "px;") : " ", "\n\t\t\t").concat(imageMarginRight ? "margin-right: ".concat(parseFloat(imageMarginRight), "px;") : " ", "\n\t\t\t").concat(imageMarginLeft ? "margin-left: ".concat(parseFloat(imageMarginLeft), "px;") : " ", "\n\t\t\t").concat(imageMarginBottom ? "margin-bottom: ".concat(parseFloat(imageMarginBottom), "px;") : " ", "\n\t\t\t\n\t\t\tbackground-size: cover;\n\n\t\t}\t\n\t");
+  var iconStyleDesktop = "\n\t\t.".concat(blockId, " .eb-infobox-icon{\n\t\t\tdisplay: ").concat(imageOrIcon === "icon" && selectedIcon ? "block" : "none", ";\n\t\t\torder: ").concat(order, ";\n\t\t\tcolor: ").concat(iconColor || "#fff", ";\n\t\t\tbackground: ").concat(iconBackground || "#3074ff", ";\n\t\t\tfont-size: ").concat(iconSize).concat(iconSizeUnit, ";\n\n\t\t\t").concat(iconPaddingTop ? "padding-top: ".concat(parseFloat(iconPaddingTop)).concat(iconPaddingUnit, ";") : " ", "\n\t\t\t").concat(iconPaddingRight ? "padding-right: ".concat(parseFloat(iconPaddingRight)).concat(iconPaddingUnit, ";") : " ", "\n\t\t\t").concat(iconPaddingLeft ? "padding-left: ".concat(parseFloat(iconPaddingLeft)).concat(iconPaddingUnit, ";") : " ", "\n\t\t\t").concat(iconPaddingBottom ? "padding-bottom: ".concat(parseFloat(iconPaddingBottom)).concat(iconPaddingUnit, ";") : " ", "\n\t\t\t\n\t\t\tline-height: 1em;\n\t\t\tborder-radius: 5px;\n\t\t}\n\t");
+  var numberStylesDesktop = "\n\t\t.".concat(blockId, " .eb-infobox-number{\n\t\t\t").concat(numberColor ? "color: ".concat(numberColor, ";") : " ", " \n\t\t\tdisplay: ").concat(imageOrIcon === "number" ? "block" : "none", ";\n\t\t\torder: ").concat(order, ";\n\t\t\tfont-size: ").concat(numberSize, "px;\n\t\t}\n\t\n\t");
+  var headerStylesDesktop = "\n\t\t.".concat(blockId, " .eb-infobox-header{\n\t\t\t").concat(headerPaddingTop ? "padding-top: ".concat(parseFloat(headerPaddingTop)).concat(headerPaddingUnit, ";") : " ", "\n\t\t\t").concat(headerPaddingRight ? "padding-right: ".concat(parseFloat(headerPaddingRight)).concat(headerPaddingUnit, ";") : " ", "\n\t\t\t").concat(headerPaddingLeft ? "padding-left: ".concat(parseFloat(headerPaddingLeft)).concat(headerPaddingUnit, ";") : " ", "\n\t\t\t").concat(headerPaddingBottom ? "padding-bottom: ".concat(parseFloat(headerPaddingBottom)).concat(headerPaddingUnit, ";") : " ", "\n\t\t\t\n\t\t\t").concat(headerColor ? "color: ".concat(headerColor, ";") : " ", "\n\t\t\n\t\t}\n\t\n\t");
+  var contentStylesDesktop = "\n\t\t.".concat(blockId, " .eb-infobox-content-main{\n\t\t\t").concat(contentColor ? "color: ".concat(contentColor, ";") : " ", "\n\n\t\t}\n\t\n\t");
+  var buttonWrapperStylesDesktop = "\n\t\t.".concat(blockId, " .infobox-button{\n\t\t\tdisplay: ").concat(showButton ? "flex" : "none", ";\t\t\t\n\t\t\talign-self: ").concat(buttonAlign, ";\n\t\t\tmargin-top: 10px;\n\t\t}\n\t\t\t\n\t");
+  var linkStylesDesktop = "\n\t\t.".concat(blockId, " .eb-infobox-link{\n\t\t\t").concat(buttonColor ? "background: ".concat(buttonColor, ";") : " ", " \n\t\t\t").concat(buttonTextColor ? "color: ".concat(buttonTextColor, ";") : " ", " \n\t\t\t").concat(buttonPaddingTop ? "padding-top: ".concat(parseFloat(buttonPaddingTop)).concat(buttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(buttonPaddingRight ? "padding-right: ".concat(parseFloat(buttonPaddingRight)).concat(buttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(buttonPaddingLeft ? "padding-left: ".concat(parseFloat(buttonPaddingLeft)).concat(buttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(buttonPaddingBottom ? "padding-bottom: ".concat(parseFloat(buttonPaddingBottom)).concat(buttonPaddingUnit, ";") : " ", "\n\t\t\t\n\t\t\ttext-decoration: none;\n\t\t}\n\t\n\t"); // all css styles for large screen width (desktop/laptop) in strings ⬇
 
-  var desktopAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesDesktop) ? wrapperStylesDesktop : " ", "\n\t\n\t")); // all css styles for Tab in strings ⬇
+  var desktopAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesDesktop) ? wrapperStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(imageWrapperStyleDesktop) ? imageWrapperStyleDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(iconStyleDesktop) ? iconStyleDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(numberStylesDesktop) ? numberStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(headerStylesDesktop) ? headerStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(contentStylesDesktop) ? contentStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(buttonWrapperStylesDesktop) ? buttonWrapperStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(linkStylesDesktop) ? linkStylesDesktop : " ", "\n\t\n\t")); // all css styles for Tab in strings ⬇
 
   var tabAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesTab) ? wrapperStylesTab : " ", "\n\t\t\n\t")); // all css styles for Mobile in strings ⬇
 
@@ -4573,10 +4587,9 @@ var Edit = function Edit(_ref) {
   React.createElement("div", blockProps, /*#__PURE__*/React.createElement("style", null, "\n\t\t\t\t".concat(desktopAllStyles, "\n\n\t\t\t\t/* mimmikcssStart */\n\n\t\t\t\t").concat(resOption === "tab" ? tabAllStyles : " ", "\n\t\t\t\t").concat(resOption === "mobile" ? tabAllStyles + mobileAllStyles : " ", "\n\n\t\t\t\t/* mimmikcssEnd */\n\n\t\t\t\t@media all and (max-width: 1024px) {\t\n\n\t\t\t\t\t/* tabcssStart */\t\t\t\n\t\t\t\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])(tabAllStyles), "\n\t\t\t\t\t/* tabcssEnd */\t\t\t\n\t\t\t\t\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t@media all and (max-width: 767px) {\n\t\t\t\t\t\n\t\t\t\t\t/* mobcssStart */\t\t\t\n\t\t\t\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])(mobileAllStyles), "\n\t\t\t\t\t/* mobcssEnd */\t\t\t\n\t\t\t\t\n\t\t\t\t}\n\t\t\t\t")), /*#__PURE__*/React.createElement("div", {
     className: "eb-infobox-container ".concat(blockId)
   }, /*#__PURE__*/React.createElement(_iconbox_js__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    selectedIcon: selectedIcon,
-    iconStyle: iconStyle
+    selectedIcon: selectedIcon
   }), /*#__PURE__*/React.createElement("div", {
-    style: imageWrapperStyle
+    className: "eb-infobox-image-wrapper"
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["MediaUpload"], {
     onSelect: function onSelect(media) {
       return setAttributes({
@@ -4596,10 +4609,9 @@ var Edit = function Edit(_ref) {
       });
     }
   })), /*#__PURE__*/React.createElement("div", {
-    style: numberStyle
+    className: "eb-infobox-number"
   }, isNaN(number) ? "0" : number), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"], {
     tagName: headerTag,
-    style: headerStyle,
     keepPlaceholderOnFocus: true,
     className: "eb-infobox-header",
     value: header,
@@ -4611,7 +4623,7 @@ var Edit = function Edit(_ref) {
     },
     allowedFormats: ["italic", "strikethrough", "link"]
   }), /*#__PURE__*/React.createElement("span", {
-    style: contentStyle
+    className: "eb-infobox-content-main"
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"], {
     className: "eb-infobox-content",
     keepPlaceholderOnFocus: true,
@@ -4623,12 +4635,10 @@ var Edit = function Edit(_ref) {
       });
     }
   })), /*#__PURE__*/React.createElement("div", {
-    className: "infobox-button",
-    style: buttonWrapperStyles
+    className: "infobox-button"
   }, /*#__PURE__*/React.createElement("a", {
     href: clickableLink,
-    className: "eb-infobox-link",
-    style: linkStyles
+    className: "eb-infobox-link"
   }, buttonText))))];
 };
 
@@ -4959,9 +4969,10 @@ var IconBox = function IconBox(_ref) {
   var selectedIcon = _ref.selectedIcon,
       iconStyle = _ref.iconStyle;
   return /*#__PURE__*/React.createElement("span", {
+    className: "eb-infobox-icon",
     style: iconStyle
   }, /*#__PURE__*/React.createElement("span", {
-    className: "".concat(selectedIcon, " eb-infobox-icon"),
+    className: "".concat(selectedIcon, " "),
     "data-icon": selectedIcon
   }));
 };
@@ -5043,25 +5054,28 @@ var InfoboxContainer = function InfoboxContainer(_ref) {
       numberStyle = infoBoxProps.numberStyle,
       iconStyle = infoBoxProps.iconStyle;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
-    className: "infobox-image-wrapper",
+    className: "eb-infobox-image-wrapper",
     style: _objectSpread({}, imageWrapperStyle),
     "data-image-url": imageUrl ? imageUrl : ""
   }), /*#__PURE__*/React.createElement("span", {
+    className: "eb-infobox-icon",
     style: _objectSpread({}, iconStyle)
   }, /*#__PURE__*/React.createElement("span", {
-    className: "".concat(selectedIcon, " infobox-icon"),
+    className: "".concat(selectedIcon, " "),
     "data-icon": selectedIcon
   })), /*#__PURE__*/React.createElement("div", {
-    className: "infobox-number",
+    className: "eb-infobox-number",
     style: _objectSpread({}, numberStyle)
   }, number || "0"), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     tagName: headerTag,
     value: header,
-    style: headerStyle
+    style: headerStyle,
+    className: "eb-infobox-header"
   }), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["RichText"].Content, {
     tagName: "p",
     value: content,
-    style: contentStyle
+    style: contentStyle,
+    className: "eb-infobox-content-main"
   }));
 };
 

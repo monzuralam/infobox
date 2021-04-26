@@ -18,7 +18,7 @@ const InfoboxContainer = ({ infoBoxProps }) => {
 	return (
 		<>
 			<div
-				className="infobox-image-wrapper"
+				className="eb-infobox-image-wrapper"
 				style={{
 					...imageWrapperStyle,
 				}}
@@ -26,18 +26,16 @@ const InfoboxContainer = ({ infoBoxProps }) => {
 			/>
 
 			<span
+				className="eb-infobox-icon"
 				style={{
 					...iconStyle,
 				}}
 			>
-				<span
-					className={`${selectedIcon} infobox-icon`}
-					data-icon={selectedIcon}
-				/>
+				<span className={`${selectedIcon} `} data-icon={selectedIcon} />
 			</span>
 
 			<div
-				className="infobox-number"
+				className="eb-infobox-number"
 				style={{
 					...numberStyle,
 				}}
@@ -49,8 +47,14 @@ const InfoboxContainer = ({ infoBoxProps }) => {
 				tagName={headerTag}
 				value={header}
 				style={headerStyle}
+				className="eb-infobox-header"
 			/>
-			<RichText.Content tagName="p" value={content} style={contentStyle} />
+			<RichText.Content
+				tagName="p"
+				value={content}
+				style={contentStyle}
+				className="eb-infobox-content-main"
+			/>
 		</>
 	);
 };

@@ -122,9 +122,11 @@ const attributes = {
 	},
 	contentColor: {
 		type: "string",
+		default: "#5b5b5b",
 	},
 	headerColor: {
 		type: "string",
+		default: "#4a5059",
 	},
 	headerTextTransform: {
 		type: "string",
@@ -142,6 +144,7 @@ const attributes = {
 	},
 	iconSize: {
 		type: "number",
+		default: 36,
 	},
 	iconColor: {
 		type: "string",
@@ -149,72 +152,7 @@ const attributes = {
 	iconBackground: {
 		type: "string",
 	},
-	linkedIconPadding: {
-		type: "boolean",
-	},
-	iconPaddingTop: {
-		type: "number",
-	},
-	iconPaddingRight: {
-		type: "number",
-	},
-	iconPaddingBottom: {
-		type: "number",
-	},
-	iconPaddingLeft: {
-		type: "number",
-	},
-	linkedHeaderPadding: {
-		type: "boolean",
-	},
-	headerPaddingTop: {
-		type: "number",
-	},
-	headerPaddingRight: {
-		type: "number",
-	},
-	headerPaddingBottom: {
-		type: "number",
-	},
-	headerPaddingLeft: {
-		type: "number",
-	},
-	linkedImagePadding: {
-		type: "boolean",
-		default: false,
-	},
-	imagePaddingTop: {
-		type: "number",
-	},
-	imagePaddingRight: {
-		type: "number",
-	},
-	imagePaddingBottom: {
-		type: "number",
-	},
-	imagePaddingLeft: {
-		type: "number",
-	},
-	linkedButtonPadding: {
-		type: "boolean",
-		default: false,
-	},
-	buttonPaddingTop: {
-		type: "number",
-		default: 12,
-	},
-	buttonPaddingRight: {
-		type: "number",
-		default: 28,
-	},
-	buttonPaddingBottom: {
-		type: "number",
-		default: 12,
-	},
-	buttonPaddingLeft: {
-		type: "number",
-		default: 28,
-	},
+
 	buttonSize: {
 		type: "string",
 		default: "normal",
@@ -341,6 +279,84 @@ const attributes = {
 	},
 	MOBpaddingLeft: {
 		type: "string",
+	},
+
+	linkedIconPadding: {
+		type: "boolean",
+	},
+
+	iconPaddingTop: {
+		type: "string",
+		default: "20",
+	},
+	iconPaddingRight: {
+		type: "string",
+		default: "30",
+	},
+	iconPaddingBottom: {
+		type: "string",
+		default: "20",
+	},
+	iconPaddingLeft: {
+		type: "string",
+		default: "30",
+	},
+
+	linkedHeaderPadding: {
+		type: "boolean",
+	},
+
+	headerPaddingTop: {
+		type: "string",
+	},
+	headerPaddingRight: {
+		type: "string",
+	},
+	headerPaddingBottom: {
+		type: "string",
+	},
+	headerPaddingLeft: {
+		type: "string",
+	},
+
+	linkedImagePadding: {
+		type: "boolean",
+		default: false,
+	},
+
+	imagePaddingTop: {
+		type: "string",
+	},
+	imagePaddingRight: {
+		type: "string",
+	},
+	imagePaddingBottom: {
+		type: "string",
+	},
+	imagePaddingLeft: {
+		type: "string",
+	},
+
+	linkedButtonPadding: {
+		type: "boolean",
+		default: false,
+	},
+
+	buttonPaddingTop: {
+		type: "string",
+		default: "12",
+	},
+	buttonPaddingRight: {
+		type: "string",
+		default: "28",
+	},
+	buttonPaddingBottom: {
+		type: "string",
+		default: "12",
+	},
+	buttonPaddingLeft: {
+		type: "string",
+		default: "28",
 	},
 
 	// Border attributes ⬇
