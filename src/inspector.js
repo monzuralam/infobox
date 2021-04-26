@@ -234,13 +234,9 @@ function Inspector(props) {
 
 	// Change flex order based on icon position
 	if (iconPosition === "top") {
-		setAttributes({ order: 0, flexDirection: "column" });
+		setAttributes({ order: 0 });
 	} else if (iconPosition === "bottom") {
-		setAttributes({ order: 1, flexDirection: "column" });
-	} else if (iconPosition === "left") {
-		setAttributes({ order: 0, flexDirection: "row" });
-	} else if (iconPosition === "right") {
-		setAttributes({ order: 1, flexDirection: "row" });
+		setAttributes({ order: 1 });
 	}
 
 	const HEADER_SIZE_STEP = headerSizeUnit === "em" ? 0.1 : 1;

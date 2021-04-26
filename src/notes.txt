@@ -6,3 +6,8 @@ inspector panel: infobox-settings -> image or Icon -> number ->  number input-fi
 4) ResPanelBody.js: it's brought here and used in 'margin-padding' panel of inspector
 5) inspector.js: 'margin-padding' responsive option added, haven't implemented them yet
 6) subodule:'dimensions-control' from 'hanzala-dev' checked-out and used
+-------------------- changes -------------
+1) attributes.js: default padding value given for desktop padding attributes
+2) edit.js: css by strings implemented for 'infobox-wrapper' with reponsive options 
+3) inspector.js: "iconPosition" options cleaned as there're only two options for "iconPosition"
+4) unnecessary codes removed from "style.scss". Soon no styles will be in this file

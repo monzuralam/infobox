@@ -256,15 +256,19 @@ const attributes = {
 
 	paddingTop: {
 		type: "string",
+		default: "30",
 	},
 	paddingRight: {
 		type: "string",
+		default: "70",
 	},
 	paddingBottom: {
 		type: "string",
+		default: "30",
 	},
 	paddingLeft: {
 		type: "string",
+		default: "70",
 	},
 
 	TABmarginUnit: {

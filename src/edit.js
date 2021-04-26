@@ -10,12 +10,16 @@ import "./editor.scss";
 /**
  * Internal dependencies
  */
+import { softMinifyCssStrings, isCssExists } from "./helpers";
 import IconBox from "./iconbox.js";
 import Inspector from "./inspector";
 import { DEFAULT_BACKGROUND } from "./constants";
 
 const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	const {
+		// responsive control attributes ⬇
+		resOption,
+
 		// blockMeta is for keeping all the styles
 		blockMeta,
 
@@ -69,14 +73,50 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		buttonPaddingBottom,
 		buttonPaddingLeft,
 		buttonAlign,
+
+		// margin padding attributes ⬇
+		marginUnit,
+
 		marginTop,
 		marginRight,
 		marginBottom,
 		marginLeft,
+
+		paddingUnit,
+
 		paddingTop,
 		paddingRight,
 		paddingBottom,
 		paddingLeft,
+
+		TABmarginUnit,
+
+		TABmarginTop,
+		TABmarginRight,
+		TABmarginBottom,
+		TABmarginLeft,
+
+		TABpaddingUnit,
+
+		TABpaddingTop,
+		TABpaddingRight,
+		TABpaddingBottom,
+		TABpaddingLeft,
+
+		MOBmarginUnit,
+
+		MOBmarginTop,
+		MOBmarginRight,
+		MOBmarginBottom,
+		MOBmarginLeft,
+
+		MOBpaddingUnit,
+
+		MOBpaddingTop,
+		MOBpaddingRight,
+		MOBpaddingBottom,
+		MOBpaddingLeft,
+
 		borderWidth,
 		borderColor,
 		borderStyle,
@@ -88,8 +128,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		shadowSpread,
 		contentSizeUnit,
 		iconSizeUnit,
-		marginUnit,
-		paddingUnit,
+
 		radiusUnit,
 		headerPaddingUnit,
 		iconPaddingUnit,
@@ -186,34 +225,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		className: `eb-guten-block-main-parent-wrapper`,
 	});
 
-	const boxWrapperStyle = {
-		flexDirection: flexDirection,
-		backgroundImage:
-			backgroundType === "image" && backgroundImageURL
-				? `url('${backgroundImageURL}')`
-				: (backgroundType === "gradient" && backgroundGradient) || "none",
-		backgroundColor: backgroundColor || DEFAULT_BACKGROUND,
-		backgroundSize:
-			backgroundType === "image" &&
-			backgroundImageURL &&
-			(backgroundSize || "cover"),
-		margin: `${marginTop || 0}${marginUnit} ${marginRight || 0}${marginUnit} ${
-			marginBottom || 0
-		}${marginUnit} ${marginLeft || 0}${marginUnit} `,
-		padding: `${paddingTop || 30}${paddingUnit} ${
-			paddingRight || 70
-		}${paddingUnit} ${paddingBottom || 30}${paddingUnit} ${
-			paddingLeft || 70
-		}${paddingUnit} `,
-		border: `${borderWidth || 0}${borderWidthUnit} ${borderStyle} ${
-			borderColor || "#000000"
-		}`,
-		borderRadius: `${borderRadius || 0}${radiusUnit}`,
-		boxShadow: `${shadowHOffset || 0}px ${shadowVOffset || 0}px ${
-			shadowBlur || 0
-		}px ${shadowSpread || 0}px ${shadowColor || "#000000"}`,
-	};
-
 	const imageWrapperStyle = {
 		display: imageOrIcon === "image" ? "block" : "none",
 		backgroundImage:
@@ -299,27 +310,187 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		paddingLeft: `${buttonPaddingLeft}${buttonPaddingUnit}`,
 	};
 
+	// wrapper styles css in strings ⬇
+	const wrapperStylesDesktop = `
+	.${blockId}{
+
+		display: flex;
+		text-align: center;
+		align-items: center;
+		flex-direction: column;
+
+		${marginTop ? `margin-top: ${parseFloat(marginTop)}${marginUnit};` : " "}
+		${marginRight ? `margin-right: ${parseFloat(marginRight)}${marginUnit};` : " "}
+		${marginLeft ? `margin-left: ${parseFloat(marginLeft)}${marginUnit};` : " "}
+		${
+			marginBottom
+				? `margin-bottom: ${parseFloat(marginBottom)}${marginUnit};`
+				: " "
+		}
+
+		padding: 
+			${paddingTop || 0}${paddingUnit} 
+			${paddingRight || 0}${paddingUnit} 
+			${paddingBottom || 0}${paddingUnit} 
+			${paddingLeft || 0}${paddingUnit};
+
+		${
+			(backgroundType === "image" && backgroundImageURL) ||
+			(backgroundType === "gradient" && backgroundGradient)
+				? `background-image: ${
+						backgroundType === "image" && backgroundImageURL
+							? `url('${backgroundImageURL}')`
+							: (backgroundType === "gradient" && backgroundGradient) || "none"
+				  };`
+				: " "
+		}
+
+		background-color: ${backgroundColor || DEFAULT_BACKGROUND};
+		
+		${
+			backgroundType === "image" && backgroundImageURL
+				? `background-size: ${backgroundSize || "cover"};`
+				: " "
+		}
+		
+		${
+			shadowColor
+				? `box-shadow: 
+					${shadowHOffset || 0}px 
+					${shadowVOffset || 0}px 
+					${shadowBlur || 0}px 
+					${shadowSpread || 0}px 
+					${shadowColor};`
+				: " "
+		}
+
+		${
+			borderWidth && borderColor
+				? `border: ${borderWidth}${borderWidthUnit} ${borderStyle} ${borderColor};`
+				: " "
+		}
+
+		${borderRadius ? `border-radius: ${borderRadius}${radiusUnit};` : " "}
+	
+	}
+	`;
+
+	const wrapperStylesTab = `
+	.${blockId}{
+		${
+			TABmarginTop
+				? `margin-top: ${parseFloat(TABmarginTop)}${TABmarginUnit};`
+				: " "
+		}
+		${
+			TABmarginRight
+				? `margin-right: ${parseFloat(TABmarginRight)}${TABmarginUnit};`
+				: " "
+		}
+		${
+			TABmarginLeft
+				? `margin-left: ${parseFloat(TABmarginLeft)}${TABmarginUnit};`
+				: " "
+		}
+		${
+			TABmarginBottom
+				? `margin-bottom: ${parseFloat(TABmarginBottom)}${TABmarginUnit};`
+				: " "
+		}
+		${
+			TABpaddingTop
+				? `padding-top: ${parseFloat(TABpaddingTop)}${TABpaddingUnit};`
+				: " "
+		}
+		${
+			TABpaddingRight
+				? `padding-right: ${parseFloat(TABpaddingRight)}${TABpaddingUnit};`
+				: " "
+		}
+		${
+			TABpaddingLeft
+				? `padding-left: ${parseFloat(TABpaddingLeft)}${TABpaddingUnit};`
+				: " "
+		}
+		${
+			TABpaddingBottom
+				? `padding-bottom: ${parseFloat(TABpaddingBottom)}${TABpaddingUnit};`
+				: " "
+		}
+	
+	}
+	`;
+
+	const wrapperStylesMobile = `
+	.${blockId}{
+		${
+			MOBmarginTop
+				? `margin-top: ${parseFloat(MOBmarginTop)}${MOBmarginUnit};`
+				: " "
+		}
+		${
+			MOBmarginRight
+				? `margin-right: ${parseFloat(MOBmarginRight)}${MOBmarginUnit};`
+				: " "
+		}
+		${
+			MOBmarginLeft
+				? `margin-left: ${parseFloat(MOBmarginLeft)}${MOBmarginUnit};`
+				: " "
+		}
+		${
+			MOBmarginBottom
+				? `margin-bottom: ${parseFloat(MOBmarginBottom)}${MOBmarginUnit};`
+				: " "
+		}
+		${
+			MOBpaddingTop
+				? `padding-top: ${parseFloat(MOBpaddingTop)}${MOBpaddingUnit};`
+				: " "
+		}
+		${
+			MOBpaddingRight
+				? `padding-right: ${parseFloat(MOBpaddingRight)}${MOBpaddingUnit};`
+				: " "
+		}
+		${
+			MOBpaddingLeft
+				? `padding-left: ${parseFloat(MOBpaddingLeft)}${MOBpaddingUnit};`
+				: " "
+		}
+		${
+			MOBpaddingBottom
+				? `padding-bottom: ${parseFloat(MOBpaddingBottom)}${MOBpaddingUnit};`
+				: " "
+		}
+	
+	}
+	`;
+
+	// all css styles for large screen width (desktop/laptop) in strings ⬇
+	const desktopAllStyles = softMinifyCssStrings(`
+		${isCssExists(wrapperStylesDesktop) ? wrapperStylesDesktop : " "}
+	
+	`);
+
+	// all css styles for Tab in strings ⬇
+	const tabAllStyles = softMinifyCssStrings(`
+		${isCssExists(wrapperStylesTab) ? wrapperStylesTab : " "}
+		
+	`);
+
+	// all css styles for Mobile in strings ⬇
+	const mobileAllStyles = softMinifyCssStrings(`
+		${isCssExists(wrapperStylesMobile) ? wrapperStylesMobile : " "}
+	
+	`);
+
 	// Set All Style in "blockMeta" Attribute
 	useEffect(() => {
 		const styleObject = {
-			desktop: `
-			.infobox-container{
-				color: #6c40f7;
-				background: #f0f;
-			}
-			`,
-			tab: `
-			.infobox-container{
-				color: #ff0;
-				background: #0ff;
-			}
-			`,
-			mobile: `
-			.infobox-container{
-				color: #34f;
-				background: #ccc;
-			}
-			`,
+			desktop: desktopAllStyles,
+			tab: tabAllStyles,
+			mobile: mobileAllStyles,
 		};
 		if (JSON.stringify(blockMeta) != JSON.stringify(styleObject)) {
 			setAttributes({ blockMeta: styleObject });
@@ -335,7 +506,35 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 		// Edit view
 		<div {...blockProps}>
-			<div className="infobox-container" style={boxWrapperStyle}>
+			<style>
+				{`
+				${desktopAllStyles}
+
+				/* mimmikcssStart */
+
+				${resOption === "tab" ? tabAllStyles : " "}
+				${resOption === "mobile" ? tabAllStyles + mobileAllStyles : " "}
+
+				/* mimmikcssEnd */
+
+				@media all and (max-width: 1024px) {	
+
+					/* tabcssStart */			
+					${softMinifyCssStrings(tabAllStyles)}
+					/* tabcssEnd */			
+				
+				}
+				
+				@media all and (max-width: 767px) {
+					
+					/* mobcssStart */			
+					${softMinifyCssStrings(mobileAllStyles)}
+					/* mobcssEnd */			
+				
+				}
+				`}
+			</style>
+			<div className={`eb-infobox-container ${blockId}`}>
 				<IconBox selectedIcon={selectedIcon} iconStyle={iconStyle} />
 
 				<div style={imageWrapperStyle}>
