@@ -1,3 +1,6 @@
+import * as prefixObjs from "./constants/typographyPrefixConstants";
+import { generateTypographyAttributes } from "./helpers";
+
 const attributes = {
 	// the following 4 attributes is must required for responsive options and asset generation for frontend
 	// responsive control attributes ⬇
@@ -19,6 +22,9 @@ const attributes = {
 	blockMeta: {
 		type: "object",
 	},
+
+	// typography attributes ⬇
+	...generateTypographyAttributes(Object.values(prefixObjs)),
 
 	// background attributes ⬇
 	backgroundType: {
@@ -117,8 +123,10 @@ const attributes = {
 		type: "string",
 		default: "h3",
 	},
-	contentFontSize: {
-		type: "number",
+
+	headerTextTransform: {
+		type: "string",
+		default: "none",
 	},
 	contentColor: {
 		type: "string",
@@ -127,10 +135,6 @@ const attributes = {
 	headerColor: {
 		type: "string",
 		default: "#4a5059",
-	},
-	headerTextTransform: {
-		type: "string",
-		default: "none",
 	},
 	boxBackground: {
 		type: "string",
@@ -416,65 +420,6 @@ const attributes = {
 		default: "px",
 	},
 	buttonPaddingUnit: {
-		type: "string",
-		default: "px",
-	},
-	headerFontFamily: {
-		type: "string",
-	},
-	headerFontSize: {
-		type: "number",
-	},
-	headerSizeUnit: {
-		type: "string",
-		default: "px",
-	},
-	headerFontWeight: {
-		type: "string",
-		default: "normal",
-	},
-	headerTextDecoration: {
-		type: "string",
-	},
-	headerLetterSpacing: {
-		type: "number",
-	},
-	headerLetterSpacingUnit: {
-		type: "string",
-		default: "px",
-	},
-	headerLineHeight: {
-		type: "number",
-	},
-	headerLineHeightUnit: {
-		type: "string",
-		default: "px",
-	},
-	contentFontFamily: {
-		type: "string",
-	},
-	contentFontWeight: {
-		type: "string",
-		default: "normal",
-	},
-	contentTextDecoration: {
-		type: "string",
-	},
-	contentTextTransform: {
-		type: "string",
-		default: "none",
-	},
-	contentLetterSpacing: {
-		type: "number",
-	},
-	contentLetterSpacingUnit: {
-		type: "string",
-		default: "px",
-	},
-	contentLineHeight: {
-		type: "number",
-	},
-	contentLineHeightUnit: {
 		type: "string",
 		default: "px",
 	},

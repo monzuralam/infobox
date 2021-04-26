@@ -10,10 +10,18 @@ import "./editor.scss";
 /**
  * Internal dependencies
  */
-import { softMinifyCssStrings, isCssExists } from "./helpers";
+import {
+	softMinifyCssStrings,
+	isCssExists,
+	generateTypographyStyles,
+} from "./helpers";
 import IconBox from "./iconbox.js";
 import Inspector from "./inspector";
 import { DEFAULT_BACKGROUND } from "./constants";
+import {
+	typoPrefix_content,
+	typoPrefix_header,
+} from "./constants/typographyPrefixConstants";
 
 const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	const {
@@ -230,90 +238,24 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		className: `eb-guten-block-main-parent-wrapper`,
 	});
 
-	const imageWrapperStyle = {
-		display: imageOrIcon === "image" ? "block" : "none",
-		backgroundImage:
-			imageOrIcon === "image" && imageUrl ? `url(${imageUrl})` : "none",
-		height: `${imageHeight}px`,
-		width: `${imageWidth}px`,
-		backgroundSize: "cover",
-		order: order,
-		marginTop: imageMarginTop ? `${imageMarginTop}px` : "10px",
-		marginRight: imageMarginRight ? `${imageMarginRight}px` : 0,
-		marginBottom: imageMarginBottom ? `${imageMarginBottom}px` : 0,
-		marginLeft: imageMarginLeft ? `${imageMarginLeft}px` : 0,
-	};
+	const {
+		typoStylesDesktop: headerTypoStylesDesktop,
+		typoStylesTab: headerTypoStylesTab,
+		typoStylesMobile: headerTypoStylesMobile,
+	} = generateTypographyStyles({
+		attributes,
+		prefixConstant: typoPrefix_header,
+	});
 
-	const iconStyle = {
-		display: imageOrIcon === "icon" && selectedIcon ? "block" : "none",
-		order: order,
-		color: iconColor || "#fff",
-		background: iconBackground || "#3074ff",
-		fontSize: `${iconSize || 36}${iconSizeUnit}`,
-		paddingTop: `${iconPaddingTop || 20}${iconPaddingUnit}`,
-		paddingRight: `${iconPaddingRight || 30}${iconPaddingUnit}`,
-		paddingBottom: `${iconPaddingBottom || 20}${iconPaddingUnit}`,
-		paddingLeft: `${iconPaddingLeft || 30}${iconPaddingUnit}`,
-		lineHeight: 1,
-		borderRadius: `5px`,
-	};
-
-	const numberStyle = {
-		display: imageOrIcon === "number" ? "block" : "none",
-		order: order,
-		color: numberColor,
-		fontSize: numberSize,
-	};
-
-	const headerStyle = {
-		fontFamily: headerFontFamily,
-		fontSize: headerFontSize ? headerFontSize + headerSizeUnit : undefined,
-		fontWeight: headerFontWeight,
-		textDecoration: headerTextDecoration,
-		textTransform: headerTextTransform,
-		letterSpacing: headerLetterSpacing
-			? headerLetterSpacing + headerLetterSpacingUnit
-			: undefined,
-		lineHeight: headerLineHeight
-			? headerLineHeight + headerLineHeightUnit
-			: undefined,
-		color: headerColor || "#4a5059",
-		paddingTop: `${headerPaddingTop || 0}${headerPaddingUnit}`,
-		paddingRight: `${headerPaddingRight || 0}${headerPaddingUnit}`,
-		paddingBottom: `${headerPaddingBottom || 0}${headerPaddingUnit}`,
-		paddingLeft: `${headerPaddingLeft || 0}${headerPaddingUnit}`,
-	};
-
-	const contentStyle = {
-		fontFamily: contentFontFamily,
-		fontSize: `${contentFontSize || 16}${contentSizeUnit}`,
-		fontWeight: contentFontWeight,
-		textDecoration: contentTextDecoration,
-		textTransform: contentTextTransform,
-		letterSpacing: contentLetterSpacing
-			? contentLetterSpacing + contentLetterSpacingUnit
-			: undefined,
-		lineHeight: contentLineHeight
-			? contentLineHeight + contentLineHeightUnit
-			: undefined,
-		color: contentColor || "#5b5b5b",
-	};
-
-	const buttonWrapperStyles = {
-		display: showButton ? "flex" : "none",
-		alignSelf: buttonAlign,
-		marginTop: "10px",
-	};
-
-	const linkStyles = {
-		textDecoration: "none",
-		background: buttonColor || "#3074ff",
-		color: buttonTextColor || "#ffffff",
-		paddingTop: `${buttonPaddingTop}${buttonPaddingUnit}`,
-		paddingRight: `${buttonPaddingRight}${buttonPaddingUnit}`,
-		paddingBottom: `${buttonPaddingBottom}${buttonPaddingUnit}`,
-		paddingLeft: `${buttonPaddingLeft}${buttonPaddingUnit}`,
-	};
+	const {
+		typoStylesDesktop: contentTypoStylesDesktop,
+		typoStylesTab: contentTypoStylesTab,
+		typoStylesMobile: contentTypoStylesMobile,
+	} = generateTypographyStyles({
+		attributes,
+		prefixConstant: typoPrefix_content,
+		defaultFontSize: 16,
+	});
 
 	// wrapper styles css in strings ⬇
 	const wrapperStylesDesktop = `
@@ -547,6 +489,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 	const headerStylesDesktop = `
 		.${blockId} .eb-infobox-header{
+			${headerTypoStylesDesktop}
 			${
 				headerPaddingTop
 					? `padding-top: ${parseFloat(headerPaddingTop)}${headerPaddingUnit};`
@@ -580,9 +523,42 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	
 	`;
 
+	const headerStylesTab = `
+	.${blockId} .eb-infobox-header{
+		${headerTypoStylesTab}
+
+	}
+	
+	`;
+
+	const headerStylesMobile = `
+	.${blockId} .eb-infobox-header{
+		${headerTypoStylesMobile}
+
+	}
+	
+	`;
+
 	const contentStylesDesktop = `
 		.${blockId} .eb-infobox-content-main{
+			${contentTypoStylesDesktop}
 			${contentColor ? `color: ${contentColor};` : " "}
+
+		}
+	
+	`;
+
+	const contentStylesTab = `
+		.${blockId} .eb-infobox-content-main{
+			${contentTypoStylesTab}
+
+		}
+	
+	`;
+
+	const contentStylesMobile = `
+		.${blockId} .eb-infobox-content-main{
+			${contentTypoStylesMobile}
 
 		}
 	
@@ -649,13 +625,15 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	// all css styles for Tab in strings ⬇
 	const tabAllStyles = softMinifyCssStrings(`
 		${isCssExists(wrapperStylesTab) ? wrapperStylesTab : " "}
-		
+		${isCssExists(headerStylesTab) ? headerStylesTab : " "}
+		${isCssExists(contentStylesTab) ? contentStylesTab : " "}
 	`);
 
 	// all css styles for Mobile in strings ⬇
 	const mobileAllStyles = softMinifyCssStrings(`
 		${isCssExists(wrapperStylesMobile) ? wrapperStylesMobile : " "}
-	
+		${isCssExists(headerStylesMobile) ? headerStylesMobile : " "}
+		${isCssExists(contentStylesMobile) ? contentStylesMobile : " "}
 	`);
 
 	// Set All Style in "blockMeta" Attribute
@@ -670,7 +648,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		}
 	}, [attributes]);
 
-	console.log({ attributes });
+	// console.log({ attributes });
 
 	return [
 		isSelected && (
