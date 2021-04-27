@@ -6689,7 +6689,7 @@ var Save = function Save(_ref) {
   };
   return /*#__PURE__*/React.createElement("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["useBlockProps"].save(), isClickable && clickableLink ? /*#__PURE__*/React.createElement("a", {
     href: clickableLink,
-    className: "clickable-link-".concat(blockId, " eb-infobox-clickable-wrapperimageOrIcon,")
+    className: "clickable-link-".concat(blockId, " eb-infobox-clickable-wrapper")
   }, /*#__PURE__*/React.createElement("div", {
     className: "eb-infobox-container ".concat(blockId)
   }, /*#__PURE__*/React.createElement(_infobox_container_js__WEBPACK_IMPORTED_MODULE_1__["default"], {

@@ -39,7 +39,7 @@ const Save = ({ attributes }) => {
 			{isClickable && clickableLink ? (
 				<a
 					href={clickableLink}
-					className={`clickable-link-${blockId} eb-infobox-clickable-wrapperimageOrIcon,`}
+					className={`clickable-link-${blockId} eb-infobox-clickable-wrapper`}
 				>
 					<div className={`eb-infobox-container ${blockId}`}>
 						<InfoboxContainer infoBoxProps={infoBoxProps} />
