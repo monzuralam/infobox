@@ -46,26 +46,25 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		content,
 		imageUrl,
 		imageId,
-		flexDirection,
 		order,
 		showButton,
+		buttonAlign,
 		buttonText,
 		imageHeight,
 		imageWidth,
 		number,
 		headerTag,
-		contentFontSize,
-		contentColor,
-		headerColor,
-		headerTextTransform,
-		numberColor,
 		numberSize,
 		iconSize,
-		iconColor,
-		buttonColor,
-		buttonTextColor,
 
-		buttonAlign,
+		// color panel attributes ⬇
+		contentColor = "#5b5b5b",
+		headerColor = "#4a5059",
+		numberColor = "#4a5059",
+		iconBackground = "#3074ff",
+		iconColor = "#fff",
+		buttonColor = "#3074FF",
+		buttonTextColor = "#fff",
 
 		// margin padding attributes ⬇
 		marginUnit,
@@ -110,61 +109,117 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		MOBpaddingBottom,
 		MOBpaddingLeft,
 
-		iconPaddingUnit,
-		iconPaddingTop,
-		iconPaddingRight,
-		iconPaddingBottom,
-		iconPaddingLeft,
-
+		//
+		// spacing control attributes starts ⬇
+		// header padding attributes ⬇
 		headerPaddingUnit,
 		headerPaddingTop,
 		headerPaddingRight,
 		headerPaddingBottom,
 		headerPaddingLeft,
 
+		TABheaderPaddingUnit,
+		TABheaderPaddingTop,
+		TABheaderPaddingRight,
+		TABheaderPaddingBottom,
+		TABheaderPaddingLeft,
+
+		MOBheaderPaddingUnit,
+		MOBheaderPaddingTop,
+		MOBheaderPaddingRight,
+		MOBheaderPaddingBottom,
+		MOBheaderPaddingLeft,
+
+		// content padding attributes ⬇
+		contentPaddingUnit,
+		contentPaddingTop,
+		contentPaddingRight,
+		contentPaddingBottom,
+		contentPaddingLeft,
+
+		TABcontentPaddingUnit,
+		TABcontentPaddingTop,
+		TABcontentPaddingRight,
+		TABcontentPaddingBottom,
+		TABcontentPaddingLeft,
+
+		MOBcontentPaddingUnit,
+		MOBcontentPaddingTop,
+		MOBcontentPaddingRight,
+		MOBcontentPaddingBottom,
+		MOBcontentPaddingLeft,
+
+		// image margin attributes ⬇
 		imageMarginTop,
 		imageMarginRight,
 		imageMarginBottom,
 		imageMarginLeft,
 
+		TABimageMarginTop,
+		TABimageMarginRight,
+		TABimageMarginBottom,
+		TABimageMarginLeft,
+
+		MOBimageMarginTop,
+		MOBimageMarginRight,
+		MOBimageMarginBottom,
+		MOBimageMarginLeft,
+
+		// icon padding attributes ⬇
+		iconPaddingUnit,
+		iconPaddingTop,
+		iconPaddingRight,
+		iconPaddingBottom,
+		iconPaddingLeft,
+
+		TABiconPaddingUnit,
+		TABiconPaddingTop,
+		TABiconPaddingRight,
+		TABiconPaddingBottom,
+		TABiconPaddingLeft,
+
+		MOBiconPaddingUnit,
+		MOBiconPaddingTop,
+		MOBiconPaddingRight,
+		MOBiconPaddingBottom,
+		MOBiconPaddingLeft,
+		// spacing control attributes Ends
+		//
+
+		// Button padding attributes ⬇
 		buttonPaddingUnit,
 		buttonPaddingTop,
 		buttonPaddingRight,
 		buttonPaddingBottom,
 		buttonPaddingLeft,
 
+		TABbuttonPaddingUnit,
+		TABbuttonPaddingTop,
+		TABbuttonPaddingRight,
+		TABbuttonPaddingBottom,
+		TABbuttonPaddingLeft,
+
+		MOBbuttonPaddingUnit,
+		MOBbuttonPaddingTop,
+		MOBbuttonPaddingRight,
+		MOBbuttonPaddingBottom,
+		MOBbuttonPaddingLeft,
+
+		// Border attributes ⬇
 		borderWidth,
 		borderColor,
 		borderStyle,
 		borderRadius,
+
+		// Shadow attributes ⬇
 		shadowColor,
 		shadowHOffset,
 		shadowVOffset,
 		shadowBlur,
 		shadowSpread,
-		contentSizeUnit,
-		iconSizeUnit,
 
 		radiusUnit,
 		borderWidthUnit,
-		iconBackground,
-		headerFontFamily,
-		headerFontSize,
-		headerSizeUnit,
-		headerFontWeight,
-		headerTextDecoration,
-		headerLetterSpacing,
-		headerLetterSpacingUnit,
-		headerLineHeight,
-		headerLineHeightUnit,
-		contentFontFamily,
-		contentFontWeight,
-		contentTextTransform,
-		contentTextDecoration,
-		contentLetterSpacing,
-		contentLetterSpacingUnit,
-		contentLineHeight,
-		contentLineHeightUnit,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
@@ -231,8 +286,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 		// console.log({ blockId });
 	}, []);
-
-	console.log({ attributes });
 
 	const blockProps = useBlockProps({
 		className: `eb-guten-block-main-parent-wrapper`,
@@ -441,13 +494,59 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		}	
 	`;
 
+	const imageWrapperStyleTab = `
+		.${blockId} .eb-infobox-image-wrapper{		
+			${TABimageMarginTop ? `margin-top: ${parseFloat(TABimageMarginTop)}px;` : " "}
+			${
+				TABimageMarginRight
+					? `margin-right: ${parseFloat(TABimageMarginRight)}px;`
+					: " "
+			}
+			${
+				TABimageMarginLeft
+					? `margin-left: ${parseFloat(TABimageMarginLeft)}px;`
+					: " "
+			}
+			${
+				TABimageMarginBottom
+					? `margin-bottom: ${parseFloat(TABimageMarginBottom)}px;`
+					: " "
+			}
+		
+		
+		}	
+	`;
+
+	const imageWrapperStyleMobile = `
+		.${blockId} .eb-infobox-image-wrapper{		
+			${MOBimageMarginTop ? `margin-top: ${parseFloat(MOBimageMarginTop)}px;` : " "}
+			${
+				MOBimageMarginRight
+					? `margin-right: ${parseFloat(MOBimageMarginRight)}px;`
+					: " "
+			}
+			${
+				MOBimageMarginLeft
+					? `margin-left: ${parseFloat(MOBimageMarginLeft)}px;`
+					: " "
+			}
+			${
+				MOBimageMarginBottom
+					? `margin-bottom: ${parseFloat(MOBimageMarginBottom)}px;`
+					: " "
+			}
+		
+		
+		}	
+	`;
+
 	const iconStyleDesktop = `
 		.${blockId} .eb-infobox-icon{
 			display: ${imageOrIcon === "icon" && selectedIcon ? "block" : "none"};
 			order: ${order};
-			color: ${iconColor || "#fff"};
-			background: ${iconBackground || "#3074ff"};
-			font-size: ${iconSize}${iconSizeUnit};
+			color: ${iconColor};
+			background: ${iconBackground};
+			font-size: ${iconSize}px;
 
 			${
 				iconPaddingTop
@@ -474,6 +573,74 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			
 			line-height: 1em;
 			border-radius: 5px;
+		}
+	`;
+
+	const iconStyleTab = `
+		.${blockId} .eb-infobox-icon{		
+			${
+				TABiconPaddingTop
+					? `padding-top: ${parseFloat(
+							TABiconPaddingTop
+					  )}${TABiconPaddingUnit};`
+					: " "
+			}
+			${
+				TABiconPaddingRight
+					? `padding-right: ${parseFloat(
+							TABiconPaddingRight
+					  )}${TABiconPaddingUnit};`
+					: " "
+			}
+			${
+				TABiconPaddingLeft
+					? `padding-left: ${parseFloat(
+							TABiconPaddingLeft
+					  )}${TABiconPaddingUnit};`
+					: " "
+			}
+			${
+				TABiconPaddingBottom
+					? `padding-bottom: ${parseFloat(
+							TABiconPaddingBottom
+					  )}${TABiconPaddingUnit};`
+					: " "
+			}
+			
+		}
+	`;
+
+	const iconStyleMobile = `
+		.${blockId} .eb-infobox-icon{		
+			${
+				MOBiconPaddingTop
+					? `padding-top: ${parseFloat(
+							MOBiconPaddingTop
+					  )}${MOBiconPaddingUnit};`
+					: " "
+			}
+			${
+				MOBiconPaddingRight
+					? `padding-right: ${parseFloat(
+							MOBiconPaddingRight
+					  )}${MOBiconPaddingUnit};`
+					: " "
+			}
+			${
+				MOBiconPaddingLeft
+					? `padding-left: ${parseFloat(
+							MOBiconPaddingLeft
+					  )}${MOBiconPaddingUnit};`
+					: " "
+			}
+			${
+				MOBiconPaddingBottom
+					? `padding-bottom: ${parseFloat(
+							MOBiconPaddingBottom
+					  )}${MOBiconPaddingUnit};`
+					: " "
+			}
+			
 		}
 	`;
 
@@ -519,6 +686,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			
 			${headerColor ? `color: ${headerColor};` : " "}
 		
+
+			margin: 0;
 		}
 	
 	`;
@@ -526,7 +695,34 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	const headerStylesTab = `
 	.${blockId} .eb-infobox-header{
 		${headerTypoStylesTab}
-
+		${
+			TABheaderPaddingTop
+				? `padding-top: ${parseFloat(
+						TABheaderPaddingTop
+				  )}${TABheaderPaddingUnit};`
+				: " "
+		}
+		${
+			TABheaderPaddingRight
+				? `padding-right: ${parseFloat(
+						TABheaderPaddingRight
+				  )}${TABheaderPaddingUnit};`
+				: " "
+		}
+		${
+			TABheaderPaddingLeft
+				? `padding-left: ${parseFloat(
+						TABheaderPaddingLeft
+				  )}${TABheaderPaddingUnit};`
+				: " "
+		}
+		${
+			TABheaderPaddingBottom
+				? `padding-bottom: ${parseFloat(
+						TABheaderPaddingBottom
+				  )}${TABheaderPaddingUnit};`
+				: " "
+		}
 	}
 	
 	`;
@@ -535,6 +731,34 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	.${blockId} .eb-infobox-header{
 		${headerTypoStylesMobile}
 
+		${
+			MOBheaderPaddingTop
+				? `padding-top: ${parseFloat(
+						MOBheaderPaddingTop
+				  )}${MOBheaderPaddingUnit};`
+				: " "
+		}
+		${
+			MOBheaderPaddingRight
+				? `padding-right: ${parseFloat(
+						MOBheaderPaddingRight
+				  )}${MOBheaderPaddingUnit};`
+				: " "
+		}
+		${
+			MOBheaderPaddingLeft
+				? `padding-left: ${parseFloat(
+						MOBheaderPaddingLeft
+				  )}${MOBheaderPaddingUnit};`
+				: " "
+		}
+		${
+			MOBheaderPaddingBottom
+				? `padding-bottom: ${parseFloat(
+						MOBheaderPaddingBottom
+				  )}${MOBheaderPaddingUnit};`
+				: " "
+		}
 	}
 	
 	`;
@@ -543,7 +767,34 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		.${blockId} .eb-infobox-content-main{
 			${contentTypoStylesDesktop}
 			${contentColor ? `color: ${contentColor};` : " "}
-
+			${
+				contentPaddingTop
+					? `padding-top: ${parseFloat(
+							contentPaddingTop
+					  )}${contentPaddingUnit};`
+					: " "
+			}
+			${
+				contentPaddingRight
+					? `padding-right: ${parseFloat(
+							contentPaddingRight
+					  )}${contentPaddingUnit};`
+					: " "
+			}
+			${
+				contentPaddingLeft
+					? `padding-left: ${parseFloat(
+							contentPaddingLeft
+					  )}${contentPaddingUnit};`
+					: " "
+			}
+			${
+				contentPaddingBottom
+					? `padding-bottom: ${parseFloat(
+							contentPaddingBottom
+					  )}${contentPaddingUnit};`
+					: " "
+			}
 		}
 	
 	`;
@@ -551,7 +802,34 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	const contentStylesTab = `
 		.${blockId} .eb-infobox-content-main{
 			${contentTypoStylesTab}
-
+			${
+				TABcontentPaddingTop
+					? `padding-top: ${parseFloat(
+							TABcontentPaddingTop
+					  )}${TABcontentPaddingUnit};`
+					: " "
+			}
+			${
+				TABcontentPaddingRight
+					? `padding-right: ${parseFloat(
+							TABcontentPaddingRight
+					  )}${TABcontentPaddingUnit};`
+					: " "
+			}
+			${
+				TABcontentPaddingLeft
+					? `padding-left: ${parseFloat(
+							TABcontentPaddingLeft
+					  )}${TABcontentPaddingUnit};`
+					: " "
+			}
+			${
+				TABcontentPaddingBottom
+					? `padding-bottom: ${parseFloat(
+							TABcontentPaddingBottom
+					  )}${TABcontentPaddingUnit};`
+					: " "
+			}
 		}
 	
 	`;
@@ -559,7 +837,34 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	const contentStylesMobile = `
 		.${blockId} .eb-infobox-content-main{
 			${contentTypoStylesMobile}
-
+			${
+				MOBcontentPaddingTop
+					? `padding-top: ${parseFloat(
+							MOBcontentPaddingTop
+					  )}${MOBcontentPaddingUnit};`
+					: " "
+			}
+			${
+				MOBcontentPaddingRight
+					? `padding-right: ${parseFloat(
+							MOBcontentPaddingRight
+					  )}${MOBcontentPaddingUnit};`
+					: " "
+			}
+			${
+				MOBcontentPaddingLeft
+					? `padding-left: ${parseFloat(
+							MOBcontentPaddingLeft
+					  )}${MOBcontentPaddingUnit};`
+					: " "
+			}
+			${
+				MOBcontentPaddingBottom
+					? `padding-bottom: ${parseFloat(
+							MOBcontentPaddingBottom
+					  )}${MOBcontentPaddingUnit};`
+					: " "
+			}
 		}
 	
 	`;
@@ -574,7 +879,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	`;
 
 	const linkStylesDesktop = `
-		.${blockId} .eb-infobox-link{
+		.eb-infobox-container.${blockId} .eb-infobox-link{
 			${buttonColor ? `background: ${buttonColor};` : " "} 
 			${buttonTextColor ? `color: ${buttonTextColor};` : " "} 
 			${
@@ -609,6 +914,78 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	
 	`;
 
+	const linkStylesTab = `
+		.eb-infobox-container.${blockId} .eb-infobox-link{
+			${
+				TABbuttonPaddingTop
+					? `padding-top: ${parseFloat(
+							TABbuttonPaddingTop
+					  )}${TABbuttonPaddingUnit};`
+					: " "
+			}
+			${
+				TABbuttonPaddingRight
+					? `padding-right: ${parseFloat(
+							TABbuttonPaddingRight
+					  )}${TABbuttonPaddingUnit};`
+					: " "
+			}
+			${
+				TABbuttonPaddingLeft
+					? `padding-left: ${parseFloat(
+							TABbuttonPaddingLeft
+					  )}${TABbuttonPaddingUnit};`
+					: " "
+			}
+			${
+				TABbuttonPaddingBottom
+					? `padding-bottom: ${parseFloat(
+							TABbuttonPaddingBottom
+					  )}${TABbuttonPaddingUnit};`
+					: " "
+			}
+			
+			text-decoration: none;
+		}
+	
+	`;
+
+	const linkStylesMobile = `
+		.eb-infobox-container.${blockId} .eb-infobox-link{
+			${
+				MOBbuttonPaddingTop
+					? `padding-top: ${parseFloat(
+							MOBbuttonPaddingTop
+					  )}${MOBbuttonPaddingUnit};`
+					: " "
+			}
+			${
+				MOBbuttonPaddingRight
+					? `padding-right: ${parseFloat(
+							MOBbuttonPaddingRight
+					  )}${MOBbuttonPaddingUnit};`
+					: " "
+			}
+			${
+				MOBbuttonPaddingLeft
+					? `padding-left: ${parseFloat(
+							MOBbuttonPaddingLeft
+					  )}${MOBbuttonPaddingUnit};`
+					: " "
+			}
+			${
+				MOBbuttonPaddingBottom
+					? `padding-bottom: ${parseFloat(
+							MOBbuttonPaddingBottom
+					  )}${MOBbuttonPaddingUnit};`
+					: " "
+			}
+			
+			text-decoration: none;
+		}
+	
+	`;
+
 	// all css styles for large screen width (desktop/laptop) in strings ⬇
 	const desktopAllStyles = softMinifyCssStrings(`
 		${isCssExists(wrapperStylesDesktop) ? wrapperStylesDesktop : " "}
@@ -619,7 +996,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		${isCssExists(contentStylesDesktop) ? contentStylesDesktop : " "}
 		${isCssExists(buttonWrapperStylesDesktop) ? buttonWrapperStylesDesktop : " "}
 		${isCssExists(linkStylesDesktop) ? linkStylesDesktop : " "}
-	
 	`);
 
 	// all css styles for Tab in strings ⬇
@@ -627,6 +1003,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		${isCssExists(wrapperStylesTab) ? wrapperStylesTab : " "}
 		${isCssExists(headerStylesTab) ? headerStylesTab : " "}
 		${isCssExists(contentStylesTab) ? contentStylesTab : " "}
+		${isCssExists(linkStylesTab) ? linkStylesTab : " "}
+		${isCssExists(imageWrapperStyleTab) ? imageWrapperStyleTab : " "}
+		${isCssExists(iconStyleTab) ? iconStyleTab : " "}
 	`);
 
 	// all css styles for Mobile in strings ⬇
@@ -634,6 +1013,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		${isCssExists(wrapperStylesMobile) ? wrapperStylesMobile : " "}
 		${isCssExists(headerStylesMobile) ? headerStylesMobile : " "}
 		${isCssExists(contentStylesMobile) ? contentStylesMobile : " "}
+		${isCssExists(linkStylesMobile) ? linkStylesMobile : " "}
+		${isCssExists(imageWrapperStyleMobile) ? imageWrapperStyleMobile : " "}
+		${isCssExists(iconStyleMobile) ? iconStyleMobile : " "}
 	`);
 
 	// Set All Style in "blockMeta" Attribute
@@ -648,7 +1030,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		}
 	}, [attributes]);
 
-	// console.log({ attributes });
+	console.log("--edit theke", { attributes });
 
 	return [
 		isSelected && (

@@ -36,8 +36,6 @@ import {
 import FontIconPicker from "@fonticonpicker/react-fonticonpicker";
 import faIcons from "../util/faIcons.js";
 
-import FontPicker from "../util/typography-control/FontPicker";
-
 import TypographyDropdown from "../util/typography-control";
 
 import DimensionsControl from "../util/dimensions-control";
@@ -77,41 +75,124 @@ function Inspector(props) {
 		content,
 		imageUrl,
 		imageId,
-		flexDirection,
 		order,
-		showButton,
-		buttonText,
 		imageHeight,
+		numberSize,
+		iconSize,
 		imageWidth,
 		number,
 		headerTag,
+
+		// color panel attributes ⬇
 		contentColor,
 		headerColor,
 		numberColor,
-		numberSize,
-		iconSize,
 		iconColor,
 		iconBackground,
 		buttonColor,
 		buttonTextColor,
-		iconPaddingTop,
-		iconPaddingRight,
-		iconPaddingBottom,
-		iconPaddingLeft,
-		headerPaddingTop,
-		headerPaddingRight,
-		headerPaddingBottom,
-		headerPaddingLeft,
-		imageMarginTop,
-		imageMarginRight,
-		imageMarginBottom,
-		imageMarginLeft,
+
+		// Button settings attributes ⬇
+		showButton,
+		buttonText,
+		buttonSize,
+		buttonAlign,
+
+		// Button padding attributes ⬇
+		buttonPaddingUnit,
 		buttonPaddingTop,
 		buttonPaddingRight,
 		buttonPaddingBottom,
 		buttonPaddingLeft,
-		buttonSize,
-		buttonAlign,
+
+		TABbuttonPaddingUnit,
+		TABbuttonPaddingTop,
+		TABbuttonPaddingRight,
+		TABbuttonPaddingBottom,
+		TABbuttonPaddingLeft,
+
+		MOBbuttonPaddingUnit,
+		MOBbuttonPaddingTop,
+		MOBbuttonPaddingRight,
+		MOBbuttonPaddingBottom,
+		MOBbuttonPaddingLeft,
+
+		//
+		// spacing control attributes starts ⬇
+		// header padding attributes ⬇
+		headerPaddingUnit,
+		headerPaddingTop,
+		headerPaddingRight,
+		headerPaddingBottom,
+		headerPaddingLeft,
+
+		TABheaderPaddingUnit,
+		TABheaderPaddingTop,
+		TABheaderPaddingRight,
+		TABheaderPaddingBottom,
+		TABheaderPaddingLeft,
+
+		MOBheaderPaddingUnit,
+		MOBheaderPaddingTop,
+		MOBheaderPaddingRight,
+		MOBheaderPaddingBottom,
+		MOBheaderPaddingLeft,
+
+		// content padding attributes ⬇
+		contentPaddingUnit,
+		contentPaddingTop,
+		contentPaddingRight,
+		contentPaddingBottom,
+		contentPaddingLeft,
+
+		TABcontentPaddingUnit,
+		TABcontentPaddingTop,
+		TABcontentPaddingRight,
+		TABcontentPaddingBottom,
+		TABcontentPaddingLeft,
+
+		MOBcontentPaddingUnit,
+		MOBcontentPaddingTop,
+		MOBcontentPaddingRight,
+		MOBcontentPaddingBottom,
+		MOBcontentPaddingLeft,
+
+		// image margin attributes ⬇
+		imageMarginTop,
+		imageMarginRight,
+		imageMarginBottom,
+		imageMarginLeft,
+
+		TABimageMarginTop,
+		TABimageMarginRight,
+		TABimageMarginBottom,
+		TABimageMarginLeft,
+
+		MOBimageMarginTop,
+		MOBimageMarginRight,
+		MOBimageMarginBottom,
+		MOBimageMarginLeft,
+
+		// icon padding attributes ⬇
+		iconPaddingUnit,
+		iconPaddingTop,
+		iconPaddingRight,
+		iconPaddingBottom,
+		iconPaddingLeft,
+
+		TABiconPaddingUnit,
+		TABiconPaddingTop,
+		TABiconPaddingRight,
+		TABiconPaddingBottom,
+		TABiconPaddingLeft,
+
+		MOBiconPaddingUnit,
+		MOBiconPaddingTop,
+		MOBiconPaddingRight,
+		MOBiconPaddingBottom,
+		MOBiconPaddingLeft,
+		// spacing control attributes Ends
+		//
 
 		// margin padding attributes ⬇
 		marginUnit,
@@ -170,11 +251,7 @@ function Inspector(props) {
 		shadowBlur,
 		shadowSpread,
 
-		iconSizeUnit,
-		headerPaddingUnit,
-		iconPaddingUnit,
 		borderWidthUnit,
-		buttonPaddingUnit,
 	} = attributes;
 
 	const changeButtonSize = (newSize) => {
@@ -450,34 +527,126 @@ function Inspector(props) {
 					)}
 
 					{showButton && (
-						<PanelBody title={__("Button Settings")}>
-							<TextControl
-								label={__("Button Text")}
-								value={buttonText}
-								onChange={(newText) => setAttributes({ buttonText: newText })}
-							/>
+						<>
+							<PanelBody title={__("Button Settings")} initialOpen={false}>
+								<TextControl
+									label={__("Button Text")}
+									value={buttonText}
+									onChange={(newText) => setAttributes({ buttonText: newText })}
+								/>
 
-							<TextControl
-								label={__("Link URL")}
-								placeholder="https://your-link.com"
-								value={clickableLink}
-								onChange={(link) => setAttributes({ clickableLink: link })}
-							/>
+								<TextControl
+									label={__("Link URL")}
+									placeholder="https://your-link.com"
+									value={clickableLink}
+									onChange={(link) => setAttributes({ clickableLink: link })}
+								/>
 
-							<SelectControl
-								label={__("Button Size")}
-								value={buttonSize}
-								options={BUTTON_SIZES}
-								onChange={(newSize) => changeButtonSize(newSize)}
-							/>
+								<SelectControl
+									label={__("Button Size")}
+									value={buttonSize}
+									options={BUTTON_SIZES}
+									onChange={(newSize) => changeButtonSize(newSize)}
+								/>
 
-							<SelectControl
-								label={__("Button Align")}
-								value={buttonAlign}
-								options={BUTTON_ALIGN}
-								onChange={(buttonAlign) => setAttributes({ buttonAlign })}
-							/>
-						</PanelBody>
+								<SelectControl
+									label={__("Button Align")}
+									value={buttonAlign}
+									options={BUTTON_ALIGN}
+									onChange={(buttonAlign) => setAttributes({ buttonAlign })}
+								/>
+							</PanelBody>
+
+							<ResPanelBody
+								title={__("Button Padding")}
+								initialOpen={false}
+								resRequiredProps={resRequiredProps}
+							>
+								{resOption == "desktop" && (
+									<>
+										<UnitControl
+											selectedUnit={buttonPaddingUnit}
+											unitTypes={FONT_SIZE_UNITS}
+											onClick={(buttonPaddingUnit) =>
+												setAttributes({ buttonPaddingUnit })
+											}
+										/>
+
+										<DimensionsControl
+											label={__("Button Padding")}
+											top={buttonPaddingTop}
+											right={buttonPaddingRight}
+											bottom={buttonPaddingBottom}
+											left={buttonPaddingLeft}
+											onChange={({ top, right, bottom, left }) =>
+												setAttributes({
+													buttonPaddingTop: top,
+													buttonPaddingRight: right,
+													buttonPaddingBottom: bottom,
+													buttonPaddingLeft: left,
+												})
+											}
+										/>
+									</>
+								)}
+
+								{resOption == "tab" && (
+									<>
+										<UnitControl
+											selectedUnit={TABbuttonPaddingUnit}
+											unitTypes={FONT_SIZE_UNITS}
+											onClick={(TABbuttonPaddingUnit) =>
+												setAttributes({ TABbuttonPaddingUnit })
+											}
+										/>
+
+										<DimensionsControl
+											label={__("Button Padding")}
+											top={TABbuttonPaddingTop}
+											right={TABbuttonPaddingRight}
+											bottom={TABbuttonPaddingBottom}
+											left={TABbuttonPaddingLeft}
+											onChange={({ top, right, bottom, left }) =>
+												setAttributes({
+													TABbuttonPaddingTop: top,
+													TABbuttonPaddingRight: right,
+													TABbuttonPaddingBottom: bottom,
+													TABbuttonPaddingLeft: left,
+												})
+											}
+										/>
+									</>
+								)}
+
+								{resOption == "mobile" && (
+									<>
+										<UnitControl
+											selectedUnit={MOBbuttonPaddingUnit}
+											unitTypes={FONT_SIZE_UNITS}
+											onClick={(MOBbuttonPaddingUnit) =>
+												setAttributes({ MOBbuttonPaddingUnit })
+											}
+										/>
+
+										<DimensionsControl
+											label={__("Button Padding")}
+											top={MOBbuttonPaddingTop}
+											right={MOBbuttonPaddingRight}
+											bottom={MOBbuttonPaddingBottom}
+											left={MOBbuttonPaddingLeft}
+											onChange={({ top, right, bottom, left }) =>
+												setAttributes({
+													MOBbuttonPaddingTop: top,
+													MOBbuttonPaddingRight: right,
+													MOBbuttonPaddingBottom: bottom,
+													MOBbuttonPaddingLeft: left,
+												})
+											}
+										/>
+									</>
+								)}
+							</ResPanelBody>
+						</>
 					)}
 
 					{isClickable && (
@@ -665,11 +834,18 @@ function Inspector(props) {
 					/>
 
 					{imageOrIcon === "icon" && (
-						<ColorControl
-							label={__("Icon Color")}
-							color={iconColor}
-							onChange={(iconColor) => setAttributes({ iconColor })}
-						/>
+						<>
+							<ColorControl
+								label={__("Icon Color")}
+								color={iconColor}
+								onChange={(iconColor) => setAttributes({ iconColor })}
+							/>
+							<ColorControl
+								label={__("Icon Background Color")}
+								color={iconBackground}
+								onChange={(iconBackground) => setAttributes({ iconBackground })}
+							/>
+						</>
 					)}
 
 					{imageOrIcon === "number" && (
@@ -699,116 +875,302 @@ function Inspector(props) {
 					)}
 				</PanelBody>
 
-				<PanelBody title={__("Spacing")} initialOpen={false}>
-					<UnitControl
-						selectedUnit={headerPaddingUnit}
-						unitTypes={[
-							{ label: "px", value: "px" },
-							{ label: "em", value: "em" },
-							{ label: "%", value: "%" },
-						]}
-						onClick={(headerPaddingUnit) =>
-							setAttributes({ headerPaddingUnit })
-						}
-					/>
-
-					<DimensionsControl
-						label={__("Header Padding")}
-						top={headerPaddingTop}
-						right={headerPaddingRight}
-						bottom={headerPaddingBottom}
-						left={headerPaddingLeft}
-						onChange={({ top, right, bottom, left }) =>
-							setAttributes({
-								headerPaddingTop: top,
-								headerPaddingRight: right,
-								headerPaddingBottom: bottom,
-								headerPaddingLeft: left,
-							})
-						}
-					/>
-
-					{imageOrIcon === "image" && (
-						<DimensionsControl
-							label={__("Image Margin")}
-							top={imageMarginTop}
-							right={imageMarginTop}
-							bottom={imageMarginBottom}
-							left={imageMarginLeft}
-							onChange={({ top, right, bottom, left }) =>
-								setAttributes({
-									imageMarginTop: top,
-									imageMarginRight: right,
-									imageMarginBottom: bottom,
-									imageMarginLeft: left,
-								})
-							}
-						/>
-					)}
-
-					{showButton && (
+				<ResPanelBody
+					title={__("Spacing")}
+					initialOpen={false}
+					resRequiredProps={resRequiredProps}
+				>
+					{resOption == "desktop" && (
 						<>
 							<UnitControl
-								selectedUnit={buttonPaddingUnit}
-								unitTypes={[
-									{ label: "px", value: "px" },
-									{ label: "em", value: "em" },
-									{ label: "%", value: "%" },
-								]}
-								onClick={(buttonPaddingUnit) =>
-									setAttributes({ buttonPaddingUnit })
+								selectedUnit={headerPaddingUnit}
+								unitTypes={FONT_SIZE_UNITS}
+								onClick={(headerPaddingUnit) =>
+									setAttributes({ headerPaddingUnit })
 								}
 							/>
 
 							<DimensionsControl
-								label={__("Button Padding")}
-								top={buttonPaddingTop}
-								right={buttonPaddingRight}
-								bottom={buttonPaddingBottom}
-								left={buttonPaddingLeft}
+								label={__("Header Padding")}
+								top={headerPaddingTop}
+								right={headerPaddingRight}
+								bottom={headerPaddingBottom}
+								left={headerPaddingLeft}
 								onChange={({ top, right, bottom, left }) =>
 									setAttributes({
-										buttonPaddingTop: top,
-										buttonPaddingRight: right,
-										buttonPaddingBottom: bottom,
-										buttonPaddingLeft: left,
+										headerPaddingTop: top,
+										headerPaddingRight: right,
+										headerPaddingBottom: bottom,
+										headerPaddingLeft: left,
 									})
 								}
 							/>
+
+							<UnitControl
+								selectedUnit={contentPaddingUnit}
+								unitTypes={FONT_SIZE_UNITS}
+								onClick={(contentPaddingUnit) =>
+									setAttributes({ contentPaddingUnit })
+								}
+							/>
+
+							<DimensionsControl
+								label={__("Content Padding")}
+								top={contentPaddingTop}
+								right={contentPaddingRight}
+								bottom={contentPaddingBottom}
+								left={contentPaddingLeft}
+								onChange={({ top, right, bottom, left }) =>
+									setAttributes({
+										contentPaddingTop: top,
+										contentPaddingRight: right,
+										contentPaddingBottom: bottom,
+										contentPaddingLeft: left,
+									})
+								}
+							/>
+
+							{imageOrIcon === "image" && (
+								<DimensionsControl
+									label={__("Image Margin")}
+									top={imageMarginTop}
+									right={imageMarginRight}
+									bottom={imageMarginBottom}
+									left={imageMarginLeft}
+									onChange={({ top, right, bottom, left }) =>
+										setAttributes({
+											imageMarginTop: top,
+											imageMarginRight: right,
+											imageMarginBottom: bottom,
+											imageMarginLeft: left,
+										})
+									}
+								/>
+							)}
+
+							{imageOrIcon === "icon" && (
+								<>
+									<UnitControl
+										selectedUnit={iconPaddingUnit}
+										unitTypes={FONT_SIZE_UNITS}
+										onClick={(iconPaddingUnit) =>
+											setAttributes({ iconPaddingUnit })
+										}
+									/>
+									<DimensionsControl
+										label={__("Icon Padding")}
+										top={iconPaddingTop}
+										right={iconPaddingRight}
+										bottom={iconPaddingBottom}
+										left={iconPaddingLeft}
+										onChange={({ top, right, bottom, left }) =>
+											setAttributes({
+												iconPaddingTop: top,
+												iconPaddingRight: right,
+												iconPaddingBottom: bottom,
+												iconPaddingLeft: left,
+											})
+										}
+									/>
+								</>
+							)}
 						</>
 					)}
 
-					{imageOrIcon === "icon" && (
+					{resOption == "tab" && (
 						<>
 							<UnitControl
-								selectedUnit={iconPaddingUnit}
-								unitTypes={[
-									{ label: "px", value: "px" },
-									{ label: "em", value: "em" },
-									{ label: "%", value: "%" },
-								]}
-								onClick={(iconPaddingUnit) =>
-									setAttributes({ iconPaddingUnit })
+								selectedUnit={TABheaderPaddingUnit}
+								unitTypes={FONT_SIZE_UNITS}
+								onClick={(TABheaderPaddingUnit) =>
+									setAttributes({ TABheaderPaddingUnit })
 								}
 							/>
+
 							<DimensionsControl
-								label={__("Icon Padding")}
-								top={iconPaddingTop}
-								right={iconPaddingRight}
-								bottom={iconPaddingBottom}
-								left={iconPaddingLeft}
+								label={__("Header Padding")}
+								top={TABheaderPaddingTop}
+								right={TABheaderPaddingRight}
+								bottom={TABheaderPaddingBottom}
+								left={TABheaderPaddingLeft}
 								onChange={({ top, right, bottom, left }) =>
 									setAttributes({
-										iconPaddingTop: top,
-										iconPaddingRight: right,
-										iconPaddingBottom: bottom,
-										iconPaddingLeft: left,
+										TABheaderPaddingTop: top,
+										TABheaderPaddingRight: right,
+										TABheaderPaddingBottom: bottom,
+										TABheaderPaddingLeft: left,
 									})
 								}
 							/>
+
+							<UnitControl
+								selectedUnit={TABcontentPaddingUnit}
+								unitTypes={FONT_SIZE_UNITS}
+								onClick={(TABcontentPaddingUnit) =>
+									setAttributes({ TABcontentPaddingUnit })
+								}
+							/>
+
+							<DimensionsControl
+								label={__("Content Padding")}
+								top={TABcontentPaddingTop}
+								right={TABcontentPaddingRight}
+								bottom={TABcontentPaddingBottom}
+								left={TABcontentPaddingLeft}
+								onChange={({ top, right, bottom, left }) =>
+									setAttributes({
+										TABcontentPaddingTop: top,
+										TABcontentPaddingRight: right,
+										TABcontentPaddingBottom: bottom,
+										TABcontentPaddingLeft: left,
+									})
+								}
+							/>
+
+							{imageOrIcon === "image" && (
+								<DimensionsControl
+									label={__("Image Margin")}
+									top={TABimageMarginTop}
+									right={TABimageMarginRight}
+									bottom={TABimageMarginBottom}
+									left={TABimageMarginLeft}
+									onChange={({ top, right, bottom, left }) =>
+										setAttributes({
+											TABimageMarginTop: top,
+											TABimageMarginRight: right,
+											TABimageMarginBottom: bottom,
+											TABimageMarginLeft: left,
+										})
+									}
+								/>
+							)}
+
+							{imageOrIcon === "icon" && (
+								<>
+									<UnitControl
+										selectedUnit={TABiconPaddingUnit}
+										unitTypes={FONT_SIZE_UNITS}
+										onClick={(TABiconPaddingUnit) =>
+											setAttributes({ TABiconPaddingUnit })
+										}
+									/>
+									<DimensionsControl
+										label={__("Icon Padding")}
+										top={TABiconPaddingTop}
+										right={TABiconPaddingRight}
+										bottom={TABiconPaddingBottom}
+										left={TABiconPaddingLeft}
+										onChange={({ top, right, bottom, left }) =>
+											setAttributes({
+												TABiconPaddingTop: top,
+												TABiconPaddingRight: right,
+												TABiconPaddingBottom: bottom,
+												TABiconPaddingLeft: left,
+											})
+										}
+									/>
+								</>
+							)}
 						</>
 					)}
-				</PanelBody>
+
+					{resOption == "mobile" && (
+						<>
+							<UnitControl
+								selectedUnit={MOBheaderPaddingUnit}
+								unitTypes={FONT_SIZE_UNITS}
+								onClick={(MOBheaderPaddingUnit) =>
+									setAttributes({ MOBheaderPaddingUnit })
+								}
+							/>
+
+							<DimensionsControl
+								label={__("Header Padding")}
+								top={MOBheaderPaddingTop}
+								right={MOBheaderPaddingRight}
+								bottom={MOBheaderPaddingBottom}
+								left={MOBheaderPaddingLeft}
+								onChange={({ top, right, bottom, left }) =>
+									setAttributes({
+										MOBheaderPaddingTop: top,
+										MOBheaderPaddingRight: right,
+										MOBheaderPaddingBottom: bottom,
+										MOBheaderPaddingLeft: left,
+									})
+								}
+							/>
+
+							<UnitControl
+								selectedUnit={MOBcontentPaddingUnit}
+								unitTypes={FONT_SIZE_UNITS}
+								onClick={(MOBcontentPaddingUnit) =>
+									setAttributes({ MOBcontentPaddingUnit })
+								}
+							/>
+
+							<DimensionsControl
+								label={__("Content Padding")}
+								top={MOBcontentPaddingTop}
+								right={MOBcontentPaddingRight}
+								bottom={MOBcontentPaddingBottom}
+								left={MOBcontentPaddingLeft}
+								onChange={({ top, right, bottom, left }) =>
+									setAttributes({
+										MOBcontentPaddingTop: top,
+										MOBcontentPaddingRight: right,
+										MOBcontentPaddingBottom: bottom,
+										MOBcontentPaddingLeft: left,
+									})
+								}
+							/>
+
+							{imageOrIcon === "image" && (
+								<DimensionsControl
+									label={__("Image Margin")}
+									top={MOBimageMarginTop}
+									right={MOBimageMarginRight}
+									bottom={MOBimageMarginBottom}
+									left={MOBimageMarginLeft}
+									onChange={({ top, right, bottom, left }) =>
+										setAttributes({
+											MOBimageMarginTop: top,
+											MOBimageMarginRight: right,
+											MOBimageMarginBottom: bottom,
+											MOBimageMarginLeft: left,
+										})
+									}
+								/>
+							)}
+
+							{imageOrIcon === "icon" && (
+								<>
+									<UnitControl
+										selectedUnit={MOBiconPaddingUnit}
+										unitTypes={FONT_SIZE_UNITS}
+										onClick={(MOBiconPaddingUnit) =>
+											setAttributes({ MOBiconPaddingUnit })
+										}
+									/>
+									<DimensionsControl
+										label={__("Icon Padding")}
+										top={MOBiconPaddingTop}
+										right={MOBiconPaddingRight}
+										bottom={MOBiconPaddingBottom}
+										left={MOBiconPaddingLeft}
+										onChange={({ top, right, bottom, left }) =>
+											setAttributes({
+												MOBiconPaddingTop: top,
+												MOBiconPaddingRight: right,
+												MOBiconPaddingBottom: bottom,
+												MOBiconPaddingLeft: left,
+											})
+										}
+									/>
+								</>
+							)}
+						</>
+					)}
+				</ResPanelBody>
 
 				<PanelBody title={__("Background")} initialOpen={false}>
 					<BaseControl label={__("Background Type")}>

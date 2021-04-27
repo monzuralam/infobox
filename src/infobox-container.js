@@ -18,7 +18,10 @@ const InfoboxContainer = ({ infoBoxProps }) => {
 			/>
 
 			<span className="eb-infobox-icon">
-				<span className={`${selectedIcon} `} data-icon={selectedIcon} />
+				<span
+					className={`${selectedIcon} eb-infobox-icon-data-selector `}
+					data-icon={selectedIcon}
+				/>
 			</span>
 
 			<div className="eb-infobox-number">{number || "0"}</div>

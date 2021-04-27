@@ -1,6 +1,9 @@
-const IconBox = ({ selectedIcon, iconStyle }) => (
-	<span className="eb-infobox-icon" style={iconStyle}>
-		<span className={`${selectedIcon} `} data-icon={selectedIcon} />
+const IconBox = ({ selectedIcon }) => (
+	<span className="eb-infobox-icon">
+		<span
+			className={`${selectedIcon} eb-infobox-icon-data-selector`}
+			data-icon={selectedIcon}
+		/>
 	</span>
 );
 

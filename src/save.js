@@ -36,7 +36,7 @@ const Save = ({ attributes }) => {
 		<div {...useBlockProps.save()}>
 			{isClickable && clickableLink ? (
 				<a href={clickableLink}>
-					<div className={`infobox-container ${blockId}`}>
+					<div className={`eb-infobox-container ${blockId}`}>
 						<InfoboxContainer infoBoxProps={infoBoxProps} />
 					</div>
 				</a>

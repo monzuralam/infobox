@@ -3666,7 +3666,7 @@ var attributes = _objectSpread(_objectSpread({
   },
   selectedIcon: {
     source: "attribute",
-    selector: ".infobox-icon",
+    selector: ".eb-infobox-icon-data-selector",
     attribute: "data-icon",
     "default": "far fa-sun"
   },
@@ -3679,7 +3679,7 @@ var attributes = _objectSpread(_objectSpread({
   },
   imageUrl: {
     source: "attribute",
-    selector: ".infobox-image-wrapper",
+    selector: ".eb-infobox-image-wrapper",
     attribute: "data-image-url"
   },
   imageId: {
@@ -3695,14 +3695,11 @@ var attributes = _objectSpread(_objectSpread({
     selector: ".eb-infobox-content",
     "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
-  flexDirection: {
-    eype: "string",
-    "default": "column"
-  },
   order: {
     type: "number",
     "default": 0
   },
+  // Button settings attributes ⬇
   showButton: {
     type: "boolean",
     "default": false
@@ -3710,6 +3707,67 @@ var attributes = _objectSpread(_objectSpread({
   buttonText: {
     type: "string",
     "default": "Click Me"
+  },
+  buttonSize: {
+    type: "string",
+    "default": "normal"
+  },
+  buttonAlign: {
+    type: "string",
+    "default": "center"
+  },
+  // Button padding attributes ⬇
+  buttonPaddingUnit: {
+    type: "string",
+    "default": "px"
+  },
+  buttonPaddingTop: {
+    type: "string",
+    "default": "12"
+  },
+  buttonPaddingRight: {
+    type: "string",
+    "default": "28"
+  },
+  buttonPaddingBottom: {
+    type: "string",
+    "default": "12"
+  },
+  buttonPaddingLeft: {
+    type: "string",
+    "default": "28"
+  },
+  TABbuttonPaddingUnit: {
+    type: "string",
+    "default": "px"
+  },
+  TABbuttonPaddingTop: {
+    type: "string"
+  },
+  TABbuttonPaddingRight: {
+    type: "string"
+  },
+  TABbuttonPaddingBottom: {
+    type: "string"
+  },
+  TABbuttonPaddingLeft: {
+    type: "string"
+  },
+  MOBbuttonPaddingUnit: {
+    type: "string",
+    "default": "px"
+  },
+  MOBbuttonPaddingTop: {
+    type: "string"
+  },
+  MOBbuttonPaddingRight: {
+    type: "string"
+  },
+  MOBbuttonPaddingBottom: {
+    type: "string"
+  },
+  MOBbuttonPaddingLeft: {
+    type: "string"
   },
   imageHeight: {
     type: "number",
@@ -3721,29 +3779,14 @@ var attributes = _objectSpread(_objectSpread({
   },
   number: {
     type: "number",
-    selector: ".infobox-number",
+    selector: ".eb-infobox-number",
     "default": 0
   },
   headerTag: {
     type: "string",
     "default": "h3"
   },
-  headerTextTransform: {
-    type: "string",
-    "default": "none"
-  },
-  contentColor: {
-    type: "string",
-    "default": "#5b5b5b"
-  },
-  headerColor: {
-    type: "string",
-    "default": "#4a5059"
-  },
   boxBackground: {
-    type: "string"
-  },
-  numberColor: {
     type: "string"
   },
   numberSize: {
@@ -3754,27 +3797,29 @@ var attributes = _objectSpread(_objectSpread({
     type: "number",
     "default": 36
   },
-  iconColor: {
-    type: "string"
-  },
+  // colors control attributes ⬇
   iconBackground: {
     type: "string"
   },
-  buttonSize: {
-    type: "string",
-    "default": "normal"
-  },
-  buttonAlign: {
-    type: "string",
-    "default": "center"
+  iconColor: {
+    type: "string"
   },
   buttonColor: {
+    type: "string"
+  },
+  numberColor: {
     type: "string"
   },
   buttonTextColor: {
     type: "string"
   },
-  // margin padding attributes ⬇
+  contentColor: {
+    type: "string"
+  },
+  headerColor: {
+    type: "string"
+  },
+  // wrapper margin padding attributes ⬇
   marginUnit: {
     type: "string",
     "default": "px"
@@ -3875,8 +3920,150 @@ var attributes = _objectSpread(_objectSpread({
   MOBpaddingLeft: {
     type: "string"
   },
-  linkedIconPadding: {
-    type: "boolean"
+  //
+  // spacing control attributes ⬇
+  // header padding attributes ⬇
+  headerPaddingUnit: {
+    type: "string",
+    "default": "px"
+  },
+  headerPaddingTop: {
+    type: "string",
+    "default": "20"
+  },
+  headerPaddingRight: {
+    type: "string"
+  },
+  headerPaddingBottom: {
+    type: "string",
+    "default": "20"
+  },
+  headerPaddingLeft: {
+    type: "string"
+  },
+  TABheaderPaddingUnit: {
+    type: "string",
+    "default": "px"
+  },
+  TABheaderPaddingTop: {
+    type: "string"
+  },
+  TABheaderPaddingRight: {
+    type: "string"
+  },
+  TABheaderPaddingBottom: {
+    type: "string"
+  },
+  TABheaderPaddingLeft: {
+    type: "string"
+  },
+  MOBheaderPaddingUnit: {
+    type: "string",
+    "default": "px"
+  },
+  MOBheaderPaddingTop: {
+    type: "string"
+  },
+  MOBheaderPaddingRight: {
+    type: "string"
+  },
+  MOBheaderPaddingBottom: {
+    type: "string"
+  },
+  MOBheaderPaddingLeft: {
+    type: "string"
+  },
+  // content padding attributes ⬇
+  contentPaddingUnit: {
+    type: "string",
+    "default": "px"
+  },
+  contentPaddingTop: {
+    type: "string"
+  },
+  contentPaddingRight: {
+    type: "string"
+  },
+  contentPaddingBottom: {
+    type: "string",
+    "default": "20"
+  },
+  contentPaddingLeft: {
+    type: "string"
+  },
+  TABcontentPaddingUnit: {
+    type: "string",
+    "default": "px"
+  },
+  TABcontentPaddingTop: {
+    type: "string"
+  },
+  TABcontentPaddingRight: {
+    type: "string"
+  },
+  TABcontentPaddingBottom: {
+    type: "string"
+  },
+  TABcontentPaddingLeft: {
+    type: "string"
+  },
+  MOBcontentPaddingUnit: {
+    type: "string",
+    "default": "px"
+  },
+  MOBcontentPaddingTop: {
+    type: "string"
+  },
+  MOBcontentPaddingRight: {
+    type: "string"
+  },
+  MOBcontentPaddingBottom: {
+    type: "string"
+  },
+  MOBcontentPaddingLeft: {
+    type: "string"
+  },
+  // image margin attributes ⬇
+  imageMarginTop: {
+    type: "string"
+  },
+  imageMarginRight: {
+    type: "string"
+  },
+  imageMarginBottom: {
+    type: "string"
+  },
+  imageMarginLeft: {
+    type: "string"
+  },
+  TABimageMarginTop: {
+    type: "string"
+  },
+  TABimageMarginRight: {
+    type: "string"
+  },
+  TABimageMarginBottom: {
+    type: "string"
+  },
+  TABimageMarginLeft: {
+    type: "string"
+  },
+  MOBimageMarginTop: {
+    type: "string"
+  },
+  MOBimageMarginRight: {
+    type: "string"
+  },
+  MOBimageMarginBottom: {
+    type: "string"
+  },
+  MOBimageMarginLeft: {
+    type: "string"
+  },
+  // icon padding attributes ⬇
+  iconPaddingUnit: {
+    type: "string",
+    "default": "px"
   },
   iconPaddingTop: {
     type: "string",
@@ -3894,57 +4081,40 @@ var attributes = _objectSpread(_objectSpread({
     type: "string",
     "default": "30"
   },
-  linkedHeaderPadding: {
-    type: "boolean"
-  },
-  headerPaddingTop: {
-    type: "string"
-  },
-  headerPaddingRight: {
-    type: "string"
-  },
-  headerPaddingBottom: {
-    type: "string"
-  },
-  headerPaddingLeft: {
-    type: "string"
-  },
-  linkedImagePadding: {
-    type: "boolean",
-    "default": false
-  },
-  imagePaddingTop: {
-    type: "string"
-  },
-  imagePaddingRight: {
-    type: "string"
-  },
-  imagePaddingBottom: {
-    type: "string"
-  },
-  imagePaddingLeft: {
-    type: "string"
-  },
-  linkedButtonPadding: {
-    type: "boolean",
-    "default": false
-  },
-  buttonPaddingTop: {
+  TABiconPaddingUnit: {
     type: "string",
-    "default": "12"
+    "default": "px"
   },
-  buttonPaddingRight: {
+  TABiconPaddingTop: {
+    type: "string"
+  },
+  TABiconPaddingRight: {
+    type: "string"
+  },
+  TABiconPaddingBottom: {
+    type: "string"
+  },
+  TABiconPaddingLeft: {
+    type: "string"
+  },
+  MOBiconPaddingUnit: {
     type: "string",
-    "default": "28"
+    "default": "px"
   },
-  buttonPaddingBottom: {
-    type: "string",
-    "default": "12"
+  MOBiconPaddingTop: {
+    type: "string"
   },
-  buttonPaddingLeft: {
-    type: "string",
-    "default": "28"
+  MOBiconPaddingRight: {
+    type: "string"
   },
+  MOBiconPaddingBottom: {
+    type: "string"
+  },
+  MOBiconPaddingLeft: {
+    type: "string"
+  },
+  // spacing control attributes Ends
+  //
   // Border attributes ⬇
   borderWidth: {
     type: "number"
@@ -3979,27 +4149,11 @@ var attributes = _objectSpread(_objectSpread({
     type: "string",
     "default": "px"
   },
-  iconSizeUnit: {
-    type: "string",
-    "default": "px"
-  },
   radiusUnit: {
     type: "string",
     "default": "px"
   },
-  headerPaddingUnit: {
-    type: "string",
-    "default": "px"
-  },
-  iconPaddingUnit: {
-    type: "string",
-    "default": "px"
-  },
   borderWidthUnit: {
-    type: "string",
-    "default": "px"
-  },
-  buttonPaddingUnit: {
     type: "string",
     "default": "px"
   }
@@ -4264,25 +4418,30 @@ var Edit = function Edit(_ref) {
       content = attributes.content,
       imageUrl = attributes.imageUrl,
       imageId = attributes.imageId,
-      flexDirection = attributes.flexDirection,
       order = attributes.order,
       showButton = attributes.showButton,
+      buttonAlign = attributes.buttonAlign,
       buttonText = attributes.buttonText,
       imageHeight = attributes.imageHeight,
       imageWidth = attributes.imageWidth,
       number = attributes.number,
       headerTag = attributes.headerTag,
-      contentFontSize = attributes.contentFontSize,
-      contentColor = attributes.contentColor,
-      headerColor = attributes.headerColor,
-      headerTextTransform = attributes.headerTextTransform,
-      numberColor = attributes.numberColor,
       numberSize = attributes.numberSize,
       iconSize = attributes.iconSize,
-      iconColor = attributes.iconColor,
-      buttonColor = attributes.buttonColor,
-      buttonTextColor = attributes.buttonTextColor,
-      buttonAlign = attributes.buttonAlign,
+      _attributes$contentCo = attributes.contentColor,
+      contentColor = _attributes$contentCo === void 0 ? "#5b5b5b" : _attributes$contentCo,
+      _attributes$headerCol = attributes.headerColor,
+      headerColor = _attributes$headerCol === void 0 ? "#4a5059" : _attributes$headerCol,
+      _attributes$numberCol = attributes.numberColor,
+      numberColor = _attributes$numberCol === void 0 ? "#4a5059" : _attributes$numberCol,
+      _attributes$iconBackg = attributes.iconBackground,
+      iconBackground = _attributes$iconBackg === void 0 ? "#3074ff" : _attributes$iconBackg,
+      _attributes$iconColor = attributes.iconColor,
+      iconColor = _attributes$iconColor === void 0 ? "#fff" : _attributes$iconColor,
+      _attributes$buttonCol = attributes.buttonColor,
+      buttonColor = _attributes$buttonCol === void 0 ? "#3074FF" : _attributes$buttonCol,
+      _attributes$buttonTex = attributes.buttonTextColor,
+      buttonTextColor = _attributes$buttonTex === void 0 ? "#fff" : _attributes$buttonTex,
       marginUnit = attributes.marginUnit,
       marginTop = attributes.marginTop,
       marginRight = attributes.marginRight,
@@ -4313,25 +4472,78 @@ var Edit = function Edit(_ref) {
       MOBpaddingRight = attributes.MOBpaddingRight,
       MOBpaddingBottom = attributes.MOBpaddingBottom,
       MOBpaddingLeft = attributes.MOBpaddingLeft,
-      iconPaddingUnit = attributes.iconPaddingUnit,
-      iconPaddingTop = attributes.iconPaddingTop,
-      iconPaddingRight = attributes.iconPaddingRight,
-      iconPaddingBottom = attributes.iconPaddingBottom,
-      iconPaddingLeft = attributes.iconPaddingLeft,
       headerPaddingUnit = attributes.headerPaddingUnit,
       headerPaddingTop = attributes.headerPaddingTop,
       headerPaddingRight = attributes.headerPaddingRight,
       headerPaddingBottom = attributes.headerPaddingBottom,
       headerPaddingLeft = attributes.headerPaddingLeft,
+      TABheaderPaddingUnit = attributes.TABheaderPaddingUnit,
+      TABheaderPaddingTop = attributes.TABheaderPaddingTop,
+      TABheaderPaddingRight = attributes.TABheaderPaddingRight,
+      TABheaderPaddingBottom = attributes.TABheaderPaddingBottom,
+      TABheaderPaddingLeft = attributes.TABheaderPaddingLeft,
+      MOBheaderPaddingUnit = attributes.MOBheaderPaddingUnit,
+      MOBheaderPaddingTop = attributes.MOBheaderPaddingTop,
+      MOBheaderPaddingRight = attributes.MOBheaderPaddingRight,
+      MOBheaderPaddingBottom = attributes.MOBheaderPaddingBottom,
+      MOBheaderPaddingLeft = attributes.MOBheaderPaddingLeft,
+      contentPaddingUnit = attributes.contentPaddingUnit,
+      contentPaddingTop = attributes.contentPaddingTop,
+      contentPaddingRight = attributes.contentPaddingRight,
+      contentPaddingBottom = attributes.contentPaddingBottom,
+      contentPaddingLeft = attributes.contentPaddingLeft,
+      TABcontentPaddingUnit = attributes.TABcontentPaddingUnit,
+      TABcontentPaddingTop = attributes.TABcontentPaddingTop,
+      TABcontentPaddingRight = attributes.TABcontentPaddingRight,
+      TABcontentPaddingBottom = attributes.TABcontentPaddingBottom,
+      TABcontentPaddingLeft = attributes.TABcontentPaddingLeft,
+      MOBcontentPaddingUnit = attributes.MOBcontentPaddingUnit,
+      MOBcontentPaddingTop = attributes.MOBcontentPaddingTop,
+      MOBcontentPaddingRight = attributes.MOBcontentPaddingRight,
+      MOBcontentPaddingBottom = attributes.MOBcontentPaddingBottom,
+      MOBcontentPaddingLeft = attributes.MOBcontentPaddingLeft,
       imageMarginTop = attributes.imageMarginTop,
       imageMarginRight = attributes.imageMarginRight,
       imageMarginBottom = attributes.imageMarginBottom,
       imageMarginLeft = attributes.imageMarginLeft,
+      TABimageMarginTop = attributes.TABimageMarginTop,
+      TABimageMarginRight = attributes.TABimageMarginRight,
+      TABimageMarginBottom = attributes.TABimageMarginBottom,
+      TABimageMarginLeft = attributes.TABimageMarginLeft,
+      MOBimageMarginTop = attributes.MOBimageMarginTop,
+      MOBimageMarginRight = attributes.MOBimageMarginRight,
+      MOBimageMarginBottom = attributes.MOBimageMarginBottom,
+      MOBimageMarginLeft = attributes.MOBimageMarginLeft,
+      iconPaddingUnit = attributes.iconPaddingUnit,
+      iconPaddingTop = attributes.iconPaddingTop,
+      iconPaddingRight = attributes.iconPaddingRight,
+      iconPaddingBottom = attributes.iconPaddingBottom,
+      iconPaddingLeft = attributes.iconPaddingLeft,
+      TABiconPaddingUnit = attributes.TABiconPaddingUnit,
+      TABiconPaddingTop = attributes.TABiconPaddingTop,
+      TABiconPaddingRight = attributes.TABiconPaddingRight,
+      TABiconPaddingBottom = attributes.TABiconPaddingBottom,
+      TABiconPaddingLeft = attributes.TABiconPaddingLeft,
+      MOBiconPaddingUnit = attributes.MOBiconPaddingUnit,
+      MOBiconPaddingTop = attributes.MOBiconPaddingTop,
+      MOBiconPaddingRight = attributes.MOBiconPaddingRight,
+      MOBiconPaddingBottom = attributes.MOBiconPaddingBottom,
+      MOBiconPaddingLeft = attributes.MOBiconPaddingLeft,
       buttonPaddingUnit = attributes.buttonPaddingUnit,
       buttonPaddingTop = attributes.buttonPaddingTop,
       buttonPaddingRight = attributes.buttonPaddingRight,
       buttonPaddingBottom = attributes.buttonPaddingBottom,
       buttonPaddingLeft = attributes.buttonPaddingLeft,
+      TABbuttonPaddingUnit = attributes.TABbuttonPaddingUnit,
+      TABbuttonPaddingTop = attributes.TABbuttonPaddingTop,
+      TABbuttonPaddingRight = attributes.TABbuttonPaddingRight,
+      TABbuttonPaddingBottom = attributes.TABbuttonPaddingBottom,
+      TABbuttonPaddingLeft = attributes.TABbuttonPaddingLeft,
+      MOBbuttonPaddingUnit = attributes.MOBbuttonPaddingUnit,
+      MOBbuttonPaddingTop = attributes.MOBbuttonPaddingTop,
+      MOBbuttonPaddingRight = attributes.MOBbuttonPaddingRight,
+      MOBbuttonPaddingBottom = attributes.MOBbuttonPaddingBottom,
+      MOBbuttonPaddingLeft = attributes.MOBbuttonPaddingLeft,
       borderWidth = attributes.borderWidth,
       borderColor = attributes.borderColor,
       borderStyle = attributes.borderStyle,
@@ -4341,28 +4553,8 @@ var Edit = function Edit(_ref) {
       shadowVOffset = attributes.shadowVOffset,
       shadowBlur = attributes.shadowBlur,
       shadowSpread = attributes.shadowSpread,
-      contentSizeUnit = attributes.contentSizeUnit,
-      iconSizeUnit = attributes.iconSizeUnit,
       radiusUnit = attributes.radiusUnit,
-      borderWidthUnit = attributes.borderWidthUnit,
-      iconBackground = attributes.iconBackground,
-      headerFontFamily = attributes.headerFontFamily,
-      headerFontSize = attributes.headerFontSize,
-      headerSizeUnit = attributes.headerSizeUnit,
-      headerFontWeight = attributes.headerFontWeight,
-      headerTextDecoration = attributes.headerTextDecoration,
-      headerLetterSpacing = attributes.headerLetterSpacing,
-      headerLetterSpacingUnit = attributes.headerLetterSpacingUnit,
-      headerLineHeight = attributes.headerLineHeight,
-      headerLineHeightUnit = attributes.headerLineHeightUnit,
-      contentFontFamily = attributes.contentFontFamily,
-      contentFontWeight = attributes.contentFontWeight,
-      contentTextTransform = attributes.contentTextTransform,
-      contentTextDecoration = attributes.contentTextDecoration,
-      contentLetterSpacing = attributes.contentLetterSpacing,
-      contentLetterSpacingUnit = attributes.contentLetterSpacingUnit,
-      contentLineHeight = attributes.contentLineHeight,
-      contentLineHeightUnit = attributes.contentLineHeightUnit; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
+      borderWidthUnit = attributes.borderWidthUnit; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
     var bodyClasses = document.body.className;
@@ -4438,9 +4630,6 @@ var Edit = function Edit(_ref) {
 
     fixDuplicateBlockId(all_blocks); // console.log({ blockId });
   }, []);
-  console.log({
-    attributes: attributes
-  });
   var blockProps = Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["useBlockProps"])({
     className: "eb-guten-block-main-parent-wrapper"
   });
@@ -4467,22 +4656,28 @@ var Edit = function Edit(_ref) {
   var wrapperStylesTab = "\n\t.".concat(blockId, "{\n\t\t").concat(TABmarginTop ? "margin-top: ".concat(parseFloat(TABmarginTop)).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABmarginRight ? "margin-right: ".concat(parseFloat(TABmarginRight)).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABmarginLeft ? "margin-left: ".concat(parseFloat(TABmarginLeft)).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABmarginBottom ? "margin-bottom: ".concat(parseFloat(TABmarginBottom)).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABpaddingTop ? "padding-top: ".concat(parseFloat(TABpaddingTop)).concat(TABpaddingUnit, ";") : " ", "\n\t\t").concat(TABpaddingRight ? "padding-right: ".concat(parseFloat(TABpaddingRight)).concat(TABpaddingUnit, ";") : " ", "\n\t\t").concat(TABpaddingLeft ? "padding-left: ".concat(parseFloat(TABpaddingLeft)).concat(TABpaddingUnit, ";") : " ", "\n\t\t").concat(TABpaddingBottom ? "padding-bottom: ".concat(parseFloat(TABpaddingBottom)).concat(TABpaddingUnit, ";") : " ", "\n\t\n\t}\n\t");
   var wrapperStylesMobile = "\n\t.".concat(blockId, "{\n\t\t").concat(MOBmarginTop ? "margin-top: ".concat(parseFloat(MOBmarginTop)).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginRight ? "margin-right: ".concat(parseFloat(MOBmarginRight)).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginLeft ? "margin-left: ".concat(parseFloat(MOBmarginLeft)).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginBottom ? "margin-bottom: ".concat(parseFloat(MOBmarginBottom)).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBpaddingTop ? "padding-top: ".concat(parseFloat(MOBpaddingTop)).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingRight ? "padding-right: ".concat(parseFloat(MOBpaddingRight)).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingLeft ? "padding-left: ".concat(parseFloat(MOBpaddingLeft)).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingBottom ? "padding-bottom: ".concat(parseFloat(MOBpaddingBottom)).concat(MOBpaddingUnit, ";") : " ", "\n\t\n\t}\n\t");
   var imageWrapperStyleDesktop = "\n\t\t.".concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\tdisplay: ").concat(imageOrIcon === "image" && selectedIcon ? "block" : "none", ";\n\t\t\t").concat(imageOrIcon === "image" && imageUrl ? "background-image: url(\"".concat(imageUrl, "\");") : " ", "\n\n\t\t\theight: ").concat(imageHeight, "px;\n\t\t\twidth: ").concat(imageWidth, "px;\n\t\t\torder: ").concat(order, ";\n\n\t\t\t").concat(imageMarginTop ? "margin-top: ".concat(parseFloat(imageMarginTop), "px;") : " ", "\n\t\t\t").concat(imageMarginRight ? "margin-right: ".concat(parseFloat(imageMarginRight), "px;") : " ", "\n\t\t\t").concat(imageMarginLeft ? "margin-left: ".concat(parseFloat(imageMarginLeft), "px;") : " ", "\n\t\t\t").concat(imageMarginBottom ? "margin-bottom: ".concat(parseFloat(imageMarginBottom), "px;") : " ", "\n\t\t\t\n\t\t\tbackground-size: cover;\n\n\t\t}\t\n\t");
-  var iconStyleDesktop = "\n\t\t.".concat(blockId, " .eb-infobox-icon{\n\t\t\tdisplay: ").concat(imageOrIcon === "icon" && selectedIcon ? "block" : "none", ";\n\t\t\torder: ").concat(order, ";\n\t\t\tcolor: ").concat(iconColor || "#fff", ";\n\t\t\tbackground: ").concat(iconBackground || "#3074ff", ";\n\t\t\tfont-size: ").concat(iconSize).concat(iconSizeUnit, ";\n\n\t\t\t").concat(iconPaddingTop ? "padding-top: ".concat(parseFloat(iconPaddingTop)).concat(iconPaddingUnit, ";") : " ", "\n\t\t\t").concat(iconPaddingRight ? "padding-right: ".concat(parseFloat(iconPaddingRight)).concat(iconPaddingUnit, ";") : " ", "\n\t\t\t").concat(iconPaddingLeft ? "padding-left: ".concat(parseFloat(iconPaddingLeft)).concat(iconPaddingUnit, ";") : " ", "\n\t\t\t").concat(iconPaddingBottom ? "padding-bottom: ".concat(parseFloat(iconPaddingBottom)).concat(iconPaddingUnit, ";") : " ", "\n\t\t\t\n\t\t\tline-height: 1em;\n\t\t\tborder-radius: 5px;\n\t\t}\n\t");
+  var imageWrapperStyleTab = "\n\t\t.".concat(blockId, " .eb-infobox-image-wrapper{\t\t\n\t\t\t").concat(TABimageMarginTop ? "margin-top: ".concat(parseFloat(TABimageMarginTop), "px;") : " ", "\n\t\t\t").concat(TABimageMarginRight ? "margin-right: ".concat(parseFloat(TABimageMarginRight), "px;") : " ", "\n\t\t\t").concat(TABimageMarginLeft ? "margin-left: ".concat(parseFloat(TABimageMarginLeft), "px;") : " ", "\n\t\t\t").concat(TABimageMarginBottom ? "margin-bottom: ".concat(parseFloat(TABimageMarginBottom), "px;") : " ", "\n\t\t\n\t\t\n\t\t}\t\n\t");
+  var imageWrapperStyleMobile = "\n\t\t.".concat(blockId, " .eb-infobox-image-wrapper{\t\t\n\t\t\t").concat(MOBimageMarginTop ? "margin-top: ".concat(parseFloat(MOBimageMarginTop), "px;") : " ", "\n\t\t\t").concat(MOBimageMarginRight ? "margin-right: ".concat(parseFloat(MOBimageMarginRight), "px;") : " ", "\n\t\t\t").concat(MOBimageMarginLeft ? "margin-left: ".concat(parseFloat(MOBimageMarginLeft), "px;") : " ", "\n\t\t\t").concat(MOBimageMarginBottom ? "margin-bottom: ".concat(parseFloat(MOBimageMarginBottom), "px;") : " ", "\n\t\t\n\t\t\n\t\t}\t\n\t");
+  var iconStyleDesktop = "\n\t\t.".concat(blockId, " .eb-infobox-icon{\n\t\t\tdisplay: ").concat(imageOrIcon === "icon" && selectedIcon ? "block" : "none", ";\n\t\t\torder: ").concat(order, ";\n\t\t\tcolor: ").concat(iconColor, ";\n\t\t\tbackground: ").concat(iconBackground, ";\n\t\t\tfont-size: ").concat(iconSize, "px;\n\n\t\t\t").concat(iconPaddingTop ? "padding-top: ".concat(parseFloat(iconPaddingTop)).concat(iconPaddingUnit, ";") : " ", "\n\t\t\t").concat(iconPaddingRight ? "padding-right: ".concat(parseFloat(iconPaddingRight)).concat(iconPaddingUnit, ";") : " ", "\n\t\t\t").concat(iconPaddingLeft ? "padding-left: ".concat(parseFloat(iconPaddingLeft)).concat(iconPaddingUnit, ";") : " ", "\n\t\t\t").concat(iconPaddingBottom ? "padding-bottom: ".concat(parseFloat(iconPaddingBottom)).concat(iconPaddingUnit, ";") : " ", "\n\t\t\t\n\t\t\tline-height: 1em;\n\t\t\tborder-radius: 5px;\n\t\t}\n\t");
+  var iconStyleTab = "\n\t\t.".concat(blockId, " .eb-infobox-icon{\t\t\n\t\t\t").concat(TABiconPaddingTop ? "padding-top: ".concat(parseFloat(TABiconPaddingTop)).concat(TABiconPaddingUnit, ";") : " ", "\n\t\t\t").concat(TABiconPaddingRight ? "padding-right: ".concat(parseFloat(TABiconPaddingRight)).concat(TABiconPaddingUnit, ";") : " ", "\n\t\t\t").concat(TABiconPaddingLeft ? "padding-left: ".concat(parseFloat(TABiconPaddingLeft)).concat(TABiconPaddingUnit, ";") : " ", "\n\t\t\t").concat(TABiconPaddingBottom ? "padding-bottom: ".concat(parseFloat(TABiconPaddingBottom)).concat(TABiconPaddingUnit, ";") : " ", "\n\t\t\t\n\t\t}\n\t");
+  var iconStyleMobile = "\n\t\t.".concat(blockId, " .eb-infobox-icon{\t\t\n\t\t\t").concat(MOBiconPaddingTop ? "padding-top: ".concat(parseFloat(MOBiconPaddingTop)).concat(MOBiconPaddingUnit, ";") : " ", "\n\t\t\t").concat(MOBiconPaddingRight ? "padding-right: ".concat(parseFloat(MOBiconPaddingRight)).concat(MOBiconPaddingUnit, ";") : " ", "\n\t\t\t").concat(MOBiconPaddingLeft ? "padding-left: ".concat(parseFloat(MOBiconPaddingLeft)).concat(MOBiconPaddingUnit, ";") : " ", "\n\t\t\t").concat(MOBiconPaddingBottom ? "padding-bottom: ".concat(parseFloat(MOBiconPaddingBottom)).concat(MOBiconPaddingUnit, ";") : " ", "\n\t\t\t\n\t\t}\n\t");
   var numberStylesDesktop = "\n\t\t.".concat(blockId, " .eb-infobox-number{\n\t\t\t").concat(numberColor ? "color: ".concat(numberColor, ";") : " ", " \n\t\t\tdisplay: ").concat(imageOrIcon === "number" ? "block" : "none", ";\n\t\t\torder: ").concat(order, ";\n\t\t\tfont-size: ").concat(numberSize, "px;\n\t\t}\n\t\n\t");
-  var headerStylesDesktop = "\n\t\t.".concat(blockId, " .eb-infobox-header{\n\t\t\t").concat(headerTypoStylesDesktop, "\n\t\t\t").concat(headerPaddingTop ? "padding-top: ".concat(parseFloat(headerPaddingTop)).concat(headerPaddingUnit, ";") : " ", "\n\t\t\t").concat(headerPaddingRight ? "padding-right: ".concat(parseFloat(headerPaddingRight)).concat(headerPaddingUnit, ";") : " ", "\n\t\t\t").concat(headerPaddingLeft ? "padding-left: ".concat(parseFloat(headerPaddingLeft)).concat(headerPaddingUnit, ";") : " ", "\n\t\t\t").concat(headerPaddingBottom ? "padding-bottom: ".concat(parseFloat(headerPaddingBottom)).concat(headerPaddingUnit, ";") : " ", "\n\t\t\t\n\t\t\t").concat(headerColor ? "color: ".concat(headerColor, ";") : " ", "\n\t\t\n\t\t}\n\t\n\t");
-  var headerStylesTab = "\n\t.".concat(blockId, " .eb-infobox-header{\n\t\t").concat(headerTypoStylesTab, "\n\n\t}\n\t\n\t");
-  var headerStylesMobile = "\n\t.".concat(blockId, " .eb-infobox-header{\n\t\t").concat(headerTypoStylesMobile, "\n\n\t}\n\t\n\t");
-  var contentStylesDesktop = "\n\t\t.".concat(blockId, " .eb-infobox-content-main{\n\t\t\t").concat(contentTypoStylesDesktop, "\n\t\t\t").concat(contentColor ? "color: ".concat(contentColor, ";") : " ", "\n\n\t\t}\n\t\n\t");
-  var contentStylesTab = "\n\t\t.".concat(blockId, " .eb-infobox-content-main{\n\t\t\t").concat(contentTypoStylesTab, "\n\n\t\t}\n\t\n\t");
-  var contentStylesMobile = "\n\t\t.".concat(blockId, " .eb-infobox-content-main{\n\t\t\t").concat(contentTypoStylesMobile, "\n\n\t\t}\n\t\n\t");
+  var headerStylesDesktop = "\n\t\t.".concat(blockId, " .eb-infobox-header{\n\t\t\t").concat(headerTypoStylesDesktop, "\n\t\t\t").concat(headerPaddingTop ? "padding-top: ".concat(parseFloat(headerPaddingTop)).concat(headerPaddingUnit, ";") : " ", "\n\t\t\t").concat(headerPaddingRight ? "padding-right: ".concat(parseFloat(headerPaddingRight)).concat(headerPaddingUnit, ";") : " ", "\n\t\t\t").concat(headerPaddingLeft ? "padding-left: ".concat(parseFloat(headerPaddingLeft)).concat(headerPaddingUnit, ";") : " ", "\n\t\t\t").concat(headerPaddingBottom ? "padding-bottom: ".concat(parseFloat(headerPaddingBottom)).concat(headerPaddingUnit, ";") : " ", "\n\t\t\t\n\t\t\t").concat(headerColor ? "color: ".concat(headerColor, ";") : " ", "\n\t\t\n\n\t\t\tmargin: 0;\n\t\t}\n\t\n\t");
+  var headerStylesTab = "\n\t.".concat(blockId, " .eb-infobox-header{\n\t\t").concat(headerTypoStylesTab, "\n\t\t").concat(TABheaderPaddingTop ? "padding-top: ".concat(parseFloat(TABheaderPaddingTop)).concat(TABheaderPaddingUnit, ";") : " ", "\n\t\t").concat(TABheaderPaddingRight ? "padding-right: ".concat(parseFloat(TABheaderPaddingRight)).concat(TABheaderPaddingUnit, ";") : " ", "\n\t\t").concat(TABheaderPaddingLeft ? "padding-left: ".concat(parseFloat(TABheaderPaddingLeft)).concat(TABheaderPaddingUnit, ";") : " ", "\n\t\t").concat(TABheaderPaddingBottom ? "padding-bottom: ".concat(parseFloat(TABheaderPaddingBottom)).concat(TABheaderPaddingUnit, ";") : " ", "\n\t}\n\t\n\t");
+  var headerStylesMobile = "\n\t.".concat(blockId, " .eb-infobox-header{\n\t\t").concat(headerTypoStylesMobile, "\n\n\t\t").concat(MOBheaderPaddingTop ? "padding-top: ".concat(parseFloat(MOBheaderPaddingTop)).concat(MOBheaderPaddingUnit, ";") : " ", "\n\t\t").concat(MOBheaderPaddingRight ? "padding-right: ".concat(parseFloat(MOBheaderPaddingRight)).concat(MOBheaderPaddingUnit, ";") : " ", "\n\t\t").concat(MOBheaderPaddingLeft ? "padding-left: ".concat(parseFloat(MOBheaderPaddingLeft)).concat(MOBheaderPaddingUnit, ";") : " ", "\n\t\t").concat(MOBheaderPaddingBottom ? "padding-bottom: ".concat(parseFloat(MOBheaderPaddingBottom)).concat(MOBheaderPaddingUnit, ";") : " ", "\n\t}\n\t\n\t");
+  var contentStylesDesktop = "\n\t\t.".concat(blockId, " .eb-infobox-content-main{\n\t\t\t").concat(contentTypoStylesDesktop, "\n\t\t\t").concat(contentColor ? "color: ".concat(contentColor, ";") : " ", "\n\t\t\t").concat(contentPaddingTop ? "padding-top: ".concat(parseFloat(contentPaddingTop)).concat(contentPaddingUnit, ";") : " ", "\n\t\t\t").concat(contentPaddingRight ? "padding-right: ".concat(parseFloat(contentPaddingRight)).concat(contentPaddingUnit, ";") : " ", "\n\t\t\t").concat(contentPaddingLeft ? "padding-left: ".concat(parseFloat(contentPaddingLeft)).concat(contentPaddingUnit, ";") : " ", "\n\t\t\t").concat(contentPaddingBottom ? "padding-bottom: ".concat(parseFloat(contentPaddingBottom)).concat(contentPaddingUnit, ";") : " ", "\n\t\t}\n\t\n\t");
+  var contentStylesTab = "\n\t\t.".concat(blockId, " .eb-infobox-content-main{\n\t\t\t").concat(contentTypoStylesTab, "\n\t\t\t").concat(TABcontentPaddingTop ? "padding-top: ".concat(parseFloat(TABcontentPaddingTop)).concat(TABcontentPaddingUnit, ";") : " ", "\n\t\t\t").concat(TABcontentPaddingRight ? "padding-right: ".concat(parseFloat(TABcontentPaddingRight)).concat(TABcontentPaddingUnit, ";") : " ", "\n\t\t\t").concat(TABcontentPaddingLeft ? "padding-left: ".concat(parseFloat(TABcontentPaddingLeft)).concat(TABcontentPaddingUnit, ";") : " ", "\n\t\t\t").concat(TABcontentPaddingBottom ? "padding-bottom: ".concat(parseFloat(TABcontentPaddingBottom)).concat(TABcontentPaddingUnit, ";") : " ", "\n\t\t}\n\t\n\t");
+  var contentStylesMobile = "\n\t\t.".concat(blockId, " .eb-infobox-content-main{\n\t\t\t").concat(contentTypoStylesMobile, "\n\t\t\t").concat(MOBcontentPaddingTop ? "padding-top: ".concat(parseFloat(MOBcontentPaddingTop)).concat(MOBcontentPaddingUnit, ";") : " ", "\n\t\t\t").concat(MOBcontentPaddingRight ? "padding-right: ".concat(parseFloat(MOBcontentPaddingRight)).concat(MOBcontentPaddingUnit, ";") : " ", "\n\t\t\t").concat(MOBcontentPaddingLeft ? "padding-left: ".concat(parseFloat(MOBcontentPaddingLeft)).concat(MOBcontentPaddingUnit, ";") : " ", "\n\t\t\t").concat(MOBcontentPaddingBottom ? "padding-bottom: ".concat(parseFloat(MOBcontentPaddingBottom)).concat(MOBcontentPaddingUnit, ";") : " ", "\n\t\t}\n\t\n\t");
   var buttonWrapperStylesDesktop = "\n\t\t.".concat(blockId, " .infobox-button{\n\t\t\tdisplay: ").concat(showButton ? "flex" : "none", ";\t\t\t\n\t\t\talign-self: ").concat(buttonAlign, ";\n\t\t\tmargin-top: 10px;\n\t\t}\n\t\t\t\n\t");
-  var linkStylesDesktop = "\n\t\t.".concat(blockId, " .eb-infobox-link{\n\t\t\t").concat(buttonColor ? "background: ".concat(buttonColor, ";") : " ", " \n\t\t\t").concat(buttonTextColor ? "color: ".concat(buttonTextColor, ";") : " ", " \n\t\t\t").concat(buttonPaddingTop ? "padding-top: ".concat(parseFloat(buttonPaddingTop)).concat(buttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(buttonPaddingRight ? "padding-right: ".concat(parseFloat(buttonPaddingRight)).concat(buttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(buttonPaddingLeft ? "padding-left: ".concat(parseFloat(buttonPaddingLeft)).concat(buttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(buttonPaddingBottom ? "padding-bottom: ".concat(parseFloat(buttonPaddingBottom)).concat(buttonPaddingUnit, ";") : " ", "\n\t\t\t\n\t\t\ttext-decoration: none;\n\t\t}\n\t\n\t"); // all css styles for large screen width (desktop/laptop) in strings ⬇
+  var linkStylesDesktop = "\n\t\t.eb-infobox-container.".concat(blockId, " .eb-infobox-link{\n\t\t\t").concat(buttonColor ? "background: ".concat(buttonColor, ";") : " ", " \n\t\t\t").concat(buttonTextColor ? "color: ".concat(buttonTextColor, ";") : " ", " \n\t\t\t").concat(buttonPaddingTop ? "padding-top: ".concat(parseFloat(buttonPaddingTop)).concat(buttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(buttonPaddingRight ? "padding-right: ".concat(parseFloat(buttonPaddingRight)).concat(buttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(buttonPaddingLeft ? "padding-left: ".concat(parseFloat(buttonPaddingLeft)).concat(buttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(buttonPaddingBottom ? "padding-bottom: ".concat(parseFloat(buttonPaddingBottom)).concat(buttonPaddingUnit, ";") : " ", "\n\t\t\t\n\t\t\ttext-decoration: none;\n\t\t}\n\t\n\t");
+  var linkStylesTab = "\n\t\t.eb-infobox-container.".concat(blockId, " .eb-infobox-link{\n\t\t\t").concat(TABbuttonPaddingTop ? "padding-top: ".concat(parseFloat(TABbuttonPaddingTop)).concat(TABbuttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(TABbuttonPaddingRight ? "padding-right: ".concat(parseFloat(TABbuttonPaddingRight)).concat(TABbuttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(TABbuttonPaddingLeft ? "padding-left: ".concat(parseFloat(TABbuttonPaddingLeft)).concat(TABbuttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(TABbuttonPaddingBottom ? "padding-bottom: ".concat(parseFloat(TABbuttonPaddingBottom)).concat(TABbuttonPaddingUnit, ";") : " ", "\n\t\t\t\n\t\t\ttext-decoration: none;\n\t\t}\n\t\n\t");
+  var linkStylesMobile = "\n\t\t.eb-infobox-container.".concat(blockId, " .eb-infobox-link{\n\t\t\t").concat(MOBbuttonPaddingTop ? "padding-top: ".concat(parseFloat(MOBbuttonPaddingTop)).concat(MOBbuttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(MOBbuttonPaddingRight ? "padding-right: ".concat(parseFloat(MOBbuttonPaddingRight)).concat(MOBbuttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(MOBbuttonPaddingLeft ? "padding-left: ".concat(parseFloat(MOBbuttonPaddingLeft)).concat(MOBbuttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(MOBbuttonPaddingBottom ? "padding-bottom: ".concat(parseFloat(MOBbuttonPaddingBottom)).concat(MOBbuttonPaddingUnit, ";") : " ", "\n\t\t\t\n\t\t\ttext-decoration: none;\n\t\t}\n\t\n\t"); // all css styles for large screen width (desktop/laptop) in strings ⬇
 
-  var desktopAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesDesktop) ? wrapperStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(imageWrapperStyleDesktop) ? imageWrapperStyleDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(iconStyleDesktop) ? iconStyleDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(numberStylesDesktop) ? numberStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(headerStylesDesktop) ? headerStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(contentStylesDesktop) ? contentStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(buttonWrapperStylesDesktop) ? buttonWrapperStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(linkStylesDesktop) ? linkStylesDesktop : " ", "\n\t\n\t")); // all css styles for Tab in strings ⬇
+  var desktopAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesDesktop) ? wrapperStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(imageWrapperStyleDesktop) ? imageWrapperStyleDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(iconStyleDesktop) ? iconStyleDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(numberStylesDesktop) ? numberStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(headerStylesDesktop) ? headerStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(contentStylesDesktop) ? contentStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(buttonWrapperStylesDesktop) ? buttonWrapperStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(linkStylesDesktop) ? linkStylesDesktop : " ", "\n\t")); // all css styles for Tab in strings ⬇
 
-  var tabAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesTab) ? wrapperStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(headerStylesTab) ? headerStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(contentStylesTab) ? contentStylesTab : " ", "\n\t")); // all css styles for Mobile in strings ⬇
+  var tabAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesTab) ? wrapperStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(headerStylesTab) ? headerStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(contentStylesTab) ? contentStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(linkStylesTab) ? linkStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(imageWrapperStyleTab) ? imageWrapperStyleTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(iconStyleTab) ? iconStyleTab : " ", "\n\t")); // all css styles for Mobile in strings ⬇
 
-  var mobileAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesMobile) ? wrapperStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(headerStylesMobile) ? headerStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(contentStylesMobile) ? contentStylesMobile : " ", "\n\t")); // Set All Style in "blockMeta" Attribute
+  var mobileAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesMobile) ? wrapperStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(headerStylesMobile) ? headerStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(contentStylesMobile) ? contentStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(linkStylesMobile) ? linkStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(imageWrapperStyleMobile) ? imageWrapperStyleMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(iconStyleMobile) ? iconStyleMobile : " ", "\n\t")); // Set All Style in "blockMeta" Attribute
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
     var styleObject = {
@@ -4496,8 +4691,10 @@ var Edit = function Edit(_ref) {
         blockMeta: styleObject
       });
     }
-  }, [attributes]); // console.log({ attributes });
-
+  }, [attributes]);
+  console.log("--edit theke", {
+    attributes: attributes
+  });
   return [isSelected && /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_7__["default"], {
     attributes: attributes,
     setAttributes: setAttributes
@@ -4886,13 +5083,11 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var IconBox = function IconBox(_ref) {
-  var selectedIcon = _ref.selectedIcon,
-      iconStyle = _ref.iconStyle;
+  var selectedIcon = _ref.selectedIcon;
   return /*#__PURE__*/React.createElement("span", {
-    className: "eb-infobox-icon",
-    style: iconStyle
+    className: "eb-infobox-icon"
   }, /*#__PURE__*/React.createElement("span", {
-    className: "".concat(selectedIcon, " "),
+    className: "".concat(selectedIcon, " eb-infobox-icon-data-selector"),
     "data-icon": selectedIcon
   }));
 };
@@ -4968,7 +5163,7 @@ var InfoboxContainer = function InfoboxContainer(_ref) {
   }), /*#__PURE__*/React.createElement("span", {
     className: "eb-infobox-icon"
   }, /*#__PURE__*/React.createElement("span", {
-    className: "".concat(selectedIcon, " "),
+    className: "".concat(selectedIcon, " eb-infobox-icon-data-selector "),
     "data-icon": selectedIcon
   })), /*#__PURE__*/React.createElement("div", {
     className: "eb-infobox-number"
@@ -5008,15 +5203,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fonticonpicker_react_fonticonpicker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fonticonpicker/react-fonticonpicker */ "./node_modules/@fonticonpicker/react-fonticonpicker/dist/fonticonpicker.react.js");
 /* harmony import */ var _fonticonpicker_react_fonticonpicker__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_fonticonpicker_react_fonticonpicker__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _util_faIcons_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../util/faIcons.js */ "./util/faIcons.js");
-/* harmony import */ var _util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../util/typography-control/FontPicker */ "./util/typography-control/FontPicker.js");
-/* harmony import */ var _util_typography_control__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../util/typography-control */ "./util/typography-control/index.js");
-/* harmony import */ var _util_dimensions_control__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../util/dimensions-control */ "./util/dimensions-control/index.js");
-/* harmony import */ var _util_image_avatar_ImageAvater_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../util/image-avatar/ImageAvater.js */ "./util/image-avatar/ImageAvater.js");
-/* harmony import */ var _util_gradient_color_controller__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../util/gradient-color-controller */ "./util/gradient-color-controller/index.js");
-/* harmony import */ var _util_unit_control__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../util/unit-control */ "./util/unit-control/index.js");
-/* harmony import */ var _util_color_control__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../util/color-control */ "./util/color-control/index.js");
-/* harmony import */ var _ResPanelBody__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./ResPanelBody */ "./src/ResPanelBody.js");
-/* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/constants/typographyPrefixConstants.js");
+/* harmony import */ var _util_typography_control__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../util/typography-control */ "./util/typography-control/index.js");
+/* harmony import */ var _util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../util/dimensions-control */ "./util/dimensions-control/index.js");
+/* harmony import */ var _util_image_avatar_ImageAvater_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../util/image-avatar/ImageAvater.js */ "./util/image-avatar/ImageAvater.js");
+/* harmony import */ var _util_gradient_color_controller__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../util/gradient-color-controller */ "./util/gradient-color-controller/index.js");
+/* harmony import */ var _util_unit_control__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../util/unit-control */ "./util/unit-control/index.js");
+/* harmony import */ var _util_color_control__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../util/color-control */ "./util/color-control/index.js");
+/* harmony import */ var _ResPanelBody__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./ResPanelBody */ "./src/ResPanelBody.js");
+/* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/constants/typographyPrefixConstants.js");
 /**
  * WordPress dependencies
  */
@@ -5027,7 +5221,6 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Internal dependencies
  */
-
 
 
 
@@ -5060,41 +5253,96 @@ function Inspector(props) {
       content = attributes.content,
       imageUrl = attributes.imageUrl,
       imageId = attributes.imageId,
-      flexDirection = attributes.flexDirection,
       order = attributes.order,
-      showButton = attributes.showButton,
-      buttonText = attributes.buttonText,
       imageHeight = attributes.imageHeight,
+      numberSize = attributes.numberSize,
+      iconSize = attributes.iconSize,
       imageWidth = attributes.imageWidth,
       number = attributes.number,
       headerTag = attributes.headerTag,
       contentColor = attributes.contentColor,
       headerColor = attributes.headerColor,
       numberColor = attributes.numberColor,
-      numberSize = attributes.numberSize,
-      iconSize = attributes.iconSize,
       iconColor = attributes.iconColor,
       iconBackground = attributes.iconBackground,
       buttonColor = attributes.buttonColor,
       buttonTextColor = attributes.buttonTextColor,
-      iconPaddingTop = attributes.iconPaddingTop,
-      iconPaddingRight = attributes.iconPaddingRight,
-      iconPaddingBottom = attributes.iconPaddingBottom,
-      iconPaddingLeft = attributes.iconPaddingLeft,
-      headerPaddingTop = attributes.headerPaddingTop,
-      headerPaddingRight = attributes.headerPaddingRight,
-      headerPaddingBottom = attributes.headerPaddingBottom,
-      headerPaddingLeft = attributes.headerPaddingLeft,
-      imageMarginTop = attributes.imageMarginTop,
-      imageMarginRight = attributes.imageMarginRight,
-      imageMarginBottom = attributes.imageMarginBottom,
-      imageMarginLeft = attributes.imageMarginLeft,
+      showButton = attributes.showButton,
+      buttonText = attributes.buttonText,
+      buttonSize = attributes.buttonSize,
+      buttonAlign = attributes.buttonAlign,
+      buttonPaddingUnit = attributes.buttonPaddingUnit,
       buttonPaddingTop = attributes.buttonPaddingTop,
       buttonPaddingRight = attributes.buttonPaddingRight,
       buttonPaddingBottom = attributes.buttonPaddingBottom,
       buttonPaddingLeft = attributes.buttonPaddingLeft,
-      buttonSize = attributes.buttonSize,
-      buttonAlign = attributes.buttonAlign,
+      TABbuttonPaddingUnit = attributes.TABbuttonPaddingUnit,
+      TABbuttonPaddingTop = attributes.TABbuttonPaddingTop,
+      TABbuttonPaddingRight = attributes.TABbuttonPaddingRight,
+      TABbuttonPaddingBottom = attributes.TABbuttonPaddingBottom,
+      TABbuttonPaddingLeft = attributes.TABbuttonPaddingLeft,
+      MOBbuttonPaddingUnit = attributes.MOBbuttonPaddingUnit,
+      MOBbuttonPaddingTop = attributes.MOBbuttonPaddingTop,
+      MOBbuttonPaddingRight = attributes.MOBbuttonPaddingRight,
+      MOBbuttonPaddingBottom = attributes.MOBbuttonPaddingBottom,
+      MOBbuttonPaddingLeft = attributes.MOBbuttonPaddingLeft,
+      headerPaddingUnit = attributes.headerPaddingUnit,
+      headerPaddingTop = attributes.headerPaddingTop,
+      headerPaddingRight = attributes.headerPaddingRight,
+      headerPaddingBottom = attributes.headerPaddingBottom,
+      headerPaddingLeft = attributes.headerPaddingLeft,
+      TABheaderPaddingUnit = attributes.TABheaderPaddingUnit,
+      TABheaderPaddingTop = attributes.TABheaderPaddingTop,
+      TABheaderPaddingRight = attributes.TABheaderPaddingRight,
+      TABheaderPaddingBottom = attributes.TABheaderPaddingBottom,
+      TABheaderPaddingLeft = attributes.TABheaderPaddingLeft,
+      MOBheaderPaddingUnit = attributes.MOBheaderPaddingUnit,
+      MOBheaderPaddingTop = attributes.MOBheaderPaddingTop,
+      MOBheaderPaddingRight = attributes.MOBheaderPaddingRight,
+      MOBheaderPaddingBottom = attributes.MOBheaderPaddingBottom,
+      MOBheaderPaddingLeft = attributes.MOBheaderPaddingLeft,
+      contentPaddingUnit = attributes.contentPaddingUnit,
+      contentPaddingTop = attributes.contentPaddingTop,
+      contentPaddingRight = attributes.contentPaddingRight,
+      contentPaddingBottom = attributes.contentPaddingBottom,
+      contentPaddingLeft = attributes.contentPaddingLeft,
+      TABcontentPaddingUnit = attributes.TABcontentPaddingUnit,
+      TABcontentPaddingTop = attributes.TABcontentPaddingTop,
+      TABcontentPaddingRight = attributes.TABcontentPaddingRight,
+      TABcontentPaddingBottom = attributes.TABcontentPaddingBottom,
+      TABcontentPaddingLeft = attributes.TABcontentPaddingLeft,
+      MOBcontentPaddingUnit = attributes.MOBcontentPaddingUnit,
+      MOBcontentPaddingTop = attributes.MOBcontentPaddingTop,
+      MOBcontentPaddingRight = attributes.MOBcontentPaddingRight,
+      MOBcontentPaddingBottom = attributes.MOBcontentPaddingBottom,
+      MOBcontentPaddingLeft = attributes.MOBcontentPaddingLeft,
+      imageMarginTop = attributes.imageMarginTop,
+      imageMarginRight = attributes.imageMarginRight,
+      imageMarginBottom = attributes.imageMarginBottom,
+      imageMarginLeft = attributes.imageMarginLeft,
+      TABimageMarginTop = attributes.TABimageMarginTop,
+      TABimageMarginRight = attributes.TABimageMarginRight,
+      TABimageMarginBottom = attributes.TABimageMarginBottom,
+      TABimageMarginLeft = attributes.TABimageMarginLeft,
+      MOBimageMarginTop = attributes.MOBimageMarginTop,
+      MOBimageMarginRight = attributes.MOBimageMarginRight,
+      MOBimageMarginBottom = attributes.MOBimageMarginBottom,
+      MOBimageMarginLeft = attributes.MOBimageMarginLeft,
+      iconPaddingUnit = attributes.iconPaddingUnit,
+      iconPaddingTop = attributes.iconPaddingTop,
+      iconPaddingRight = attributes.iconPaddingRight,
+      iconPaddingBottom = attributes.iconPaddingBottom,
+      iconPaddingLeft = attributes.iconPaddingLeft,
+      TABiconPaddingUnit = attributes.TABiconPaddingUnit,
+      TABiconPaddingTop = attributes.TABiconPaddingTop,
+      TABiconPaddingRight = attributes.TABiconPaddingRight,
+      TABiconPaddingBottom = attributes.TABiconPaddingBottom,
+      TABiconPaddingLeft = attributes.TABiconPaddingLeft,
+      MOBiconPaddingUnit = attributes.MOBiconPaddingUnit,
+      MOBiconPaddingTop = attributes.MOBiconPaddingTop,
+      MOBiconPaddingRight = attributes.MOBiconPaddingRight,
+      MOBiconPaddingBottom = attributes.MOBiconPaddingBottom,
+      MOBiconPaddingLeft = attributes.MOBiconPaddingLeft,
       marginUnit = attributes.marginUnit,
       marginTop = attributes.marginTop,
       marginRight = attributes.marginRight,
@@ -5135,11 +5383,7 @@ function Inspector(props) {
       shadowVOffset = attributes.shadowVOffset,
       shadowBlur = attributes.shadowBlur,
       shadowSpread = attributes.shadowSpread,
-      iconSizeUnit = attributes.iconSizeUnit,
-      headerPaddingUnit = attributes.headerPaddingUnit,
-      iconPaddingUnit = attributes.iconPaddingUnit,
-      borderWidthUnit = attributes.borderWidthUnit,
-      buttonPaddingUnit = attributes.buttonPaddingUnit;
+      borderWidthUnit = attributes.borderWidthUnit;
 
   var changeButtonSize = function changeButtonSize(newSize) {
     switch (newSize) {
@@ -5326,7 +5570,7 @@ function Inspector(props) {
     },
     min: 8,
     max: 100
-  })), imageOrIcon === "image" && imageUrl && /*#__PURE__*/React.createElement(_util_image_avatar_ImageAvater_js__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  })), imageOrIcon === "image" && imageUrl && /*#__PURE__*/React.createElement(_util_image_avatar_ImageAvater_js__WEBPACK_IMPORTED_MODULE_9__["default"], {
     imageUrl: imageUrl,
     onDeleteImage: function onDeleteImage() {
       return setAttributes({
@@ -5394,8 +5638,9 @@ function Inspector(props) {
         isClickable: !isClickable
       });
     }
-  }), showButton && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Settings")
+  }), showButton && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Settings"),
+    initialOpen: false
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["TextControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Text"),
     value: buttonText,
@@ -5429,7 +5674,89 @@ function Inspector(props) {
         buttonAlign: buttonAlign
       });
     }
-  })), isClickable && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["TextControl"], {
+  })), /*#__PURE__*/React.createElement(_ResPanelBody__WEBPACK_IMPORTED_MODULE_13__["default"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Padding"),
+    initialOpen: false,
+    resRequiredProps: resRequiredProps
+  }, resOption == "desktop" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    selectedUnit: buttonPaddingUnit,
+    unitTypes: _constants_js__WEBPACK_IMPORTED_MODULE_4__["FONT_SIZE_UNITS"],
+    onClick: function onClick(buttonPaddingUnit) {
+      return setAttributes({
+        buttonPaddingUnit: buttonPaddingUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Padding"),
+    top: buttonPaddingTop,
+    right: buttonPaddingRight,
+    bottom: buttonPaddingBottom,
+    left: buttonPaddingLeft,
+    onChange: function onChange(_ref) {
+      var top = _ref.top,
+          right = _ref.right,
+          bottom = _ref.bottom,
+          left = _ref.left;
+      return setAttributes({
+        buttonPaddingTop: top,
+        buttonPaddingRight: right,
+        buttonPaddingBottom: bottom,
+        buttonPaddingLeft: left
+      });
+    }
+  })), resOption == "tab" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    selectedUnit: TABbuttonPaddingUnit,
+    unitTypes: _constants_js__WEBPACK_IMPORTED_MODULE_4__["FONT_SIZE_UNITS"],
+    onClick: function onClick(TABbuttonPaddingUnit) {
+      return setAttributes({
+        TABbuttonPaddingUnit: TABbuttonPaddingUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Padding"),
+    top: TABbuttonPaddingTop,
+    right: TABbuttonPaddingRight,
+    bottom: TABbuttonPaddingBottom,
+    left: TABbuttonPaddingLeft,
+    onChange: function onChange(_ref2) {
+      var top = _ref2.top,
+          right = _ref2.right,
+          bottom = _ref2.bottom,
+          left = _ref2.left;
+      return setAttributes({
+        TABbuttonPaddingTop: top,
+        TABbuttonPaddingRight: right,
+        TABbuttonPaddingBottom: bottom,
+        TABbuttonPaddingLeft: left
+      });
+    }
+  })), resOption == "mobile" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    selectedUnit: MOBbuttonPaddingUnit,
+    unitTypes: _constants_js__WEBPACK_IMPORTED_MODULE_4__["FONT_SIZE_UNITS"],
+    onClick: function onClick(MOBbuttonPaddingUnit) {
+      return setAttributes({
+        MOBbuttonPaddingUnit: MOBbuttonPaddingUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Padding"),
+    top: MOBbuttonPaddingTop,
+    right: MOBbuttonPaddingRight,
+    bottom: MOBbuttonPaddingBottom,
+    left: MOBbuttonPaddingLeft,
+    onChange: function onChange(_ref3) {
+      var top = _ref3.top,
+          right = _ref3.right,
+          bottom = _ref3.bottom,
+          left = _ref3.left;
+      return setAttributes({
+        MOBbuttonPaddingTop: top,
+        MOBbuttonPaddingRight: right,
+        MOBbuttonPaddingBottom: bottom,
+        MOBbuttonPaddingLeft: left
+      });
+    }
+  })))), isClickable && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["TextControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Infobox Link"),
     placeholder: "https://your-link.com",
     value: clickableLink,
@@ -5441,19 +5768,19 @@ function Inspector(props) {
   })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Typography"),
     initialOpen: false
-  }, /*#__PURE__*/React.createElement(_util_typography_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }, /*#__PURE__*/React.createElement(_util_typography_control__WEBPACK_IMPORTED_MODULE_7__["default"], {
     baseLabel: "Header",
-    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_15__["typoPrefix_header"],
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_14__["typoPrefix_header"],
     typoRequiredProps: typoRequiredProps
-  }), /*#__PURE__*/React.createElement(_util_typography_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_typography_control__WEBPACK_IMPORTED_MODULE_7__["default"], {
     baseLabel: "Content",
-    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_15__["typoPrefix_content"],
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_14__["typoPrefix_content"],
     typoRequiredProps: typoRequiredProps
-  })), /*#__PURE__*/React.createElement(_ResPanelBody__WEBPACK_IMPORTED_MODULE_14__["default"], {
+  })), /*#__PURE__*/React.createElement(_ResPanelBody__WEBPACK_IMPORTED_MODULE_13__["default"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Margin & Padding"),
     initialOpen: false,
     resRequiredProps: resRequiredProps
-  }, resOption == "desktop" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
+  }, resOption == "desktop" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
     selectedUnit: marginUnit,
     unitTypes: _constants_js__WEBPACK_IMPORTED_MODULE_4__["FONT_SIZE_UNITS"],
     onClick: function onClick(marginUnit) {
@@ -5461,17 +5788,17 @@ function Inspector(props) {
         marginUnit: marginUnit
       });
     }
-  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Margin"),
     top: marginTop,
     right: marginRight,
     bottom: marginBottom,
     left: marginLeft,
-    onChange: function onChange(_ref) {
-      var top = _ref.top,
-          right = _ref.right,
-          bottom = _ref.bottom,
-          left = _ref.left;
+    onChange: function onChange(_ref4) {
+      var top = _ref4.top,
+          right = _ref4.right,
+          bottom = _ref4.bottom,
+          left = _ref4.left;
       return setAttributes({
         marginTop: top,
         marginRight: right,
@@ -5479,7 +5806,7 @@ function Inspector(props) {
         marginLeft: left
       });
     }
-  }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
     selectedUnit: paddingUnit,
     unitTypes: _constants_js__WEBPACK_IMPORTED_MODULE_4__["FONT_SIZE_UNITS"],
     onClick: function onClick(paddingUnit) {
@@ -5487,17 +5814,17 @@ function Inspector(props) {
         paddingUnit: paddingUnit
       });
     }
-  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Padding"),
     top: paddingTop,
     right: paddingRight,
     bottom: paddingBottom,
     left: paddingLeft,
-    onChange: function onChange(_ref2) {
-      var top = _ref2.top,
-          right = _ref2.right,
-          bottom = _ref2.bottom,
-          left = _ref2.left;
+    onChange: function onChange(_ref5) {
+      var top = _ref5.top,
+          right = _ref5.right,
+          bottom = _ref5.bottom,
+          left = _ref5.left;
       return setAttributes({
         paddingTop: top,
         paddingRight: right,
@@ -5505,7 +5832,7 @@ function Inspector(props) {
         paddingLeft: left
       });
     }
-  })), resOption == "tab" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
+  })), resOption == "tab" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
     selectedUnit: TABmarginUnit,
     unitTypes: _constants_js__WEBPACK_IMPORTED_MODULE_4__["FONT_SIZE_UNITS"],
     onClick: function onClick(TABmarginUnit) {
@@ -5513,17 +5840,17 @@ function Inspector(props) {
         TABmarginUnit: TABmarginUnit
       });
     }
-  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Margin"),
     top: TABmarginTop,
     right: TABmarginRight,
     bottom: TABmarginBottom,
     left: TABmarginLeft,
-    onChange: function onChange(_ref3) {
-      var top = _ref3.top,
-          right = _ref3.right,
-          bottom = _ref3.bottom,
-          left = _ref3.left;
+    onChange: function onChange(_ref6) {
+      var top = _ref6.top,
+          right = _ref6.right,
+          bottom = _ref6.bottom,
+          left = _ref6.left;
       return setAttributes({
         TABmarginTop: top,
         TABmarginRight: right,
@@ -5531,7 +5858,7 @@ function Inspector(props) {
         TABmarginLeft: left
       });
     }
-  }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
     selectedUnit: TABpaddingUnit,
     unitTypes: _constants_js__WEBPACK_IMPORTED_MODULE_4__["FONT_SIZE_UNITS"],
     onClick: function onClick(TABpaddingUnit) {
@@ -5539,17 +5866,17 @@ function Inspector(props) {
         TABpaddingUnit: TABpaddingUnit
       });
     }
-  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Padding"),
     top: TABpaddingTop,
     right: TABpaddingRight,
     bottom: TABpaddingBottom,
     left: TABpaddingLeft,
-    onChange: function onChange(_ref4) {
-      var top = _ref4.top,
-          right = _ref4.right,
-          bottom = _ref4.bottom,
-          left = _ref4.left;
+    onChange: function onChange(_ref7) {
+      var top = _ref7.top,
+          right = _ref7.right,
+          bottom = _ref7.bottom,
+          left = _ref7.left;
       return setAttributes({
         TABpaddingTop: top,
         TABpaddingRight: right,
@@ -5557,7 +5884,7 @@ function Inspector(props) {
         TABpaddingLeft: left
       });
     }
-  })), resOption == "mobile" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
+  })), resOption == "mobile" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
     selectedUnit: MOBmarginUnit,
     unitTypes: _constants_js__WEBPACK_IMPORTED_MODULE_4__["FONT_SIZE_UNITS"],
     onClick: function onClick(MOBmarginUnit) {
@@ -5565,17 +5892,17 @@ function Inspector(props) {
         MOBmarginUnit: MOBmarginUnit
       });
     }
-  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Margin"),
     top: MOBmarginTop,
     right: MOBmarginRight,
     bottom: MOBmarginBottom,
     left: MOBmarginLeft,
-    onChange: function onChange(_ref5) {
-      var top = _ref5.top,
-          right = _ref5.right,
-          bottom = _ref5.bottom,
-          left = _ref5.left;
+    onChange: function onChange(_ref8) {
+      var top = _ref8.top,
+          right = _ref8.right,
+          bottom = _ref8.bottom,
+          left = _ref8.left;
       return setAttributes({
         MOBmarginTop: top,
         MOBmarginRight: right,
@@ -5583,7 +5910,7 @@ function Inspector(props) {
         MOBmarginLeft: left
       });
     }
-  }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
     selectedUnit: MOBpaddingUnit,
     unitTypes: _constants_js__WEBPACK_IMPORTED_MODULE_4__["FONT_SIZE_UNITS"],
     onClick: function onClick(MOBpaddingUnit) {
@@ -5591,17 +5918,17 @@ function Inspector(props) {
         MOBpaddingUnit: MOBpaddingUnit
       });
     }
-  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Padding"),
     top: MOBpaddingTop,
     right: MOBpaddingRight,
     bottom: MOBpaddingBottom,
     left: MOBpaddingLeft,
-    onChange: function onChange(_ref6) {
-      var top = _ref6.top,
-          right = _ref6.right,
-          bottom = _ref6.bottom,
-          left = _ref6.left;
+    onChange: function onChange(_ref9) {
+      var top = _ref9.top,
+          right = _ref9.right,
+          bottom = _ref9.bottom,
+          left = _ref9.left;
       return setAttributes({
         MOBpaddingTop: top,
         MOBpaddingRight: right,
@@ -5612,7 +5939,7 @@ function Inspector(props) {
   }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Colors"),
     initialOpen: false
-  }, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
+  }, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Header Color"),
     color: headerColor,
     onChange: function onChange(headerColor) {
@@ -5620,7 +5947,7 @@ function Inspector(props) {
         headerColor: headerColor
       });
     }
-  }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Content Color"),
     color: contentColor,
     onChange: function onChange(contentColor) {
@@ -5628,7 +5955,7 @@ function Inspector(props) {
         contentColor: contentColor
       });
     }
-  }), imageOrIcon === "icon" && /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
+  }), imageOrIcon === "icon" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon Color"),
     color: iconColor,
     onChange: function onChange(iconColor) {
@@ -5636,7 +5963,15 @@ function Inspector(props) {
         iconColor: iconColor
       });
     }
-  }), imageOrIcon === "number" && /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon Background Color"),
+    color: iconBackground,
+    onChange: function onChange(iconBackground) {
+      return setAttributes({
+        iconBackground: iconBackground
+      });
+    }
+  })), imageOrIcon === "number" && /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Number Color"),
     color: numberColor,
     onChange: function onChange(numberColor) {
@@ -5644,7 +5979,7 @@ function Inspector(props) {
         numberColor: numberColor
       });
     }
-  }), showButton && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
+  }), showButton && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Color"),
     color: buttonColor,
     onChange: function onChange(buttonColor) {
@@ -5652,7 +5987,7 @@ function Inspector(props) {
         buttonColor: buttonColor
       });
     }
-  }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Text Color"),
     color: buttonTextColor,
     onChange: function onChange(buttonTextColor) {
@@ -5660,37 +5995,29 @@ function Inspector(props) {
         buttonTextColor: buttonTextColor
       });
     }
-  }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
+  }))), /*#__PURE__*/React.createElement(_ResPanelBody__WEBPACK_IMPORTED_MODULE_13__["default"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Spacing"),
-    initialOpen: false
-  }, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
+    initialOpen: false,
+    resRequiredProps: resRequiredProps
+  }, resOption == "desktop" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
     selectedUnit: headerPaddingUnit,
-    unitTypes: [{
-      label: "px",
-      value: "px"
-    }, {
-      label: "em",
-      value: "em"
-    }, {
-      label: "%",
-      value: "%"
-    }],
+    unitTypes: _constants_js__WEBPACK_IMPORTED_MODULE_4__["FONT_SIZE_UNITS"],
     onClick: function onClick(headerPaddingUnit) {
       return setAttributes({
         headerPaddingUnit: headerPaddingUnit
       });
     }
-  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Header Padding"),
     top: headerPaddingTop,
     right: headerPaddingRight,
     bottom: headerPaddingBottom,
     left: headerPaddingLeft,
-    onChange: function onChange(_ref7) {
-      var top = _ref7.top,
-          right = _ref7.right,
-          bottom = _ref7.bottom,
-          left = _ref7.left;
+    onChange: function onChange(_ref10) {
+      var top = _ref10.top,
+          right = _ref10.right,
+          bottom = _ref10.bottom,
+          left = _ref10.left;
       return setAttributes({
         headerPaddingTop: top,
         headerPaddingRight: right,
@@ -5698,17 +6025,43 @@ function Inspector(props) {
         headerPaddingLeft: left
       });
     }
-  }), imageOrIcon === "image" && /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    selectedUnit: contentPaddingUnit,
+    unitTypes: _constants_js__WEBPACK_IMPORTED_MODULE_4__["FONT_SIZE_UNITS"],
+    onClick: function onClick(contentPaddingUnit) {
+      return setAttributes({
+        contentPaddingUnit: contentPaddingUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Content Padding"),
+    top: contentPaddingTop,
+    right: contentPaddingRight,
+    bottom: contentPaddingBottom,
+    left: contentPaddingLeft,
+    onChange: function onChange(_ref11) {
+      var top = _ref11.top,
+          right = _ref11.right,
+          bottom = _ref11.bottom,
+          left = _ref11.left;
+      return setAttributes({
+        contentPaddingTop: top,
+        contentPaddingRight: right,
+        contentPaddingBottom: bottom,
+        contentPaddingLeft: left
+      });
+    }
+  }), imageOrIcon === "image" && /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Image Margin"),
     top: imageMarginTop,
-    right: imageMarginTop,
+    right: imageMarginRight,
     bottom: imageMarginBottom,
     left: imageMarginLeft,
-    onChange: function onChange(_ref8) {
-      var top = _ref8.top,
-          right = _ref8.right,
-          bottom = _ref8.bottom,
-          left = _ref8.left;
+    onChange: function onChange(_ref12) {
+      var top = _ref12.top,
+          right = _ref12.right,
+          bottom = _ref12.bottom,
+          left = _ref12.left;
       return setAttributes({
         imageMarginTop: top,
         imageMarginRight: right,
@@ -5716,69 +6069,25 @@ function Inspector(props) {
         imageMarginLeft: left
       });
     }
-  }), showButton && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
-    selectedUnit: buttonPaddingUnit,
-    unitTypes: [{
-      label: "px",
-      value: "px"
-    }, {
-      label: "em",
-      value: "em"
-    }, {
-      label: "%",
-      value: "%"
-    }],
-    onClick: function onClick(buttonPaddingUnit) {
-      return setAttributes({
-        buttonPaddingUnit: buttonPaddingUnit
-      });
-    }
-  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Button Padding"),
-    top: buttonPaddingTop,
-    right: buttonPaddingRight,
-    bottom: buttonPaddingBottom,
-    left: buttonPaddingLeft,
-    onChange: function onChange(_ref9) {
-      var top = _ref9.top,
-          right = _ref9.right,
-          bottom = _ref9.bottom,
-          left = _ref9.left;
-      return setAttributes({
-        buttonPaddingTop: top,
-        buttonPaddingRight: right,
-        buttonPaddingBottom: bottom,
-        buttonPaddingLeft: left
-      });
-    }
-  })), imageOrIcon === "icon" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
+  }), imageOrIcon === "icon" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
     selectedUnit: iconPaddingUnit,
-    unitTypes: [{
-      label: "px",
-      value: "px"
-    }, {
-      label: "em",
-      value: "em"
-    }, {
-      label: "%",
-      value: "%"
-    }],
+    unitTypes: _constants_js__WEBPACK_IMPORTED_MODULE_4__["FONT_SIZE_UNITS"],
     onClick: function onClick(iconPaddingUnit) {
       return setAttributes({
         iconPaddingUnit: iconPaddingUnit
       });
     }
-  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon Padding"),
     top: iconPaddingTop,
     right: iconPaddingRight,
     bottom: iconPaddingBottom,
     left: iconPaddingLeft,
-    onChange: function onChange(_ref10) {
-      var top = _ref10.top,
-          right = _ref10.right,
-          bottom = _ref10.bottom,
-          left = _ref10.left;
+    onChange: function onChange(_ref13) {
+      var top = _ref13.top,
+          right = _ref13.right,
+          bottom = _ref13.bottom,
+          left = _ref13.left;
       return setAttributes({
         iconPaddingTop: top,
         iconPaddingRight: right,
@@ -5786,16 +6095,208 @@ function Inspector(props) {
         iconPaddingLeft: left
       });
     }
-  }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
+  }))), resOption == "tab" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    selectedUnit: TABheaderPaddingUnit,
+    unitTypes: _constants_js__WEBPACK_IMPORTED_MODULE_4__["FONT_SIZE_UNITS"],
+    onClick: function onClick(TABheaderPaddingUnit) {
+      return setAttributes({
+        TABheaderPaddingUnit: TABheaderPaddingUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Header Padding"),
+    top: TABheaderPaddingTop,
+    right: TABheaderPaddingRight,
+    bottom: TABheaderPaddingBottom,
+    left: TABheaderPaddingLeft,
+    onChange: function onChange(_ref14) {
+      var top = _ref14.top,
+          right = _ref14.right,
+          bottom = _ref14.bottom,
+          left = _ref14.left;
+      return setAttributes({
+        TABheaderPaddingTop: top,
+        TABheaderPaddingRight: right,
+        TABheaderPaddingBottom: bottom,
+        TABheaderPaddingLeft: left
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    selectedUnit: TABcontentPaddingUnit,
+    unitTypes: _constants_js__WEBPACK_IMPORTED_MODULE_4__["FONT_SIZE_UNITS"],
+    onClick: function onClick(TABcontentPaddingUnit) {
+      return setAttributes({
+        TABcontentPaddingUnit: TABcontentPaddingUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Content Padding"),
+    top: TABcontentPaddingTop,
+    right: TABcontentPaddingRight,
+    bottom: TABcontentPaddingBottom,
+    left: TABcontentPaddingLeft,
+    onChange: function onChange(_ref15) {
+      var top = _ref15.top,
+          right = _ref15.right,
+          bottom = _ref15.bottom,
+          left = _ref15.left;
+      return setAttributes({
+        TABcontentPaddingTop: top,
+        TABcontentPaddingRight: right,
+        TABcontentPaddingBottom: bottom,
+        TABcontentPaddingLeft: left
+      });
+    }
+  }), imageOrIcon === "image" && /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Image Margin"),
+    top: TABimageMarginTop,
+    right: TABimageMarginRight,
+    bottom: TABimageMarginBottom,
+    left: TABimageMarginLeft,
+    onChange: function onChange(_ref16) {
+      var top = _ref16.top,
+          right = _ref16.right,
+          bottom = _ref16.bottom,
+          left = _ref16.left;
+      return setAttributes({
+        TABimageMarginTop: top,
+        TABimageMarginRight: right,
+        TABimageMarginBottom: bottom,
+        TABimageMarginLeft: left
+      });
+    }
+  }), imageOrIcon === "icon" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    selectedUnit: TABiconPaddingUnit,
+    unitTypes: _constants_js__WEBPACK_IMPORTED_MODULE_4__["FONT_SIZE_UNITS"],
+    onClick: function onClick(TABiconPaddingUnit) {
+      return setAttributes({
+        TABiconPaddingUnit: TABiconPaddingUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon Padding"),
+    top: TABiconPaddingTop,
+    right: TABiconPaddingRight,
+    bottom: TABiconPaddingBottom,
+    left: TABiconPaddingLeft,
+    onChange: function onChange(_ref17) {
+      var top = _ref17.top,
+          right = _ref17.right,
+          bottom = _ref17.bottom,
+          left = _ref17.left;
+      return setAttributes({
+        TABiconPaddingTop: top,
+        TABiconPaddingRight: right,
+        TABiconPaddingBottom: bottom,
+        TABiconPaddingLeft: left
+      });
+    }
+  }))), resOption == "mobile" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    selectedUnit: MOBheaderPaddingUnit,
+    unitTypes: _constants_js__WEBPACK_IMPORTED_MODULE_4__["FONT_SIZE_UNITS"],
+    onClick: function onClick(MOBheaderPaddingUnit) {
+      return setAttributes({
+        MOBheaderPaddingUnit: MOBheaderPaddingUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Header Padding"),
+    top: MOBheaderPaddingTop,
+    right: MOBheaderPaddingRight,
+    bottom: MOBheaderPaddingBottom,
+    left: MOBheaderPaddingLeft,
+    onChange: function onChange(_ref18) {
+      var top = _ref18.top,
+          right = _ref18.right,
+          bottom = _ref18.bottom,
+          left = _ref18.left;
+      return setAttributes({
+        MOBheaderPaddingTop: top,
+        MOBheaderPaddingRight: right,
+        MOBheaderPaddingBottom: bottom,
+        MOBheaderPaddingLeft: left
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    selectedUnit: MOBcontentPaddingUnit,
+    unitTypes: _constants_js__WEBPACK_IMPORTED_MODULE_4__["FONT_SIZE_UNITS"],
+    onClick: function onClick(MOBcontentPaddingUnit) {
+      return setAttributes({
+        MOBcontentPaddingUnit: MOBcontentPaddingUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Content Padding"),
+    top: MOBcontentPaddingTop,
+    right: MOBcontentPaddingRight,
+    bottom: MOBcontentPaddingBottom,
+    left: MOBcontentPaddingLeft,
+    onChange: function onChange(_ref19) {
+      var top = _ref19.top,
+          right = _ref19.right,
+          bottom = _ref19.bottom,
+          left = _ref19.left;
+      return setAttributes({
+        MOBcontentPaddingTop: top,
+        MOBcontentPaddingRight: right,
+        MOBcontentPaddingBottom: bottom,
+        MOBcontentPaddingLeft: left
+      });
+    }
+  }), imageOrIcon === "image" && /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Image Margin"),
+    top: MOBimageMarginTop,
+    right: MOBimageMarginRight,
+    bottom: MOBimageMarginBottom,
+    left: MOBimageMarginLeft,
+    onChange: function onChange(_ref20) {
+      var top = _ref20.top,
+          right = _ref20.right,
+          bottom = _ref20.bottom,
+          left = _ref20.left;
+      return setAttributes({
+        MOBimageMarginTop: top,
+        MOBimageMarginRight: right,
+        MOBimageMarginBottom: bottom,
+        MOBimageMarginLeft: left
+      });
+    }
+  }), imageOrIcon === "icon" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    selectedUnit: MOBiconPaddingUnit,
+    unitTypes: _constants_js__WEBPACK_IMPORTED_MODULE_4__["FONT_SIZE_UNITS"],
+    onClick: function onClick(MOBiconPaddingUnit) {
+      return setAttributes({
+        MOBiconPaddingUnit: MOBiconPaddingUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Icon Padding"),
+    top: MOBiconPaddingTop,
+    right: MOBiconPaddingRight,
+    bottom: MOBiconPaddingBottom,
+    left: MOBiconPaddingLeft,
+    onChange: function onChange(_ref21) {
+      var top = _ref21.top,
+          right = _ref21.right,
+          bottom = _ref21.bottom,
+          left = _ref21.left;
+      return setAttributes({
+        MOBiconPaddingTop: top,
+        MOBiconPaddingRight: right,
+        MOBiconPaddingBottom: bottom,
+        MOBiconPaddingLeft: left
+      });
+    }
+  })))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background"),
     initialOpen: false
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Type")
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
     id: "eb-infobox-infobox-background"
-  }, _constants_js__WEBPACK_IMPORTED_MODULE_4__["BACKGROUND_TYPES"].map(function (_ref11) {
-    var value = _ref11.value,
-        label = _ref11.label;
+  }, _constants_js__WEBPACK_IMPORTED_MODULE_4__["BACKGROUND_TYPES"].map(function (_ref22) {
+    var value = _ref22.value,
+        label = _ref22.label;
     return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
       isLarge: true,
       isPrimary: backgroundType === value,
@@ -5806,7 +6307,7 @@ function Inspector(props) {
         });
       }
     }, label);
-  }))), backgroundType === "fill" && /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
+  }))), backgroundType === "fill" && /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Color"),
     color: backgroundColor,
     onChange: function onChange(backgroundColor) {
@@ -5817,7 +6318,7 @@ function Inspector(props) {
   }), backgroundType === "gradient" && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Gradient"),
     initialOpen: false
-  }, /*#__PURE__*/React.createElement(_util_gradient_color_controller__WEBPACK_IMPORTED_MODULE_11__["default"], {
+  }, /*#__PURE__*/React.createElement(_util_gradient_color_controller__WEBPACK_IMPORTED_MODULE_10__["default"], {
     gradientColor: backgroundGradient,
     onChange: function onChange(backgroundGradient) {
       return setAttributes({
@@ -5827,9 +6328,9 @@ function Inspector(props) {
   })), backgroundType === "image" && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Image")
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["MediaUpload"], {
-    onSelect: function onSelect(_ref12) {
-      var url = _ref12.url,
-          id = _ref12.id;
+    onSelect: function onSelect(_ref23) {
+      var url = _ref23.url,
+          id = _ref23.id;
       return setAttributes({
         backgroundImageURL: url,
         backgroundImageID: id
@@ -5837,8 +6338,8 @@ function Inspector(props) {
     },
     type: "image",
     value: backgroundImageID,
-    render: function render(_ref13) {
-      var open = _ref13.open;
+    render: function render(_ref24) {
+      var open = _ref24.open;
       return !backgroundImageURL && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
         className: "eb-wrapper-upload-button eb-infobox-bg-upload-button components-button",
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Upload Image"),
@@ -5846,7 +6347,7 @@ function Inspector(props) {
         onClick: open
       });
     }
-  }), backgroundImageURL && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_image_avatar_ImageAvater_js__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  }), backgroundImageURL && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_image_avatar_ImageAvater_js__WEBPACK_IMPORTED_MODULE_9__["default"], {
     imageUrl: backgroundImageURL,
     onDeleteImage: function onDeleteImage() {
       return setAttributes({
@@ -5855,9 +6356,9 @@ function Inspector(props) {
     }
   }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Size")
-  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], null, _constants_js__WEBPACK_IMPORTED_MODULE_4__["BACKGROUND_SIZES"].map(function (_ref14) {
-    var value = _ref14.value,
-        label = _ref14.label;
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], null, _constants_js__WEBPACK_IMPORTED_MODULE_4__["BACKGROUND_SIZES"].map(function (_ref25) {
+    var value = _ref25.value,
+        label = _ref25.label;
     return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
       isPrimary: backgroundSize === value,
       isSecondary: backgroundSize !== value,
@@ -5870,7 +6371,7 @@ function Inspector(props) {
   })))))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border"),
     initialOpen: false
-  }, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
+  }, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border Color"),
     color: borderColor,
     onChange: function onChange(borderColor) {
@@ -5887,7 +6388,7 @@ function Inspector(props) {
         borderStyle: borderStyle
       });
     }
-  }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
     selectedUnit: borderWidthUnit,
     unitTypes: [{
       label: "px",
@@ -5915,7 +6416,7 @@ function Inspector(props) {
     },
     min: 0,
     max: 100
-  }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
     selectedUnit: radiusUnit,
     unitTypes: [{
       label: "px",
@@ -5946,7 +6447,7 @@ function Inspector(props) {
   })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shadow"),
     initialOpen: false
-  }, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
+  }, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shadow Color"),
     color: shadowColor,
     onChange: function onChange(shadowColor) {
@@ -6048,7 +6549,7 @@ var Save = function Save(_ref) {
   return /*#__PURE__*/React.createElement("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["useBlockProps"].save(), isClickable && clickableLink ? /*#__PURE__*/React.createElement("a", {
     href: clickableLink
   }, /*#__PURE__*/React.createElement("div", {
-    className: "infobox-container ".concat(blockId)
+    className: "eb-infobox-container ".concat(blockId)
   }, /*#__PURE__*/React.createElement(_infobox_container_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
     infoBoxProps: infoBoxProps
   }))) : /*#__PURE__*/React.createElement("div", {

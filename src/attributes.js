@@ -59,7 +59,7 @@ const attributes = {
 	},
 	selectedIcon: {
 		source: "attribute",
-		selector: ".infobox-icon",
+		selector: ".eb-infobox-icon-data-selector",
 		attribute: "data-icon",
 		default: "far fa-sun",
 	},
@@ -72,7 +72,7 @@ const attributes = {
 	},
 	imageUrl: {
 		source: "attribute",
-		selector: ".infobox-image-wrapper",
+		selector: ".eb-infobox-image-wrapper",
 		attribute: "data-image-url",
 	},
 	imageId: {
@@ -90,22 +90,89 @@ const attributes = {
 		default:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
 	},
-	flexDirection: {
-		eype: "string",
-		default: "column",
-	},
 	order: {
 		type: "number",
 		default: 0,
 	},
+
+	// Button settings attributes ⬇
 	showButton: {
 		type: "boolean",
 		default: false,
 	},
+
 	buttonText: {
 		type: "string",
 		default: "Click Me",
 	},
+	buttonSize: {
+		type: "string",
+		default: "normal",
+	},
+	buttonAlign: {
+		type: "string",
+		default: "center",
+	},
+
+	// Button padding attributes ⬇
+	buttonPaddingUnit: {
+		type: "string",
+		default: "px",
+	},
+
+	buttonPaddingTop: {
+		type: "string",
+		default: "12",
+	},
+	buttonPaddingRight: {
+		type: "string",
+		default: "28",
+	},
+	buttonPaddingBottom: {
+		type: "string",
+		default: "12",
+	},
+	buttonPaddingLeft: {
+		type: "string",
+		default: "28",
+	},
+
+	TABbuttonPaddingUnit: {
+		type: "string",
+		default: "px",
+	},
+
+	TABbuttonPaddingTop: {
+		type: "string",
+	},
+	TABbuttonPaddingRight: {
+		type: "string",
+	},
+	TABbuttonPaddingBottom: {
+		type: "string",
+	},
+	TABbuttonPaddingLeft: {
+		type: "string",
+	},
+
+	MOBbuttonPaddingUnit: {
+		type: "string",
+		default: "px",
+	},
+
+	MOBbuttonPaddingTop: {
+		type: "string",
+	},
+	MOBbuttonPaddingRight: {
+		type: "string",
+	},
+	MOBbuttonPaddingBottom: {
+		type: "string",
+	},
+	MOBbuttonPaddingLeft: {
+		type: "string",
+	},
+
 	imageHeight: {
 		type: "number",
 		default: 150,
@@ -116,7 +183,7 @@ const attributes = {
 	},
 	number: {
 		type: "number",
-		selector: ".infobox-number",
+		selector: ".eb-infobox-number",
 		default: 0,
 	},
 	headerTag: {
@@ -124,24 +191,10 @@ const attributes = {
 		default: "h3",
 	},
 
-	headerTextTransform: {
-		type: "string",
-		default: "none",
-	},
-	contentColor: {
-		type: "string",
-		default: "#5b5b5b",
-	},
-	headerColor: {
-		type: "string",
-		default: "#4a5059",
-	},
 	boxBackground: {
 		type: "string",
 	},
-	numberColor: {
-		type: "string",
-	},
+
 	numberSize: {
 		type: "number",
 		default: 36,
@@ -150,29 +203,31 @@ const attributes = {
 		type: "number",
 		default: 36,
 	},
-	iconColor: {
-		type: "string",
-	},
+
+	// colors control attributes ⬇
 	iconBackground: {
 		type: "string",
 	},
-
-	buttonSize: {
+	iconColor: {
 		type: "string",
-		default: "normal",
-	},
-	buttonAlign: {
-		type: "string",
-		default: "center",
 	},
 	buttonColor: {
+		type: "string",
+	},
+	numberColor: {
 		type: "string",
 	},
 	buttonTextColor: {
 		type: "string",
 	},
+	contentColor: {
+		type: "string",
+	},
+	headerColor: {
+		type: "string",
+	},
 
-	// margin padding attributes ⬇
+	// wrapper margin padding attributes ⬇
 	marginUnit: {
 		type: "string",
 		default: "px",
@@ -285,10 +340,160 @@ const attributes = {
 		type: "string",
 	},
 
-	linkedIconPadding: {
-		type: "boolean",
+	//
+	// spacing control attributes ⬇
+	// header padding attributes ⬇
+	headerPaddingUnit: {
+		type: "string",
+		default: "px",
+	},
+	headerPaddingTop: {
+		type: "string",
+		default: "20",
+	},
+	headerPaddingRight: {
+		type: "string",
+	},
+	headerPaddingBottom: {
+		type: "string",
+		default: "20",
+	},
+	headerPaddingLeft: {
+		type: "string",
 	},
 
+	TABheaderPaddingUnit: {
+		type: "string",
+		default: "px",
+	},
+	TABheaderPaddingTop: {
+		type: "string",
+	},
+	TABheaderPaddingRight: {
+		type: "string",
+	},
+	TABheaderPaddingBottom: {
+		type: "string",
+	},
+	TABheaderPaddingLeft: {
+		type: "string",
+	},
+
+	MOBheaderPaddingUnit: {
+		type: "string",
+		default: "px",
+	},
+	MOBheaderPaddingTop: {
+		type: "string",
+	},
+	MOBheaderPaddingRight: {
+		type: "string",
+	},
+	MOBheaderPaddingBottom: {
+		type: "string",
+	},
+	MOBheaderPaddingLeft: {
+		type: "string",
+	},
+
+	// content padding attributes ⬇
+	contentPaddingUnit: {
+		type: "string",
+		default: "px",
+	},
+	contentPaddingTop: {
+		type: "string",
+	},
+	contentPaddingRight: {
+		type: "string",
+	},
+	contentPaddingBottom: {
+		type: "string",
+		default: "20",
+	},
+	contentPaddingLeft: {
+		type: "string",
+	},
+
+	TABcontentPaddingUnit: {
+		type: "string",
+		default: "px",
+	},
+	TABcontentPaddingTop: {
+		type: "string",
+	},
+	TABcontentPaddingRight: {
+		type: "string",
+	},
+	TABcontentPaddingBottom: {
+		type: "string",
+	},
+	TABcontentPaddingLeft: {
+		type: "string",
+	},
+
+	MOBcontentPaddingUnit: {
+		type: "string",
+		default: "px",
+	},
+	MOBcontentPaddingTop: {
+		type: "string",
+	},
+	MOBcontentPaddingRight: {
+		type: "string",
+	},
+	MOBcontentPaddingBottom: {
+		type: "string",
+	},
+	MOBcontentPaddingLeft: {
+		type: "string",
+	},
+
+	// image margin attributes ⬇
+	imageMarginTop: {
+		type: "string",
+	},
+	imageMarginRight: {
+		type: "string",
+	},
+	imageMarginBottom: {
+		type: "string",
+	},
+	imageMarginLeft: {
+		type: "string",
+	},
+
+	TABimageMarginTop: {
+		type: "string",
+	},
+	TABimageMarginRight: {
+		type: "string",
+	},
+	TABimageMarginBottom: {
+		type: "string",
+	},
+	TABimageMarginLeft: {
+		type: "string",
+	},
+
+	MOBimageMarginTop: {
+		type: "string",
+	},
+	MOBimageMarginRight: {
+		type: "string",
+	},
+	MOBimageMarginBottom: {
+		type: "string",
+	},
+	MOBimageMarginLeft: {
+		type: "string",
+	},
+
+	// icon padding attributes ⬇
+	iconPaddingUnit: {
+		type: "string",
+		default: "px",
+	},
 	iconPaddingTop: {
 		type: "string",
 		default: "20",
@@ -306,62 +511,41 @@ const attributes = {
 		default: "30",
 	},
 
-	linkedHeaderPadding: {
-		type: "boolean",
+	TABiconPaddingUnit: {
+		type: "string",
+		default: "px",
 	},
-
-	headerPaddingTop: {
+	TABiconPaddingTop: {
 		type: "string",
 	},
-	headerPaddingRight: {
+	TABiconPaddingRight: {
 		type: "string",
 	},
-	headerPaddingBottom: {
+	TABiconPaddingBottom: {
 		type: "string",
 	},
-	headerPaddingLeft: {
-		type: "string",
-	},
-
-	linkedImagePadding: {
-		type: "boolean",
-		default: false,
-	},
-
-	imagePaddingTop: {
-		type: "string",
-	},
-	imagePaddingRight: {
-		type: "string",
-	},
-	imagePaddingBottom: {
-		type: "string",
-	},
-	imagePaddingLeft: {
+	TABiconPaddingLeft: {
 		type: "string",
 	},
 
-	linkedButtonPadding: {
-		type: "boolean",
-		default: false,
-	},
-
-	buttonPaddingTop: {
+	MOBiconPaddingUnit: {
 		type: "string",
-		default: "12",
+		default: "px",
 	},
-	buttonPaddingRight: {
+	MOBiconPaddingTop: {
 		type: "string",
-		default: "28",
 	},
-	buttonPaddingBottom: {
+	MOBiconPaddingRight: {
 		type: "string",
-		default: "12",
 	},
-	buttonPaddingLeft: {
+	MOBiconPaddingBottom: {
 		type: "string",
-		default: "28",
 	},
+	MOBiconPaddingLeft: {
+		type: "string",
+	},
+	// spacing control attributes Ends
+	//
 
 	// Border attributes ⬇
 	borderWidth: {
@@ -398,28 +582,11 @@ const attributes = {
 		type: "string",
 		default: "px",
 	},
-	iconSizeUnit: {
-		type: "string",
-		default: "px",
-	},
-
 	radiusUnit: {
 		type: "string",
 		default: "px",
 	},
-	headerPaddingUnit: {
-		type: "string",
-		default: "px",
-	},
-	iconPaddingUnit: {
-		type: "string",
-		default: "px",
-	},
 	borderWidthUnit: {
-		type: "string",
-		default: "px",
-	},
-	buttonPaddingUnit: {
 		type: "string",
 		default: "px",
 	},
