@@ -11,17 +11,6 @@
 
 /***/ }),
 
-/***/ "./util/color-control/style.css":
-/*!**************************************!*\
-  !*** ./util/color-control/style.css ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "./util/image-avatar/style.scss":
 /*!**************************************!*\
   !*** ./util/image-avatar/style.scss ***!
@@ -6730,8 +6719,10 @@ var Save = function Save(_ref) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ "./util/color-control/style.css");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -6744,16 +6735,7 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var __ = wp.i18n.__;
-var _wp$element = wp.element,
-    useState = _wp$element.useState,
-    useEffect = _wp$element.useEffect;
-var _wp$components = wp.components,
-    BaseControl = _wp$components.BaseControl,
-    Dropdown = _wp$components.Dropdown,
-    Tooltip = _wp$components.Tooltip,
-    ColorPicker = _wp$components.ColorPicker,
-    Button = _wp$components.Button;
+
 
 
 var ColorControl = function ColorControl(_ref) {
@@ -6761,12 +6743,12 @@ var ColorControl = function ColorControl(_ref) {
       color = _ref.color,
       onChange = _ref.onChange;
 
-  var _useState = useState(color),
+  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useState"])(color),
       _useState2 = _slicedToArray(_useState, 2),
       bgColor = _useState2[0],
       setBgColor = _useState2[1];
 
-  useEffect(function () {
+  Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     onChange(bgColor);
   }, [bgColor]);
   var colorStyles = {
@@ -6775,14 +6757,14 @@ var ColorControl = function ColorControl(_ref) {
     background: "white",
     border: "1px solid #ebebeb"
   };
-  return /*#__PURE__*/React.createElement(BaseControl, {
+  return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["BaseControl"], {
     label: label || "",
     className: "eb-color-base"
-  }, /*#__PURE__*/React.createElement(Dropdown, {
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Dropdown"], {
     renderToggle: function renderToggle(_ref2) {
       var isOpen = _ref2.isOpen,
           onToggle = _ref2.onToggle;
-      return /*#__PURE__*/React.createElement(Tooltip, {
+      return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Tooltip"], {
         text: color || "default"
       }, /*#__PURE__*/React.createElement("div", {
         className: "eb-color-ball",
@@ -6801,7 +6783,7 @@ var ColorControl = function ColorControl(_ref) {
       })));
     },
     renderContent: function renderContent() {
-      return /*#__PURE__*/React.createElement(ColorPicker, {
+      return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["ColorPicker"], {
         color: color,
         onChangeComplete: function onChangeComplete(_ref3) {
           var rgb = _ref3.rgb;
@@ -6809,7 +6791,7 @@ var ColorControl = function ColorControl(_ref) {
         }
       });
     }
-  }), bgColor && /*#__PURE__*/React.createElement(Button, {
+  }), bgColor && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     isSmall: true,
     className: "eb-color-undo",
     icon: "image-rotate",
