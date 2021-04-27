@@ -13,14 +13,14 @@ const InfoboxContainer = ({ infoBoxProps }) => {
 
 	return (
 		<>
-			{imageOrIcon === "image" && imageUrl ? (
+			{imageOrIcon === "image" ? (
 				<div
 					className="eb-infobox-image-wrapper"
 					data-image-url={imageUrl ? imageUrl : ""}
 				/>
 			) : null}
 
-			{imageOrIcon === "icon" && selectedIcon ? (
+			{imageOrIcon === "icon" ? (
 				<span className="eb-infobox-icon">
 					<span
 						className={`${selectedIcon} eb-infobox-icon-data-selector `}

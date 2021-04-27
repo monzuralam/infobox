@@ -5195,10 +5195,10 @@ var InfoboxContainer = function InfoboxContainer(_ref) {
       number = infoBoxProps.number,
       headerTag = infoBoxProps.headerTag,
       imageOrIcon = infoBoxProps.imageOrIcon;
-  return /*#__PURE__*/React.createElement(React.Fragment, null, imageOrIcon === "image" && imageUrl ? /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, imageOrIcon === "image" ? /*#__PURE__*/React.createElement("div", {
     className: "eb-infobox-image-wrapper",
     "data-image-url": imageUrl ? imageUrl : ""
-  }) : null, imageOrIcon === "icon" && selectedIcon ? /*#__PURE__*/React.createElement("span", {
+  }) : null, imageOrIcon === "icon" ? /*#__PURE__*/React.createElement("span", {
     className: "eb-infobox-icon"
   }, /*#__PURE__*/React.createElement("span", {
     className: "".concat(selectedIcon, " eb-infobox-icon-data-selector "),
