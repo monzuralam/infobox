@@ -173,6 +173,7 @@ const attributes = {
 		type: "string",
 	},
 
+	// infobox head top image height width attributes ⬇
 	imageHeight: {
 		type: "number",
 		default: 150,
@@ -181,6 +182,21 @@ const attributes = {
 		type: "number",
 		default: 150,
 	},
+
+	TABimageHeight: {
+		type: "number",
+	},
+	TABimageWidth: {
+		type: "number",
+	},
+
+	MOBimageHeight: {
+		type: "number",
+	},
+	MOBimageWidth: {
+		type: "number",
+	},
+
 	number: {
 		type: "number",
 		selector: ".eb-infobox-number",
@@ -195,13 +211,28 @@ const attributes = {
 		type: "string",
 	},
 
+	// infobox head top number size attributes ⬇
 	numberSize: {
 		type: "number",
 		default: 36,
 	},
+	TABnumberSize: {
+		type: "number",
+	},
+	MOBnumberSize: {
+		type: "number",
+	},
+
+	// infobox head top icon size attributes ⬇
 	iconSize: {
 		type: "number",
 		default: 36,
+	},
+	TABiconSize: {
+		type: "number",
+	},
+	MOBiconSize: {
+		type: "number",
 	},
 
 	// colors control attributes ⬇

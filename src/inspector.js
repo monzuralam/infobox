@@ -43,6 +43,9 @@ import ImageAvatar from "../util/image-avatar/ImageAvater.js";
 import GradientColorControl from "../util/gradient-color-controller";
 import UnitControl from "../util/unit-control";
 import ColorControl from "../util/color-control";
+
+import WithResButtons from "../util/withResButtons";
+
 import ResPanelBody from "./ResPanelBody";
 
 import {
@@ -76,12 +79,29 @@ function Inspector(props) {
 		imageUrl,
 		imageId,
 		order,
-		imageHeight,
-		numberSize,
-		iconSize,
-		imageWidth,
+
 		number,
 		headerTag,
+
+		// infobox head top icon size attributes ⬇
+		numberSize,
+		TABnumberSize,
+		MOBnumberSize,
+
+		// infobox head top number size attributes ⬇
+		iconSize,
+		TABiconSize,
+		MOBiconSize,
+
+		// infobox head top image height width attributes ⬇
+		imageHeight,
+		imageWidth,
+
+		TABimageHeight,
+		TABimageWidth,
+
+		MOBimageHeight,
+		MOBimageWidth,
 
 		// color panel attributes ⬇
 		contentColor,
@@ -441,14 +461,42 @@ function Inspector(props) {
 					)}
 
 					{imageOrIcon === "icon" && selectedIcon && (
-						<BaseControl label={__("Icon Size")}>
-							<RangeControl
-								value={iconSize}
-								onChange={(newSize) => setAttributes({ iconSize: newSize })}
-								min={8}
-								max={100}
-							/>
-						</BaseControl>
+						<WithResButtons
+							className="for-icon-size"
+							resRequiredProps={resRequiredProps}
+						>
+							{resOption == "desktop" && (
+								<RangeControl
+									label={__("Icon Size")}
+									value={iconSize}
+									onChange={(iconSize) => setAttributes({ iconSize })}
+									min={8}
+									max={100}
+								/>
+							)}
+
+							{resOption == "tab" && (
+								<RangeControl
+									allowReset
+									label={__("Icon Size")}
+									value={TABiconSize}
+									onChange={(TABiconSize) => setAttributes({ TABiconSize })}
+									min={8}
+									max={100}
+								/>
+							)}
+
+							{resOption == "mobile" && (
+								<RangeControl
+									allowReset
+									label={__("Icon Size")}
+									value={MOBiconSize}
+									onChange={(MOBiconSize) => setAttributes({ MOBiconSize })}
+									min={8}
+									max={100}
+								/>
+							)}
+						</WithResButtons>
 					)}
 
 					{imageOrIcon === "image" && imageUrl && (
@@ -466,48 +514,141 @@ function Inspector(props) {
 
 					{imageOrIcon === "image" && imageUrl && (
 						<>
-							<RangeControl
-								label={__("Image Height")}
-								value={imageHeight}
-								onChange={(newSize) => setAttributes({ imageHeight: newSize })}
-								min={0}
-								max={400}
-							/>
-
-							<RangeControl
-								label={__("Image Width")}
-								value={imageWidth}
-								onChange={(newSize) => setAttributes({ imageWidth: newSize })}
-								min={0}
-								max={400}
-							/>
+							<WithResButtons
+								className="for-head-img-height"
+								resRequiredProps={resRequiredProps}
+							>
+								{resOption == "desktop" && (
+									<RangeControl
+										label={__("Image Height")}
+										value={imageHeight}
+										onChange={(imageHeight) => setAttributes({ imageHeight })}
+										min={0}
+										max={400}
+									/>
+								)}
+								{resOption == "tab" && (
+									<RangeControl
+										allowReset
+										label={__("Image Height")}
+										value={TABimageHeight}
+										onChange={(TABimageHeight) =>
+											setAttributes({ TABimageHeight })
+										}
+										min={0}
+										max={400}
+									/>
+								)}
+								{resOption == "mobile" && (
+									<RangeControl
+										allowReset
+										label={__("Image Height")}
+										value={MOBimageHeight}
+										onChange={(MOBimageHeight) =>
+											setAttributes({ MOBimageHeight })
+										}
+										min={0}
+										max={400}
+									/>
+								)}
+							</WithResButtons>
+							<WithResButtons
+								className="for-head-img-width"
+								resRequiredProps={resRequiredProps}
+							>
+								{resOption == "desktop" && (
+									<RangeControl
+										label={__("Image Width")}
+										value={imageWidth}
+										onChange={(imageWidth) => setAttributes({ imageWidth })}
+										min={0}
+										max={400}
+									/>
+								)}
+								{resOption == "tab" && (
+									<RangeControl
+										allowReset
+										label={__("Image Width")}
+										value={TABimageWidth}
+										onChange={(TABimageWidth) =>
+											setAttributes({ TABimageWidth })
+										}
+										min={0}
+										max={400}
+									/>
+								)}
+								{resOption == "mobile" && (
+									<RangeControl
+										allowReset
+										label={__("Image Width")}
+										value={MOBimageWidth}
+										onChange={(MOBimageWidth) =>
+											setAttributes({ MOBimageWidth })
+										}
+										min={0}
+										max={400}
+									/>
+								)}
+							</WithResButtons>
 						</>
 					)}
 
 					{imageOrIcon === "number" && (
-						<BaseControl label={__("Number")} id="eb-infobox-number-id">
-							<input
-								type="number"
-								value={number}
-								id="eb-infobox-number-id"
-								onChange={(event) =>
-									setAttributes({
-										number: parseInt(event.target.value, 10),
-									})
-								}
-								min={0}
-							/>
-						</BaseControl>
-					)}
+						<>
+							<BaseControl label={__("Number")} id="eb-infobox-number-id">
+								<input
+									type="number"
+									value={number}
+									id="eb-infobox-number-id"
+									onChange={(event) =>
+										setAttributes({
+											number: parseInt(event.target.value, 10),
+										})
+									}
+									min={0}
+								/>
+							</BaseControl>
+							<WithResButtons
+								className="for-number-size"
+								resRequiredProps={resRequiredProps}
+							>
+								{resOption == "desktop" && (
+									<RangeControl
+										label={__("Number Size")}
+										value={numberSize}
+										onChange={(numberSize) => setAttributes({ numberSize })}
+										min={8}
+										max={64}
+									/>
+								)}
 
-					{imageOrIcon === "number" && (
-						<RangeControl
-							label={__("Number Size")}
-							value={numberSize}
-							onChange={(newSize) => setAttributes({ numberSize: newSize })}
-							min={8}
-							max={64}
-						/>
+								{resOption == "tab" && (
+									<RangeControl
+										allowReset
+										label={__("Number Size")}
+										value={TABnumberSize}
+										onChange={(TABnumberSize) =>
+											setAttributes({ TABnumberSize })
+										}
+										min={8}
+										max={64}
+									/>
+								)}
+
+								{resOption == "mobile" && (
+									<RangeControl
+										allowReset
+										label={__("Number Size")}
+										value={MOBnumberSize}
+										onChange={(MOBnumberSize) =>
+											setAttributes({ MOBnumberSize })
+										}
+										min={8}
+										max={64}
+									/>
+								)}
+							</WithResButtons>
+						</>
 					)}
 
 					{!isClickable && (

@@ -616,8 +616,13 @@ body.eb-res-option-mobile .editor-styles-wrapper {
   color: #6c40f7;
 }
 
+.wrap_res {
+  position: relative;
+}
+
 .resIcons {
   position: absolute;
+  left: 80px;
 }
 
 .eb-typography-component-panel .wrap_res.forFontSize .resIcons {
@@ -643,6 +648,16 @@ body.eb-res-option-mobile .editor-styles-wrapper {
 
 .components-button.has-icon .dashicon.dashicons-format-image {
   margin: 0;
+}
+
+.eb-panel-control .wrap_res.for-icon-size .resIcons {
+  left: 60px;
+}
+
+.eb-panel-control .wrap_res.for-head-img-height .resIcons,
+.eb-panel-control .wrap_res.for-head-img-width .resIcons,
+.eb-panel-control .wrap_res.for-number-size .resIcons {
+  left: 85px;
 }
 
 /*# sourceMappingURL=index.css.map*/

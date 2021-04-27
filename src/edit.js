@@ -50,12 +50,28 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		showButton,
 		buttonAlign,
 		buttonText,
-		imageHeight,
-		imageWidth,
 		number,
 		headerTag,
+
+		// infobox head top icon size attributes ⬇
 		numberSize,
+		TABnumberSize,
+		MOBnumberSize,
+
+		// infobox head top number size attributes ⬇
 		iconSize,
+		TABiconSize,
+		MOBiconSize,
+
+		// infobox head top image height width attributes ⬇
+		imageHeight,
+		imageWidth,
+
+		TABimageHeight,
+		TABimageWidth,
+
+		MOBimageHeight,
+		MOBimageWidth,
 
 		// color panel attributes ⬇
 		contentColor = "#5b5b5b",
@@ -513,6 +529,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					: " "
 			}
 		
+			${TABimageHeight ? `height: ${TABimageHeight}px;` : " "}
+			${TABimageWidth ? `width: ${TABimageWidth}px;` : " "}
 		
 		}	
 	`;
@@ -536,6 +554,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					: " "
 			}
 		
+			${MOBimageHeight ? `height: ${MOBimageHeight}px;` : " "}
+			${MOBimageWidth ? `width: ${MOBimageWidth}px;` : " "}
 		
 		}	
 	`;
@@ -606,6 +626,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					  )}${TABiconPaddingUnit};`
 					: " "
 			}
+
+			${TABiconSize ? `font-size: ${TABiconSize}px;` : " "}
 			
 		}
 	`;
@@ -640,6 +662,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					  )}${MOBiconPaddingUnit};`
 					: " "
 			}
+
+			${MOBiconSize ? `font-size: ${MOBiconSize}px;` : " "}
 			
 		}
 	`;
@@ -650,6 +674,20 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			display: ${imageOrIcon === "number" ? "block" : "none"};
 			order: ${order};
 			font-size: ${numberSize}px;
+		}
+	
+	`;
+
+	const numberStylesTab = `
+		.${blockId} .eb-infobox-number{	
+			${TABnumberSize ? `font-size: ${TABnumberSize}px;` : " "}
+		}
+	
+	`;
+
+	const numberStylesMobile = `
+		.${blockId} .eb-infobox-number{	
+			${MOBnumberSize ? `font-size: ${MOBnumberSize}px;` : " "}
 		}
 	
 	`;
@@ -1006,6 +1044,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		${isCssExists(linkStylesTab) ? linkStylesTab : " "}
 		${isCssExists(imageWrapperStyleTab) ? imageWrapperStyleTab : " "}
 		${isCssExists(iconStyleTab) ? iconStyleTab : " "}
+		${isCssExists(numberStylesTab) ? numberStylesTab : " "}
 	`);
 
 	// all css styles for Mobile in strings ⬇
@@ -1016,6 +1055,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		${isCssExists(linkStylesMobile) ? linkStylesMobile : " "}
 		${isCssExists(imageWrapperStyleMobile) ? imageWrapperStyleMobile : " "}
 		${isCssExists(iconStyleMobile) ? iconStyleMobile : " "}
+		${isCssExists(numberStylesMobile) ? numberStylesMobile : " "}
 	`);
 
 	// Set All Style in "blockMeta" Attribute
