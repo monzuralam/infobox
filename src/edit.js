@@ -484,211 +484,295 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	`;
 
 	const imageWrapperStyleDesktop = `
-		.${blockId} .eb-infobox-image-wrapper{
-			display: ${imageOrIcon === "image" && selectedIcon ? "block" : "none"};
-			${
-				imageOrIcon === "image" && imageUrl
-					? `background-image: url("${imageUrl}");`
-					: " "
-			}
+		${
+			imageOrIcon === "image"
+				? `		
+			.${blockId} .eb-infobox-image-wrapper{
+				${
+					imageOrIcon === "image" && imageUrl
+						? `background-image: url("${imageUrl}");`
+						: " "
+				}
 
-			height: ${imageHeight}px;
-			width: ${imageWidth}px;
-			order: ${order};
+				height: ${imageHeight}px;
+				width: ${imageWidth}px;
+				order: ${order};
 
-			${imageMarginTop ? `margin-top: ${parseFloat(imageMarginTop)}px;` : " "}
-			${imageMarginRight ? `margin-right: ${parseFloat(imageMarginRight)}px;` : " "}
-			${imageMarginLeft ? `margin-left: ${parseFloat(imageMarginLeft)}px;` : " "}
-			${
-				imageMarginBottom
-					? `margin-bottom: ${parseFloat(imageMarginBottom)}px;`
-					: " "
-			}
-			
-			background-size: cover;
+				${imageMarginTop ? `margin-top: ${parseFloat(imageMarginTop)}px;` : " "}
+				${imageMarginRight ? `margin-right: ${parseFloat(imageMarginRight)}px;` : " "}
+				${imageMarginLeft ? `margin-left: ${parseFloat(imageMarginLeft)}px;` : " "}
+				${
+					imageMarginBottom
+						? `margin-bottom: ${parseFloat(imageMarginBottom)}px;`
+						: " "
+				}
+				
+				background-size: cover;
 
-		}	
-	`;
-
-	const imageWrapperStyleTab = `
-		.${blockId} .eb-infobox-image-wrapper{		
-			${TABimageMarginTop ? `margin-top: ${parseFloat(TABimageMarginTop)}px;` : " "}
-			${
-				TABimageMarginRight
-					? `margin-right: ${parseFloat(TABimageMarginRight)}px;`
-					: " "
-			}
-			${
-				TABimageMarginLeft
-					? `margin-left: ${parseFloat(TABimageMarginLeft)}px;`
-					: " "
-			}
-			${
-				TABimageMarginBottom
-					? `margin-bottom: ${parseFloat(TABimageMarginBottom)}px;`
-					: " "
-			}
+			}	
 		
-			${TABimageHeight ? `height: ${TABimageHeight}px;` : " "}
-			${TABimageWidth ? `width: ${TABimageWidth}px;` : " "}
-		
-		}	
-	`;
-
-	const imageWrapperStyleMobile = `
-		.${blockId} .eb-infobox-image-wrapper{		
-			${MOBimageMarginTop ? `margin-top: ${parseFloat(MOBimageMarginTop)}px;` : " "}
-			${
-				MOBimageMarginRight
-					? `margin-right: ${parseFloat(MOBimageMarginRight)}px;`
-					: " "
-			}
-			${
-				MOBimageMarginLeft
-					? `margin-left: ${parseFloat(MOBimageMarginLeft)}px;`
-					: " "
-			}
-			${
-				MOBimageMarginBottom
-					? `margin-bottom: ${parseFloat(MOBimageMarginBottom)}px;`
-					: " "
-			}
-		
-			${MOBimageHeight ? `height: ${MOBimageHeight}px;` : " "}
-			${MOBimageWidth ? `width: ${MOBimageWidth}px;` : " "}
-		
-		}	
-	`;
-
-	const iconStyleDesktop = `
-		.${blockId} .eb-infobox-icon{
-			display: ${imageOrIcon === "icon" && selectedIcon ? "block" : "none"};
-			order: ${order};
-			color: ${iconColor};
-			background: ${iconBackground};
-			font-size: ${iconSize}px;
-
-			${
-				iconPaddingTop
-					? `padding-top: ${parseFloat(iconPaddingTop)}${iconPaddingUnit};`
-					: " "
-			}
-			${
-				iconPaddingRight
-					? `padding-right: ${parseFloat(iconPaddingRight)}${iconPaddingUnit};`
-					: " "
-			}
-			${
-				iconPaddingLeft
-					? `padding-left: ${parseFloat(iconPaddingLeft)}${iconPaddingUnit};`
-					: " "
-			}
-			${
-				iconPaddingBottom
-					? `padding-bottom: ${parseFloat(
-							iconPaddingBottom
-					  )}${iconPaddingUnit};`
-					: " "
-			}
-			
-			line-height: 1em;
-			border-radius: 5px;
-		}
-	`;
-
-	const iconStyleTab = `
-		.${blockId} .eb-infobox-icon{		
-			${
-				TABiconPaddingTop
-					? `padding-top: ${parseFloat(
-							TABiconPaddingTop
-					  )}${TABiconPaddingUnit};`
-					: " "
-			}
-			${
-				TABiconPaddingRight
-					? `padding-right: ${parseFloat(
-							TABiconPaddingRight
-					  )}${TABiconPaddingUnit};`
-					: " "
-			}
-			${
-				TABiconPaddingLeft
-					? `padding-left: ${parseFloat(
-							TABiconPaddingLeft
-					  )}${TABiconPaddingUnit};`
-					: " "
-			}
-			${
-				TABiconPaddingBottom
-					? `padding-bottom: ${parseFloat(
-							TABiconPaddingBottom
-					  )}${TABiconPaddingUnit};`
-					: " "
-			}
-
-			${TABiconSize ? `font-size: ${TABiconSize}px;` : " "}
-			
-		}
-	`;
-
-	const iconStyleMobile = `
-		.${blockId} .eb-infobox-icon{		
-			${
-				MOBiconPaddingTop
-					? `padding-top: ${parseFloat(
-							MOBiconPaddingTop
-					  )}${MOBiconPaddingUnit};`
-					: " "
-			}
-			${
-				MOBiconPaddingRight
-					? `padding-right: ${parseFloat(
-							MOBiconPaddingRight
-					  )}${MOBiconPaddingUnit};`
-					: " "
-			}
-			${
-				MOBiconPaddingLeft
-					? `padding-left: ${parseFloat(
-							MOBiconPaddingLeft
-					  )}${MOBiconPaddingUnit};`
-					: " "
-			}
-			${
-				MOBiconPaddingBottom
-					? `padding-bottom: ${parseFloat(
-							MOBiconPaddingBottom
-					  )}${MOBiconPaddingUnit};`
-					: " "
-			}
-
-			${MOBiconSize ? `font-size: ${MOBiconSize}px;` : " "}
-			
-		}
-	`;
-
-	const numberStylesDesktop = `
-		.${blockId} .eb-infobox-number{
-			${numberColor ? `color: ${numberColor};` : " "} 
-			display: ${imageOrIcon === "number" ? "block" : "none"};
-			order: ${order};
-			font-size: ${numberSize}px;
+			`
+				: " "
 		}
 	
 	`;
 
+	const imageWrapperStyleTab = `
+		${
+			imageOrIcon === "image"
+				? `			
+				.${blockId} .eb-infobox-image-wrapper{		
+					${TABimageMarginTop ? `margin-top: ${parseFloat(TABimageMarginTop)}px;` : " "}
+					${
+						TABimageMarginRight
+							? `margin-right: ${parseFloat(TABimageMarginRight)}px;`
+							: " "
+					}
+					${
+						TABimageMarginLeft
+							? `margin-left: ${parseFloat(TABimageMarginLeft)}px;`
+							: " "
+					}
+					${
+						TABimageMarginBottom
+							? `margin-bottom: ${parseFloat(TABimageMarginBottom)}px;`
+							: " "
+					}
+				
+					${TABimageHeight ? `height: ${TABimageHeight}px;` : " "}
+					${TABimageWidth ? `width: ${TABimageWidth}px;` : " "}
+				
+				}	
+				`
+				: " "
+		}
+
+	`;
+
+	const imageWrapperStyleMobile = `
+	
+		${
+			imageOrIcon === "image"
+				? `			
+				.${blockId} .eb-infobox-image-wrapper{		
+					${MOBimageMarginTop ? `margin-top: ${parseFloat(MOBimageMarginTop)}px;` : " "}
+					${
+						MOBimageMarginRight
+							? `margin-right: ${parseFloat(MOBimageMarginRight)}px;`
+							: " "
+					}
+					${
+						MOBimageMarginLeft
+							? `margin-left: ${parseFloat(MOBimageMarginLeft)}px;`
+							: " "
+					}
+					${
+						MOBimageMarginBottom
+							? `margin-bottom: ${parseFloat(MOBimageMarginBottom)}px;`
+							: " "
+					}
+				
+					${MOBimageHeight ? `height: ${MOBimageHeight}px;` : " "}
+					${MOBimageWidth ? `width: ${MOBimageWidth}px;` : " "}
+				
+				}
+				`
+				: " "
+		}
+
+		
+	`;
+
+	const iconStyleDesktop = `
+		${
+			imageOrIcon === "icon" && selectedIcon
+				? `			
+				.${blockId} .eb-infobox-icon{
+					display: block;
+					order: ${order};
+					color: ${iconColor};
+					background: ${iconBackground};
+					font-size: ${iconSize}px;
+
+					${
+						iconPaddingTop
+							? `padding-top: ${parseFloat(iconPaddingTop)}${iconPaddingUnit};`
+							: " "
+					}
+					${
+						iconPaddingRight
+							? `padding-right: ${parseFloat(
+									iconPaddingRight
+							  )}${iconPaddingUnit};`
+							: " "
+					}
+					${
+						iconPaddingLeft
+							? `padding-left: ${parseFloat(
+									iconPaddingLeft
+							  )}${iconPaddingUnit};`
+							: " "
+					}
+					${
+						iconPaddingBottom
+							? `padding-bottom: ${parseFloat(
+									iconPaddingBottom
+							  )}${iconPaddingUnit};`
+							: " "
+					}
+					
+					line-height: 1em;
+					border-radius: 5px;
+				}
+				`
+				: " "
+		}
+
+	`;
+
+	const iconStyleTab = `
+
+	${
+		imageOrIcon === "icon" && selectedIcon
+			? `			
+			.${blockId} .eb-infobox-icon{		
+				${
+					TABiconPaddingTop
+						? `padding-top: ${parseFloat(
+								TABiconPaddingTop
+						  )}${TABiconPaddingUnit};`
+						: " "
+				}
+				${
+					TABiconPaddingRight
+						? `padding-right: ${parseFloat(
+								TABiconPaddingRight
+						  )}${TABiconPaddingUnit};`
+						: " "
+				}
+				${
+					TABiconPaddingLeft
+						? `padding-left: ${parseFloat(
+								TABiconPaddingLeft
+						  )}${TABiconPaddingUnit};`
+						: " "
+				}
+				${
+					TABiconPaddingBottom
+						? `padding-bottom: ${parseFloat(
+								TABiconPaddingBottom
+						  )}${TABiconPaddingUnit};`
+						: " "
+				}
+
+				${TABiconSize ? `font-size: ${TABiconSize}px;` : " "}
+				
+			}
+			`
+			: " "
+	}
+
+	`;
+
+	const iconStyleMobile = `
+
+	${
+		imageOrIcon === "icon" && selectedIcon
+			? `	
+
+			.${blockId} .eb-infobox-icon{		
+				${
+					MOBiconPaddingTop
+						? `padding-top: ${parseFloat(
+								MOBiconPaddingTop
+						  )}${MOBiconPaddingUnit};`
+						: " "
+				}
+				${
+					MOBiconPaddingRight
+						? `padding-right: ${parseFloat(
+								MOBiconPaddingRight
+						  )}${MOBiconPaddingUnit};`
+						: " "
+				}
+				${
+					MOBiconPaddingLeft
+						? `padding-left: ${parseFloat(
+								MOBiconPaddingLeft
+						  )}${MOBiconPaddingUnit};`
+						: " "
+				}
+				${
+					MOBiconPaddingBottom
+						? `padding-bottom: ${parseFloat(
+								MOBiconPaddingBottom
+						  )}${MOBiconPaddingUnit};`
+						: " "
+				}
+	
+				${MOBiconSize ? `font-size: ${MOBiconSize}px;` : " "}
+				
+			}
+
+			`
+			: " "
+	}
+
+
+	`;
+
+	const numberStylesDesktop = `
+
+	${
+		imageOrIcon === "number"
+			? `	
+
+			.${blockId} .eb-infobox-number{
+				display: block;
+				${numberColor ? `color: ${numberColor};` : " "} 
+				order: ${order};
+				font-size: ${numberSize}px;
+			}
+		
+
+			`
+			: " "
+	}
+
+
+	`;
+
 	const numberStylesTab = `
+
+	${
+		imageOrIcon === "number"
+			? `	
+
 		.${blockId} .eb-infobox-number{	
 			${TABnumberSize ? `font-size: ${TABnumberSize}px;` : " "}
 		}
+
+			`
+			: " "
+	}
+
 	
 	`;
 
 	const numberStylesMobile = `
-		.${blockId} .eb-infobox-number{	
-			${MOBnumberSize ? `font-size: ${MOBnumberSize}px;` : " "}
-		}
+
+	${
+		imageOrIcon === "number"
+			? `	
+			.${blockId} .eb-infobox-number{	
+				${MOBnumberSize ? `font-size: ${MOBnumberSize}px;` : " "}
+			}
+
+			`
+			: " "
+	}
+
+		
 	
 	`;
 
@@ -1108,29 +1192,35 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				`}
 			</style>
 			<div className={`eb-infobox-container ${blockId}`}>
-				<IconBox selectedIcon={selectedIcon} />
-
-				<div className="eb-infobox-image-wrapper">
-					<MediaUpload
-						onSelect={(media) =>
-							setAttributes({ imageUrl: media.url, imageId: media.id })
-						}
-						type="image"
-						value={imageId}
-						render={({ open }) =>
-							!imageUrl && (
-								<Button
-									className="eb-infobox-image components-button"
-									label={__("Upload Image")}
-									icon="format-image"
-									onClick={open}
-								/>
-							)
-						}
-					/>
-				</div>
-
-				<div className="eb-infobox-number">{isNaN(number) ? "0" : number}</div>
+				{imageOrIcon === "icon" && selectedIcon ? (
+					<IconBox selectedIcon={selectedIcon} />
+				) : null}
+				{imageOrIcon === "image" ? (
+					<div className="eb-infobox-image-wrapper">
+						<MediaUpload
+							onSelect={(media) =>
+								setAttributes({ imageUrl: media.url, imageId: media.id })
+							}
+							type="image"
+							value={imageId}
+							render={({ open }) =>
+								!imageUrl && (
+									<Button
+										className="eb-infobox-image components-button"
+										label={__("Upload Image")}
+										icon="format-image"
+										onClick={open}
+									/>
+								)
+							}
+						/>
+					</div>
+				) : null}
+				{imageOrIcon === "number" ? (
+					<div className="eb-infobox-number">
+						{isNaN(number) ? "0" : number}
+					</div>
+				) : null}
 
 				<RichText
 					tagName={headerTag}

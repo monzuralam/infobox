@@ -20,6 +20,7 @@ const Save = ({ attributes }) => {
 
 		number,
 		isClickable,
+		imageOrIcon,
 		headerTag,
 	} = attributes;
 
@@ -29,13 +30,17 @@ const Save = ({ attributes }) => {
 		header,
 		headerTag,
 		content,
+		imageOrIcon,
 		number,
 	};
 
 	return (
 		<div {...useBlockProps.save()}>
 			{isClickable && clickableLink ? (
-				<a href={clickableLink}>
+				<a
+					href={clickableLink}
+					className={`clickable-link-${blockId} eb-infobox-clickable-wrapperimageOrIcon,`}
+				>
 					<div className={`eb-infobox-container ${blockId}`}>
 						<InfoboxContainer infoBoxProps={infoBoxProps} />
 					</div>

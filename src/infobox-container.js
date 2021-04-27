@@ -8,23 +8,30 @@ const InfoboxContainer = ({ infoBoxProps }) => {
 		content,
 		number,
 		headerTag,
+		imageOrIcon,
 	} = infoBoxProps;
 
 	return (
 		<>
-			<div
-				className="eb-infobox-image-wrapper"
-				data-image-url={imageUrl ? imageUrl : ""}
-			/>
-
-			<span className="eb-infobox-icon">
-				<span
-					className={`${selectedIcon} eb-infobox-icon-data-selector `}
-					data-icon={selectedIcon}
+			{imageOrIcon === "image" && imageUrl ? (
+				<div
+					className="eb-infobox-image-wrapper"
+					data-image-url={imageUrl ? imageUrl : ""}
 				/>
-			</span>
+			) : null}
 
-			<div className="eb-infobox-number">{number || "0"}</div>
+			{imageOrIcon === "icon" && selectedIcon ? (
+				<span className="eb-infobox-icon">
+					<span
+						className={`${selectedIcon} eb-infobox-icon-data-selector `}
+						data-icon={selectedIcon}
+					/>
+				</span>
+			) : null}
+
+			{imageOrIcon === "number" ? (
+				<div className="eb-infobox-number">{number || "0"}</div>
+			) : null}
 
 			<RichText.Content
 				tagName={headerTag}
