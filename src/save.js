@@ -46,11 +46,11 @@ const Save = ({ attributes }) => {
 					</div>
 				</a>
 			) : (
-				<div className={`infobox-container ${blockId}`}>
+				<div className={`eb-infobox-container ${blockId}`}>
 					<InfoboxContainer infoBoxProps={infoBoxProps} />
 
 					{showButton ? (
-						<div className="infobox-button">
+						<div className="eb-infobox-button">
 							<a href={clickableLink} className="eb-infobox-link">
 								{buttonText}
 							</a>

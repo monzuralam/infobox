@@ -992,10 +992,11 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	`;
 
 	const buttonWrapperStylesDesktop = `
-		.${blockId} .infobox-button{
+		.${blockId} .eb-infobox-button{
 			display: ${showButton ? "flex" : "none"};			
 			align-self: ${buttonAlign};
-			margin-top: 10px;
+			margin-top: 10px;			
+			text-align: center;
 		}
 			
 	`;
@@ -1242,7 +1243,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					/>
 				</span>
 
-				<div className="infobox-button">
+				<div className="eb-infobox-button">
 					<a href={clickableLink} className="eb-infobox-link">
 						{buttonText}
 					</a>

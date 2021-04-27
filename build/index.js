@@ -4705,7 +4705,7 @@ var Edit = function Edit(_ref) {
   var contentStylesDesktop = "\n\t\t.".concat(blockId, " .eb-infobox-content-main{\n\t\t\t").concat(contentTypoStylesDesktop, "\n\t\t\t").concat(contentColor ? "color: ".concat(contentColor, ";") : " ", "\n\t\t\t").concat(contentPaddingTop ? "padding-top: ".concat(parseFloat(contentPaddingTop)).concat(contentPaddingUnit, ";") : " ", "\n\t\t\t").concat(contentPaddingRight ? "padding-right: ".concat(parseFloat(contentPaddingRight)).concat(contentPaddingUnit, ";") : " ", "\n\t\t\t").concat(contentPaddingLeft ? "padding-left: ".concat(parseFloat(contentPaddingLeft)).concat(contentPaddingUnit, ";") : " ", "\n\t\t\t").concat(contentPaddingBottom ? "padding-bottom: ".concat(parseFloat(contentPaddingBottom)).concat(contentPaddingUnit, ";") : " ", "\n\t\t}\n\t\n\t");
   var contentStylesTab = "\n\t\t.".concat(blockId, " .eb-infobox-content-main{\n\t\t\t").concat(contentTypoStylesTab, "\n\t\t\t").concat(TABcontentPaddingTop ? "padding-top: ".concat(parseFloat(TABcontentPaddingTop)).concat(TABcontentPaddingUnit, ";") : " ", "\n\t\t\t").concat(TABcontentPaddingRight ? "padding-right: ".concat(parseFloat(TABcontentPaddingRight)).concat(TABcontentPaddingUnit, ";") : " ", "\n\t\t\t").concat(TABcontentPaddingLeft ? "padding-left: ".concat(parseFloat(TABcontentPaddingLeft)).concat(TABcontentPaddingUnit, ";") : " ", "\n\t\t\t").concat(TABcontentPaddingBottom ? "padding-bottom: ".concat(parseFloat(TABcontentPaddingBottom)).concat(TABcontentPaddingUnit, ";") : " ", "\n\t\t}\n\t\n\t");
   var contentStylesMobile = "\n\t\t.".concat(blockId, " .eb-infobox-content-main{\n\t\t\t").concat(contentTypoStylesMobile, "\n\t\t\t").concat(MOBcontentPaddingTop ? "padding-top: ".concat(parseFloat(MOBcontentPaddingTop)).concat(MOBcontentPaddingUnit, ";") : " ", "\n\t\t\t").concat(MOBcontentPaddingRight ? "padding-right: ".concat(parseFloat(MOBcontentPaddingRight)).concat(MOBcontentPaddingUnit, ";") : " ", "\n\t\t\t").concat(MOBcontentPaddingLeft ? "padding-left: ".concat(parseFloat(MOBcontentPaddingLeft)).concat(MOBcontentPaddingUnit, ";") : " ", "\n\t\t\t").concat(MOBcontentPaddingBottom ? "padding-bottom: ".concat(parseFloat(MOBcontentPaddingBottom)).concat(MOBcontentPaddingUnit, ";") : " ", "\n\t\t}\n\t\n\t");
-  var buttonWrapperStylesDesktop = "\n\t\t.".concat(blockId, " .infobox-button{\n\t\t\tdisplay: ").concat(showButton ? "flex" : "none", ";\t\t\t\n\t\t\talign-self: ").concat(buttonAlign, ";\n\t\t\tmargin-top: 10px;\n\t\t}\n\t\t\t\n\t");
+  var buttonWrapperStylesDesktop = "\n\t\t.".concat(blockId, " .eb-infobox-button{\n\t\t\tdisplay: ").concat(showButton ? "flex" : "none", ";\t\t\t\n\t\t\talign-self: ").concat(buttonAlign, ";\n\t\t\tmargin-top: 10px;\t\t\t\n\t\t\ttext-align: center;\n\t\t}\n\t\t\t\n\t");
   var linkStylesDesktop = "\n\t\t.eb-infobox-container.".concat(blockId, " .eb-infobox-link{\n\t\t\t").concat(buttonColor ? "background: ".concat(buttonColor, ";") : " ", " \n\t\t\t").concat(buttonTextColor ? "color: ".concat(buttonTextColor, ";") : " ", " \n\t\t\t").concat(buttonPaddingTop ? "padding-top: ".concat(parseFloat(buttonPaddingTop)).concat(buttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(buttonPaddingRight ? "padding-right: ".concat(parseFloat(buttonPaddingRight)).concat(buttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(buttonPaddingLeft ? "padding-left: ".concat(parseFloat(buttonPaddingLeft)).concat(buttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(buttonPaddingBottom ? "padding-bottom: ".concat(parseFloat(buttonPaddingBottom)).concat(buttonPaddingUnit, ";") : " ", "\n\t\t\t\n\t\t\ttext-decoration: none;\n\t\t}\n\t\n\t");
   var linkStylesTab = "\n\t\t.eb-infobox-container.".concat(blockId, " .eb-infobox-link{\n\t\t\t").concat(TABbuttonPaddingTop ? "padding-top: ".concat(parseFloat(TABbuttonPaddingTop)).concat(TABbuttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(TABbuttonPaddingRight ? "padding-right: ".concat(parseFloat(TABbuttonPaddingRight)).concat(TABbuttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(TABbuttonPaddingLeft ? "padding-left: ".concat(parseFloat(TABbuttonPaddingLeft)).concat(TABbuttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(TABbuttonPaddingBottom ? "padding-bottom: ".concat(parseFloat(TABbuttonPaddingBottom)).concat(TABbuttonPaddingUnit, ";") : " ", "\n\t\t\t\n\t\t\ttext-decoration: none;\n\t\t}\n\t\n\t");
   var linkStylesMobile = "\n\t\t.eb-infobox-container.".concat(blockId, " .eb-infobox-link{\n\t\t\t").concat(MOBbuttonPaddingTop ? "padding-top: ".concat(parseFloat(MOBbuttonPaddingTop)).concat(MOBbuttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(MOBbuttonPaddingRight ? "padding-right: ".concat(parseFloat(MOBbuttonPaddingRight)).concat(MOBbuttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(MOBbuttonPaddingLeft ? "padding-left: ".concat(parseFloat(MOBbuttonPaddingLeft)).concat(MOBbuttonPaddingUnit, ";") : " ", "\n\t\t\t").concat(MOBbuttonPaddingBottom ? "padding-bottom: ".concat(parseFloat(MOBbuttonPaddingBottom)).concat(MOBbuttonPaddingUnit, ";") : " ", "\n\t\t\t\n\t\t\ttext-decoration: none;\n\t\t}\n\t\n\t"); // all css styles for large screen width (desktop/laptop) in strings ⬇
@@ -4789,7 +4789,7 @@ var Edit = function Edit(_ref) {
       });
     }
   })), /*#__PURE__*/React.createElement("div", {
-    className: "infobox-button"
+    className: "eb-infobox-button"
   }, /*#__PURE__*/React.createElement("a", {
     href: clickableLink,
     className: "eb-infobox-link"
@@ -6090,7 +6090,10 @@ function Inspector(props) {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Header Color"),
     color: headerColor,
     onChange: function onChange(headerColor) {
-      return setAttributes({
+      console.log({
+        headerColor: headerColor
+      });
+      setAttributes({
         headerColor: headerColor
       });
     }
@@ -6703,11 +6706,11 @@ var Save = function Save(_ref) {
   }, /*#__PURE__*/React.createElement(_infobox_container_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
     infoBoxProps: infoBoxProps
   }))) : /*#__PURE__*/React.createElement("div", {
-    className: "infobox-container ".concat(blockId)
+    className: "eb-infobox-container ".concat(blockId)
   }, /*#__PURE__*/React.createElement(_infobox_container_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
     infoBoxProps: infoBoxProps
   }), showButton ? /*#__PURE__*/React.createElement("div", {
-    className: "infobox-button"
+    className: "eb-infobox-button"
   }, /*#__PURE__*/React.createElement("a", {
     href: clickableLink,
     className: "eb-infobox-link"
@@ -6764,16 +6767,8 @@ var ColorControl = function ColorControl(_ref) {
       setBgColor = _useState2[1];
 
   useEffect(function () {
-    setBgColor(color);
-  }, [color]);
-
-  var _onChangeComplete = function onChangeComplete(_ref2) {
-    var rgb = _ref2.rgb,
-        hex = _ref2.hex;
-    var color = rgb ? "rgba(".concat(rgb.r, ",").concat(rgb.g, ",").concat(rgb.b, ",").concat(rgb.a, ")") : hex;
-    onChange(color);
-  };
-
+    onChange(bgColor);
+  }, [bgColor]);
   var colorStyles = {
     padding: 2,
     borderRadius: 0,
@@ -6784,9 +6779,9 @@ var ColorControl = function ColorControl(_ref) {
     label: label || "",
     className: "eb-color-base"
   }, /*#__PURE__*/React.createElement(Dropdown, {
-    renderToggle: function renderToggle(_ref3) {
-      var isOpen = _ref3.isOpen,
-          onToggle = _ref3.onToggle;
+    renderToggle: function renderToggle(_ref2) {
+      var isOpen = _ref2.isOpen,
+          onToggle = _ref2.onToggle;
       return /*#__PURE__*/React.createElement(Tooltip, {
         text: color || "default"
       }, /*#__PURE__*/React.createElement("div", {
@@ -6808,8 +6803,9 @@ var ColorControl = function ColorControl(_ref) {
     renderContent: function renderContent() {
       return /*#__PURE__*/React.createElement(ColorPicker, {
         color: color,
-        onChangeComplete: function onChangeComplete(color) {
-          return _onChangeComplete(color);
+        onChangeComplete: function onChangeComplete(_ref3) {
+          var rgb = _ref3.rgb;
+          setBgColor("rgba(".concat(rgb.r, ",").concat(rgb.g, ",").concat(rgb.b, ",").concat(rgb.a, ")"));
         }
       });
     }
@@ -6821,7 +6817,7 @@ var ColorControl = function ColorControl(_ref) {
       transform: "scaleX(-1) rotate(90deg)"
     },
     onClick: function onClick() {
-      return onChange(undefined);
+      return setBgColor(undefined);
     }
   }));
 };

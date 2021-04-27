@@ -965,7 +965,10 @@ function Inspector(props) {
 					<ColorControl
 						label={__("Header Color")}
 						color={headerColor}
-						onChange={(headerColor) => setAttributes({ headerColor })}
+						onChange={(headerColor) => {
+							console.log({ headerColor });
+							setAttributes({ headerColor });
+						}}
 					/>
 
 					<ColorControl
