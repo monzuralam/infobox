@@ -216,7 +216,7 @@ var attributes = {
     type: "string",
     default: "desktop"
   },
-  // blockId attribute for making unique className and other uniqueness
+  // blockId attribute for making unique className and other uniqueness ⬇
   blockId: {
     type: "string"
   },
@@ -224,12 +224,167 @@ var attributes = {
     type: "string",
     default: "essential_block"
   },
-  // blockMeta is for keeping all the styles
+  // blockMeta is for keeping all the styles ⬇
   blockMeta: {
     type: "object"
+  },
+  // this attribute is for selecting the desired design preset from the layout design presets options ⬇
+  layoutPreset: {
+    type: "string",
+    default: "preset-1"
+  },
+  // media attribute is for checking which of these (image / icon / number) is chosen for head top media ⬇
+  media: {
+    type: "string",
+    default: "icon"
+  },
+  //
+  imageUrl: {
+    source: "attribute",
+    selector: ".eb-infobox-image",
+    attribute: "src",
+    default: "https://source.unsplash.com/user/cristofer"
+  },
+  //
+  imageId: {
+    type: "string"
+  },
+  //
+  selectedIcon: {
+    type: "string",
+    source: "attribute",
+    selector: ".eb-infobox-icon-data-selector",
+    attribute: "data-icon",
+    default: "far fa-sun"
+  },
+  //
+  number: {
+    type: "number"
+  },
+  // this attribute is for checking whether subtitle should be shown or not ⬇
+  enableSubTitle: {
+    type: "boolean",
+    default: false
+  },
+  //  this attribute is for checking whether content should be shown or not ⬇
+  enableDescription: {
+    type: "boolean",
+    default: true
+  },
+  // this attribute is for checking whether a button should be shown or not ⬇
+  enableButton: {
+    type: "boolean",
+    default: false
+  },
+  //
+  buttonText: {
+    type: "string",
+    default: "click me"
+  },
+  //
+  infoboxLink: {
+    type: "string"
+  },
+  // this attribute is for checking whether the infobox should be clickable or not ⬇
+  isClickable: {
+    type: "boolean",
+    default: false
+  },
+  //
+  title: {
+    type: "text",
+    selector: ".title",
+    default: "This is an info box"
+  },
+  //
+  subTitle: {
+    type: "text",
+    selector: ".subtitle",
+    default: "This is a Sub title"
+  },
+  //
+  description: {
+    type: "text",
+    selector: ".description",
+    default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (attributes);
+
+/***/ }),
+
+/***/ "./src/components/infobox-container.js":
+/*!*********************************************!*\
+  !*** ./src/components/infobox-container.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return InfoboxContainer; });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function InfoboxContainer(_ref) {
+  var requiredProps = _ref.requiredProps;
+  var blockId = requiredProps.blockId,
+      selectedIcon = requiredProps.selectedIcon,
+      media = requiredProps.media,
+      number = requiredProps.number,
+      imageUrl = requiredProps.imageUrl,
+      infoboxLink = requiredProps.infoboxLink,
+      enableSubTitle = requiredProps.enableSubTitle,
+      enableDescription = requiredProps.enableDescription,
+      enableButton = requiredProps.enableButton,
+      buttonText = requiredProps.buttonText,
+      isClickable = requiredProps.isClickable,
+      title = requiredProps.title,
+      subTitle = requiredProps.subTitle,
+      description = requiredProps.description;
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "".concat(blockId, " eb-infobox-wrapper")
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "infobox-wrapper-inner"
+  }, media === "icon" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "icon-img-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "eb-icon"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
+    "data-icon": selectedIcon,
+    className: "eb-infobox-icon-data-selector  ".concat(selectedIcon)
+  }))) : null, media === "image" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "icon-img-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "eb-infobox-img-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("img", {
+    className: "eb-infobox-image",
+    src: imageUrl,
+    alt: "macbook"
+  }))) : null, media === "number" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "icon-img-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "eb-infobox-num-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
+    className: "eb-infobox-number"
+  }, number))) : null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "contents-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", {
+    className: "title"
+  }, title), enableSubTitle ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h3", {
+    className: "subtitle"
+  }, subTitle) : null, enableDescription ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", {
+    className: "description"
+  }, description) : null, enableButton ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "eb-infobox-btn-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("a", {
+    href: infoboxLink,
+    className: "infobox-btn"
+  }, buttonText)) : null)));
+}
 
 /***/ }),
 
@@ -301,7 +456,20 @@ var Edit = function Edit(_ref) {
       clientId = _ref.clientId;
   var resOption = attributes.resOption,
       blockMeta = attributes.blockMeta,
-      blockId = attributes.blockId; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
+      blockId = attributes.blockId,
+      selectedIcon = attributes.selectedIcon,
+      media = attributes.media,
+      number = attributes.number,
+      imageUrl = attributes.imageUrl,
+      infoboxLink = attributes.infoboxLink,
+      enableSubTitle = attributes.enableSubTitle,
+      enableDescription = attributes.enableDescription,
+      enableButton = attributes.enableButton,
+      buttonText = attributes.buttonText,
+      isClickable = attributes.isClickable,
+      title = attributes.title,
+      subTitle = attributes.subTitle,
+      description = attributes.description; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var bodyClasses = document.body.className;
@@ -412,21 +580,41 @@ var Edit = function Edit(_ref) {
     className: "".concat(blockId, " eb-infobox-wrapper")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "infobox-wrapper-inner"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }, media === "icon" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "icon-img-wrapper"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "eb-icon"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("i", {
-    className: "far fa-sun"
-  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
+    "data-icon": selectedIcon,
+    className: "eb-infobox-icon-data-selector  ".concat(selectedIcon)
+  }))) : null, media === "image" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "icon-img-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "eb-infobox-img-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("img", {
+    className: "eb-infobox-image",
+    src: imageUrl,
+    alt: "macbook"
+  }))) : null, media === "number" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "icon-img-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "eb-infobox-num-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
+    className: "eb-infobox-number"
+  }, number))) : null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "contents-wrapper"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", {
     className: "title"
-  }, "Valar Dohairis"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h3", {
+  }, title), enableSubTitle ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h3", {
     className: "subtitle"
-  }, "Lorem ipsum dolor sit amet."), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", {
+  }, subTitle) : null, enableDescription ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", {
     className: "description"
-  }, "Csonsectetur adipisicing elit. Eum eligendi nobis nihil vitae ea est! Laboriosam eum consectetur ipsum, eos iure mollitia architecto a molestiae non nisi hic dolores quisquam!"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("button", null, "click me")))))];
+  }, description) : null, enableButton ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "eb-infobox-btn-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("a", {
+    href: infoboxLink,
+    className: "infobox-btn"
+  }, buttonText)) : null))))];
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Edit);
@@ -906,38 +1094,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return save; });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_infobox_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/infobox-container */ "./src/components/infobox-container.js");
 
 
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
- */
 
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
- */
-
-
-/**
- * The save function defines the way in which the different attributes should
- * be combined into the final markup, which is then serialized by the block
- * editor into `post_content`.
- *
- * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
- *
- * @return {WPElement} Element to render.
- */
-
-function save() {
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"].save(), Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox – hello from the saved content!", "infobox"));
+function save(_ref) {
+  var attributes = _ref.attributes;
+  var blockId = attributes.blockId,
+      selectedIcon = attributes.selectedIcon,
+      _attributes$number = attributes.number,
+      number = _attributes$number === void 0 ? 0 : _attributes$number,
+      media = attributes.media,
+      imageUrl = attributes.imageUrl,
+      enableSubTitle = attributes.enableSubTitle,
+      enableDescription = attributes.enableDescription,
+      infoboxLink = attributes.infoboxLink,
+      enableButton = attributes.enableButton,
+      buttonText = attributes.buttonText,
+      isClickable = attributes.isClickable,
+      title = attributes.title,
+      subTitle = attributes.subTitle,
+      description = attributes.description;
+  var requiredProps = {
+    blockId: blockId,
+    selectedIcon: selectedIcon,
+    number: number,
+    media: media,
+    imageUrl: imageUrl,
+    enableSubTitle: enableSubTitle,
+    enableDescription: enableDescription,
+    infoboxLink: infoboxLink,
+    enableButton: enableButton,
+    buttonText: buttonText,
+    isClickable: isClickable,
+    title: title,
+    subTitle: subTitle,
+    description: description
+  };
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["useBlockProps"].save(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_infobox_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    requiredProps: requiredProps
+  }));
 }
 
 /***/ }),

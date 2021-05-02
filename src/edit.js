@@ -31,6 +31,20 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 		// blockId attribute for making unique className and other uniqueness
 		blockId,
+
+		selectedIcon,
+		media,
+		number,
+		imageUrl,
+		infoboxLink,
+		enableSubTitle,
+		enableDescription,
+		enableButton,
+		buttonText,
+		isClickable,
+		title,
+		subTitle,
+		description,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
@@ -228,20 +242,53 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 			<div className={`${blockId} eb-infobox-wrapper`}>
 				<div className="infobox-wrapper-inner">
-					<div className="icon-img-wrapper">
-						<div className="eb-icon">
-							<i className="far fa-sun"></i>
+					{media === "icon" ? (
+						<div className="icon-img-wrapper">
+							<div className="eb-icon">
+								<span
+									data-icon={selectedIcon}
+									className={`eb-infobox-icon-data-selector  ${selectedIcon}`}
+								></span>
+							</div>
 						</div>
-					</div>
+					) : null}
+
+					{media === "image" ? (
+						<div className="icon-img-wrapper">
+							<div className="eb-infobox-img-wrapper">
+								<img
+									className="eb-infobox-image"
+									src={imageUrl}
+									alt="macbook"
+								/>
+							</div>
+						</div>
+					) : null}
+
+					{media === "number" ? (
+						<div className="icon-img-wrapper">
+							<div className="eb-infobox-num-wrapper">
+								<span className="eb-infobox-number">{number}</span>
+							</div>
+						</div>
+					) : null}
+
 					<div className="contents-wrapper">
-						<h2 className="title">Valar Dohairis</h2>
-						<h3 className="subtitle">Lorem ipsum dolor sit amet.</h3>
-						<p className="description">
-							Csonsectetur adipisicing elit. Eum eligendi nobis nihil vitae ea
-							est! Laboriosam eum consectetur ipsum, eos iure mollitia
-							architecto a molestiae non nisi hic dolores quisquam!
-						</p>
-						<button>click me</button>
+						<h2 className="title">{title}</h2>
+
+						{enableSubTitle ? <h3 className="subtitle">{subTitle}</h3> : null}
+
+						{enableDescription ? (
+							<p className="description">{description}</p>
+						) : null}
+
+						{enableButton ? (
+							<div className="eb-infobox-btn-wrapper">
+								<a href={infoboxLink} className="infobox-btn">
+									{buttonText}
+								</a>
+							</div>
+						) : null}
 					</div>
 				</div>
 			</div>

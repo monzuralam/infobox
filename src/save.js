@@ -1,31 +1,46 @@
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
- */
-import { __ } from "@wordpress/i18n";
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
- */
 import { useBlockProps } from "@wordpress/block-editor";
+import InfoboxContainer from "./components/infobox-container";
 
-/**
- * The save function defines the way in which the different attributes should
- * be combined into the final markup, which is then serialized by the block
- * editor into `post_content`.
- *
- * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
- *
- * @return {WPElement} Element to render.
- */
-export default function save() {
+export default function save({ attributes }) {
+	const {
+		blockId,
+		selectedIcon,
+
+		number = 0,
+		media,
+		imageUrl,
+		enableSubTitle,
+		enableDescription,
+		infoboxLink,
+		enableButton,
+		buttonText,
+		isClickable,
+		title,
+		subTitle,
+		description,
+	} = attributes;
+
+	const requiredProps = {
+		blockId,
+		selectedIcon,
+
+		number,
+		media,
+		imageUrl,
+		enableSubTitle,
+		enableDescription,
+		infoboxLink,
+		enableButton,
+		buttonText,
+		isClickable,
+		title,
+		subTitle,
+		description,
+	};
+
 	return (
-		<p {...useBlockProps.save()}>
-			{__("Infobox – hello from the saved content!", "infobox")}
-		</p>
+		<div {...useBlockProps.save()}>
+			<InfoboxContainer requiredProps={requiredProps} />
+		</div>
 	);
 }
