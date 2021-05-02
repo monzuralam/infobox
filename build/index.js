@@ -231,7 +231,7 @@ var attributes = {
   // this attribute is for selecting the desired design preset from the layout design presets options ⬇
   layoutPreset: {
     type: "string",
-    default: "preset-1"
+    default: "preset1"
   },
   // media attribute is for checking which of these (image / icon / number) is chosen for head top media ⬇
   media: {
@@ -385,6 +385,35 @@ function InfoboxContainer(_ref) {
     className: "infobox-btn"
   }, buttonText)) : null)));
 }
+
+/***/ }),
+
+/***/ "./src/constants/index.js":
+/*!********************************!*\
+  !*** ./src/constants/index.js ***!
+  \********************************/
+/*! exports provided: LAYOUT_TYPES */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LAYOUT_TYPES", function() { return LAYOUT_TYPES; });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+
+var LAYOUT_TYPES = [{
+  label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("preset-1"),
+  value: "preset1"
+}, {
+  label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("preset-2"),
+  value: "preset2"
+}, {
+  label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("preset-3"),
+  value: "preset3"
+}, {
+  label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("preset-4"),
+  value: "preset4"
+}];
 
 /***/ }),
 
@@ -996,6 +1025,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/constants/typographyPrefixConstants.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./constants */ "./src/constants/index.js");
 
 
 /**
@@ -1011,10 +1041,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 function Inspector(props) {
   var attributes = props.attributes,
       setAttributes = props.setAttributes;
-  var resOption = attributes.resOption; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
+  var resOption = attributes.resOption,
+      layoutPreset = attributes.layoutPreset; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var bodyClasses = document.body.className; // console.log("----log from inspector useEffect with empty []", {
@@ -1069,13 +1101,53 @@ function Inspector(props) {
     setAttributes: setAttributes,
     resOption: resOption
   };
+
+  var onpresetChange = function onpresetChange(preset) {
+    console.log({
+      preset: preset
+    });
+
+    switch (preset) {
+      case "preset1":
+        setAttributes({
+          layoutPreset: preset
+        });
+        break;
+
+      case "preset2":
+        setAttributes({
+          layoutPreset: preset
+        });
+        break;
+
+      case "preset3":
+        setAttributes({
+          layoutPreset: preset
+        });
+        break;
+
+      case "preset4":
+        setAttributes({
+          layoutPreset: preset
+        });
+        break;
+    }
+  };
+
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], {
     key: "controls"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
     className: "eb-panel-control"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox Settings")
-  }, " cool panelBody ")));
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Notice Settings")
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Type"),
+    value: layoutPreset,
+    options: _constants__WEBPACK_IMPORTED_MODULE_5__["LAYOUT_TYPES"],
+    onChange: function onChange(preset) {
+      return onpresetChange(preset);
+    }
+  }))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);

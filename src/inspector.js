@@ -25,12 +25,17 @@ import {
 	typoPrefix_content,
 } from "./constants/typographyPrefixConstants";
 
+import { LAYOUT_TYPES } from "./constants";
+
 function Inspector(props) {
 	const { attributes, setAttributes } = props;
 
 	const {
 		// responsive control attributes ⬇
 		resOption,
+
+		//
+		layoutPreset,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
@@ -104,10 +109,46 @@ function Inspector(props) {
 		resOption,
 	};
 
+	const onpresetChange = (preset) => {
+		console.log({ preset });
+		switch (preset) {
+			case "preset1":
+				setAttributes({
+					layoutPreset: preset,
+				});
+				break;
+
+			case "preset2":
+				setAttributes({
+					layoutPreset: preset,
+				});
+				break;
+
+			case "preset3":
+				setAttributes({
+					layoutPreset: preset,
+				});
+				break;
+
+			case "preset4":
+				setAttributes({
+					layoutPreset: preset,
+				});
+				break;
+		}
+	};
+
 	return (
 		<InspectorControls key="controls">
 			<span className="eb-panel-control">
-				<PanelBody title={__("Infobox Settings")}> cool panelBody </PanelBody>
+				<PanelBody title={__("Notice Settings")}>
+					<SelectControl
+						label={__("Type")}
+						value={layoutPreset}
+						options={LAYOUT_TYPES}
+						onChange={(preset) => onpresetChange(preset)}
+					/>
+				</PanelBody>
 			</span>
 		</InspectorControls>
 	);

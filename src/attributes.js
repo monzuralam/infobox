@@ -23,7 +23,7 @@ const attributes = {
 	// this attribute is for selecting the desired design preset from the layout design presets options ⬇
 	layoutPreset: {
 		type: "string",
-		default: "preset-1",
+		default: "preset1",
 	},
 
 	// media attribute is for checking which of these (image / icon / number) is chosen for head top media ⬇
