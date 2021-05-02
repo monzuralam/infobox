@@ -102,6 +102,23 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		className: `eb-guten-block-main-parent-wrapper`,
 	});
 
+	const wrapperStylesDesktop = " ";
+
+	// all css styles for large screen width (desktop/laptop) in strings ⬇
+	const desktopAllStyles = softMinifyCssStrings(`		
+		${isCssExists(wrapperStylesDesktop) ? wrapperStylesDesktop : " "}
+	`);
+
+	// all css styles for Tab in strings ⬇
+	const tabAllStyles = softMinifyCssStrings(`
+	
+	`);
+
+	// all css styles for Mobile in strings ⬇
+	const mobileAllStyles = softMinifyCssStrings(`
+	
+	`);
+
 	// Set All Style in "blockMeta" Attribute
 	useEffect(() => {
 		const styleObject = {
