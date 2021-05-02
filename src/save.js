@@ -1,65 +1,31 @@
-import { useBlockProps } from "@wordpress/block-editor";
 /**
- * Internal dependencies
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import InfoboxContainer from "./infobox-container.js";
+import { __ } from '@wordpress/i18n';
 
-const Save = ({ attributes }) => {
-	const {
-		// blockId attribute for making unique className and other uniqueness
-		blockId,
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
+ */
+import { useBlockProps } from '@wordpress/block-editor';
 
-		selectedIcon,
-		imageUrl,
-		header,
-		content,
-
-		showButton,
-		buttonText,
-		clickableLink,
-
-		number,
-		isClickable,
-		imageOrIcon,
-		headerTag,
-	} = attributes;
-
-	const infoBoxProps = {
-		imageUrl,
-		selectedIcon,
-		header,
-		headerTag,
-		content,
-		imageOrIcon,
-		number,
-	};
-
+/**
+ * The save function defines the way in which the different attributes should
+ * be combined into the final markup, which is then serialized by the block
+ * editor into `post_content`.
+ *
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
+ *
+ * @return {WPElement} Element to render.
+ */
+export default function save() {
 	return (
-		<div {...useBlockProps.save()}>
-			{isClickable && clickableLink ? (
-				<a
-					href={clickableLink}
-					className={`clickable-link-${blockId} eb-infobox-clickable-wrapper`}
-				>
-					<div className={`eb-infobox-container ${blockId}`}>
-						<InfoboxContainer infoBoxProps={infoBoxProps} />
-					</div>
-				</a>
-			) : (
-				<div className={`eb-infobox-container ${blockId}`}>
-					<InfoboxContainer infoBoxProps={infoBoxProps} />
-
-					{showButton ? (
-						<div className="eb-infobox-button">
-							<a href={clickableLink} className="eb-infobox-link">
-								{buttonText}
-							</a>
-						</div>
-					) : null}
-				</div>
-			)}
-		</div>
+		<p { ...useBlockProps.save() }>
+			{ __( 'Infobox – hello from the saved content!', 'infobox' ) }
+		</p>
 	);
-};
-
-export default Save;
+}

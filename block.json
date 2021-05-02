@@ -1,9 +1,13 @@
 {
 	"apiVersion": 2,
-	"name": "infobox/infobox",
+	"name": "create-block/infobox",
 	"title": "Infobox",
 	"category": "widgets",
-	"description": "Highlight Your Key Features & Hold Audience Attention with Info Box Block.",
+	"icon": "smiley",
+	"description": "Example block written with ESNext standard and JSX support – build step required.",
+	"supports": {
+		"html": false
+	},
 	"textdomain": "infobox",
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
