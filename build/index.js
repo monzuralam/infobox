@@ -380,7 +380,7 @@ var Edit = function Edit(_ref) {
   var blockProps = Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"])({
     className: "eb-guten-block-main-parent-wrapper"
   });
-  var wrapperStylesDesktop = " "; // all css styles for large screen width (desktop/laptop) in strings ⬇
+  var wrapperStylesDesktop = "\n\t\t\n\t\t.eb-infobox-wrapper {\n\t\t\twidth: 600px;\n\t\t\tmargin: auto;\n\t\t\tpadding: 20px;\n\t\t\tbackground-color: #f4f9;\n\t\t\tmargin-bottom: 20px;\n\t\t}\n\t\t\n\t\t.infobox-wrapper-inner img {\n\t\t\tmax-width: 100%;\n\t\t\theight: auto;\n\t\t\tobject-fit: cover;\n\t\t}\n\t\t\n\t\t.infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\tflex-direction: column-reverse;\n\t\t}\n\t\t\n\t\t.title {\n\t\t\tfont-size: 26px;\n\t\t\tline-height: 1.3em;\n\t\t}\n\t\t\n\t\t.subtitle {\n\t\t\tfont-size: 16px;\n\t\t\tline-height: 2;\n\t\t}\n\t\t\n\t\t.description {\n\t\t\tfont-size: 20px;\n\t\t\tline-height: 2em;\n\t\t}\n\n\n\t\t.eb-icon {\n\t\t\tbackground-color: #3f5;\n\t\t\tpadding: 20px;\n\t\t\tborder-top-left-radius: 20px;\n\t\t\tborder-bottom-right-radius: 20px;\n\t\t}\n\t\t.icon-img-wrapper {\n\t\t\t-ms-grid-row-align: center;\n\t\t\talign-self: center;\n\t\t}\n\t\t.icon-img-wrapper .demo-icon {\n\t\t\tfont-size: 50px;\n\t\t\tcolor: #fff;\n\t\t}\n\t\t.contents-wrapper {\n\t\t\ttext-align: center;\n\t\t}\n\n\n\n\t"; // all css styles for large screen width (desktop/laptop) in strings ⬇
 
   var desktopAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\t\t\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesDesktop) ? wrapperStylesDesktop : " ", "\n\t")); // all css styles for Tab in strings ⬇
 
@@ -408,7 +408,25 @@ var Edit = function Edit(_ref) {
     attributes: attributes,
     setAttributes: setAttributes
   }), // Edit view
-  Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", blockProps, "cool")];
+  Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", blockProps, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("style", null, "\n\t\t\t\t".concat(desktopAllStyles, "\n\n\t\t\t\t/* mimmikcssStart */\n\n\t\t\t\t").concat(resOption === "tab" ? tabAllStyles : " ", "\n\t\t\t\t").concat(resOption === "mobile" ? tabAllStyles + mobileAllStyles : " ", "\n\n\t\t\t\t/* mimmikcssEnd */\n\n\t\t\t\t@media all and (max-width: 1024px) {\t\n\n\t\t\t\t\t/* tabcssStart */\t\t\t\n\t\t\t\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])(tabAllStyles), "\n\t\t\t\t\t/* tabcssEnd */\t\t\t\n\t\t\t\t\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t@media all and (max-width: 767px) {\n\t\t\t\t\t\n\t\t\t\t\t/* mobcssStart */\t\t\t\n\t\t\t\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])(mobileAllStyles), "\n\t\t\t\t\t/* mobcssEnd */\t\t\t\n\t\t\t\t\n\t\t\t\t}\n\t\t\t\t")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "".concat(blockId, " eb-infobox-wrapper")
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "infobox-wrapper-inner"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "icon-img-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "eb-icon"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("i", {
+    className: "far fa-sun"
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "contents-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", {
+    className: "title"
+  }, "Valar Dohairis"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h3", {
+    className: "subtitle"
+  }, "Lorem ipsum dolor sit amet."), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", {
+    className: "description"
+  }, "Csonsectetur adipisicing elit. Eum eligendi nobis nihil vitae ea est! Laboriosam eum consectetur ipsum, eos iure mollitia architecto a molestiae non nisi hic dolores quisquam!"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("button", null, "click me")))))];
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Edit);

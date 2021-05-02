@@ -102,7 +102,64 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		className: `eb-guten-block-main-parent-wrapper`,
 	});
 
-	const wrapperStylesDesktop = " ";
+	const wrapperStylesDesktop = `
+		
+		.eb-infobox-wrapper {
+			width: 600px;
+			margin: auto;
+			padding: 20px;
+			background-color: #f4f9;
+			margin-bottom: 20px;
+		}
+		
+		.infobox-wrapper-inner img {
+			max-width: 100%;
+			height: auto;
+			object-fit: cover;
+		}
+		
+		.infobox-wrapper-inner {
+			display: flex;
+			flex-direction: column-reverse;
+		}
+		
+		.title {
+			font-size: 26px;
+			line-height: 1.3em;
+		}
+		
+		.subtitle {
+			font-size: 16px;
+			line-height: 2;
+		}
+		
+		.description {
+			font-size: 20px;
+			line-height: 2em;
+		}
+
+
+		.eb-icon {
+			background-color: #3f5;
+			padding: 20px;
+			border-top-left-radius: 20px;
+			border-bottom-right-radius: 20px;
+		}
+		.icon-img-wrapper {
+			-ms-grid-row-align: center;
+			align-self: center;
+		}
+		.icon-img-wrapper .demo-icon {
+			font-size: 50px;
+			color: #fff;
+		}
+		.contents-wrapper {
+			text-align: center;
+		}
+
+
+
+	`;
 
 	// all css styles for large screen width (desktop/laptop) in strings ⬇
 	const desktopAllStyles = softMinifyCssStrings(`		
@@ -139,7 +196,56 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		),
 
 		// Edit view
-		<div {...blockProps}>cool</div>,
+		<div {...blockProps}>
+			<style>
+				{`
+				${desktopAllStyles}
+
+				/* mimmikcssStart */
+
+				${resOption === "tab" ? tabAllStyles : " "}
+				${resOption === "mobile" ? tabAllStyles + mobileAllStyles : " "}
+
+				/* mimmikcssEnd */
+
+				@media all and (max-width: 1024px) {	
+
+					/* tabcssStart */			
+					${softMinifyCssStrings(tabAllStyles)}
+					/* tabcssEnd */			
+				
+				}
+				
+				@media all and (max-width: 767px) {
+					
+					/* mobcssStart */			
+					${softMinifyCssStrings(mobileAllStyles)}
+					/* mobcssEnd */			
+				
+				}
+				`}
+			</style>
+
+			<div className={`${blockId} eb-infobox-wrapper`}>
+				<div className="infobox-wrapper-inner">
+					<div className="icon-img-wrapper">
+						<div className="eb-icon">
+							<i className="far fa-sun"></i>
+						</div>
+					</div>
+					<div className="contents-wrapper">
+						<h2 className="title">Valar Dohairis</h2>
+						<h3 className="subtitle">Lorem ipsum dolor sit amet.</h3>
+						<p className="description">
+							Csonsectetur adipisicing elit. Eum eligendi nobis nihil vitae ea
+							est! Laboriosam eum consectetur ipsum, eos iure mollitia
+							architecto a molestiae non nisi hic dolores quisquam!
+						</p>
+						<button>click me</button>
+					</div>
+				</div>
+			</div>
+		</div>,
 	];
 };
 
