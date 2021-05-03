@@ -51,7 +51,7 @@ const attributes = {
 		source: "attribute",
 		selector: ".eb-infobox-icon-data-selector",
 		attribute: "data-icon",
-		default: "far fa-sun",
+		default: "far fa-gem",
 	},
 
 	//
@@ -119,6 +119,7 @@ const attributes = {
 	//
 	iconSize: {
 		type: "number",
+		default: 50,
 	},
 	TABiconSize: {
 		type: "number",

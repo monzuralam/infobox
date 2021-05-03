@@ -3900,7 +3900,7 @@ var attributes = {
     source: "attribute",
     selector: ".eb-infobox-icon-data-selector",
     attribute: "data-icon",
-    default: "far fa-sun"
+    default: "far fa-gem"
   },
   //
   number: {
@@ -3955,7 +3955,8 @@ var attributes = {
   },
   //
   iconSize: {
-    type: "number"
+    type: "number",
+    default: 50
   },
   TABiconSize: {
     type: "number"
@@ -4839,16 +4840,10 @@ function Inspector(props) {
     setAttributes: setAttributes,
     resOption: resOption
   };
-
-  var onpresetChange = function onpresetChange(preset) {
-    console.log({
-      preset: preset
-    });
-
-    switch (preset) {
+  Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    switch (layoutPreset) {
       case "preset1":
         setAttributes({
-          layoutPreset: preset,
           flexDirection: "column",
           contentAlignment: "center",
           mediaAlignSelf: "center"
@@ -4857,7 +4852,6 @@ function Inspector(props) {
 
       case "preset2":
         setAttributes({
-          layoutPreset: preset,
           flexDirection: "column-reverse",
           contentAlignment: "center",
           mediaAlignSelf: "center"
@@ -4866,7 +4860,6 @@ function Inspector(props) {
 
       case "preset3":
         setAttributes({
-          layoutPreset: preset,
           flexDirection: undefined,
           contentAlignment: undefined,
           mediaAlignSelf: undefined
@@ -4875,15 +4868,13 @@ function Inspector(props) {
 
       case "preset4":
         setAttributes({
-          layoutPreset: preset,
           flexDirection: "row-reverse",
           contentAlignment: "right",
           mediaAlignSelf: undefined
         });
         break;
     }
-  };
-
+  }, [layoutPreset]);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], {
     key: "controls"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
@@ -4894,8 +4885,10 @@ function Inspector(props) {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Layout Preset "),
     value: layoutPreset,
     options: _constants__WEBPACK_IMPORTED_MODULE_14__["LAYOUT_TYPES"],
-    onChange: function onChange(preset) {
-      return onpresetChange(preset);
+    onChange: function onChange(layoutPreset) {
+      return setAttributes({
+        layoutPreset: layoutPreset
+      });
     }
   }), !flexDirection || flexDirection == "row-reverse" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Media & content spacing")

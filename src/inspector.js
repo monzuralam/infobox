@@ -148,12 +148,10 @@ function Inspector(props) {
 		resOption,
 	};
 
-	const onpresetChange = (preset) => {
-		console.log({ preset });
-		switch (preset) {
+	useEffect(() => {
+		switch (layoutPreset) {
 			case "preset1":
 				setAttributes({
-					layoutPreset: preset,
 					flexDirection: "column",
 					contentAlignment: "center",
 					mediaAlignSelf: "center",
@@ -162,7 +160,6 @@ function Inspector(props) {
 
 			case "preset2":
 				setAttributes({
-					layoutPreset: preset,
 					flexDirection: "column-reverse",
 					contentAlignment: "center",
 					mediaAlignSelf: "center",
@@ -171,7 +168,6 @@ function Inspector(props) {
 
 			case "preset3":
 				setAttributes({
-					layoutPreset: preset,
 					flexDirection: undefined,
 					contentAlignment: undefined,
 					mediaAlignSelf: undefined,
@@ -180,14 +176,13 @@ function Inspector(props) {
 
 			case "preset4":
 				setAttributes({
-					layoutPreset: preset,
 					flexDirection: "row-reverse",
 					contentAlignment: "right",
 					mediaAlignSelf: undefined,
 				});
 				break;
 		}
-	};
+	}, [layoutPreset]);
 
 	return (
 		<InspectorControls key="controls">
@@ -197,7 +192,7 @@ function Inspector(props) {
 						label={__("Layout Preset ")}
 						value={layoutPreset}
 						options={LAYOUT_TYPES}
-						onChange={(preset) => onpresetChange(preset)}
+						onChange={(layoutPreset) => setAttributes({ layoutPreset })}
 					/>
 					{!flexDirection || flexDirection == "row-reverse" ? (
 						<BaseControl label={__("Media & content spacing")}>
