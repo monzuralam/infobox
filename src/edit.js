@@ -10,6 +10,7 @@ import "./editor.scss";
 /**
  * Internal dependencies
  */
+
 import {
 	softMinifyCssStrings,
 	isCssExists,
@@ -56,6 +57,15 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 		//
 		flexDirection,
+
+		//
+		mediaAlignSelf,
+
+		//
+		contentAlignment,
+
+		//
+		mediaWrapperMargin,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
@@ -142,7 +152,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		
 		.${blockId} .infobox-wrapper-inner {
 			display: flex;
-			flex-direction: ${flexDirection};
+			${flexDirection ? `flex-direction: ${flexDirection};` : " "} 
 		}
 		
 		.${blockId} .title {
@@ -175,7 +185,14 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		}
 
 		.${blockId} .icon-img-wrapper {
-			align-self: center;
+			${mediaAlignSelf ? `align-self: ${mediaAlignSelf};` : " "} 
+			${
+				!flexDirection
+					? `margin-right: ${mediaWrapperMargin}px;`
+					: flexDirection === "row-reverse"
+					? `margin-left: ${mediaWrapperMargin}px;`
+					: " "
+			}
 			padding: 10px 0;
 		}
 
@@ -185,7 +202,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		}
 
 		.${blockId} .contents-wrapper {
-			text-align: center;
+			${contentAlignment ? `text-align: ${contentAlignment};` : " "} 
 		}
 	`;
 
@@ -193,7 +210,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
 			font-size: ${TABiconSize}px;
 		}
-	
 	
 	`;
 

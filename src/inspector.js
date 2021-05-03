@@ -69,6 +69,12 @@ function Inspector(props) {
 		iconSize,
 		TABiconSize,
 		MOBiconSize,
+
+		//
+		flexDirection,
+
+		//
+		mediaWrapperMargin,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
@@ -149,6 +155,8 @@ function Inspector(props) {
 				setAttributes({
 					layoutPreset: preset,
 					flexDirection: "column",
+					contentAlignment: "center",
+					mediaAlignSelf: "center",
 				});
 				break;
 
@@ -156,13 +164,17 @@ function Inspector(props) {
 				setAttributes({
 					layoutPreset: preset,
 					flexDirection: "column-reverse",
+					contentAlignment: "center",
+					mediaAlignSelf: "center",
 				});
 				break;
 
 			case "preset3":
 				setAttributes({
 					layoutPreset: preset,
-					flexDirection: "row",
+					flexDirection: undefined,
+					contentAlignment: undefined,
+					mediaAlignSelf: undefined,
 				});
 				break;
 
@@ -170,6 +182,8 @@ function Inspector(props) {
 				setAttributes({
 					layoutPreset: preset,
 					flexDirection: "row-reverse",
+					contentAlignment: "right",
+					mediaAlignSelf: undefined,
 				});
 				break;
 		}
@@ -185,6 +199,18 @@ function Inspector(props) {
 						options={LAYOUT_TYPES}
 						onChange={(preset) => onpresetChange(preset)}
 					/>
+					{!flexDirection || flexDirection == "row-reverse" ? (
+						<BaseControl label={__("Media & content spacing")}>
+							<RangeControl
+								value={mediaWrapperMargin}
+								onChange={(mediaWrapperMargin) =>
+									setAttributes({ mediaWrapperMargin })
+								}
+								min={0}
+								max={200}
+							/>
+						</BaseControl>
+					) : null}
 				</PanelBody>
 
 				<PanelBody title={__("Media")} initialOpen={false}>

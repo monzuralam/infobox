@@ -127,10 +127,25 @@ const attributes = {
 		type: "number",
 	},
 
-	//
+	// .infobox-wrapper-inner flex-direction
 	flexDirection: {
 		type: "string",
-		default: "column",
+	},
+
+	// .icon-img-wrapper align-self property
+	mediaAlignSelf: {
+		type: "string",
+	},
+
+	// .contents-wrapper text-alignment
+	contentAlignment: {
+		type: "string",
+	},
+
+	// .icon-img-wrapper margin
+	mediaWrapperMargin: {
+		type: "number",
+		default: 20,
 	},
 };
 

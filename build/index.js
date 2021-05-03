@@ -3963,10 +3963,22 @@ var attributes = {
   MOBiconSize: {
     type: "number"
   },
-  //
+  // .infobox-wrapper-inner flex-direction
   flexDirection: {
-    type: "string",
-    default: "column"
+    type: "string"
+  },
+  // .icon-img-wrapper align-self property
+  mediaAlignSelf: {
+    type: "string"
+  },
+  // .contents-wrapper text-alignment
+  contentAlignment: {
+    type: "string"
+  },
+  // .icon-img-wrapper margin
+  mediaWrapperMargin: {
+    type: "number",
+    default: 20
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (attributes);
@@ -4166,7 +4178,10 @@ var Edit = function Edit(_ref) {
       iconSize = attributes.iconSize,
       TABiconSize = attributes.TABiconSize,
       MOBiconSize = attributes.MOBiconSize,
-      flexDirection = attributes.flexDirection; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
+      flexDirection = attributes.flexDirection,
+      mediaAlignSelf = attributes.mediaAlignSelf,
+      contentAlignment = attributes.contentAlignment,
+      mediaWrapperMargin = attributes.mediaWrapperMargin; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var bodyClasses = document.body.className;
@@ -4245,8 +4260,8 @@ var Edit = function Edit(_ref) {
   var blockProps = Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"])({
     className: "eb-guten-block-main-parent-wrapper"
   });
-  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tmargin: auto;\n\t\t\tpadding: 30px;\n\t\t\tbackground-color: #f4f9;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\tmax-width: 100%;\n\t\t\theight: auto;\n\t\t\tobject-fit: cover;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\tflex-direction: ").concat(flexDirection, ";\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .title {\n\t\t\tfont-size: 26px;\n\t\t\tline-height: 1.3em;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .subtitle {\n\t\t\tfont-size: 16px;\n\t\t\tline-height: 2;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .description {\n\t\t\tfont-size: 20px;\n\t\t\tline-height: 2em;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\n\t\t}\n\n\t\t.").concat(blockId, " .eb-icon {\n\t\t\tbackground-color: #3f5;\n\t\t\tpadding: 20px;\n\t\t\tborder-top-left-radius: 20px;\n\t\t\tborder-bottom-right-radius: 20px;\n\t\t}\n\n\t\t.").concat(blockId, " .icon-img-wrapper {\n\t\t\talign-self: center;\n\t\t\tpadding: 10px 0;\n\t\t}\n\n\t\t.").concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\tfont-size: ").concat(iconSize, "px;\n\t\t\tcolor: #fff;\n\t\t}\n\n\t\t.").concat(blockId, " .contents-wrapper {\n\t\t\ttext-align: center;\n\t\t}\n\t");
-  var wrapperStylesTab = "\n\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\tfont-size: ").concat(TABiconSize, "px;\n\t\t}\n\t\n\t\n\t");
+  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tmargin: auto;\n\t\t\tpadding: 30px;\n\t\t\tbackground-color: #f4f9;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\tmax-width: 100%;\n\t\t\theight: auto;\n\t\t\tobject-fit: cover;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\t").concat(flexDirection ? "flex-direction: ".concat(flexDirection, ";") : " ", " \n\t\t}\n\t\t\n\t\t.").concat(blockId, " .title {\n\t\t\tfont-size: 26px;\n\t\t\tline-height: 1.3em;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .subtitle {\n\t\t\tfont-size: 16px;\n\t\t\tline-height: 2;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .description {\n\t\t\tfont-size: 20px;\n\t\t\tline-height: 2em;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\n\t\t}\n\n\t\t.").concat(blockId, " .eb-icon {\n\t\t\tbackground-color: #3f5;\n\t\t\tpadding: 20px;\n\t\t\tborder-top-left-radius: 20px;\n\t\t\tborder-bottom-right-radius: 20px;\n\t\t}\n\n\t\t.").concat(blockId, " .icon-img-wrapper {\n\t\t\t").concat(mediaAlignSelf ? "align-self: ".concat(mediaAlignSelf, ";") : " ", " \n\t\t\t").concat(!flexDirection ? "margin-right: ".concat(mediaWrapperMargin, "px;") : flexDirection === "row-reverse" ? "margin-left: ".concat(mediaWrapperMargin, "px;") : " ", "\n\t\t\tpadding: 10px 0;\n\t\t}\n\n\t\t.").concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\tfont-size: ").concat(iconSize, "px;\n\t\t\tcolor: #fff;\n\t\t}\n\n\t\t.").concat(blockId, " .contents-wrapper {\n\t\t\t").concat(contentAlignment ? "text-align: ".concat(contentAlignment, ";") : " ", " \n\t\t}\n\t");
+  var wrapperStylesTab = "\n\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\tfont-size: ").concat(TABiconSize, "px;\n\t\t}\n\t\n\t");
   var wrapperStylesMobile = "\n\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\tfont-size: ").concat(MOBiconSize, "px;\n\t\t}\n\t\n\t\n\t"); // all css styles for large screen width (desktop/laptop) in strings ⬇
 
   var desktopAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\t\t\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesDesktop) ? wrapperStylesDesktop : " ", "\n\t\t\n\t")); // all css styles for Tab in strings ⬇
@@ -4767,7 +4782,9 @@ function Inspector(props) {
       selectedIcon = attributes.selectedIcon,
       iconSize = attributes.iconSize,
       TABiconSize = attributes.TABiconSize,
-      MOBiconSize = attributes.MOBiconSize; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
+      MOBiconSize = attributes.MOBiconSize,
+      flexDirection = attributes.flexDirection,
+      mediaWrapperMargin = attributes.mediaWrapperMargin; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var bodyClasses = document.body.className; // console.log("----log from inspector useEffect with empty []", {
@@ -4832,28 +4849,36 @@ function Inspector(props) {
       case "preset1":
         setAttributes({
           layoutPreset: preset,
-          flexDirection: "column"
+          flexDirection: "column",
+          contentAlignment: "center",
+          mediaAlignSelf: "center"
         });
         break;
 
       case "preset2":
         setAttributes({
           layoutPreset: preset,
-          flexDirection: "column-reverse"
+          flexDirection: "column-reverse",
+          contentAlignment: "center",
+          mediaAlignSelf: "center"
         });
         break;
 
       case "preset3":
         setAttributes({
           layoutPreset: preset,
-          flexDirection: "row"
+          flexDirection: undefined,
+          contentAlignment: undefined,
+          mediaAlignSelf: undefined
         });
         break;
 
       case "preset4":
         setAttributes({
           layoutPreset: preset,
-          flexDirection: "row-reverse"
+          flexDirection: "row-reverse",
+          contentAlignment: "right",
+          mediaAlignSelf: undefined
         });
         break;
     }
@@ -4872,7 +4897,18 @@ function Inspector(props) {
     onChange: function onChange(preset) {
       return onpresetChange(preset);
     }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
+  }), !flexDirection || flexDirection == "row-reverse" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Media & content spacing")
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
+    value: mediaWrapperMargin,
+    onChange: function onChange(mediaWrapperMargin) {
+      return setAttributes({
+        mediaWrapperMargin: mediaWrapperMargin
+      });
+    },
+    min: 0,
+    max: 200
+  })) : null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Media"),
     initialOpen: false
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
