@@ -34,7 +34,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 		selectedIcon,
 		media,
-		number,
+		number = 0,
 		imageUrl,
 		infoboxLink,
 		enableSubTitle,
@@ -45,6 +45,17 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		title,
 		subTitle,
 		description,
+
+		//
+		imageId,
+
+		//
+		iconSize,
+		TABiconSize,
+		MOBiconSize,
+
+		//
+		flexDirection,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
@@ -117,76 +128,98 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	});
 
 	const wrapperStylesDesktop = `
-		
-		.eb-infobox-wrapper {
-			width: 600px;
+		.${blockId} {
 			margin: auto;
-			padding: 20px;
+			padding: 30px;
 			background-color: #f4f9;
-			margin-bottom: 20px;
 		}
 		
-		.infobox-wrapper-inner img {
+		.${blockId} .infobox-wrapper-inner img {
 			max-width: 100%;
 			height: auto;
 			object-fit: cover;
 		}
 		
-		.infobox-wrapper-inner {
+		.${blockId} .infobox-wrapper-inner {
 			display: flex;
-			flex-direction: column-reverse;
+			flex-direction: ${flexDirection};
 		}
 		
-		.title {
+		.${blockId} .title {
 			font-size: 26px;
 			line-height: 1.3em;
+			margin: 0;
+			padding: 10px 0;
 		}
 		
-		.subtitle {
+		.${blockId} .subtitle {
 			font-size: 16px;
 			line-height: 2;
+			margin: 0;
+			padding: 10px 0;
 		}
 		
-		.description {
+		.${blockId} .description {
 			font-size: 20px;
 			line-height: 2em;
+			margin: 0;
+			padding: 10px 0;
+
 		}
 
-
-		.eb-icon {
+		.${blockId} .eb-icon {
 			background-color: #3f5;
 			padding: 20px;
 			border-top-left-radius: 20px;
 			border-bottom-right-radius: 20px;
 		}
-		.icon-img-wrapper {
-			-ms-grid-row-align: center;
+
+		.${blockId} .icon-img-wrapper {
 			align-self: center;
+			padding: 10px 0;
 		}
-		.icon-img-wrapper .demo-icon {
-			font-size: 50px;
+
+		.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
+			font-size: ${iconSize}px;
 			color: #fff;
 		}
-		.contents-wrapper {
+
+		.${blockId} .contents-wrapper {
 			text-align: center;
 		}
+	`;
 
+	const wrapperStylesTab = `
+		.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
+			font-size: ${TABiconSize}px;
+		}
+	
+	
+	`;
 
-
+	const wrapperStylesMobile = `
+		.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
+			font-size: ${MOBiconSize}px;
+		}
+	
+	
 	`;
 
 	// all css styles for large screen width (desktop/laptop) in strings ⬇
 	const desktopAllStyles = softMinifyCssStrings(`		
 		${isCssExists(wrapperStylesDesktop) ? wrapperStylesDesktop : " "}
+		
 	`);
 
 	// all css styles for Tab in strings ⬇
 	const tabAllStyles = softMinifyCssStrings(`
-	
+		${isCssExists(wrapperStylesTab) ? wrapperStylesTab : " "}
+		
 	`);
 
 	// all css styles for Mobile in strings ⬇
 	const mobileAllStyles = softMinifyCssStrings(`
+		${isCssExists(wrapperStylesMobile) ? wrapperStylesMobile : " "}
 	
 	`);
 
@@ -255,11 +288,29 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 					{media === "image" ? (
 						<div className="icon-img-wrapper">
-							<div className="eb-infobox-img-wrapper">
-								<img
-									className="eb-infobox-image"
-									src={imageUrl}
-									alt="macbook"
+							<div className="eb-infobox-image-wrapper">
+								<MediaUpload
+									onSelect={({ id, url }) =>
+										setAttributes({ imageUrl: url, imageId: id })
+									}
+									type="image"
+									value={imageId}
+									render={({ open }) => {
+										if (!imageUrl) {
+											return (
+												<Button
+													className="eb-infobox-img-btn components-button"
+													label={__("Upload Image")}
+													icon="format-image"
+													onClick={open}
+												/>
+											);
+										} else {
+											return (
+												<img className="eb-infobox-image" src={imageUrl} />
+											);
+										}
+									}}
 								/>
 							</div>
 						</div>

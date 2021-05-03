@@ -37,7 +37,7 @@ const attributes = {
 		source: "attribute",
 		selector: ".eb-infobox-image",
 		attribute: "src",
-		default: "https://source.unsplash.com/user/cristofer",
+		// default: "https://source.unsplash.com/user/cristofer",
 	},
 
 	//
@@ -114,6 +114,23 @@ const attributes = {
 		selector: ".description",
 		default:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+	},
+
+	//
+	iconSize: {
+		type: "number",
+	},
+	TABiconSize: {
+		type: "number",
+	},
+	MOBiconSize: {
+		type: "number",
+	},
+
+	//
+	flexDirection: {
+		type: "string",
+		default: "column",
 	},
 };
 

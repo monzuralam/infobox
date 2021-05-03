@@ -20,12 +20,25 @@ import {
  * Internal dependencies
  */
 
+import FontIconPicker from "@fonticonpicker/react-fonticonpicker";
+import faIcons from "../util/faIcons.js";
+
+import TypographyDropdown from "../util/typography-control-v2";
+
+import DimensionsControl from "../util/dimensions-control-v2";
+import ImageAvatar from "../util/image-avatar/ImageAvater";
+import GradientColorControl from "../util/gradient-color-controller";
+import UnitControl from "../util/unit-control";
+import ColorControl from "../util/color-control";
+
+import WithResButtons from "../util/withResButtons";
+
 import {
 	typoPrefix_header,
 	typoPrefix_content,
 } from "./constants/typographyPrefixConstants";
 
-import { LAYOUT_TYPES } from "./constants";
+import { LAYOUT_TYPES, MEDIA_TYPES } from "./constants";
 
 function Inspector(props) {
 	const { attributes, setAttributes } = props;
@@ -36,6 +49,26 @@ function Inspector(props) {
 
 		//
 		layoutPreset,
+
+		//
+		media,
+
+		//
+		enableSubTitle,
+
+		//
+		number,
+
+		//
+		imageUrl,
+
+		//
+		selectedIcon,
+
+		//
+		iconSize,
+		TABiconSize,
+		MOBiconSize,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
@@ -115,24 +148,28 @@ function Inspector(props) {
 			case "preset1":
 				setAttributes({
 					layoutPreset: preset,
+					flexDirection: "column",
 				});
 				break;
 
 			case "preset2":
 				setAttributes({
 					layoutPreset: preset,
+					flexDirection: "column-reverse",
 				});
 				break;
 
 			case "preset3":
 				setAttributes({
 					layoutPreset: preset,
+					flexDirection: "row",
 				});
 				break;
 
 			case "preset4":
 				setAttributes({
 					layoutPreset: preset,
+					flexDirection: "row-reverse",
 				});
 				break;
 		}
@@ -143,11 +180,246 @@ function Inspector(props) {
 			<span className="eb-panel-control">
 				<PanelBody title={__("Notice Settings")}>
 					<SelectControl
-						label={__("Type")}
+						label={__("Layout Preset ")}
 						value={layoutPreset}
 						options={LAYOUT_TYPES}
 						onChange={(preset) => onpresetChange(preset)}
 					/>
+				</PanelBody>
+
+				<PanelBody title={__("Media")} initialOpen={false}>
+					<BaseControl id="eb-infobox-image-icon">
+						<ButtonGroup id="eb-infobox-image-icon">
+							{MEDIA_TYPES.map((value) => (
+								<Button
+									isLarge
+									isSecondary={media !== value}
+									isPrimary={media === value}
+									onClick={() => setAttributes({ media: value })}
+								>
+									{value}
+								</Button>
+							))}
+						</ButtonGroup>
+					</BaseControl>
+
+					{media === "icon" && (
+						<BaseControl label={__("Select Icon")}>
+							<FontIconPicker
+								icons={faIcons}
+								onChange={(icon) => setAttributes({ selectedIcon: icon })}
+								value={selectedIcon}
+								appendTo="body"
+								isMulti={false}
+							/>
+						</BaseControl>
+					)}
+
+					{media === "icon" && selectedIcon && (
+						<>
+							<WithResButtons
+								className="for-icon-size"
+								resRequiredProps={resRequiredProps}
+							>
+								{resOption == "desktop" && (
+									<RangeControl
+										label={__("Icon Size")}
+										value={iconSize}
+										onChange={(iconSize) => setAttributes({ iconSize })}
+										min={8}
+										max={100}
+									/>
+								)}
+
+								{resOption == "tab" && (
+									<RangeControl
+										allowReset
+										label={__("Icon Size")}
+										value={TABiconSize}
+										onChange={(TABiconSize) => setAttributes({ TABiconSize })}
+										min={8}
+										max={100}
+									/>
+								)}
+
+								{resOption == "mobile" && (
+									<RangeControl
+										allowReset
+										label={__("Icon Size")}
+										value={MOBiconSize}
+										onChange={(MOBiconSize) => setAttributes({ MOBiconSize })}
+										min={8}
+										max={100}
+									/>
+								)}
+							</WithResButtons>
+						</>
+					)}
+
+					{media === "image" && imageUrl && (
+						<ImageAvatar
+							imageUrl={imageUrl}
+							onDeleteImage={() =>
+								setAttributes({
+									imageUrl: null,
+								})
+							}
+						/>
+					)}
+
+					{media === "image" && imageUrl && (
+						<>
+							{/* <WithResButtons
+								className="for-head-img-height"
+								resRequiredProps={resRequiredProps}
+							>
+								{resOption == "desktop" && (
+									<RangeControl
+										label={__("Image Height")}
+										value={imageHeight}
+										onChange={(imageHeight) => setAttributes({ imageHeight })}
+										min={0}
+										max={400}
+									/>
+								)}
+								{resOption == "tab" && (
+									<RangeControl
+										allowReset
+										label={__("Image Height")}
+										value={TABimageHeight}
+										onChange={(TABimageHeight) =>
+											setAttributes({ TABimageHeight })
+										}
+										min={0}
+										max={400}
+									/>
+								)}
+								{resOption == "mobile" && (
+									<RangeControl
+										allowReset
+										label={__("Image Height")}
+										value={MOBimageHeight}
+										onChange={(MOBimageHeight) =>
+											setAttributes({ MOBimageHeight })
+										}
+										min={0}
+										max={400}
+									/>
+								)}
+							</WithResButtons>
+							<WithResButtons
+								className="for-head-img-width"
+								resRequiredProps={resRequiredProps}
+							>
+								{resOption == "desktop" && (
+									<RangeControl
+										label={__("Image Width")}
+										value={imageWidth}
+										onChange={(imageWidth) => setAttributes({ imageWidth })}
+										min={0}
+										max={400}
+									/>
+								)}
+								{resOption == "tab" && (
+									<RangeControl
+										allowReset
+										label={__("Image Width")}
+										value={TABimageWidth}
+										onChange={(TABimageWidth) =>
+											setAttributes({ TABimageWidth })
+										}
+										min={0}
+										max={400}
+									/>
+								)}
+								{resOption == "mobile" && (
+									<RangeControl
+										allowReset
+										label={__("Image Width")}
+										value={MOBimageWidth}
+										onChange={(MOBimageWidth) =>
+											setAttributes({ MOBimageWidth })
+										}
+										min={0}
+										max={400}
+									/>
+								)}
+							</WithResButtons>
+						 */}
+						</>
+					)}
+
+					{media === "number" && (
+						<>
+							{/* <BaseControl label={__("Number")} id="eb-infobox-number-id">
+								<input
+									type="number"
+									value={number}
+									id="eb-infobox-number-id"
+									onChange={(event) =>
+										setAttributes({
+											number: parseInt(event.target.value, 10),
+										})
+									}
+									min={0}
+								/>
+							</BaseControl>
+							<WithResButtons
+								className="for-number-size"
+								resRequiredProps={resRequiredProps}
+							>
+								{resOption == "desktop" && (
+									<RangeControl
+										label={__("Number Size")}
+										value={numberSize}
+										onChange={(numberSize) => setAttributes({ numberSize })}
+										min={8}
+										max={64}
+									/>
+								)}
+
+								{resOption == "tab" && (
+									<RangeControl
+										allowReset
+										label={__("Number Size")}
+										value={TABnumberSize}
+										onChange={(TABnumberSize) =>
+											setAttributes({ TABnumberSize })
+										}
+										min={8}
+										max={64}
+									/>
+								)}
+
+								{resOption == "mobile" && (
+									<RangeControl
+										allowReset
+										label={__("Number Size")}
+										value={MOBnumberSize}
+										onChange={(MOBnumberSize) =>
+											setAttributes({ MOBnumberSize })
+										}
+										min={8}
+										max={64}
+									/>
+								)}
+							</WithResButtons>
+						 */}
+						</>
+					)}
+				</PanelBody>
+				<PanelBody title={__("Title")} initialOpen={false}>
+					cool insoectors
+				</PanelBody>
+				<PanelBody title={__("Subtitle")} initialOpen={false}>
+					<ToggleControl
+						label={__("Enable Subtitle")}
+						checked={enableSubTitle}
+						onChange={() => setAttributes({ enableSubTitle: !enableSubTitle })}
+					/>
+				</PanelBody>
+				<PanelBody title={__("Description")} initialOpen={false}>
+					cool inspectors
 				</PanelBody>
 			</span>
 		</InspectorControls>

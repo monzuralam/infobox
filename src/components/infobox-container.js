@@ -34,7 +34,7 @@ export default function InfoboxContainer({ requiredProps }) {
 
 				{media === "image" ? (
 					<div className="icon-img-wrapper">
-						<div className="eb-infobox-img-wrapper">
+						<div className="eb-infobox-image-wrapper">
 							<img className="eb-infobox-image" src={imageUrl} alt="macbook" />
 						</div>
 					</div>
