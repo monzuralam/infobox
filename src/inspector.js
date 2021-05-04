@@ -94,6 +94,9 @@ function Inspector(props) {
 
 		//
 		numIconBgGradient,
+
+		//
+		imageId,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
@@ -303,6 +306,26 @@ function Inspector(props) {
 										)}
 									</WithResButtons>
 								</>
+							)}
+
+							{media === "image" && !imageUrl && (
+								<MediaUpload
+									onSelect={({ id, url }) =>
+										setAttributes({ imageUrl: url, imageId: id })
+									}
+									type="image"
+									value={imageId}
+									render={({ open }) => {
+										return (
+											<Button
+												className="eb-infobox-inspector-panel-img-btn components-button"
+												label={__("Upload Image")}
+												icon="format-image"
+												onClick={open}
+											/>
+										);
+									}}
+								/>
 							)}
 
 							{media === "image" && imageUrl && (
