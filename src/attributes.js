@@ -32,6 +32,17 @@ const attributes = {
 		default: "icon",
 	},
 
+	// should icon number background
+	useNumIconBg: {
+		type: "boolean",
+		default: true,
+	},
+
+	//
+	numIconColor: {
+		type: "string",
+	},
+
 	//
 	imageUrl: {
 		source: "attribute",

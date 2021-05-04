@@ -30,6 +30,7 @@ import ImageAvatar from "../util/image-avatar/ImageAvater";
 import GradientColorControl from "../util/gradient-color-controller";
 import UnitControl from "../util/unit-control";
 import ColorControl from "../util/color-control";
+import ResetControl from "../util/reset-control";
 
 import WithResButtons from "../util/withResButtons";
 
@@ -78,6 +79,12 @@ function Inspector(props) {
 
 		//
 		enableDescription,
+
+		//
+		useNumIconBg,
+
+		//
+		numIconColor,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
@@ -438,6 +445,16 @@ function Inspector(props) {
 								)}
 							</WithResButtons>
 						 */}
+								</>
+							)}
+
+							{(media === "number" || media === "icon") && (
+								<>
+									<ColorControl
+										label={__("Color")}
+										color={numIconColor}
+										onChange={(numIconColor) => setAttributes({ numIconColor })}
+									/>
 								</>
 							)}
 						</>

@@ -848,3 +848,85 @@ body.eb-res-option-mobile .editor-styles-wrapper {
 	display: inline-block;
 	margin-right: 5px;
 }
+
+// image-avater utility styles start
+.image-avatar {
+	height: 100px;
+	width: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin-bottom: 8px;
+	padding: 2px;
+}
+
+.image-avatar-delete {
+	background-color: blue;
+
+	&:hover {
+		background-color: red;
+	}
+}
+
+// image-avater utility styles end
+
+// toggle-button utility styles start
+
+.eb-switch-control {
+	display: flex;
+	border: 1px solid #ededed;
+	padding: 2px;
+	border-radius: 30px;
+	position: relative;
+	font-family: sans-serif;
+	text-align: center;
+	margin-bottom: 8px;
+	margin-top: 8px;
+
+	input {
+		visibility: hidden;
+		position: absolute;
+		padding: 10px;
+		&:checked + label {
+			color: #fff;
+		}
+	}
+
+	.individual:checked ~ span,
+	.business:checked ~ span {
+		color: white;
+	}
+
+	.individual:checked ~ .slideBg {
+		transform: translateX(100%);
+	}
+	.business:checked ~ .slideBg {
+		transform: translateX(0);
+	}
+
+	label {
+		display: block;
+		padding: 4px;
+		width: 50%;
+		z-index: 1;
+	}
+}
+
+.slideBg {
+	position: absolute;
+	background-color: #551ef7;
+	color: white;
+	border-radius: 30px;
+	height: 100%;
+	width: 50%;
+	top: 0;
+	left: 0;
+	transition: transform 0.3s ease;
+}
+
+// toggle-button utility styles end
+
+// color control reset icon show little top fix start
+.eb-panel-control .eb-color-undo .dashicon {
+	margin: 0;
+}
+// color control reset icon show little top fix end
