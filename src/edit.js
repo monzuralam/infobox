@@ -68,7 +68,19 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		mediaWrapperMargin,
 
 		//
+		useNumIconBg,
+
+		//
 		numIconColor,
+
+		//
+		numIconBgType,
+
+		//
+		numIconBgColor,
+
+		//
+		numIconBgGradient,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
@@ -184,7 +196,20 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			}
 
 			.${blockId} .number-or-icon {
-				background-color: #3f5;
+				
+				${
+					useNumIconBg
+						? `${
+								numIconBgType === "fill"
+									? `background-color: ${numIconBgColor};`
+									: numIconBgType === "gradient"
+									? `background-image: ${numIconBgGradient};`
+									: " "
+						  }`
+						: " "
+				}
+				
+
 				padding: 20px;
 			}
 

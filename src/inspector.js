@@ -39,7 +39,7 @@ import {
 	typoPrefix_content,
 } from "./constants/typographyPrefixConstants";
 
-import { LAYOUT_TYPES, MEDIA_TYPES } from "./constants";
+import { LAYOUT_TYPES, MEDIA_TYPES, ICON_IMAGE_BG_TYPES } from "./constants";
 
 function Inspector(props) {
 	const { attributes, setAttributes } = props;
@@ -85,6 +85,15 @@ function Inspector(props) {
 
 		//
 		numIconColor,
+
+		//
+		numIconBgType,
+
+		//
+		numIconBgColor,
+
+		//
+		numIconBgGradient,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
@@ -455,6 +464,58 @@ function Inspector(props) {
 										color={numIconColor}
 										onChange={(numIconColor) => setAttributes({ numIconColor })}
 									/>
+
+									<ToggleControl
+										label={__("Use Background")}
+										checked={useNumIconBg}
+										onChange={() =>
+											setAttributes({ useNumIconBg: !useNumIconBg })
+										}
+									/>
+
+									{useNumIconBg && (
+										<>
+											<BaseControl label={__("Background Type")}>
+												<ButtonGroup id="eb-infobox-infobox-background">
+													{ICON_IMAGE_BG_TYPES.map(({ value, label }) => (
+														<Button
+															isLarge
+															isPrimary={numIconBgType === value}
+															isSecondary={numIconBgType !== value}
+															onClick={() =>
+																setAttributes({
+																	numIconBgType: value,
+																})
+															}
+														>
+															{label}
+														</Button>
+													))}
+												</ButtonGroup>
+											</BaseControl>
+
+											{numIconBgType === "fill" && (
+												<ColorControl
+													label={__("Background Color")}
+													color={numIconBgColor}
+													onChange={(numIconBgColor) =>
+														setAttributes({ numIconBgColor })
+													}
+												/>
+											)}
+
+											{numIconBgType === "gradient" && (
+												<PanelBody title={__("Gradient")} initialOpen={false}>
+													<GradientColorControl
+														gradientColor={numIconBgGradient}
+														onChange={(numIconBgGradient) =>
+															setAttributes({ numIconBgGradient })
+														}
+													/>
+												</PanelBody>
+											)}
+										</>
+									)}
 								</>
 							)}
 						</>

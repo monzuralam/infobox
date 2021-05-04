@@ -8,3 +8,8 @@ export const LAYOUT_TYPES = [
 ];
 
 export const MEDIA_TYPES = ["image", "icon", "number", "none"];
+
+export const ICON_IMAGE_BG_TYPES = [
+	{ label: "Gradient", value: "gradient" },
+	{ label: "Fill", value: "fill" },
+];

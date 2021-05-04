@@ -32,6 +32,11 @@ const attributes = {
 		default: "icon",
 	},
 
+	//
+	numIconColor: {
+		type: "string",
+	},
+
 	// should icon number background
 	useNumIconBg: {
 		type: "boolean",
@@ -39,8 +44,21 @@ const attributes = {
 	},
 
 	//
-	numIconColor: {
+	numIconBgType: {
 		type: "string",
+		default: "fill",
+	},
+
+	//
+	numIconBgColor: {
+		type: "string",
+		default: "#33FF55",
+	},
+
+	//
+	numIconBgGradient: {
+		type: "string",
+		default: "linear-gradient(45deg,#0072ff,#00c6ff)",
 	},
 
 	//
@@ -159,6 +177,8 @@ const attributes = {
 		type: "number",
 		default: 20,
 	},
+
+	//
 };
 
 export default attributes;
