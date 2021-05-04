@@ -180,7 +180,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				object-fit: cover;
 			}
 
-			.${blockId} .eb-icon {
+			.${blockId} .number-or-icon {
 				background-color: #3f5;
 				padding: 20px;
 				
@@ -327,11 +327,19 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				<div className="infobox-wrapper-inner">
 					{media === "icon" ? (
 						<div className="icon-img-wrapper">
-							<div className="eb-icon">
+							<div className="eb-icon number-or-icon">
 								<span
 									data-icon={selectedIcon}
 									className={`eb-infobox-icon-data-selector  ${selectedIcon}`}
 								></span>
+							</div>
+						</div>
+					) : null}
+
+					{media === "number" ? (
+						<div className="icon-img-wrapper">
+							<div className="eb-infobox-num-wrapper number-or-icon">
+								<span className="eb-infobox-number">{number}</span>
 							</div>
 						</div>
 					) : null}
@@ -362,14 +370,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 										}
 									}}
 								/>
-							</div>
-						</div>
-					) : null}
-
-					{media === "number" ? (
-						<div className="icon-img-wrapper">
-							<div className="eb-infobox-num-wrapper">
-								<span className="eb-infobox-number">{number}</span>
 							</div>
 						</div>
 					) : null}

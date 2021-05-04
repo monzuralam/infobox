@@ -23,7 +23,7 @@ export default function InfoboxContainer({ requiredProps }) {
 			<div className="infobox-wrapper-inner">
 				{media === "icon" ? (
 					<div className="icon-img-wrapper">
-						<div className="eb-icon">
+						<div className="eb-icon number-or-icon">
 							<span
 								data-icon={selectedIcon}
 								className={`eb-infobox-icon-data-selector  ${selectedIcon}`}
@@ -32,18 +32,18 @@ export default function InfoboxContainer({ requiredProps }) {
 					</div>
 				) : null}
 
-				{media === "image" ? (
+				{media === "number" ? (
 					<div className="icon-img-wrapper">
-						<div className="eb-infobox-image-wrapper">
-							<img className="eb-infobox-image" src={imageUrl} alt="macbook" />
+						<div className="eb-infobox-num-wrapper number-or-icon">
+							<span className="eb-infobox-number">{number}</span>
 						</div>
 					</div>
 				) : null}
 
-				{media === "number" ? (
+				{media === "image" ? (
 					<div className="icon-img-wrapper">
-						<div className="eb-infobox-num-wrapper">
-							<span className="eb-infobox-number">{number}</span>
+						<div className="eb-infobox-image-wrapper">
+							<img className="eb-infobox-image" src={imageUrl} alt="macbook" />
 						</div>
 					</div>
 				) : null}
