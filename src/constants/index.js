@@ -7,4 +7,4 @@ export const LAYOUT_TYPES = [
 	{ label: __("preset-4"), value: "preset4" },
 ];
 
-export const MEDIA_TYPES = ["image", "icon", "number"];
+export const MEDIA_TYPES = ["image", "icon", "number", "none"];

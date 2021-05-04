@@ -75,6 +75,9 @@ function Inspector(props) {
 
 		//
 		mediaWrapperMargin,
+
+		//
+		enableDescription,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
@@ -208,7 +211,10 @@ function Inspector(props) {
 					) : null}
 				</PanelBody>
 
-				<PanelBody title={__("Media")} initialOpen={false}>
+				<PanelBody
+					title={__("Media")}
+					// initialOpen={false}
+				>
 					<BaseControl id="eb-infobox-image-icon">
 						<ButtonGroup id="eb-infobox-image-icon">
 							{MEDIA_TYPES.map((value) => (
@@ -224,73 +230,79 @@ function Inspector(props) {
 						</ButtonGroup>
 					</BaseControl>
 
-					{media === "icon" && (
-						<BaseControl label={__("Select Icon")}>
-							<FontIconPicker
-								icons={faIcons}
-								onChange={(icon) => setAttributes({ selectedIcon: icon })}
-								value={selectedIcon}
-								appendTo="body"
-								isMulti={false}
-							/>
-						</BaseControl>
-					)}
-
-					{media === "icon" && selectedIcon && (
+					{media !== "none" && (
 						<>
-							<WithResButtons
-								className="for-icon-size"
-								resRequiredProps={resRequiredProps}
-							>
-								{resOption == "desktop" && (
-									<RangeControl
-										label={__("Icon Size")}
-										value={iconSize}
-										onChange={(iconSize) => setAttributes({ iconSize })}
-										min={8}
-										max={100}
+							{media === "icon" && (
+								<BaseControl label={__("Select Icon")}>
+									<FontIconPicker
+										icons={faIcons}
+										onChange={(icon) => setAttributes({ selectedIcon: icon })}
+										value={selectedIcon}
+										appendTo="body"
+										isMulti={false}
 									/>
-								)}
+								</BaseControl>
+							)}
 
-								{resOption == "tab" && (
-									<RangeControl
-										allowReset
-										label={__("Icon Size")}
-										value={TABiconSize}
-										onChange={(TABiconSize) => setAttributes({ TABiconSize })}
-										min={8}
-										max={100}
-									/>
-								)}
+							{media === "icon" && selectedIcon && (
+								<>
+									<WithResButtons
+										className="for-icon-size"
+										resRequiredProps={resRequiredProps}
+									>
+										{resOption == "desktop" && (
+											<RangeControl
+												label={__("Icon Size")}
+												value={iconSize}
+												onChange={(iconSize) => setAttributes({ iconSize })}
+												min={8}
+												max={100}
+											/>
+										)}
 
-								{resOption == "mobile" && (
-									<RangeControl
-										allowReset
-										label={__("Icon Size")}
-										value={MOBiconSize}
-										onChange={(MOBiconSize) => setAttributes({ MOBiconSize })}
-										min={8}
-										max={100}
-									/>
-								)}
-							</WithResButtons>
-						</>
-					)}
+										{resOption == "tab" && (
+											<RangeControl
+												allowReset
+												label={__("Icon Size")}
+												value={TABiconSize}
+												onChange={(TABiconSize) =>
+													setAttributes({ TABiconSize })
+												}
+												min={8}
+												max={100}
+											/>
+										)}
 
-					{media === "image" && imageUrl && (
-						<ImageAvatar
-							imageUrl={imageUrl}
-							onDeleteImage={() =>
-								setAttributes({
-									imageUrl: null,
-								})
-							}
-						/>
-					)}
+										{resOption == "mobile" && (
+											<RangeControl
+												allowReset
+												label={__("Icon Size")}
+												value={MOBiconSize}
+												onChange={(MOBiconSize) =>
+													setAttributes({ MOBiconSize })
+												}
+												min={8}
+												max={100}
+											/>
+										)}
+									</WithResButtons>
+								</>
+							)}
 
-					{media === "image" && imageUrl && (
-						<>
-							{/* <WithResButtons
+							{media === "image" && imageUrl && (
+								<ImageAvatar
+									imageUrl={imageUrl}
+									onDeleteImage={() =>
+										setAttributes({
+											imageUrl: null,
+										})
+									}
+								/>
+							)}
+
+							{media === "image" && imageUrl && (
+								<>
+									{/* <WithResButtons
 								className="for-head-img-height"
 								resRequiredProps={resRequiredProps}
 							>
@@ -367,12 +379,12 @@ function Inspector(props) {
 								)}
 							</WithResButtons>
 						 */}
-						</>
-					)}
+								</>
+							)}
 
-					{media === "number" && (
-						<>
-							{/* <BaseControl label={__("Number")} id="eb-infobox-number-id">
+							{media === "number" && (
+								<>
+									{/* <BaseControl label={__("Number")} id="eb-infobox-number-id">
 								<input
 									type="number"
 									value={number}
@@ -426,6 +438,8 @@ function Inspector(props) {
 								)}
 							</WithResButtons>
 						 */}
+								</>
+							)}
 						</>
 					)}
 				</PanelBody>
@@ -434,13 +448,19 @@ function Inspector(props) {
 				</PanelBody>
 				<PanelBody title={__("Subtitle")} initialOpen={false}>
 					<ToggleControl
-						label={__("Enable Subtitle")}
+						label={__("Enable")}
 						checked={enableSubTitle}
 						onChange={() => setAttributes({ enableSubTitle: !enableSubTitle })}
 					/>
 				</PanelBody>
-				<PanelBody title={__("Description")} initialOpen={false}>
-					cool inspectors
+				<PanelBody title={__("Content")} initialOpen={false}>
+					<ToggleControl
+						label={__("Show content")}
+						checked={enableDescription}
+						onChange={() =>
+							setAttributes({ enableDescription: !enableDescription })
+						}
+					/>
 				</PanelBody>
 			</span>
 		</InspectorControls>

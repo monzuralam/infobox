@@ -144,17 +144,63 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			background-color: #f4f9;
 		}
 		
-		.${blockId} .infobox-wrapper-inner img {
-			max-width: 100%;
-			height: auto;
-			object-fit: cover;
-		}
-		
+
+	`;
+
+	const wrapperInnerStylesDesktop = `	
 		.${blockId} .infobox-wrapper-inner {
 			display: flex;
 			${flexDirection ? `flex-direction: ${flexDirection};` : " "} 
 		}
-		
+	
+	`;
+
+	const mediaStylesDesktop = `	
+	${
+		media !== "none"
+			? ` 
+			
+			.${blockId} .icon-img-wrapper {
+				${mediaAlignSelf ? `align-self: ${mediaAlignSelf};` : " "} 
+				${
+					!flexDirection
+						? `margin-right: ${mediaWrapperMargin}px;`
+						: flexDirection === "row-reverse"
+						? `margin-left: ${mediaWrapperMargin}px;`
+						: " "
+				}
+				border-top-left-radius: 20px;
+				border-bottom-right-radius: 20px;
+				overflow: hidden;
+			}
+
+			.${blockId} .infobox-wrapper-inner img {
+				max-width: 100%;
+				height: auto;
+				object-fit: cover;
+			}
+
+			.${blockId} .eb-icon {
+				background-color: #3f5;
+				padding: 20px;
+				
+			}
+
+			.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
+				font-size: ${iconSize}px;
+				color: #fff;
+			}
+		`
+			: " "
+	}
+
+	`;
+
+	const contentStylesDesktop = `
+		.${blockId} .contents-wrapper {
+			${contentAlignment ? `text-align: ${contentAlignment};` : " "} 
+		}
+
 		.${blockId} .title {
 			font-size: 26px;
 			line-height: 1.3em;
@@ -175,67 +221,55 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			margin: 0;
 			padding: 10px 0;
 
-		}
+		}		
+	
+	`;
 
-		.${blockId} .eb-icon {
-			background-color: #3f5;
-			padding: 20px;
-			border-top-left-radius: 20px;
-			border-bottom-right-radius: 20px;
-		}
-
-		.${blockId} .icon-img-wrapper {
-			${mediaAlignSelf ? `align-self: ${mediaAlignSelf};` : " "} 
-			${
-				!flexDirection
-					? `margin-right: ${mediaWrapperMargin}px;`
-					: flexDirection === "row-reverse"
-					? `margin-left: ${mediaWrapperMargin}px;`
-					: " "
+	const mediaStylesTab = `	
+	${
+		media !== "none"
+			? `
+			.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
+				font-size: ${TABiconSize}px;
 			}
-			padding: 10px 0;
-		}
-
-		.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
-			font-size: ${iconSize}px;
-			color: #fff;
-		}
-
-		.${blockId} .contents-wrapper {
-			${contentAlignment ? `text-align: ${contentAlignment};` : " "} 
-		}
-	`;
-
-	const wrapperStylesTab = `
-		.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
-			font-size: ${TABiconSize}px;
-		}
+		`
+			: " "
+	}
 	
 	`;
 
-	const wrapperStylesMobile = `
-		.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
-			font-size: ${MOBiconSize}px;
-		}
-	
+	const mediaStylesMobile = `
+	${
+		media !== "none"
+			? `
+			.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
+				font-size: ${MOBiconSize}px;
+			}
+		`
+			: " "
+	}
+		
 	
 	`;
 
 	// all css styles for large screen width (desktop/laptop) in strings ⬇
 	const desktopAllStyles = softMinifyCssStrings(`		
 		${isCssExists(wrapperStylesDesktop) ? wrapperStylesDesktop : " "}
+		${isCssExists(wrapperInnerStylesDesktop) ? wrapperInnerStylesDesktop : " "}
+		${isCssExists(mediaStylesDesktop) ? mediaStylesDesktop : " "}
+		${isCssExists(contentStylesDesktop) ? contentStylesDesktop : " "}
 		
 	`);
 
 	// all css styles for Tab in strings ⬇
 	const tabAllStyles = softMinifyCssStrings(`
-		${isCssExists(wrapperStylesTab) ? wrapperStylesTab : " "}
+		${isCssExists(mediaStylesTab) ? mediaStylesTab : " "}
 		
 	`);
 
 	// all css styles for Mobile in strings ⬇
 	const mobileAllStyles = softMinifyCssStrings(`
-		${isCssExists(wrapperStylesMobile) ? wrapperStylesMobile : " "}
+		${isCssExists(mediaStylesMobile) ? mediaStylesMobile : " "}
 	
 	`);
 

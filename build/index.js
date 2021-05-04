@@ -4088,7 +4088,7 @@ var LAYOUT_TYPES = [{
   label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("preset-4"),
   value: "preset4"
 }];
-var MEDIA_TYPES = ["image", "icon", "number"];
+var MEDIA_TYPES = ["image", "icon", "number", "none"];
 
 /***/ }),
 
@@ -4261,15 +4261,18 @@ var Edit = function Edit(_ref) {
   var blockProps = Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"])({
     className: "eb-guten-block-main-parent-wrapper"
   });
-  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tmargin: auto;\n\t\t\tpadding: 30px;\n\t\t\tbackground-color: #f4f9;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\tmax-width: 100%;\n\t\t\theight: auto;\n\t\t\tobject-fit: cover;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\t").concat(flexDirection ? "flex-direction: ".concat(flexDirection, ";") : " ", " \n\t\t}\n\t\t\n\t\t.").concat(blockId, " .title {\n\t\t\tfont-size: 26px;\n\t\t\tline-height: 1.3em;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .subtitle {\n\t\t\tfont-size: 16px;\n\t\t\tline-height: 2;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .description {\n\t\t\tfont-size: 20px;\n\t\t\tline-height: 2em;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\n\t\t}\n\n\t\t.").concat(blockId, " .eb-icon {\n\t\t\tbackground-color: #3f5;\n\t\t\tpadding: 20px;\n\t\t\tborder-top-left-radius: 20px;\n\t\t\tborder-bottom-right-radius: 20px;\n\t\t}\n\n\t\t.").concat(blockId, " .icon-img-wrapper {\n\t\t\t").concat(mediaAlignSelf ? "align-self: ".concat(mediaAlignSelf, ";") : " ", " \n\t\t\t").concat(!flexDirection ? "margin-right: ".concat(mediaWrapperMargin, "px;") : flexDirection === "row-reverse" ? "margin-left: ".concat(mediaWrapperMargin, "px;") : " ", "\n\t\t\tpadding: 10px 0;\n\t\t}\n\n\t\t.").concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\tfont-size: ").concat(iconSize, "px;\n\t\t\tcolor: #fff;\n\t\t}\n\n\t\t.").concat(blockId, " .contents-wrapper {\n\t\t\t").concat(contentAlignment ? "text-align: ".concat(contentAlignment, ";") : " ", " \n\t\t}\n\t");
-  var wrapperStylesTab = "\n\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\tfont-size: ").concat(TABiconSize, "px;\n\t\t}\n\t\n\t");
-  var wrapperStylesMobile = "\n\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\tfont-size: ").concat(MOBiconSize, "px;\n\t\t}\n\t\n\t\n\t"); // all css styles for large screen width (desktop/laptop) in strings ⬇
+  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tmargin: auto;\n\t\t\tpadding: 30px;\n\t\t\tbackground-color: #f4f9;\n\t\t}\n\t\t\n\n\t");
+  var wrapperInnerStylesDesktop = "\t\n\t\t.".concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\t").concat(flexDirection ? "flex-direction: ".concat(flexDirection, ";") : " ", " \n\t\t}\n\t\n\t");
+  var mediaStylesDesktop = "\t\n\t".concat(media !== "none" ? " \n\t\t\t\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t").concat(mediaAlignSelf ? "align-self: ".concat(mediaAlignSelf, ";") : " ", " \n\t\t\t\t").concat(!flexDirection ? "margin-right: ".concat(mediaWrapperMargin, "px;") : flexDirection === "row-reverse" ? "margin-left: ".concat(mediaWrapperMargin, "px;") : " ", "\n\t\t\t\tborder-top-left-radius: 20px;\n\t\t\t\tborder-bottom-right-radius: 20px;\n\t\t\t\toverflow: hidden;\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\tmax-width: 100%;\n\t\t\t\theight: auto;\n\t\t\t\tobject-fit: cover;\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .eb-icon {\n\t\t\t\tbackground-color: #3f5;\n\t\t\t\tpadding: 20px;\n\t\t\t\t\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\tfont-size: ").concat(iconSize, "px;\n\t\t\t\tcolor: #fff;\n\t\t\t}\n\t\t") : " ", "\n\n\t");
+  var contentStylesDesktop = "\n\t\t.".concat(blockId, " .contents-wrapper {\n\t\t\t").concat(contentAlignment ? "text-align: ".concat(contentAlignment, ";") : " ", " \n\t\t}\n\n\t\t.").concat(blockId, " .title {\n\t\t\tfont-size: 26px;\n\t\t\tline-height: 1.3em;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .subtitle {\n\t\t\tfont-size: 16px;\n\t\t\tline-height: 2;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .description {\n\t\t\tfont-size: 20px;\n\t\t\tline-height: 2em;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\n\t\t}\t\t\n\t\n\t");
+  var mediaStylesTab = "\t\n\t".concat(media !== "none" ? "\n\t\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\tfont-size: ").concat(TABiconSize, "px;\n\t\t\t}\n\t\t") : " ", "\n\t\n\t");
+  var mediaStylesMobile = "\n\t".concat(media !== "none" ? "\n\t\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\tfont-size: ").concat(MOBiconSize, "px;\n\t\t\t}\n\t\t") : " ", "\n\t\t\n\t\n\t"); // all css styles for large screen width (desktop/laptop) in strings ⬇
 
-  var desktopAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\t\t\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesDesktop) ? wrapperStylesDesktop : " ", "\n\t\t\n\t")); // all css styles for Tab in strings ⬇
+  var desktopAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\t\t\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesDesktop) ? wrapperStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperInnerStylesDesktop) ? wrapperInnerStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(mediaStylesDesktop) ? mediaStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(contentStylesDesktop) ? contentStylesDesktop : " ", "\n\t\t\n\t")); // all css styles for Tab in strings ⬇
 
-  var tabAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesTab) ? wrapperStylesTab : " ", "\n\t\t\n\t")); // all css styles for Mobile in strings ⬇
+  var tabAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(mediaStylesTab) ? mediaStylesTab : " ", "\n\t\t\n\t")); // all css styles for Mobile in strings ⬇
 
-  var mobileAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesMobile) ? wrapperStylesMobile : " ", "\n\t\n\t")); // Set All Style in "blockMeta" Attribute
+  var mobileAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(mediaStylesMobile) ? mediaStylesMobile : " ", "\n\t\n\t")); // Set All Style in "blockMeta" Attribute
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var styleObject = {
@@ -4785,7 +4788,8 @@ function Inspector(props) {
       TABiconSize = attributes.TABiconSize,
       MOBiconSize = attributes.MOBiconSize,
       flexDirection = attributes.flexDirection,
-      mediaWrapperMargin = attributes.mediaWrapperMargin; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
+      mediaWrapperMargin = attributes.mediaWrapperMargin,
+      enableDescription = attributes.enableDescription; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var bodyClasses = document.body.className; // console.log("----log from inspector useEffect with empty []", {
@@ -4902,8 +4906,8 @@ function Inspector(props) {
     min: 0,
     max: 200
   })) : null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Media"),
-    initialOpen: false
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Media") // initialOpen={false}
+
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
     id: "eb-infobox-image-icon"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
@@ -4919,7 +4923,7 @@ function Inspector(props) {
         });
       }
     }, value);
-  }))), media === "icon" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
+  }))), media !== "none" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, media === "icon" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Select Icon")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_fonticonpicker_react_fonticonpicker__WEBPACK_IMPORTED_MODULE_4___default.a, {
     icons: _util_faIcons_js__WEBPACK_IMPORTED_MODULE_5__["default"],
@@ -4973,14 +4977,14 @@ function Inspector(props) {
         imageUrl: null
       });
     }
-  }), media === "image" && imageUrl && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null), media === "number" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
+  }), media === "image" && imageUrl && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null), media === "number" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Title"),
     initialOpen: false
   }, "cool insoectors"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Subtitle"),
     initialOpen: false
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ToggleControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Enable Subtitle"),
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Enable"),
     checked: enableSubTitle,
     onChange: function onChange() {
       return setAttributes({
@@ -4988,9 +4992,17 @@ function Inspector(props) {
       });
     }
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Description"),
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Content"),
     initialOpen: false
-  }, "cool inspectors")));
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ToggleControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Show content"),
+    checked: enableDescription,
+    onChange: function onChange() {
+      return setAttributes({
+        enableDescription: !enableDescription
+      });
+    }
+  }))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);

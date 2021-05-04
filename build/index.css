@@ -699,4 +699,65 @@ body.eb-res-option-mobile .editor-styles-wrapper {
   background: #e3e3e3;
 }
 
+.typoResButton {
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 23px;
+  width: 16px;
+}
+
+.typoResButton.active {
+  color: #6c40f7;
+}
+
+.wrap_res {
+  position: relative;
+}
+
+.resIcons {
+  position: absolute;
+  left: 80px;
+}
+
+.eb-typography-component-panel .wrap_res.forFontSize .resIcons {
+  left: 70px;
+}
+
+.eb-typography-component-panel .wrap_res.forLetterSpacing .resIcons {
+  left: 100px;
+}
+
+.eb-typography-component-panel .wrap_res.forLineHeight .resIcons {
+  left: 83px;
+}
+
+.eb-unit-control-btn-group {
+  margin: 0px 0px -20px 0px;
+  text-align: right;
+  display: block;
+}
+
+.eb-unit-control-btn {
+  color: black;
+  background: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  text-shadow: none !important;
+}
+
+.eb-unit-active {
+  color: #6c40f7 !important;
+  font-weight: bold;
+}
+
+.eb-panel-control .components-panel__body .components-input-control__container select.components-select-control__input {
+  line-height: 2em;
+}
+
+.withResWrapperInDimension .dimention-label {
+  display: inline-block;
+  margin-right: 5px;
+}
+
 /*# sourceMappingURL=index.css.map*/
