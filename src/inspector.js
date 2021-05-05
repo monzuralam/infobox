@@ -123,6 +123,9 @@ function Inspector(props) {
 		MOBmediaImgWidth,
 
 		//
+		isMediaImgHeightAuto,
+
+		//
 		mediaImgHeightUnit,
 
 		//
@@ -537,6 +540,80 @@ function Inspector(props) {
 											</ResetControl>
 										)}
 									</WithResButtons>
+
+									<ToggleControl
+										label={__("Auto Image Height")}
+										checked={isMediaImgHeightAuto}
+										onChange={() =>
+											setAttributes({
+												isMediaImgHeightAuto: !isMediaImgHeightAuto,
+											})
+										}
+									/>
+
+									{!isMediaImgHeightAuto && (
+										<>
+											<UnitControl
+												selectedUnit={mediaImgHeightUnit}
+												unitTypes={sizeUnitTypes}
+												onClick={(mediaImgHeightUnit) =>
+													setAttributes({ mediaImgHeightUnit })
+												}
+											/>
+											<WithResButtons
+												className="for-media-image-height"
+												resRequiredProps={resRequiredProps}
+											>
+												{resOption == "desktop" && (
+													<RangeControl
+														label={__("Image Height")}
+														value={mediaImgHeight}
+														onChange={(mediaImgHeight) =>
+															setAttributes({ mediaImgHeight })
+														}
+														min={0}
+														max={2000}
+													/>
+												)}
+
+												{resOption == "tab" && (
+													<ResetControl
+														onReset={() =>
+															setAttributes({ TABmediaImgHeight: undefined })
+														}
+													>
+														<RangeControl
+															label={__("Image Height")}
+															value={TABmediaImgHeight}
+															onChange={(TABmediaImgHeight) =>
+																setAttributes({ TABmediaImgHeight })
+															}
+															min={0}
+															max={1030}
+														/>
+													</ResetControl>
+												)}
+
+												{resOption == "mobile" && (
+													<ResetControl
+														onReset={() =>
+															setAttributes({ MOBmediaImgHeight: undefined })
+														}
+													>
+														<RangeControl
+															label={__("Image Height")}
+															value={MOBmediaImgHeight}
+															onChange={(MOBmediaImgHeight) =>
+																setAttributes({ MOBmediaImgHeight })
+															}
+															min={0}
+															max={780}
+														/>
+													</ResetControl>
+												)}
+											</WithResButtons>
+										</>
+									)}
 								</>
 							)}
 

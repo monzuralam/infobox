@@ -103,6 +103,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		MOBmediaImgWidth,
 
 		//
+		isMediaImgHeightAuto,
+
+		//
 		mediaImgHeightUnit,
 
 		//
@@ -277,6 +280,15 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					height: auto;
 					object-fit: cover;
 					${mediaImgWidth ? `width: ${mediaImgWidth}${mediaImgWidthUnit};` : " "}
+				
+					${
+						isMediaImgHeightAuto
+							? `height:auto;`
+							: mediaImgHeight
+							? `height: ${mediaImgHeight}${mediaImgHeightUnit};`
+							: " "
+					}
+					
 				}
 				
 				`
@@ -437,6 +449,15 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				.${blockId} .infobox-wrapper-inner img {
 					
 					${TABmediaImgWidth ? `width: ${TABmediaImgWidth}${mediaImgWidthUnit};` : " "}
+					
+					${
+						isMediaImgHeightAuto
+							? `height:auto;`
+							: TABmediaImgHeight
+							? `height: ${TABmediaImgHeight}${mediaImgHeightUnit};`
+							: " "
+					}
+					
 				}
 				
 				`
@@ -516,6 +537,16 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				.${blockId} .infobox-wrapper-inner img {
 					
 					${MOBmediaImgWidth ? `width: ${MOBmediaImgWidth}${mediaImgWidthUnit};` : " "}
+
+					
+					${
+						isMediaImgHeightAuto
+							? `height:auto;`
+							: MOBmediaImgHeight
+							? `height: ${MOBmediaImgHeight}${mediaImgHeightUnit};`
+							: " "
+					}
+
 				}
 				
 				`

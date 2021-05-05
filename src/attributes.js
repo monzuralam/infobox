@@ -103,19 +103,22 @@ const attributes = {
 	},
 
 	//
+	isMediaImgHeightAuto: {
+		type: "boolean",
+		default: true,
+	},
 	mediaImgHeightUnit: {
 		type: "string",
 		default: "px",
 	},
 	mediaImgHeight: {
-		type: "string",
-		default: "auto",
+		type: number,
 	},
 	TABmediaImgHeight: {
-		type: "string",
+		type: number,
 	},
 	MOBmediaImgHeight: {
-		type: "string",
+		type: number,
 	},
 
 	//
