@@ -4114,13 +4114,15 @@ var ICON_IMAGE_BG_TYPES = [{
 /*!****************************************************!*\
   !*** ./src/constants/typographyPrefixConstants.js ***!
   \****************************************************/
-/*! exports provided: typoPrefix_header, typoPrefix_content */
+/*! exports provided: typoPrefix_number, typoPrefix_header, typoPrefix_content */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "typoPrefix_number", function() { return typoPrefix_number; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "typoPrefix_header", function() { return typoPrefix_header; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "typoPrefix_content", function() { return typoPrefix_content; });
+var typoPrefix_number = "number";
 var typoPrefix_header = "header";
 var typoPrefix_content = "content";
 
@@ -4287,6 +4289,15 @@ var Edit = function Edit(_ref) {
     className: "eb-guten-block-main-parent-wrapper"
   });
 
+  var _generateTypographySt = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateTypographyStyles"])({
+    attributes: attributes,
+    prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_7__["typoPrefix_number"],
+    defaultFontSize: 28
+  }),
+      numTypoStylesDesktop = _generateTypographySt.typoStylesDesktop,
+      numTypoStylesTab = _generateTypographySt.typoStylesTab,
+      numTypoStylesMobile = _generateTypographySt.typoStylesMobile;
+
   var _generateDimensionsCo = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
     attributes: attributes,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["mediaBackground"],
@@ -4316,10 +4327,10 @@ var Edit = function Edit(_ref) {
 
   var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tmargin: auto;\n\t\t\tpadding: 30px;\n\t\t\tbackground-color: #f4f9;\n\t\t}\n\t\t\n\n\t");
   var wrapperInnerStylesDesktop = "\t\n\t\t.".concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\t").concat(flexDirection ? "flex-direction: ".concat(flexDirection, ";") : " ", " \n\t\t}\n\t\n\t");
-  var mediaStylesDesktop = "\t\n\t".concat(media !== "none" ? " \n\t\t\t\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t").concat(mediaAlignSelf ? "align-self: ".concat(mediaAlignSelf, ";") : " ", " \n\n\t\t\t\t").concat(mediaBgMarginStylesDesktop, "\n\n\t\t\t\t").concat(!flexDirection ? "margin-right: ".concat(mediaWrapperMargin, "px;") : flexDirection === "row-reverse" ? "margin-left: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column" ? "margin-bottom: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column-reverse" ? "margin-top: ".concat(mediaWrapperMargin, "px;") : " ", "\n\t\t\t\t\n\t\t\t\t").concat(mediaRadiusStylesDesktop, "\n\t\t\t\t\n\t\t\t\toverflow: hidden;\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\tmax-width: 100%;\n\t\t\t\theight: auto;\n\t\t\t\tobject-fit: cover;\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .number-or-icon {\n\t\t\t\t\n\t\t\t\t").concat(mediaBgPaddingDesktop, "\n\n\t\t\t\t").concat(useNumIconBg ? "".concat(numIconBgType === "fill" ? "background-color: ".concat(numIconBgColor, ";") : numIconBgType === "gradient" ? "background-image: ".concat(numIconBgGradient, ";") : " ") : " ", "\n\t\t\t\t\n\n\t\t\t\t\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .number-or-icon > span{\n\t\t\t\tcolor: ").concat(numIconColor || "#fff", ";\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\tfont-size: ").concat(iconSize, "px;\n\t\t\t\t\n\t\t\t}\n\t\t") : " ", "\n\n\t");
+  var mediaStylesDesktop = "\t\n\t".concat(media !== "none" ? " \n\t\t\t\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t").concat(mediaAlignSelf ? "align-self: ".concat(mediaAlignSelf, ";") : " ", " \n\n\t\t\t\t").concat(mediaBgMarginStylesDesktop, "\n\n\t\t\t\t").concat(!flexDirection ? "margin-right: ".concat(mediaWrapperMargin, "px;") : flexDirection === "row-reverse" ? "margin-left: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column" ? "margin-bottom: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column-reverse" ? "margin-top: ".concat(mediaWrapperMargin, "px;") : " ", "\n\t\t\t\t\n\t\t\t\t").concat(mediaRadiusStylesDesktop, "\n\t\t\t\t\n\t\t\t\toverflow: hidden;\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\tmax-width: 100%;\n\t\t\t\theight: auto;\n\t\t\t\tobject-fit: cover;\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .number-or-icon {\n\t\t\t\t\n\t\t\t\t").concat(mediaBgPaddingDesktop, "\n\n\t\t\t\t").concat(useNumIconBg ? "".concat(numIconBgType === "fill" ? "background-color: ".concat(numIconBgColor, ";") : numIconBgType === "gradient" ? "background-image: ".concat(numIconBgGradient, ";") : " ") : " ", "\n\t\t\t\t\n\n\t\t\t\t\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .number-or-icon > span{\n\t\t\t\tcolor: ").concat(numIconColor || "#fff", ";\n\t\t\t}\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t").concat(numTypoStylesDesktop, "\n\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\t\t\t.").concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\tfont-size: ").concat(iconSize, "px;\n\t\t\t\t\n\t\t\t}\n\n\n\t\t") : " ", "\n\n\t");
   var contentStylesDesktop = "\n\t\t.".concat(blockId, " .contents-wrapper {\n\t\t\tflex: 1;\n\t\t\t").concat(contentAlignment ? "text-align: ".concat(contentAlignment, ";") : " ", " \n\t\t}\n\n\t\t.").concat(blockId, " .title {\n\t\t\tfont-size: 26px;\n\t\t\tline-height: 1.3em;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .subtitle {\n\t\t\tfont-size: 16px;\n\t\t\tline-height: 2;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .description {\n\t\t\tfont-size: 20px;\n\t\t\tline-height: 2em;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\n\t\t}\t\t\n\t\n\t");
-  var mediaStylesTab = "\t\n\t".concat(media !== "none" ? "\n\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t").concat(mediaRadiusStylesTab, "\n\n\n\t\t\t\t").concat(mediaBgMarginStylesTab, "\t\t\t\t\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .number-or-icon {\n\t\t\t\t").concat(mediaBgPaddingTab, "\t\t\t\t\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\tfont-size: ").concat(TABiconSize, "px;\n\t\t\t}\n\t\t") : " ", "\n\t\n\t");
-  var mediaStylesMobile = "\n\t".concat(media !== "none" ? "\n\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t").concat(mediaRadiusStylesMobile, "\n\t\t\t\t\n\t\t\t\t").concat(mediaBgMarginStylesMobile, "\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .number-or-icon {\n\t\t\t\t").concat(mediaBgPaddingMobile, "\t\t\t\t\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\tfont-size: ").concat(MOBiconSize, "px;\n\t\t\t}\n\t\t") : " ", "\n\t\t\n\t\n\t"); // all css styles for large screen width (desktop/laptop) in strings ⬇
+  var mediaStylesTab = "\t\n\t".concat(media !== "none" ? "\n\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t").concat(mediaRadiusStylesTab, "\n\n\n\t\t\t\t").concat(mediaBgMarginStylesTab, "\t\t\t\t\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .number-or-icon {\n\t\t\t\t").concat(mediaBgPaddingTab, "\t\t\t\t\n\t\t\t}\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t").concat(numTypoStylesTab, "\n\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t.").concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\tfont-size: ").concat(TABiconSize, "px;\n\t\t\t}\n\t\t") : " ", "\n\t\n\t");
+  var mediaStylesMobile = "\n\t".concat(media !== "none" ? "\n\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t").concat(mediaRadiusStylesMobile, "\n\t\t\t\t\n\t\t\t\t").concat(mediaBgMarginStylesMobile, "\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .number-or-icon {\n\t\t\t\t").concat(mediaBgPaddingMobile, "\t\t\t\t\n\t\t\t}\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t").concat(numTypoStylesMobile, "\n\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t.").concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\tfont-size: ").concat(MOBiconSize, "px;\n\t\t\t}\n\t\t") : " ", "\n\t\t\n\t\n\t"); // all css styles for large screen width (desktop/laptop) in strings ⬇
 
   var desktopAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\t\t\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesDesktop) ? wrapperStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperInnerStylesDesktop) ? wrapperInnerStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(mediaStylesDesktop) ? mediaStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(contentStylesDesktop) ? contentStylesDesktop : " ", "\n\t\t\n\t")); // all css styles for Tab in strings ⬇
 
@@ -5136,7 +5147,24 @@ function Inspector(props) {
     },
     min: 8,
     max: 100
-  }))), media === "number" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null), (media === "number" || media === "icon") && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+  }))), media === "number" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Number"),
+    id: "eb-infobox-number-id"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("input", {
+    type: "number",
+    value: number,
+    id: "eb-infobox-number-id",
+    onChange: function onChange(e) {
+      return setAttributes({
+        number: parseInt(e.target.value, 10) || 0
+      });
+    },
+    min: 0
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    baseLabel: "Number Typography",
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_14__["typoPrefix_number"],
+    typoRequiredProps: typoRequiredProps
+  })), (media === "number" || media === "icon") && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Color"),
     color: numIconColor,
     onChange: function onChange(numIconColor) {

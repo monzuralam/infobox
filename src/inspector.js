@@ -37,6 +37,7 @@ import WithResButtons from "../util/withResButtons";
 import {
 	typoPrefix_header,
 	typoPrefix_content,
+	typoPrefix_number,
 } from "./constants/typographyPrefixConstants";
 
 import {
@@ -316,60 +317,25 @@ function Inspector(props) {
 
 							{media === "number" && (
 								<>
-									{/* <BaseControl label={__("Number")} id="eb-infobox-number-id">
-								<input
-									type="number"
-									value={number}
-									id="eb-infobox-number-id"
-									onChange={(event) =>
-										setAttributes({
-											number: parseInt(event.target.value, 10),
-										})
-									}
-									min={0}
-								/>
-							</BaseControl>
-							<WithResButtons
-								className="for-number-size"
-								resRequiredProps={resRequiredProps}
-							>
-								{resOption == "desktop" && (
-									<RangeControl
-										label={__("Number Size")}
-										value={numberSize}
-										onChange={(numberSize) => setAttributes({ numberSize })}
-										min={8}
-										max={64}
-									/>
-								)}
+									<BaseControl label={__("Number")} id="eb-infobox-number-id">
+										<input
+											type="number"
+											value={number}
+											id="eb-infobox-number-id"
+											onChange={(e) =>
+												setAttributes({
+													number: parseInt(e.target.value, 10) || 0,
+												})
+											}
+											min={0}
+										/>
+									</BaseControl>
 
-								{resOption == "tab" && (
-									<RangeControl
-										allowReset
-										label={__("Number Size")}
-										value={TABnumberSize}
-										onChange={(TABnumberSize) =>
-											setAttributes({ TABnumberSize })
-										}
-										min={8}
-										max={64}
+									<TypographyDropdown
+										baseLabel="Number Typography"
+										typographyPrefixConstant={typoPrefix_number}
+										typoRequiredProps={typoRequiredProps}
 									/>
-								)}
-
-								{resOption == "mobile" && (
-									<RangeControl
-										allowReset
-										label={__("Number Size")}
-										value={MOBnumberSize}
-										onChange={(MOBnumberSize) =>
-											setAttributes({ MOBnumberSize })
-										}
-										min={8}
-										max={64}
-									/>
-								)}
-							</WithResButtons>
-						 */}
 								</>
 							)}
 

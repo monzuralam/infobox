@@ -21,6 +21,7 @@ import Inspector from "./inspector";
 import {
 	typoPrefix_content,
 	typoPrefix_header,
+	typoPrefix_number,
 } from "./constants/typographyPrefixConstants";
 
 import {
@@ -160,6 +161,16 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	});
 
 	const {
+		typoStylesDesktop: numTypoStylesDesktop,
+		typoStylesTab: numTypoStylesTab,
+		typoStylesMobile: numTypoStylesMobile,
+	} = generateTypographyStyles({
+		attributes,
+		prefixConstant: typoPrefix_number,
+		defaultFontSize: 28,
+	});
+
+	const {
 		dimensionStylesDesktop: mediaBgPaddingDesktop,
 		dimensionStylesTab: mediaBgPaddingTab,
 		dimensionStylesMobile: mediaBgPaddingMobile,
@@ -264,10 +275,25 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				color: ${numIconColor || "#fff"};
 			}
 
+			${
+				media === "number"
+					? `
+
+				.${blockId} span.eb-infobox-number{
+					${numTypoStylesDesktop}
+				}				
+				
+				`
+					: " "
+			}
+
+
 			.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
 				font-size: ${iconSize}px;
 				
 			}
+
+
 		`
 			: " "
 	}
@@ -320,6 +346,18 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				${mediaBgPaddingTab}				
 			}
 
+			${
+				media === "number"
+					? `
+
+				.${blockId} span.eb-infobox-number{
+					${numTypoStylesTab}
+				}				
+				
+				`
+					: " "
+			}
+
 			.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
 				font-size: ${TABiconSize}px;
 			}
@@ -342,6 +380,18 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 			.${blockId} .number-or-icon {
 				${mediaBgPaddingMobile}				
+			}
+
+			${
+				media === "number"
+					? `
+
+				.${blockId} span.eb-infobox-number{
+					${numTypoStylesMobile}
+				}				
+				
+				`
+					: " "
 			}
 
 			.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
