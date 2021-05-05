@@ -14,6 +14,7 @@ import "./editor.scss";
 import {
 	softMinifyCssStrings,
 	isCssExists,
+	generateDimensionsControlStyles,
 	generateTypographyStyles,
 } from "./helpers";
 import Inspector from "./inspector";
@@ -21,6 +22,11 @@ import {
 	typoPrefix_content,
 	typoPrefix_header,
 } from "./constants/typographyPrefixConstants";
+
+import {
+	mediaBackground,
+	mediaBgRadius,
+} from "./constants/dimensionsConstants";
 
 const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	const {
@@ -152,6 +158,26 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		className: `eb-guten-block-main-parent-wrapper`,
 	});
 
+	const {
+		dimensionStylesDesktop: mediaBgPaddingDesktop,
+		dimensionStylesTab: mediaBgPaddingTab,
+		dimensionStylesMobile: mediaBgPaddingMobile,
+	} = generateDimensionsControlStyles({
+		attributes,
+		controlName: mediaBackground,
+		styleFor: "padding",
+	});
+
+	const {
+		dimensionStylesDesktop: mediaRadiusStylesDesktop,
+		dimensionStylesTab: mediaRadiusStylesTab,
+		dimensionStylesMobile: mediaRadiusStylesMobile,
+	} = generateDimensionsControlStyles({
+		attributes,
+		controlName: mediaBgRadius,
+		styleFor: "border-radius",
+	});
+
 	const wrapperStylesDesktop = `
 		.${blockId} {
 			margin: auto;
@@ -188,8 +214,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 						? `margin-top: ${mediaWrapperMargin}px;`
 						: " "
 				}
-				border-top-left-radius: 20px;
-				border-bottom-right-radius: 20px;
+				
+				${mediaRadiusStylesDesktop}
+				
 				overflow: hidden;
 			}
 
@@ -201,6 +228,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 			.${blockId} .number-or-icon {
 				
+				${mediaBgPaddingDesktop}
+
 				${
 					useNumIconBg
 						? `${
@@ -214,7 +243,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				}
 				
 
-				padding: 20px;
+				
 			}
 
 			.${blockId} .number-or-icon > span{
@@ -265,6 +294,16 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	${
 		media !== "none"
 			? `
+
+			.${blockId} .icon-img-wrapper {
+				${mediaRadiusStylesTab}
+				
+			}
+
+			.${blockId} .number-or-icon {
+				${mediaBgPaddingTab}				
+			}
+
 			.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
 				font-size: ${TABiconSize}px;
 			}
@@ -278,6 +317,16 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	${
 		media !== "none"
 			? `
+
+			.${blockId} .icon-img-wrapper {
+				${mediaRadiusStylesTab}
+				
+			}
+
+			.${blockId} .number-or-icon {
+				${mediaBgPaddingMobile}				
+			}
+
 			.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
 				font-size: ${MOBiconSize}px;
 			}

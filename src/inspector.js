@@ -25,7 +25,7 @@ import faIcons from "../util/faIcons.js";
 
 import TypographyDropdown from "../util/typography-control-v2";
 
-import DimensionsControl from "../util/dimensions-control-v2";
+import ResponsiveDimensionsControl from "../util/dimensions-control-v2";
 import ImageAvatar from "../util/image-avatar/ImageAvater";
 import GradientColorControl from "../util/gradient-color-controller";
 import UnitControl from "../util/unit-control";
@@ -38,6 +38,11 @@ import {
 	typoPrefix_header,
 	typoPrefix_content,
 } from "./constants/typographyPrefixConstants";
+
+import {
+	mediaBackground,
+	mediaBgRadius,
+} from "./constants/dimensionsConstants";
 
 import { LAYOUT_TYPES, MEDIA_TYPES, ICON_IMAGE_BG_TYPES } from "./constants";
 
@@ -308,6 +313,133 @@ function Inspector(props) {
 								</>
 							)}
 
+							{media === "number" && (
+								<>
+									{/* <BaseControl label={__("Number")} id="eb-infobox-number-id">
+								<input
+									type="number"
+									value={number}
+									id="eb-infobox-number-id"
+									onChange={(event) =>
+										setAttributes({
+											number: parseInt(event.target.value, 10),
+										})
+									}
+									min={0}
+								/>
+							</BaseControl>
+							<WithResButtons
+								className="for-number-size"
+								resRequiredProps={resRequiredProps}
+							>
+								{resOption == "desktop" && (
+									<RangeControl
+										label={__("Number Size")}
+										value={numberSize}
+										onChange={(numberSize) => setAttributes({ numberSize })}
+										min={8}
+										max={64}
+									/>
+								)}
+
+								{resOption == "tab" && (
+									<RangeControl
+										allowReset
+										label={__("Number Size")}
+										value={TABnumberSize}
+										onChange={(TABnumberSize) =>
+											setAttributes({ TABnumberSize })
+										}
+										min={8}
+										max={64}
+									/>
+								)}
+
+								{resOption == "mobile" && (
+									<RangeControl
+										allowReset
+										label={__("Number Size")}
+										value={MOBnumberSize}
+										onChange={(MOBnumberSize) =>
+											setAttributes({ MOBnumberSize })
+										}
+										min={8}
+										max={64}
+									/>
+								)}
+							</WithResButtons>
+						 */}
+								</>
+							)}
+
+							{(media === "number" || media === "icon") && (
+								<>
+									<ColorControl
+										label={__("Color")}
+										color={numIconColor}
+										onChange={(numIconColor) => setAttributes({ numIconColor })}
+									/>
+
+									<ToggleControl
+										label={__("Use Background")}
+										checked={useNumIconBg}
+										onChange={() =>
+											setAttributes({ useNumIconBg: !useNumIconBg })
+										}
+									/>
+
+									{useNumIconBg && (
+										<>
+											<ResponsiveDimensionsControl
+												resRequiredProps={typoRequiredProps}
+												controlName={mediaBackground}
+												baseLabel="Background size"
+											/>
+
+											<BaseControl label={__("Background Type")}>
+												<ButtonGroup id="eb-infobox-infobox-background">
+													{ICON_IMAGE_BG_TYPES.map(({ value, label }) => (
+														<Button
+															isLarge
+															isPrimary={numIconBgType === value}
+															isSecondary={numIconBgType !== value}
+															onClick={() =>
+																setAttributes({
+																	numIconBgType: value,
+																})
+															}
+														>
+															{label}
+														</Button>
+													))}
+												</ButtonGroup>
+											</BaseControl>
+
+											{numIconBgType === "fill" && (
+												<ColorControl
+													label={__("Background Color")}
+													color={numIconBgColor}
+													onChange={(numIconBgColor) =>
+														setAttributes({ numIconBgColor })
+													}
+												/>
+											)}
+
+											{numIconBgType === "gradient" && (
+												<PanelBody title={__("Gradient")} initialOpen={false}>
+													<GradientColorControl
+														gradientColor={numIconBgGradient}
+														onChange={(numIconBgGradient) =>
+															setAttributes({ numIconBgGradient })
+														}
+													/>
+												</PanelBody>
+											)}
+										</>
+									)}
+								</>
+							)}
+
 							{media === "image" && !imageUrl && (
 								<MediaUpload
 									onSelect={({ id, url }) =>
@@ -421,126 +553,12 @@ function Inspector(props) {
 								</>
 							)}
 
-							{media === "number" && (
-								<>
-									{/* <BaseControl label={__("Number")} id="eb-infobox-number-id">
-								<input
-									type="number"
-									value={number}
-									id="eb-infobox-number-id"
-									onChange={(event) =>
-										setAttributes({
-											number: parseInt(event.target.value, 10),
-										})
-									}
-									min={0}
-								/>
-							</BaseControl>
-							<WithResButtons
-								className="for-number-size"
-								resRequiredProps={resRequiredProps}
-							>
-								{resOption == "desktop" && (
-									<RangeControl
-										label={__("Number Size")}
-										value={numberSize}
-										onChange={(numberSize) => setAttributes({ numberSize })}
-										min={8}
-										max={64}
-									/>
-								)}
-
-								{resOption == "tab" && (
-									<RangeControl
-										allowReset
-										label={__("Number Size")}
-										value={TABnumberSize}
-										onChange={(TABnumberSize) =>
-											setAttributes({ TABnumberSize })
-										}
-										min={8}
-										max={64}
-									/>
-								)}
-
-								{resOption == "mobile" && (
-									<RangeControl
-										allowReset
-										label={__("Number Size")}
-										value={MOBnumberSize}
-										onChange={(MOBnumberSize) =>
-											setAttributes({ MOBnumberSize })
-										}
-										min={8}
-										max={64}
-									/>
-								)}
-							</WithResButtons>
-						 */}
-								</>
-							)}
-
-							{(media === "number" || media === "icon") && (
-								<>
-									<ColorControl
-										label={__("Color")}
-										color={numIconColor}
-										onChange={(numIconColor) => setAttributes({ numIconColor })}
-									/>
-
-									<ToggleControl
-										label={__("Use Background")}
-										checked={useNumIconBg}
-										onChange={() =>
-											setAttributes({ useNumIconBg: !useNumIconBg })
-										}
-									/>
-
-									{useNumIconBg && (
-										<>
-											<BaseControl label={__("Background Type")}>
-												<ButtonGroup id="eb-infobox-infobox-background">
-													{ICON_IMAGE_BG_TYPES.map(({ value, label }) => (
-														<Button
-															isLarge
-															isPrimary={numIconBgType === value}
-															isSecondary={numIconBgType !== value}
-															onClick={() =>
-																setAttributes({
-																	numIconBgType: value,
-																})
-															}
-														>
-															{label}
-														</Button>
-													))}
-												</ButtonGroup>
-											</BaseControl>
-
-											{numIconBgType === "fill" && (
-												<ColorControl
-													label={__("Background Color")}
-													color={numIconBgColor}
-													onChange={(numIconBgColor) =>
-														setAttributes({ numIconBgColor })
-													}
-												/>
-											)}
-
-											{numIconBgType === "gradient" && (
-												<PanelBody title={__("Gradient")} initialOpen={false}>
-													<GradientColorControl
-														gradientColor={numIconBgGradient}
-														onChange={(numIconBgGradient) =>
-															setAttributes({ numIconBgGradient })
-														}
-													/>
-												</PanelBody>
-											)}
-										</>
-									)}
-								</>
-							)}
+							<ResponsiveDimensionsControl
+								forBorderRadius
+								resRequiredProps={typoRequiredProps}
+								controlName={mediaBgRadius}
+								baseLabel="Border Radius"
+							/>
 						</>
 					)}
 				</PanelBody>

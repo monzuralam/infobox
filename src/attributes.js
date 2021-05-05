@@ -1,3 +1,13 @@
+import * as typoPrefixs from "./constants/typographyPrefixConstants";
+import {
+	mediaBackground,
+	mediaBgRadius,
+} from "./constants/dimensionsConstants";
+import {
+	generateDimensionsAttributes,
+	generateTypographyAttributes,
+} from "./helpers";
+
 const attributes = {
 	// the following 4 attributes is must required for responsive options and asset generation for frontend
 	// responsive control attributes ⬇
@@ -178,7 +188,20 @@ const attributes = {
 		default: 20,
 	},
 
-	//
+	// typography attributes
+	...generateTypographyAttributes(Object.values(typoPrefixs)),
+
+	// dimensions Control related Attributes
+	...generateDimensionsAttributes(mediaBackground, {
+		top: 20,
+		bottom: 20,
+		right: 20,
+		left: 20,
+	}),
+	...generateDimensionsAttributes(mediaBgRadius, {
+		top: 20,
+		bottom: 20,
+	}),
 };
 
 export default attributes;
