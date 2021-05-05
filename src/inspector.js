@@ -216,7 +216,7 @@ function Inspector(props) {
 						options={LAYOUT_TYPES}
 						onChange={(layoutPreset) => setAttributes({ layoutPreset })}
 					/>
-					{!flexDirection || flexDirection == "row-reverse" ? (
+					{media !== "none" && (
 						<BaseControl label={__("Media & content spacing")}>
 							<RangeControl
 								value={mediaWrapperMargin}
@@ -227,7 +227,7 @@ function Inspector(props) {
 								max={200}
 							/>
 						</BaseControl>
-					) : null}
+					)}
 				</PanelBody>
 
 				<PanelBody

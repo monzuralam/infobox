@@ -182,6 +182,10 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 						? `margin-right: ${mediaWrapperMargin}px;`
 						: flexDirection === "row-reverse"
 						? `margin-left: ${mediaWrapperMargin}px;`
+						: flexDirection === "column"
+						? `margin-bottom: ${mediaWrapperMargin}px;`
+						: flexDirection === "column-reverse"
+						? `margin-top: ${mediaWrapperMargin}px;`
 						: " "
 				}
 				border-top-left-radius: 20px;
@@ -229,6 +233,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 	const contentStylesDesktop = `
 		.${blockId} .contents-wrapper {
+			flex: 1;
 			${contentAlignment ? `text-align: ${contentAlignment};` : " "} 
 		}
 
