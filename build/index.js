@@ -3813,7 +3813,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
-var attributes = _objectSpread(_objectSpread(_objectSpread({
+var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread({
   // the following 4 attributes is must required for responsive options and asset generation for frontend
   // responsive control attributes ⬇
   resOption: {
@@ -3854,7 +3854,7 @@ var attributes = _objectSpread(_objectSpread(_objectSpread({
   //
   numIconBgType: {
     type: "string",
-    default: "fill"
+    default: "gradient"
   },
   //
   numIconBgColor: {
@@ -3864,7 +3864,7 @@ var attributes = _objectSpread(_objectSpread(_objectSpread({
   //
   numIconBgGradient: {
     type: "string",
-    default: "linear-gradient(45deg,#0072ff,#00c6ff)"
+    default: "linear-gradient(45deg,#ff00a5,#1e268c)"
   },
   //
   imageUrl: {
@@ -3972,7 +3972,7 @@ var attributes = _objectSpread(_objectSpread(_objectSpread({
 })), Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["mediaBgRadius"], {
   top: 20,
   bottom: 20
-}));
+})), Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["mediaBgMargin"]));
 
 /* harmony default export */ __webpack_exports__["default"] = (attributes);
 
@@ -4057,15 +4057,17 @@ function InfoboxContainer(_ref) {
 /*!**********************************************!*\
   !*** ./src/constants/dimensionsConstants.js ***!
   \**********************************************/
-/*! exports provided: mediaBackground, mediaBgRadius */
+/*! exports provided: mediaBackground, mediaBgRadius, mediaBgMargin */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mediaBackground", function() { return mediaBackground; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mediaBgRadius", function() { return mediaBgRadius; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mediaBgMargin", function() { return mediaBgMargin; });
 var mediaBackground = "mediaBgSize";
 var mediaBgRadius = "mediaBgRadius";
+var mediaBgMargin = "mediaBgMargin";
 
 /***/ }),
 
@@ -4303,12 +4305,21 @@ var Edit = function Edit(_ref) {
       mediaRadiusStylesTab = _generateDimensionsCo2.dimensionStylesTab,
       mediaRadiusStylesMobile = _generateDimensionsCo2.dimensionStylesMobile;
 
+  var _generateDimensionsCo3 = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
+    attributes: attributes,
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["mediaBgMargin"],
+    styleFor: "margin"
+  }),
+      mediaBgMarginStylesDesktop = _generateDimensionsCo3.dimensionStylesDesktop,
+      mediaBgMarginStylesTab = _generateDimensionsCo3.dimensionStylesTab,
+      mediaBgMarginStylesMobile = _generateDimensionsCo3.dimensionStylesMobile;
+
   var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tmargin: auto;\n\t\t\tpadding: 30px;\n\t\t\tbackground-color: #f4f9;\n\t\t}\n\t\t\n\n\t");
   var wrapperInnerStylesDesktop = "\t\n\t\t.".concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\t").concat(flexDirection ? "flex-direction: ".concat(flexDirection, ";") : " ", " \n\t\t}\n\t\n\t");
-  var mediaStylesDesktop = "\t\n\t".concat(media !== "none" ? " \n\t\t\t\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t").concat(mediaAlignSelf ? "align-self: ".concat(mediaAlignSelf, ";") : " ", " \n\t\t\t\t").concat(!flexDirection ? "margin-right: ".concat(mediaWrapperMargin, "px;") : flexDirection === "row-reverse" ? "margin-left: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column" ? "margin-bottom: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column-reverse" ? "margin-top: ".concat(mediaWrapperMargin, "px;") : " ", "\n\t\t\t\t\n\t\t\t\t").concat(mediaRadiusStylesDesktop, "\n\t\t\t\t\n\t\t\t\toverflow: hidden;\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\tmax-width: 100%;\n\t\t\t\theight: auto;\n\t\t\t\tobject-fit: cover;\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .number-or-icon {\n\t\t\t\t\n\t\t\t\t").concat(mediaBgPaddingDesktop, "\n\n\t\t\t\t").concat(useNumIconBg ? "".concat(numIconBgType === "fill" ? "background-color: ".concat(numIconBgColor, ";") : numIconBgType === "gradient" ? "background-image: ".concat(numIconBgGradient, ";") : " ") : " ", "\n\t\t\t\t\n\n\t\t\t\t\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .number-or-icon > span{\n\t\t\t\t").concat(numIconColor ? "color: ".concat(numIconColor, ";") : " ", "\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\tfont-size: ").concat(iconSize, "px;\n\t\t\t\t\n\t\t\t}\n\t\t") : " ", "\n\n\t");
+  var mediaStylesDesktop = "\t\n\t".concat(media !== "none" ? " \n\t\t\t\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t").concat(mediaAlignSelf ? "align-self: ".concat(mediaAlignSelf, ";") : " ", " \n\n\t\t\t\t").concat(mediaBgMarginStylesDesktop, "\n\n\t\t\t\t").concat(!flexDirection ? "margin-right: ".concat(mediaWrapperMargin, "px;") : flexDirection === "row-reverse" ? "margin-left: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column" ? "margin-bottom: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column-reverse" ? "margin-top: ".concat(mediaWrapperMargin, "px;") : " ", "\n\t\t\t\t\n\t\t\t\t").concat(mediaRadiusStylesDesktop, "\n\t\t\t\t\n\t\t\t\toverflow: hidden;\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\tmax-width: 100%;\n\t\t\t\theight: auto;\n\t\t\t\tobject-fit: cover;\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .number-or-icon {\n\t\t\t\t\n\t\t\t\t").concat(mediaBgPaddingDesktop, "\n\n\t\t\t\t").concat(useNumIconBg ? "".concat(numIconBgType === "fill" ? "background-color: ".concat(numIconBgColor, ";") : numIconBgType === "gradient" ? "background-image: ".concat(numIconBgGradient, ";") : " ") : " ", "\n\t\t\t\t\n\n\t\t\t\t\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .number-or-icon > span{\n\t\t\t\tcolor: ").concat(numIconColor || "#fff", ";\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\tfont-size: ").concat(iconSize, "px;\n\t\t\t\t\n\t\t\t}\n\t\t") : " ", "\n\n\t");
   var contentStylesDesktop = "\n\t\t.".concat(blockId, " .contents-wrapper {\n\t\t\tflex: 1;\n\t\t\t").concat(contentAlignment ? "text-align: ".concat(contentAlignment, ";") : " ", " \n\t\t}\n\n\t\t.").concat(blockId, " .title {\n\t\t\tfont-size: 26px;\n\t\t\tline-height: 1.3em;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .subtitle {\n\t\t\tfont-size: 16px;\n\t\t\tline-height: 2;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .description {\n\t\t\tfont-size: 20px;\n\t\t\tline-height: 2em;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\n\t\t}\t\t\n\t\n\t");
-  var mediaStylesTab = "\t\n\t".concat(media !== "none" ? "\n\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t").concat(mediaRadiusStylesTab, "\n\t\t\t\t\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .number-or-icon {\n\t\t\t\t").concat(mediaBgPaddingTab, "\t\t\t\t\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\tfont-size: ").concat(TABiconSize, "px;\n\t\t\t}\n\t\t") : " ", "\n\t\n\t");
-  var mediaStylesMobile = "\n\t".concat(media !== "none" ? "\n\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t").concat(mediaRadiusStylesTab, "\n\t\t\t\t\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .number-or-icon {\n\t\t\t\t").concat(mediaBgPaddingMobile, "\t\t\t\t\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\tfont-size: ").concat(MOBiconSize, "px;\n\t\t\t}\n\t\t") : " ", "\n\t\t\n\t\n\t"); // all css styles for large screen width (desktop/laptop) in strings ⬇
+  var mediaStylesTab = "\t\n\t".concat(media !== "none" ? "\n\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t").concat(mediaRadiusStylesTab, "\n\n\n\t\t\t\t").concat(mediaBgMarginStylesTab, "\t\t\t\t\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .number-or-icon {\n\t\t\t\t").concat(mediaBgPaddingTab, "\t\t\t\t\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\tfont-size: ").concat(TABiconSize, "px;\n\t\t\t}\n\t\t") : " ", "\n\t\n\t");
+  var mediaStylesMobile = "\n\t".concat(media !== "none" ? "\n\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t").concat(mediaRadiusStylesMobile, "\n\t\t\t\t\n\t\t\t\t").concat(mediaBgMarginStylesMobile, "\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .number-or-icon {\n\t\t\t\t").concat(mediaBgPaddingMobile, "\t\t\t\t\n\t\t\t}\n\n\t\t\t.").concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\tfont-size: ").concat(MOBiconSize, "px;\n\t\t\t}\n\t\t") : " ", "\n\t\t\n\t\n\t"); // all css styles for large screen width (desktop/laptop) in strings ⬇
 
   var desktopAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\t\t\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesDesktop) ? wrapperStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperInnerStylesDesktop) ? wrapperInnerStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(mediaStylesDesktop) ? mediaStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(contentStylesDesktop) ? contentStylesDesktop : " ", "\n\t\t\n\t")); // all css styles for Tab in strings ⬇
 
@@ -5212,6 +5223,10 @@ function Inspector(props) {
     resRequiredProps: typoRequiredProps,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["mediaBgRadius"],
     baseLabel: "Border Radius"
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    resRequiredProps: typoRequiredProps,
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["mediaBgMargin"],
+    baseLabel: "Margin"
   }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Title"),
     initialOpen: false

@@ -2,6 +2,7 @@ import * as typoPrefixs from "./constants/typographyPrefixConstants";
 import {
 	mediaBackground,
 	mediaBgRadius,
+	mediaBgMargin,
 } from "./constants/dimensionsConstants";
 import {
 	generateDimensionsAttributes,
@@ -56,7 +57,7 @@ const attributes = {
 	//
 	numIconBgType: {
 		type: "string",
-		default: "fill",
+		default: "gradient",
 	},
 
 	//
@@ -68,7 +69,7 @@ const attributes = {
 	//
 	numIconBgGradient: {
 		type: "string",
-		default: "linear-gradient(45deg,#0072ff,#00c6ff)",
+		default: "linear-gradient(45deg,#ff00a5,#1e268c)",
 	},
 
 	//
@@ -202,6 +203,7 @@ const attributes = {
 		top: 20,
 		bottom: 20,
 	}),
+	...generateDimensionsAttributes(mediaBgMargin),
 };
 
 export default attributes;

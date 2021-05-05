@@ -41,6 +41,7 @@ import {
 
 import {
 	mediaBackground,
+	mediaBgMargin,
 	mediaBgRadius,
 } from "./constants/dimensionsConstants";
 
@@ -558,6 +559,12 @@ function Inspector(props) {
 								resRequiredProps={typoRequiredProps}
 								controlName={mediaBgRadius}
 								baseLabel="Border Radius"
+							/>
+
+							<ResponsiveDimensionsControl
+								resRequiredProps={typoRequiredProps}
+								controlName={mediaBgMargin}
+								baseLabel="Margin"
 							/>
 						</>
 					)}

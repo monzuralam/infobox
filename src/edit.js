@@ -25,6 +25,7 @@ import {
 
 import {
 	mediaBackground,
+	mediaBgMargin,
 	mediaBgRadius,
 } from "./constants/dimensionsConstants";
 
@@ -178,6 +179,16 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		styleFor: "border-radius",
 	});
 
+	const {
+		dimensionStylesDesktop: mediaBgMarginStylesDesktop,
+		dimensionStylesTab: mediaBgMarginStylesTab,
+		dimensionStylesMobile: mediaBgMarginStylesMobile,
+	} = generateDimensionsControlStyles({
+		attributes,
+		controlName: mediaBgMargin,
+		styleFor: "margin",
+	});
+
 	const wrapperStylesDesktop = `
 		.${blockId} {
 			margin: auto;
@@ -203,6 +214,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			
 			.${blockId} .icon-img-wrapper {
 				${mediaAlignSelf ? `align-self: ${mediaAlignSelf};` : " "} 
+
+				${mediaBgMarginStylesDesktop}
+
 				${
 					!flexDirection
 						? `margin-right: ${mediaWrapperMargin}px;`
@@ -247,7 +261,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			}
 
 			.${blockId} .number-or-icon > span{
-				${numIconColor ? `color: ${numIconColor};` : " "}
+				color: ${numIconColor || "#fff"};
 			}
 
 			.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
@@ -297,7 +311,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 			.${blockId} .icon-img-wrapper {
 				${mediaRadiusStylesTab}
-				
+
+
+				${mediaBgMarginStylesTab}				
 			}
 
 			.${blockId} .number-or-icon {
@@ -319,8 +335,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			? `
 
 			.${blockId} .icon-img-wrapper {
-				${mediaRadiusStylesTab}
+				${mediaRadiusStylesMobile}
 				
+				${mediaBgMarginStylesMobile}
 			}
 
 			.${blockId} .number-or-icon {
