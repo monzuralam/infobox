@@ -16,6 +16,9 @@ export default function InfoboxContainer({ requiredProps }) {
 		title,
 		subTitle,
 		description,
+		//
+		titleTag,
+		subTitleTag,
 	} = requiredProps;
 
 	return (
@@ -49,12 +52,26 @@ export default function InfoboxContainer({ requiredProps }) {
 				) : null}
 
 				<div className="contents-wrapper">
-					<h2 className="title">{title}</h2>
+					<RichText.Content
+						tagName={titleTag}
+						className="title"
+						value={title}
+					/>
 
-					{enableSubTitle ? <h3 className="subtitle">{subTitle}</h3> : null}
+					{enableSubTitle ? (
+						<RichText.Content
+							tagName={subTitleTag}
+							className="subtitle"
+							value={subTitle}
+						/>
+					) : null}
 
 					{enableDescription ? (
-						<p className="description">{description}</p>
+						<RichText.Content
+							tagName="p"
+							className="description"
+							value={description}
+						/>
 					) : null}
 
 					{enableButton ? (

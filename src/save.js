@@ -18,6 +18,9 @@ export default function save({ attributes }) {
 		title,
 		subTitle,
 		description,
+		//
+		titleTag,
+		subTitleTag,
 	} = attributes;
 
 	const requiredProps = {
@@ -36,6 +39,9 @@ export default function save({ attributes }) {
 		title,
 		subTitle,
 		description,
+		//
+		titleTag,
+		subTitleTag,
 	};
 
 	return (

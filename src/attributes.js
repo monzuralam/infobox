@@ -225,6 +225,16 @@ const attributes = {
 		default: 20,
 	},
 
+	//
+	titleTag: {
+		type: "string",
+		default: "h2",
+	},
+	subTitleTag: {
+		type: "string",
+		default: "h3",
+	},
+
 	// typography attributes
 	...generateTypographyAttributes(Object.values(typoPrefixs)),
 

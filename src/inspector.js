@@ -51,6 +51,7 @@ import {
 	MEDIA_TYPES,
 	ICON_IMAGE_BG_TYPES,
 	sizeUnitTypes,
+	HEADER_TAGS,
 } from "./constants";
 
 function Inspector(props) {
@@ -136,6 +137,10 @@ function Inspector(props) {
 
 		//
 		MOBmediaImgHeight,
+
+		//
+		titleTag,
+		subTitleTag,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
@@ -269,10 +274,7 @@ function Inspector(props) {
 					)}
 				</PanelBody>
 
-				<PanelBody
-					title={__("Media")}
-					// initialOpen={false}
-				>
+				<PanelBody title={__("Media")} initialOpen={false}>
 					<BaseControl id="eb-infobox-image-icon">
 						<ButtonGroup id="eb-infobox-image-icon">
 							{MEDIA_TYPES.map((value) => (
@@ -632,16 +634,51 @@ function Inspector(props) {
 						</>
 					)}
 				</PanelBody>
+
 				<PanelBody title={__("Title")} initialOpen={false}>
-					cool insoectors
+					<BaseControl label={__("Title Tag")}>
+						<ButtonGroup className="infobox-button-group">
+							{HEADER_TAGS.map((header) => (
+								<Button
+									isSmall
+									isSecondary={titleTag !== header}
+									isPrimary={titleTag === header}
+									onClick={() => setAttributes({ titleTag: header })}
+								>
+									{header.toUpperCase()}
+								</Button>
+							))}
+						</ButtonGroup>
+					</BaseControl>
 				</PanelBody>
+
 				<PanelBody title={__("Subtitle")} initialOpen={false}>
 					<ToggleControl
 						label={__("Enable")}
 						checked={enableSubTitle}
 						onChange={() => setAttributes({ enableSubTitle: !enableSubTitle })}
 					/>
+
+					{enableSubTitle && (
+						<>
+							<BaseControl label={__("Subtitle Tag")}>
+								<ButtonGroup className="infobox-button-group">
+									{HEADER_TAGS.map((header) => (
+										<Button
+											isSmall
+											isSecondary={subTitleTag !== header}
+											isPrimary={subTitleTag === header}
+											onClick={() => setAttributes({ subTitleTag: header })}
+										>
+											{header.toUpperCase()}
+										</Button>
+									))}
+								</ButtonGroup>
+							</BaseControl>
+						</>
+					)}
 				</PanelBody>
+
 				<PanelBody title={__("Content")} initialOpen={false}>
 					<ToggleControl
 						label={__("Show content")}

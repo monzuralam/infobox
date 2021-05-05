@@ -19,3 +19,5 @@ export const sizeUnitTypes = [
 	{ label: "%", value: "%" },
 	{ label: "em", value: "em" },
 ];
+
+export const HEADER_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"];

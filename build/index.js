@@ -3999,6 +3999,15 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread({
   mediaWrapperMargin: {
     type: "number",
     default: 20
+  },
+  //
+  titleTag: {
+    type: "string",
+    default: "h2"
+  },
+  subTitleTag: {
+    type: "string",
+    default: "h3"
   }
 }, Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["generateTypographyAttributes"])(Object.values(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__))), Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["mediaBackground"], {
   top: 20,
@@ -4045,7 +4054,9 @@ function InfoboxContainer(_ref) {
       isClickable = requiredProps.isClickable,
       title = requiredProps.title,
       subTitle = requiredProps.subTitle,
-      description = requiredProps.description;
+      description = requiredProps.description,
+      titleTag = requiredProps.titleTag,
+      subTitleTag = requiredProps.subTitleTag;
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "".concat(blockId, " eb-infobox-wrapper")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
@@ -4073,13 +4084,19 @@ function InfoboxContainer(_ref) {
     alt: "macbook"
   }))) : null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "contents-wrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", {
-    className: "title"
-  }, title), enableSubTitle ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h3", {
-    className: "subtitle"
-  }, subTitle) : null, enableDescription ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", {
-    className: "description"
-  }, description) : null, enableButton ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"].Content, {
+    tagName: titleTag,
+    className: "title",
+    value: title
+  }), enableSubTitle ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"].Content, {
+    tagName: subTitleTag,
+    className: "subtitle",
+    value: subTitle
+  }) : null, enableDescription ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"].Content, {
+    tagName: "p",
+    className: "description",
+    value: description
+  }) : null, enableButton ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "eb-infobox-btn-wrapper"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("a", {
     href: infoboxLink,
@@ -4111,7 +4128,7 @@ var mediaBgMargin = "mediaBgMargin";
 /*!********************************!*\
   !*** ./src/constants/index.js ***!
   \********************************/
-/*! exports provided: LAYOUT_TYPES, MEDIA_TYPES, ICON_IMAGE_BG_TYPES, sizeUnitTypes */
+/*! exports provided: LAYOUT_TYPES, MEDIA_TYPES, ICON_IMAGE_BG_TYPES, sizeUnitTypes, HEADER_TAGS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4120,6 +4137,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MEDIA_TYPES", function() { return MEDIA_TYPES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ICON_IMAGE_BG_TYPES", function() { return ICON_IMAGE_BG_TYPES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sizeUnitTypes", function() { return sizeUnitTypes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HEADER_TAGS", function() { return HEADER_TAGS; });
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
 
@@ -4154,6 +4172,7 @@ var sizeUnitTypes = [{
   label: "em",
   value: "em"
 }];
+var HEADER_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"];
 
 /***/ }),
 
@@ -4244,6 +4263,8 @@ var Edit = function Edit(_ref) {
       title = attributes.title,
       subTitle = attributes.subTitle,
       description = attributes.description,
+      titleTag = attributes.titleTag,
+      subTitleTag = attributes.subTitleTag,
       imageId = attributes.imageId,
       iconSize = attributes.iconSize,
       TABiconSize = attributes.TABiconSize,
@@ -4383,9 +4404,9 @@ var Edit = function Edit(_ref) {
 
   var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tmargin: auto;\n\t\t\tpadding: 30px;\n\t\t\tbackground-color: #f4f9;\n\t\t}\n\t\t\n\n\t");
   var wrapperInnerStylesDesktop = "\t\n\t\t.".concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\t").concat(flexDirection ? "flex-direction: ".concat(flexDirection, ";") : " ", " \n\t\t}\n\t\n\t");
-  var mediaStylesDesktop = "\t\n\t".concat(media !== "none" ? " \n\t\t\t\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t").concat(mediaAlignSelf ? "align-self: ".concat(mediaAlignSelf, ";") : " ", " \n\n\t\t\t\t").concat(mediaBgMarginStylesDesktop, "\n\n\t\t\t\t").concat(!flexDirection ? "margin-right: ".concat(mediaWrapperMargin, "px;") : flexDirection === "row-reverse" ? "margin-left: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column" ? "margin-bottom: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column-reverse" ? "margin-top: ".concat(mediaWrapperMargin, "px;") : " ", "\n\t\t\t\t\t\t\t\t\n\t\t\t\toverflow: hidden;\n\t\t\t}\n\n\n\t\t\t").concat(media === "image" ? "\n\t\t\t\t\n\t\t\t\t.".concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\tmax-width: 100%;\n\t\t\t\t\theight: auto;\n\t\t\t\t\tobject-fit: cover;\n\t\t\t\t\t").concat(mediaImgWidth ? "width: ".concat(mediaImgWidth).concat(mediaImgWidthUnit, ";") : " ", "\n\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : mediaImgHeight ? "height: ".concat(mediaImgHeight).concat(mediaImgHeightUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\t.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\toverflow: hidden;\n\t\t\t\t\t").concat(mediaRadiusStylesDesktop, "\n\n\t\t\t\t}\n\n\n\t\t\t\t") : " ", "\n\n\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\n\t\t\t\t\t\t").concat(mediaBgPaddingDesktop, "\n\t\t\t\t\t\t").concat(mediaRadiusStylesDesktop, "\n\t\t\n\t\t\t\t\t\t").concat(useNumIconBg ? "".concat(numIconBgType === "fill" ? "background-color: ".concat(numIconBgColor, ";") : numIconBgType === "gradient" ? "background-image: ".concat(numIconBgGradient, ";") : " ") : " ", "\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\t\t\n\t\t\t\t\t.").concat(blockId, " .number-or-icon > span{\n\t\t\t\t\t\tcolor: ").concat(numIconColor || "#fff", ";\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\t\t\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t").concat(numTypoStylesDesktop, "\n\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t").concat(media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\tfont-size: ").concat(iconSize, "px;\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\n\t\t\t\t\t") : " ", "\n\n\n\t\t") : " ", "\n\n\t");
+  var mediaStylesDesktop = "\n\t".concat(media !== "none" ? " \n\t\t\t\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t").concat(mediaAlignSelf ? "align-self: ".concat(mediaAlignSelf, ";") : " ", " \n\n\t\t\t\t").concat(mediaBgMarginStylesDesktop, "\n\n\t\t\t\t").concat(!flexDirection ? "margin-right: ".concat(mediaWrapperMargin, "px;") : flexDirection === "row-reverse" ? "margin-left: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column" ? "margin-bottom: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column-reverse" ? "margin-top: ".concat(mediaWrapperMargin, "px;") : " ", "\n\t\t\t\t\t\t\t\t\n\t\t\t\toverflow: hidden;\n\t\t\t}\n\n\n\t\t\t").concat(media === "image" ? "\n\t\t\t\t\n\t\t\t\t.".concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\tmax-width: 100%;\n\t\t\t\t\theight: auto;\n\t\t\t\t\tobject-fit: cover;\n\t\t\t\t\t").concat(mediaImgWidth ? "width: ".concat(mediaImgWidth).concat(mediaImgWidthUnit, ";") : " ", "\n\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : mediaImgHeight ? "height: ".concat(mediaImgHeight).concat(mediaImgHeightUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\t.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\toverflow: hidden;\n\t\t\t\t\t").concat(mediaRadiusStylesDesktop, "\n\n\t\t\t\t}\n\n\n\t\t\t\t") : " ", "\n\n\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\n\t\t\t\t\t\t").concat(mediaBgPaddingDesktop, "\n\t\t\t\t\t\t").concat(mediaRadiusStylesDesktop, "\n\t\t\n\t\t\t\t\t\t").concat(useNumIconBg ? "".concat(numIconBgType === "fill" ? "background-color: ".concat(numIconBgColor, ";") : numIconBgType === "gradient" ? "background-image: ".concat(numIconBgGradient, ";") : " ") : " ", "\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\t\t\n\t\t\t\t\t.").concat(blockId, " .number-or-icon > span{\n\t\t\t\t\t\tcolor: ").concat(numIconColor || "#fff", ";\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\t\t\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t").concat(numTypoStylesDesktop, "\n\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t").concat(media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\tfont-size: ").concat(iconSize, "px;\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\n\t\t\t\t\t") : " ", "\n\n\n\t\t") : " ", "\n\n\t");
   var contentStylesDesktop = "\n\t\t.".concat(blockId, " .contents-wrapper {\n\t\t\tflex: 1;\n\t\t\t").concat(contentAlignment ? "text-align: ".concat(contentAlignment, ";") : " ", " \n\t\t}\n\n\t\t.").concat(blockId, " .title {\n\t\t\tfont-size: 26px;\n\t\t\tline-height: 1.3em;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .subtitle {\n\t\t\tfont-size: 16px;\n\t\t\tline-height: 2;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\t\t}\n\t\t\n\t\t.").concat(blockId, " .description {\n\t\t\tfont-size: 20px;\n\t\t\tline-height: 2em;\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\n\t\t}\t\t\n\t\n\t");
-  var mediaStylesTab = "\t\n\t".concat(media !== "none" ? "\n\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\n\t\t\t\t").concat(mediaBgMarginStylesTab, "\t\t\t\t\n\t\t\t}\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\t\t\t\n\t\t\t\t\t.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\t").concat(mediaRadiusStylesTab, "\n\t\t\t\t\t\t").concat(mediaBgPaddingTab, "\t\t\t\t\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t\t.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t\t").concat(numTypoStylesTab, "\n\t\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t").concat(media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\tfont-size: ").concat(TABiconSize, "px;\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t").concat(media === "image" ? "\n\t\t\t\t\n\t\t\t\t.".concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\t\n\t\t\t\t\t").concat(TABmediaImgWidth ? "width: ".concat(TABmediaImgWidth).concat(mediaImgWidthUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : TABmediaImgHeight ? "height: ".concat(TABmediaImgHeight).concat(mediaImgHeightUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t}\n\n\t\t\t\t\n\t\t\t\t.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\t").concat(mediaRadiusStylesTab, "\n\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\n\n\t\t") : " ", "\n\t\n\t");
+  var mediaStylesTab = "\n\t".concat(media !== "none" ? "\n\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\n\t\t\t\t").concat(mediaBgMarginStylesTab, "\t\t\t\t\n\t\t\t}\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\t\t\t\n\t\t\t\t\t.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\t").concat(mediaRadiusStylesTab, "\n\t\t\t\t\t\t").concat(mediaBgPaddingTab, "\t\t\t\t\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t\t.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t\t").concat(numTypoStylesTab, "\n\t\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t").concat(media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\tfont-size: ").concat(TABiconSize, "px;\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t").concat(media === "image" ? "\n\t\t\t\t\n\t\t\t\t.".concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\t\n\t\t\t\t\t").concat(TABmediaImgWidth ? "width: ".concat(TABmediaImgWidth).concat(mediaImgWidthUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : TABmediaImgHeight ? "height: ".concat(TABmediaImgHeight).concat(mediaImgHeightUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t}\n\n\t\t\t\t\n\t\t\t\t.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\t").concat(mediaRadiusStylesTab, "\n\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\n\n\t\t") : " ", "\n\t\n\t");
   var mediaStylesMobile = "\n\t".concat(media !== "none" ? "\n\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t\n\t\t\t\t").concat(mediaBgMarginStylesMobile, "\n\t\t\t}\n\n\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\n\t\t\t\t\t.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\t").concat(mediaRadiusStylesMobile, "\n\t\t\t\t\t\t").concat(mediaBgPaddingMobile, "\t\t\t\t\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\n\n\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t").concat(numTypoStylesMobile, "\n\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\n\t\t\t").concat(media === "icon" ? "\n\n\t\t\t\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\tfont-size: ").concat(MOBiconSize, "px;\n\t\t\t\t\t}\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t\n\t\t\t").concat(media === "image" ? "\n\t\t\t\t\n\t\t\t\t.".concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\t\n\t\t\t\t\t").concat(MOBmediaImgWidth ? "width: ".concat(MOBmediaImgWidth).concat(mediaImgWidthUnit, ";") : " ", "\n\n\t\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : MOBmediaImgHeight ? "height: ".concat(MOBmediaImgHeight).concat(mediaImgHeightUnit, ";") : " ", "\n\n\t\t\t\t}\n\n\t\t\t\t\n\t\t\t\t.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\t\n\t\t\t\t\t").concat(mediaRadiusStylesMobile, "\n\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\n\t\t") : " ", "\n\t\t\n\t\n\t"); // all css styles for large screen width (desktop/laptop) in strings ⬇
 
   var desktopAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\t\t\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesDesktop) ? wrapperStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperInnerStylesDesktop) ? wrapperInnerStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(mediaStylesDesktop) ? mediaStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(contentStylesDesktop) ? contentStylesDesktop : " ", "\n\t\t\n\t")); // all css styles for Tab in strings ⬇
@@ -4465,13 +4486,34 @@ var Edit = function Edit(_ref) {
     }
   }))) : null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "contents-wrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", {
-    className: "title"
-  }, title), enableSubTitle ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h3", {
-    className: "subtitle"
-  }, subTitle) : null, enableDescription ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", {
-    className: "description"
-  }, description) : null, enableButton ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
+    tagName: titleTag,
+    className: "title",
+    value: title,
+    onChange: function onChange(title) {
+      return setAttributes({
+        title: title
+      });
+    }
+  }), enableSubTitle ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
+    tagName: subTitleTag,
+    className: "subtitle",
+    value: subTitle,
+    onChange: function onChange(subTitle) {
+      return setAttributes({
+        subTitle: subTitle
+      });
+    }
+  }) : null, enableDescription ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
+    tagName: "p",
+    className: "description",
+    value: description,
+    onChange: function onChange(description) {
+      return setAttributes({
+        description: description
+      });
+    }
+  }) : null, enableButton ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "eb-infobox-btn-wrapper"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("a", {
     href: infoboxLink,
@@ -5031,7 +5073,9 @@ function Inspector(props) {
       mediaImgHeightUnit = attributes.mediaImgHeightUnit,
       mediaImgHeight = attributes.mediaImgHeight,
       TABmediaImgHeight = attributes.TABmediaImgHeight,
-      MOBmediaImgHeight = attributes.MOBmediaImgHeight; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
+      MOBmediaImgHeight = attributes.MOBmediaImgHeight,
+      titleTag = attributes.titleTag,
+      subTitleTag = attributes.subTitleTag; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var bodyClasses = document.body.className; // console.log("----log from inspector useEffect with empty []", {
@@ -5148,8 +5192,8 @@ function Inspector(props) {
     min: 0,
     max: 200
   }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Media") // initialOpen={false}
-
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Media"),
+    initialOpen: false
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
     id: "eb-infobox-image-icon"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
@@ -5448,7 +5492,22 @@ function Inspector(props) {
   }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Title"),
     initialOpen: false
-  }, "cool insoectors"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Title Tag")
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
+    className: "infobox-button-group"
+  }, _constants__WEBPACK_IMPORTED_MODULE_16__["HEADER_TAGS"].map(function (header) {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+      isSmall: true,
+      isSecondary: titleTag !== header,
+      isPrimary: titleTag === header,
+      onClick: function onClick() {
+        return setAttributes({
+          titleTag: header
+        });
+      }
+    }, header.toUpperCase());
+  })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Subtitle"),
     initialOpen: false
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ToggleControl"], {
@@ -5459,7 +5518,22 @@ function Inspector(props) {
         enableSubTitle: !enableSubTitle
       });
     }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
+  }), enableSubTitle && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Subtitle Tag")
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
+    className: "infobox-button-group"
+  }, _constants__WEBPACK_IMPORTED_MODULE_16__["HEADER_TAGS"].map(function (header) {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+      isSmall: true,
+      isSecondary: subTitleTag !== header,
+      isPrimary: subTitleTag === header,
+      onClick: function onClick() {
+        return setAttributes({
+          subTitleTag: header
+        });
+      }
+    }, header.toUpperCase());
+  }))))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Content"),
     initialOpen: false
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ToggleControl"], {
@@ -5511,7 +5585,9 @@ function save(_ref) {
       isClickable = attributes.isClickable,
       title = attributes.title,
       subTitle = attributes.subTitle,
-      description = attributes.description;
+      description = attributes.description,
+      titleTag = attributes.titleTag,
+      subTitleTag = attributes.subTitleTag;
   var requiredProps = {
     blockId: blockId,
     selectedIcon: selectedIcon,
@@ -5526,7 +5602,10 @@ function save(_ref) {
     isClickable: isClickable,
     title: title,
     subTitle: subTitle,
-    description: description
+    description: description,
+    //
+    titleTag: titleTag,
+    subTitleTag: subTitleTag
   };
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["useBlockProps"].save(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_infobox_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
     requiredProps: requiredProps

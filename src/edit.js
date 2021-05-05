@@ -56,6 +56,10 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		description,
 
 		//
+		titleTag,
+		subTitleTag,
+
+		//
 		imageId,
 
 		//
@@ -245,7 +249,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	
 	`;
 
-	const mediaStylesDesktop = `	
+	const mediaStylesDesktop = `
 	${
 		media !== "none"
 			? ` 
@@ -400,7 +404,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	
 	`;
 
-	const mediaStylesTab = `	
+	const mediaStylesTab = `
 	${
 		media !== "none"
 			? `
@@ -706,12 +710,29 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					) : null}
 
 					<div className="contents-wrapper">
-						<h2 className="title">{title}</h2>
+						<RichText
+							tagName={titleTag}
+							className="title"
+							value={title}
+							onChange={(title) => setAttributes({ title })}
+						/>
 
-						{enableSubTitle ? <h3 className="subtitle">{subTitle}</h3> : null}
+						{enableSubTitle ? (
+							<RichText
+								tagName={subTitleTag}
+								className="subtitle"
+								value={subTitle}
+								onChange={(subTitle) => setAttributes({ subTitle })}
+							/>
+						) : null}
 
 						{enableDescription ? (
-							<p className="description">{description}</p>
+							<RichText
+								tagName="p"
+								className="description"
+								value={description}
+								onChange={(description) => setAttributes({ description })}
+							/>
 						) : null}
 
 						{enableButton ? (
