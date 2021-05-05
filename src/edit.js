@@ -291,6 +291,14 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					
 				}
 				
+
+				.${blockId} .eb-infobox-image-wrapper{
+					overflow: hidden;
+					${mediaRadiusStylesDesktop}
+
+				}
+
+
 				`
 					: " "
 			}
@@ -459,6 +467,12 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					}
 					
 				}
+
+				
+				.${blockId} .eb-infobox-image-wrapper{
+					${mediaRadiusStylesTab}
+
+				}
 				
 				`
 					: " "
@@ -546,6 +560,13 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 							? `height: ${MOBmediaImgHeight}${mediaImgHeightUnit};`
 							: " "
 					}
+
+				}
+
+				
+				.${blockId} .eb-infobox-image-wrapper{
+					
+					${mediaRadiusStylesMobile}
 
 				}
 				
