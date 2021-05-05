@@ -35,9 +35,11 @@ import ResetControl from "../util/reset-control";
 import WithResButtons from "../util/withResButtons";
 
 import {
-	typoPrefix_header,
+	typoPrefix_title,
 	typoPrefix_content,
 	typoPrefix_number,
+	typoPrefix_subTitle,
+	typoPrefix_buttonText,
 } from "./constants/typographyPrefixConstants";
 
 import {
@@ -640,7 +642,6 @@ function Inspector(props) {
 						<ButtonGroup className="infobox-button-group">
 							{HEADER_TAGS.map((header) => (
 								<Button
-									isSmall
 									isSecondary={titleTag !== header}
 									isPrimary={titleTag === header}
 									onClick={() => setAttributes({ titleTag: header })}
@@ -650,6 +651,12 @@ function Inspector(props) {
 							))}
 						</ButtonGroup>
 					</BaseControl>
+
+					<TypographyDropdown
+						baseLabel="Typography"
+						typographyPrefixConstant={typoPrefix_title}
+						typoRequiredProps={typoRequiredProps}
+					/>
 				</PanelBody>
 
 				<PanelBody title={__("Subtitle")} initialOpen={false}>
@@ -665,7 +672,6 @@ function Inspector(props) {
 								<ButtonGroup className="infobox-button-group">
 									{HEADER_TAGS.map((header) => (
 										<Button
-											isSmall
 											isSecondary={subTitleTag !== header}
 											isPrimary={subTitleTag === header}
 											onClick={() => setAttributes({ subTitleTag: header })}
@@ -675,6 +681,11 @@ function Inspector(props) {
 									))}
 								</ButtonGroup>
 							</BaseControl>
+							<TypographyDropdown
+								baseLabel="Typography"
+								typographyPrefixConstant={typoPrefix_subTitle}
+								typoRequiredProps={typoRequiredProps}
+							/>
 						</>
 					)}
 				</PanelBody>
@@ -687,6 +698,34 @@ function Inspector(props) {
 							setAttributes({ enableDescription: !enableDescription })
 						}
 					/>
+
+					{enableDescription && (
+						<>
+							<TypographyDropdown
+								baseLabel="Typography"
+								typographyPrefixConstant={typoPrefix_content}
+								typoRequiredProps={typoRequiredProps}
+							/>
+						</>
+					)}
+				</PanelBody>
+
+				<PanelBody title={__("Button")} initialOpen={false}>
+					<ToggleControl
+						label={__("Show button")}
+						checked={enableButton}
+						onChange={() => setAttributes({ enableButton: !enableButton })}
+					/>
+
+					{enableButton && (
+						<>
+							<TypographyDropdown
+								baseLabel="Typography"
+								typographyPrefixConstant={typoPrefix_buttonText}
+								typoRequiredProps={typoRequiredProps}
+							/>
+						</>
+					)}
 				</PanelBody>
 			</span>
 		</InspectorControls>

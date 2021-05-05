@@ -20,8 +20,10 @@ import {
 import Inspector from "./inspector";
 import {
 	typoPrefix_content,
-	typoPrefix_header,
+	typoPrefix_title,
+	typoPrefix_subTitle,
 	typoPrefix_number,
+	typoPrefix_buttonText,
 } from "./constants/typographyPrefixConstants";
 
 import {
@@ -189,6 +191,50 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 	const blockProps = useBlockProps({
 		className: `eb-guten-block-main-parent-wrapper`,
+	});
+
+	//
+	// styling codes starts from here
+	//
+
+	const {
+		typoStylesDesktop: titleTypoStylesDesktop,
+		typoStylesTab: titleTypoStylesTab,
+		typoStylesMobile: titleTypoStylesMobile,
+	} = generateTypographyStyles({
+		attributes,
+		prefixConstant: typoPrefix_title,
+		defaultFontSize: 26,
+	});
+
+	const {
+		typoStylesDesktop: subTitleTypoStylesDesktop,
+		typoStylesTab: subTitleTypoStylesTab,
+		typoStylesMobile: subTitleTypoStylesMobile,
+	} = generateTypographyStyles({
+		attributes,
+		prefixConstant: typoPrefix_subTitle,
+		defaultFontSize: 22,
+	});
+
+	const {
+		typoStylesDesktop: contentTypoStylesDesktop,
+		typoStylesTab: contentTypoStylesTab,
+		typoStylesMobile: contentTypoStylesMobile,
+	} = generateTypographyStyles({
+		attributes,
+		prefixConstant: typoPrefix_content,
+		defaultFontSize: 20,
+	});
+
+	const {
+		typoStylesDesktop: buttonTypoStylesDesktop,
+		typoStylesTab: buttonTypoStylesTab,
+		typoStylesMobile: buttonTypoStylesMobile,
+	} = generateTypographyStyles({
+		attributes,
+		prefixConstant: typoPrefix_buttonText,
+		defaultFontSize: 20,
 	});
 
 	const {
@@ -374,36 +420,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 	`;
 
-	const contentStylesDesktop = `
-		.${blockId} .contents-wrapper {
-			flex: 1;
-			${contentAlignment ? `text-align: ${contentAlignment};` : " "} 
-		}
-
-		.${blockId} .title {
-			font-size: 26px;
-			line-height: 1.3em;
-			margin: 0;
-			padding: 10px 0;
-		}
-		
-		.${blockId} .subtitle {
-			font-size: 16px;
-			line-height: 2;
-			margin: 0;
-			padding: 10px 0;
-		}
-		
-		.${blockId} .description {
-			font-size: 20px;
-			line-height: 2em;
-			margin: 0;
-			padding: 10px 0;
-
-		}		
-	
-	`;
-
 	const mediaStylesTab = `
 	${
 		media !== "none"
@@ -587,6 +603,69 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	
 	`;
 
+	const contentStylesDesktop = `
+		.${blockId} .contents-wrapper {
+			flex: 1;
+			${contentAlignment ? `text-align: ${contentAlignment};` : " "} 
+		}
+
+		.${blockId} .title {
+			${titleTypoStylesDesktop}
+			margin: 0;
+			padding: 10px 0;
+		}
+		
+		.${blockId} .subtitle {
+			${subTitleTypoStylesDesktop}
+			margin: 0;
+			padding: 10px 0;
+		}
+		
+		.${blockId} .description {
+			${contentTypoStylesDesktop}
+			margin: 0;
+			padding: 10px 0;
+
+		}		
+
+	`;
+
+	const contentStylesTab = `
+		.${blockId} .title {
+			${titleTypoStylesTab}
+
+		}
+		
+		.${blockId} .subtitle {
+			${subTitleTypoStylesTab}
+
+		}
+		
+		.${blockId} .description {
+			${contentTypoStylesTab}
+
+		}		
+
+	`;
+
+	const contentStylesMobile = `
+		.${blockId} .title {
+			${titleTypoStylesMobile}
+
+		}
+		
+		.${blockId} .subtitle {
+			${subTitleTypoStylesMobile}
+
+		}
+		
+		.${blockId} .description {
+			${contentTypoStylesMobile}
+
+		}		
+
+	`;
+
 	// all css styles for large screen width (desktop/laptop) in strings ⬇
 	const desktopAllStyles = softMinifyCssStrings(`		
 		${isCssExists(wrapperStylesDesktop) ? wrapperStylesDesktop : " "}
@@ -599,12 +678,14 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	// all css styles for Tab in strings ⬇
 	const tabAllStyles = softMinifyCssStrings(`
 		${isCssExists(mediaStylesTab) ? mediaStylesTab : " "}
+		${isCssExists(contentStylesTab) ? contentStylesTab : " "}
 		
 	`);
 
 	// all css styles for Mobile in strings ⬇
 	const mobileAllStyles = softMinifyCssStrings(`
 		${isCssExists(mediaStylesMobile) ? mediaStylesMobile : " "}
+		${isCssExists(contentStylesMobile) ? contentStylesMobile : " "}
 	
 	`);
 
