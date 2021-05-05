@@ -8,6 +8,7 @@ import {
 	generateDimensionsAttributes,
 	generateTypographyAttributes,
 } from "./helpers";
+import { number } from "prop-types";
 
 const attributes = {
 	// the following 4 attributes is must required for responsive options and asset generation for frontend
@@ -82,6 +83,38 @@ const attributes = {
 
 	//
 	imageId: {
+		type: "string",
+	},
+
+	//
+	mediaImgWidthUnit: {
+		type: "string",
+		default: "px",
+	},
+	mediaImgWidth: {
+		type: number,
+		default: 300,
+	},
+	TABmediaImgWidth: {
+		type: number,
+	},
+	MOBmediaImgWidth: {
+		type: number,
+	},
+
+	//
+	mediaImgHeightUnit: {
+		type: "string",
+		default: "px",
+	},
+	mediaImgHeight: {
+		type: "string",
+		default: "auto",
+	},
+	TABmediaImgHeight: {
+		type: "string",
+	},
+	MOBmediaImgHeight: {
 		type: "string",
 	},
 

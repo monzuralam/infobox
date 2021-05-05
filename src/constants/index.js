@@ -13,3 +13,9 @@ export const ICON_IMAGE_BG_TYPES = [
 	{ label: "Gradient", value: "gradient" },
 	{ label: "Fill", value: "fill" },
 ];
+
+export const sizeUnitTypes = [
+	{ label: "px", value: "px" },
+	{ label: "%", value: "%" },
+	{ label: "em", value: "em" },
+];

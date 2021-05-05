@@ -46,7 +46,12 @@ import {
 	mediaBgRadius,
 } from "./constants/dimensionsConstants";
 
-import { LAYOUT_TYPES, MEDIA_TYPES, ICON_IMAGE_BG_TYPES } from "./constants";
+import {
+	LAYOUT_TYPES,
+	MEDIA_TYPES,
+	ICON_IMAGE_BG_TYPES,
+	sizeUnitTypes,
+} from "./constants";
 
 function Inspector(props) {
 	const { attributes, setAttributes } = props;
@@ -104,6 +109,30 @@ function Inspector(props) {
 
 		//
 		imageId,
+
+		//
+		mediaImgWidthUnit,
+
+		//
+		mediaImgWidth,
+
+		//
+		TABmediaImgWidth,
+
+		//
+		MOBmediaImgWidth,
+
+		//
+		mediaImgHeightUnit,
+
+		//
+		mediaImgHeight,
+
+		//
+		TABmediaImgHeight,
+
+		//
+		MOBmediaImgHeight,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
@@ -287,29 +316,40 @@ function Inspector(props) {
 										)}
 
 										{resOption == "tab" && (
-											<RangeControl
-												allowReset
-												label={__("Icon Size")}
-												value={TABiconSize}
-												onChange={(TABiconSize) =>
-													setAttributes({ TABiconSize })
+											<ResetControl
+												onReset={() =>
+													setAttributes({ TABiconSize: undefined })
 												}
-												min={8}
-												max={100}
-											/>
+											>
+												<RangeControl
+													label={__("Icon Size")}
+													value={TABiconSize}
+													onChange={(TABiconSize) =>
+														setAttributes({ TABiconSize })
+													}
+													min={8}
+													max={100}
+												/>
+											</ResetControl>
 										)}
 
 										{resOption == "mobile" && (
-											<RangeControl
-												allowReset
-												label={__("Icon Size")}
-												value={MOBiconSize}
-												onChange={(MOBiconSize) =>
-													setAttributes({ MOBiconSize })
+											<ResetControl
+												onReset={() =>
+													setAttributes({ MOBiconSize: undefined })
 												}
-												min={8}
-												max={100}
-											/>
+											>
+												<RangeControl
+													allowReset
+													label={__("Icon Size")}
+													value={MOBiconSize}
+													onChange={(MOBiconSize) =>
+														setAttributes({ MOBiconSize })
+													}
+													min={8}
+													max={100}
+												/>
+											</ResetControl>
 										)}
 									</WithResButtons>
 								</>
@@ -428,95 +468,75 @@ function Inspector(props) {
 							)}
 
 							{media === "image" && imageUrl && (
-								<ImageAvatar
-									imageUrl={imageUrl}
-									onDeleteImage={() =>
-										setAttributes({
-											imageUrl: null,
-										})
-									}
-								/>
-							)}
-
-							{media === "image" && imageUrl && (
 								<>
-									{/* <WithResButtons
-								className="for-head-img-height"
-								resRequiredProps={resRequiredProps}
-							>
-								{resOption == "desktop" && (
-									<RangeControl
-										label={__("Image Height")}
-										value={imageHeight}
-										onChange={(imageHeight) => setAttributes({ imageHeight })}
-										min={0}
-										max={400}
-									/>
-								)}
-								{resOption == "tab" && (
-									<RangeControl
-										allowReset
-										label={__("Image Height")}
-										value={TABimageHeight}
-										onChange={(TABimageHeight) =>
-											setAttributes({ TABimageHeight })
+									<ImageAvatar
+										imageUrl={imageUrl}
+										onDeleteImage={() =>
+											setAttributes({
+												imageUrl: null,
+											})
 										}
-										min={0}
-										max={400}
 									/>
-								)}
-								{resOption == "mobile" && (
-									<RangeControl
-										allowReset
-										label={__("Image Height")}
-										value={MOBimageHeight}
-										onChange={(MOBimageHeight) =>
-											setAttributes({ MOBimageHeight })
+
+									<UnitControl
+										selectedUnit={mediaImgWidthUnit}
+										unitTypes={sizeUnitTypes}
+										onClick={(mediaImgWidthUnit) =>
+											setAttributes({ mediaImgWidthUnit })
 										}
-										min={0}
-										max={400}
 									/>
-								)}
-							</WithResButtons>
-							<WithResButtons
-								className="for-head-img-width"
-								resRequiredProps={resRequiredProps}
-							>
-								{resOption == "desktop" && (
-									<RangeControl
-										label={__("Image Width")}
-										value={imageWidth}
-										onChange={(imageWidth) => setAttributes({ imageWidth })}
-										min={0}
-										max={400}
-									/>
-								)}
-								{resOption == "tab" && (
-									<RangeControl
-										allowReset
-										label={__("Image Width")}
-										value={TABimageWidth}
-										onChange={(TABimageWidth) =>
-											setAttributes({ TABimageWidth })
-										}
-										min={0}
-										max={400}
-									/>
-								)}
-								{resOption == "mobile" && (
-									<RangeControl
-										allowReset
-										label={__("Image Width")}
-										value={MOBimageWidth}
-										onChange={(MOBimageWidth) =>
-											setAttributes({ MOBimageWidth })
-										}
-										min={0}
-										max={400}
-									/>
-								)}
-							</WithResButtons>
-						 */}
+									<WithResButtons
+										className="for-media-image-width"
+										resRequiredProps={resRequiredProps}
+									>
+										{resOption == "desktop" && (
+											<RangeControl
+												label={__("Image Width")}
+												value={mediaImgWidth}
+												onChange={(mediaImgWidth) =>
+													setAttributes({ mediaImgWidth })
+												}
+												min={0}
+												max={2000}
+											/>
+										)}
+
+										{resOption == "tab" && (
+											<ResetControl
+												onReset={() =>
+													setAttributes({ TABmediaImgWidth: undefined })
+												}
+											>
+												<RangeControl
+													label={__("Image Width")}
+													value={TABmediaImgWidth}
+													onChange={(TABmediaImgWidth) =>
+														setAttributes({ TABmediaImgWidth })
+													}
+													min={0}
+													max={1030}
+												/>
+											</ResetControl>
+										)}
+
+										{resOption == "mobile" && (
+											<ResetControl
+												onReset={() =>
+													setAttributes({ MOBmediaImgWidth: undefined })
+												}
+											>
+												<RangeControl
+													label={__("Image Width")}
+													value={MOBmediaImgWidth}
+													onChange={(MOBmediaImgWidth) =>
+														setAttributes({ MOBmediaImgWidth })
+													}
+													min={0}
+													max={780}
+												/>
+											</ResetControl>
+										)}
+									</WithResButtons>
 								</>
 							)}
 

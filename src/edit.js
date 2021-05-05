@@ -89,6 +89,30 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 		//
 		numIconBgGradient,
+
+		//
+		mediaImgWidthUnit,
+
+		//
+		mediaImgWidth,
+
+		//
+		TABmediaImgWidth,
+
+		//
+		MOBmediaImgWidth,
+
+		//
+		mediaImgHeightUnit,
+
+		//
+		mediaImgHeight,
+
+		//
+		TABmediaImgHeight,
+
+		//
+		MOBmediaImgHeight,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
@@ -239,41 +263,60 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 						? `margin-top: ${mediaWrapperMargin}px;`
 						: " "
 				}
-				
-				${mediaRadiusStylesDesktop}
-				
+								
 				overflow: hidden;
 			}
 
-			.${blockId} .infobox-wrapper-inner img {
-				max-width: 100%;
-				height: auto;
-				object-fit: cover;
-			}
 
-			.${blockId} .number-or-icon {
+			${
+				media === "image"
+					? `
 				
-				${mediaBgPaddingDesktop}
-
-				${
-					useNumIconBg
-						? `${
-								numIconBgType === "fill"
-									? `background-color: ${numIconBgColor};`
-									: numIconBgType === "gradient"
-									? `background-image: ${numIconBgGradient};`
-									: " "
-						  }`
-						: " "
+				.${blockId} .infobox-wrapper-inner img {
+					max-width: 100%;
+					height: auto;
+					object-fit: cover;
+					${mediaImgWidth ? `width: ${mediaImgWidth}${mediaImgWidthUnit};` : " "}
 				}
 				
+				`
+					: " "
+			}
 
+
+
+			${
+				media === "number" || media === "icon"
+					? `
 				
+					.${blockId} .number-or-icon {
+					
+						${mediaBgPaddingDesktop}
+						${mediaRadiusStylesDesktop}
+		
+						${
+							useNumIconBg
+								? `${
+										numIconBgType === "fill"
+											? `background-color: ${numIconBgColor};`
+											: numIconBgType === "gradient"
+											? `background-image: ${numIconBgGradient};`
+											: " "
+								  }`
+								: " "
+						}						
+						
+					}
+		
+					.${blockId} .number-or-icon > span{
+						color: ${numIconColor || "#fff"};
+					}
+					
+					`
+					: " "
 			}
 
-			.${blockId} .number-or-icon > span{
-				color: ${numIconColor || "#fff"};
-			}
+		
 
 			${
 				media === "number"
@@ -287,10 +330,17 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					: " "
 			}
 
-
-			.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
-				font-size: ${iconSize}px;
+			${
+				media === "icon"
+					? `
 				
+					.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
+						font-size: ${iconSize}px;
+						
+					}
+
+					`
+					: " "
 			}
 
 
@@ -336,31 +386,66 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			? `
 
 			.${blockId} .icon-img-wrapper {
-				${mediaRadiusStylesTab}
-
 
 				${mediaBgMarginStylesTab}				
 			}
 
-			.${blockId} .number-or-icon {
-				${mediaBgPaddingTab}				
+			${
+				media === "number" || media === "icon"
+					? `
+			
+					.${blockId} .number-or-icon {
+						${mediaRadiusStylesTab}
+						${mediaBgPaddingTab}				
+					}
+					
+					`
+					: " "
 			}
+
 
 			${
 				media === "number"
 					? `
 
-				.${blockId} span.eb-infobox-number{
-					${numTypoStylesTab}
-				}				
+					.${blockId} span.eb-infobox-number{
+						${numTypoStylesTab}
+					}				
 				
 				`
 					: " "
 			}
 
-			.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
-				font-size: ${TABiconSize}px;
+			
+			${
+				media === "icon"
+					? `
+				
+					.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
+						font-size: ${TABiconSize}px;
+					}
+				
+				`
+					: " "
 			}
+
+			
+			${
+				media === "image"
+					? `
+				
+				.${blockId} .infobox-wrapper-inner img {
+					
+					${TABmediaImgWidth ? `width: ${TABmediaImgWidth}${mediaImgWidthUnit};` : " "}
+				}
+				
+				`
+					: " "
+			}
+
+
+
+
 		`
 			: " "
 	}
@@ -373,14 +458,28 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			? `
 
 			.${blockId} .icon-img-wrapper {
-				${mediaRadiusStylesMobile}
 				
 				${mediaBgMarginStylesMobile}
 			}
 
-			.${blockId} .number-or-icon {
-				${mediaBgPaddingMobile}				
+
+
+			${
+				media === "number" || media === "icon"
+					? `
+
+					.${blockId} .number-or-icon {
+						${mediaRadiusStylesMobile}
+						${mediaBgPaddingMobile}				
+					}
+					
+					`
+					: " "
 			}
+
+
+
+
 
 			${
 				media === "number"
@@ -394,9 +493,37 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					: " "
 			}
 
-			.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
-				font-size: ${MOBiconSize}px;
+
+
+			${
+				media === "icon"
+					? `
+
+					.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
+						font-size: ${MOBiconSize}px;
+					}			
+				
+				`
+					: " "
 			}
+
+			
+			
+			${
+				media === "image"
+					? `
+				
+				.${blockId} .infobox-wrapper-inner img {
+					
+					${MOBmediaImgWidth ? `width: ${MOBmediaImgWidth}${mediaImgWidthUnit};` : " "}
+				}
+				
+				`
+					: " "
+			}
+
+
+
 		`
 			: " "
 	}
