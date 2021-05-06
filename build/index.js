@@ -5729,14 +5729,19 @@ var ColorControl = function ColorControl(_ref) {
       color = _ref.color,
       onChange = _ref.onChange;
 
-  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])(color),
+  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])("#000000"),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
       bgColor = _useState2[0],
       setBgColor = _useState2[1];
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
+    // console.log("----color-useEffect-fired", { color, bgColor });
+    setBgColor(color);
+  }, []);
+  Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
     onChange(bgColor);
-  }, [bgColor]);
+  }, [bgColor]); // console.log({ color, bgColor });
+
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
     label: label || "",
     className: "eb-color-base"
@@ -6146,7 +6151,7 @@ var parseGradientColor = function parseGradientColor(gradientColor) {
       radialX = 50,
       radialY = 50;
 
-  var _ref = gradientColor.match(/\#[a-f\d]{3,8}|rgba?\([\d\,\.]{3,16}\)/gi) || ["#000000", "#000000"],
+  var _ref = gradientColor.match(/\#[a-f\d]{3,8}|rgba?\([\d\,\.]{3,16}\)/gi) || [,],
       _ref2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_ref, 2),
       colorOne = _ref2[0],
       colorTwo = _ref2[1];
@@ -6210,10 +6215,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _color_control__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../color-control */ "./util/color-control/index.js");
-/* harmony import */ var _toggle_button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../toggle-button */ "./util/toggle-button/index.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./constants */ "./util/gradient-color-controller/constants.js");
-/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./helper */ "./util/gradient-color-controller/helper.js");
+/* harmony import */ var _toggle_button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../toggle-button */ "./util/toggle-button/index.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./constants */ "./util/gradient-color-controller/constants.js");
+/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./helper */ "./util/gradient-color-controller/helper.js");
 
 
 
@@ -6230,7 +6234,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 /**
  * Internal dependencies
  */
-
 
 
 
@@ -6300,7 +6303,7 @@ var GradientColorControl = function GradientColorControl(_ref) {
       setRadialY = _useState18[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_5__["useEffect"])(function () {
-    var _parseGradientColor = Object(_helper__WEBPACK_IMPORTED_MODULE_10__["parseGradientColor"])(gradientColor),
+    var _parseGradientColor = Object(_helper__WEBPACK_IMPORTED_MODULE_9__["parseGradientColor"])(gradientColor),
         gradientType = _parseGradientColor.gradientType,
         angle = _parseGradientColor.angle,
         colorOne = _parseGradientColor.colorOne,
@@ -6342,18 +6345,18 @@ var GradientColorControl = function GradientColorControl(_ref) {
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["BaseControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])("Gradient Type"),
     className: "eb-gradient-toggle-label"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_toggle_button__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    defaultSelected: gradientType === "linear" ? _constants__WEBPACK_IMPORTED_MODULE_9__["GRADIENT_TYPE"][0] : _constants__WEBPACK_IMPORTED_MODULE_9__["GRADIENT_TYPE"][1],
-    options: _constants__WEBPACK_IMPORTED_MODULE_9__["GRADIENT_TYPE"],
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_toggle_button__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    defaultSelected: gradientType === "linear" ? _constants__WEBPACK_IMPORTED_MODULE_8__["GRADIENT_TYPE"][0] : _constants__WEBPACK_IMPORTED_MODULE_8__["GRADIENT_TYPE"][1],
+    options: _constants__WEBPACK_IMPORTED_MODULE_8__["GRADIENT_TYPE"],
     onChange: function onChange(gradientType) {
       return setGradientType(gradientType);
     }
   })), gradientType === "radial" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["BaseControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])("Radial Type"),
     className: "eb-gradient-toggle-label"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_toggle_button__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    defaultSelected: radialShape === "ellipse" ? _constants__WEBPACK_IMPORTED_MODULE_9__["RADIAL_TYPES"][0] : _constants__WEBPACK_IMPORTED_MODULE_9__["RADIAL_TYPES"][1],
-    options: _constants__WEBPACK_IMPORTED_MODULE_9__["RADIAL_TYPES"],
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_toggle_button__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    defaultSelected: radialShape === "ellipse" ? _constants__WEBPACK_IMPORTED_MODULE_8__["RADIAL_TYPES"][0] : _constants__WEBPACK_IMPORTED_MODULE_8__["RADIAL_TYPES"][1],
+    options: _constants__WEBPACK_IMPORTED_MODULE_8__["RADIAL_TYPES"],
     onChange: function onChange(radialShape) {
       return setRadialShape(radialShape);
     }
