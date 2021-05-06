@@ -6145,30 +6145,30 @@ var parseGradientColor = function parseGradientColor(gradientColor) {
       radialX = 50,
       radialY = 50;
 
-  var _gradientColor$match = gradientColor.match(/\#[a-f\d]{6}|rgba?\([\d\,\.]{3,16}\)/gi),
-      _gradientColor$match2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_gradientColor$match, 2),
-      colorOne = _gradientColor$match2[0],
-      colorTwo = _gradientColor$match2[1];
+  var _ref = gradientColor.match(/\#[a-f\d]{3,8}|rgba?\([\d\,\.]{3,16}\)/gi) || ["#000000", "#000000"],
+      _ref2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_ref, 2),
+      colorOne = _ref2[0],
+      colorTwo = _ref2[1];
 
-  var _gradientColor$match3 = gradientColor.match(/\w{6}(?=-)/i),
-      _gradientColor$match4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_gradientColor$match3, 1),
-      gradientType = _gradientColor$match4[0];
+  var _ref3 = gradientColor.match(/\w{6}(?=-)/i) || ["linear"],
+      _ref4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_ref3, 1),
+      gradientType = _ref4[0];
 
   if (gradientType == "linear") {
-    angle = gradientColor.match(/\d{1,3}(?=deg)/i)[0];
+    angle = (gradientColor.match(/\d{1,3}(?=deg)/i) || [])[0];
 
-    var _ref = gradientColor.match(/\d{1,3}(?=\%)/gi) || [0, 100];
+    var _ref5 = gradientColor.match(/\d{1,3}(?=\%)/gi) || [0, 100];
 
-    var _ref2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_ref, 2);
+    var _ref6 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_ref5, 2);
 
-    colorOnePosition = _ref2[0];
-    colorTwoPosition = _ref2[1];
+    colorOnePosition = _ref6[0];
+    colorTwoPosition = _ref6[1];
   } else {
-    radialShape = gradientColor.match(/\w+(?= at)/i)[0];
-    radialX = gradientColor.match(/(?<=at )\d{1,3}/i)[0];
-    radialY = gradientColor.match(/(?<=% )\d{1,3}/i)[0];
-    colorOnePosition = gradientColor.match(/\d{1,3}(?=% ,)/gi)[0];
-    colorTwoPosition = gradientColor.match(/\d{1,3}(?=%\))/gi)[0];
+    radialShape = (gradientColor.match(/\w+(?= at)/i) || [])[0];
+    radialX = (gradientColor.match(/(?<=at )\d{1,3}/i) || [])[0];
+    radialY = (gradientColor.match(/(?<=% )\d{1,3}/i) || [])[0];
+    colorOnePosition = (gradientColor.match(/\d{1,3}(?=% ,)/gi) || [])[0];
+    colorTwoPosition = (gradientColor.match(/\d{1,3}(?=%\))/gi) || [])[0];
   }
 
   return {
@@ -6386,16 +6386,6 @@ var GradientColorControl = function GradientColorControl(_ref) {
         }
       });
     }
-  }), colorOne && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
-    isSmall: true,
-    className: "eb-color-undo",
-    icon: "image-rotate",
-    style: {
-      transform: "scaleX(-1) rotate(90deg)"
-    },
-    onClick: function onClick() {
-      return setColorOne(undefined);
-    }
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["BaseControl"], {
     label: "Second Color",
     className: "eb-color-base"
@@ -6425,16 +6415,6 @@ var GradientColorControl = function GradientColorControl(_ref) {
           setColorTwo("rgba(".concat(rgb.r, ",").concat(rgb.g, ",").concat(rgb.b, ",").concat(rgb.a, ")"));
         }
       });
-    }
-  }), colorTwo && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
-    isSmall: true,
-    className: "eb-color-undo",
-    icon: "image-rotate",
-    style: {
-      transform: "scaleX(-1) rotate(90deg)"
-    },
-    onClick: function onClick() {
-      return setColorTwo(undefined);
     }
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["RangeControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])("First Color Position"),
