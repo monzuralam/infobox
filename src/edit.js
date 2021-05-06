@@ -626,7 +626,15 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			margin: 0;
 			padding: 10px 0;
 
-		}		
+		}
+		
+		.${blockId} a{
+			text-decoration:none;
+		}
+
+		.${blockId} .infobox-btn{
+			${buttonTypoStylesDesktop}
+		}
 
 	`;
 
@@ -644,7 +652,11 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		.${blockId} .description {
 			${contentTypoStylesTab}
 
-		}		
+		}
+		
+		.${blockId} .infobox-btn{
+			${buttonTypoStylesTab}
+		}
 
 	`;
 
@@ -662,7 +674,11 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		.${blockId} .description {
 			${contentTypoStylesMobile}
 
-		}		
+		}
+		
+		.${blockId} .infobox-btn{
+			${buttonTypoStylesMobile}
+		}
 
 	`;
 
@@ -818,7 +834,11 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 						{enableButton ? (
 							<div className="eb-infobox-btn-wrapper">
-								<a href={infoboxLink} className="infobox-btn">
+								<a
+									href={infoboxLink}
+									style={{ pointerEvents: "none" }}
+									className="infobox-btn"
+								>
 									{buttonText}
 								</a>
 							</div>

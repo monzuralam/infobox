@@ -13,7 +13,6 @@ import {
 	RangeControl,
 	BaseControl,
 	ButtonGroup,
-	Dropdown,
 } from "@wordpress/components";
 
 /**
@@ -146,6 +145,10 @@ function Inspector(props) {
 
 		//
 		enableButton,
+
+		//
+		buttonText,
+		infoboxLink,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
@@ -258,7 +261,7 @@ function Inspector(props) {
 	return (
 		<InspectorControls key="controls">
 			<span className="eb-panel-control">
-				<PanelBody title={__("Notice Settings")}>
+				<PanelBody title={__("Notice Settings")} initialOpen={false}>
 					<SelectControl
 						label={__("Layout Preset ")}
 						value={layoutPreset}
@@ -713,7 +716,10 @@ function Inspector(props) {
 					)}
 				</PanelBody>
 
-				<PanelBody title={__("Button")} initialOpen={false}>
+				<PanelBody
+					title={__("Button")}
+					// initialOpen={false}
+				>
 					<ToggleControl
 						label={__("Show button")}
 						checked={enableButton}
@@ -722,6 +728,19 @@ function Inspector(props) {
 
 					{enableButton && (
 						<>
+							<TextControl
+								label={__("Button Text")}
+								value={buttonText}
+								onChange={(buttonText) => setAttributes({ buttonText })}
+							/>
+
+							<TextControl
+								label={__("Link URL")}
+								placeholder="https://your-link.com"
+								value={infoboxLink}
+								onChange={(infoboxLink) => setAttributes({ infoboxLink })}
+							/>
+
 							<TypographyDropdown
 								baseLabel="Typography"
 								typographyPrefixConstant={typoPrefix_buttonText}
