@@ -210,7 +210,7 @@ const attributes = {
 		type: "text",
 		selector: ".description",
 		default:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+			"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
 	},
 
 	//
@@ -271,7 +271,94 @@ const attributes = {
 		type: "string",
 	},
 
-	//
+	// background attributes ⬇
+	WRPbackgroundType: {
+		type: "string",
+		default: "gradient",
+	},
+	WRPbackgroundColor: {
+		type: "string",
+	},
+	WRPgradientColor: {
+		type: "string",
+		default: "linear-gradient(45deg,#8200ff,#ff0071)",
+	},
+	WRPbackgroundSize: {
+		type: "string",
+	},
+	WRPbgImageURL: {
+		type: "string",
+	},
+	WRPbgImageID: {
+		type: "string",
+	},
+
+	// border attributes ⬇
+	WRPborderColor: {
+		type: "string",
+	},
+	WRPborderStyle: {
+		type: "string",
+		default: "solid",
+	},
+	WRPborderWidth: {
+		type: "number",
+	},
+	WRPborderRadius: {
+		type: "number",
+	},
+	WRPradiusUnit: {
+		type: "string",
+		default: "px",
+	},
+
+	// shadow attributes  ⬇
+	WRPhOffset: {
+		type: "number",
+	},
+	WRPvOffset: {
+		type: "number",
+	},
+	WRPblur: {
+		type: "number",
+	},
+	WRPspread: {
+		type: "number",
+	},
+	WRPshadowColor: {
+		type: "string",
+	},
+	WRPinset: {
+		type: "boolean",
+		default: false,
+	},
+	WRPshadowType: {
+		type: "string",
+		default: "normal",
+	},
+	WRPhoverHOffset: {
+		type: "number",
+	},
+	WRPhoverVOffset: {
+		type: "number",
+	},
+	WRPhoverBlur: {
+		type: "number",
+	},
+	WRPhoverSpread: {
+		type: "number",
+	},
+	WRPhoverShadowColor: {
+		type: "string",
+	},
+	WRPhoverInset: {
+		type: "boolean",
+		default: false,
+	},
+	WRPtransitionTime: {
+		type: "string",
+		default: "500",
+	},
 
 	// typography attributes
 	...generateTypographyAttributes(Object.values(typoPrefixs)),
@@ -287,7 +374,9 @@ const attributes = {
 		top: 20,
 		bottom: 20,
 	}),
-	...generateDimensionsAttributes(mediaBgMargin),
+	...generateDimensionsAttributes(mediaBgMargin, {
+		top: 15,
+	}),
 	...generateDimensionsAttributes(buttonPadding, {
 		top: 15,
 		bottom: 15,
@@ -315,8 +404,8 @@ const attributes = {
 
 	...generateDimensionsAttributes(wrapperMargin),
 	...generateDimensionsAttributes(wrapperPadding, {
-		top: 30,
-		bottom: 30,
+		top: 40,
+		bottom: 40,
 		right: 30,
 		left: 30,
 	}),

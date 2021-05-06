@@ -130,25 +130,56 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		MOBmediaImgHeight,
 
 		//
-		buttonTextColor,
+		buttonTextColor = "#fff",
 
 		//
-		titleColor,
+		titleColor = "#fff",
 
 		//
-		subTitleColor,
+		subTitleColor = "#fff",
 
 		//
-		descriptionColor,
+		descriptionColor = "#fff",
 
 		//
-		buttonBgColor,
+		buttonBgColor = "#7a137a",
 
 		//
 		mediaAlignment,
 
 		//
 		contentsAlignment,
+
+		// background attributes ⬇
+		WRPbackgroundType,
+		WRPbackgroundColor,
+		WRPgradientColor,
+		WRPbackgroundSize,
+		WRPbgImageURL,
+
+		// border attributes ⬇
+		WRPborderColor,
+		WRPborderStyle,
+		WRPborderWidth,
+		WRPborderRadius,
+		WRPradiusUnit,
+
+		// shadow attributes  ⬇
+		WRPshadowColor,
+		WRPhOffset = 0,
+		WRPvOffset = 0,
+		WRPblur = 0,
+		WRPspread = 0,
+		WRPinset,
+
+		WRPhoverShadowColor = WRPshadowColor,
+		WRPhoverHOffset = WRPhOffset,
+		WRPhoverVOffset = WRPvOffset,
+		WRPhoverBlur = WRPblur,
+		WRPhoverSpread = WRPspread,
+
+		// transition attributes ⬇
+		WRPtransitionTime,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
@@ -376,9 +407,48 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 	const wrapperStylesDesktop = `
 		.${blockId} {
-			background-color: #f4f9;
 			${wrapperMarginStylesDesktop}
 			${wrapperPaddingStylesDesktop}
+
+			background-image:
+			${
+				WRPbackgroundType === "image" && WRPbgImageURL
+					? `url("${WRPbgImageURL}")`
+					: WRPbackgroundType === "gradient"
+					? WRPgradientColor
+					: "none"
+			};
+
+			${WRPbackgroundSize ? `background-size: ${WRPbackgroundSize};` : " "}
+			${WRPbackgroundColor ? `background-color: ${WRPbackgroundColor};` : " "}	
+			${
+				WRPborderColor
+					? `border: ${WRPborderWidth}px ${WRPborderStyle} ${WRPborderColor};`
+					: " "
+			}
+			${WRPborderRadius ? `border-radius: ${WRPborderRadius}${WRPradiusUnit};` : " "}
+
+			${
+				WRPshadowColor
+					? `box-shadow: ${WRPshadowColor} ${WRPhOffset}px ${WRPvOffset}px ${WRPblur}px ${WRPspread}px ${
+							WRPinset ? "inset" : ""
+					  };`
+					: " "
+			}
+
+			transition: ${WRPtransitionTime ? `${WRPtransitionTime / 1000}s` : ".5s"};
+		}
+
+		
+
+		.${blockId}:hover{		
+			${
+				WRPhoverShadowColor
+					? `box-shadow: ${WRPhoverShadowColor} ${WRPhoverHOffset}px ${WRPhoverVOffset}px ${WRPhoverBlur}px ${WRPhoverSpread}px ${
+							WRPinset ? "inset" : " "
+					  };`
+					: " "
+			}
 		}
 
 	`;
@@ -738,6 +808,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			padding: 10px 0;
 			${titleTypoStylesDesktop}
 			${titlePaddingStylesDesktop}
+			${titleColor ? `color: ${titleColor};` : " "}
 		}
 
 		${
@@ -748,6 +819,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					padding: 10px 0;
 					${subTitleTypoStylesDesktop}
 					${subTitlePaddingStylesDesktop}
+					${subTitleColor ? `color: ${subTitleColor};` : " "}
 				}			
 				`
 				: " "
@@ -762,6 +834,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					padding: 10px 0;
 					${contentTypoStylesDesktop}
 					${contentPaddingStylesDesktop}
+					${descriptionColor ? `color: ${descriptionColor};` : " "}
 
 				}
 				
@@ -1049,7 +1122,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 							<div className="eb-infobox-btn-wrapper">
 								<a
 									href={infoboxLink}
-									style={{ pointerEvents: "none" }}
+									// style={{ pointerEvents: "none" }}
 									className="infobox-btn"
 								>
 									{buttonText}
