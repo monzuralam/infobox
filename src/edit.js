@@ -614,27 +614,51 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			margin: 0;
 			padding: 10px 0;
 		}
-		
-		.${blockId} .subtitle {
-			${subTitleTypoStylesDesktop}
-			margin: 0;
-			padding: 10px 0;
-		}
-		
-		.${blockId} .description {
-			${contentTypoStylesDesktop}
-			margin: 0;
-			padding: 10px 0;
 
+		${
+			enableSubTitle
+				? `			
+				.${blockId} .subtitle {
+					${subTitleTypoStylesDesktop}
+					margin: 0;
+					padding: 10px 0;
+				}			
+				`
+				: " "
 		}
 		
-		.${blockId} a{
-			text-decoration:none;
+		${
+			enableDescription
+				? `
+			
+				.${blockId} .description {
+					${contentTypoStylesDesktop}
+					margin: 0;
+					padding: 10px 0;
+
+				}
+				
+				`
+				: " "
 		}
 
-		.${blockId} .infobox-btn{
-			${buttonTypoStylesDesktop}
+		
+		${
+			enableButton
+				? `
+			
+				.${blockId} a{
+					text-decoration:none;
+				}
+
+				.${blockId} .infobox-btn{
+					${buttonTypoStylesDesktop}
+				}
+				
+				`
+				: " "
 		}
+
 
 	`;
 
@@ -644,20 +668,39 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 		}
 		
-		.${blockId} .subtitle {
-			${subTitleTypoStylesTab}
+		${
+			enableSubTitle
+				? `			
+				.${blockId} .subtitle {
+					${subTitleTypoStylesTab}
+		
+				}			
+				`
+				: " "
+		}
 
+		${
+			enableDescription
+				? `
+				.${blockId} .description {
+					${contentTypoStylesTab}
+		
+				}				
+				`
+				: " "
 		}
 		
-		.${blockId} .description {
-			${contentTypoStylesTab}
-
+		${
+			enableButton
+				? `
+				.${blockId} .infobox-btn{
+					${buttonTypoStylesTab}
+				}
+				
+				`
+				: " "
 		}
-		
-		.${blockId} .infobox-btn{
-			${buttonTypoStylesTab}
-		}
-
+	
 	`;
 
 	const contentStylesMobile = `
@@ -666,19 +709,43 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 		}
 		
-		.${blockId} .subtitle {
-			${subTitleTypoStylesMobile}
+		${
+			enableSubTitle
+				? `
+				.${blockId} .subtitle {
+					${subTitleTypoStylesMobile}
+		
+				}				
+				`
+				: " "
+		}
 
+		${
+			enableDescription
+				? `
+				.${blockId} .description {
+					${contentTypoStylesMobile}
+		
+				}
+				
+				`
+				: " "
 		}
 		
-		.${blockId} .description {
-			${contentTypoStylesMobile}
-
+		${
+			enableButton
+				? `
+			
+				.${blockId} .infobox-btn{
+					${buttonTypoStylesMobile}
+		
+				}
+				
+				`
+				: " "
 		}
 		
-		.${blockId} .infobox-btn{
-			${buttonTypoStylesMobile}
-		}
+		
 
 	`;
 
