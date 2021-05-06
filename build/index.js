@@ -5119,7 +5119,8 @@ function Inspector(props) {
       TABmediaImgHeight = attributes.TABmediaImgHeight,
       MOBmediaImgHeight = attributes.MOBmediaImgHeight,
       titleTag = attributes.titleTag,
-      subTitleTag = attributes.subTitleTag; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
+      subTitleTag = attributes.subTitleTag,
+      enableButton = attributes.enableButton; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var bodyClasses = document.body.className; // console.log("----log from inspector useEffect with empty []", {
