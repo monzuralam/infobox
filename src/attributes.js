@@ -5,6 +5,9 @@ import {
 	mediaBgMargin,
 	buttonRadius,
 	buttonPadding,
+	contentPadding,
+	titlePadding,
+	subTitlePadding,
 } from "./constants/dimensionsConstants";
 import {
 	generateDimensionsAttributes,
@@ -162,6 +165,16 @@ const attributes = {
 	},
 
 	//
+	buttonTextColor: {
+		type: "string",
+	},
+
+	//
+	buttonBgColor: {
+		type: "string",
+	},
+
+	//
 	infoboxLink: {
 		type: "string",
 	},
@@ -180,10 +193,20 @@ const attributes = {
 	},
 
 	//
+	titleColor: {
+		type: "string",
+	},
+
+	//
 	subTitle: {
 		type: "text",
 		selector: ".subtitle",
 		default: "This is a Sub title",
+	},
+
+	//
+	subTitleColor: {
+		type: "string",
 	},
 
 	//
@@ -192,6 +215,11 @@ const attributes = {
 		selector: ".description",
 		default:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+	},
+
+	//
+	descriptionColor: {
+		type: "string",
 	},
 
 	//
@@ -259,10 +287,22 @@ const attributes = {
 		left: 30,
 	}),
 	...generateDimensionsAttributes(buttonRadius, {
-		top: 5,
-		bottom: 5,
-		right: 5,
-		left: 5,
+		top: 10,
+		bottom: 10,
+		right: 10,
+		left: 10,
+	}),
+	...generateDimensionsAttributes(titlePadding, {
+		top: 10,
+		bottom: 10,
+	}),
+	...generateDimensionsAttributes(subTitlePadding, {
+		top: 10,
+		bottom: 10,
+	}),
+	...generateDimensionsAttributes(contentPadding, {
+		top: 10,
+		bottom: 30,
 	}),
 };
 

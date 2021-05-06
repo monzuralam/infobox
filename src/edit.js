@@ -32,6 +32,9 @@ import {
 	mediaBgRadius,
 	buttonRadius,
 	buttonPadding,
+	titlePadding,
+	contentPadding,
+	subTitlePadding,
 } from "./constants/dimensionsConstants";
 
 const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
@@ -124,6 +127,21 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 		//
 		MOBmediaImgHeight,
+
+		//
+		buttonTextColor,
+
+		//
+		titleColor,
+
+		//
+		subTitleColor,
+
+		//
+		descriptionColor,
+
+		//
+		buttonBgColor,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
@@ -297,6 +315,36 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		attributes,
 		controlName: buttonRadius,
 		styleFor: "border-radius",
+	});
+
+	const {
+		dimensionStylesDesktop: titlePaddingStylesDesktop,
+		dimensionStylesTab: titlePaddingStylesTab,
+		dimensionStylesMobile: titlePaddingStylesMobile,
+	} = generateDimensionsControlStyles({
+		attributes,
+		controlName: titlePadding,
+		styleFor: "padding",
+	});
+
+	const {
+		dimensionStylesDesktop: subTitlePaddingStylesDesktop,
+		dimensionStylesTab: subTitlePaddingStylesTab,
+		dimensionStylesMobile: subTitlePaddingStylesMobile,
+	} = generateDimensionsControlStyles({
+		attributes,
+		controlName: subTitlePadding,
+		styleFor: "padding",
+	});
+
+	const {
+		dimensionStylesDesktop: contentPaddingStylesDesktop,
+		dimensionStylesTab: contentPaddingStylesTab,
+		dimensionStylesMobile: contentPaddingStylesMobile,
+	} = generateDimensionsControlStyles({
+		attributes,
+		controlName: contentPadding,
+		styleFor: "padding",
 	});
 
 	const wrapperStylesDesktop = `
@@ -632,18 +680,20 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		}
 
 		.${blockId} .title {
-			${titleTypoStylesDesktop}
 			margin: 0;
 			padding: 10px 0;
+			${titleTypoStylesDesktop}
+			${titlePaddingStylesDesktop}
 		}
 
 		${
 			enableSubTitle
 				? `			
 				.${blockId} .subtitle {
-					${subTitleTypoStylesDesktop}
 					margin: 0;
 					padding: 10px 0;
+					${subTitleTypoStylesDesktop}
+					${subTitlePaddingStylesDesktop}
 				}			
 				`
 				: " "
@@ -654,9 +704,10 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				? `
 			
 				.${blockId} .description {
-					${contentTypoStylesDesktop}
 					margin: 0;
 					padding: 10px 0;
+					${contentTypoStylesDesktop}
+					${contentPaddingStylesDesktop}
 
 				}
 				
@@ -673,10 +724,14 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					text-decoration:none;
 				}
 
-				.${blockId} .infobox-btn{
+				.${blockId} .contents-wrapper .infobox-btn{
 					${buttonTypoStylesDesktop}
 					${buttonPaddingStylesDesktop}
 					${buttonRadiusStylesDesktop}
+					
+					${buttonBgColor ? `background-color: ${buttonBgColor};` : " "}
+					${buttonTextColor ? `color: ${buttonTextColor};` : " "}
+					
 				}
 				
 				`
@@ -689,6 +744,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	const contentStylesTab = `
 		.${blockId} .title {
 			${titleTypoStylesTab}
+			${titlePaddingStylesTab}
 
 		}
 		
@@ -697,6 +753,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				? `			
 				.${blockId} .subtitle {
 					${subTitleTypoStylesTab}
+					${subTitlePaddingStylesTab}
 		
 				}			
 				`
@@ -708,6 +765,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				? `
 				.${blockId} .description {
 					${contentTypoStylesTab}
+					${contentPaddingStylesTab}
 		
 				}				
 				`
@@ -717,7 +775,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		${
 			enableButton
 				? `
-				.${blockId} .infobox-btn{
+				.${blockId} .contents-wrapper .infobox-btn{
 					${buttonTypoStylesTab}
 					${buttonPaddingStylesTab}
 					${buttonRadiusStylesTab}
@@ -732,6 +790,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	const contentStylesMobile = `
 		.${blockId} .title {
 			${titleTypoStylesMobile}
+			${titlePaddingStylesMobile}
 
 		}
 		
@@ -740,6 +799,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				? `
 				.${blockId} .subtitle {
 					${subTitleTypoStylesMobile}
+					${subTitlePaddingStylesMobile}
 		
 				}				
 				`
@@ -751,6 +811,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				? `
 				.${blockId} .description {
 					${contentTypoStylesMobile}
+					${contentPaddingStylesMobile}
 		
 				}
 				
@@ -762,7 +823,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			enableButton
 				? `
 			
-				.${blockId} .infobox-btn{
+				.${blockId} .contents-wrapper .infobox-btn{
 					${buttonTypoStylesMobile}
 					${buttonPaddingStylesMobile}
 					${buttonRadiusStylesMobile}

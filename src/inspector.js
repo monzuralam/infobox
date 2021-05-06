@@ -47,6 +47,9 @@ import {
 	mediaBgRadius,
 	buttonPadding,
 	buttonRadius,
+	subTitlePadding,
+	contentPadding,
+	titlePadding,
 } from "./constants/dimensionsConstants";
 
 import {
@@ -151,6 +154,21 @@ function Inspector(props) {
 		//
 		buttonText,
 		infoboxLink,
+
+		//
+		buttonTextColor,
+
+		//
+		titleColor,
+
+		//
+		subTitleColor,
+
+		//
+		descriptionColor,
+
+		//
+		buttonBgColor,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
@@ -665,6 +683,18 @@ function Inspector(props) {
 						typographyPrefixConstant={typoPrefix_title}
 						typoRequiredProps={typoRequiredProps}
 					/>
+
+					<ResponsiveDimensionsControl
+						resRequiredProps={typoRequiredProps}
+						controlName={titlePadding}
+						baseLabel="Title Padding"
+					/>
+
+					<ColorControl
+						label={__("Color")}
+						color={titleColor}
+						onChange={(titleColor) => setAttributes({ titleColor })}
+					/>
 				</PanelBody>
 
 				<PanelBody title={__("Subtitle")} initialOpen={false}>
@@ -689,10 +719,23 @@ function Inspector(props) {
 									))}
 								</ButtonGroup>
 							</BaseControl>
+
 							<TypographyDropdown
 								baseLabel="Typography"
 								typographyPrefixConstant={typoPrefix_subTitle}
 								typoRequiredProps={typoRequiredProps}
+							/>
+
+							<ResponsiveDimensionsControl
+								resRequiredProps={typoRequiredProps}
+								controlName={subTitlePadding}
+								baseLabel="Subtitle Padding"
+							/>
+
+							<ColorControl
+								label={__("Color")}
+								color={subTitleColor}
+								onChange={(subTitleColor) => setAttributes({ subTitleColor })}
 							/>
 						</>
 					)}
@@ -713,6 +756,20 @@ function Inspector(props) {
 								baseLabel="Typography"
 								typographyPrefixConstant={typoPrefix_content}
 								typoRequiredProps={typoRequiredProps}
+							/>
+
+							<ResponsiveDimensionsControl
+								resRequiredProps={typoRequiredProps}
+								controlName={contentPadding}
+								baseLabel="Content Padding"
+							/>
+
+							<ColorControl
+								label={__("Color")}
+								color={descriptionColor}
+								onChange={(descriptionColor) =>
+									setAttributes({ descriptionColor })
+								}
 							/>
 						</>
 					)}
@@ -759,6 +816,20 @@ function Inspector(props) {
 								resRequiredProps={typoRequiredProps}
 								controlName={buttonRadius}
 								baseLabel="Button Border Radius"
+							/>
+
+							<ColorControl
+								label={__("Text Color")}
+								color={buttonTextColor || "#fff"}
+								onChange={(buttonTextColor) =>
+									setAttributes({ buttonTextColor })
+								}
+							/>
+
+							<ColorControl
+								label={__("Button Color")}
+								color={buttonBgColor || "#3074FF"}
+								onChange={(buttonBgColor) => setAttributes({ buttonBgColor })}
 							/>
 						</>
 					)}
