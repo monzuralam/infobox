@@ -58,6 +58,9 @@ import {
 	ICON_IMAGE_BG_TYPES,
 	sizeUnitTypes,
 	HEADER_TAGS,
+	CONTENTS_ALIGNMENTS,
+	MEDIA_ALIGNMENTS_ON_FLEX_COLUMN,
+	MEDIA_ALIGNMENTS_ON_FLEX_ROW,
 } from "./constants";
 
 function Inspector(props) {
@@ -169,6 +172,12 @@ function Inspector(props) {
 
 		//
 		buttonBgColor,
+
+		//
+		mediaAlignment,
+
+		//
+		contentsAlignment,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
@@ -262,9 +271,9 @@ function Inspector(props) {
 
 			case "preset3":
 				setAttributes({
-					flexDirection: undefined,
-					contentAlignment: undefined,
-					mediaAlignSelf: undefined,
+					flexDirection: "row",
+					contentAlignment: "left",
+					mediaAlignSelf: "flex-start",
 				});
 				break;
 
@@ -272,7 +281,7 @@ function Inspector(props) {
 				setAttributes({
 					flexDirection: "row-reverse",
 					contentAlignment: "right",
-					mediaAlignSelf: undefined,
+					mediaAlignSelf: "flex-start",
 				});
 				break;
 		}
@@ -281,25 +290,93 @@ function Inspector(props) {
 	return (
 		<InspectorControls key="controls">
 			<span className="eb-panel-control">
-				<PanelBody title={__("Notice Settings")} initialOpen={false}>
+				<PanelBody
+					title={__("Notice Settings")}
+					// initialOpen={false}
+				>
 					<SelectControl
 						label={__("Layout Preset ")}
 						value={layoutPreset}
 						options={LAYOUT_TYPES}
 						onChange={(layoutPreset) => setAttributes({ layoutPreset })}
 					/>
+
 					{media !== "none" && (
-						<BaseControl label={__("Media & content spacing")}>
-							<RangeControl
-								value={mediaWrapperMargin}
-								onChange={(mediaWrapperMargin) =>
-									setAttributes({ mediaWrapperMargin })
-								}
-								min={0}
-								max={200}
-							/>
-						</BaseControl>
+						<>
+							<BaseControl label={__("Media & content spacing")}>
+								<RangeControl
+									value={mediaWrapperMargin}
+									onChange={(mediaWrapperMargin) =>
+										setAttributes({ mediaWrapperMargin })
+									}
+									min={0}
+									max={200}
+								/>
+							</BaseControl>
+						</>
 					)}
+				</PanelBody>
+
+				<PanelBody title={__("Media Contents Alignment")} initialOpen={false}>
+					{media !== "none" && (
+						<>
+							{(flexDirection === "row" || flexDirection === "row-reverse") && (
+								<BaseControl
+									id="eb-infobox-alignments"
+									label="Media alignments"
+								>
+									<ButtonGroup id="eb-infobox-alignments">
+										{MEDIA_ALIGNMENTS_ON_FLEX_ROW.map(({ value, label }) => (
+											<Button
+												isLarge
+												isSecondary={mediaAlignment !== value}
+												isPrimary={mediaAlignment === value}
+												onClick={() => setAttributes({ mediaAlignment: value })}
+											>
+												{label}
+											</Button>
+										))}
+									</ButtonGroup>
+								</BaseControl>
+							)}
+
+							{(flexDirection === "column" ||
+								flexDirection === "column-reverse") && (
+								<BaseControl
+									id="eb-infobox-alignments"
+									label="Media alignments"
+								>
+									<ButtonGroup id="eb-infobox-alignments">
+										{MEDIA_ALIGNMENTS_ON_FLEX_COLUMN.map(({ value, label }) => (
+											<Button
+												isLarge
+												isSecondary={mediaAlignment !== value}
+												isPrimary={mediaAlignment === value}
+												onClick={() => setAttributes({ mediaAlignment: value })}
+											>
+												{label}
+											</Button>
+										))}
+									</ButtonGroup>
+								</BaseControl>
+							)}
+						</>
+					)}
+
+					<BaseControl id="eb-infobox-alignments" label="Contents alignments">
+						<ButtonGroup id="eb-infobox-alignments">
+							{CONTENTS_ALIGNMENTS.map(({ value, label }) => (
+								<Button
+									isLarge
+									isSecondary={contentsAlignment !== value}
+									isPrimary={contentsAlignment === value}
+									onClick={() => setAttributes({ contentsAlignment: value })}
+								>
+									{label}
+								</Button>
+							))}
+						</ButtonGroup>
+					</BaseControl>
 				</PanelBody>
 
 				<PanelBody title={__("Media")} initialOpen={false}>
@@ -312,7 +389,7 @@ function Inspector(props) {
 									isPrimary={media === value}
 									onClick={() => setAttributes({ media: value })}
 								>
-									{value}
+									{value.toUpperCase()}
 								</Button>
 							))}
 						</ButtonGroup>

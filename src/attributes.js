@@ -265,6 +265,16 @@ const attributes = {
 		default: "h3",
 	},
 
+	//
+	mediaAlignment: {
+		type: "string",
+	},
+
+	//
+	contentsAlignment: {
+		type: "string",
+	},
+
 	// typography attributes
 	...generateTypographyAttributes(Object.values(typoPrefixs)),
 

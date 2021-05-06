@@ -142,6 +142,12 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 		//
 		buttonBgColor,
+
+		//
+		mediaAlignment,
+
+		//
+		contentsAlignment,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
@@ -371,12 +377,17 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			? ` 
 			
 			.${blockId} .icon-img-wrapper {
-				${mediaAlignSelf ? `align-self: ${mediaAlignSelf};` : " "} 
+
+				${
+					mediaAlignment
+						? `align-self: ${mediaAlignment};`
+						: `align-self: ${mediaAlignSelf || "center"};`
+				}
 
 				${mediaBgMarginStylesDesktop}
 
 				${
-					!flexDirection
+					flexDirection === "row"
 						? `margin-right: ${mediaWrapperMargin}px;`
 						: flexDirection === "row-reverse"
 						? `margin-left: ${mediaWrapperMargin}px;`
@@ -677,6 +688,12 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		.${blockId} .contents-wrapper {
 			flex: 1;
 			${contentAlignment ? `text-align: ${contentAlignment};` : " "} 
+
+			${
+				contentsAlignment
+					? `text-align: ${contentsAlignment};`
+					: `text-align: ${contentAlignment};`
+			}
 		}
 
 		.${blockId} .title {

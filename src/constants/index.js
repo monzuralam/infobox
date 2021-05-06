@@ -9,6 +9,24 @@ export const LAYOUT_TYPES = [
 
 export const MEDIA_TYPES = ["image", "icon", "number", "none"];
 
+export const CONTENTS_ALIGNMENTS = [
+	{ label: __("Left"), value: "left" },
+	{ label: __("Center"), value: "center" },
+	{ label: __("Right"), value: "right" },
+];
+
+export const MEDIA_ALIGNMENTS_ON_FLEX_COLUMN = [
+	{ label: __("Left"), value: "flex-start" },
+	{ label: __("Center"), value: "center" },
+	{ label: __("Right"), value: "flex-end" },
+];
+
+export const MEDIA_ALIGNMENTS_ON_FLEX_ROW = [
+	{ label: __("Top"), value: "flex-start" },
+	{ label: __("Middle"), value: "center" },
+	{ label: __("Bottom"), value: "flex-end" },
+];
+
 export const ICON_IMAGE_BG_TYPES = [
 	{ label: "Gradient", value: "gradient" },
 	{ label: "Fill", value: "fill" },
