@@ -6,3 +6,5 @@ export const buttonRadius = "buttonRadius";
 export const titlePadding = "titlePadding";
 export const subTitlePadding = "subTitlePadding";
 export const contentPadding = "contentPadding";
+export const wrapperMargin = "wrapperMargin";
+export const wrapperPadding = "wrapperPadding";

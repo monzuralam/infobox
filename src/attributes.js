@@ -8,6 +8,8 @@ import {
 	contentPadding,
 	titlePadding,
 	subTitlePadding,
+	wrapperMargin,
+	wrapperPadding,
 } from "./constants/dimensionsConstants";
 import {
 	generateDimensionsAttributes,
@@ -309,6 +311,14 @@ const attributes = {
 	...generateDimensionsAttributes(contentPadding, {
 		top: 10,
 		bottom: 30,
+	}),
+
+	...generateDimensionsAttributes(wrapperMargin),
+	...generateDimensionsAttributes(wrapperPadding, {
+		top: 30,
+		bottom: 30,
+		right: 30,
+		left: 30,
 	}),
 };
 

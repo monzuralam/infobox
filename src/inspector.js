@@ -50,6 +50,8 @@ import {
 	subTitlePadding,
 	contentPadding,
 	titlePadding,
+	wrapperMargin,
+	wrapperPadding,
 } from "./constants/dimensionsConstants";
 
 import {
@@ -290,10 +292,7 @@ function Inspector(props) {
 	return (
 		<InspectorControls key="controls">
 			<span className="eb-panel-control">
-				<PanelBody
-					title={__("Notice Settings")}
-					// initialOpen={false}
-				>
+				<PanelBody title={__("Notice Settings")} initialOpen={false}>
 					<SelectControl
 						label={__("Layout Preset ")}
 						value={layoutPreset}
@@ -852,10 +851,7 @@ function Inspector(props) {
 					)}
 				</PanelBody>
 
-				<PanelBody
-					title={__("Button")}
-					// initialOpen={false}
-				>
+				<PanelBody title={__("Button")} initialOpen={false}>
 					<ToggleControl
 						label={__("Show button")}
 						checked={enableButton}
@@ -910,6 +906,19 @@ function Inspector(props) {
 							/>
 						</>
 					)}
+				</PanelBody>
+
+				<PanelBody title={__("Margin Padding")} initialOpen={false}>
+					<ResponsiveDimensionsControl
+						resRequiredProps={typoRequiredProps}
+						controlName={wrapperMargin}
+						baseLabel="Container Margin"
+					/>
+					<ResponsiveDimensionsControl
+						resRequiredProps={typoRequiredProps}
+						controlName={wrapperPadding}
+						baseLabel="Container Padding"
+					/>
 				</PanelBody>
 			</span>
 		</InspectorControls>

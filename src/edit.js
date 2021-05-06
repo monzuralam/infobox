@@ -35,6 +35,8 @@ import {
 	titlePadding,
 	contentPadding,
 	subTitlePadding,
+	wrapperPadding,
+	wrapperMargin,
 } from "./constants/dimensionsConstants";
 
 const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
@@ -352,11 +354,48 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		styleFor: "padding",
 	});
 
+	const {
+		dimensionStylesDesktop: wrapperPaddingStylesDesktop,
+		dimensionStylesTab: wrapperPaddingStylesTab,
+		dimensionStylesMobile: wrapperPaddingStylesMobile,
+	} = generateDimensionsControlStyles({
+		attributes,
+		controlName: wrapperPadding,
+		styleFor: "padding",
+	});
+
+	const {
+		dimensionStylesDesktop: wrapperMarginStylesDesktop,
+		dimensionStylesTab: wrapperMarginStylesTab,
+		dimensionStylesMobile: wrapperMarginStylesMobile,
+	} = generateDimensionsControlStyles({
+		attributes,
+		controlName: wrapperMargin,
+		styleFor: "margin",
+	});
+
 	const wrapperStylesDesktop = `
 		.${blockId} {
 			background-color: #f4f9;
+			${wrapperMarginStylesDesktop}
+			${wrapperPaddingStylesDesktop}
 		}
-		
+
+	`;
+
+	const wrapperStylesTab = `
+		.${blockId} {
+			${wrapperMarginStylesTab}
+			${wrapperPaddingStylesTab}
+		}
+
+	`;
+
+	const wrapperStylesMobile = `
+		.${blockId} {
+			${wrapperMarginStylesMobile}
+			${wrapperPaddingStylesMobile}
+		}
 
 	`;
 
@@ -365,7 +404,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			display: flex;
 			${flexDirection ? `flex-direction: ${flexDirection};` : " "} 
 			
-			padding: 30px;
 		}
 	
 	`;
@@ -695,9 +733,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			}
 		}
 
-		
-
-
 		.${blockId} .title {
 			margin: 0;
 			padding: 10px 0;
@@ -868,13 +903,16 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 	// all css styles for Tab in strings ⬇
 	const tabAllStyles = softMinifyCssStrings(`
+		${isCssExists(wrapperStylesTab) ? wrapperStylesTab : " "}
 		${isCssExists(mediaStylesTab) ? mediaStylesTab : " "}
 		${isCssExists(contentStylesTab) ? contentStylesTab : " "}
+		
 		
 	`);
 
 	// all css styles for Mobile in strings ⬇
 	const mobileAllStyles = softMinifyCssStrings(`
+		${isCssExists(wrapperStylesMobile) ? wrapperStylesMobile : " "}
 		${isCssExists(mediaStylesMobile) ? mediaStylesMobile : " "}
 		${isCssExists(contentStylesMobile) ? contentStylesMobile : " "}
 	
