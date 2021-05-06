@@ -5465,7 +5465,7 @@ function Inspector(props) {
           media: value
         });
       }
-    }, value.toUpperCase());
+    }, value);
   }))), media !== "none" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, media === "icon" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Select Icon")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_fonticonpicker_react_fonticonpicker__WEBPACK_IMPORTED_MODULE_4___default.a, {

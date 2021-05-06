@@ -389,7 +389,7 @@ function Inspector(props) {
 									isPrimary={media === value}
 									onClick={() => setAttributes({ media: value })}
 								>
-									{value.toUpperCase()}
+									{value}
 								</Button>
 							))}
 						</ButtonGroup>
