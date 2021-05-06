@@ -30,6 +30,8 @@ import {
 	mediaBackground,
 	mediaBgMargin,
 	mediaBgRadius,
+	buttonRadius,
+	buttonPadding,
 } from "./constants/dimensionsConstants";
 
 const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
@@ -275,6 +277,26 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		attributes,
 		controlName: mediaBgMargin,
 		styleFor: "margin",
+	});
+
+	const {
+		dimensionStylesDesktop: buttonPaddingStylesDesktop,
+		dimensionStylesTab: buttonPaddingStylesTab,
+		dimensionStylesMobile: buttonPaddingStylesMobile,
+	} = generateDimensionsControlStyles({
+		attributes,
+		controlName: buttonPadding,
+		styleFor: "padding",
+	});
+
+	const {
+		dimensionStylesDesktop: buttonRadiusStylesDesktop,
+		dimensionStylesTab: buttonRadiusStylesTab,
+		dimensionStylesMobile: buttonRadiusStylesMobile,
+	} = generateDimensionsControlStyles({
+		attributes,
+		controlName: buttonRadius,
+		styleFor: "border-radius",
 	});
 
 	const wrapperStylesDesktop = `
@@ -653,6 +675,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 				.${blockId} .infobox-btn{
 					${buttonTypoStylesDesktop}
+					${buttonPaddingStylesDesktop}
+					${buttonRadiusStylesDesktop}
 				}
 				
 				`
@@ -695,6 +719,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				? `
 				.${blockId} .infobox-btn{
 					${buttonTypoStylesTab}
+					${buttonPaddingStylesTab}
+					${buttonRadiusStylesTab}
 				}
 				
 				`
@@ -738,6 +764,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			
 				.${blockId} .infobox-btn{
 					${buttonTypoStylesMobile}
+					${buttonPaddingStylesMobile}
+					${buttonRadiusStylesMobile}
 		
 				}
 				

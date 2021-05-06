@@ -45,6 +45,8 @@ import {
 	mediaBackground,
 	mediaBgMargin,
 	mediaBgRadius,
+	buttonPadding,
+	buttonRadius,
 } from "./constants/dimensionsConstants";
 
 import {
@@ -745,6 +747,18 @@ function Inspector(props) {
 								baseLabel="Typography"
 								typographyPrefixConstant={typoPrefix_buttonText}
 								typoRequiredProps={typoRequiredProps}
+							/>
+
+							<ResponsiveDimensionsControl
+								resRequiredProps={typoRequiredProps}
+								controlName={buttonPadding}
+								baseLabel="Button Padding"
+							/>
+
+							<ResponsiveDimensionsControl
+								resRequiredProps={typoRequiredProps}
+								controlName={buttonRadius}
+								baseLabel="Button Border Radius"
 							/>
 						</>
 					)}

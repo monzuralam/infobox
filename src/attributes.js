@@ -3,6 +3,8 @@ import {
 	mediaBackground,
 	mediaBgRadius,
 	mediaBgMargin,
+	buttonRadius,
+	buttonPadding,
 } from "./constants/dimensionsConstants";
 import {
 	generateDimensionsAttributes,
@@ -250,6 +252,18 @@ const attributes = {
 		bottom: 20,
 	}),
 	...generateDimensionsAttributes(mediaBgMargin),
+	...generateDimensionsAttributes(buttonPadding, {
+		top: 15,
+		bottom: 15,
+		right: 30,
+		left: 30,
+	}),
+	...generateDimensionsAttributes(buttonRadius, {
+		top: 5,
+		bottom: 5,
+		right: 5,
+		left: 5,
+	}),
 };
 
 export default attributes;
