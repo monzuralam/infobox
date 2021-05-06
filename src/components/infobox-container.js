@@ -12,7 +12,6 @@ export default function InfoboxContainer({ requiredProps }) {
 		enableDescription,
 		enableButton,
 		buttonText,
-		isClickable,
 		title,
 		subTitle,
 		description,

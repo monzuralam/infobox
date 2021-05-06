@@ -57,7 +57,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		enableDescription,
 		enableButton,
 		buttonText,
-		isClickable,
 		title,
 		subTitle,
 		description,
@@ -355,8 +354,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 	const wrapperStylesDesktop = `
 		.${blockId} {
-			margin: auto;
-			padding: 30px;
 			background-color: #f4f9;
 		}
 		
@@ -367,6 +364,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		.${blockId} .infobox-wrapper-inner {
 			display: flex;
 			${flexDirection ? `flex-direction: ${flexDirection};` : " "} 
+			
+			padding: 30px;
 		}
 	
 	`;
@@ -695,6 +694,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					: `text-align: ${contentAlignment};`
 			}
 		}
+
+		
+
 
 		.${blockId} .title {
 			margin: 0;

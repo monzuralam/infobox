@@ -3943,7 +3943,7 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
   //
   buttonText: {
     type: "string",
-    default: "click me"
+    default: "Learn More"
   },
   //
   buttonTextColor: {
@@ -3956,11 +3956,6 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
   //
   infoboxLink: {
     type: "string"
-  },
-  // this attribute is for checking whether the infobox should be clickable or not ⬇
-  isClickable: {
-    type: "boolean",
-    default: false
   },
   //
   title: {
@@ -4098,7 +4093,6 @@ function InfoboxContainer(_ref) {
       enableDescription = requiredProps.enableDescription,
       enableButton = requiredProps.enableButton,
       buttonText = requiredProps.buttonText,
-      isClickable = requiredProps.isClickable,
       title = requiredProps.title,
       subTitle = requiredProps.subTitle,
       description = requiredProps.description,
@@ -4353,7 +4347,6 @@ var Edit = function Edit(_ref) {
       enableDescription = attributes.enableDescription,
       enableButton = attributes.enableButton,
       buttonText = attributes.buttonText,
-      isClickable = attributes.isClickable,
       title = attributes.title,
       subTitle = attributes.subTitle,
       description = attributes.description,
@@ -4586,12 +4579,12 @@ var Edit = function Edit(_ref) {
       contentPaddingStylesTab = _generateDimensionsCo8.dimensionStylesTab,
       contentPaddingStylesMobile = _generateDimensionsCo8.dimensionStylesMobile;
 
-  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tmargin: auto;\n\t\t\tpadding: 30px;\n\t\t\tbackground-color: #f4f9;\n\t\t}\n\t\t\n\n\t");
-  var wrapperInnerStylesDesktop = "\t\n\t\t.".concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\t").concat(flexDirection ? "flex-direction: ".concat(flexDirection, ";") : " ", " \n\t\t}\n\t\n\t");
+  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tbackground-color: #f4f9;\n\t\t}\n\t\t\n\n\t");
+  var wrapperInnerStylesDesktop = "\t\n\t\t.".concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\t").concat(flexDirection ? "flex-direction: ".concat(flexDirection, ";") : " ", " \n\t\t\t\n\t\t\tpadding: 30px;\n\t\t}\n\t\n\t");
   var mediaStylesDesktop = "\n\t".concat(media !== "none" ? " \n\t\t\t\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\n\t\t\t\t").concat(mediaAlignment ? "align-self: ".concat(mediaAlignment, ";") : "align-self: ".concat(mediaAlignSelf || "center", ";"), "\n\n\t\t\t\t").concat(mediaBgMarginStylesDesktop, "\n\n\t\t\t\t").concat(flexDirection === "row" ? "margin-right: ".concat(mediaWrapperMargin, "px;") : flexDirection === "row-reverse" ? "margin-left: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column" ? "margin-bottom: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column-reverse" ? "margin-top: ".concat(mediaWrapperMargin, "px;") : " ", "\n\t\t\t\t\t\t\t\t\n\t\t\t\toverflow: hidden;\n\t\t\t}\n\n\n\t\t\t").concat(media === "image" ? "\n\t\t\t\t\n\t\t\t\t.".concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\tmax-width: 100%;\n\t\t\t\t\theight: auto;\n\t\t\t\t\tobject-fit: cover;\n\t\t\t\t\t").concat(mediaImgWidth ? "width: ".concat(mediaImgWidth).concat(mediaImgWidthUnit, ";") : " ", "\n\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : mediaImgHeight ? "height: ".concat(mediaImgHeight).concat(mediaImgHeightUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\t.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\toverflow: hidden;\n\t\t\t\t\t").concat(mediaRadiusStylesDesktop, "\n\n\t\t\t\t}\n\n\n\t\t\t\t") : " ", "\n\n\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\n\t\t\t\t\t\t").concat(mediaBgPaddingDesktop, "\n\t\t\t\t\t\t").concat(mediaRadiusStylesDesktop, "\n\t\t\n\t\t\t\t\t\t").concat(useNumIconBg ? "".concat(numIconBgType === "fill" ? "background-color: ".concat(numIconBgColor, ";") : numIconBgType === "gradient" ? "background-image: ".concat(numIconBgGradient, ";") : " ") : " ", "\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\t\t\n\t\t\t\t\t.").concat(blockId, " .number-or-icon > span{\n\t\t\t\t\t\tcolor: ").concat(numIconColor || "#fff", ";\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\t\t\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t").concat(numTypoStylesDesktop, "\n\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t").concat(media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\tfont-size: ").concat(iconSize, "px;\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\n\t\t\t\t\t") : " ", "\n\n\n\t\t") : " ", "\n\n\t");
   var mediaStylesTab = "\n\t".concat(media !== "none" ? "\n\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\n\t\t\t\t").concat(mediaBgMarginStylesTab, "\t\t\t\t\n\t\t\t}\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\t\t\t\n\t\t\t\t\t.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\t").concat(mediaRadiusStylesTab, "\n\t\t\t\t\t\t").concat(mediaBgPaddingTab, "\t\t\t\t\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t\t.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t\t").concat(numTypoStylesTab, "\n\t\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t").concat(media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\tfont-size: ").concat(TABiconSize, "px;\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t").concat(media === "image" ? "\n\t\t\t\t\n\t\t\t\t.".concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\t\n\t\t\t\t\t").concat(TABmediaImgWidth ? "width: ".concat(TABmediaImgWidth).concat(mediaImgWidthUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : TABmediaImgHeight ? "height: ".concat(TABmediaImgHeight).concat(mediaImgHeightUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t}\n\n\t\t\t\t\n\t\t\t\t.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\t").concat(mediaRadiusStylesTab, "\n\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\n\n\t\t") : " ", "\n\t\n\t");
   var mediaStylesMobile = "\n\t".concat(media !== "none" ? "\n\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t\n\t\t\t\t").concat(mediaBgMarginStylesMobile, "\n\t\t\t}\n\n\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\n\t\t\t\t\t.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\t").concat(mediaRadiusStylesMobile, "\n\t\t\t\t\t\t").concat(mediaBgPaddingMobile, "\t\t\t\t\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\n\n\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t").concat(numTypoStylesMobile, "\n\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\n\t\t\t").concat(media === "icon" ? "\n\n\t\t\t\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\tfont-size: ").concat(MOBiconSize, "px;\n\t\t\t\t\t}\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t\n\t\t\t").concat(media === "image" ? "\n\t\t\t\t\n\t\t\t\t.".concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\t\n\t\t\t\t\t").concat(MOBmediaImgWidth ? "width: ".concat(MOBmediaImgWidth).concat(mediaImgWidthUnit, ";") : " ", "\n\n\t\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : MOBmediaImgHeight ? "height: ".concat(MOBmediaImgHeight).concat(mediaImgHeightUnit, ";") : " ", "\n\n\t\t\t\t}\n\n\t\t\t\t\n\t\t\t\t.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\t\n\t\t\t\t\t").concat(mediaRadiusStylesMobile, "\n\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\n\t\t") : " ", "\n\t\t\n\t\n\t");
-  var contentStylesDesktop = "\n\t\t.".concat(blockId, " .contents-wrapper {\n\t\t\tflex: 1;\n\t\t\t").concat(contentAlignment ? "text-align: ".concat(contentAlignment, ";") : " ", " \n\n\t\t\t").concat(contentsAlignment ? "text-align: ".concat(contentsAlignment, ";") : "text-align: ".concat(contentAlignment, ";"), "\n\t\t}\n\n\t\t.").concat(blockId, " .title {\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\t\t\t").concat(titleTypoStylesDesktop, "\n\t\t\t").concat(titlePaddingStylesDesktop, "\n\t\t}\n\n\t\t").concat(enableSubTitle ? "\t\t\t\n\t\t\t\t.".concat(blockId, " .subtitle {\n\t\t\t\t\tmargin: 0;\n\t\t\t\t\tpadding: 10px 0;\n\t\t\t\t\t").concat(subTitleTypoStylesDesktop, "\n\t\t\t\t\t").concat(subTitlePaddingStylesDesktop, "\n\t\t\t\t}\t\t\t\n\t\t\t\t") : " ", "\n\t\t\n\t\t").concat(enableDescription ? "\n\t\t\t\n\t\t\t\t.".concat(blockId, " .description {\n\t\t\t\t\tmargin: 0;\n\t\t\t\t\tpadding: 10px 0;\n\t\t\t\t\t").concat(contentTypoStylesDesktop, "\n\t\t\t\t\t").concat(contentPaddingStylesDesktop, "\n\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\n\t\t").concat(enableButton ? "\n\t\t\t\n\t\t\t\t.".concat(blockId, " a{\n\t\t\t\t\ttext-decoration:none;\n\t\t\t\t}\n\n\t\t\t\t.").concat(blockId, " .contents-wrapper .infobox-btn{\n\t\t\t\t\t").concat(buttonTypoStylesDesktop, "\n\t\t\t\t\t").concat(buttonPaddingStylesDesktop, "\n\t\t\t\t\t").concat(buttonRadiusStylesDesktop, "\n\t\t\t\t\t\n\t\t\t\t\t").concat(buttonBgColor ? "background-color: ".concat(buttonBgColor, ";") : " ", "\n\t\t\t\t\t").concat(buttonTextColor ? "color: ".concat(buttonTextColor, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\t");
+  var contentStylesDesktop = "\n\t\t.".concat(blockId, " .contents-wrapper {\n\t\t\tflex: 1;\n\t\t\t").concat(contentAlignment ? "text-align: ".concat(contentAlignment, ";") : " ", " \n\n\t\t\t").concat(contentsAlignment ? "text-align: ".concat(contentsAlignment, ";") : "text-align: ".concat(contentAlignment, ";"), "\n\t\t}\n\n\t\t\n\n\n\t\t.").concat(blockId, " .title {\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\t\t\t").concat(titleTypoStylesDesktop, "\n\t\t\t").concat(titlePaddingStylesDesktop, "\n\t\t}\n\n\t\t").concat(enableSubTitle ? "\t\t\t\n\t\t\t\t.".concat(blockId, " .subtitle {\n\t\t\t\t\tmargin: 0;\n\t\t\t\t\tpadding: 10px 0;\n\t\t\t\t\t").concat(subTitleTypoStylesDesktop, "\n\t\t\t\t\t").concat(subTitlePaddingStylesDesktop, "\n\t\t\t\t}\t\t\t\n\t\t\t\t") : " ", "\n\t\t\n\t\t").concat(enableDescription ? "\n\t\t\t\n\t\t\t\t.".concat(blockId, " .description {\n\t\t\t\t\tmargin: 0;\n\t\t\t\t\tpadding: 10px 0;\n\t\t\t\t\t").concat(contentTypoStylesDesktop, "\n\t\t\t\t\t").concat(contentPaddingStylesDesktop, "\n\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\n\t\t").concat(enableButton ? "\n\t\t\t\n\t\t\t\t.".concat(blockId, " a{\n\t\t\t\t\ttext-decoration:none;\n\t\t\t\t}\n\n\t\t\t\t.").concat(blockId, " .contents-wrapper .infobox-btn{\n\t\t\t\t\t").concat(buttonTypoStylesDesktop, "\n\t\t\t\t\t").concat(buttonPaddingStylesDesktop, "\n\t\t\t\t\t").concat(buttonRadiusStylesDesktop, "\n\t\t\t\t\t\n\t\t\t\t\t").concat(buttonBgColor ? "background-color: ".concat(buttonBgColor, ";") : " ", "\n\t\t\t\t\t").concat(buttonTextColor ? "color: ".concat(buttonTextColor, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\t");
   var contentStylesTab = "\n\t\t.".concat(blockId, " .title {\n\t\t\t").concat(titleTypoStylesTab, "\n\t\t\t").concat(titlePaddingStylesTab, "\n\n\t\t}\n\t\t\n\t\t").concat(enableSubTitle ? "\t\t\t\n\t\t\t\t.".concat(blockId, " .subtitle {\n\t\t\t\t\t").concat(subTitleTypoStylesTab, "\n\t\t\t\t\t").concat(subTitlePaddingStylesTab, "\n\t\t\n\t\t\t\t}\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t").concat(enableDescription ? "\n\t\t\t\t.".concat(blockId, " .description {\n\t\t\t\t\t").concat(contentTypoStylesTab, "\n\t\t\t\t\t").concat(contentPaddingStylesTab, "\n\t\t\n\t\t\t\t}\t\t\t\t\n\t\t\t\t") : " ", "\n\t\t\n\t\t").concat(enableButton ? "\n\t\t\t\t.".concat(blockId, " .contents-wrapper .infobox-btn{\n\t\t\t\t\t").concat(buttonTypoStylesTab, "\n\t\t\t\t\t").concat(buttonPaddingStylesTab, "\n\t\t\t\t\t").concat(buttonRadiusStylesTab, "\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\t\n\t");
   var contentStylesMobile = "\n\t\t.".concat(blockId, " .title {\n\t\t\t").concat(titleTypoStylesMobile, "\n\t\t\t").concat(titlePaddingStylesMobile, "\n\n\t\t}\n\t\t\n\t\t").concat(enableSubTitle ? "\n\t\t\t\t.".concat(blockId, " .subtitle {\n\t\t\t\t\t").concat(subTitleTypoStylesMobile, "\n\t\t\t\t\t").concat(subTitlePaddingStylesMobile, "\n\t\t\n\t\t\t\t}\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t").concat(enableDescription ? "\n\t\t\t\t.".concat(blockId, " .description {\n\t\t\t\t\t").concat(contentTypoStylesMobile, "\n\t\t\t\t\t").concat(contentPaddingStylesMobile, "\n\t\t\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\t\t\n\t\t").concat(enableButton ? "\n\t\t\t\n\t\t\t\t.".concat(blockId, " .contents-wrapper .infobox-btn{\n\t\t\t\t\t").concat(buttonTypoStylesMobile, "\n\t\t\t\t\t").concat(buttonPaddingStylesMobile, "\n\t\t\t\t\t").concat(buttonRadiusStylesMobile, "\n\t\t\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\t\t\n\t\t\n\n\t"); // all css styles for large screen width (desktop/laptop) in strings ⬇
 
@@ -5941,15 +5934,14 @@ function save(_ref) {
       infoboxLink = attributes.infoboxLink,
       enableButton = attributes.enableButton,
       buttonText = attributes.buttonText,
-      isClickable = attributes.isClickable,
       title = attributes.title,
       subTitle = attributes.subTitle,
       description = attributes.description,
       titleTag = attributes.titleTag,
       subTitleTag = attributes.subTitleTag;
   var requiredProps = {
-    blockId: blockId,
     selectedIcon: selectedIcon,
+    blockId: blockId,
     number: number,
     media: media,
     imageUrl: imageUrl,
@@ -5958,7 +5950,6 @@ function save(_ref) {
     infoboxLink: infoboxLink,
     enableButton: enableButton,
     buttonText: buttonText,
-    isClickable: isClickable,
     title: title,
     subTitle: subTitle,
     description: description,

@@ -14,7 +14,6 @@ export default function save({ attributes }) {
 		infoboxLink,
 		enableButton,
 		buttonText,
-		isClickable,
 		title,
 		subTitle,
 		description,
@@ -24,9 +23,8 @@ export default function save({ attributes }) {
 	} = attributes;
 
 	const requiredProps = {
-		blockId,
 		selectedIcon,
-
+		blockId,
 		number,
 		media,
 		imageUrl,
@@ -35,7 +33,6 @@ export default function save({ attributes }) {
 		infoboxLink,
 		enableButton,
 		buttonText,
-		isClickable,
 		title,
 		subTitle,
 		description,

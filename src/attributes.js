@@ -161,7 +161,7 @@ const attributes = {
 	//
 	buttonText: {
 		type: "string",
-		default: "click me",
+		default: "Learn More",
 	},
 
 	//
@@ -177,12 +177,6 @@ const attributes = {
 	//
 	infoboxLink: {
 		type: "string",
-	},
-
-	// this attribute is for checking whether the infobox should be clickable or not ⬇
-	isClickable: {
-		type: "boolean",
-		default: false,
 	},
 
 	//
@@ -274,6 +268,8 @@ const attributes = {
 	contentsAlignment: {
 		type: "string",
 	},
+
+	//
 
 	// typography attributes
 	...generateTypographyAttributes(Object.values(typoPrefixs)),
