@@ -25,7 +25,7 @@ import faIcons from "../util/faIcons.js";
 import TypographyDropdown from "../util/typography-control-v2";
 
 import ResponsiveDimensionsControl from "../util/dimensions-control-v2";
-import ImageAvatar from "../util/image-avatar/ImageAvater";
+import ImageAvatar from "../util/image-avatar/";
 import GradientColorControl from "../util/gradient-color-controller";
 import UnitControl from "../util/unit-control";
 import ColorControl from "../util/color-control";
