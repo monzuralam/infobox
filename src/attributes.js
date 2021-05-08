@@ -15,7 +15,6 @@ import {
 	generateDimensionsAttributes,
 	generateTypographyAttributes,
 } from "./helpers";
-import { number } from "prop-types";
 
 const attributes = {
 	// the following 4 attributes is must required for responsive options and asset generation for frontend
@@ -99,14 +98,14 @@ const attributes = {
 		default: "px",
 	},
 	mediaImgWidth: {
-		type: number,
+		type: "number",
 		default: 300,
 	},
 	TABmediaImgWidth: {
-		type: number,
+		type: "number",
 	},
 	MOBmediaImgWidth: {
-		type: number,
+		type: "number",
 	},
 
 	//
@@ -119,13 +118,13 @@ const attributes = {
 		default: "px",
 	},
 	mediaImgHeight: {
-		type: number,
+		type: "number",
 	},
 	TABmediaImgHeight: {
-		type: number,
+		type: "number",
 	},
 	MOBmediaImgHeight: {
-		type: number,
+		type: "number",
 	},
 
 	//
