@@ -660,7 +660,7 @@ body.eb-res-option-mobile .editor-styles-wrapper {
   left: 85px;
 }
 
-.eb-color-base div {
+.eb-color-base > div {
   display: flex;
   justify-content: space-between;
   align-items: center;
