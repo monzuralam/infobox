@@ -5554,12 +5554,8 @@ function Inspector(props) {
   }, [resOption]);
   var resRequiredProps = {
     setAttributes: setAttributes,
-    resOption: resOption
-  };
-  var typoRequiredProps = {
-    attributes: attributes,
-    setAttributes: setAttributes,
-    resOption: resOption
+    resOption: resOption,
+    attributes: attributes
   };
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     switch (layoutPreset) {
@@ -5772,7 +5768,7 @@ function Inspector(props) {
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_6__["default"], {
     baseLabel: "Number Typography",
     typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_14__["typoPrefix_number"],
-    typoRequiredProps: typoRequiredProps
+    resRequiredProps: resRequiredProps
   })), (media === "number" || media === "icon") && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Color"),
     color: numIconColor,
@@ -5790,7 +5786,7 @@ function Inspector(props) {
       });
     }
   }), useNumIconBg && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    resRequiredProps: typoRequiredProps,
+    resRequiredProps: resRequiredProps,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["mediaBackground"],
     baseLabel: "Background size"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
@@ -5971,11 +5967,11 @@ function Inspector(props) {
     max: 780
   }))))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
     forBorderRadius: true,
-    resRequiredProps: typoRequiredProps,
+    resRequiredProps: resRequiredProps,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["mediaBgRadius"],
     baseLabel: "Border Radius"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    resRequiredProps: typoRequiredProps,
+    resRequiredProps: resRequiredProps,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["mediaBgMargin"],
     baseLabel: "Margin"
   }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
@@ -5998,9 +5994,9 @@ function Inspector(props) {
   }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_6__["default"], {
     baseLabel: "Typography",
     typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_14__["typoPrefix_title"],
-    typoRequiredProps: typoRequiredProps
+    resRequiredProps: resRequiredProps
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    resRequiredProps: typoRequiredProps,
+    resRequiredProps: resRequiredProps,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["titlePadding"],
     baseLabel: "Title Padding"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -6039,9 +6035,9 @@ function Inspector(props) {
   }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_6__["default"], {
     baseLabel: "Typography",
     typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_14__["typoPrefix_subTitle"],
-    typoRequiredProps: typoRequiredProps
+    resRequiredProps: resRequiredProps
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    resRequiredProps: typoRequiredProps,
+    resRequiredProps: resRequiredProps,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["subTitlePadding"],
     baseLabel: "Subtitle Padding"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -6066,9 +6062,9 @@ function Inspector(props) {
   }), enableDescription && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_6__["default"], {
     baseLabel: "Typography",
     typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_14__["typoPrefix_content"],
-    typoRequiredProps: typoRequiredProps
+    resRequiredProps: resRequiredProps
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    resRequiredProps: typoRequiredProps,
+    resRequiredProps: resRequiredProps,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["contentPadding"],
     baseLabel: "Content Padding"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -6110,13 +6106,13 @@ function Inspector(props) {
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_6__["default"], {
     baseLabel: "Typography",
     typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_14__["typoPrefix_buttonText"],
-    typoRequiredProps: typoRequiredProps
+    resRequiredProps: resRequiredProps
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    resRequiredProps: typoRequiredProps,
+    resRequiredProps: resRequiredProps,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["buttonPadding"],
     baseLabel: "Button Padding"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    resRequiredProps: typoRequiredProps,
+    resRequiredProps: resRequiredProps,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["buttonRadius"],
     baseLabel: "Button Border Radius"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -6139,11 +6135,11 @@ function Inspector(props) {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Margin Padding"),
     initialOpen: false
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    resRequiredProps: typoRequiredProps,
+    resRequiredProps: resRequiredProps,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["wrapperMargin"],
     baseLabel: "Container Margin"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    resRequiredProps: typoRequiredProps,
+    resRequiredProps: resRequiredProps,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["wrapperPadding"],
     baseLabel: "Container Padding"
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
@@ -7930,10 +7926,10 @@ __webpack_require__.r(__webpack_exports__);
 function TypographyDropdown(_ref) {
   var baseLabel = _ref.baseLabel,
       typographyPrefixConstant = _ref.typographyPrefixConstant,
-      typoRequiredProps = _ref.typoRequiredProps;
-  var attributes = typoRequiredProps.attributes,
-      setAttributes = typoRequiredProps.setAttributes,
-      resOption = typoRequiredProps.resOption;
+      resRequiredProps = _ref.resRequiredProps;
+  var attributes = resRequiredProps.attributes,
+      setAttributes = resRequiredProps.setAttributes,
+      resOption = resRequiredProps.resOption;
   var fontFamily = attributes["".concat(typographyPrefixConstant, "FontFamily")],
       fontWeight = attributes["".concat(typographyPrefixConstant, "FontWeight")],
       textTransform = attributes["".concat(typographyPrefixConstant, "TextTransform")],

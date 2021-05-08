@@ -280,12 +280,7 @@ function Inspector(props) {
 	const resRequiredProps = {
 		setAttributes,
 		resOption,
-	};
-
-	const typoRequiredProps = {
 		attributes,
-		setAttributes,
-		resOption,
 	};
 
 	useEffect(() => {
@@ -518,7 +513,7 @@ function Inspector(props) {
 									<TypographyDropdown
 										baseLabel="Number Typography"
 										typographyPrefixConstant={typoPrefix_number}
-										typoRequiredProps={typoRequiredProps}
+										resRequiredProps={resRequiredProps}
 									/>
 								</>
 							)}
@@ -542,7 +537,7 @@ function Inspector(props) {
 									{useNumIconBg && (
 										<>
 											<ResponsiveDimensionsControl
-												resRequiredProps={typoRequiredProps}
+												resRequiredProps={resRequiredProps}
 												controlName={mediaBackground}
 												baseLabel="Background size"
 											/>
@@ -760,13 +755,13 @@ function Inspector(props) {
 
 							<ResponsiveDimensionsControl
 								forBorderRadius
-								resRequiredProps={typoRequiredProps}
+								resRequiredProps={resRequiredProps}
 								controlName={mediaBgRadius}
 								baseLabel="Border Radius"
 							/>
 
 							<ResponsiveDimensionsControl
-								resRequiredProps={typoRequiredProps}
+								resRequiredProps={resRequiredProps}
 								controlName={mediaBgMargin}
 								baseLabel="Margin"
 							/>
@@ -792,11 +787,11 @@ function Inspector(props) {
 					<TypographyDropdown
 						baseLabel="Typography"
 						typographyPrefixConstant={typoPrefix_title}
-						typoRequiredProps={typoRequiredProps}
+						resRequiredProps={resRequiredProps}
 					/>
 
 					<ResponsiveDimensionsControl
-						resRequiredProps={typoRequiredProps}
+						resRequiredProps={resRequiredProps}
 						controlName={titlePadding}
 						baseLabel="Title Padding"
 					/>
@@ -834,11 +829,11 @@ function Inspector(props) {
 							<TypographyDropdown
 								baseLabel="Typography"
 								typographyPrefixConstant={typoPrefix_subTitle}
-								typoRequiredProps={typoRequiredProps}
+								resRequiredProps={resRequiredProps}
 							/>
 
 							<ResponsiveDimensionsControl
-								resRequiredProps={typoRequiredProps}
+								resRequiredProps={resRequiredProps}
 								controlName={subTitlePadding}
 								baseLabel="Subtitle Padding"
 							/>
@@ -866,11 +861,11 @@ function Inspector(props) {
 							<TypographyDropdown
 								baseLabel="Typography"
 								typographyPrefixConstant={typoPrefix_content}
-								typoRequiredProps={typoRequiredProps}
+								resRequiredProps={resRequiredProps}
 							/>
 
 							<ResponsiveDimensionsControl
-								resRequiredProps={typoRequiredProps}
+								resRequiredProps={resRequiredProps}
 								controlName={contentPadding}
 								baseLabel="Content Padding"
 							/>
@@ -911,17 +906,17 @@ function Inspector(props) {
 							<TypographyDropdown
 								baseLabel="Typography"
 								typographyPrefixConstant={typoPrefix_buttonText}
-								typoRequiredProps={typoRequiredProps}
+								resRequiredProps={resRequiredProps}
 							/>
 
 							<ResponsiveDimensionsControl
-								resRequiredProps={typoRequiredProps}
+								resRequiredProps={resRequiredProps}
 								controlName={buttonPadding}
 								baseLabel="Button Padding"
 							/>
 
 							<ResponsiveDimensionsControl
-								resRequiredProps={typoRequiredProps}
+								resRequiredProps={resRequiredProps}
 								controlName={buttonRadius}
 								baseLabel="Button Border Radius"
 							/>
@@ -945,12 +940,12 @@ function Inspector(props) {
 
 				<PanelBody title={__("Margin Padding")} initialOpen={false}>
 					<ResponsiveDimensionsControl
-						resRequiredProps={typoRequiredProps}
+						resRequiredProps={resRequiredProps}
 						controlName={wrapperMargin}
 						baseLabel="Container Margin"
 					/>
 					<ResponsiveDimensionsControl
-						resRequiredProps={typoRequiredProps}
+						resRequiredProps={resRequiredProps}
 						controlName={wrapperPadding}
 						baseLabel="Container Padding"
 					/>
