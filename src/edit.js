@@ -512,12 +512,32 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${
 				media === "image"
 					? `
+
+					
+				.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
+					${
+						mediaImgWidthUnit === "%" && mediaImgWidth
+							? `width: ${mediaImgWidth}${mediaImgWidthUnit};`
+							: " "
+					}
+				}
 				
 				.${blockId} .infobox-wrapper-inner img {
 					max-width: 100%;
-					height: auto;
 					object-fit: cover;
-					${mediaImgWidth ? `width: ${mediaImgWidth}${mediaImgWidthUnit};` : " "}
+					display: inline-block;
+					
+					${
+						mediaImgWidthUnit !== "%"
+							? mediaImgWidth
+								? `width: ${mediaImgWidth}${mediaImgWidthUnit};`
+								: " "
+							: mediaImgWidth
+							? `width: 100${mediaImgWidthUnit};`
+							: " "
+					}
+
+					
 				
 					${
 						isMediaImgHeightAuto
@@ -535,7 +555,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					${mediaRadiusStylesDesktop}
 
 				}
-
+				
 
 				`
 					: " "
@@ -661,10 +681,26 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${
 				media === "image"
 					? `
-				
+						
+				.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
+					${
+						mediaImgWidthUnit === "%" && TABmediaImgWidth
+							? `width: ${TABmediaImgWidth}${mediaImgWidthUnit};`
+							: " "
+					}
+				}
+
 				.${blockId} .infobox-wrapper-inner img {
 					
-					${TABmediaImgWidth ? `width: ${TABmediaImgWidth}${mediaImgWidthUnit};` : " "}
+					${
+						mediaImgWidthUnit !== "%"
+							? TABmediaImgWidth
+								? `width: ${TABmediaImgWidth}${mediaImgWidthUnit};`
+								: " "
+							: TABmediaImgWidth
+							? `width: 100${mediaImgWidthUnit};`
+							: " "
+					}
 					
 					${
 						isMediaImgHeightAuto
@@ -755,11 +791,28 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${
 				media === "image"
 					? `
+
+								
+				.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
+					${
+						mediaImgWidthUnit === "%" && MOBmediaImgWidth
+							? `width: ${MOBmediaImgWidth}${mediaImgWidthUnit};`
+							: " "
+					}
+				}
+
 				
 				.${blockId} .infobox-wrapper-inner img {
 					
-					${MOBmediaImgWidth ? `width: ${MOBmediaImgWidth}${mediaImgWidthUnit};` : " "}
-
+					${
+						mediaImgWidthUnit !== "%"
+							? MOBmediaImgWidth
+								? `width: ${MOBmediaImgWidth}${mediaImgWidthUnit};`
+								: " "
+							: MOBmediaImgWidth
+							? `width: 100${mediaImgWidthUnit};`
+							: " "
+					}
 					
 					${
 						isMediaImgHeightAuto
