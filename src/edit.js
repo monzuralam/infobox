@@ -1003,7 +1003,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		}
 	}, [attributes]);
 
-	console.log("--edit theke", { attributes });
+	// console.log("--edit theke", { attributes });
 
 	return [
 		isSelected && (
