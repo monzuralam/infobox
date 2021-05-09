@@ -4295,16 +4295,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
 
 var LAYOUT_TYPES = [{
-  label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("preset-1"),
+  label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Preset 1"),
   value: "preset1"
 }, {
-  label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("preset-2"),
+  label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Preset 2"),
   value: "preset2"
 }, {
-  label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("preset-3"),
+  label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Preset 3"),
   value: "preset3"
 }, {
-  label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("preset-4"),
+  label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Preset 4"),
   value: "preset4"
 }];
 var MEDIA_TYPES = ["image", "icon", "number", "none"];

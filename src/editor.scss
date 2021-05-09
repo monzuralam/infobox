@@ -940,3 +940,9 @@ body.eb-res-option-mobile .editor-styles-wrapper {
 }
 
 // image upload button in inspector panel styles end
+
+// fix of this: https://trello-attachments.s3.amazonaws.com/5bab5a557340da52ebeb1a8f/6088feddc428ea4aaa2cd868/ec403aa51d713bdbac25764d1752db8e/Capitalized.png
+.eb-panel-control .components-button {
+	text-transform: capitalize;
+}
+// fix end

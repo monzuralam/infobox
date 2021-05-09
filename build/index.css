@@ -834,4 +834,8 @@ body.eb-res-option-mobile .editor-styles-wrapper {
   background-color: #e3e3e3;
 }
 
+.eb-panel-control .components-button {
+  text-transform: capitalize;
+}
+
 /*# sourceMappingURL=index.css.map*/
