@@ -636,7 +636,7 @@ function Inspector(props) {
 													setAttributes({ mediaImgWidth })
 												}
 												min={0}
-												max={2000}
+												max={mediaImgWidthUnit === "%" ? 100 : 2000}
 											/>
 										)}
 
@@ -653,7 +653,7 @@ function Inspector(props) {
 														setAttributes({ TABmediaImgWidth })
 													}
 													min={0}
-													max={1030}
+													max={mediaImgWidthUnit === "%" ? 100 : 1030}
 												/>
 											</ResetControl>
 										)}
@@ -671,7 +671,7 @@ function Inspector(props) {
 														setAttributes({ MOBmediaImgWidth })
 													}
 													min={0}
-													max={780}
+													max={mediaImgWidthUnit === "%" ? 100 : 780}
 												/>
 											</ResetControl>
 										)}
@@ -708,7 +708,7 @@ function Inspector(props) {
 															setAttributes({ mediaImgHeight })
 														}
 														min={0}
-														max={2000}
+														max={mediaImgHeightUnit === "%" ? 100 : 2000}
 													/>
 												)}
 
@@ -725,7 +725,7 @@ function Inspector(props) {
 																setAttributes({ TABmediaImgHeight })
 															}
 															min={0}
-															max={1030}
+															max={mediaImgHeightUnit === "%" ? 100 : 1030}
 														/>
 													</ResetControl>
 												)}
@@ -743,7 +743,7 @@ function Inspector(props) {
 																setAttributes({ MOBmediaImgHeight })
 															}
 															min={0}
-															max={780}
+															max={mediaImgHeightUnit === "%" ? 100 : 780}
 														/>
 													</ResetControl>
 												)}

@@ -5869,7 +5869,7 @@ function Inspector(props) {
       });
     },
     min: 0,
-    max: 2000
+    max: mediaImgWidthUnit === "%" ? 100 : 2000
   }), resOption == "tab" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     onReset: function onReset() {
       return setAttributes({
@@ -5885,7 +5885,7 @@ function Inspector(props) {
       });
     },
     min: 0,
-    max: 1030
+    max: mediaImgWidthUnit === "%" ? 100 : 1030
   })), resOption == "mobile" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     onReset: function onReset() {
       return setAttributes({
@@ -5901,7 +5901,7 @@ function Inspector(props) {
       });
     },
     min: 0,
-    max: 780
+    max: mediaImgWidthUnit === "%" ? 100 : 780
   }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ToggleControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Auto Image Height"),
     checked: isMediaImgHeightAuto,
@@ -5930,7 +5930,7 @@ function Inspector(props) {
       });
     },
     min: 0,
-    max: 2000
+    max: mediaImgHeightUnit === "%" ? 100 : 2000
   }), resOption == "tab" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     onReset: function onReset() {
       return setAttributes({
@@ -5946,7 +5946,7 @@ function Inspector(props) {
       });
     },
     min: 0,
-    max: 1030
+    max: mediaImgHeightUnit === "%" ? 100 : 1030
   })), resOption == "mobile" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     onReset: function onReset() {
       return setAttributes({
@@ -5962,7 +5962,7 @@ function Inspector(props) {
       });
     },
     min: 0,
-    max: 780
+    max: mediaImgHeightUnit === "%" ? 100 : 780
   }))))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
     forBorderRadius: true,
     resRequiredProps: resRequiredProps,
