@@ -8,3 +8,5 @@ export const subTitlePadding = "subTitlePadding";
 export const contentPadding = "contentPadding";
 export const wrapperMargin = "wrapperMargin";
 export const wrapperPadding = "wrapperPadding";
+export const WRPborder = "WRPborder";
+export const WRPradius = "WRPradius";

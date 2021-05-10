@@ -52,6 +52,8 @@ import {
 	titlePadding,
 	wrapperMargin,
 	wrapperPadding,
+	WRPborder,
+	WRPradius,
 } from "./constants/dimensionsConstants";
 
 import {
@@ -197,9 +199,9 @@ function Inspector(props) {
 		// border attributes ⬇
 		WRPborderColor,
 		WRPborderStyle,
-		WRPborderWidth,
-		WRPborderRadius,
-		WRPradiusUnit,
+		// WRPborderWidth,
+		// WRPborderRadius,
+		// WRPradiusUnit,
 
 		// shadow attributes  ⬇
 		WRPhOffset,
@@ -1050,41 +1052,24 @@ function Inspector(props) {
 						onChange={(WRPborderColor) => setAttributes({ WRPborderColor })}
 					/>
 
-					<ResetControl
-						onReset={() => setAttributes({ WRPborderWidth: undefined })}
-					>
-						<RangeControl
-							label={__("Border Width")}
-							value={WRPborderWidth}
-							onChange={(WRPborderWidth) => setAttributes({ WRPborderWidth })}
-							min={0}
-							max={100}
-						/>
-					</ResetControl>
-
-					<UnitControl
-						selectedUnit={WRPradiusUnit}
-						unitTypes={LETTER_SPACING_LINE_HEIGHT_UNITS}
-						onClick={(WRPradiusUnit) => setAttributes({ WRPradiusUnit })}
-					/>
-
-					<ResetControl
-						onReset={() => setAttributes({ WRPborderRadius: undefined })}
-					>
-						<RangeControl
-							label={__("Border Radius")}
-							value={WRPborderRadius}
-							onChange={(WRPborderRadius) => setAttributes({ WRPborderRadius })}
-							min={0}
-							max={100}
-						/>
-					</ResetControl>
-
 					<SelectControl
 						label={__("Border Style")}
 						value={WRPborderStyle}
 						options={BORDER_STYLES}
 						onChange={(WRPborderStyle) => setAttributes({ WRPborderStyle })}
+					/>
+
+					<ResponsiveDimensionsControl
+						resRequiredProps={resRequiredProps}
+						controlName={WRPborder}
+						baseLabel="Border Width"
+					/>
+
+					<ResponsiveDimensionsControl
+						forBorderRadius
+						resRequiredProps={resRequiredProps}
+						controlName={WRPradius}
+						baseLabel="Border Radius"
 					/>
 				</PanelBody>
 

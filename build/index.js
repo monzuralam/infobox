@@ -3813,7 +3813,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
-var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({
+var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({
   // the following 4 attributes is must required for responsive options and asset generation for frontend
   // responsive control attributes ⬇
   resOption: {
@@ -4058,16 +4058,16 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
     type: "string",
     default: "solid"
   },
-  WRPborderWidth: {
-    type: "number"
-  },
-  WRPborderRadius: {
-    type: "number"
-  },
-  WRPradiusUnit: {
-    type: "string",
-    default: "px"
-  },
+  // WRPborderWidth: {
+  // 	type: "number",
+  // },
+  // WRPborderRadius: {
+  // 	type: "number",
+  // },
+  // WRPradiusUnit: {
+  // 	type: "string",
+  // 	default: "px",
+  // },
   // shadow attributes  ⬇
   WRPhOffset: {
     type: "number"
@@ -4149,7 +4149,12 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
   bottom: 40,
   right: 30,
   left: 30
-}));
+})), Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["WRPborder"], {
+  top: 0,
+  bottom: 0,
+  right: 0,
+  left: 0
+})), Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["WRPradius"]));
 
 /* harmony default export */ __webpack_exports__["default"] = (attributes);
 
@@ -4241,7 +4246,7 @@ function InfoboxContainer(_ref) {
 /*!**********************************************!*\
   !*** ./src/constants/dimensionsConstants.js ***!
   \**********************************************/
-/*! exports provided: mediaBackground, mediaBgRadius, mediaBgMargin, buttonPadding, buttonRadius, titlePadding, subTitlePadding, contentPadding, wrapperMargin, wrapperPadding */
+/*! exports provided: mediaBackground, mediaBgRadius, mediaBgMargin, buttonPadding, buttonRadius, titlePadding, subTitlePadding, contentPadding, wrapperMargin, wrapperPadding, WRPborder, WRPradius */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4256,6 +4261,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "contentPadding", function() { return contentPadding; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrapperMargin", function() { return wrapperMargin; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrapperPadding", function() { return wrapperPadding; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WRPborder", function() { return WRPborder; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WRPradius", function() { return WRPradius; });
 var mediaBackground = "mediaBgSize";
 var mediaBgRadius = "mediaBgRadius";
 var mediaBgMargin = "mediaBgMargin";
@@ -4266,6 +4273,8 @@ var subTitlePadding = "subTitlePadding";
 var contentPadding = "contentPadding";
 var wrapperMargin = "wrapperMargin";
 var wrapperPadding = "wrapperPadding";
+var WRPborder = "WRPborder";
+var WRPradius = "WRPradius";
 
 /***/ }),
 
@@ -4554,9 +4563,6 @@ var Edit = function Edit(_ref) {
       WRPbgImageURL = attributes.WRPbgImageURL,
       WRPborderColor = attributes.WRPborderColor,
       WRPborderStyle = attributes.WRPborderStyle,
-      WRPborderWidth = attributes.WRPborderWidth,
-      WRPborderRadius = attributes.WRPborderRadius,
-      WRPradiusUnit = attributes.WRPradiusUnit,
       WRPshadowColor = attributes.WRPshadowColor,
       _attributes$WRPhOffse = attributes.WRPhOffset,
       WRPhOffset = _attributes$WRPhOffse === void 0 ? 0 : _attributes$WRPhOffse,
@@ -4794,9 +4800,27 @@ var Edit = function Edit(_ref) {
       wrapperMarginStylesTab = _generateDimensionsCo10.dimensionStylesTab,
       wrapperMarginStylesMobile = _generateDimensionsCo10.dimensionStylesMobile;
 
-  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\n\t\t\tbackground-image:\n\t\t\t").concat(WRPbackgroundType === "image" && WRPbgImageURL ? "url(\"".concat(WRPbgImageURL, "\")") : WRPbackgroundType === "gradient" ? WRPgradientColor : "none", ";\n\n\t\t\t").concat(WRPbackgroundSize ? "background-size: ".concat(WRPbackgroundSize, ";") : " ", "\n\t\t\t").concat(WRPbackgroundColor ? "background-color: ".concat(WRPbackgroundColor, ";") : " ", "\t\n\t\t\t").concat(WRPborderColor ? "border: ".concat(WRPborderWidth, "px ").concat(WRPborderStyle, " ").concat(WRPborderColor, ";") : " ", "\n\t\t\t").concat(WRPborderRadius ? "border-radius: ".concat(WRPborderRadius).concat(WRPradiusUnit, ";") : " ", "\n\n\t\t\t").concat(WRPshadowColor ? "box-shadow: ".concat(WRPshadowColor, " ").concat(WRPhOffset, "px ").concat(WRPvOffset, "px ").concat(WRPblur, "px ").concat(WRPspread, "px ").concat(WRPinset ? "inset" : "", ";") : " ", "\n\n\t\t\ttransition: ").concat(WRPtransitionTime ? "".concat(WRPtransitionTime / 1000, "s") : ".5s", ";\n\t\t}\n\n\t\t\n\n\t\t.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(WRPhoverShadowColor ? "box-shadow: ".concat(WRPhoverShadowColor, " ").concat(WRPhoverHOffset, "px ").concat(WRPhoverVOffset, "px ").concat(WRPhoverBlur, "px ").concat(WRPhoverSpread, "px ").concat(WRPinset ? "inset" : " ", ";") : " ", "\n\t\t}\n\n\t");
-  var wrapperStylesTab = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesTab, "\n\t\t\t").concat(wrapperPaddingStylesTab, "\n\t\t}\n\n\t");
-  var wrapperStylesMobile = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesMobile, "\n\t\t\t").concat(wrapperPaddingStylesMobile, "\n\t\t}\n\n\t");
+  var _generateDimensionsCo11 = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
+    attributes: attributes,
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["WRPborder"],
+    styleFor: "border"
+  }),
+      WRPborderStylesDesktop = _generateDimensionsCo11.dimensionStylesDesktop,
+      WRPborderStylesTab = _generateDimensionsCo11.dimensionStylesTab,
+      WRPborderStylesMobile = _generateDimensionsCo11.dimensionStylesMobile;
+
+  var _generateDimensionsCo12 = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
+    attributes: attributes,
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["WRPradius"],
+    styleFor: "border-radius"
+  }),
+      WRPradiusStylesDesktop = _generateDimensionsCo12.dimensionStylesDesktop,
+      WRPradiusStylesTab = _generateDimensionsCo12.dimensionStylesTab,
+      WRPradiusStylesMobile = _generateDimensionsCo12.dimensionStylesMobile;
+
+  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\n\t\t\tbackground-image:\n\t\t\t").concat(WRPbackgroundType === "image" && WRPbgImageURL ? "url(\"".concat(WRPbgImageURL, "\")") : WRPbackgroundType === "gradient" ? WRPgradientColor : "none", ";\n\n\t\t\t").concat(WRPbackgroundSize ? "background-size: ".concat(WRPbackgroundSize, ";") : " ", "\n\t\t\t").concat(WRPbackgroundColor ? "background-color: ".concat(WRPbackgroundColor, ";") : " ", "\n\n\t\t\t").concat(WRPborderColor ? "\n\t\t\t\t\t".concat(WRPborderStylesDesktop, "\n\t\t\t\t\tborder-color: ").concat(WRPborderColor, ";\n\t\t\t\t\tborder-style: ").concat(WRPborderStyle, ";\n\t\t\t\t\t") : " ", "\n\t\t\t").concat(WRPradiusStylesDesktop, "\n\n\t\t\t").concat(WRPshadowColor ? "box-shadow: ".concat(WRPshadowColor, " ").concat(WRPhOffset, "px ").concat(WRPvOffset, "px ").concat(WRPblur, "px ").concat(WRPspread, "px ").concat(WRPinset ? "inset" : "", ";") : " ", "\n\n\t\t\ttransition: ").concat(WRPtransitionTime ? "".concat(WRPtransitionTime / 1000, "s") : ".5s", ";\n\t\t}\n\n\t\t\n\n\t\t.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(WRPhoverShadowColor ? "box-shadow: ".concat(WRPhoverShadowColor, " ").concat(WRPhoverHOffset, "px ").concat(WRPhoverVOffset, "px ").concat(WRPhoverBlur, "px ").concat(WRPhoverSpread, "px ").concat(WRPinset ? "inset" : " ", ";") : " ", "\n\t\t}\n\n\t");
+  var wrapperStylesTab = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesTab, "\n\t\t\t").concat(wrapperPaddingStylesTab, "\n\n\t\t\t").concat(WRPborderColor ? WRPborderStylesTab : " ", "\n\t\t\t").concat(WRPradiusStylesTab, "\n\t\t}\n\n\t");
+  var wrapperStylesMobile = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesMobile, "\n\t\t\t").concat(wrapperPaddingStylesMobile, "\t\t\t\n\n\t\t\t").concat(WRPborderColor ? WRPborderStylesMobile : " ", "\n\t\t\t").concat(WRPradiusStylesMobile, "\n\t\t}\n\n\t");
   var wrapperInnerStylesDesktop = "\t\n\t\t.".concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\t").concat(flexDirection ? "flex-direction: ".concat(flexDirection, ";") : " ", " \n\t\t\t\n\t\t}\n\t\n\t");
   var mediaStylesDesktop = "\n\t".concat(media !== "none" ? " \n\t\t\t\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\n\t\t\t\t").concat(mediaAlignment ? "align-self: ".concat(mediaAlignment, ";") : "align-self: ".concat(mediaAlignSelf || "center", ";"), "\n\n\t\t\t\t").concat(mediaBgMarginStylesDesktop, "\n\n\t\t\t\t").concat(flexDirection === "row" ? "margin-right: ".concat(mediaWrapperMargin, "px;") : flexDirection === "row-reverse" ? "margin-left: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column" ? "margin-bottom: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column-reverse" ? "margin-top: ".concat(mediaWrapperMargin, "px;") : " ", "\n\n\t\t\t\toverflow: hidden;\n\t\t\t}\n\n\n\t\t\t").concat(media === "image" ? "\n\n\t\t\t\t\t\n\t\t\t\t.".concat(blockId, " .infobox-wrapper-inner .icon-img-wrapper{\n\t\t\t\t\tmax-width: 100%;\n\t\t\t\t\t").concat(mediaImgWidthUnit === "%" && mediaImgWidth ? "width: ".concat(mediaImgWidth).concat(mediaImgWidthUnit, ";") : " ", "\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\tmax-width: 100%;\n\t\t\t\t\tobject-fit: cover;\n\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\n\t\t\t\t\t").concat(mediaImgWidthUnit !== "%" ? mediaImgWidth ? "width: ".concat(mediaImgWidth).concat(mediaImgWidthUnit, ";") : " " : mediaImgWidth ? "width: 100".concat(mediaImgWidthUnit, ";") : " ", "\n\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : mediaImgHeight ? "height: ".concat(mediaImgHeight).concat(mediaImgHeightUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\t.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\toverflow: hidden;\n\t\t\t\t\t").concat(mediaRadiusStylesDesktop, "\n\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\t") : " ", "\n\n\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\n\t\t\t\t\t\t").concat(mediaBgPaddingDesktop, "\n\t\t\t\t\t\t").concat(mediaRadiusStylesDesktop, "\n\t\t\n\t\t\t\t\t\t").concat(useNumIconBg ? "".concat(numIconBgType === "fill" ? "background-color: ".concat(numIconBgColor, ";") : numIconBgType === "gradient" ? "background-image: ".concat(numIconBgGradient, ";") : " ") : " ", "\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\t\t\n\t\t\t\t\t.").concat(blockId, " .number-or-icon > span{\n\t\t\t\t\t\tcolor: ").concat(numIconColor || "#fff", ";\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\t\t\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t").concat(numTypoStylesDesktop, "\n\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t").concat(media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\tfont-size: ").concat(iconSize, "px;\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\n\t\t\t\t\t") : " ", "\n\n\n\t\t") : " ", "\n\n\t");
   var mediaStylesTab = "\n\t".concat(media !== "none" ? "\n\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\n\t\t\t\t").concat(mediaBgMarginStylesTab, "\t\t\t\t\n\t\t\t}\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\t\t\t\n\t\t\t\t\t.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\t").concat(mediaRadiusStylesTab, "\n\t\t\t\t\t\t").concat(mediaBgPaddingTab, "\t\t\t\t\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t\t.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t\t").concat(numTypoStylesTab, "\n\t\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t").concat(media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\tfont-size: ").concat(TABiconSize, "px;\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t").concat(media === "image" ? "\n\t\t\t\t\t\t\n\t\t\t\t.".concat(blockId, " .infobox-wrapper-inner .icon-img-wrapper{\n\t\t\t\t\t").concat(mediaImgWidthUnit === "%" && TABmediaImgWidth ? "width: ".concat(TABmediaImgWidth).concat(mediaImgWidthUnit, ";") : " ", "\n\t\t\t\t}\n\n\t\t\t\t.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\t\n\t\t\t\t\t").concat(mediaImgWidthUnit !== "%" ? TABmediaImgWidth ? "width: ".concat(TABmediaImgWidth).concat(mediaImgWidthUnit, ";") : " " : TABmediaImgWidth ? "width: 100".concat(mediaImgWidthUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : TABmediaImgHeight ? "height: ".concat(TABmediaImgHeight).concat(mediaImgHeightUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t}\n\n\t\t\t\t\n\t\t\t\t.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\t").concat(mediaRadiusStylesTab, "\n\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\n\n\t\t") : " ", "\n\t\n\t");
@@ -4938,11 +4962,13 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************!*\
   !*** ./src/helpers.js ***!
   \************************/
-/*! exports provided: generateDimensionsAttributes, generateTypographyAttributes, textInsideForEdit, generateRandomNumber, hardMinifyCssStrings, softMinifyCssStrings, isCssExists, hasVal, generateTypographyStyles, generateDimensionsControlStyles */
+/*! exports provided: hasVal, generateCommonControlAttributes, generateDimensionsAttributes, generateTypographyAttributes, textInsideForEdit, generateRandomNumber, hardMinifyCssStrings, softMinifyCssStrings, isCssExists, generateTypographyStyles, generateDimensionsControlStyles */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasVal", function() { return hasVal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateCommonControlAttributes", function() { return generateCommonControlAttributes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateDimensionsAttributes", function() { return generateDimensionsAttributes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateTypographyAttributes", function() { return generateTypographyAttributes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "textInsideForEdit", function() { return textInsideForEdit; });
@@ -4950,7 +4976,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hardMinifyCssStrings", function() { return hardMinifyCssStrings; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "softMinifyCssStrings", function() { return softMinifyCssStrings; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isCssExists", function() { return isCssExists; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasVal", function() { return hasVal; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateTypographyStyles", function() { return generateTypographyStyles; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateDimensionsControlStyles", function() { return generateDimensionsControlStyles; });
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
@@ -4961,7 +4986,76 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-// function to generate New Dimensions-Control's attributes for multiple Dimensions control based on the array of values(prefixs)
+// check if range controller input numbers  has value
+var hasVal = function hasVal(val) {
+  return val || val === 0;
+}; // function to generate common control's attributes
+
+var generateCommonControlAttributes = function generateCommonControlAttributes(uniquePrefix) {
+  var _ref;
+
+  var defaults = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  return _ref = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "backgroundType"), {
+    type: "string",
+    default: "gradient"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "backgroundColor"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "gradientColor"), {
+    type: "string",
+    default: "linear-gradient(45deg,#8200ff,#ff0071)"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "backgroundSize"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "bgImageURL"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "bgImageID"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "borderColor"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "borderStyle"), {
+    type: "string",
+    default: "solid"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "borderWidth"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "borderRadius"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "radiusUnit"), {
+    type: "string",
+    default: "px"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hOffset"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "vOffset"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "blur"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "spread"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "shadowColor"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "inset"), {
+    type: "boolean",
+    default: false
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "shadowType"), {
+    type: "string",
+    default: "normal"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hoverHOffset"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hoverVOffset"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hoverBlur"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hoverSpread"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hoverShadowColor"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hoverInset"), {
+    type: "boolean",
+    default: false
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "transitionTime"), {
+    type: "string",
+    default: "500"
+  }), _ref;
+}; // function to generate New Dimensions-Control's attributes for multiple Dimensions control based on the array of values(prefixs)
+
 var generateDimensionsAttributes = function generateDimensionsAttributes(controlName) {
   var _objectSpread3;
 
@@ -4970,25 +5064,25 @@ var generateDimensionsAttributes = function generateDimensionsAttributes(control
       right = defaults.right,
       bottom = defaults.bottom,
       left = defaults.left;
-  var desktopTop = top ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Top"), {
+  var desktopTop = hasVal(top) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Top"), {
     type: "string",
     default: "".concat(top)
   }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Top"), {
     type: "string"
   });
-  var desktopRight = right ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Right"), {
+  var desktopRight = hasVal(right) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Right"), {
     type: "string",
     default: "".concat(right)
   }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Right"), {
     type: "string"
   });
-  var desktopBottom = bottom ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Bottom"), {
+  var desktopBottom = hasVal(bottom) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Bottom"), {
     type: "string",
     default: "".concat(bottom)
   }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Bottom"), {
     type: "string"
   });
-  var desktopLeft = left ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Left"), {
+  var desktopLeft = hasVal(left) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Left"), {
     type: "string",
     default: "".concat(left)
   }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Left"), {
@@ -5109,17 +5203,13 @@ var softMinifyCssStrings = function softMinifyCssStrings(cssString) {
 
 var isCssExists = function isCssExists(cssString) {
   return /.+(?=\:(?!hover)(?!focus))/.test(cssString);
-}; // check if range controller input numbers  has value
-
-var hasVal = function hasVal(val) {
-  return val || val === 0;
 }; //
 // function to generate typography styles for an element based on it's prefix
 
-var generateTypographyStyles = function generateTypographyStyles(_ref9) {
-  var prefixConstant = _ref9.prefixConstant,
-      defaultFontSize = _ref9.defaultFontSize,
-      attributes = _ref9.attributes;
+var generateTypographyStyles = function generateTypographyStyles(_ref10) {
+  var prefixConstant = _ref10.prefixConstant,
+      defaultFontSize = _ref10.defaultFontSize,
+      attributes = _ref10.attributes;
   var fontFamily = attributes["".concat(prefixConstant, "FontFamily")],
       fontWeight = attributes["".concat(prefixConstant, "FontWeight")],
       textTransform = attributes["".concat(prefixConstant, "TextTransform")],
@@ -5154,10 +5244,10 @@ var generateTypographyStyles = function generateTypographyStyles(_ref9) {
 }; //
 // function to generate dimensions-controls styles for an element based on it's controlName(prefix)
 
-var generateDimensionsControlStyles = function generateDimensionsControlStyles(_ref10) {
-  var controlName = _ref10.controlName,
-      styleFor = _ref10.styleFor,
-      attributes = _ref10.attributes;
+var generateDimensionsControlStyles = function generateDimensionsControlStyles(_ref11) {
+  var controlName = _ref11.controlName,
+      styleFor = _ref11.styleFor,
+      attributes = _ref11.attributes;
   var dimensionUnit = attributes["".concat(controlName, "Unit")],
       dimensionTop = attributes["".concat(controlName, "Top")],
       dimensionRight = attributes["".concat(controlName, "Right")],
@@ -5177,14 +5267,18 @@ var generateDimensionsControlStyles = function generateDimensionsControlStyles(_
   var dimensionStylesTab = " ";
   var dimensionStylesMobile = " ";
 
-  if (styleFor !== "border-radius") {
-    dimensionStylesDesktop = "\n\t\t".concat(dimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(dimensionTop)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(dimensionRight)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(dimensionLeft)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(dimensionBottom)).concat(dimensionUnit, ";") : " ", "\n\t\n\t\t");
-    dimensionStylesTab = "\n\t\t\t".concat(TABdimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(TABdimensionTop)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(TABdimensionRight)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(TABdimensionLeft)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(TABdimensionBottom)).concat(TABdimensionUnit, ";") : " ", "\n\n\t\t");
-    dimensionStylesMobile = "\n\t\t\t".concat(MOBdimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(MOBdimensionTop)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(MOBdimensionRight)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(MOBdimensionLeft)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(MOBdimensionBottom)).concat(MOBdimensionUnit, ";") : " ", "\n\n\t\t");
-  } else {
+  if (styleFor === "border") {
+    dimensionStylesDesktop = "\n\t\t".concat(dimensionTop ? "border-top-width: ".concat(parseFloat(dimensionTop)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionRight ? "border-right-width: ".concat(parseFloat(dimensionRight)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionLeft ? "border-left-width: ".concat(parseFloat(dimensionLeft)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionBottom ? "border-bottom-width: ".concat(parseFloat(dimensionBottom)).concat(dimensionUnit, ";") : " ", "\n\t\n\t\t");
+    dimensionStylesTab = "\n\t\t\t".concat(TABdimensionTop ? "border-top-width: ".concat(parseFloat(TABdimensionTop)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionRight ? "border-right-width: ".concat(parseFloat(TABdimensionRight)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionLeft ? "border-left-width: ".concat(parseFloat(TABdimensionLeft)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionBottom ? "border-bottom-width: ".concat(parseFloat(TABdimensionBottom)).concat(TABdimensionUnit, ";") : " ", "\n\n\t\t");
+    dimensionStylesMobile = "\n\t\t\t".concat(MOBdimensionTop ? "border-top-width: ".concat(parseFloat(MOBdimensionTop)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionRight ? "border-right-width: ".concat(parseFloat(MOBdimensionRight)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionLeft ? "border-left-width: ".concat(parseFloat(MOBdimensionLeft)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionBottom ? "border-bottom-width: ".concat(parseFloat(MOBdimensionBottom)).concat(MOBdimensionUnit, ";") : " ", "\n\n\t\t");
+  } else if (styleFor === "border-radius") {
     dimensionStylesDesktop = "\n\t\t\t".concat(dimensionTop ? "border-top-left-radius: ".concat(parseFloat(dimensionTop)).concat(dimensionUnit, ";") : " ", "\n\t\t\t").concat(dimensionRight ? "border-top-right-radius: ".concat(parseFloat(dimensionRight)).concat(dimensionUnit, ";") : " ", "\n\t\t\t").concat(dimensionLeft ? "border-bottom-left-radius: ".concat(parseFloat(dimensionLeft)).concat(dimensionUnit, ";") : " ", "\n\t\t\t").concat(dimensionBottom ? "border-bottom-right-radius: ".concat(parseFloat(dimensionBottom)).concat(dimensionUnit, ";") : " ", "\n\t\n\t\t");
     dimensionStylesTab = "\n\t\t\t".concat(TABdimensionTop ? "border-top-left-radius: ".concat(parseFloat(TABdimensionTop)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionRight ? "border-top-right-radius: ".concat(parseFloat(TABdimensionRight)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionLeft ? "border-bottom-left-radius: ".concat(parseFloat(TABdimensionLeft)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionBottom ? "border-bottom-right-radius: ".concat(parseFloat(TABdimensionBottom)).concat(TABdimensionUnit, ";") : " ", "\n\n\t\t");
     dimensionStylesMobile = "\n\t\t\t".concat(MOBdimensionTop ? "border-top-left-radius: ".concat(parseFloat(MOBdimensionTop)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionRight ? "border-top-right-radius: ".concat(parseFloat(MOBdimensionRight)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionLeft ? "border-bottom-left-radius: ".concat(parseFloat(MOBdimensionLeft)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionBottom ? "border-bottom-right-radius: ".concat(parseFloat(MOBdimensionBottom)).concat(MOBdimensionUnit, ";") : " ", "\n\n\t\t");
+  } else {
+    dimensionStylesDesktop = "\n\t\t".concat(dimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(dimensionTop)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(dimensionRight)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(dimensionLeft)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(dimensionBottom)).concat(dimensionUnit, ";") : " ", "\n\t\n\t\t");
+    dimensionStylesTab = "\n\t\t\t".concat(TABdimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(TABdimensionTop)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(TABdimensionRight)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(TABdimensionLeft)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(TABdimensionBottom)).concat(TABdimensionUnit, ";") : " ", "\n\n\t\t");
+    dimensionStylesMobile = "\n\t\t\t".concat(MOBdimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(MOBdimensionTop)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(MOBdimensionRight)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(MOBdimensionLeft)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(MOBdimensionBottom)).concat(MOBdimensionUnit, ";") : " ", "\n\n\t\t");
   }
 
   return {
@@ -5489,9 +5583,6 @@ function Inspector(props) {
       WRPbgImageID = attributes.WRPbgImageID,
       WRPborderColor = attributes.WRPborderColor,
       WRPborderStyle = attributes.WRPborderStyle,
-      WRPborderWidth = attributes.WRPborderWidth,
-      WRPborderRadius = attributes.WRPborderRadius,
-      WRPradiusUnit = attributes.WRPradiusUnit,
       WRPhOffset = attributes.WRPhOffset,
       WRPvOffset = attributes.WRPvOffset,
       WRPblur = attributes.WRPblur,
@@ -6229,47 +6320,7 @@ function Inspector(props) {
         WRPborderColor: WRPborderColor
       });
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        WRPborderWidth: undefined
-      });
-    }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Border Width"),
-    value: WRPborderWidth,
-    onChange: function onChange(WRPborderWidth) {
-      return setAttributes({
-        WRPborderWidth: WRPborderWidth
-      });
-    },
-    min: 0,
-    max: 100
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
-    selectedUnit: WRPradiusUnit,
-    unitTypes: _constants__WEBPACK_IMPORTED_MODULE_16__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
-    onClick: function onClick(WRPradiusUnit) {
-      return setAttributes({
-        WRPradiusUnit: WRPradiusUnit
-      });
-    }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        WRPborderRadius: undefined
-      });
-    }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Border Radius"),
-    value: WRPborderRadius,
-    onChange: function onChange(WRPborderRadius) {
-      return setAttributes({
-        WRPborderRadius: WRPborderRadius
-      });
-    },
-    min: 0,
-    max: 100
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Border Style"),
     value: WRPborderStyle,
     options: _constants__WEBPACK_IMPORTED_MODULE_16__["BORDER_STYLES"],
@@ -6278,6 +6329,15 @@ function Inspector(props) {
         WRPborderStyle: WRPborderStyle
       });
     }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    resRequiredProps: resRequiredProps,
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["WRPborder"],
+    baseLabel: "Border Width"
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    forBorderRadius: true,
+    resRequiredProps: resRequiredProps,
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["WRPradius"],
+    baseLabel: "Border Radius"
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox Shadow"),
     initialOpen: false

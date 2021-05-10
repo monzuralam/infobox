@@ -1,8 +1,108 @@
+// check if range controller input numbers  has value
+export const hasVal = (val) => val || val === 0;
+
+// function to generate common control's attributes
+export const generateCommonControlAttributes = (
+	uniquePrefix,
+	defaults = {}
+) => {
+	return {
+		// background attributes ⬇
+		[`${uniquePrefix}backgroundType`]: {
+			type: "string",
+			default: "gradient",
+		},
+		[`${uniquePrefix}backgroundColor`]: {
+			type: "string",
+		},
+		[`${uniquePrefix}gradientColor`]: {
+			type: "string",
+			default: "linear-gradient(45deg,#8200ff,#ff0071)",
+		},
+		[`${uniquePrefix}backgroundSize`]: {
+			type: "string",
+		},
+		[`${uniquePrefix}bgImageURL`]: {
+			type: "string",
+		},
+		[`${uniquePrefix}bgImageID`]: {
+			type: "string",
+		},
+
+		// border attributes ⬇
+		[`${uniquePrefix}borderColor`]: {
+			type: "string",
+		},
+		[`${uniquePrefix}borderStyle`]: {
+			type: "string",
+			default: "solid",
+		},
+		[`${uniquePrefix}borderWidth`]: {
+			type: "number",
+		},
+		[`${uniquePrefix}borderRadius`]: {
+			type: "number",
+		},
+		[`${uniquePrefix}radiusUnit`]: {
+			type: "string",
+			default: "px",
+		},
+
+		// shadow attributes  ⬇
+		[`${uniquePrefix}hOffset`]: {
+			type: "number",
+		},
+		[`${uniquePrefix}vOffset`]: {
+			type: "number",
+		},
+		[`${uniquePrefix}blur`]: {
+			type: "number",
+		},
+		[`${uniquePrefix}spread`]: {
+			type: "number",
+		},
+		[`${uniquePrefix}shadowColor`]: {
+			type: "string",
+		},
+		[`${uniquePrefix}inset`]: {
+			type: "boolean",
+			default: false,
+		},
+		[`${uniquePrefix}shadowType`]: {
+			type: "string",
+			default: "normal",
+		},
+		[`${uniquePrefix}hoverHOffset`]: {
+			type: "number",
+		},
+		[`${uniquePrefix}hoverVOffset`]: {
+			type: "number",
+		},
+		[`${uniquePrefix}hoverBlur`]: {
+			type: "number",
+		},
+		[`${uniquePrefix}hoverSpread`]: {
+			type: "number",
+		},
+		[`${uniquePrefix}hoverShadowColor`]: {
+			type: "string",
+		},
+		[`${uniquePrefix}hoverInset`]: {
+			type: "boolean",
+			default: false,
+		},
+		[`${uniquePrefix}transitionTime`]: {
+			type: "string",
+			default: "500",
+		},
+	};
+};
+
 // function to generate New Dimensions-Control's attributes for multiple Dimensions control based on the array of values(prefixs)
 export const generateDimensionsAttributes = (controlName, defaults = {}) => {
 	const { top, right, bottom, left } = defaults;
 
-	const desktopTop = top
+	const desktopTop = hasVal(top)
 		? {
 				[`${controlName}Top`]: {
 					type: "string",
@@ -15,7 +115,7 @@ export const generateDimensionsAttributes = (controlName, defaults = {}) => {
 				},
 		  };
 
-	const desktopRight = right
+	const desktopRight = hasVal(right)
 		? {
 				[`${controlName}Right`]: {
 					type: "string",
@@ -28,7 +128,7 @@ export const generateDimensionsAttributes = (controlName, defaults = {}) => {
 				},
 		  };
 
-	const desktopBottom = bottom
+	const desktopBottom = hasVal(bottom)
 		? {
 				[`${controlName}Bottom`]: {
 					type: "string",
@@ -41,7 +141,7 @@ export const generateDimensionsAttributes = (controlName, defaults = {}) => {
 				},
 		  };
 
-	const desktopLeft = left
+	const desktopLeft = hasVal(left)
 		? {
 				[`${controlName}Left`]: {
 					type: "string",
@@ -228,9 +328,6 @@ export const softMinifyCssStrings = (cssString) =>
 export const isCssExists = (cssString) =>
 	/.+(?=\:(?!hover)(?!focus))/.test(cssString);
 
-// check if range controller input numbers  has value
-export const hasVal = (val) => val || val === 0;
-
 //
 // function to generate typography styles for an element based on it's prefix
 export const generateTypographyStyles = ({
@@ -345,26 +442,26 @@ export const generateDimensionsControlStyles = ({
 	let dimensionStylesTab = " ";
 	let dimensionStylesMobile = " ";
 
-	if (styleFor !== "border-radius") {
+	if (styleFor === "border") {
 		dimensionStylesDesktop = `
 		${
 			dimensionTop
-				? `${styleFor}-top: ${parseFloat(dimensionTop)}${dimensionUnit};`
+				? `border-top-width: ${parseFloat(dimensionTop)}${dimensionUnit};`
 				: " "
 		}
 		${
 			dimensionRight
-				? `${styleFor}-right: ${parseFloat(dimensionRight)}${dimensionUnit};`
+				? `border-right-width: ${parseFloat(dimensionRight)}${dimensionUnit};`
 				: " "
 		}
 		${
 			dimensionLeft
-				? `${styleFor}-left: ${parseFloat(dimensionLeft)}${dimensionUnit};`
+				? `border-left-width: ${parseFloat(dimensionLeft)}${dimensionUnit};`
 				: " "
 		}
 		${
 			dimensionBottom
-				? `${styleFor}-bottom: ${parseFloat(dimensionBottom)}${dimensionUnit};`
+				? `border-bottom-width: ${parseFloat(dimensionBottom)}${dimensionUnit};`
 				: " "
 		}
 	
@@ -373,28 +470,28 @@ export const generateDimensionsControlStyles = ({
 		dimensionStylesTab = `
 			${
 				TABdimensionTop
-					? `${styleFor}-top: ${parseFloat(
+					? `border-top-width: ${parseFloat(
 							TABdimensionTop
 					  )}${TABdimensionUnit};`
 					: " "
 			}
 			${
 				TABdimensionRight
-					? `${styleFor}-right: ${parseFloat(
+					? `border-right-width: ${parseFloat(
 							TABdimensionRight
 					  )}${TABdimensionUnit};`
 					: " "
 			}
 			${
 				TABdimensionLeft
-					? `${styleFor}-left: ${parseFloat(
+					? `border-left-width: ${parseFloat(
 							TABdimensionLeft
 					  )}${TABdimensionUnit};`
 					: " "
 			}
 			${
 				TABdimensionBottom
-					? `${styleFor}-bottom: ${parseFloat(
+					? `border-bottom-width: ${parseFloat(
 							TABdimensionBottom
 					  )}${TABdimensionUnit};`
 					: " "
@@ -405,35 +502,35 @@ export const generateDimensionsControlStyles = ({
 		dimensionStylesMobile = `
 			${
 				MOBdimensionTop
-					? `${styleFor}-top: ${parseFloat(
+					? `border-top-width: ${parseFloat(
 							MOBdimensionTop
 					  )}${MOBdimensionUnit};`
 					: " "
 			}
 			${
 				MOBdimensionRight
-					? `${styleFor}-right: ${parseFloat(
+					? `border-right-width: ${parseFloat(
 							MOBdimensionRight
 					  )}${MOBdimensionUnit};`
 					: " "
 			}
 			${
 				MOBdimensionLeft
-					? `${styleFor}-left: ${parseFloat(
+					? `border-left-width: ${parseFloat(
 							MOBdimensionLeft
 					  )}${MOBdimensionUnit};`
 					: " "
 			}
 			${
 				MOBdimensionBottom
-					? `${styleFor}-bottom: ${parseFloat(
+					? `border-bottom-width: ${parseFloat(
 							MOBdimensionBottom
 					  )}${MOBdimensionUnit};`
 					: " "
 			}
 
 		`;
-	} else {
+	} else if (styleFor === "border-radius") {
 		dimensionStylesDesktop = `
 			${
 				dimensionTop
@@ -523,6 +620,94 @@ export const generateDimensionsControlStyles = ({
 			${
 				MOBdimensionBottom
 					? `border-bottom-right-radius: ${parseFloat(
+							MOBdimensionBottom
+					  )}${MOBdimensionUnit};`
+					: " "
+			}
+
+		`;
+	} else {
+		dimensionStylesDesktop = `
+		${
+			dimensionTop
+				? `${styleFor}-top: ${parseFloat(dimensionTop)}${dimensionUnit};`
+				: " "
+		}
+		${
+			dimensionRight
+				? `${styleFor}-right: ${parseFloat(dimensionRight)}${dimensionUnit};`
+				: " "
+		}
+		${
+			dimensionLeft
+				? `${styleFor}-left: ${parseFloat(dimensionLeft)}${dimensionUnit};`
+				: " "
+		}
+		${
+			dimensionBottom
+				? `${styleFor}-bottom: ${parseFloat(dimensionBottom)}${dimensionUnit};`
+				: " "
+		}
+	
+		`;
+
+		dimensionStylesTab = `
+			${
+				TABdimensionTop
+					? `${styleFor}-top: ${parseFloat(
+							TABdimensionTop
+					  )}${TABdimensionUnit};`
+					: " "
+			}
+			${
+				TABdimensionRight
+					? `${styleFor}-right: ${parseFloat(
+							TABdimensionRight
+					  )}${TABdimensionUnit};`
+					: " "
+			}
+			${
+				TABdimensionLeft
+					? `${styleFor}-left: ${parseFloat(
+							TABdimensionLeft
+					  )}${TABdimensionUnit};`
+					: " "
+			}
+			${
+				TABdimensionBottom
+					? `${styleFor}-bottom: ${parseFloat(
+							TABdimensionBottom
+					  )}${TABdimensionUnit};`
+					: " "
+			}
+
+		`;
+
+		dimensionStylesMobile = `
+			${
+				MOBdimensionTop
+					? `${styleFor}-top: ${parseFloat(
+							MOBdimensionTop
+					  )}${MOBdimensionUnit};`
+					: " "
+			}
+			${
+				MOBdimensionRight
+					? `${styleFor}-right: ${parseFloat(
+							MOBdimensionRight
+					  )}${MOBdimensionUnit};`
+					: " "
+			}
+			${
+				MOBdimensionLeft
+					? `${styleFor}-left: ${parseFloat(
+							MOBdimensionLeft
+					  )}${MOBdimensionUnit};`
+					: " "
+			}
+			${
+				MOBdimensionBottom
+					? `${styleFor}-bottom: ${parseFloat(
 							MOBdimensionBottom
 					  )}${MOBdimensionUnit};`
 					: " "

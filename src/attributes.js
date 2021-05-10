@@ -10,6 +10,8 @@ import {
 	subTitlePadding,
 	wrapperMargin,
 	wrapperPadding,
+	WRPborder,
+	WRPradius,
 } from "./constants/dimensionsConstants";
 import {
 	generateDimensionsAttributes,
@@ -300,16 +302,16 @@ const attributes = {
 		type: "string",
 		default: "solid",
 	},
-	WRPborderWidth: {
-		type: "number",
-	},
-	WRPborderRadius: {
-		type: "number",
-	},
-	WRPradiusUnit: {
-		type: "string",
-		default: "px",
-	},
+	// WRPborderWidth: {
+	// 	type: "number",
+	// },
+	// WRPborderRadius: {
+	// 	type: "number",
+	// },
+	// WRPradiusUnit: {
+	// 	type: "string",
+	// 	default: "px",
+	// },
 
 	// shadow attributes  ⬇
 	WRPhOffset: {
@@ -408,6 +410,13 @@ const attributes = {
 		right: 30,
 		left: 30,
 	}),
+	...generateDimensionsAttributes(WRPborder, {
+		top: 0,
+		bottom: 0,
+		right: 0,
+		left: 0,
+	}),
+	...generateDimensionsAttributes(WRPradius),
 };
 
 export default attributes;

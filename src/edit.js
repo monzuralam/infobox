@@ -37,6 +37,8 @@ import {
 	subTitlePadding,
 	wrapperPadding,
 	wrapperMargin,
+	WRPborder,
+	WRPradius,
 } from "./constants/dimensionsConstants";
 
 const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
@@ -160,9 +162,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		// border attributes ⬇
 		WRPborderColor,
 		WRPborderStyle,
-		WRPborderWidth,
-		WRPborderRadius,
-		WRPradiusUnit,
+		// WRPborderWidth,
+		// WRPborderRadius,
+		// WRPradiusUnit,
 
 		// shadow attributes  ⬇
 		WRPshadowColor,
@@ -405,6 +407,26 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		styleFor: "margin",
 	});
 
+	const {
+		dimensionStylesDesktop: WRPborderStylesDesktop,
+		dimensionStylesTab: WRPborderStylesTab,
+		dimensionStylesMobile: WRPborderStylesMobile,
+	} = generateDimensionsControlStyles({
+		attributes,
+		controlName: WRPborder,
+		styleFor: "border",
+	});
+
+	const {
+		dimensionStylesDesktop: WRPradiusStylesDesktop,
+		dimensionStylesTab: WRPradiusStylesTab,
+		dimensionStylesMobile: WRPradiusStylesMobile,
+	} = generateDimensionsControlStyles({
+		attributes,
+		controlName: WRPradius,
+		styleFor: "border-radius",
+	});
+
 	const wrapperStylesDesktop = `
 		.${blockId} {
 			${wrapperMarginStylesDesktop}
@@ -420,13 +442,18 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			};
 
 			${WRPbackgroundSize ? `background-size: ${WRPbackgroundSize};` : " "}
-			${WRPbackgroundColor ? `background-color: ${WRPbackgroundColor};` : " "}	
+			${WRPbackgroundColor ? `background-color: ${WRPbackgroundColor};` : " "}
+
 			${
 				WRPborderColor
-					? `border: ${WRPborderWidth}px ${WRPborderStyle} ${WRPborderColor};`
+					? `
+					${WRPborderStylesDesktop}
+					border-color: ${WRPborderColor};
+					border-style: ${WRPborderStyle};
+					`
 					: " "
 			}
-			${WRPborderRadius ? `border-radius: ${WRPborderRadius}${WRPradiusUnit};` : " "}
+			${WRPradiusStylesDesktop}
 
 			${
 				WRPshadowColor
@@ -457,6 +484,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		.${blockId} {
 			${wrapperMarginStylesTab}
 			${wrapperPaddingStylesTab}
+
+			${WRPborderColor ? WRPborderStylesTab : " "}
+			${WRPradiusStylesTab}
 		}
 
 	`;
@@ -464,7 +494,10 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	const wrapperStylesMobile = `
 		.${blockId} {
 			${wrapperMarginStylesMobile}
-			${wrapperPaddingStylesMobile}
+			${wrapperPaddingStylesMobile}			
+
+			${WRPborderColor ? WRPborderStylesMobile : " "}
+			${WRPradiusStylesMobile}
 		}
 
 	`;
