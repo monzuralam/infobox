@@ -504,7 +504,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 						? `margin-top: ${mediaWrapperMargin}px;`
 						: " "
 				}
-								
+
 				overflow: hidden;
 			}
 
@@ -515,6 +515,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 					
 				.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
+					max-width: 100%;
 					${
 						mediaImgWidthUnit === "%" && mediaImgWidth
 							? `width: ${mediaImgWidth}${mediaImgWidthUnit};`
