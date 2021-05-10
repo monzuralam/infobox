@@ -938,7 +938,7 @@ function Inspector(props) {
 					)}
 				</PanelBody>
 
-				<PanelBody title={__("Margin Padding")} initialOpen={false}>
+				<PanelBody title={__("Infobox Margin Padding")} initialOpen={false}>
 					<ResponsiveDimensionsControl
 						resRequiredProps={resRequiredProps}
 						controlName={wrapperMargin}
