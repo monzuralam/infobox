@@ -52,6 +52,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		// blockId attribute for making unique className and other uniqueness
 		blockId,
 
+		// isOverly is to check if a overly on the block's background should exist
+		isOverly,
+
 		selectedIcon,
 		media,
 		number = 0,
@@ -429,6 +432,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 	const wrapperStylesDesktop = `
 		.${blockId} {
+			position: relative;
+			overflow: hidden;
 			${wrapperMarginStylesDesktop}
 			${wrapperPaddingStylesDesktop}
 
@@ -1129,6 +1134,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			</style>
 
 			<div className={`${blockId} eb-infobox-wrapper`}>
+				{isOverly ? <div className="overly"></div> : null}
+
 				<div className="infobox-wrapper-inner">
 					{media === "icon" ? (
 						<div className="icon-img-wrapper">

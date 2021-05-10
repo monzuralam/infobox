@@ -3832,6 +3832,11 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
   blockMeta: {
     type: "object"
   },
+  // isOverly is to check if a overly on the block's background should exist ⬇
+  isOverly: {
+    type: "boolean",
+    default: false
+  },
   // this attribute is for selecting the desired design preset from the layout design presets options ⬇
   layoutPreset: {
     type: "string",
@@ -4192,10 +4197,13 @@ function InfoboxContainer(_ref) {
       subTitle = requiredProps.subTitle,
       description = requiredProps.description,
       titleTag = requiredProps.titleTag,
-      subTitleTag = requiredProps.subTitleTag;
+      subTitleTag = requiredProps.subTitleTag,
+      isOverly = requiredProps.isOverly;
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "".concat(blockId, " eb-infobox-wrapper")
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }, isOverly ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "overly"
+  }) : null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "infobox-wrapper-inner"
   }, media === "icon" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "icon-img-wrapper"
@@ -4507,6 +4515,7 @@ var Edit = function Edit(_ref) {
   var resOption = attributes.resOption,
       blockMeta = attributes.blockMeta,
       blockId = attributes.blockId,
+      isOverly = attributes.isOverly,
       selectedIcon = attributes.selectedIcon,
       media = attributes.media,
       _attributes$number = attributes.number,
@@ -4818,7 +4827,7 @@ var Edit = function Edit(_ref) {
       WRPradiusStylesTab = _generateDimensionsCo12.dimensionStylesTab,
       WRPradiusStylesMobile = _generateDimensionsCo12.dimensionStylesMobile;
 
-  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\n\t\t\tbackground-image:\n\t\t\t").concat(WRPbackgroundType === "image" && WRPbgImageURL ? "url(\"".concat(WRPbgImageURL, "\")") : WRPbackgroundType === "gradient" ? WRPgradientColor : "none", ";\n\n\t\t\t").concat(WRPbackgroundSize ? "background-size: ".concat(WRPbackgroundSize, ";") : " ", "\n\t\t\t").concat(WRPbackgroundColor ? "background-color: ".concat(WRPbackgroundColor, ";") : " ", "\n\n\t\t\t").concat(WRPborderColor ? "\n\t\t\t\t\t".concat(WRPborderStylesDesktop, "\n\t\t\t\t\tborder-color: ").concat(WRPborderColor, ";\n\t\t\t\t\tborder-style: ").concat(WRPborderStyle, ";\n\t\t\t\t\t") : " ", "\n\t\t\t").concat(WRPradiusStylesDesktop, "\n\n\t\t\t").concat(WRPshadowColor ? "box-shadow: ".concat(WRPshadowColor, " ").concat(WRPhOffset, "px ").concat(WRPvOffset, "px ").concat(WRPblur, "px ").concat(WRPspread, "px ").concat(WRPinset ? "inset" : "", ";") : " ", "\n\n\t\t\ttransition: ").concat(WRPtransitionTime ? "".concat(WRPtransitionTime / 1000, "s") : ".5s", ";\n\t\t}\n\n\t\t\n\n\t\t.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(WRPhoverShadowColor ? "box-shadow: ".concat(WRPhoverShadowColor, " ").concat(WRPhoverHOffset, "px ").concat(WRPhoverVOffset, "px ").concat(WRPhoverBlur, "px ").concat(WRPhoverSpread, "px ").concat(WRPinset ? "inset" : " ", ";") : " ", "\n\t\t}\n\n\t");
+  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tposition: relative;\n\t\t\toverflow: hidden;\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\n\t\t\tbackground-image:\n\t\t\t").concat(WRPbackgroundType === "image" && WRPbgImageURL ? "url(\"".concat(WRPbgImageURL, "\")") : WRPbackgroundType === "gradient" ? WRPgradientColor : "none", ";\n\n\t\t\t").concat(WRPbackgroundSize ? "background-size: ".concat(WRPbackgroundSize, ";") : " ", "\n\t\t\t").concat(WRPbackgroundColor ? "background-color: ".concat(WRPbackgroundColor, ";") : " ", "\n\n\t\t\t").concat(WRPborderColor ? "\n\t\t\t\t\t".concat(WRPborderStylesDesktop, "\n\t\t\t\t\tborder-color: ").concat(WRPborderColor, ";\n\t\t\t\t\tborder-style: ").concat(WRPborderStyle, ";\n\t\t\t\t\t") : " ", "\n\t\t\t").concat(WRPradiusStylesDesktop, "\n\n\t\t\t").concat(WRPshadowColor ? "box-shadow: ".concat(WRPshadowColor, " ").concat(WRPhOffset, "px ").concat(WRPvOffset, "px ").concat(WRPblur, "px ").concat(WRPspread, "px ").concat(WRPinset ? "inset" : "", ";") : " ", "\n\n\t\t\ttransition: ").concat(WRPtransitionTime ? "".concat(WRPtransitionTime / 1000, "s") : ".5s", ";\n\t\t}\n\n\t\t\n\n\t\t.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(WRPhoverShadowColor ? "box-shadow: ".concat(WRPhoverShadowColor, " ").concat(WRPhoverHOffset, "px ").concat(WRPhoverVOffset, "px ").concat(WRPhoverBlur, "px ").concat(WRPhoverSpread, "px ").concat(WRPinset ? "inset" : " ", ";") : " ", "\n\t\t}\n\n\t");
   var wrapperStylesTab = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesTab, "\n\t\t\t").concat(wrapperPaddingStylesTab, "\n\n\t\t\t").concat(WRPborderColor ? WRPborderStylesTab : " ", "\n\t\t\t").concat(WRPradiusStylesTab, "\n\t\t}\n\n\t");
   var wrapperStylesMobile = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesMobile, "\n\t\t\t").concat(wrapperPaddingStylesMobile, "\t\t\t\n\n\t\t\t").concat(WRPborderColor ? WRPborderStylesMobile : " ", "\n\t\t\t").concat(WRPradiusStylesMobile, "\n\t\t}\n\n\t");
   var wrapperInnerStylesDesktop = "\t\n\t\t.".concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\t").concat(flexDirection ? "flex-direction: ".concat(flexDirection, ";") : " ", " \n\t\t\t\n\t\t}\n\t\n\t");
@@ -4855,7 +4864,9 @@ var Edit = function Edit(_ref) {
   }), // Edit view
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", blockProps, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("style", null, "\n\t\t\t\t".concat(desktopAllStyles, "\n\n\t\t\t\t/* mimmikcssStart */\n\n\t\t\t\t").concat(resOption === "tab" ? tabAllStyles : " ", "\n\t\t\t\t").concat(resOption === "mobile" ? tabAllStyles + mobileAllStyles : " ", "\n\n\t\t\t\t/* mimmikcssEnd */\n\n\t\t\t\t@media all and (max-width: 1024px) {\t\n\n\t\t\t\t\t/* tabcssStart */\t\t\t\n\t\t\t\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])(tabAllStyles), "\n\t\t\t\t\t/* tabcssEnd */\t\t\t\n\t\t\t\t\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t@media all and (max-width: 767px) {\n\t\t\t\t\t\n\t\t\t\t\t/* mobcssStart */\t\t\t\n\t\t\t\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])(mobileAllStyles), "\n\t\t\t\t\t/* mobcssEnd */\t\t\t\n\t\t\t\t\n\t\t\t\t}\n\t\t\t\t")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "".concat(blockId, " eb-infobox-wrapper")
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }, isOverly ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "overly"
+  }) : null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "infobox-wrapper-inner"
   }, media === "icon" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "icon-img-wrapper"
@@ -6563,7 +6574,8 @@ function save(_ref) {
       subTitle = attributes.subTitle,
       description = attributes.description,
       titleTag = attributes.titleTag,
-      subTitleTag = attributes.subTitleTag;
+      subTitleTag = attributes.subTitleTag,
+      isOverly = attributes.isOverly;
   var requiredProps = {
     selectedIcon: selectedIcon,
     blockId: blockId,
@@ -6578,9 +6590,9 @@ function save(_ref) {
     title: title,
     subTitle: subTitle,
     description: description,
-    //
     titleTag: titleTag,
-    subTitleTag: subTitleTag
+    subTitleTag: subTitleTag,
+    isOverly: isOverly
   };
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["useBlockProps"].save(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_infobox_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
     requiredProps: requiredProps

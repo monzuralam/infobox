@@ -15,13 +15,15 @@ export default function InfoboxContainer({ requiredProps }) {
 		title,
 		subTitle,
 		description,
-		//
 		titleTag,
 		subTitleTag,
+		isOverly,
 	} = requiredProps;
 
 	return (
 		<div className={`${blockId} eb-infobox-wrapper`}>
+			{isOverly ? <div className="overly"></div> : null}
+
 			<div className="infobox-wrapper-inner">
 				{media === "icon" ? (
 					<div className="icon-img-wrapper">

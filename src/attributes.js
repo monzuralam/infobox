@@ -40,6 +40,12 @@ const attributes = {
 		type: "object",
 	},
 
+	// isOverly is to check if a overly on the block's background should exist ⬇
+	isOverly: {
+		type: "boolean",
+		default: false,
+	},
+
 	// this attribute is for selecting the desired design preset from the layout design presets options ⬇
 	layoutPreset: {
 		type: "string",

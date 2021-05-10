@@ -20,6 +20,9 @@ export default function save({ attributes }) {
 		//
 		titleTag,
 		subTitleTag,
+
+		// isOverly is to check if a overly on the block's background should exist ⬇
+		isOverly,
 	} = attributes;
 
 	const requiredProps = {
@@ -36,9 +39,9 @@ export default function save({ attributes }) {
 		title,
 		subTitle,
 		description,
-		//
 		titleTag,
 		subTitleTag,
+		isOverly,
 	};
 
 	return (
