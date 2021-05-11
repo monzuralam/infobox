@@ -565,6 +565,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					max-width: 100%;
 					object-fit: cover;
 					display: inline-block;
+					${imageUrl ? mediaRadiusStylesDesktop : " "}
 					
 					${
 						mediaImgWidthUnit !== "%"
@@ -591,7 +592,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 				.${blockId} .eb-infobox-image-wrapper{
 					overflow: hidden;
-					${mediaRadiusStylesDesktop}
+					display:flex;
+					${imageUrl ? " " : mediaRadiusStylesDesktop}
 
 				}
 				
