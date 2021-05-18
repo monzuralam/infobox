@@ -22,3 +22,6 @@
 [submodule "util/unit-control"]
 	path = util/unit-control
 	url = git@github.com:EssentialBlocks/unit-control.git
+[submodule "util/helpers"]
+	path = util/helpers
+	url = git@github.com:EssentialBlocks/helpers

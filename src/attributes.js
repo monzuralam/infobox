@@ -16,7 +16,7 @@ import {
 import {
 	generateDimensionsAttributes,
 	generateTypographyAttributes,
-} from "./helpers";
+} from "../util/helpers";
 
 const attributes = {
 	// the following 4 attributes is must required for responsive options and asset generation for frontend

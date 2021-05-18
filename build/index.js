@@ -3802,7 +3802,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/constants/typographyPrefixConstants.js");
 /* harmony import */ var _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./constants/dimensionsConstants */ "./src/constants/dimensionsConstants.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers */ "./src/helpers.js");
+/* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/helpers */ "./util/helpers/index.js");
 
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -4120,46 +4120,46 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
     type: "string",
     default: "500"
   }
-}, Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["generateTypographyAttributes"])(Object.values(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__))), Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["mediaBackground"], {
+}, Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateTypographyAttributes"])(Object.values(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__))), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["mediaBackground"], {
   top: 20,
   bottom: 20,
   right: 20,
   left: 20
-})), Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["mediaBgRadius"], {
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["mediaBgRadius"], {
   top: 20,
   bottom: 20
-})), Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["mediaBgMargin"], {
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["mediaBgMargin"], {
   top: 15
-})), Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["buttonPadding"], {
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["buttonPadding"], {
   top: 15,
   bottom: 15,
   right: 30,
   left: 30
-})), Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["buttonRadius"], {
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["buttonRadius"], {
   top: 10,
   bottom: 10,
   right: 10,
   left: 10
-})), Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["titlePadding"], {
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["titlePadding"], {
   top: 10,
   bottom: 10
-})), Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["subTitlePadding"], {
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["subTitlePadding"], {
   top: 10,
   bottom: 10
-})), Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["contentPadding"], {
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["contentPadding"], {
   top: 10,
   bottom: 30
-})), Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["wrapperMargin"])), Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["wrapperPadding"], {
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["wrapperMargin"])), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["wrapperPadding"], {
   top: 40,
   bottom: 40,
   right: 30,
   left: 30
-})), Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["WRPborder"], {
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["WRPborder"], {
   top: 0,
   bottom: 0,
   right: 0,
   left: 0
-})), Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["WRPradius"]));
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["WRPradius"]));
 
 /* harmony default export */ __webpack_exports__["default"] = (attributes);
 
@@ -4478,7 +4478,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers */ "./src/helpers.js");
+/* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../util/helpers */ "./util/helpers/index.js");
 /* harmony import */ var _inspector__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./inspector */ "./src/inspector.js");
 /* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/constants/typographyPrefixConstants.js");
 /* harmony import */ var _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./constants/dimensionsConstants */ "./src/constants/dimensionsConstants.js");
@@ -4674,7 +4674,7 @@ var Edit = function Edit(_ref) {
   // styling codes starts from here
   //
 
-  var _generateTypographySt = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateTypographyStyles"])({
+  var _generateTypographySt = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateTypographyStyles"])({
     attributes: attributes,
     prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_7__["typoPrefix_title"],
     defaultFontSize: 26
@@ -4683,7 +4683,7 @@ var Edit = function Edit(_ref) {
       titleTypoStylesTab = _generateTypographySt.typoStylesTab,
       titleTypoStylesMobile = _generateTypographySt.typoStylesMobile;
 
-  var _generateTypographySt2 = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateTypographyStyles"])({
+  var _generateTypographySt2 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateTypographyStyles"])({
     attributes: attributes,
     prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_7__["typoPrefix_subTitle"],
     defaultFontSize: 22
@@ -4692,7 +4692,7 @@ var Edit = function Edit(_ref) {
       subTitleTypoStylesTab = _generateTypographySt2.typoStylesTab,
       subTitleTypoStylesMobile = _generateTypographySt2.typoStylesMobile;
 
-  var _generateTypographySt3 = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateTypographyStyles"])({
+  var _generateTypographySt3 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateTypographyStyles"])({
     attributes: attributes,
     prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_7__["typoPrefix_content"],
     defaultFontSize: 20
@@ -4701,7 +4701,7 @@ var Edit = function Edit(_ref) {
       contentTypoStylesTab = _generateTypographySt3.typoStylesTab,
       contentTypoStylesMobile = _generateTypographySt3.typoStylesMobile;
 
-  var _generateTypographySt4 = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateTypographyStyles"])({
+  var _generateTypographySt4 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateTypographyStyles"])({
     attributes: attributes,
     prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_7__["typoPrefix_buttonText"],
     defaultFontSize: 20
@@ -4710,7 +4710,7 @@ var Edit = function Edit(_ref) {
       buttonTypoStylesTab = _generateTypographySt4.typoStylesTab,
       buttonTypoStylesMobile = _generateTypographySt4.typoStylesMobile;
 
-  var _generateTypographySt5 = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateTypographyStyles"])({
+  var _generateTypographySt5 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateTypographyStyles"])({
     attributes: attributes,
     prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_7__["typoPrefix_number"],
     defaultFontSize: 28
@@ -4719,7 +4719,7 @@ var Edit = function Edit(_ref) {
       numTypoStylesTab = _generateTypographySt5.typoStylesTab,
       numTypoStylesMobile = _generateTypographySt5.typoStylesMobile;
 
-  var _generateDimensionsCo = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
+  var _generateDimensionsCo = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
     attributes: attributes,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["mediaBackground"],
     styleFor: "padding"
@@ -4728,7 +4728,7 @@ var Edit = function Edit(_ref) {
       mediaBgPaddingTab = _generateDimensionsCo.dimensionStylesTab,
       mediaBgPaddingMobile = _generateDimensionsCo.dimensionStylesMobile;
 
-  var _generateDimensionsCo2 = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
+  var _generateDimensionsCo2 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
     attributes: attributes,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["mediaBgRadius"],
     styleFor: "border-radius"
@@ -4737,7 +4737,7 @@ var Edit = function Edit(_ref) {
       mediaRadiusStylesTab = _generateDimensionsCo2.dimensionStylesTab,
       mediaRadiusStylesMobile = _generateDimensionsCo2.dimensionStylesMobile;
 
-  var _generateDimensionsCo3 = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
+  var _generateDimensionsCo3 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
     attributes: attributes,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["mediaBgMargin"],
     styleFor: "margin"
@@ -4746,7 +4746,7 @@ var Edit = function Edit(_ref) {
       mediaBgMarginStylesTab = _generateDimensionsCo3.dimensionStylesTab,
       mediaBgMarginStylesMobile = _generateDimensionsCo3.dimensionStylesMobile;
 
-  var _generateDimensionsCo4 = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
+  var _generateDimensionsCo4 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
     attributes: attributes,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["buttonPadding"],
     styleFor: "padding"
@@ -4755,7 +4755,7 @@ var Edit = function Edit(_ref) {
       buttonPaddingStylesTab = _generateDimensionsCo4.dimensionStylesTab,
       buttonPaddingStylesMobile = _generateDimensionsCo4.dimensionStylesMobile;
 
-  var _generateDimensionsCo5 = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
+  var _generateDimensionsCo5 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
     attributes: attributes,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["buttonRadius"],
     styleFor: "border-radius"
@@ -4764,7 +4764,7 @@ var Edit = function Edit(_ref) {
       buttonRadiusStylesTab = _generateDimensionsCo5.dimensionStylesTab,
       buttonRadiusStylesMobile = _generateDimensionsCo5.dimensionStylesMobile;
 
-  var _generateDimensionsCo6 = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
+  var _generateDimensionsCo6 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
     attributes: attributes,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["titlePadding"],
     styleFor: "padding"
@@ -4773,7 +4773,7 @@ var Edit = function Edit(_ref) {
       titlePaddingStylesTab = _generateDimensionsCo6.dimensionStylesTab,
       titlePaddingStylesMobile = _generateDimensionsCo6.dimensionStylesMobile;
 
-  var _generateDimensionsCo7 = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
+  var _generateDimensionsCo7 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
     attributes: attributes,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["subTitlePadding"],
     styleFor: "padding"
@@ -4782,7 +4782,7 @@ var Edit = function Edit(_ref) {
       subTitlePaddingStylesTab = _generateDimensionsCo7.dimensionStylesTab,
       subTitlePaddingStylesMobile = _generateDimensionsCo7.dimensionStylesMobile;
 
-  var _generateDimensionsCo8 = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
+  var _generateDimensionsCo8 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
     attributes: attributes,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["contentPadding"],
     styleFor: "padding"
@@ -4791,7 +4791,7 @@ var Edit = function Edit(_ref) {
       contentPaddingStylesTab = _generateDimensionsCo8.dimensionStylesTab,
       contentPaddingStylesMobile = _generateDimensionsCo8.dimensionStylesMobile;
 
-  var _generateDimensionsCo9 = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
+  var _generateDimensionsCo9 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
     attributes: attributes,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["wrapperPadding"],
     styleFor: "padding"
@@ -4800,7 +4800,7 @@ var Edit = function Edit(_ref) {
       wrapperPaddingStylesTab = _generateDimensionsCo9.dimensionStylesTab,
       wrapperPaddingStylesMobile = _generateDimensionsCo9.dimensionStylesMobile;
 
-  var _generateDimensionsCo10 = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
+  var _generateDimensionsCo10 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
     attributes: attributes,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["wrapperMargin"],
     styleFor: "margin"
@@ -4809,7 +4809,7 @@ var Edit = function Edit(_ref) {
       wrapperMarginStylesTab = _generateDimensionsCo10.dimensionStylesTab,
       wrapperMarginStylesMobile = _generateDimensionsCo10.dimensionStylesMobile;
 
-  var _generateDimensionsCo11 = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
+  var _generateDimensionsCo11 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
     attributes: attributes,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["WRPborder"],
     styleFor: "border"
@@ -4818,7 +4818,7 @@ var Edit = function Edit(_ref) {
       WRPborderStylesTab = _generateDimensionsCo11.dimensionStylesTab,
       WRPborderStylesMobile = _generateDimensionsCo11.dimensionStylesMobile;
 
-  var _generateDimensionsCo12 = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
+  var _generateDimensionsCo12 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
     attributes: attributes,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["WRPradius"],
     styleFor: "border-radius"
@@ -4838,11 +4838,11 @@ var Edit = function Edit(_ref) {
   var contentStylesTab = "\n\t\t.".concat(blockId, " .title {\n\t\t\t").concat(titleTypoStylesTab, "\n\t\t\t").concat(titlePaddingStylesTab, "\n\n\t\t}\n\t\t\n\t\t").concat(enableSubTitle ? "\t\t\t\n\t\t\t\t.".concat(blockId, " .subtitle {\n\t\t\t\t\t").concat(subTitleTypoStylesTab, "\n\t\t\t\t\t").concat(subTitlePaddingStylesTab, "\n\t\t\n\t\t\t\t}\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t").concat(enableDescription ? "\n\t\t\t\t.".concat(blockId, " .description {\n\t\t\t\t\t").concat(contentTypoStylesTab, "\n\t\t\t\t\t").concat(contentPaddingStylesTab, "\n\t\t\n\t\t\t\t}\t\t\t\t\n\t\t\t\t") : " ", "\n\t\t\n\t\t").concat(enableButton ? "\n\t\t\t\t.".concat(blockId, " .contents-wrapper .infobox-btn{\n\t\t\t\t\t").concat(buttonTypoStylesTab, "\n\t\t\t\t\t").concat(buttonPaddingStylesTab, "\n\t\t\t\t\t").concat(buttonRadiusStylesTab, "\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\t\n\t");
   var contentStylesMobile = "\n\t\t.".concat(blockId, " .title {\n\t\t\t").concat(titleTypoStylesMobile, "\n\t\t\t").concat(titlePaddingStylesMobile, "\n\n\t\t}\n\t\t\n\t\t").concat(enableSubTitle ? "\n\t\t\t\t.".concat(blockId, " .subtitle {\n\t\t\t\t\t").concat(subTitleTypoStylesMobile, "\n\t\t\t\t\t").concat(subTitlePaddingStylesMobile, "\n\t\t\n\t\t\t\t}\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t").concat(enableDescription ? "\n\t\t\t\t.".concat(blockId, " .description {\n\t\t\t\t\t").concat(contentTypoStylesMobile, "\n\t\t\t\t\t").concat(contentPaddingStylesMobile, "\n\t\t\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\t\t\n\t\t").concat(enableButton ? "\n\t\t\t\n\t\t\t\t.".concat(blockId, " .contents-wrapper .infobox-btn{\n\t\t\t\t\t").concat(buttonTypoStylesMobile, "\n\t\t\t\t\t").concat(buttonPaddingStylesMobile, "\n\t\t\t\t\t").concat(buttonRadiusStylesMobile, "\n\t\t\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\t\t\n\t\t\n\n\t"); // all css styles for large screen width (desktop/laptop) in strings ⬇
 
-  var desktopAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\t\t\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesDesktop) ? wrapperStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperInnerStylesDesktop) ? wrapperInnerStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(mediaStylesDesktop) ? mediaStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(contentStylesDesktop) ? contentStylesDesktop : " ", "\n\t\t\n\t")); // all css styles for Tab in strings ⬇
+  var desktopAllStyles = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\t\t\n\t\t".concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesDesktop) ? wrapperStylesDesktop : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperInnerStylesDesktop) ? wrapperInnerStylesDesktop : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(mediaStylesDesktop) ? mediaStylesDesktop : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(contentStylesDesktop) ? contentStylesDesktop : " ", "\n\t\t\n\t")); // all css styles for Tab in strings ⬇
 
-  var tabAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesTab) ? wrapperStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(mediaStylesTab) ? mediaStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(contentStylesTab) ? contentStylesTab : " ", "\n\t\t\n\t\t\n\t")); // all css styles for Mobile in strings ⬇
+  var tabAllStyles = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\n\t\t".concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesTab) ? wrapperStylesTab : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(mediaStylesTab) ? mediaStylesTab : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(contentStylesTab) ? contentStylesTab : " ", "\n\t\t\n\t\t\n\t")); // all css styles for Mobile in strings ⬇
 
-  var mobileAllStyles = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesMobile) ? wrapperStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(mediaStylesMobile) ? mediaStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(contentStylesMobile) ? contentStylesMobile : " ", "\n\t\n\t")); // Set All Style in "blockMeta" Attribute
+  var mobileAllStyles = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])("\n\t\t".concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(wrapperStylesMobile) ? wrapperStylesMobile : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(mediaStylesMobile) ? mediaStylesMobile : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["isCssExists"])(contentStylesMobile) ? contentStylesMobile : " ", "\n\t\n\t")); // Set All Style in "blockMeta" Attribute
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var styleObject = {
@@ -4862,7 +4862,7 @@ var Edit = function Edit(_ref) {
     attributes: attributes,
     setAttributes: setAttributes
   }), // Edit view
-  Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", blockProps, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("style", null, "\n\t\t\t\t".concat(desktopAllStyles, "\n\n\t\t\t\t/* mimmikcssStart */\n\n\t\t\t\t").concat(resOption === "tab" ? tabAllStyles : " ", "\n\t\t\t\t").concat(resOption === "mobile" ? tabAllStyles + mobileAllStyles : " ", "\n\n\t\t\t\t/* mimmikcssEnd */\n\n\t\t\t\t@media all and (max-width: 1024px) {\t\n\n\t\t\t\t\t/* tabcssStart */\t\t\t\n\t\t\t\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])(tabAllStyles), "\n\t\t\t\t\t/* tabcssEnd */\t\t\t\n\t\t\t\t\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t@media all and (max-width: 767px) {\n\t\t\t\t\t\n\t\t\t\t\t/* mobcssStart */\t\t\t\n\t\t\t\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])(mobileAllStyles), "\n\t\t\t\t\t/* mobcssEnd */\t\t\t\n\t\t\t\t\n\t\t\t\t}\n\t\t\t\t")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", blockProps, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("style", null, "\n\t\t\t\t".concat(desktopAllStyles, "\n\n\t\t\t\t/* mimmikcssStart */\n\n\t\t\t\t").concat(resOption === "tab" ? tabAllStyles : " ", "\n\t\t\t\t").concat(resOption === "mobile" ? tabAllStyles + mobileAllStyles : " ", "\n\n\t\t\t\t/* mimmikcssEnd */\n\n\t\t\t\t@media all and (max-width: 1024px) {\t\n\n\t\t\t\t\t/* tabcssStart */\t\t\t\n\t\t\t\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])(tabAllStyles), "\n\t\t\t\t\t/* tabcssEnd */\t\t\t\n\t\t\t\t\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t@media all and (max-width: 767px) {\n\t\t\t\t\t\n\t\t\t\t\t/* mobcssStart */\t\t\t\n\t\t\t\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["softMinifyCssStrings"])(mobileAllStyles), "\n\t\t\t\t\t/* mobcssEnd */\t\t\t\n\t\t\t\t\n\t\t\t\t}\n\t\t\t\t")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "".concat(blockId, " eb-infobox-wrapper")
   }, isOverly ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "overly"
@@ -4966,338 +4966,6 @@ var Edit = function Edit(_ref) {
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
-
-/***/ }),
-
-/***/ "./src/helpers.js":
-/*!************************!*\
-  !*** ./src/helpers.js ***!
-  \************************/
-/*! exports provided: hasVal, generateCommonControlAttributes, generateDimensionsAttributes, generateTypographyAttributes, textInsideForEdit, generateRandomNumber, hardMinifyCssStrings, softMinifyCssStrings, isCssExists, generateTypographyStyles, generateDimensionsControlStyles */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasVal", function() { return hasVal; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateCommonControlAttributes", function() { return generateCommonControlAttributes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateDimensionsAttributes", function() { return generateDimensionsAttributes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateTypographyAttributes", function() { return generateTypographyAttributes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "textInsideForEdit", function() { return textInsideForEdit; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateRandomNumber", function() { return generateRandomNumber; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hardMinifyCssStrings", function() { return hardMinifyCssStrings; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "softMinifyCssStrings", function() { return softMinifyCssStrings; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isCssExists", function() { return isCssExists; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateTypographyStyles", function() { return generateTypographyStyles; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateDimensionsControlStyles", function() { return generateDimensionsControlStyles; });
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-// check if range controller input numbers  has value
-var hasVal = function hasVal(val) {
-  return val || val === 0;
-}; // function to generate common control's attributes
-
-var generateCommonControlAttributes = function generateCommonControlAttributes(uniquePrefix) {
-  var _ref;
-
-  var defaults = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  return _ref = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "backgroundType"), {
-    type: "string",
-    default: "gradient"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "backgroundColor"), {
-    type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "gradientColor"), {
-    type: "string",
-    default: "linear-gradient(45deg,#8200ff,#ff0071)"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "backgroundSize"), {
-    type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "bgImageURL"), {
-    type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "bgImageID"), {
-    type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "borderColor"), {
-    type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "borderStyle"), {
-    type: "string",
-    default: "solid"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "borderWidth"), {
-    type: "number"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "borderRadius"), {
-    type: "number"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "radiusUnit"), {
-    type: "string",
-    default: "px"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hOffset"), {
-    type: "number"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "vOffset"), {
-    type: "number"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "blur"), {
-    type: "number"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "spread"), {
-    type: "number"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "shadowColor"), {
-    type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "inset"), {
-    type: "boolean",
-    default: false
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "shadowType"), {
-    type: "string",
-    default: "normal"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hoverHOffset"), {
-    type: "number"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hoverVOffset"), {
-    type: "number"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hoverBlur"), {
-    type: "number"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hoverSpread"), {
-    type: "number"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hoverShadowColor"), {
-    type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hoverInset"), {
-    type: "boolean",
-    default: false
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "transitionTime"), {
-    type: "string",
-    default: "500"
-  }), _ref;
-}; // function to generate New Dimensions-Control's attributes for multiple Dimensions control based on the array of values(prefixs)
-
-var generateDimensionsAttributes = function generateDimensionsAttributes(controlName) {
-  var _objectSpread3;
-
-  var defaults = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  var top = defaults.top,
-      right = defaults.right,
-      bottom = defaults.bottom,
-      left = defaults.left;
-  var desktopTop = hasVal(top) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Top"), {
-    type: "string",
-    default: "".concat(top)
-  }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Top"), {
-    type: "string"
-  });
-  var desktopRight = hasVal(right) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Right"), {
-    type: "string",
-    default: "".concat(right)
-  }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Right"), {
-    type: "string"
-  });
-  var desktopBottom = hasVal(bottom) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Bottom"), {
-    type: "string",
-    default: "".concat(bottom)
-  }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Bottom"), {
-    type: "string"
-  });
-  var desktopLeft = hasVal(left) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Left"), {
-    type: "string",
-    default: "".concat(left)
-  }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Left"), {
-    type: "string"
-  });
-  return _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Unit"), {
-    type: "string",
-    default: "px"
-  }), desktopTop), desktopRight), desktopBottom), desktopLeft), {}, (_objectSpread3 = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "TAB".concat(controlName, "Unit"), {
-    type: "string",
-    default: "px"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "TAB".concat(controlName, "Top"), {
-    type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "TAB".concat(controlName, "Right"), {
-    type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "TAB".concat(controlName, "Bottom"), {
-    type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "TAB".concat(controlName, "Left"), {
-    type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "MOB".concat(controlName, "Unit"), {
-    type: "string",
-    default: "px"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "MOB".concat(controlName, "Top"), {
-    type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "MOB".concat(controlName, "Right"), {
-    type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "MOB".concat(controlName, "Bottom"), {
-    type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "MOB".concat(controlName, "Left"), {
-    type: "string"
-  }), _objectSpread3));
-}; // function to generate typography attributes for multiple typography control based on the array of prefix
-
-var generateTypographyAttributes = function generateTypographyAttributes(prefixArray) {
-  var typoAttrs = prefixArray.reduce(function (total, current) {
-    var _result;
-
-    var result = (_result = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "FontFamily"), {
-      type: "string"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "SizeUnit"), {
-      type: "string",
-      default: "px"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "FontSize"), {
-      type: "number"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "FontWeight"), {
-      type: "string"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "TextTransform"), {
-      type: "string"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "TextDecoration"), {
-      type: "string"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "LetterSpacingUnit"), {
-      type: "string",
-      default: "px"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "LetterSpacing"), {
-      type: "number"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "LineHeightUnit"), {
-      type: "string",
-      default: "em"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "LineHeight"), {
-      type: "number"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "TAB".concat(current, "SizeUnit"), {
-      type: "string",
-      default: "px"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "TAB".concat(current, "FontSize"), {
-      type: "number"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "TAB".concat(current, "LetterSpacingUnit"), {
-      type: "string",
-      default: "px"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "TAB".concat(current, "LetterSpacing"), {
-      type: "number"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "TAB".concat(current, "LineHeightUnit"), {
-      type: "string",
-      default: "em"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "TAB".concat(current, "LineHeight"), {
-      type: "number"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "MOB".concat(current, "SizeUnit"), {
-      type: "string",
-      default: "px"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "MOB".concat(current, "FontSize"), {
-      type: "number"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "MOB".concat(current, "LetterSpacingUnit"), {
-      type: "string",
-      default: "px"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "MOB".concat(current, "LetterSpacing"), {
-      type: "number"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "MOB".concat(current, "LineHeightUnit"), {
-      type: "string",
-      default: "em"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "MOB".concat(current, "LineHeight"), {
-      type: "number"
-    }), _result);
-    return _objectSpread(_objectSpread({}, total), result);
-  }, {}); // console.log({ typoAttrs });
-
-  return typoAttrs;
-}; // helper Functions: function 'textInsideForEdit' is for setting the innertext depending on whether separator should be shown and which separator should be shown
-
-var textInsideForEdit = function textInsideForEdit(value, isShowSeparator, separator) {
-  return isShowSeparator ? value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator) : value.toString();
-}; // generateRandomNumber function is for generating a random number
-
-var generateRandomNumber = function generateRandomNumber() {
-  return Math.floor(Math.random() * 1000000000);
-}; // hardMinifyCssStrings is for minifying the css which is in the style tag as a string  for view.js
-
-var hardMinifyCssStrings = function hardMinifyCssStrings(cssString) {
-  // console.log({ cssString });
-  return cssString.replace(/\s+/g, " ").replace(/(?<=\:).+(?=\;)/g, function (match) {
-    // console.log({ match, g1, offset, string });
-    return match.trim().replace(/\s+/g, "__s_p_a_c_e__");
-  }) // .replace(/\s+(?!(?:[\w\d\.\-\#]+\{))/g, "")
-  .replace(/\s+(?![\w\d\.\-\#]+\{)/g, "").replace(/\s+/g, " ").replace(/__s_p_a_c_e__/g, " ");
-}; // softMinifyCssStrings is for minifying the css which is in the style tag as a string  for view.js
-
-var softMinifyCssStrings = function softMinifyCssStrings(cssString) {
-  return cssString.replace(/\s+/g, " ");
-}; // check if css string is empty or not.
-
-var isCssExists = function isCssExists(cssString) {
-  return /.+(?=\:(?!hover)(?!focus))/.test(cssString);
-}; //
-// function to generate typography styles for an element based on it's prefix
-
-var generateTypographyStyles = function generateTypographyStyles(_ref10) {
-  var prefixConstant = _ref10.prefixConstant,
-      defaultFontSize = _ref10.defaultFontSize,
-      attributes = _ref10.attributes;
-  var fontFamily = attributes["".concat(prefixConstant, "FontFamily")],
-      fontWeight = attributes["".concat(prefixConstant, "FontWeight")],
-      textTransform = attributes["".concat(prefixConstant, "TextTransform")],
-      textDecoration = attributes["".concat(prefixConstant, "TextDecoration")],
-      _attributes$ = attributes["".concat(prefixConstant, "FontSize")],
-      fontSize = _attributes$ === void 0 ? defaultFontSize : _attributes$,
-      sizeUnit = attributes["".concat(prefixConstant, "SizeUnit")],
-      letterSpacing = attributes["".concat(prefixConstant, "LetterSpacing")],
-      letterSpacingUnit = attributes["".concat(prefixConstant, "LetterSpacingUnit")],
-      lineHeight = attributes["".concat(prefixConstant, "LineHeight")],
-      lineHeightUnit = attributes["".concat(prefixConstant, "LineHeightUnit")],
-      TABsizeUnit = attributes["TAB".concat(prefixConstant, "SizeUnit")],
-      TABletterSpacingUnit = attributes["TAB".concat(prefixConstant, "LetterSpacingUnit")],
-      TABlineHeightUnit = attributes["TAB".concat(prefixConstant, "LineHeightUnit")],
-      TABfontSize = attributes["TAB".concat(prefixConstant, "FontSize")],
-      TABletterSpacing = attributes["TAB".concat(prefixConstant, "LetterSpacing")],
-      TABlineHeight = attributes["TAB".concat(prefixConstant, "LineHeight")],
-      MOBsizeUnit = attributes["MOB".concat(prefixConstant, "SizeUnit")],
-      MOBletterSpacingUnit = attributes["MOB".concat(prefixConstant, "LetterSpacingUnit")],
-      MOBlineHeightUnit = attributes["MOB".concat(prefixConstant, "LineHeightUnit")],
-      MOBfontSize = attributes["MOB".concat(prefixConstant, "FontSize")],
-      MOBletterSpacing = attributes["MOB".concat(prefixConstant, "LetterSpacing")],
-      MOBlineHeight = attributes["MOB".concat(prefixConstant, "LineHeight")];
-  var typoStylesDesktop = "\n\t\t\t".concat(fontFamily ? "font-family: ".concat(fontFamily, ";") : " ", "\n\t\t\t").concat(hasVal(fontSize) ? "font-size: ".concat(fontSize).concat(sizeUnit, ";") : " ", "\n\t\t\t").concat(hasVal(lineHeight) ? "line-height: ".concat(lineHeight).concat(lineHeightUnit, ";") : " ", "\n\t\t\t").concat(fontWeight ? "font-weight: ".concat(fontWeight, ";") : " ", "\n\t\t\t").concat(textDecoration ? "text-decoration: ".concat(textDecoration, ";") : " ", "\n\t\t\t").concat(textTransform ? "text-transform: ".concat(textTransform, ";") : " ", "\n\t\t\t").concat(hasVal(letterSpacing) ? "letter-spacing: ".concat(letterSpacing).concat(letterSpacingUnit, ";") : " ", "\n\t\t");
-  var typoStylesTab = "\n\t\t\t".concat(hasVal(TABfontSize) ? "font-size: ".concat(TABfontSize).concat(TABsizeUnit, ";") : " ", "\n\t\t\t").concat(hasVal(TABlineHeight) ? "line-height: ".concat(TABlineHeight).concat(TABlineHeightUnit, ";") : " ", "\n\t\t\t").concat(hasVal(TABletterSpacing) ? "letter-spacing: ".concat(TABletterSpacing).concat(TABletterSpacingUnit, ";") : " ", "\n\t\t");
-  var typoStylesMobile = "\n\t\t\t".concat(hasVal(MOBfontSize) ? "font-size: ".concat(MOBfontSize).concat(MOBsizeUnit, ";") : " ", "\n\t\t\t").concat(hasVal(MOBlineHeight) ? "line-height: ".concat(MOBlineHeight).concat(MOBlineHeightUnit, ";") : " ", "\n\t\t\t").concat(hasVal(MOBletterSpacing) ? "letter-spacing: ".concat(MOBletterSpacing).concat(MOBletterSpacingUnit, ";") : " ", "\n\t\t");
-  return {
-    typoStylesDesktop: typoStylesDesktop,
-    typoStylesTab: typoStylesTab,
-    typoStylesMobile: typoStylesMobile
-  };
-}; //
-// function to generate dimensions-controls styles for an element based on it's controlName(prefix)
-
-var generateDimensionsControlStyles = function generateDimensionsControlStyles(_ref11) {
-  var controlName = _ref11.controlName,
-      styleFor = _ref11.styleFor,
-      attributes = _ref11.attributes;
-  var dimensionUnit = attributes["".concat(controlName, "Unit")],
-      dimensionTop = attributes["".concat(controlName, "Top")],
-      dimensionRight = attributes["".concat(controlName, "Right")],
-      dimensionBottom = attributes["".concat(controlName, "Bottom")],
-      dimensionLeft = attributes["".concat(controlName, "Left")],
-      TABdimensionUnit = attributes["TAB".concat(controlName, "Unit")],
-      TABdimensionTop = attributes["TAB".concat(controlName, "Top")],
-      TABdimensionRight = attributes["TAB".concat(controlName, "Right")],
-      TABdimensionBottom = attributes["TAB".concat(controlName, "Bottom")],
-      TABdimensionLeft = attributes["TAB".concat(controlName, "Left")],
-      MOBdimensionUnit = attributes["MOB".concat(controlName, "Unit")],
-      MOBdimensionTop = attributes["MOB".concat(controlName, "Top")],
-      MOBdimensionRight = attributes["MOB".concat(controlName, "Right")],
-      MOBdimensionBottom = attributes["MOB".concat(controlName, "Bottom")],
-      MOBdimensionLeft = attributes["MOB".concat(controlName, "Left")];
-  var dimensionStylesDesktop = " ";
-  var dimensionStylesTab = " ";
-  var dimensionStylesMobile = " ";
-
-  if (styleFor === "border") {
-    dimensionStylesDesktop = "\n\t\t".concat(dimensionTop ? "border-top-width: ".concat(parseFloat(dimensionTop)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionRight ? "border-right-width: ".concat(parseFloat(dimensionRight)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionLeft ? "border-left-width: ".concat(parseFloat(dimensionLeft)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionBottom ? "border-bottom-width: ".concat(parseFloat(dimensionBottom)).concat(dimensionUnit, ";") : " ", "\n\t\n\t\t");
-    dimensionStylesTab = "\n\t\t\t".concat(TABdimensionTop ? "border-top-width: ".concat(parseFloat(TABdimensionTop)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionRight ? "border-right-width: ".concat(parseFloat(TABdimensionRight)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionLeft ? "border-left-width: ".concat(parseFloat(TABdimensionLeft)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionBottom ? "border-bottom-width: ".concat(parseFloat(TABdimensionBottom)).concat(TABdimensionUnit, ";") : " ", "\n\n\t\t");
-    dimensionStylesMobile = "\n\t\t\t".concat(MOBdimensionTop ? "border-top-width: ".concat(parseFloat(MOBdimensionTop)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionRight ? "border-right-width: ".concat(parseFloat(MOBdimensionRight)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionLeft ? "border-left-width: ".concat(parseFloat(MOBdimensionLeft)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionBottom ? "border-bottom-width: ".concat(parseFloat(MOBdimensionBottom)).concat(MOBdimensionUnit, ";") : " ", "\n\n\t\t");
-  } else if (styleFor === "border-radius") {
-    dimensionStylesDesktop = "\n\t\t\t".concat(dimensionTop ? "border-top-left-radius: ".concat(parseFloat(dimensionTop)).concat(dimensionUnit, ";") : " ", "\n\t\t\t").concat(dimensionRight ? "border-top-right-radius: ".concat(parseFloat(dimensionRight)).concat(dimensionUnit, ";") : " ", "\n\t\t\t").concat(dimensionLeft ? "border-bottom-left-radius: ".concat(parseFloat(dimensionLeft)).concat(dimensionUnit, ";") : " ", "\n\t\t\t").concat(dimensionBottom ? "border-bottom-right-radius: ".concat(parseFloat(dimensionBottom)).concat(dimensionUnit, ";") : " ", "\n\t\n\t\t");
-    dimensionStylesTab = "\n\t\t\t".concat(TABdimensionTop ? "border-top-left-radius: ".concat(parseFloat(TABdimensionTop)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionRight ? "border-top-right-radius: ".concat(parseFloat(TABdimensionRight)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionLeft ? "border-bottom-left-radius: ".concat(parseFloat(TABdimensionLeft)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionBottom ? "border-bottom-right-radius: ".concat(parseFloat(TABdimensionBottom)).concat(TABdimensionUnit, ";") : " ", "\n\n\t\t");
-    dimensionStylesMobile = "\n\t\t\t".concat(MOBdimensionTop ? "border-top-left-radius: ".concat(parseFloat(MOBdimensionTop)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionRight ? "border-top-right-radius: ".concat(parseFloat(MOBdimensionRight)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionLeft ? "border-bottom-left-radius: ".concat(parseFloat(MOBdimensionLeft)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionBottom ? "border-bottom-right-radius: ".concat(parseFloat(MOBdimensionBottom)).concat(MOBdimensionUnit, ";") : " ", "\n\n\t\t");
-  } else {
-    dimensionStylesDesktop = "\n\t\t".concat(dimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(dimensionTop)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(dimensionRight)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(dimensionLeft)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(dimensionBottom)).concat(dimensionUnit, ";") : " ", "\n\t\n\t\t");
-    dimensionStylesTab = "\n\t\t\t".concat(TABdimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(TABdimensionTop)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(TABdimensionRight)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(TABdimensionLeft)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(TABdimensionBottom)).concat(TABdimensionUnit, ";") : " ", "\n\n\t\t");
-    dimensionStylesMobile = "\n\t\t\t".concat(MOBdimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(MOBdimensionTop)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(MOBdimensionRight)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(MOBdimensionLeft)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(MOBdimensionBottom)).concat(MOBdimensionUnit, ";") : " ", "\n\n\t\t");
-  }
-
-  return {
-    dimensionStylesDesktop: dimensionStylesDesktop,
-    dimensionStylesTab: dimensionStylesTab,
-    dimensionStylesMobile: dimensionStylesMobile
-  };
-};
 
 /***/ }),
 
@@ -7386,6 +7054,338 @@ GradientColorControl.propTypes = {
   onChange: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.func.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (GradientColorControl);
+
+/***/ }),
+
+/***/ "./util/helpers/index.js":
+/*!*******************************!*\
+  !*** ./util/helpers/index.js ***!
+  \*******************************/
+/*! exports provided: hasVal, generateCommonControlAttributes, generateDimensionsAttributes, generateTypographyAttributes, textInsideForEdit, generateRandomNumber, hardMinifyCssStrings, softMinifyCssStrings, isCssExists, generateTypographyStyles, generateDimensionsControlStyles */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasVal", function() { return hasVal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateCommonControlAttributes", function() { return generateCommonControlAttributes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateDimensionsAttributes", function() { return generateDimensionsAttributes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateTypographyAttributes", function() { return generateTypographyAttributes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "textInsideForEdit", function() { return textInsideForEdit; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateRandomNumber", function() { return generateRandomNumber; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hardMinifyCssStrings", function() { return hardMinifyCssStrings; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "softMinifyCssStrings", function() { return softMinifyCssStrings; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isCssExists", function() { return isCssExists; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateTypographyStyles", function() { return generateTypographyStyles; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateDimensionsControlStyles", function() { return generateDimensionsControlStyles; });
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+// check if range controller input numbers  has value
+var hasVal = function hasVal(val) {
+  return val || val === 0;
+}; // function to generate common control's attributes
+
+var generateCommonControlAttributes = function generateCommonControlAttributes(uniquePrefix) {
+  var _ref;
+
+  var defaults = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  return _ref = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "backgroundType"), {
+    type: "string",
+    default: "gradient"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "backgroundColor"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "gradientColor"), {
+    type: "string",
+    default: "linear-gradient(45deg,#8200ff,#ff0071)"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "backgroundSize"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "bgImageURL"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "bgImageID"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "borderColor"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "borderStyle"), {
+    type: "string",
+    default: "solid"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "borderWidth"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "borderRadius"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "radiusUnit"), {
+    type: "string",
+    default: "px"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hOffset"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "vOffset"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "blur"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "spread"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "shadowColor"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "inset"), {
+    type: "boolean",
+    default: false
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "shadowType"), {
+    type: "string",
+    default: "normal"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hoverHOffset"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hoverVOffset"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hoverBlur"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hoverSpread"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hoverShadowColor"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "hoverInset"), {
+    type: "boolean",
+    default: false
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(uniquePrefix, "transitionTime"), {
+    type: "string",
+    default: "500"
+  }), _ref;
+}; // function to generate New Dimensions-Control's attributes for multiple Dimensions control based on the array of values(prefixs)
+
+var generateDimensionsAttributes = function generateDimensionsAttributes(controlName) {
+  var _objectSpread3;
+
+  var defaults = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var top = defaults.top,
+      right = defaults.right,
+      bottom = defaults.bottom,
+      left = defaults.left;
+  var desktopTop = hasVal(top) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Top"), {
+    type: "string",
+    default: "".concat(top)
+  }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Top"), {
+    type: "string"
+  });
+  var desktopRight = hasVal(right) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Right"), {
+    type: "string",
+    default: "".concat(right)
+  }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Right"), {
+    type: "string"
+  });
+  var desktopBottom = hasVal(bottom) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Bottom"), {
+    type: "string",
+    default: "".concat(bottom)
+  }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Bottom"), {
+    type: "string"
+  });
+  var desktopLeft = hasVal(left) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Left"), {
+    type: "string",
+    default: "".concat(left)
+  }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Left"), {
+    type: "string"
+  });
+  return _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Unit"), {
+    type: "string",
+    default: "px"
+  }), desktopTop), desktopRight), desktopBottom), desktopLeft), {}, (_objectSpread3 = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "TAB".concat(controlName, "Unit"), {
+    type: "string",
+    default: "px"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "TAB".concat(controlName, "Top"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "TAB".concat(controlName, "Right"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "TAB".concat(controlName, "Bottom"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "TAB".concat(controlName, "Left"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "MOB".concat(controlName, "Unit"), {
+    type: "string",
+    default: "px"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "MOB".concat(controlName, "Top"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "MOB".concat(controlName, "Right"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "MOB".concat(controlName, "Bottom"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "MOB".concat(controlName, "Left"), {
+    type: "string"
+  }), _objectSpread3));
+}; // function to generate typography attributes for multiple typography control based on the array of prefix
+
+var generateTypographyAttributes = function generateTypographyAttributes(prefixArray) {
+  var typoAttrs = prefixArray.reduce(function (total, current) {
+    var _result;
+
+    var result = (_result = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "FontFamily"), {
+      type: "string"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "SizeUnit"), {
+      type: "string",
+      default: "px"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "FontSize"), {
+      type: "number"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "FontWeight"), {
+      type: "string"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "TextTransform"), {
+      type: "string"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "TextDecoration"), {
+      type: "string"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "LetterSpacingUnit"), {
+      type: "string",
+      default: "px"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "LetterSpacing"), {
+      type: "number"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "LineHeightUnit"), {
+      type: "string",
+      default: "em"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "LineHeight"), {
+      type: "number"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "TAB".concat(current, "SizeUnit"), {
+      type: "string",
+      default: "px"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "TAB".concat(current, "FontSize"), {
+      type: "number"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "TAB".concat(current, "LetterSpacingUnit"), {
+      type: "string",
+      default: "px"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "TAB".concat(current, "LetterSpacing"), {
+      type: "number"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "TAB".concat(current, "LineHeightUnit"), {
+      type: "string",
+      default: "em"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "TAB".concat(current, "LineHeight"), {
+      type: "number"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "MOB".concat(current, "SizeUnit"), {
+      type: "string",
+      default: "px"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "MOB".concat(current, "FontSize"), {
+      type: "number"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "MOB".concat(current, "LetterSpacingUnit"), {
+      type: "string",
+      default: "px"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "MOB".concat(current, "LetterSpacing"), {
+      type: "number"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "MOB".concat(current, "LineHeightUnit"), {
+      type: "string",
+      default: "em"
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "MOB".concat(current, "LineHeight"), {
+      type: "number"
+    }), _result);
+    return _objectSpread(_objectSpread({}, total), result);
+  }, {}); // console.log({ typoAttrs });
+
+  return typoAttrs;
+}; // helper Functions: function 'textInsideForEdit' is for setting the innertext depending on whether separator should be shown and which separator should be shown
+
+var textInsideForEdit = function textInsideForEdit(value, isShowSeparator, separator) {
+  return isShowSeparator ? value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator) : value.toString();
+}; // generateRandomNumber function is for generating a random number
+
+var generateRandomNumber = function generateRandomNumber() {
+  return Math.floor(Math.random() * 1000000000);
+}; // hardMinifyCssStrings is for minifying the css which is in the style tag as a string  for view.js
+
+var hardMinifyCssStrings = function hardMinifyCssStrings(cssString) {
+  // console.log({ cssString });
+  return cssString.replace(/\s+/g, " ").replace(/(?<=\:).+(?=\;)/g, function (match) {
+    // console.log({ match, g1, offset, string });
+    return match.trim().replace(/\s+/g, "__s_p_a_c_e__");
+  }) // .replace(/\s+(?!(?:[\w\d\.\-\#]+\{))/g, "")
+  .replace(/\s+(?![\w\d\.\-\#]+\{)/g, "").replace(/\s+/g, " ").replace(/__s_p_a_c_e__/g, " ");
+}; // softMinifyCssStrings is for minifying the css which is in the style tag as a string  for view.js
+
+var softMinifyCssStrings = function softMinifyCssStrings(cssString) {
+  return cssString.replace(/\s+/g, " ");
+}; // check if css string is empty or not.
+
+var isCssExists = function isCssExists(cssString) {
+  return /.+(?=\:(?!hover)(?!focus))/.test(cssString);
+}; //
+// function to generate typography styles for an element based on it's prefix
+
+var generateTypographyStyles = function generateTypographyStyles(_ref10) {
+  var prefixConstant = _ref10.prefixConstant,
+      defaultFontSize = _ref10.defaultFontSize,
+      attributes = _ref10.attributes;
+  var fontFamily = attributes["".concat(prefixConstant, "FontFamily")],
+      fontWeight = attributes["".concat(prefixConstant, "FontWeight")],
+      textTransform = attributes["".concat(prefixConstant, "TextTransform")],
+      textDecoration = attributes["".concat(prefixConstant, "TextDecoration")],
+      _attributes$ = attributes["".concat(prefixConstant, "FontSize")],
+      fontSize = _attributes$ === void 0 ? defaultFontSize : _attributes$,
+      sizeUnit = attributes["".concat(prefixConstant, "SizeUnit")],
+      letterSpacing = attributes["".concat(prefixConstant, "LetterSpacing")],
+      letterSpacingUnit = attributes["".concat(prefixConstant, "LetterSpacingUnit")],
+      lineHeight = attributes["".concat(prefixConstant, "LineHeight")],
+      lineHeightUnit = attributes["".concat(prefixConstant, "LineHeightUnit")],
+      TABsizeUnit = attributes["TAB".concat(prefixConstant, "SizeUnit")],
+      TABletterSpacingUnit = attributes["TAB".concat(prefixConstant, "LetterSpacingUnit")],
+      TABlineHeightUnit = attributes["TAB".concat(prefixConstant, "LineHeightUnit")],
+      TABfontSize = attributes["TAB".concat(prefixConstant, "FontSize")],
+      TABletterSpacing = attributes["TAB".concat(prefixConstant, "LetterSpacing")],
+      TABlineHeight = attributes["TAB".concat(prefixConstant, "LineHeight")],
+      MOBsizeUnit = attributes["MOB".concat(prefixConstant, "SizeUnit")],
+      MOBletterSpacingUnit = attributes["MOB".concat(prefixConstant, "LetterSpacingUnit")],
+      MOBlineHeightUnit = attributes["MOB".concat(prefixConstant, "LineHeightUnit")],
+      MOBfontSize = attributes["MOB".concat(prefixConstant, "FontSize")],
+      MOBletterSpacing = attributes["MOB".concat(prefixConstant, "LetterSpacing")],
+      MOBlineHeight = attributes["MOB".concat(prefixConstant, "LineHeight")];
+  var typoStylesDesktop = "\n\t\t\t".concat(fontFamily ? "font-family: ".concat(fontFamily, ";") : " ", "\n\t\t\t").concat(hasVal(fontSize) ? "font-size: ".concat(fontSize).concat(sizeUnit, ";") : " ", "\n\t\t\t").concat(hasVal(lineHeight) ? "line-height: ".concat(lineHeight).concat(lineHeightUnit, ";") : " ", "\n\t\t\t").concat(fontWeight ? "font-weight: ".concat(fontWeight, ";") : " ", "\n\t\t\t").concat(textDecoration ? "text-decoration: ".concat(textDecoration, ";") : " ", "\n\t\t\t").concat(textTransform ? "text-transform: ".concat(textTransform, ";") : " ", "\n\t\t\t").concat(hasVal(letterSpacing) ? "letter-spacing: ".concat(letterSpacing).concat(letterSpacingUnit, ";") : " ", "\n\t\t");
+  var typoStylesTab = "\n\t\t\t".concat(hasVal(TABfontSize) ? "font-size: ".concat(TABfontSize).concat(TABsizeUnit, ";") : " ", "\n\t\t\t").concat(hasVal(TABlineHeight) ? "line-height: ".concat(TABlineHeight).concat(TABlineHeightUnit, ";") : " ", "\n\t\t\t").concat(hasVal(TABletterSpacing) ? "letter-spacing: ".concat(TABletterSpacing).concat(TABletterSpacingUnit, ";") : " ", "\n\t\t");
+  var typoStylesMobile = "\n\t\t\t".concat(hasVal(MOBfontSize) ? "font-size: ".concat(MOBfontSize).concat(MOBsizeUnit, ";") : " ", "\n\t\t\t").concat(hasVal(MOBlineHeight) ? "line-height: ".concat(MOBlineHeight).concat(MOBlineHeightUnit, ";") : " ", "\n\t\t\t").concat(hasVal(MOBletterSpacing) ? "letter-spacing: ".concat(MOBletterSpacing).concat(MOBletterSpacingUnit, ";") : " ", "\n\t\t");
+  return {
+    typoStylesDesktop: typoStylesDesktop,
+    typoStylesTab: typoStylesTab,
+    typoStylesMobile: typoStylesMobile
+  };
+}; //
+// function to generate dimensions-controls styles for an element based on it's controlName(prefix)
+
+var generateDimensionsControlStyles = function generateDimensionsControlStyles(_ref11) {
+  var controlName = _ref11.controlName,
+      styleFor = _ref11.styleFor,
+      attributes = _ref11.attributes;
+  var dimensionUnit = attributes["".concat(controlName, "Unit")],
+      dimensionTop = attributes["".concat(controlName, "Top")],
+      dimensionRight = attributes["".concat(controlName, "Right")],
+      dimensionBottom = attributes["".concat(controlName, "Bottom")],
+      dimensionLeft = attributes["".concat(controlName, "Left")],
+      TABdimensionUnit = attributes["TAB".concat(controlName, "Unit")],
+      TABdimensionTop = attributes["TAB".concat(controlName, "Top")],
+      TABdimensionRight = attributes["TAB".concat(controlName, "Right")],
+      TABdimensionBottom = attributes["TAB".concat(controlName, "Bottom")],
+      TABdimensionLeft = attributes["TAB".concat(controlName, "Left")],
+      MOBdimensionUnit = attributes["MOB".concat(controlName, "Unit")],
+      MOBdimensionTop = attributes["MOB".concat(controlName, "Top")],
+      MOBdimensionRight = attributes["MOB".concat(controlName, "Right")],
+      MOBdimensionBottom = attributes["MOB".concat(controlName, "Bottom")],
+      MOBdimensionLeft = attributes["MOB".concat(controlName, "Left")];
+  var dimensionStylesDesktop = " ";
+  var dimensionStylesTab = " ";
+  var dimensionStylesMobile = " ";
+
+  if (styleFor === "border") {
+    dimensionStylesDesktop = "\n\t\t".concat(dimensionTop ? "border-top-width: ".concat(parseFloat(dimensionTop)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionRight ? "border-right-width: ".concat(parseFloat(dimensionRight)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionLeft ? "border-left-width: ".concat(parseFloat(dimensionLeft)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionBottom ? "border-bottom-width: ".concat(parseFloat(dimensionBottom)).concat(dimensionUnit, ";") : " ", "\n\t\n\t\t");
+    dimensionStylesTab = "\n\t\t\t".concat(TABdimensionTop ? "border-top-width: ".concat(parseFloat(TABdimensionTop)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionRight ? "border-right-width: ".concat(parseFloat(TABdimensionRight)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionLeft ? "border-left-width: ".concat(parseFloat(TABdimensionLeft)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionBottom ? "border-bottom-width: ".concat(parseFloat(TABdimensionBottom)).concat(TABdimensionUnit, ";") : " ", "\n\n\t\t");
+    dimensionStylesMobile = "\n\t\t\t".concat(MOBdimensionTop ? "border-top-width: ".concat(parseFloat(MOBdimensionTop)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionRight ? "border-right-width: ".concat(parseFloat(MOBdimensionRight)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionLeft ? "border-left-width: ".concat(parseFloat(MOBdimensionLeft)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionBottom ? "border-bottom-width: ".concat(parseFloat(MOBdimensionBottom)).concat(MOBdimensionUnit, ";") : " ", "\n\n\t\t");
+  } else if (styleFor === "border-radius") {
+    dimensionStylesDesktop = "\n\t\t\t".concat(dimensionTop ? "border-top-left-radius: ".concat(parseFloat(dimensionTop)).concat(dimensionUnit, ";") : " ", "\n\t\t\t").concat(dimensionRight ? "border-top-right-radius: ".concat(parseFloat(dimensionRight)).concat(dimensionUnit, ";") : " ", "\n\t\t\t").concat(dimensionLeft ? "border-bottom-left-radius: ".concat(parseFloat(dimensionLeft)).concat(dimensionUnit, ";") : " ", "\n\t\t\t").concat(dimensionBottom ? "border-bottom-right-radius: ".concat(parseFloat(dimensionBottom)).concat(dimensionUnit, ";") : " ", "\n\t\n\t\t");
+    dimensionStylesTab = "\n\t\t\t".concat(TABdimensionTop ? "border-top-left-radius: ".concat(parseFloat(TABdimensionTop)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionRight ? "border-top-right-radius: ".concat(parseFloat(TABdimensionRight)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionLeft ? "border-bottom-left-radius: ".concat(parseFloat(TABdimensionLeft)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionBottom ? "border-bottom-right-radius: ".concat(parseFloat(TABdimensionBottom)).concat(TABdimensionUnit, ";") : " ", "\n\n\t\t");
+    dimensionStylesMobile = "\n\t\t\t".concat(MOBdimensionTop ? "border-top-left-radius: ".concat(parseFloat(MOBdimensionTop)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionRight ? "border-top-right-radius: ".concat(parseFloat(MOBdimensionRight)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionLeft ? "border-bottom-left-radius: ".concat(parseFloat(MOBdimensionLeft)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionBottom ? "border-bottom-right-radius: ".concat(parseFloat(MOBdimensionBottom)).concat(MOBdimensionUnit, ";") : " ", "\n\n\t\t");
+  } else {
+    dimensionStylesDesktop = "\n\t\t".concat(dimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(dimensionTop)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(dimensionRight)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(dimensionLeft)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(dimensionBottom)).concat(dimensionUnit, ";") : " ", "\n\t\n\t\t");
+    dimensionStylesTab = "\n\t\t\t".concat(TABdimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(TABdimensionTop)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(TABdimensionRight)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(TABdimensionLeft)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(TABdimensionBottom)).concat(TABdimensionUnit, ";") : " ", "\n\n\t\t");
+    dimensionStylesMobile = "\n\t\t\t".concat(MOBdimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(MOBdimensionTop)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(MOBdimensionRight)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(MOBdimensionLeft)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(MOBdimensionBottom)).concat(MOBdimensionUnit, ";") : " ", "\n\n\t\t");
+  }
+
+  return {
+    dimensionStylesDesktop: dimensionStylesDesktop,
+    dimensionStylesTab: dimensionStylesTab,
+    dimensionStylesMobile: dimensionStylesMobile
+  };
+};
 
 /***/ }),
 

@@ -16,7 +16,7 @@ import {
 	isCssExists,
 	generateDimensionsControlStyles,
 	generateTypographyStyles,
-} from "./helpers";
+} from "../util/helpers";
 import Inspector from "./inspector";
 import {
 	typoPrefix_content,
