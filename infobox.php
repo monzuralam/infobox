@@ -44,22 +44,23 @@ function create_block_infobox_block_init()
 		$script_asset['version']
 	);
 
-	/*$editor_css = 'build/index.css';
+	$editor_css = 'build/index.css';
 	wp_register_style(
 		'create-block-infobox-block-editor',
 		plugins_url($editor_css, __FILE__),
 		array(),
 		filemtime("$dir/$editor_css")
-	);*/
+	);
 
 
-	$style_css = 'build/style-index.css';
+	/*$style_css = 'build/style-index.css';
 	wp_register_style(
 		'create-block-infobox-block',
 		plugins_url($style_css, __FILE__),
 		array(),
 		filemtime("$dir/$style_css")
-	);
+	);*/
+
 	$fontpicker_theme = 'assets/css/fonticonpicker.base-theme.react.css';
 	wp_enqueue_style(
 		'fontpicker-default-theme',
