@@ -37,8 +37,8 @@ import {
 	subTitlePadding,
 	wrapperPadding,
 	wrapperMargin,
-	WRPborder,
-	WRPradius,
+	wrp_border,
+	wrp_radius,
 } from "./constants/dimensionsConstants";
 
 const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
@@ -156,44 +156,44 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		contentsAlignment,
 
 		// border attributes ⬇
-		WRPborderColor,
-		WRPborderStyle,
-		// WRPborderWidth,
-		// WRPborderRadius,
-		// WRPradiusUnit,
+		wrp_borderColor,
+		wrp_borderStyle,
+		// wrp_borderWidth,
+		// wrp_borderRadius,
+		// wrp_radiusUnit,
 
 		// shadow attributes  ⬇
-		WRPshadowColor,
-		WRPhOffset = 0,
-		WRPvOffset = 0,
-		WRPblur = 0,
-		WRPspread = 0,
-		WRPinset,
+		wrp_shadowColor,
+		wrp_hOffset = 0,
+		wrp_vOffset = 0,
+		wrp_blur = 0,
+		wrp_spread = 0,
+		wrp_inset,
 
-		WRPhoverShadowColor = WRPshadowColor,
-		WRPhoverHOffset = WRPhOffset,
-		WRPhoverVOffset = WRPvOffset,
-		WRPhoverBlur = WRPblur,
-		WRPhoverSpread = WRPspread,
+		wrp_hoverShadowColor = wrp_shadowColor,
+		wrp_hoverHOffset = wrp_hOffset,
+		wrp_hoverVOffset = wrp_vOffset,
+		wrp_hoverBlur = wrp_blur,
+		wrp_hoverSpread = wrp_spread,
 
 		// transition attributes ⬇
-		WRPtransitionTime,
+		wrp_transitionTime,
 
 		// background attributes ⬇
-		WRPbackgroundType,
-		WRPbackgroundColor,
-		WRPgradientColor,
-		WRPbgImageURL,
-		WRPbackgroundSize,
-		WRPbgImgCustomSize,
-		WRPbgImgCustomSizeUnit,
-		WRPbgImgPos,
-		WRPbgImgcustomPosX,
-		WRPbgImgcustomPosXUnit,
-		WRPbgImgcustomPosY,
-		WRPbgImgcustomPosYUnit,
-		WRPbgImgAttachment,
-		WRPbgImgRepeat,
+		wrp_backgroundType,
+		wrp_backgroundColor,
+		wrp_gradientColor,
+		wrp_bgImageURL,
+		wrp_backgroundSize,
+		wrp_bgImgCustomSize,
+		wrp_bgImgCustomSizeUnit,
+		wrp_bgImgPos,
+		wrp_bgImgcustomPosX,
+		wrp_bgImgcustomPosXUnit,
+		wrp_bgImgcustomPosY,
+		wrp_bgImgcustomPosYUnit,
+		wrp_bgImgAttachment,
+		wrp_bgImgRepeat,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
@@ -420,22 +420,22 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	});
 
 	const {
-		dimensionStylesDesktop: WRPborderStylesDesktop,
-		dimensionStylesTab: WRPborderStylesTab,
-		dimensionStylesMobile: WRPborderStylesMobile,
+		dimensionStylesDesktop: wrp_borderStylesDesktop,
+		dimensionStylesTab: wrp_borderStylesTab,
+		dimensionStylesMobile: wrp_borderStylesMobile,
 	} = generateDimensionsControlStyles({
 		attributes,
-		controlName: WRPborder,
+		controlName: wrp_border,
 		styleFor: "border",
 	});
 
 	const {
-		dimensionStylesDesktop: WRPradiusStylesDesktop,
-		dimensionStylesTab: WRPradiusStylesTab,
-		dimensionStylesMobile: WRPradiusStylesMobile,
+		dimensionStylesDesktop: wrp_radiusStylesDesktop,
+		dimensionStylesTab: wrp_radiusStylesTab,
+		dimensionStylesMobile: wrp_radiusStylesMobile,
 	} = generateDimensionsControlStyles({
 		attributes,
-		controlName: WRPradius,
+		controlName: wrp_radius,
 		styleFor: "border-radius",
 	});
 
@@ -448,71 +448,71 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 			background-image:
 			${
-				WRPbackgroundType === "image" && WRPbgImageURL
-					? `url("${WRPbgImageURL}")`
-					: WRPbackgroundType === "gradient"
-					? WRPgradientColor
+				wrp_backgroundType === "image" && wrp_bgImageURL
+					? `url("${wrp_bgImageURL}")`
+					: wrp_backgroundType === "gradient"
+					? wrp_gradientColor
 					: "none"
 			};
 
 			${
-				WRPbackgroundType === "image" && WRPbgImageURL
+				wrp_backgroundType === "image" && wrp_bgImageURL
 					? `
 					${
-						WRPbackgroundSize && WRPbackgroundSize !== "custom"
-							? `background-size: ${WRPbackgroundSize};`
-							: WRPbackgroundSize === "custom"
-							? `background-size: ${WRPbgImgCustomSize}${WRPbgImgCustomSizeUnit} auto;`
+						wrp_backgroundSize && wrp_backgroundSize !== "custom"
+							? `background-size: ${wrp_backgroundSize};`
+							: wrp_backgroundSize === "custom"
+							? `background-size: ${wrp_bgImgCustomSize}${wrp_bgImgCustomSizeUnit} auto;`
 							: " "
 					}
 
 					${
-						WRPbgImgPos && WRPbgImgPos !== "custom"
-							? `background-position: ${WRPbgImgPos};`
-							: WRPbgImgPos === "custom"
-							? `background-position: ${WRPbgImgcustomPosX}${WRPbgImgcustomPosXUnit} ${WRPbgImgcustomPosY}${WRPbgImgcustomPosYUnit};`
+						wrp_bgImgPos && wrp_bgImgPos !== "custom"
+							? `background-position: ${wrp_bgImgPos};`
+							: wrp_bgImgPos === "custom"
+							? `background-position: ${wrp_bgImgcustomPosX}${wrp_bgImgcustomPosXUnit} ${wrp_bgImgcustomPosY}${wrp_bgImgcustomPosYUnit};`
 							: " "
 					}
 
-					${WRPbgImgAttachment ? `background-attachment: ${WRPbgImgAttachment};` : " "}
+					${wrp_bgImgAttachment ? `background-attachment: ${wrp_bgImgAttachment};` : " "}
 
-					${WRPbgImgRepeat ? `background-repeat: ${WRPbgImgRepeat};` : " "}
+					${wrp_bgImgRepeat ? `background-repeat: ${wrp_bgImgRepeat};` : " "}
 
 					`
 					: " "
 			}
 
-			${WRPbackgroundColor ? `background-color: ${WRPbackgroundColor};` : " "}
+			${wrp_backgroundColor ? `background-color: ${wrp_backgroundColor};` : " "}
 
 			${
-				WRPborderColor
+				wrp_borderColor
 					? `
-					${WRPborderStylesDesktop}
-					border-color: ${WRPborderColor};
-					border-style: ${WRPborderStyle};
+					${wrp_borderStylesDesktop}
+					border-color: ${wrp_borderColor};
+					border-style: ${wrp_borderStyle};
 					`
 					: " "
 			}
-			${WRPradiusStylesDesktop}
+			${wrp_radiusStylesDesktop}
 
 			${
-				WRPshadowColor
-					? `box-shadow: ${WRPshadowColor} ${WRPhOffset}px ${WRPvOffset}px ${WRPblur}px ${WRPspread}px ${
-							WRPinset ? "inset" : ""
+				wrp_shadowColor
+					? `box-shadow: ${wrp_shadowColor} ${wrp_hOffset}px ${wrp_vOffset}px ${wrp_blur}px ${wrp_spread}px ${
+							wrp_inset ? "inset" : ""
 					  };`
 					: " "
 			}
 
-			transition: ${WRPtransitionTime ? `${WRPtransitionTime / 1000}s` : ".5s"};
+			transition: ${wrp_transitionTime ? `${wrp_transitionTime / 1000}s` : ".5s"};
 		}
 
 		
 
 		.${blockId}:hover{		
 			${
-				WRPhoverShadowColor
-					? `box-shadow: ${WRPhoverShadowColor} ${WRPhoverHOffset}px ${WRPhoverVOffset}px ${WRPhoverBlur}px ${WRPhoverSpread}px ${
-							WRPinset ? "inset" : " "
+				wrp_hoverShadowColor
+					? `box-shadow: ${wrp_hoverShadowColor} ${wrp_hoverHOffset}px ${wrp_hoverVOffset}px ${wrp_hoverBlur}px ${wrp_hoverSpread}px ${
+							wrp_inset ? "inset" : " "
 					  };`
 					: " "
 			}
@@ -525,8 +525,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${wrapperMarginStylesTab}
 			${wrapperPaddingStylesTab}
 
-			${WRPborderColor ? WRPborderStylesTab : " "}
-			${WRPradiusStylesTab}
+			${wrp_borderColor ? wrp_borderStylesTab : " "}
+			${wrp_radiusStylesTab}
 		}
 
 	`;
@@ -536,8 +536,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${wrapperMarginStylesMobile}
 			${wrapperPaddingStylesMobile}			
 
-			${WRPborderColor ? WRPborderStylesMobile : " "}
-			${WRPradiusStylesMobile}
+			${wrp_borderColor ? wrp_borderStylesMobile : " "}
+			${wrp_radiusStylesMobile}
 		}
 
 	`;

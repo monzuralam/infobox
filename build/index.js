@@ -4035,121 +4035,121 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
     type: "string"
   },
   // background attributes ⬇
-  WRPbackgroundType: {
+  wrp_backgroundType: {
     type: "string",
     default: "gradient"
   },
-  WRPbackgroundColor: {
+  wrp_backgroundColor: {
     type: "string"
   },
-  WRPgradientColor: {
+  wrp_gradientColor: {
     type: "string",
     default: "linear-gradient(45deg,#8200ff,#ff0071)"
   },
-  WRPbgImageURL: {
+  wrp_bgImageURL: {
     type: "string"
   },
-  WRPbgImageID: {
+  wrp_bgImageID: {
     type: "string"
   },
-  WRPbackgroundSize: {
+  wrp_backgroundSize: {
     type: "string"
   },
-  WRPbgImgCustomSize: {
+  wrp_bgImgCustomSize: {
     type: "number",
     default: 100
   },
-  WRPbgImgCustomSizeUnit: {
+  wrp_bgImgCustomSizeUnit: {
     type: "string",
     default: "%"
   },
-  WRPbgImgPos: {
+  wrp_bgImgPos: {
     type: "string"
   },
-  WRPbgImgcustomPosX: {
+  wrp_bgImgcustomPosX: {
     type: "number",
     default: 0
   },
-  WRPbgImgcustomPosXUnit: {
+  wrp_bgImgcustomPosXUnit: {
     type: "string",
     default: "px"
   },
-  WRPbgImgcustomPosY: {
+  wrp_bgImgcustomPosY: {
     type: "number",
     default: 0
   },
-  WRPbgImgcustomPosYUnit: {
+  wrp_bgImgcustomPosYUnit: {
     type: "string",
     default: "px"
   },
-  WRPbgImgAttachment: {
+  wrp_bgImgAttachment: {
     type: "string"
   },
-  WRPbgImgRepeat: {
+  wrp_bgImgRepeat: {
     type: "string"
   },
   // border attributes ⬇
-  WRPborderColor: {
+  wrp_borderColor: {
     type: "string"
   },
-  WRPborderStyle: {
+  wrp_borderStyle: {
     type: "string",
     default: "solid"
   },
-  // WRPborderWidth: {
+  // wrp_borderWidth: {
   // 	type: "number",
   // },
-  // WRPborderRadius: {
+  // wrp_borderRadius: {
   // 	type: "number",
   // },
-  // WRPradiusUnit: {
+  // wrp_radiusUnit: {
   // 	type: "string",
   // 	default: "px",
   // },
   // shadow attributes  ⬇
-  WRPhOffset: {
+  wrp_hOffset: {
     type: "number"
   },
-  WRPvOffset: {
+  wrp_vOffset: {
     type: "number"
   },
-  WRPblur: {
+  wrp_blur: {
     type: "number"
   },
-  WRPspread: {
+  wrp_spread: {
     type: "number"
   },
-  WRPshadowColor: {
+  wrp_shadowColor: {
     type: "string"
   },
-  WRPinset: {
+  wrp_inset: {
     type: "boolean",
     default: false
   },
-  WRPshadowType: {
+  wrp_shadowType: {
     type: "string",
     default: "normal"
   },
-  WRPhoverHOffset: {
+  wrp_hoverHOffset: {
     type: "number"
   },
-  WRPhoverVOffset: {
+  wrp_hoverVOffset: {
     type: "number"
   },
-  WRPhoverBlur: {
+  wrp_hoverBlur: {
     type: "number"
   },
-  WRPhoverSpread: {
+  wrp_hoverSpread: {
     type: "number"
   },
-  WRPhoverShadowColor: {
+  wrp_hoverShadowColor: {
     type: "string"
   },
-  WRPhoverInset: {
+  wrp_hoverInset: {
     type: "boolean",
     default: false
   },
-  WRPtransitionTime: {
+  wrp_transitionTime: {
     type: "string",
     default: "500"
   }
@@ -4187,12 +4187,12 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
   bottom: 40,
   right: 30,
   left: 30
-})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["WRPborder"], {
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["wrp_border"], {
   top: 0,
   bottom: 0,
   right: 0,
   left: 0
-})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["WRPradius"]));
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["wrp_radius"]));
 
 /* harmony default export */ __webpack_exports__["default"] = (attributes);
 
@@ -4287,7 +4287,7 @@ function InfoboxContainer(_ref) {
 /*!**********************************************!*\
   !*** ./src/constants/dimensionsConstants.js ***!
   \**********************************************/
-/*! exports provided: mediaBackground, mediaBgRadius, mediaBgMargin, buttonPadding, buttonRadius, titlePadding, subTitlePadding, contentPadding, wrapperMargin, wrapperPadding, WRPborder, WRPradius */
+/*! exports provided: mediaBackground, mediaBgRadius, mediaBgMargin, buttonPadding, buttonRadius, titlePadding, subTitlePadding, contentPadding, wrapperMargin, wrapperPadding, wrp_border, wrp_radius */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4302,8 +4302,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "contentPadding", function() { return contentPadding; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrapperMargin", function() { return wrapperMargin; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrapperPadding", function() { return wrapperPadding; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WRPborder", function() { return WRPborder; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WRPradius", function() { return WRPradius; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrp_border", function() { return wrp_border; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrp_radius", function() { return wrp_radius; });
 var mediaBackground = "mediaBgSize";
 var mediaBgRadius = "mediaBgRadius";
 var mediaBgMargin = "mediaBgMargin";
@@ -4314,8 +4314,8 @@ var subTitlePadding = "subTitlePadding";
 var contentPadding = "contentPadding";
 var wrapperMargin = "wrapperMargin";
 var wrapperPadding = "wrapperPadding";
-var WRPborder = "WRPborder";
-var WRPradius = "WRPradius";
+var wrp_border = "wrp_border";
+var wrp_radius = "wrp_radius";
 
 /***/ }),
 
@@ -4598,43 +4598,43 @@ var Edit = function Edit(_ref) {
       buttonBgColor = _attributes$buttonBgC === void 0 ? "#7a137a" : _attributes$buttonBgC,
       mediaAlignment = attributes.mediaAlignment,
       contentsAlignment = attributes.contentsAlignment,
-      WRPborderColor = attributes.WRPborderColor,
-      WRPborderStyle = attributes.WRPborderStyle,
-      WRPshadowColor = attributes.WRPshadowColor,
-      _attributes$WRPhOffse = attributes.WRPhOffset,
-      WRPhOffset = _attributes$WRPhOffse === void 0 ? 0 : _attributes$WRPhOffse,
-      _attributes$WRPvOffse = attributes.WRPvOffset,
-      WRPvOffset = _attributes$WRPvOffse === void 0 ? 0 : _attributes$WRPvOffse,
-      _attributes$WRPblur = attributes.WRPblur,
-      WRPblur = _attributes$WRPblur === void 0 ? 0 : _attributes$WRPblur,
-      _attributes$WRPspread = attributes.WRPspread,
-      WRPspread = _attributes$WRPspread === void 0 ? 0 : _attributes$WRPspread,
-      WRPinset = attributes.WRPinset,
-      _attributes$WRPhoverS = attributes.WRPhoverShadowColor,
-      WRPhoverShadowColor = _attributes$WRPhoverS === void 0 ? WRPshadowColor : _attributes$WRPhoverS,
-      _attributes$WRPhoverH = attributes.WRPhoverHOffset,
-      WRPhoverHOffset = _attributes$WRPhoverH === void 0 ? WRPhOffset : _attributes$WRPhoverH,
-      _attributes$WRPhoverV = attributes.WRPhoverVOffset,
-      WRPhoverVOffset = _attributes$WRPhoverV === void 0 ? WRPvOffset : _attributes$WRPhoverV,
-      _attributes$WRPhoverB = attributes.WRPhoverBlur,
-      WRPhoverBlur = _attributes$WRPhoverB === void 0 ? WRPblur : _attributes$WRPhoverB,
-      _attributes$WRPhoverS2 = attributes.WRPhoverSpread,
-      WRPhoverSpread = _attributes$WRPhoverS2 === void 0 ? WRPspread : _attributes$WRPhoverS2,
-      WRPtransitionTime = attributes.WRPtransitionTime,
-      WRPbackgroundType = attributes.WRPbackgroundType,
-      WRPbackgroundColor = attributes.WRPbackgroundColor,
-      WRPgradientColor = attributes.WRPgradientColor,
-      WRPbgImageURL = attributes.WRPbgImageURL,
-      WRPbackgroundSize = attributes.WRPbackgroundSize,
-      WRPbgImgCustomSize = attributes.WRPbgImgCustomSize,
-      WRPbgImgCustomSizeUnit = attributes.WRPbgImgCustomSizeUnit,
-      WRPbgImgPos = attributes.WRPbgImgPos,
-      WRPbgImgcustomPosX = attributes.WRPbgImgcustomPosX,
-      WRPbgImgcustomPosXUnit = attributes.WRPbgImgcustomPosXUnit,
-      WRPbgImgcustomPosY = attributes.WRPbgImgcustomPosY,
-      WRPbgImgcustomPosYUnit = attributes.WRPbgImgcustomPosYUnit,
-      WRPbgImgAttachment = attributes.WRPbgImgAttachment,
-      WRPbgImgRepeat = attributes.WRPbgImgRepeat; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
+      wrp_borderColor = attributes.wrp_borderColor,
+      wrp_borderStyle = attributes.wrp_borderStyle,
+      wrp_shadowColor = attributes.wrp_shadowColor,
+      _attributes$wrp_hOffs = attributes.wrp_hOffset,
+      wrp_hOffset = _attributes$wrp_hOffs === void 0 ? 0 : _attributes$wrp_hOffs,
+      _attributes$wrp_vOffs = attributes.wrp_vOffset,
+      wrp_vOffset = _attributes$wrp_vOffs === void 0 ? 0 : _attributes$wrp_vOffs,
+      _attributes$wrp_blur = attributes.wrp_blur,
+      wrp_blur = _attributes$wrp_blur === void 0 ? 0 : _attributes$wrp_blur,
+      _attributes$wrp_sprea = attributes.wrp_spread,
+      wrp_spread = _attributes$wrp_sprea === void 0 ? 0 : _attributes$wrp_sprea,
+      wrp_inset = attributes.wrp_inset,
+      _attributes$wrp_hover = attributes.wrp_hoverShadowColor,
+      wrp_hoverShadowColor = _attributes$wrp_hover === void 0 ? wrp_shadowColor : _attributes$wrp_hover,
+      _attributes$wrp_hover2 = attributes.wrp_hoverHOffset,
+      wrp_hoverHOffset = _attributes$wrp_hover2 === void 0 ? wrp_hOffset : _attributes$wrp_hover2,
+      _attributes$wrp_hover3 = attributes.wrp_hoverVOffset,
+      wrp_hoverVOffset = _attributes$wrp_hover3 === void 0 ? wrp_vOffset : _attributes$wrp_hover3,
+      _attributes$wrp_hover4 = attributes.wrp_hoverBlur,
+      wrp_hoverBlur = _attributes$wrp_hover4 === void 0 ? wrp_blur : _attributes$wrp_hover4,
+      _attributes$wrp_hover5 = attributes.wrp_hoverSpread,
+      wrp_hoverSpread = _attributes$wrp_hover5 === void 0 ? wrp_spread : _attributes$wrp_hover5,
+      wrp_transitionTime = attributes.wrp_transitionTime,
+      wrp_backgroundType = attributes.wrp_backgroundType,
+      wrp_backgroundColor = attributes.wrp_backgroundColor,
+      wrp_gradientColor = attributes.wrp_gradientColor,
+      wrp_bgImageURL = attributes.wrp_bgImageURL,
+      wrp_backgroundSize = attributes.wrp_backgroundSize,
+      wrp_bgImgCustomSize = attributes.wrp_bgImgCustomSize,
+      wrp_bgImgCustomSizeUnit = attributes.wrp_bgImgCustomSizeUnit,
+      wrp_bgImgPos = attributes.wrp_bgImgPos,
+      wrp_bgImgcustomPosX = attributes.wrp_bgImgcustomPosX,
+      wrp_bgImgcustomPosXUnit = attributes.wrp_bgImgcustomPosXUnit,
+      wrp_bgImgcustomPosY = attributes.wrp_bgImgcustomPosY,
+      wrp_bgImgcustomPosYUnit = attributes.wrp_bgImgcustomPosYUnit,
+      wrp_bgImgAttachment = attributes.wrp_bgImgAttachment,
+      wrp_bgImgRepeat = attributes.wrp_bgImgRepeat; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var bodyClasses = document.body.className;
@@ -4853,25 +4853,25 @@ var Edit = function Edit(_ref) {
 
   var _generateDimensionsCo11 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
     attributes: attributes,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["WRPborder"],
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["wrp_border"],
     styleFor: "border"
   }),
-      WRPborderStylesDesktop = _generateDimensionsCo11.dimensionStylesDesktop,
-      WRPborderStylesTab = _generateDimensionsCo11.dimensionStylesTab,
-      WRPborderStylesMobile = _generateDimensionsCo11.dimensionStylesMobile;
+      wrp_borderStylesDesktop = _generateDimensionsCo11.dimensionStylesDesktop,
+      wrp_borderStylesTab = _generateDimensionsCo11.dimensionStylesTab,
+      wrp_borderStylesMobile = _generateDimensionsCo11.dimensionStylesMobile;
 
   var _generateDimensionsCo12 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
     attributes: attributes,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["WRPradius"],
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["wrp_radius"],
     styleFor: "border-radius"
   }),
-      WRPradiusStylesDesktop = _generateDimensionsCo12.dimensionStylesDesktop,
-      WRPradiusStylesTab = _generateDimensionsCo12.dimensionStylesTab,
-      WRPradiusStylesMobile = _generateDimensionsCo12.dimensionStylesMobile;
+      wrp_radiusStylesDesktop = _generateDimensionsCo12.dimensionStylesDesktop,
+      wrp_radiusStylesTab = _generateDimensionsCo12.dimensionStylesTab,
+      wrp_radiusStylesMobile = _generateDimensionsCo12.dimensionStylesMobile;
 
-  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tposition: relative;\n\t\t\toverflow: hidden;\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\n\t\t\tbackground-image:\n\t\t\t").concat(WRPbackgroundType === "image" && WRPbgImageURL ? "url(\"".concat(WRPbgImageURL, "\")") : WRPbackgroundType === "gradient" ? WRPgradientColor : "none", ";\n\n\t\t\t").concat(WRPbackgroundType === "image" && WRPbgImageURL ? "\n\t\t\t\t\t".concat(WRPbackgroundSize && WRPbackgroundSize !== "custom" ? "background-size: ".concat(WRPbackgroundSize, ";") : WRPbackgroundSize === "custom" ? "background-size: ".concat(WRPbgImgCustomSize).concat(WRPbgImgCustomSizeUnit, " auto;") : " ", "\n\n\t\t\t\t\t").concat(WRPbgImgPos && WRPbgImgPos !== "custom" ? "background-position: ".concat(WRPbgImgPos, ";") : WRPbgImgPos === "custom" ? "background-position: ".concat(WRPbgImgcustomPosX).concat(WRPbgImgcustomPosXUnit, " ").concat(WRPbgImgcustomPosY).concat(WRPbgImgcustomPosYUnit, ";") : " ", "\n\n\t\t\t\t\t").concat(WRPbgImgAttachment ? "background-attachment: ".concat(WRPbgImgAttachment, ";") : " ", "\n\n\t\t\t\t\t").concat(WRPbgImgRepeat ? "background-repeat: ".concat(WRPbgImgRepeat, ";") : " ", "\n\n\t\t\t\t\t") : " ", "\n\n\t\t\t").concat(WRPbackgroundColor ? "background-color: ".concat(WRPbackgroundColor, ";") : " ", "\n\n\t\t\t").concat(WRPborderColor ? "\n\t\t\t\t\t".concat(WRPborderStylesDesktop, "\n\t\t\t\t\tborder-color: ").concat(WRPborderColor, ";\n\t\t\t\t\tborder-style: ").concat(WRPborderStyle, ";\n\t\t\t\t\t") : " ", "\n\t\t\t").concat(WRPradiusStylesDesktop, "\n\n\t\t\t").concat(WRPshadowColor ? "box-shadow: ".concat(WRPshadowColor, " ").concat(WRPhOffset, "px ").concat(WRPvOffset, "px ").concat(WRPblur, "px ").concat(WRPspread, "px ").concat(WRPinset ? "inset" : "", ";") : " ", "\n\n\t\t\ttransition: ").concat(WRPtransitionTime ? "".concat(WRPtransitionTime / 1000, "s") : ".5s", ";\n\t\t}\n\n\t\t\n\n\t\t.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(WRPhoverShadowColor ? "box-shadow: ".concat(WRPhoverShadowColor, " ").concat(WRPhoverHOffset, "px ").concat(WRPhoverVOffset, "px ").concat(WRPhoverBlur, "px ").concat(WRPhoverSpread, "px ").concat(WRPinset ? "inset" : " ", ";") : " ", "\n\t\t}\n\n\t");
-  var wrapperStylesTab = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesTab, "\n\t\t\t").concat(wrapperPaddingStylesTab, "\n\n\t\t\t").concat(WRPborderColor ? WRPborderStylesTab : " ", "\n\t\t\t").concat(WRPradiusStylesTab, "\n\t\t}\n\n\t");
-  var wrapperStylesMobile = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesMobile, "\n\t\t\t").concat(wrapperPaddingStylesMobile, "\t\t\t\n\n\t\t\t").concat(WRPborderColor ? WRPborderStylesMobile : " ", "\n\t\t\t").concat(WRPradiusStylesMobile, "\n\t\t}\n\n\t");
+  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tposition: relative;\n\t\t\toverflow: hidden;\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\n\t\t\tbackground-image:\n\t\t\t").concat(wrp_backgroundType === "image" && wrp_bgImageURL ? "url(\"".concat(wrp_bgImageURL, "\")") : wrp_backgroundType === "gradient" ? wrp_gradientColor : "none", ";\n\n\t\t\t").concat(wrp_backgroundType === "image" && wrp_bgImageURL ? "\n\t\t\t\t\t".concat(wrp_backgroundSize && wrp_backgroundSize !== "custom" ? "background-size: ".concat(wrp_backgroundSize, ";") : wrp_backgroundSize === "custom" ? "background-size: ".concat(wrp_bgImgCustomSize).concat(wrp_bgImgCustomSizeUnit, " auto;") : " ", "\n\n\t\t\t\t\t").concat(wrp_bgImgPos && wrp_bgImgPos !== "custom" ? "background-position: ".concat(wrp_bgImgPos, ";") : wrp_bgImgPos === "custom" ? "background-position: ".concat(wrp_bgImgcustomPosX).concat(wrp_bgImgcustomPosXUnit, " ").concat(wrp_bgImgcustomPosY).concat(wrp_bgImgcustomPosYUnit, ";") : " ", "\n\n\t\t\t\t\t").concat(wrp_bgImgAttachment ? "background-attachment: ".concat(wrp_bgImgAttachment, ";") : " ", "\n\n\t\t\t\t\t").concat(wrp_bgImgRepeat ? "background-repeat: ".concat(wrp_bgImgRepeat, ";") : " ", "\n\n\t\t\t\t\t") : " ", "\n\n\t\t\t").concat(wrp_backgroundColor ? "background-color: ".concat(wrp_backgroundColor, ";") : " ", "\n\n\t\t\t").concat(wrp_borderColor ? "\n\t\t\t\t\t".concat(wrp_borderStylesDesktop, "\n\t\t\t\t\tborder-color: ").concat(wrp_borderColor, ";\n\t\t\t\t\tborder-style: ").concat(wrp_borderStyle, ";\n\t\t\t\t\t") : " ", "\n\t\t\t").concat(wrp_radiusStylesDesktop, "\n\n\t\t\t").concat(wrp_shadowColor ? "box-shadow: ".concat(wrp_shadowColor, " ").concat(wrp_hOffset, "px ").concat(wrp_vOffset, "px ").concat(wrp_blur, "px ").concat(wrp_spread, "px ").concat(wrp_inset ? "inset" : "", ";") : " ", "\n\n\t\t\ttransition: ").concat(wrp_transitionTime ? "".concat(wrp_transitionTime / 1000, "s") : ".5s", ";\n\t\t}\n\n\t\t\n\n\t\t.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(wrp_hoverShadowColor ? "box-shadow: ".concat(wrp_hoverShadowColor, " ").concat(wrp_hoverHOffset, "px ").concat(wrp_hoverVOffset, "px ").concat(wrp_hoverBlur, "px ").concat(wrp_hoverSpread, "px ").concat(wrp_inset ? "inset" : " ", ";") : " ", "\n\t\t}\n\n\t");
+  var wrapperStylesTab = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesTab, "\n\t\t\t").concat(wrapperPaddingStylesTab, "\n\n\t\t\t").concat(wrp_borderColor ? wrp_borderStylesTab : " ", "\n\t\t\t").concat(wrp_radiusStylesTab, "\n\t\t}\n\n\t");
+  var wrapperStylesMobile = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesMobile, "\n\t\t\t").concat(wrapperPaddingStylesMobile, "\t\t\t\n\n\t\t\t").concat(wrp_borderColor ? wrp_borderStylesMobile : " ", "\n\t\t\t").concat(wrp_radiusStylesMobile, "\n\t\t}\n\n\t");
   var wrapperInnerStylesDesktop = "\t\n\t\t.".concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\t").concat(flexDirection ? "flex-direction: ".concat(flexDirection, ";") : " ", " \n\t\t\t\n\t\t}\n\t\n\t");
   var mediaStylesDesktop = "\n\t".concat(media !== "none" ? " \n\t\t\t\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\n\t\t\t\t").concat(mediaAlignment ? "align-self: ".concat(mediaAlignment, ";") : "align-self: ".concat(mediaAlignSelf || "center", ";"), "\n\n\t\t\t\t").concat(mediaBgMarginStylesDesktop, "\n\n\t\t\t\t").concat(flexDirection === "row" ? "margin-right: ".concat(mediaWrapperMargin, "px;") : flexDirection === "row-reverse" ? "margin-left: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column" ? "margin-bottom: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column-reverse" ? "margin-top: ".concat(mediaWrapperMargin, "px;") : " ", "\n\n\t\t\t\toverflow: hidden;\n\t\t\t}\n\n\n\t\t\t").concat(media === "image" ? "\n\n\t\t\t\t\t\n\t\t\t\t.".concat(blockId, " .infobox-wrapper-inner .icon-img-wrapper{\n\t\t\t\t\tmax-width: 100%;\n\t\t\t\t\t").concat(mediaImgWidthUnit === "%" && mediaImgWidth ? "width: ".concat(mediaImgWidth).concat(mediaImgWidthUnit, ";") : " ", "\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\tmax-width: 100%;\n\t\t\t\t\tobject-fit: cover;\n\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t").concat(imageUrl ? mediaRadiusStylesDesktop : " ", "\n\t\t\t\t\t\n\t\t\t\t\t").concat(mediaImgWidthUnit !== "%" ? mediaImgWidth ? "width: ".concat(mediaImgWidth).concat(mediaImgWidthUnit, ";") : " " : mediaImgWidth ? "width: 100".concat(mediaImgWidthUnit, ";") : " ", "\n\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : mediaImgHeight ? "height: ".concat(mediaImgHeight).concat(mediaImgHeightUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\t.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\toverflow: hidden;\n\t\t\t\t\tdisplay:flex;\n\t\t\t\t\t").concat(imageUrl ? " " : mediaRadiusStylesDesktop, "\n\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\t") : " ", "\n\n\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\n\t\t\t\t\t\t").concat(mediaBgPaddingDesktop, "\n\t\t\t\t\t\t").concat(mediaRadiusStylesDesktop, "\n\t\t\n\t\t\t\t\t\t").concat(useNumIconBg ? "".concat(numIconBgType === "fill" ? "background-color: ".concat(numIconBgColor, ";") : numIconBgType === "gradient" ? "background-image: ".concat(numIconBgGradient, ";") : " ") : " ", "\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\t\t\n\t\t\t\t\t.").concat(blockId, " .number-or-icon > span{\n\t\t\t\t\t\tcolor: ").concat(numIconColor || "#fff", ";\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\t\t\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t").concat(numTypoStylesDesktop, "\n\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t").concat(media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\tfont-size: ").concat(iconSize, "px;\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\n\t\t\t\t\t") : " ", "\n\n\n\t\t") : " ", "\n\n\t");
   var mediaStylesTab = "\n\t".concat(media !== "none" ? "\n\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\n\t\t\t\t").concat(mediaBgMarginStylesTab, "\t\t\t\t\n\t\t\t}\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\t\t\t\n\t\t\t\t\t.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\t").concat(mediaRadiusStylesTab, "\n\t\t\t\t\t\t").concat(mediaBgPaddingTab, "\t\t\t\t\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t\t.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t\t").concat(numTypoStylesTab, "\n\t\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t").concat(media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\tfont-size: ").concat(TABiconSize, "px;\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t").concat(media === "image" ? "\n\t\t\t\t\t\t\n\t\t\t\t.".concat(blockId, " .infobox-wrapper-inner .icon-img-wrapper{\n\t\t\t\t\t").concat(mediaImgWidthUnit === "%" && TABmediaImgWidth ? "width: ".concat(TABmediaImgWidth).concat(mediaImgWidthUnit, ";") : " ", "\n\t\t\t\t}\n\n\t\t\t\t.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\t\n\t\t\t\t\t").concat(mediaImgWidthUnit !== "%" ? TABmediaImgWidth ? "width: ".concat(TABmediaImgWidth).concat(mediaImgWidthUnit, ";") : " " : TABmediaImgWidth ? "width: 100".concat(mediaImgWidthUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : TABmediaImgHeight ? "height: ".concat(TABmediaImgHeight).concat(mediaImgHeightUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t}\n\n\t\t\t\t\n\t\t\t\t.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\t").concat(mediaRadiusStylesTab, "\n\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\n\n\t\t") : " ", "\n\t\n\t");
@@ -5296,36 +5296,36 @@ function Inspector(props) {
       buttonBgColor = attributes.buttonBgColor,
       mediaAlignment = attributes.mediaAlignment,
       contentsAlignment = attributes.contentsAlignment,
-      WRPborderColor = attributes.WRPborderColor,
-      WRPborderStyle = attributes.WRPborderStyle,
-      WRPhOffset = attributes.WRPhOffset,
-      WRPvOffset = attributes.WRPvOffset,
-      WRPblur = attributes.WRPblur,
-      WRPspread = attributes.WRPspread,
-      WRPshadowColor = attributes.WRPshadowColor,
-      WRPinset = attributes.WRPinset,
-      WRPshadowType = attributes.WRPshadowType,
-      WRPhoverHOffset = attributes.WRPhoverHOffset,
-      WRPhoverVOffset = attributes.WRPhoverVOffset,
-      WRPhoverBlur = attributes.WRPhoverBlur,
-      WRPhoverSpread = attributes.WRPhoverSpread,
-      WRPhoverShadowColor = attributes.WRPhoverShadowColor,
-      WRPtransitionTime = attributes.WRPtransitionTime,
-      WRPbackgroundType = attributes.WRPbackgroundType,
-      WRPbackgroundColor = attributes.WRPbackgroundColor,
-      WRPgradientColor = attributes.WRPgradientColor,
-      WRPbgImageURL = attributes.WRPbgImageURL,
-      WRPbgImageID = attributes.WRPbgImageID,
-      WRPbackgroundSize = attributes.WRPbackgroundSize,
-      WRPbgImgCustomSize = attributes.WRPbgImgCustomSize,
-      WRPbgImgCustomSizeUnit = attributes.WRPbgImgCustomSizeUnit,
-      WRPbgImgPos = attributes.WRPbgImgPos,
-      WRPbgImgcustomPosX = attributes.WRPbgImgcustomPosX,
-      WRPbgImgcustomPosXUnit = attributes.WRPbgImgcustomPosXUnit,
-      WRPbgImgcustomPosY = attributes.WRPbgImgcustomPosY,
-      WRPbgImgcustomPosYUnit = attributes.WRPbgImgcustomPosYUnit,
-      WRPbgImgAttachment = attributes.WRPbgImgAttachment,
-      WRPbgImgRepeat = attributes.WRPbgImgRepeat; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
+      wrp_borderColor = attributes.wrp_borderColor,
+      wrp_borderStyle = attributes.wrp_borderStyle,
+      wrp_hOffset = attributes.wrp_hOffset,
+      wrp_vOffset = attributes.wrp_vOffset,
+      wrp_blur = attributes.wrp_blur,
+      wrp_spread = attributes.wrp_spread,
+      wrp_shadowColor = attributes.wrp_shadowColor,
+      wrp_inset = attributes.wrp_inset,
+      wrp_shadowType = attributes.wrp_shadowType,
+      wrp_hoverHOffset = attributes.wrp_hoverHOffset,
+      wrp_hoverVOffset = attributes.wrp_hoverVOffset,
+      wrp_hoverBlur = attributes.wrp_hoverBlur,
+      wrp_hoverSpread = attributes.wrp_hoverSpread,
+      wrp_hoverShadowColor = attributes.wrp_hoverShadowColor,
+      wrp_transitionTime = attributes.wrp_transitionTime,
+      wrp_backgroundType = attributes.wrp_backgroundType,
+      wrp_backgroundColor = attributes.wrp_backgroundColor,
+      wrp_gradientColor = attributes.wrp_gradientColor,
+      wrp_bgImageURL = attributes.wrp_bgImageURL,
+      wrp_bgImageID = attributes.wrp_bgImageID,
+      wrp_backgroundSize = attributes.wrp_backgroundSize,
+      wrp_bgImgCustomSize = attributes.wrp_bgImgCustomSize,
+      wrp_bgImgCustomSizeUnit = attributes.wrp_bgImgCustomSizeUnit,
+      wrp_bgImgPos = attributes.wrp_bgImgPos,
+      wrp_bgImgcustomPosX = attributes.wrp_bgImgcustomPosX,
+      wrp_bgImgcustomPosXUnit = attributes.wrp_bgImgcustomPosXUnit,
+      wrp_bgImgcustomPosY = attributes.wrp_bgImgcustomPosY,
+      wrp_bgImgcustomPosYUnit = attributes.wrp_bgImgcustomPosYUnit,
+      wrp_bgImgAttachment = attributes.wrp_bgImgAttachment,
+      wrp_bgImgRepeat = attributes.wrp_bgImgRepeat; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var bodyClasses = document.body.className; // console.log("----log from inspector useEffect with empty []", {
@@ -5424,46 +5424,46 @@ function Inspector(props) {
     var value = _ref.value,
         label = _ref.label;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-      isPrimary: WRPbackgroundType === value,
-      isSecondary: WRPbackgroundType !== value,
+      isPrimary: wrp_backgroundType === value,
+      isSecondary: wrp_backgroundType !== value,
       onClick: function onClick() {
         return setAttributes({
-          WRPbackgroundType: value
+          wrp_backgroundType: value
         });
       }
     }, label);
-  }))), WRPbackgroundType === "image" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
+  }))), wrp_backgroundType === "image" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Background Image")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["MediaUpload"], {
     onSelect: function onSelect(_ref2) {
       var url = _ref2.url,
           id = _ref2.id;
       return setAttributes({
-        WRPbgImageURL: url,
-        WRPbgImageID: id
+        wrp_bgImageURL: url,
+        wrp_bgImageID: id
       });
     },
     type: "image",
-    value: WRPbgImageID,
+    value: wrp_bgImageID,
     render: function render(_ref3) {
       var open = _ref3.open;
-      return !WRPbgImageURL && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+      return !wrp_bgImageURL && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
         className: "eb-infobox-inspector-panel-img-btn components-button",
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Upload Image"),
         icon: "format-image",
         onClick: open
       });
     }
-  }), WRPbgImageURL && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_image_avatar___WEBPACK_IMPORTED_MODULE_8__["default"], {
-    imageUrl: WRPbgImageURL,
+  }), wrp_bgImageURL && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_image_avatar___WEBPACK_IMPORTED_MODULE_8__["default"], {
+    imageUrl: wrp_bgImageURL,
     onDeleteImage: function onDeleteImage() {
       return setAttributes({
-        WRPbgImageURL: null
+        wrp_bgImageURL: null
       });
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Position"),
-    value: WRPbgImgPos,
+    value: wrp_bgImgPos,
     options: [{
       label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Default"),
       value: ""
@@ -5498,13 +5498,13 @@ function Inspector(props) {
       label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Custom"),
       value: "custom"
     }],
-    onChange: function onChange(WRPbgImgPos) {
+    onChange: function onChange(wrp_bgImgPos) {
       return setAttributes({
-        WRPbgImgPos: WRPbgImgPos
+        wrp_bgImgPos: wrp_bgImgPos
       });
     }
-  }), WRPbgImgPos === "custom" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
-    selectedUnit: WRPbgImgcustomPosXUnit,
+  }), wrp_bgImgPos === "custom" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    selectedUnit: wrp_bgImgcustomPosXUnit,
     unitTypes: [{
       label: "px",
       value: "px"
@@ -5515,21 +5515,21 @@ function Inspector(props) {
       label: "%",
       value: "%"
     }],
-    onClick: function onClick(WRPbgImgcustomPosXUnit) {
+    onClick: function onClick(wrp_bgImgcustomPosXUnit) {
       return setAttributes({
-        WRPbgImgcustomPosXUnit: WRPbgImgcustomPosXUnit
+        wrp_bgImgcustomPosXUnit: wrp_bgImgcustomPosXUnit
       });
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("X Position"),
-    value: WRPbgImgcustomPosX,
-    onChange: function onChange(WRPbgImgcustomPosX) {
+    value: wrp_bgImgcustomPosX,
+    onChange: function onChange(wrp_bgImgcustomPosX) {
       return setAttributes({
-        WRPbgImgcustomPosX: WRPbgImgcustomPosX
+        wrp_bgImgcustomPosX: wrp_bgImgcustomPosX
       });
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
-    selectedUnit: WRPbgImgcustomPosYUnit,
+    selectedUnit: wrp_bgImgcustomPosYUnit,
     unitTypes: [{
       label: "px",
       value: "px"
@@ -5540,22 +5540,22 @@ function Inspector(props) {
       label: "%",
       value: "%"
     }],
-    onClick: function onClick(WRPbgImgcustomPosYUnit) {
+    onClick: function onClick(wrp_bgImgcustomPosYUnit) {
       return setAttributes({
-        WRPbgImgcustomPosYUnit: WRPbgImgcustomPosYUnit
+        wrp_bgImgcustomPosYUnit: wrp_bgImgcustomPosYUnit
       });
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Y Position"),
-    value: WRPbgImgcustomPosY,
-    onChange: function onChange(WRPbgImgcustomPosY) {
+    value: wrp_bgImgcustomPosY,
+    onChange: function onChange(wrp_bgImgcustomPosY) {
       return setAttributes({
-        WRPbgImgcustomPosY: WRPbgImgcustomPosY
+        wrp_bgImgcustomPosY: wrp_bgImgcustomPosY
       });
     }
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Attachment"),
-    value: WRPbgImgAttachment,
+    value: wrp_bgImgAttachment,
     options: [{
       label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Default"),
       value: ""
@@ -5566,14 +5566,14 @@ function Inspector(props) {
       label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Fixed"),
       value: "fixed"
     }],
-    onChange: function onChange(WRPbgImgAttachment) {
+    onChange: function onChange(wrp_bgImgAttachment) {
       return setAttributes({
-        WRPbgImgAttachment: WRPbgImgAttachment
+        wrp_bgImgAttachment: wrp_bgImgAttachment
       });
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Repeat"),
-    value: WRPbgImgRepeat,
+    value: wrp_bgImgRepeat,
     options: [{
       label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Default"),
       value: ""
@@ -5590,14 +5590,14 @@ function Inspector(props) {
       label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Repeat-y"),
       value: "repeat-y"
     }],
-    onChange: function onChange(WRPbgImgRepeat) {
+    onChange: function onChange(wrp_bgImgRepeat) {
       return setAttributes({
-        WRPbgImgRepeat: WRPbgImgRepeat
+        wrp_bgImgRepeat: wrp_bgImgRepeat
       });
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Size"),
-    value: WRPbackgroundSize,
+    value: wrp_backgroundSize,
     options: [{
       label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Default"),
       value: ""
@@ -5614,13 +5614,13 @@ function Inspector(props) {
       label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Custom"),
       value: "custom"
     }],
-    onChange: function onChange(WRPbackgroundSize) {
+    onChange: function onChange(wrp_backgroundSize) {
       return setAttributes({
-        WRPbackgroundSize: WRPbackgroundSize
+        wrp_backgroundSize: wrp_backgroundSize
       });
     }
-  })), WRPbackgroundSize === "custom" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
-    selectedUnit: WRPbgImgCustomSizeUnit,
+  })), wrp_backgroundSize === "custom" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    selectedUnit: wrp_bgImgCustomSizeUnit,
     unitTypes: [{
       label: "px",
       value: "px"
@@ -5631,35 +5631,35 @@ function Inspector(props) {
       label: "%",
       value: "%"
     }],
-    onClick: function onClick(WRPbgImgCustomSizeUnit) {
+    onClick: function onClick(wrp_bgImgCustomSizeUnit) {
       return setAttributes({
-        WRPbgImgCustomSizeUnit: WRPbgImgCustomSizeUnit
+        wrp_bgImgCustomSizeUnit: wrp_bgImgCustomSizeUnit
       });
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Width"),
-    value: WRPbgImgCustomSize,
-    onChange: function onChange(WRPbgImgCustomSize) {
+    value: wrp_bgImgCustomSize,
+    onChange: function onChange(wrp_bgImgCustomSize) {
       return setAttributes({
-        WRPbgImgCustomSize: WRPbgImgCustomSize
+        wrp_bgImgCustomSize: wrp_bgImgCustomSize
       });
     }
-  })))), WRPbackgroundType === "fill" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+  })))), wrp_backgroundType === "fill" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Background Color"),
-    color: WRPbackgroundColor,
-    onChange: function onChange(WRPbackgroundColor) {
+    color: wrp_backgroundColor,
+    onChange: function onChange(wrp_backgroundColor) {
       return setAttributes({
-        WRPbackgroundColor: WRPbackgroundColor
+        wrp_backgroundColor: wrp_backgroundColor
       });
     }
-  }), WRPbackgroundType === "gradient" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
+  }), wrp_backgroundType === "gradient" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Gradient"),
     initialOpen: false
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_gradient_color_controller__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    gradientColor: WRPgradientColor,
-    onChange: function onChange(WRPgradientColor) {
+    gradientColor: wrp_gradientColor,
+    onChange: function onChange(wrp_gradientColor) {
       return setAttributes({
-        WRPgradientColor: WRPgradientColor
+        wrp_gradientColor: wrp_gradientColor
       });
     }
   }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
@@ -6213,29 +6213,29 @@ function Inspector(props) {
     initialOpen: false
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Border Color"),
-    color: WRPborderColor,
-    onChange: function onChange(WRPborderColor) {
+    color: wrp_borderColor,
+    onChange: function onChange(wrp_borderColor) {
       return setAttributes({
-        WRPborderColor: WRPborderColor
+        wrp_borderColor: wrp_borderColor
       });
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Border Style"),
-    value: WRPborderStyle,
+    value: wrp_borderStyle,
     options: _constants__WEBPACK_IMPORTED_MODULE_16__["BORDER_STYLES"],
-    onChange: function onChange(WRPborderStyle) {
+    onChange: function onChange(wrp_borderStyle) {
       return setAttributes({
-        WRPborderStyle: WRPborderStyle
+        wrp_borderStyle: wrp_borderStyle
       });
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
     resRequiredProps: resRequiredProps,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["WRPborder"],
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["wrp_border"],
     baseLabel: "Border Width"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
     forBorderRadius: true,
     resRequiredProps: resRequiredProps,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["WRPradius"],
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["wrp_radius"],
     baseLabel: "Border Radius"
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox Shadow"),
@@ -6249,34 +6249,34 @@ function Inspector(props) {
         label = _ref10.label;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
       isLarge: true,
-      isSecondary: WRPshadowType !== value,
-      isPrimary: WRPshadowType === value,
+      isSecondary: wrp_shadowType !== value,
+      isPrimary: wrp_shadowType === value,
       onClick: function onClick() {
         return setAttributes({
-          WRPshadowType: value
+          wrp_shadowType: value
         });
       }
     }, label);
-  }))), WRPshadowType === "normal" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+  }))), wrp_shadowType === "normal" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Shadow Color"),
-    color: WRPshadowColor,
-    onChange: function onChange(WRPshadowColor) {
+    color: wrp_shadowColor,
+    onChange: function onChange(wrp_shadowColor) {
       return setAttributes({
-        WRPshadowColor: WRPshadowColor
+        wrp_shadowColor: wrp_shadowColor
       });
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     onReset: function onReset() {
       return setAttributes({
-        WRPhOffset: undefined
+        wrp_hOffset: undefined
       });
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Horizontal Offset"),
-    value: WRPhOffset,
-    onChange: function onChange(WRPhOffset) {
+    value: wrp_hOffset,
+    onChange: function onChange(wrp_hOffset) {
       return setAttributes({
-        WRPhOffset: WRPhOffset
+        wrp_hOffset: wrp_hOffset
       });
     },
     min: 0,
@@ -6284,15 +6284,15 @@ function Inspector(props) {
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     onReset: function onReset() {
       return setAttributes({
-        WRPvOffset: undefined
+        wrp_vOffset: undefined
       });
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Vertical Offset"),
-    value: WRPvOffset,
-    onChange: function onChange(WRPvOffset) {
+    value: wrp_vOffset,
+    onChange: function onChange(wrp_vOffset) {
       return setAttributes({
-        WRPvOffset: WRPvOffset
+        wrp_vOffset: wrp_vOffset
       });
     },
     min: 0,
@@ -6300,15 +6300,15 @@ function Inspector(props) {
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     onReset: function onReset() {
       return setAttributes({
-        WRPblur: undefined
+        wrp_blur: undefined
       });
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Shadow Blur"),
-    value: WRPblur,
-    onChange: function onChange(WRPblur) {
+    value: wrp_blur,
+    onChange: function onChange(wrp_blur) {
       return setAttributes({
-        WRPblur: WRPblur
+        wrp_blur: wrp_blur
       });
     },
     min: 0,
@@ -6316,39 +6316,39 @@ function Inspector(props) {
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     onReset: function onReset() {
       return setAttributes({
-        WRPspread: undefined
+        wrp_spread: undefined
       });
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Shadow Spread"),
-    value: WRPspread,
-    onChange: function onChange(WRPspread) {
+    value: wrp_spread,
+    onChange: function onChange(wrp_spread) {
       return setAttributes({
-        WRPspread: WRPspread
+        wrp_spread: wrp_spread
       });
     },
     min: 0,
     max: 20
-  }))), WRPshadowType === "hover" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+  }))), wrp_shadowType === "hover" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Hover Shadow Color"),
-    color: WRPhoverShadowColor,
-    onChange: function onChange(WRPhoverShadowColor) {
+    color: wrp_hoverShadowColor,
+    onChange: function onChange(wrp_hoverShadowColor) {
       return setAttributes({
-        WRPhoverShadowColor: WRPhoverShadowColor
+        wrp_hoverShadowColor: wrp_hoverShadowColor
       });
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     onReset: function onReset() {
       return setAttributes({
-        WRPhoverHOffset: undefined
+        wrp_hoverHOffset: undefined
       });
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Horizontal Offset"),
-    value: WRPhoverHOffset,
-    onChange: function onChange(WRPhoverHOffset) {
+    value: wrp_hoverHOffset,
+    onChange: function onChange(wrp_hoverHOffset) {
       return setAttributes({
-        WRPhoverHOffset: WRPhoverHOffset
+        wrp_hoverHOffset: wrp_hoverHOffset
       });
     },
     min: 0,
@@ -6356,15 +6356,15 @@ function Inspector(props) {
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     onReset: function onReset() {
       return setAttributes({
-        WRPhoverVOffset: undefined
+        wrp_hoverVOffset: undefined
       });
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Vertical Offset"),
-    value: WRPhoverVOffset,
-    onChange: function onChange(WRPhoverVOffset) {
+    value: wrp_hoverVOffset,
+    onChange: function onChange(wrp_hoverVOffset) {
       return setAttributes({
-        WRPhoverVOffset: WRPhoverVOffset
+        wrp_hoverVOffset: wrp_hoverVOffset
       });
     },
     min: 0,
@@ -6372,15 +6372,15 @@ function Inspector(props) {
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     onReset: function onReset() {
       return setAttributes({
-        WRPhoverBlur: undefined
+        wrp_hoverBlur: undefined
       });
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Shadow Blur"),
-    value: WRPhoverBlur,
-    onChange: function onChange(WRPhoverBlur) {
+    value: wrp_hoverBlur,
+    onChange: function onChange(wrp_hoverBlur) {
       return setAttributes({
-        WRPhoverBlur: WRPhoverBlur
+        wrp_hoverBlur: wrp_hoverBlur
       });
     },
     min: 0,
@@ -6388,36 +6388,36 @@ function Inspector(props) {
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     onReset: function onReset() {
       return setAttributes({
-        WRPhoverSpread: undefined
+        wrp_hoverSpread: undefined
       });
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Shadow Spread"),
-    value: WRPhoverSpread,
-    onChange: function onChange(WRPhoverSpread) {
+    value: wrp_hoverSpread,
+    onChange: function onChange(wrp_hoverSpread) {
       return setAttributes({
-        WRPhoverSpread: WRPhoverSpread
+        wrp_hoverSpread: wrp_hoverSpread
       });
     },
     min: 0,
     max: 20
   }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ToggleControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Inset"),
-    checked: WRPinset,
+    checked: wrp_inset,
     onChange: function onChange() {
       return setAttributes({
-        WRPinset: !WRPinset
+        wrp_inset: !wrp_inset
       });
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
     id: "eb-infobox-transition-time"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["TextControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Transition"),
-    value: WRPtransitionTime,
+    value: wrp_transitionTime,
     type: "number",
-    onChange: function onChange(WRPtransitionTime) {
+    onChange: function onChange(wrp_transitionTime) {
       return setAttributes({
-        WRPtransitionTime: WRPtransitionTime
+        wrp_transitionTime: wrp_transitionTime
       });
     }
   })))));

@@ -10,8 +10,8 @@ import {
 	subTitlePadding,
 	wrapperMargin,
 	wrapperPadding,
-	WRPborder,
-	WRPradius,
+	wrp_border,
+	wrp_radius,
 } from "./constants/dimensionsConstants";
 import {
 	generateDimensionsAttributes,
@@ -279,123 +279,124 @@ const attributes = {
 	},
 
 	// background attributes ⬇
-	WRPbackgroundType: {
+	wrp_backgroundType: {
 		type: "string",
 		default: "gradient",
 	},
-	WRPbackgroundColor: {
+	wrp_backgroundColor: {
 		type: "string",
 	},
-	WRPgradientColor: {
+	wrp_gradientColor: {
 		type: "string",
 		default: "linear-gradient(45deg,#8200ff,#ff0071)",
 	},
-	WRPbgImageURL: {
+	wrp_bgImageURL: {
 		type: "string",
 	},
-	WRPbgImageID: {
+	wrp_bgImageID: {
 		type: "string",
 	},
-	WRPbackgroundSize: {
+	wrp_backgroundSize: {
 		type: "string",
 	},
-	WRPbgImgCustomSize: {
+	wrp_bgImgCustomSize: {
 		type: "number",
 		default: 100,
 	},
-	WRPbgImgCustomSizeUnit: {
+	wrp_bgImgCustomSizeUnit: {
 		type: "string",
 		default: "%",
 	},
-	WRPbgImgPos: {
+	wrp_bgImgPos: {
 		type: "string",
 	},
-	WRPbgImgcustomPosX: {
+	wrp_bgImgcustomPosX: {
 		type: "number",
 		default: 0,
 	},
-	WRPbgImgcustomPosXUnit: {
+	wrp_bgImgcustomPosXUnit: {
 		type: "string",
 		default: "px",
 	},
-	WRPbgImgcustomPosY: {
+	wrp_bgImgcustomPosY: {
 		type: "number",
 		default: 0,
 	},
-	WRPbgImgcustomPosYUnit: {
+	wrp_bgImgcustomPosYUnit: {
 		type: "string",
 		default: "px",
 	},
-	WRPbgImgAttachment: {
+	wrp_bgImgAttachment: {
 		type: "string",
 	},
-	WRPbgImgRepeat: {
+	wrp_bgImgRepeat: {
 		type: "string",
 	},
 
 	// border attributes ⬇
-	WRPborderColor: {
+	wrp_borderColor: {
 		type: "string",
 	},
-	WRPborderStyle: {
+	wrp_borderStyle: {
 		type: "string",
 		default: "solid",
 	},
-	// WRPborderWidth: {
+
+	// wrp_borderWidth: {
 	// 	type: "number",
 	// },
-	// WRPborderRadius: {
+	// wrp_borderRadius: {
 	// 	type: "number",
 	// },
-	// WRPradiusUnit: {
+	// wrp_radiusUnit: {
 	// 	type: "string",
 	// 	default: "px",
 	// },
 
 	// shadow attributes  ⬇
-	WRPhOffset: {
+	wrp_hOffset: {
 		type: "number",
 	},
-	WRPvOffset: {
+	wrp_vOffset: {
 		type: "number",
 	},
-	WRPblur: {
+	wrp_blur: {
 		type: "number",
 	},
-	WRPspread: {
+	wrp_spread: {
 		type: "number",
 	},
-	WRPshadowColor: {
+	wrp_shadowColor: {
 		type: "string",
 	},
-	WRPinset: {
+	wrp_inset: {
 		type: "boolean",
 		default: false,
 	},
-	WRPshadowType: {
+	wrp_shadowType: {
 		type: "string",
 		default: "normal",
 	},
-	WRPhoverHOffset: {
+	wrp_hoverHOffset: {
 		type: "number",
 	},
-	WRPhoverVOffset: {
+	wrp_hoverVOffset: {
 		type: "number",
 	},
-	WRPhoverBlur: {
+	wrp_hoverBlur: {
 		type: "number",
 	},
-	WRPhoverSpread: {
+	wrp_hoverSpread: {
 		type: "number",
 	},
-	WRPhoverShadowColor: {
+	wrp_hoverShadowColor: {
 		type: "string",
 	},
-	WRPhoverInset: {
+	wrp_hoverInset: {
 		type: "boolean",
 		default: false,
 	},
-	WRPtransitionTime: {
+	wrp_transitionTime: {
 		type: "string",
 		default: "500",
 	},
@@ -449,13 +450,13 @@ const attributes = {
 		right: 30,
 		left: 30,
 	}),
-	...generateDimensionsAttributes(WRPborder, {
+	...generateDimensionsAttributes(wrp_border, {
 		top: 0,
 		bottom: 0,
 		right: 0,
 		left: 0,
 	}),
-	...generateDimensionsAttributes(WRPradius),
+	...generateDimensionsAttributes(wrp_radius),
 };
 
 export default attributes;

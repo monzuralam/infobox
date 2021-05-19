@@ -52,8 +52,8 @@ import {
 	titlePadding,
 	wrapperMargin,
 	wrapperPadding,
-	WRPborder,
-	WRPradius,
+	wrp_border,
+	wrp_radius,
 } from "./constants/dimensionsConstants";
 
 import {
@@ -189,43 +189,43 @@ function Inspector(props) {
 		contentsAlignment,
 
 		// border attributes ⬇
-		WRPborderColor,
-		WRPborderStyle,
-		// WRPborderWidth,
-		// WRPborderRadius,
-		// WRPradiusUnit,
+		wrp_borderColor,
+		wrp_borderStyle,
+		// wrp_borderWidth,
+		// wrp_borderRadius,
+		// wrp_radiusUnit,
 
 		// shadow attributes  ⬇
-		WRPhOffset,
-		WRPvOffset,
-		WRPblur,
-		WRPspread,
-		WRPshadowColor,
-		WRPinset,
-		WRPshadowType,
-		WRPhoverHOffset,
-		WRPhoverVOffset,
-		WRPhoverBlur,
-		WRPhoverSpread,
-		WRPhoverShadowColor,
-		WRPtransitionTime,
+		wrp_hOffset,
+		wrp_vOffset,
+		wrp_blur,
+		wrp_spread,
+		wrp_shadowColor,
+		wrp_inset,
+		wrp_shadowType,
+		wrp_hoverHOffset,
+		wrp_hoverVOffset,
+		wrp_hoverBlur,
+		wrp_hoverSpread,
+		wrp_hoverShadowColor,
+		wrp_transitionTime,
 
 		// background attributes ⬇
-		WRPbackgroundType,
-		WRPbackgroundColor,
-		WRPgradientColor,
-		WRPbgImageURL,
-		WRPbgImageID,
-		WRPbackgroundSize,
-		WRPbgImgCustomSize,
-		WRPbgImgCustomSizeUnit,
-		WRPbgImgPos,
-		WRPbgImgcustomPosX,
-		WRPbgImgcustomPosXUnit,
-		WRPbgImgcustomPosY,
-		WRPbgImgcustomPosYUnit,
-		WRPbgImgAttachment,
-		WRPbgImgRepeat,
+		wrp_backgroundType,
+		wrp_backgroundColor,
+		wrp_gradientColor,
+		wrp_bgImageURL,
+		wrp_bgImageID,
+		wrp_backgroundSize,
+		wrp_bgImgCustomSize,
+		wrp_bgImgCustomSizeUnit,
+		wrp_bgImgPos,
+		wrp_bgImgcustomPosX,
+		wrp_bgImgcustomPosXUnit,
+		wrp_bgImgcustomPosY,
+		wrp_bgImgcustomPosYUnit,
+		wrp_bgImgAttachment,
+		wrp_bgImgRepeat,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
@@ -341,11 +341,11 @@ function Inspector(props) {
 						<ButtonGroup>
 							{BACKGROUND_TYPES.map(({ value, label }) => (
 								<Button
-									isPrimary={WRPbackgroundType === value}
-									isSecondary={WRPbackgroundType !== value}
+									isPrimary={wrp_backgroundType === value}
+									isSecondary={wrp_backgroundType !== value}
 									onClick={() =>
 										setAttributes({
-											WRPbackgroundType: value,
+											wrp_backgroundType: value,
 										})
 									}
 								>
@@ -355,19 +355,19 @@ function Inspector(props) {
 						</ButtonGroup>
 					</BaseControl>
 
-					{WRPbackgroundType === "image" && (
+					{wrp_backgroundType === "image" && (
 						<PanelBody title={__("Background Image")}>
 							<MediaUpload
 								onSelect={({ url, id }) =>
 									setAttributes({
-										WRPbgImageURL: url,
-										WRPbgImageID: id,
+										wrp_bgImageURL: url,
+										wrp_bgImageID: id,
 									})
 								}
 								type="image"
-								value={WRPbgImageID}
+								value={wrp_bgImageID}
 								render={({ open }) =>
-									!WRPbgImageURL && (
+									!wrp_bgImageURL && (
 										<Button
 											className="eb-infobox-inspector-panel-img-btn components-button"
 											label={__("Upload Image")}
@@ -378,16 +378,18 @@ function Inspector(props) {
 								}
 							/>
 
-							{WRPbgImageURL && (
+							{wrp_bgImageURL && (
 								<>
 									<ImageAvatar
-										imageUrl={WRPbgImageURL}
-										onDeleteImage={() => setAttributes({ WRPbgImageURL: null })}
+										imageUrl={wrp_bgImageURL}
+										onDeleteImage={() =>
+											setAttributes({ wrp_bgImageURL: null })
+										}
 									/>
 
 									<SelectControl
 										label={__("Position")}
-										value={WRPbgImgPos}
+										value={wrp_bgImgPos}
 										options={[
 											{ label: __("Default"), value: "" },
 											{ label: __("Center Center"), value: "center center" },
@@ -401,47 +403,47 @@ function Inspector(props) {
 											{ label: __("Bottom Right"), value: "bottom right" },
 											{ label: __("Custom"), value: "custom" },
 										]}
-										onChange={(WRPbgImgPos) => setAttributes({ WRPbgImgPos })}
+										onChange={(wrp_bgImgPos) => setAttributes({ wrp_bgImgPos })}
 									/>
 
-									{WRPbgImgPos === "custom" && (
+									{wrp_bgImgPos === "custom" && (
 										<>
 											<UnitControl
-												selectedUnit={WRPbgImgcustomPosXUnit}
+												selectedUnit={wrp_bgImgcustomPosXUnit}
 												unitTypes={[
 													{ label: "px", value: "px" },
 													{ label: "em", value: "em" },
 													{ label: "%", value: "%" },
 												]}
-												onClick={(WRPbgImgcustomPosXUnit) =>
-													setAttributes({ WRPbgImgcustomPosXUnit })
+												onClick={(wrp_bgImgcustomPosXUnit) =>
+													setAttributes({ wrp_bgImgcustomPosXUnit })
 												}
 											/>
 
 											<RangeControl
 												label={__("X Position")}
-												value={WRPbgImgcustomPosX}
-												onChange={(WRPbgImgcustomPosX) =>
-													setAttributes({ WRPbgImgcustomPosX })
+												value={wrp_bgImgcustomPosX}
+												onChange={(wrp_bgImgcustomPosX) =>
+													setAttributes({ wrp_bgImgcustomPosX })
 												}
 											/>
 
 											<UnitControl
-												selectedUnit={WRPbgImgcustomPosYUnit}
+												selectedUnit={wrp_bgImgcustomPosYUnit}
 												unitTypes={[
 													{ label: "px", value: "px" },
 													{ label: "em", value: "em" },
 													{ label: "%", value: "%" },
 												]}
-												onClick={(WRPbgImgcustomPosYUnit) =>
-													setAttributes({ WRPbgImgcustomPosYUnit })
+												onClick={(wrp_bgImgcustomPosYUnit) =>
+													setAttributes({ wrp_bgImgcustomPosYUnit })
 												}
 											/>
 											<RangeControl
 												label={__("Y Position")}
-												value={WRPbgImgcustomPosY}
-												onChange={(WRPbgImgcustomPosY) =>
-													setAttributes({ WRPbgImgcustomPosY })
+												value={wrp_bgImgcustomPosY}
+												onChange={(wrp_bgImgcustomPosY) =>
+													setAttributes({ wrp_bgImgcustomPosY })
 												}
 											/>
 										</>
@@ -449,20 +451,20 @@ function Inspector(props) {
 
 									<SelectControl
 										label={__("Attachment")}
-										value={WRPbgImgAttachment}
+										value={wrp_bgImgAttachment}
 										options={[
 											{ label: __("Default"), value: "" },
 											{ label: __("Scroll"), value: "scroll" },
 											{ label: __("Fixed"), value: "fixed" },
 										]}
-										onChange={(WRPbgImgAttachment) =>
-											setAttributes({ WRPbgImgAttachment })
+										onChange={(wrp_bgImgAttachment) =>
+											setAttributes({ wrp_bgImgAttachment })
 										}
 									/>
 
 									<SelectControl
 										label={__("Repeat")}
-										value={WRPbgImgRepeat}
+										value={wrp_bgImgRepeat}
 										options={[
 											{ label: __("Default"), value: "" },
 											{ label: __("No-repeat"), value: "no-repeat" },
@@ -470,15 +472,15 @@ function Inspector(props) {
 											{ label: __("Repeat-x"), value: "repeat-x" },
 											{ label: __("Repeat-y"), value: "repeat-y" },
 										]}
-										onChange={(WRPbgImgRepeat) =>
-											setAttributes({ WRPbgImgRepeat })
+										onChange={(wrp_bgImgRepeat) =>
+											setAttributes({ wrp_bgImgRepeat })
 										}
 									/>
 
 									<BaseControl>
 										<SelectControl
 											label={__("Size")}
-											value={WRPbackgroundSize}
+											value={wrp_backgroundSize}
 											options={[
 												{ label: __("Default"), value: "" },
 												{ label: __("Auto"), value: "auto" },
@@ -486,30 +488,30 @@ function Inspector(props) {
 												{ label: __("Contain"), value: "contain" },
 												{ label: __("Custom"), value: "custom" },
 											]}
-											onChange={(WRPbackgroundSize) =>
-												setAttributes({ WRPbackgroundSize })
+											onChange={(wrp_backgroundSize) =>
+												setAttributes({ wrp_backgroundSize })
 											}
 										/>
 									</BaseControl>
-									{WRPbackgroundSize === "custom" && (
+									{wrp_backgroundSize === "custom" && (
 										<>
 											<UnitControl
-												selectedUnit={WRPbgImgCustomSizeUnit}
+												selectedUnit={wrp_bgImgCustomSizeUnit}
 												unitTypes={[
 													{ label: "px", value: "px" },
 													{ label: "em", value: "em" },
 													{ label: "%", value: "%" },
 												]}
-												onClick={(WRPbgImgCustomSizeUnit) =>
-													setAttributes({ WRPbgImgCustomSizeUnit })
+												onClick={(wrp_bgImgCustomSizeUnit) =>
+													setAttributes({ wrp_bgImgCustomSizeUnit })
 												}
 											/>
 
 											<RangeControl
 												label={__("Width")}
-												value={WRPbgImgCustomSize}
-												onChange={(WRPbgImgCustomSize) =>
-													setAttributes({ WRPbgImgCustomSize })
+												value={wrp_bgImgCustomSize}
+												onChange={(wrp_bgImgCustomSize) =>
+													setAttributes({ wrp_bgImgCustomSize })
 												}
 											/>
 										</>
@@ -519,22 +521,22 @@ function Inspector(props) {
 						</PanelBody>
 					)}
 
-					{WRPbackgroundType === "fill" && (
+					{wrp_backgroundType === "fill" && (
 						<ColorControl
 							label={__("Background Color")}
-							color={WRPbackgroundColor}
-							onChange={(WRPbackgroundColor) =>
-								setAttributes({ WRPbackgroundColor })
+							color={wrp_backgroundColor}
+							onChange={(wrp_backgroundColor) =>
+								setAttributes({ wrp_backgroundColor })
 							}
 						/>
 					)}
 
-					{WRPbackgroundType === "gradient" && (
+					{wrp_backgroundType === "gradient" && (
 						<PanelBody title={__("Gradient")} initialOpen={false}>
 							<GradientColorControl
-								gradientColor={WRPgradientColor}
-								onChange={(WRPgradientColor) =>
-									setAttributes({ WRPgradientColor })
+								gradientColor={wrp_gradientColor}
+								onChange={(wrp_gradientColor) =>
+									setAttributes({ wrp_gradientColor })
 								}
 							/>
 						</PanelBody>
@@ -1173,27 +1175,27 @@ function Inspector(props) {
 				<PanelBody title={__("Infobox Border")} initialOpen={false}>
 					<ColorControl
 						label={__("Border Color")}
-						color={WRPborderColor}
-						onChange={(WRPborderColor) => setAttributes({ WRPborderColor })}
+						color={wrp_borderColor}
+						onChange={(wrp_borderColor) => setAttributes({ wrp_borderColor })}
 					/>
 
 					<SelectControl
 						label={__("Border Style")}
-						value={WRPborderStyle}
+						value={wrp_borderStyle}
 						options={BORDER_STYLES}
-						onChange={(WRPborderStyle) => setAttributes({ WRPborderStyle })}
+						onChange={(wrp_borderStyle) => setAttributes({ wrp_borderStyle })}
 					/>
 
 					<ResponsiveDimensionsControl
 						resRequiredProps={resRequiredProps}
-						controlName={WRPborder}
+						controlName={wrp_border}
 						baseLabel="Border Width"
 					/>
 
 					<ResponsiveDimensionsControl
 						forBorderRadius
 						resRequiredProps={resRequiredProps}
-						controlName={WRPradius}
+						controlName={wrp_radius}
 						baseLabel="Border Radius"
 					/>
 				</PanelBody>
@@ -1204,9 +1206,9 @@ function Inspector(props) {
 							{SHADOW_HOVER_OPTIONS.map(({ value, label }) => (
 								<Button
 									isLarge
-									isSecondary={WRPshadowType !== value}
-									isPrimary={WRPshadowType === value}
-									onClick={() => setAttributes({ WRPshadowType: value })}
+									isSecondary={wrp_shadowType !== value}
+									isPrimary={wrp_shadowType === value}
+									onClick={() => setAttributes({ wrp_shadowType: value })}
 								>
 									{label}
 								</Button>
@@ -1214,57 +1216,59 @@ function Inspector(props) {
 						</ButtonGroup>
 					</BaseControl>
 
-					{WRPshadowType === "normal" && (
+					{wrp_shadowType === "normal" && (
 						<>
 							<ColorControl
 								label={__("Shadow Color")}
-								color={WRPshadowColor}
-								onChange={(WRPshadowColor) => setAttributes({ WRPshadowColor })}
+								color={wrp_shadowColor}
+								onChange={(wrp_shadowColor) =>
+									setAttributes({ wrp_shadowColor })
+								}
 							/>
 
 							<ResetControl
-								onReset={() => setAttributes({ WRPhOffset: undefined })}
+								onReset={() => setAttributes({ wrp_hOffset: undefined })}
 							>
 								<RangeControl
 									label={__("Horizontal Offset")}
-									value={WRPhOffset}
-									onChange={(WRPhOffset) => setAttributes({ WRPhOffset })}
+									value={wrp_hOffset}
+									onChange={(wrp_hOffset) => setAttributes({ wrp_hOffset })}
 									min={0}
 									max={20}
 								/>
 							</ResetControl>
 
 							<ResetControl
-								onReset={() => setAttributes({ WRPvOffset: undefined })}
+								onReset={() => setAttributes({ wrp_vOffset: undefined })}
 							>
 								<RangeControl
 									label={__("Vertical Offset")}
-									value={WRPvOffset}
-									onChange={(WRPvOffset) => setAttributes({ WRPvOffset })}
+									value={wrp_vOffset}
+									onChange={(wrp_vOffset) => setAttributes({ wrp_vOffset })}
 									min={0}
 									max={20}
 								/>
 							</ResetControl>
 
 							<ResetControl
-								onReset={() => setAttributes({ WRPblur: undefined })}
+								onReset={() => setAttributes({ wrp_blur: undefined })}
 							>
 								<RangeControl
 									label={__("Shadow Blur")}
-									value={WRPblur}
-									onChange={(WRPblur) => setAttributes({ WRPblur })}
+									value={wrp_blur}
+									onChange={(wrp_blur) => setAttributes({ wrp_blur })}
 									min={0}
 									max={20}
 								/>
 							</ResetControl>
 
 							<ResetControl
-								onReset={() => setAttributes({ WRPspread: undefined })}
+								onReset={() => setAttributes({ wrp_spread: undefined })}
 							>
 								<RangeControl
 									label={__("Shadow Spread")}
-									value={WRPspread}
-									onChange={(WRPspread) => setAttributes({ WRPspread })}
+									value={wrp_spread}
+									onChange={(wrp_spread) => setAttributes({ wrp_spread })}
 									min={0}
 									max={20}
 								/>
@@ -1272,24 +1276,24 @@ function Inspector(props) {
 						</>
 					)}
 
-					{WRPshadowType === "hover" && (
+					{wrp_shadowType === "hover" && (
 						<>
 							<ColorControl
 								label={__("Hover Shadow Color")}
-								color={WRPhoverShadowColor}
-								onChange={(WRPhoverShadowColor) =>
-									setAttributes({ WRPhoverShadowColor })
+								color={wrp_hoverShadowColor}
+								onChange={(wrp_hoverShadowColor) =>
+									setAttributes({ wrp_hoverShadowColor })
 								}
 							/>
 
 							<ResetControl
-								onReset={() => setAttributes({ WRPhoverHOffset: undefined })}
+								onReset={() => setAttributes({ wrp_hoverHOffset: undefined })}
 							>
 								<RangeControl
 									label={__("Horizontal Offset")}
-									value={WRPhoverHOffset}
-									onChange={(WRPhoverHOffset) =>
-										setAttributes({ WRPhoverHOffset })
+									value={wrp_hoverHOffset}
+									onChange={(wrp_hoverHOffset) =>
+										setAttributes({ wrp_hoverHOffset })
 									}
 									min={0}
 									max={20}
@@ -1297,13 +1301,13 @@ function Inspector(props) {
 							</ResetControl>
 
 							<ResetControl
-								onReset={() => setAttributes({ WRPhoverVOffset: undefined })}
+								onReset={() => setAttributes({ wrp_hoverVOffset: undefined })}
 							>
 								<RangeControl
 									label={__("Vertical Offset")}
-									value={WRPhoverVOffset}
-									onChange={(WRPhoverVOffset) =>
-										setAttributes({ WRPhoverVOffset })
+									value={wrp_hoverVOffset}
+									onChange={(wrp_hoverVOffset) =>
+										setAttributes({ wrp_hoverVOffset })
 									}
 									min={0}
 									max={20}
@@ -1311,25 +1315,25 @@ function Inspector(props) {
 							</ResetControl>
 
 							<ResetControl
-								onReset={() => setAttributes({ WRPhoverBlur: undefined })}
+								onReset={() => setAttributes({ wrp_hoverBlur: undefined })}
 							>
 								<RangeControl
 									label={__("Shadow Blur")}
-									value={WRPhoverBlur}
-									onChange={(WRPhoverBlur) => setAttributes({ WRPhoverBlur })}
+									value={wrp_hoverBlur}
+									onChange={(wrp_hoverBlur) => setAttributes({ wrp_hoverBlur })}
 									min={0}
 									max={20}
 								/>
 							</ResetControl>
 
 							<ResetControl
-								onReset={() => setAttributes({ WRPhoverSpread: undefined })}
+								onReset={() => setAttributes({ wrp_hoverSpread: undefined })}
 							>
 								<RangeControl
 									label={__("Shadow Spread")}
-									value={WRPhoverSpread}
-									onChange={(WRPhoverSpread) =>
-										setAttributes({ WRPhoverSpread })
+									value={wrp_hoverSpread}
+									onChange={(wrp_hoverSpread) =>
+										setAttributes({ wrp_hoverSpread })
 									}
 									min={0}
 									max={20}
@@ -1340,17 +1344,17 @@ function Inspector(props) {
 
 					<ToggleControl
 						label={__("Inset")}
-						checked={WRPinset}
-						onChange={() => setAttributes({ WRPinset: !WRPinset })}
+						checked={wrp_inset}
+						onChange={() => setAttributes({ wrp_inset: !wrp_inset })}
 					/>
 
 					<BaseControl id="eb-infobox-transition-time">
 						<TextControl
 							label={__("Transition")}
-							value={WRPtransitionTime}
+							value={wrp_transitionTime}
 							type="number"
-							onChange={(WRPtransitionTime) =>
-								setAttributes({ WRPtransitionTime })
+							onChange={(wrp_transitionTime) =>
+								setAttributes({ wrp_transitionTime })
 							}
 						/>
 					</BaseControl>
