@@ -4085,6 +4085,9 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
   WRPbgImgAttachment: {
     type: "string"
   },
+  WRPbgImgRepeat: {
+    type: "string"
+  },
   // border attributes ⬇
   WRPborderColor: {
     type: "string"
@@ -4630,7 +4633,8 @@ var Edit = function Edit(_ref) {
       WRPbgImgcustomPosXUnit = attributes.WRPbgImgcustomPosXUnit,
       WRPbgImgcustomPosY = attributes.WRPbgImgcustomPosY,
       WRPbgImgcustomPosYUnit = attributes.WRPbgImgcustomPosYUnit,
-      WRPbgImgAttachment = attributes.WRPbgImgAttachment; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
+      WRPbgImgAttachment = attributes.WRPbgImgAttachment,
+      WRPbgImgRepeat = attributes.WRPbgImgRepeat; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var bodyClasses = document.body.className;
@@ -4865,7 +4869,7 @@ var Edit = function Edit(_ref) {
       WRPradiusStylesTab = _generateDimensionsCo12.dimensionStylesTab,
       WRPradiusStylesMobile = _generateDimensionsCo12.dimensionStylesMobile;
 
-  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tposition: relative;\n\t\t\toverflow: hidden;\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\n\t\t\tbackground-image:\n\t\t\t").concat(WRPbackgroundType === "image" && WRPbgImageURL ? "url(\"".concat(WRPbgImageURL, "\")") : WRPbackgroundType === "gradient" ? WRPgradientColor : "none", ";\n\n\t\t\t").concat(WRPbackgroundSize && WRPbackgroundSize !== "custom" ? "background-size: ".concat(WRPbackgroundSize, ";") : WRPbackgroundSize === "custom" ? "background-size: ".concat(WRPbgImgCustomSize).concat(WRPbgImgCustomSizeUnit, " auto;") : " ", "\n\n\t\t\t").concat(WRPbgImgPos && WRPbgImgPos !== "custom" ? "background-position: ".concat(WRPbgImgPos, ";") : WRPbgImgPos === "custom" ? "background-position: ".concat(WRPbgImgcustomPosX).concat(WRPbgImgcustomPosXUnit, " ").concat(WRPbgImgcustomPosY).concat(WRPbgImgcustomPosYUnit, ";") : " ", "\n\n\t\t\t").concat(WRPbgImgAttachment ? "background-attachment: ".concat(WRPbgImgAttachment, ";") : " ", "\n\t\t\t\n\t\t\t").concat(WRPbackgroundColor ? "background-color: ".concat(WRPbackgroundColor, ";") : " ", "\n\n\t\t\t").concat(WRPborderColor ? "\n\t\t\t\t\t".concat(WRPborderStylesDesktop, "\n\t\t\t\t\tborder-color: ").concat(WRPborderColor, ";\n\t\t\t\t\tborder-style: ").concat(WRPborderStyle, ";\n\t\t\t\t\t") : " ", "\n\t\t\t").concat(WRPradiusStylesDesktop, "\n\n\t\t\t").concat(WRPshadowColor ? "box-shadow: ".concat(WRPshadowColor, " ").concat(WRPhOffset, "px ").concat(WRPvOffset, "px ").concat(WRPblur, "px ").concat(WRPspread, "px ").concat(WRPinset ? "inset" : "", ";") : " ", "\n\n\t\t\ttransition: ").concat(WRPtransitionTime ? "".concat(WRPtransitionTime / 1000, "s") : ".5s", ";\n\t\t}\n\n\t\t\n\n\t\t.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(WRPhoverShadowColor ? "box-shadow: ".concat(WRPhoverShadowColor, " ").concat(WRPhoverHOffset, "px ").concat(WRPhoverVOffset, "px ").concat(WRPhoverBlur, "px ").concat(WRPhoverSpread, "px ").concat(WRPinset ? "inset" : " ", ";") : " ", "\n\t\t}\n\n\t");
+  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tposition: relative;\n\t\t\toverflow: hidden;\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\n\t\t\tbackground-image:\n\t\t\t").concat(WRPbackgroundType === "image" && WRPbgImageURL ? "url(\"".concat(WRPbgImageURL, "\")") : WRPbackgroundType === "gradient" ? WRPgradientColor : "none", ";\n\n\t\t\t").concat(WRPbackgroundType === "image" && WRPbgImageURL ? "\n\t\t\t\t\t".concat(WRPbackgroundSize && WRPbackgroundSize !== "custom" ? "background-size: ".concat(WRPbackgroundSize, ";") : WRPbackgroundSize === "custom" ? "background-size: ".concat(WRPbgImgCustomSize).concat(WRPbgImgCustomSizeUnit, " auto;") : " ", "\n\n\t\t\t\t\t").concat(WRPbgImgPos && WRPbgImgPos !== "custom" ? "background-position: ".concat(WRPbgImgPos, ";") : WRPbgImgPos === "custom" ? "background-position: ".concat(WRPbgImgcustomPosX).concat(WRPbgImgcustomPosXUnit, " ").concat(WRPbgImgcustomPosY).concat(WRPbgImgcustomPosYUnit, ";") : " ", "\n\n\t\t\t\t\t").concat(WRPbgImgAttachment ? "background-attachment: ".concat(WRPbgImgAttachment, ";") : " ", "\n\n\t\t\t\t\t").concat(WRPbgImgRepeat ? "background-repeat: ".concat(WRPbgImgRepeat, ";") : " ", "\n\n\t\t\t\t\t") : " ", "\n\n\t\t\t").concat(WRPbackgroundColor ? "background-color: ".concat(WRPbackgroundColor, ";") : " ", "\n\n\t\t\t").concat(WRPborderColor ? "\n\t\t\t\t\t".concat(WRPborderStylesDesktop, "\n\t\t\t\t\tborder-color: ").concat(WRPborderColor, ";\n\t\t\t\t\tborder-style: ").concat(WRPborderStyle, ";\n\t\t\t\t\t") : " ", "\n\t\t\t").concat(WRPradiusStylesDesktop, "\n\n\t\t\t").concat(WRPshadowColor ? "box-shadow: ".concat(WRPshadowColor, " ").concat(WRPhOffset, "px ").concat(WRPvOffset, "px ").concat(WRPblur, "px ").concat(WRPspread, "px ").concat(WRPinset ? "inset" : "", ";") : " ", "\n\n\t\t\ttransition: ").concat(WRPtransitionTime ? "".concat(WRPtransitionTime / 1000, "s") : ".5s", ";\n\t\t}\n\n\t\t\n\n\t\t.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(WRPhoverShadowColor ? "box-shadow: ".concat(WRPhoverShadowColor, " ").concat(WRPhoverHOffset, "px ").concat(WRPhoverVOffset, "px ").concat(WRPhoverBlur, "px ").concat(WRPhoverSpread, "px ").concat(WRPinset ? "inset" : " ", ";") : " ", "\n\t\t}\n\n\t");
   var wrapperStylesTab = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesTab, "\n\t\t\t").concat(wrapperPaddingStylesTab, "\n\n\t\t\t").concat(WRPborderColor ? WRPborderStylesTab : " ", "\n\t\t\t").concat(WRPradiusStylesTab, "\n\t\t}\n\n\t");
   var wrapperStylesMobile = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesMobile, "\n\t\t\t").concat(wrapperPaddingStylesMobile, "\t\t\t\n\n\t\t\t").concat(WRPborderColor ? WRPborderStylesMobile : " ", "\n\t\t\t").concat(WRPradiusStylesMobile, "\n\t\t}\n\n\t");
   var wrapperInnerStylesDesktop = "\t\n\t\t.".concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\t").concat(flexDirection ? "flex-direction: ".concat(flexDirection, ";") : " ", " \n\t\t\t\n\t\t}\n\t\n\t");
@@ -5320,7 +5324,8 @@ function Inspector(props) {
       WRPbgImgcustomPosXUnit = attributes.WRPbgImgcustomPosXUnit,
       WRPbgImgcustomPosY = attributes.WRPbgImgcustomPosY,
       WRPbgImgcustomPosYUnit = attributes.WRPbgImgcustomPosYUnit,
-      WRPbgImgAttachment = attributes.WRPbgImgAttachment; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
+      WRPbgImgAttachment = attributes.WRPbgImgAttachment,
+      WRPbgImgRepeat = attributes.WRPbgImgRepeat; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var bodyClasses = document.body.className; // console.log("----log from inspector useEffect with empty []", {
@@ -5427,25 +5432,7 @@ function Inspector(props) {
         });
       }
     }, label);
-  }))), WRPbackgroundType === "fill" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Background Color"),
-    color: WRPbackgroundColor,
-    onChange: function onChange(WRPbackgroundColor) {
-      return setAttributes({
-        WRPbackgroundColor: WRPbackgroundColor
-      });
-    }
-  }), WRPbackgroundType === "gradient" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Gradient"),
-    initialOpen: false
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_gradient_color_controller__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    gradientColor: WRPgradientColor,
-    onChange: function onChange(WRPgradientColor) {
-      return setAttributes({
-        WRPgradientColor: WRPgradientColor
-      });
-    }
-  })), WRPbackgroundType === "image" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
+  }))), WRPbackgroundType === "image" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Background Image")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["MediaUpload"], {
     onSelect: function onSelect(_ref2) {
@@ -5584,6 +5571,30 @@ function Inspector(props) {
         WRPbgImgAttachment: WRPbgImgAttachment
       });
     }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Repeat"),
+    value: WRPbgImgRepeat,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Default"),
+      value: ""
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("No-repeat"),
+      value: "no-repeat"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Repeat"),
+      value: "repeat"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Repeat-x"),
+      value: "repeat-x"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Repeat-y"),
+      value: "repeat-y"
+    }],
+    onChange: function onChange(WRPbgImgRepeat) {
+      return setAttributes({
+        WRPbgImgRepeat: WRPbgImgRepeat
+      });
+    }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Size"),
     value: WRPbackgroundSize,
@@ -5633,7 +5644,25 @@ function Inspector(props) {
         WRPbgImgCustomSize: WRPbgImgCustomSize
       });
     }
-  }))))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
+  })))), WRPbackgroundType === "fill" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Background Color"),
+    color: WRPbackgroundColor,
+    onChange: function onChange(WRPbackgroundColor) {
+      return setAttributes({
+        WRPbackgroundColor: WRPbackgroundColor
+      });
+    }
+  }), WRPbackgroundType === "gradient" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Gradient"),
+    initialOpen: false
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_gradient_color_controller__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    gradientColor: WRPgradientColor,
+    onChange: function onChange(WRPgradientColor) {
+      return setAttributes({
+        WRPgradientColor: WRPgradientColor
+      });
+    }
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox Settings"),
     initialOpen: false
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {

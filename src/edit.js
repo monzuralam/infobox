@@ -193,6 +193,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		WRPbgImgcustomPosY,
 		WRPbgImgcustomPosYUnit,
 		WRPbgImgAttachment,
+		WRPbgImgRepeat,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
@@ -455,23 +456,32 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			};
 
 			${
-				WRPbackgroundSize && WRPbackgroundSize !== "custom"
-					? `background-size: ${WRPbackgroundSize};`
-					: WRPbackgroundSize === "custom"
-					? `background-size: ${WRPbgImgCustomSize}${WRPbgImgCustomSizeUnit} auto;`
+				WRPbackgroundType === "image" && WRPbgImageURL
+					? `
+					${
+						WRPbackgroundSize && WRPbackgroundSize !== "custom"
+							? `background-size: ${WRPbackgroundSize};`
+							: WRPbackgroundSize === "custom"
+							? `background-size: ${WRPbgImgCustomSize}${WRPbgImgCustomSizeUnit} auto;`
+							: " "
+					}
+
+					${
+						WRPbgImgPos && WRPbgImgPos !== "custom"
+							? `background-position: ${WRPbgImgPos};`
+							: WRPbgImgPos === "custom"
+							? `background-position: ${WRPbgImgcustomPosX}${WRPbgImgcustomPosXUnit} ${WRPbgImgcustomPosY}${WRPbgImgcustomPosYUnit};`
+							: " "
+					}
+
+					${WRPbgImgAttachment ? `background-attachment: ${WRPbgImgAttachment};` : " "}
+
+					${WRPbgImgRepeat ? `background-repeat: ${WRPbgImgRepeat};` : " "}
+
+					`
 					: " "
 			}
 
-			${
-				WRPbgImgPos && WRPbgImgPos !== "custom"
-					? `background-position: ${WRPbgImgPos};`
-					: WRPbgImgPos === "custom"
-					? `background-position: ${WRPbgImgcustomPosX}${WRPbgImgcustomPosXUnit} ${WRPbgImgcustomPosY}${WRPbgImgcustomPosYUnit};`
-					: " "
-			}
-
-			${WRPbgImgAttachment ? `background-attachment: ${WRPbgImgAttachment};` : " "}
-			
 			${WRPbackgroundColor ? `background-color: ${WRPbackgroundColor};` : " "}
 
 			${

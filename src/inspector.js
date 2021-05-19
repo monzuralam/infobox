@@ -225,6 +225,7 @@ function Inspector(props) {
 		WRPbgImgcustomPosY,
 		WRPbgImgcustomPosYUnit,
 		WRPbgImgAttachment,
+		WRPbgImgRepeat,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
@@ -354,27 +355,6 @@ function Inspector(props) {
 						</ButtonGroup>
 					</BaseControl>
 
-					{WRPbackgroundType === "fill" && (
-						<ColorControl
-							label={__("Background Color")}
-							color={WRPbackgroundColor}
-							onChange={(WRPbackgroundColor) =>
-								setAttributes({ WRPbackgroundColor })
-							}
-						/>
-					)}
-
-					{WRPbackgroundType === "gradient" && (
-						<PanelBody title={__("Gradient")} initialOpen={false}>
-							<GradientColorControl
-								gradientColor={WRPgradientColor}
-								onChange={(WRPgradientColor) =>
-									setAttributes({ WRPgradientColor })
-								}
-							/>
-						</PanelBody>
-					)}
-
 					{WRPbackgroundType === "image" && (
 						<PanelBody title={__("Background Image")}>
 							<MediaUpload
@@ -480,6 +460,21 @@ function Inspector(props) {
 										}
 									/>
 
+									<SelectControl
+										label={__("Repeat")}
+										value={WRPbgImgRepeat}
+										options={[
+											{ label: __("Default"), value: "" },
+											{ label: __("No-repeat"), value: "no-repeat" },
+											{ label: __("Repeat"), value: "repeat" },
+											{ label: __("Repeat-x"), value: "repeat-x" },
+											{ label: __("Repeat-y"), value: "repeat-y" },
+										]}
+										onChange={(WRPbgImgRepeat) =>
+											setAttributes({ WRPbgImgRepeat })
+										}
+									/>
+
 									<BaseControl>
 										<SelectControl
 											label={__("Size")}
@@ -521,6 +516,27 @@ function Inspector(props) {
 									)}
 								</>
 							)}
+						</PanelBody>
+					)}
+
+					{WRPbackgroundType === "fill" && (
+						<ColorControl
+							label={__("Background Color")}
+							color={WRPbackgroundColor}
+							onChange={(WRPbackgroundColor) =>
+								setAttributes({ WRPbackgroundColor })
+							}
+						/>
+					)}
+
+					{WRPbackgroundType === "gradient" && (
+						<PanelBody title={__("Gradient")} initialOpen={false}>
+							<GradientColorControl
+								gradientColor={WRPgradientColor}
+								onChange={(WRPgradientColor) =>
+									setAttributes({ WRPgradientColor })
+								}
+							/>
 						</PanelBody>
 					)}
 				</PanelBody>

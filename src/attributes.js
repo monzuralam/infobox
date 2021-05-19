@@ -329,6 +329,9 @@ const attributes = {
 	WRPbgImgAttachment: {
 		type: "string",
 	},
+	WRPbgImgRepeat: {
+		type: "string",
+	},
 
 	// border attributes ⬇
 	WRPborderColor: {
