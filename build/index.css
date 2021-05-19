@@ -838,4 +838,16 @@ body.eb-res-option-mobile .editor-styles-wrapper {
   text-transform: capitalize;
 }
 
+.eb-panel-control .newWithResWrapper .eb-range-controller-container .eb-range-reset-button {
+  margin-top: 0;
+}
+
+.resLabel {
+  padding-right: 5px;
+}
+
+.resBtns {
+  padding-bottom: 5px;
+}
+
 /*# sourceMappingURL=index.css.map*/

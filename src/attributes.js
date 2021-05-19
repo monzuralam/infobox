@@ -296,6 +296,7 @@ const attributes = {
 	wrp_bgImageID: {
 		type: "string",
 	},
+
 	wrp_backgroundSize: {
 		type: "string",
 	},
@@ -333,6 +334,66 @@ const attributes = {
 		type: "string",
 	},
 
+	TABwrp_backgroundSize: {
+		type: "string",
+	},
+	TABwrp_bgImgCustomSize: {
+		type: "number",
+	},
+	TABwrp_bgImgCustomSizeUnit: {
+		type: "string",
+		default: "%",
+	},
+	TABwrp_bgImgPos: {
+		type: "string",
+	},
+	TABwrp_bgImgcustomPosX: {
+		type: "number",
+	},
+	TABwrp_bgImgcustomPosXUnit: {
+		type: "string",
+	},
+	TABwrp_bgImgcustomPosY: {
+		type: "number",
+	},
+	TABwrp_bgImgcustomPosYUnit: {
+		type: "string",
+		default: "px",
+	},
+	TABwrp_bgImgRepeat: {
+		type: "string",
+	},
+
+	MOBwrp_backgroundSize: {
+		type: "string",
+	},
+	MOBwrp_bgImgCustomSize: {
+		type: "number",
+	},
+	MOBwrp_bgImgCustomSizeUnit: {
+		type: "string",
+		default: "%",
+	},
+	MOBwrp_bgImgPos: {
+		type: "string",
+	},
+	MOBwrp_bgImgcustomPosX: {
+		type: "number",
+	},
+	MOBwrp_bgImgcustomPosXUnit: {
+		type: "string",
+	},
+	MOBwrp_bgImgcustomPosY: {
+		type: "number",
+	},
+	MOBwrp_bgImgcustomPosYUnit: {
+		type: "string",
+		default: "px",
+	},
+	MOBwrp_bgImgRepeat: {
+		type: "string",
+	},
+
 	// border attributes ⬇
 	wrp_borderColor: {
 		type: "string",
@@ -341,17 +402,6 @@ const attributes = {
 		type: "string",
 		default: "solid",
 	},
-
-	// wrp_borderWidth: {
-	// 	type: "number",
-	// },
-	// wrp_borderRadius: {
-	// 	type: "number",
-	// },
-	// wrp_radiusUnit: {
-	// 	type: "string",
-	// 	default: "px",
-	// },
 
 	// shadow attributes  ⬇
 	wrp_hOffset: {

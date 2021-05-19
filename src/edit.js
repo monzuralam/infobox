@@ -527,6 +527,13 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 			${wrp_borderColor ? wrp_borderStylesTab : " "}
 			${wrp_radiusStylesTab}
+
+
+			${
+				wrp_backgroundType === "image" && wrp_bgImageURL
+					? `background-attachment: scroll;`
+					: " "
+			}
 		}
 
 	`;
