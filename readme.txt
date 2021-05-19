@@ -1,9 +1,9 @@
 === Infobox ===
-Contributors: wpdevteam, re_enter_rupok, Asif2BD, alam789
+Contributors: wpdevteam, re_enter_rupok, Asif2BD, rahat89, hztyfoon
 Tags: block, blocks, infobox, info box, icon box, gutenberg, gutenberg blocks
 Requires at least: 5.0
-Tested up to: 5.5
-Stable tag: 1.0.0
+Tested up to: 5.7
+Stable tag: 1.1.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -20,7 +20,7 @@ Using **Infobox**, you can display your features, key points etc in a very attra
 **Dedicated Support:** We’ve an extraordinary support team ready to help you. Ask your questions in the support forum, we’ll get back to you immediately.
 
 
-## 🚀 BACKED BY A TRUSTED TEAM ## 
+## 🚀 BACKED BY A TRUSTED TEAM ##
 
 This Block is brought to you by [WPDeveloper](https://wpdeveloper.net), the team behind the most popular elements library [Essential Addons for Elementor](https://wordpress.org/plugins/essential-addons-for-elementor-lite/) (used by almost 700,000 happy users from 180+ countries).
 
@@ -61,7 +61,7 @@ Consider checking out our other WordPress solutions & boost your WordPress websi
 
 = Modern Way: =
 1. Go to the WordPress Block/Gutenberg Editor
-2. Search For "Infobox". 
+2. Search For "Infobox".
 3. Install in 1-click
 
 = Old Way: =
@@ -81,7 +81,13 @@ Yes, it will work with any standard WordPress theme.
 
 == Changelog ==
 
+= 1.1.0 - 19/05/2021 =
+* Added: Dynamic asset generation for inline styles
+* Added: Responsive control
+* Improved: Controls and structure
+
 = 1.0.0 =
 * Initial Release
 
 == Upgrade Notice ==
+[Major Update] Internal structure and performance improvement.
