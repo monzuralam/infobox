@@ -19,50 +19,46 @@ import ImageAvatar from "../image-avatar";
 import GradientColorControl from "../gradient-color-controller";
 import UnitControl from "../unit-control";
 import ColorControl from "../color-control";
-import ResetControl from "../reset-control";
 import WithResBtns from "../withResBtns";
 
-export default function BackgroundControl({ resRequiredProps }) {
+export default function BackgroundControl({ resRequiredProps, controlName }) {
 	const { setAttributes, attributes, resOption } = resRequiredProps;
 
 	const {
 		// background attributes ⬇
-		wrp_backgroundType,
-		wrp_backgroundColor,
-		wrp_gradientColor,
-		wrp_bgImageURL,
-		wrp_bgImageID,
-
-		wrp_backgroundSize,
-		wrp_bgImgCustomSize,
-		wrp_bgImgCustomSizeUnit,
-		wrp_bgImgPos,
-		wrp_bgImgcustomPosX,
-		wrp_bgImgcustomPosXUnit,
-		wrp_bgImgcustomPosY,
-		wrp_bgImgcustomPosYUnit,
-		wrp_bgImgAttachment,
-		wrp_bgImgRepeat,
-
-		TABwrp_backgroundSize,
-		TABwrp_bgImgCustomSize,
-		TABwrp_bgImgCustomSizeUnit,
-		TABwrp_bgImgPos,
-		TABwrp_bgImgcustomPosX,
-		TABwrp_bgImgcustomPosXUnit,
-		TABwrp_bgImgcustomPosY,
-		TABwrp_bgImgcustomPosYUnit,
-		TABwrp_bgImgRepeat,
-
-		MOBwrp_backgroundSize,
-		MOBwrp_bgImgCustomSize,
-		MOBwrp_bgImgCustomSizeUnit,
-		MOBwrp_bgImgPos,
-		MOBwrp_bgImgcustomPosX,
-		MOBwrp_bgImgcustomPosXUnit,
-		MOBwrp_bgImgcustomPosY,
-		MOBwrp_bgImgcustomPosYUnit,
-		MOBwrp_bgImgRepeat,
+		[`${controlName}backgroundType`]: backgroundType,
+		[`${controlName}backgroundColor`]: backgroundColor,
+		[`${controlName}gradientColor`]: gradientColor,
+		[`${controlName}bgImageURL`]: bgImageURL,
+		[`${controlName}bgImageID`]: bgImageID,
+		[`${controlName}backgroundSize`]: backgroundSize,
+		[`${controlName}bgImgCustomSize`]: bgImgCustomSize,
+		[`${controlName}bgImgCustomSizeUnit`]: bgImgCustomSizeUnit,
+		[`${controlName}bgImgPos`]: bgImgPos,
+		[`${controlName}bgImgcustomPosX`]: bgImgcustomPosX,
+		[`${controlName}bgImgcustomPosXUnit`]: bgImgcustomPosXUnit,
+		[`${controlName}bgImgcustomPosY`]: bgImgcustomPosY,
+		[`${controlName}bgImgcustomPosYUnit`]: bgImgcustomPosYUnit,
+		[`${controlName}bgImgAttachment`]: bgImgAttachment,
+		[`${controlName}bgImgRepeat`]: bgImgRepeat,
+		[`TAB${controlName}backgroundSize`]: TABbackgroundSize,
+		[`TAB${controlName}bgImgCustomSize`]: TABbgImgCustomSize,
+		[`TAB${controlName}bgImgCustomSizeUnit`]: TABbgImgCustomSizeUnit,
+		[`TAB${controlName}bgImgPos`]: TABbgImgPos,
+		[`TAB${controlName}bgImgcustomPosX`]: TABbgImgcustomPosX,
+		[`TAB${controlName}bgImgcustomPosXUnit`]: TABbgImgcustomPosXUnit,
+		[`TAB${controlName}bgImgcustomPosY`]: TABbgImgcustomPosY,
+		[`TAB${controlName}bgImgcustomPosYUnit`]: TABbgImgcustomPosYUnit,
+		[`TAB${controlName}bgImgRepeat`]: TABbgImgRepeat,
+		[`MOB${controlName}backgroundSize`]: MOBbackgroundSize,
+		[`MOB${controlName}bgImgCustomSize`]: MOBbgImgCustomSize,
+		[`MOB${controlName}bgImgCustomSizeUnit`]: MOBbgImgCustomSizeUnit,
+		[`MOB${controlName}bgImgPos`]: MOBbgImgPos,
+		[`MOB${controlName}bgImgcustomPosX`]: MOBbgImgcustomPosX,
+		[`MOB${controlName}bgImgcustomPosXUnit`]: MOBbgImgcustomPosXUnit,
+		[`MOB${controlName}bgImgcustomPosY`]: MOBbgImgcustomPosY,
+		[`MOB${controlName}bgImgcustomPosYUnit`]: MOBbgImgcustomPosYUnit,
+		[`MOB${controlName}bgImgRepeat`]: MOBbgImgRepeat,
 	} = attributes;
 
 	return (
@@ -75,11 +71,11 @@ export default function BackgroundControl({ resRequiredProps }) {
 						{ label: __("Image"), value: "image" },
 					].map(({ value, label }) => (
 						<Button
-							isPrimary={wrp_backgroundType === value}
-							isSecondary={wrp_backgroundType !== value}
+							isPrimary={backgroundType === value}
+							isSecondary={backgroundType !== value}
 							onClick={() =>
 								setAttributes({
-									wrp_backgroundType: value,
+									[`${controlName}backgroundType`]: value,
 								})
 							}
 						>
@@ -89,19 +85,42 @@ export default function BackgroundControl({ resRequiredProps }) {
 				</ButtonGroup>
 			</BaseControl>
 
-			{wrp_backgroundType === "image" && (
+			{backgroundType === "fill" && (
+				<ColorControl
+					label={__("Background Color")}
+					color={backgroundColor}
+					onChange={(backgroundColor) =>
+						setAttributes({
+							[`${controlName}backgroundColor`]: backgroundColor,
+						})
+					}
+				/>
+			)}
+
+			{backgroundType === "gradient" && (
+				<PanelBody title={__("Gradient")} initialOpen={false}>
+					<GradientColorControl
+						gradientColor={gradientColor}
+						onChange={(gradientColor) =>
+							setAttributes({ [`${controlName}gradientColor`]: gradientColor })
+						}
+					/>
+				</PanelBody>
+			)}
+
+			{backgroundType === "image" && (
 				<PanelBody title={__("Background Image")}>
 					<MediaUpload
 						onSelect={({ url, id }) =>
 							setAttributes({
-								wrp_bgImageURL: url,
-								wrp_bgImageID: id,
+								[`${controlName}bgImageURL`]: url,
+								[`${controlName}bgImageID`]: id,
 							})
 						}
 						type="image"
-						value={wrp_bgImageID}
+						value={bgImageID}
 						render={({ open }) =>
-							!wrp_bgImageURL && (
+							!bgImageURL && (
 								<Button
 									className="eb-infobox-inspector-panel-img-btn components-button"
 									label={__("Upload Image")}
@@ -112,11 +131,13 @@ export default function BackgroundControl({ resRequiredProps }) {
 						}
 					/>
 
-					{wrp_bgImageURL && (
+					{bgImageURL && (
 						<>
 							<ImageAvatar
-								imageUrl={wrp_bgImageURL}
-								onDeleteImage={() => setAttributes({ wrp_bgImageURL: null })}
+								imageUrl={bgImageURL}
+								onDeleteImage={() =>
+									setAttributes({ [`${controlName}bgImageURL`]: null })
+								}
 							/>
 
 							{resOption === "desktop" && (
@@ -126,7 +147,7 @@ export default function BackgroundControl({ resRequiredProps }) {
 										label="position"
 									>
 										<SelectControl
-											value={wrp_bgImgPos}
+											value={bgImgPos}
 											options={[
 												{ label: __("Default"), value: "" },
 												{
@@ -152,23 +173,25 @@ export default function BackgroundControl({ resRequiredProps }) {
 												},
 												{ label: __("Custom"), value: "custom" },
 											]}
-											onChange={(wrp_bgImgPos) =>
-												setAttributes({ wrp_bgImgPos })
+											onChange={(bgImgPos) =>
+												setAttributes({ [`${controlName}bgImgPos`]: bgImgPos })
 											}
 										/>
 									</WithResBtns>
 
-									{wrp_bgImgPos === "custom" && (
+									{bgImgPos === "custom" && (
 										<>
 											<UnitControl
-												selectedUnit={wrp_bgImgcustomPosXUnit}
+												selectedUnit={bgImgcustomPosXUnit}
 												unitTypes={[
 													{ label: "px", value: "px" },
 													{ label: "em", value: "em" },
 													{ label: "%", value: "%" },
 												]}
-												onClick={(wrp_bgImgcustomPosXUnit) =>
-													setAttributes({ wrp_bgImgcustomPosXUnit })
+												onClick={(bgImgcustomPosXUnit) =>
+													setAttributes({
+														[`${controlName}bgImgcustomPosXUnit`]: bgImgcustomPosXUnit,
+													})
 												}
 											/>
 
@@ -177,22 +200,26 @@ export default function BackgroundControl({ resRequiredProps }) {
 												label="X Position"
 											>
 												<RangeControl
-													value={wrp_bgImgcustomPosX}
-													onChange={(wrp_bgImgcustomPosX) =>
-														setAttributes({ wrp_bgImgcustomPosX })
+													value={bgImgcustomPosX}
+													onChange={(bgImgcustomPosX) =>
+														setAttributes({
+															[`${controlName}bgImgcustomPosX`]: bgImgcustomPosX,
+														})
 													}
 												/>
 											</WithResBtns>
 
 											<UnitControl
-												selectedUnit={wrp_bgImgcustomPosYUnit}
+												selectedUnit={bgImgcustomPosYUnit}
 												unitTypes={[
 													{ label: "px", value: "px" },
 													{ label: "em", value: "em" },
 													{ label: "%", value: "%" },
 												]}
-												onClick={(wrp_bgImgcustomPosYUnit) =>
-													setAttributes({ wrp_bgImgcustomPosYUnit })
+												onClick={(bgImgcustomPosYUnit) =>
+													setAttributes({
+														[`${controlName}bgImgcustomPosYUnit`]: bgImgcustomPosYUnit,
+													})
 												}
 											/>
 
@@ -201,9 +228,11 @@ export default function BackgroundControl({ resRequiredProps }) {
 												label="Y Position"
 											>
 												<RangeControl
-													value={wrp_bgImgcustomPosY}
-													onChange={(wrp_bgImgcustomPosY) =>
-														setAttributes({ wrp_bgImgcustomPosY })
+													value={bgImgcustomPosY}
+													onChange={(bgImgcustomPosY) =>
+														setAttributes({
+															[`${controlName}bgImgcustomPosY`]: bgImgcustomPosY,
+														})
 													}
 												/>
 											</WithResBtns>
@@ -212,18 +241,20 @@ export default function BackgroundControl({ resRequiredProps }) {
 
 									<SelectControl
 										label="Attachment"
-										value={wrp_bgImgAttachment}
+										value={bgImgAttachment}
 										options={[
 											{ label: __("Default"), value: "" },
 											{ label: __("Scroll"), value: "scroll" },
 											{ label: __("Fixed"), value: "fixed" },
 										]}
-										onChange={(wrp_bgImgAttachment) =>
-											setAttributes({ wrp_bgImgAttachment })
+										onChange={(bgImgAttachment) =>
+											setAttributes({
+												[`${controlName}bgImgAttachment`]: bgImgAttachment,
+											})
 										}
 									/>
 
-									{wrp_bgImgAttachment === "fixed" && (
+									{bgImgAttachment === "fixed" && (
 										<p
 											style={{
 												marginTop: "-10px",
@@ -239,7 +270,7 @@ export default function BackgroundControl({ resRequiredProps }) {
 										label="Repeat"
 									>
 										<SelectControl
-											value={wrp_bgImgRepeat}
+											value={bgImgRepeat}
 											options={[
 												{ label: __("Default"), value: "" },
 												{ label: __("No-repeat"), value: "no-repeat" },
@@ -247,15 +278,17 @@ export default function BackgroundControl({ resRequiredProps }) {
 												{ label: __("Repeat-x"), value: "repeat-x" },
 												{ label: __("Repeat-y"), value: "repeat-y" },
 											]}
-											onChange={(wrp_bgImgRepeat) =>
-												setAttributes({ wrp_bgImgRepeat })
+											onChange={(bgImgRepeat) =>
+												setAttributes({
+													[`${controlName}bgImgRepeat`]: bgImgRepeat,
+												})
 											}
 										/>
 									</WithResBtns>
 
 									<WithResBtns resRequiredProps={resRequiredProps} label="Size">
 										<SelectControl
-											value={wrp_backgroundSize}
+											value={backgroundSize}
 											options={[
 												{ label: __("Default"), value: "" },
 												{ label: __("Auto"), value: "auto" },
@@ -263,23 +296,27 @@ export default function BackgroundControl({ resRequiredProps }) {
 												{ label: __("Contain"), value: "contain" },
 												{ label: __("Custom"), value: "custom" },
 											]}
-											onChange={(wrp_backgroundSize) =>
-												setAttributes({ wrp_backgroundSize })
+											onChange={(backgroundSize) =>
+												setAttributes({
+													[`${controlName}backgroundSize`]: backgroundSize,
+												})
 											}
 										/>
 									</WithResBtns>
 
-									{wrp_backgroundSize === "custom" && (
+									{backgroundSize === "custom" && (
 										<>
 											<UnitControl
-												selectedUnit={wrp_bgImgCustomSizeUnit}
+												selectedUnit={bgImgCustomSizeUnit}
 												unitTypes={[
 													{ label: "px", value: "px" },
 													{ label: "em", value: "em" },
 													{ label: "%", value: "%" },
 												]}
-												onClick={(wrp_bgImgCustomSizeUnit) =>
-													setAttributes({ wrp_bgImgCustomSizeUnit })
+												onClick={(bgImgCustomSizeUnit) =>
+													setAttributes({
+														[`${controlName}bgImgCustomSizeUnit`]: bgImgCustomSizeUnit,
+													})
 												}
 											/>
 
@@ -288,9 +325,11 @@ export default function BackgroundControl({ resRequiredProps }) {
 												label="Width"
 											>
 												<RangeControl
-													value={wrp_bgImgCustomSize}
-													onChange={(wrp_bgImgCustomSize) =>
-														setAttributes({ wrp_bgImgCustomSize })
+													value={bgImgCustomSize}
+													onChange={(bgImgCustomSize) =>
+														setAttributes({
+															[`${controlName}bgImgCustomSize`]: bgImgCustomSize,
+														})
 													}
 												/>
 											</WithResBtns>
@@ -306,7 +345,7 @@ export default function BackgroundControl({ resRequiredProps }) {
 										label="position"
 									>
 										<SelectControl
-											value={TABwrp_bgImgPos}
+											value={TABbgImgPos}
 											options={[
 												{ label: __("Default"), value: "" },
 												{
@@ -332,23 +371,27 @@ export default function BackgroundControl({ resRequiredProps }) {
 												},
 												{ label: __("Custom"), value: "custom" },
 											]}
-											onChange={(TABwrp_bgImgPos) =>
-												setAttributes({ TABwrp_bgImgPos })
+											onChange={(TABbgImgPos) =>
+												setAttributes({
+													[`TAB${controlName}bgImgPos`]: TABbgImgPos,
+												})
 											}
 										/>
 									</WithResBtns>
 
-									{TABwrp_bgImgPos === "custom" && (
+									{TABbgImgPos === "custom" && (
 										<>
 											<UnitControl
-												selectedUnit={TABwrp_bgImgcustomPosXUnit}
+												selectedUnit={TABbgImgcustomPosXUnit}
 												unitTypes={[
 													{ label: "px", value: "px" },
 													{ label: "em", value: "em" },
 													{ label: "%", value: "%" },
 												]}
-												onClick={(TABwrp_bgImgcustomPosXUnit) =>
-													setAttributes({ TABwrp_bgImgcustomPosXUnit })
+												onClick={(TABbgImgcustomPosXUnit) =>
+													setAttributes({
+														[`TAB${controlName}bgImgcustomPosXUnit`]: TABbgImgcustomPosXUnit,
+													})
 												}
 											/>
 
@@ -356,31 +399,27 @@ export default function BackgroundControl({ resRequiredProps }) {
 												resRequiredProps={resRequiredProps}
 												label="X Position"
 											>
-												<ResetControl
-													onReset={() =>
+												<RangeControl
+													value={TABbgImgcustomPosX}
+													onChange={(TABbgImgcustomPosX) =>
 														setAttributes({
-															TABwrp_bgImgcustomPosX: undefined,
+															[`TAB${controlName}bgImgcustomPosX`]: TABbgImgcustomPosX,
 														})
 													}
-												>
-													<RangeControl
-														value={TABwrp_bgImgcustomPosX}
-														onChange={(TABwrp_bgImgcustomPosX) =>
-															setAttributes({ TABwrp_bgImgcustomPosX })
-														}
-													/>
-												</ResetControl>
+												/>
 											</WithResBtns>
 
 											<UnitControl
-												selectedUnit={TABwrp_bgImgcustomPosYUnit}
+												selectedUnit={TABbgImgcustomPosYUnit}
 												unitTypes={[
 													{ label: "px", value: "px" },
 													{ label: "em", value: "em" },
 													{ label: "%", value: "%" },
 												]}
-												onClick={(TABwrp_bgImgcustomPosYUnit) =>
-													setAttributes({ TABwrp_bgImgcustomPosYUnit })
+												onClick={(TABbgImgcustomPosYUnit) =>
+													setAttributes({
+														[`TAB${controlName}bgImgcustomPosYUnit`]: TABbgImgcustomPosYUnit,
+													})
 												}
 											/>
 
@@ -388,38 +427,34 @@ export default function BackgroundControl({ resRequiredProps }) {
 												resRequiredProps={resRequiredProps}
 												label="Y Position"
 											>
-												<ResetControl
-													onReset={() =>
+												<RangeControl
+													value={TABbgImgcustomPosY}
+													onChange={(TABbgImgcustomPosY) =>
 														setAttributes({
-															TABwrp_bgImgcustomPosY: undefined,
+															[`TAB${controlName}bgImgcustomPosY`]: TABbgImgcustomPosY,
 														})
 													}
-												>
-													<RangeControl
-														value={TABwrp_bgImgcustomPosY}
-														onChange={(TABwrp_bgImgcustomPosY) =>
-															setAttributes({ TABwrp_bgImgcustomPosY })
-														}
-													/>
-												</ResetControl>
+												/>
 											</WithResBtns>
 										</>
 									)}
 
 									<SelectControl
 										label="Attachment"
-										value={wrp_bgImgAttachment}
+										value={bgImgAttachment}
 										options={[
 											{ label: __("Default"), value: "" },
 											{ label: __("Scroll"), value: "scroll" },
 											{ label: __("Fixed"), value: "fixed" },
 										]}
-										onChange={(wrp_bgImgAttachment) =>
-											setAttributes({ wrp_bgImgAttachment })
+										onChange={(bgImgAttachment) =>
+											setAttributes({
+												[`${controlName}bgImgAttachment`]: bgImgAttachment,
+											})
 										}
 									/>
 
-									{wrp_bgImgAttachment === "fixed" && (
+									{bgImgAttachment === "fixed" && (
 										<p
 											style={{
 												marginTop: "-10px",
@@ -435,7 +470,7 @@ export default function BackgroundControl({ resRequiredProps }) {
 										label="Repeat"
 									>
 										<SelectControl
-											value={TABwrp_bgImgRepeat}
+											value={TABbgImgRepeat}
 											options={[
 												{ label: __("Default"), value: "" },
 												{ label: __("No-repeat"), value: "no-repeat" },
@@ -443,15 +478,17 @@ export default function BackgroundControl({ resRequiredProps }) {
 												{ label: __("Repeat-x"), value: "repeat-x" },
 												{ label: __("Repeat-y"), value: "repeat-y" },
 											]}
-											onChange={(TABwrp_bgImgRepeat) =>
-												setAttributes({ TABwrp_bgImgRepeat })
+											onChange={(TABbgImgRepeat) =>
+												setAttributes({
+													[`TAB${controlName}bgImgRepeat`]: TABbgImgRepeat,
+												})
 											}
 										/>
 									</WithResBtns>
 
 									<WithResBtns resRequiredProps={resRequiredProps} label="Size">
 										<SelectControl
-											value={TABwrp_backgroundSize}
+											value={TABbackgroundSize}
 											options={[
 												{ label: __("Default"), value: "" },
 												{ label: __("Auto"), value: "auto" },
@@ -459,23 +496,27 @@ export default function BackgroundControl({ resRequiredProps }) {
 												{ label: __("Contain"), value: "contain" },
 												{ label: __("Custom"), value: "custom" },
 											]}
-											onChange={(TABwrp_backgroundSize) =>
-												setAttributes({ TABwrp_backgroundSize })
+											onChange={(TABbackgroundSize) =>
+												setAttributes({
+													[`TAB${controlName}backgroundSize`]: TABbackgroundSize,
+												})
 											}
 										/>
 									</WithResBtns>
 
-									{TABwrp_backgroundSize === "custom" && (
+									{TABbackgroundSize === "custom" && (
 										<>
 											<UnitControl
-												selectedUnit={TABwrp_bgImgCustomSizeUnit}
+												selectedUnit={TABbgImgCustomSizeUnit}
 												unitTypes={[
 													{ label: "px", value: "px" },
 													{ label: "em", value: "em" },
 													{ label: "%", value: "%" },
 												]}
-												onClick={(TABwrp_bgImgCustomSizeUnit) =>
-													setAttributes({ TABwrp_bgImgCustomSizeUnit })
+												onClick={(TABbgImgCustomSizeUnit) =>
+													setAttributes({
+														[`TAB${controlName}bgImgCustomSizeUnit`]: TABbgImgCustomSizeUnit,
+													})
 												}
 											/>
 
@@ -483,20 +524,14 @@ export default function BackgroundControl({ resRequiredProps }) {
 												resRequiredProps={resRequiredProps}
 												label="Width"
 											>
-												<ResetControl
-													onReset={() =>
+												<RangeControl
+													value={TABbgImgCustomSize}
+													onChange={(TABbgImgCustomSize) =>
 														setAttributes({
-															TABwrp_bgImgCustomSize: undefined,
+															[`TAB${controlName}bgImgCustomSize`]: TABbgImgCustomSize,
 														})
 													}
-												>
-													<RangeControl
-														value={TABwrp_bgImgCustomSize}
-														onChange={(TABwrp_bgImgCustomSize) =>
-															setAttributes({ TABwrp_bgImgCustomSize })
-														}
-													/>
-												</ResetControl>
+												/>
 											</WithResBtns>
 										</>
 									)}
@@ -510,7 +545,7 @@ export default function BackgroundControl({ resRequiredProps }) {
 										label="position"
 									>
 										<SelectControl
-											value={MOBwrp_bgImgPos}
+											value={MOBbgImgPos}
 											options={[
 												{ label: __("Default"), value: "" },
 												{
@@ -536,23 +571,27 @@ export default function BackgroundControl({ resRequiredProps }) {
 												},
 												{ label: __("Custom"), value: "custom" },
 											]}
-											onChange={(MOBwrp_bgImgPos) =>
-												setAttributes({ MOBwrp_bgImgPos })
+											onChange={(MOBbgImgPos) =>
+												setAttributes({
+													[`MOB${controlName}bgImgPos`]: MOBbgImgPos,
+												})
 											}
 										/>
 									</WithResBtns>
 
-									{MOBwrp_bgImgPos === "custom" && (
+									{MOBbgImgPos === "custom" && (
 										<>
 											<UnitControl
-												selectedUnit={MOBwrp_bgImgcustomPosXUnit}
+												selectedUnit={MOBbgImgcustomPosXUnit}
 												unitTypes={[
 													{ label: "px", value: "px" },
 													{ label: "em", value: "em" },
 													{ label: "%", value: "%" },
 												]}
-												onClick={(MOBwrp_bgImgcustomPosXUnit) =>
-													setAttributes({ MOBwrp_bgImgcustomPosXUnit })
+												onClick={(MOBbgImgcustomPosXUnit) =>
+													setAttributes({
+														[`MOB${controlName}bgImgcustomPosXUnit`]: MOBbgImgcustomPosXUnit,
+													})
 												}
 											/>
 
@@ -560,31 +599,27 @@ export default function BackgroundControl({ resRequiredProps }) {
 												resRequiredProps={resRequiredProps}
 												label="X Position"
 											>
-												<ResetControl
-													onReset={() =>
+												<RangeControl
+													value={MOBbgImgcustomPosX}
+													onChange={(MOBbgImgcustomPosX) =>
 														setAttributes({
-															MOBwrp_bgImgcustomPosX: undefined,
+															[`MOB${controlName}bgImgcustomPosX`]: MOBbgImgcustomPosX,
 														})
 													}
-												>
-													<RangeControl
-														value={MOBwrp_bgImgcustomPosX}
-														onChange={(MOBwrp_bgImgcustomPosX) =>
-															setAttributes({ MOBwrp_bgImgcustomPosX })
-														}
-													/>
-												</ResetControl>
+												/>
 											</WithResBtns>
 
 											<UnitControl
-												selectedUnit={MOBwrp_bgImgcustomPosYUnit}
+												selectedUnit={MOBbgImgcustomPosYUnit}
 												unitTypes={[
 													{ label: "px", value: "px" },
 													{ label: "em", value: "em" },
 													{ label: "%", value: "%" },
 												]}
-												onClick={(MOBwrp_bgImgcustomPosYUnit) =>
-													setAttributes({ MOBwrp_bgImgcustomPosYUnit })
+												onClick={(MOBbgImgcustomPosYUnit) =>
+													setAttributes({
+														[`MOB${controlName}bgImgcustomPosYUnit`]: MOBbgImgcustomPosYUnit,
+													})
 												}
 											/>
 
@@ -592,38 +627,34 @@ export default function BackgroundControl({ resRequiredProps }) {
 												resRequiredProps={resRequiredProps}
 												label="Y Position"
 											>
-												<ResetControl
-													onReset={() =>
+												<RangeControl
+													value={MOBbgImgcustomPosY}
+													onChange={(MOBbgImgcustomPosY) =>
 														setAttributes({
-															MOBwrp_bgImgcustomPosY: undefined,
+															[`MOB${controlName}bgImgcustomPosY`]: MOBbgImgcustomPosY,
 														})
 													}
-												>
-													<RangeControl
-														value={MOBwrp_bgImgcustomPosY}
-														onChange={(MOBwrp_bgImgcustomPosY) =>
-															setAttributes({ MOBwrp_bgImgcustomPosY })
-														}
-													/>
-												</ResetControl>
+												/>
 											</WithResBtns>
 										</>
 									)}
 
 									<SelectControl
 										label="Attachment"
-										value={wrp_bgImgAttachment}
+										value={bgImgAttachment}
 										options={[
 											{ label: __("Default"), value: "" },
 											{ label: __("Scroll"), value: "scroll" },
 											{ label: __("Fixed"), value: "fixed" },
 										]}
-										onChange={(wrp_bgImgAttachment) =>
-											setAttributes({ wrp_bgImgAttachment })
+										onChange={(bgImgAttachment) =>
+											setAttributes({
+												[`${controlName}bgImgAttachment`]: bgImgAttachment,
+											})
 										}
 									/>
 
-									{wrp_bgImgAttachment === "fixed" && (
+									{bgImgAttachment === "fixed" && (
 										<p
 											style={{
 												marginTop: "-10px",
@@ -639,7 +670,7 @@ export default function BackgroundControl({ resRequiredProps }) {
 										label="Repeat"
 									>
 										<SelectControl
-											value={MOBwrp_bgImgRepeat}
+											value={MOBbgImgRepeat}
 											options={[
 												{ label: __("Default"), value: "" },
 												{ label: __("No-repeat"), value: "no-repeat" },
@@ -647,15 +678,17 @@ export default function BackgroundControl({ resRequiredProps }) {
 												{ label: __("Repeat-x"), value: "repeat-x" },
 												{ label: __("Repeat-y"), value: "repeat-y" },
 											]}
-											onChange={(MOBwrp_bgImgRepeat) =>
-												setAttributes({ MOBwrp_bgImgRepeat })
+											onChange={(MOBbgImgRepeat) =>
+												setAttributes({
+													[`MOB${controlName}bgImgRepeat`]: MOBbgImgRepeat,
+												})
 											}
 										/>
 									</WithResBtns>
 
 									<WithResBtns resRequiredProps={resRequiredProps} label="Size">
 										<SelectControl
-											value={MOBwrp_backgroundSize}
+											value={MOBbackgroundSize}
 											options={[
 												{ label: __("Default"), value: "" },
 												{ label: __("Auto"), value: "auto" },
@@ -663,23 +696,27 @@ export default function BackgroundControl({ resRequiredProps }) {
 												{ label: __("Contain"), value: "contain" },
 												{ label: __("Custom"), value: "custom" },
 											]}
-											onChange={(MOBwrp_backgroundSize) =>
-												setAttributes({ MOBwrp_backgroundSize })
+											onChange={(MOBbackgroundSize) =>
+												setAttributes({
+													[`MOB${controlName}backgroundSize`]: MOBbackgroundSize,
+												})
 											}
 										/>
 									</WithResBtns>
 
-									{MOBwrp_backgroundSize === "custom" && (
+									{MOBbackgroundSize === "custom" && (
 										<>
 											<UnitControl
-												selectedUnit={MOBwrp_bgImgCustomSizeUnit}
+												selectedUnit={MOBbgImgCustomSizeUnit}
 												unitTypes={[
 													{ label: "px", value: "px" },
 													{ label: "em", value: "em" },
 													{ label: "%", value: "%" },
 												]}
-												onClick={(MOBwrp_bgImgCustomSizeUnit) =>
-													setAttributes({ MOBwrp_bgImgCustomSizeUnit })
+												onClick={(MOBbgImgCustomSizeUnit) =>
+													setAttributes({
+														[`MOB${controlName}bgImgCustomSizeUnit`]: MOBbgImgCustomSizeUnit,
+													})
 												}
 											/>
 
@@ -687,20 +724,14 @@ export default function BackgroundControl({ resRequiredProps }) {
 												resRequiredProps={resRequiredProps}
 												label="Width"
 											>
-												<ResetControl
-													onReset={() =>
+												<RangeControl
+													value={MOBbgImgCustomSize}
+													onChange={(MOBbgImgCustomSize) =>
 														setAttributes({
-															MOBwrp_bgImgCustomSize: undefined,
+															[`MOB${controlName}bgImgCustomSize`]: MOBbgImgCustomSize,
 														})
 													}
-												>
-													<RangeControl
-														value={MOBwrp_bgImgCustomSize}
-														onChange={(MOBwrp_bgImgCustomSize) =>
-															setAttributes({ MOBwrp_bgImgCustomSize })
-														}
-													/>
-												</ResetControl>
+												/>
 											</WithResBtns>
 										</>
 									)}
@@ -708,27 +739,6 @@ export default function BackgroundControl({ resRequiredProps }) {
 							)}
 						</>
 					)}
-				</PanelBody>
-			)}
-
-			{wrp_backgroundType === "fill" && (
-				<ColorControl
-					label={__("Background Color")}
-					color={wrp_backgroundColor}
-					onChange={(wrp_backgroundColor) =>
-						setAttributes({ wrp_backgroundColor })
-					}
-				/>
-			)}
-
-			{wrp_backgroundType === "gradient" && (
-				<PanelBody title={__("Gradient")} initialOpen={false}>
-					<GradientColorControl
-						gradientColor={wrp_gradientColor}
-						onChange={(wrp_gradientColor) =>
-							setAttributes({ wrp_gradientColor })
-						}
-					/>
 				</PanelBody>
 			)}
 		</>

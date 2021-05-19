@@ -36,6 +36,8 @@ import WithResBtns from "../util/withResBtns";
 
 import BackgroundControl from "../util/backgroundControl";
 
+import { infoWrapBg } from "./constants/backgroundsConstants";
+
 import {
 	typoPrefix_title,
 	typoPrefix_content,
@@ -323,7 +325,10 @@ function Inspector(props) {
 					title={__("Infobox Background")}
 					// initialOpen={false}
 				>
-					<BackgroundControl resRequiredProps={resRequiredProps} />
+					<BackgroundControl
+						controlName={infoWrapBg}
+						resRequiredProps={resRequiredProps}
+					/>
 				</PanelBody>
 
 				<>
