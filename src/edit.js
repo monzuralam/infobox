@@ -155,13 +155,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		//
 		contentsAlignment,
 
-		// background attributes ⬇
-		WRPbackgroundType,
-		WRPbackgroundColor,
-		WRPgradientColor,
-		WRPbackgroundSize,
-		WRPbgImageURL,
-
 		// border attributes ⬇
 		WRPborderColor,
 		WRPborderStyle,
@@ -185,6 +178,21 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 		// transition attributes ⬇
 		WRPtransitionTime,
+
+		// background attributes ⬇
+		WRPbackgroundType,
+		WRPbackgroundColor,
+		WRPgradientColor,
+		WRPbgImageURL,
+		WRPbackgroundSize,
+		WRPbgImgCustomSize,
+		WRPbgImgCustomSizeUnit,
+		WRPbgImgPos,
+		WRPbgImgcustomPosX,
+		WRPbgImgcustomPosXUnit,
+		WRPbgImgcustomPosY,
+		WRPbgImgcustomPosYUnit,
+		WRPbgImgAttachment,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
@@ -446,7 +454,24 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					: "none"
 			};
 
-			${WRPbackgroundSize ? `background-size: ${WRPbackgroundSize};` : " "}
+			${
+				WRPbackgroundSize && WRPbackgroundSize !== "custom"
+					? `background-size: ${WRPbackgroundSize};`
+					: WRPbackgroundSize === "custom"
+					? `background-size: ${WRPbgImgCustomSize}${WRPbgImgCustomSizeUnit} auto;`
+					: " "
+			}
+
+			${
+				WRPbgImgPos && WRPbgImgPos !== "custom"
+					? `background-position: ${WRPbgImgPos};`
+					: WRPbgImgPos === "custom"
+					? `background-position: ${WRPbgImgcustomPosX}${WRPbgImgcustomPosXUnit} ${WRPbgImgcustomPosY}${WRPbgImgcustomPosYUnit};`
+					: " "
+			}
+
+			${WRPbgImgAttachment ? `background-attachment: ${WRPbgImgAttachment};` : " "}
+			
 			${WRPbackgroundColor ? `background-color: ${WRPbackgroundColor};` : " "}
 
 			${

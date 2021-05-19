@@ -188,14 +188,6 @@ function Inspector(props) {
 		//
 		contentsAlignment,
 
-		// background attributes ⬇
-		WRPbackgroundType,
-		WRPbackgroundColor,
-		WRPgradientColor,
-		WRPbackgroundSize,
-		WRPbgImageURL,
-		WRPbgImageID,
-
 		// border attributes ⬇
 		WRPborderColor,
 		WRPborderStyle,
@@ -217,6 +209,22 @@ function Inspector(props) {
 		WRPhoverSpread,
 		WRPhoverShadowColor,
 		WRPtransitionTime,
+
+		// background attributes ⬇
+		WRPbackgroundType,
+		WRPbackgroundColor,
+		WRPgradientColor,
+		WRPbgImageURL,
+		WRPbgImageID,
+		WRPbackgroundSize,
+		WRPbgImgCustomSize,
+		WRPbgImgCustomSizeUnit,
+		WRPbgImgPos,
+		WRPbgImgcustomPosX,
+		WRPbgImgcustomPosXUnit,
+		WRPbgImgcustomPosY,
+		WRPbgImgcustomPosYUnit,
+		WRPbgImgAttachment,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
@@ -324,6 +332,199 @@ function Inspector(props) {
 	return (
 		<InspectorControls key="controls">
 			<span className="eb-panel-control">
+				<PanelBody
+					title={__("Infobox Background")}
+					// initialOpen={false}
+				>
+					<BaseControl label={__("Background Type")}>
+						<ButtonGroup>
+							{BACKGROUND_TYPES.map(({ value, label }) => (
+								<Button
+									isPrimary={WRPbackgroundType === value}
+									isSecondary={WRPbackgroundType !== value}
+									onClick={() =>
+										setAttributes({
+											WRPbackgroundType: value,
+										})
+									}
+								>
+									{label}
+								</Button>
+							))}
+						</ButtonGroup>
+					</BaseControl>
+
+					{WRPbackgroundType === "fill" && (
+						<ColorControl
+							label={__("Background Color")}
+							color={WRPbackgroundColor}
+							onChange={(WRPbackgroundColor) =>
+								setAttributes({ WRPbackgroundColor })
+							}
+						/>
+					)}
+
+					{WRPbackgroundType === "gradient" && (
+						<PanelBody title={__("Gradient")} initialOpen={false}>
+							<GradientColorControl
+								gradientColor={WRPgradientColor}
+								onChange={(WRPgradientColor) =>
+									setAttributes({ WRPgradientColor })
+								}
+							/>
+						</PanelBody>
+					)}
+
+					{WRPbackgroundType === "image" && (
+						<PanelBody title={__("Background Image")}>
+							<MediaUpload
+								onSelect={({ url, id }) =>
+									setAttributes({
+										WRPbgImageURL: url,
+										WRPbgImageID: id,
+									})
+								}
+								type="image"
+								value={WRPbgImageID}
+								render={({ open }) =>
+									!WRPbgImageURL && (
+										<Button
+											className="eb-infobox-inspector-panel-img-btn components-button"
+											label={__("Upload Image")}
+											icon="format-image"
+											onClick={open}
+										/>
+									)
+								}
+							/>
+
+							{WRPbgImageURL && (
+								<>
+									<ImageAvatar
+										imageUrl={WRPbgImageURL}
+										onDeleteImage={() => setAttributes({ WRPbgImageURL: null })}
+									/>
+
+									<SelectControl
+										label={__("Position")}
+										value={WRPbgImgPos}
+										options={[
+											{ label: __("Default"), value: "" },
+											{ label: __("Center Center"), value: "center center" },
+											{ label: __("Center Left"), value: "center left" },
+											{ label: __("Center Right"), value: "center right" },
+											{ label: __("Top Center"), value: "top center" },
+											{ label: __("Top Left"), value: "top left" },
+											{ label: __("Top Right"), value: "top right" },
+											{ label: __("Bottom Center"), value: "bottom center" },
+											{ label: __("Bottom Left"), value: "bottom left" },
+											{ label: __("Bottom Right"), value: "bottom right" },
+											{ label: __("Custom"), value: "custom" },
+										]}
+										onChange={(WRPbgImgPos) => setAttributes({ WRPbgImgPos })}
+									/>
+
+									{WRPbgImgPos === "custom" && (
+										<>
+											<UnitControl
+												selectedUnit={WRPbgImgcustomPosXUnit}
+												unitTypes={[
+													{ label: "px", value: "px" },
+													{ label: "em", value: "em" },
+													{ label: "%", value: "%" },
+												]}
+												onClick={(WRPbgImgcustomPosXUnit) =>
+													setAttributes({ WRPbgImgcustomPosXUnit })
+												}
+											/>
+
+											<RangeControl
+												label={__("X Position")}
+												value={WRPbgImgcustomPosX}
+												onChange={(WRPbgImgcustomPosX) =>
+													setAttributes({ WRPbgImgcustomPosX })
+												}
+											/>
+
+											<UnitControl
+												selectedUnit={WRPbgImgcustomPosYUnit}
+												unitTypes={[
+													{ label: "px", value: "px" },
+													{ label: "em", value: "em" },
+													{ label: "%", value: "%" },
+												]}
+												onClick={(WRPbgImgcustomPosYUnit) =>
+													setAttributes({ WRPbgImgcustomPosYUnit })
+												}
+											/>
+											<RangeControl
+												label={__("Y Position")}
+												value={WRPbgImgcustomPosY}
+												onChange={(WRPbgImgcustomPosY) =>
+													setAttributes({ WRPbgImgcustomPosY })
+												}
+											/>
+										</>
+									)}
+
+									<SelectControl
+										label={__("Attachment")}
+										value={WRPbgImgAttachment}
+										options={[
+											{ label: __("Default"), value: "" },
+											{ label: __("Scroll"), value: "scroll" },
+											{ label: __("Fixed"), value: "fixed" },
+										]}
+										onChange={(WRPbgImgAttachment) =>
+											setAttributes({ WRPbgImgAttachment })
+										}
+									/>
+
+									<BaseControl>
+										<SelectControl
+											label={__("Size")}
+											value={WRPbackgroundSize}
+											options={[
+												{ label: __("Default"), value: "" },
+												{ label: __("Auto"), value: "auto" },
+												{ label: __("Cover"), value: "cover" },
+												{ label: __("Contain"), value: "contain" },
+												{ label: __("Custom"), value: "custom" },
+											]}
+											onChange={(WRPbackgroundSize) =>
+												setAttributes({ WRPbackgroundSize })
+											}
+										/>
+									</BaseControl>
+									{WRPbackgroundSize === "custom" && (
+										<>
+											<UnitControl
+												selectedUnit={WRPbgImgCustomSizeUnit}
+												unitTypes={[
+													{ label: "px", value: "px" },
+													{ label: "em", value: "em" },
+													{ label: "%", value: "%" },
+												]}
+												onClick={(WRPbgImgCustomSizeUnit) =>
+													setAttributes({ WRPbgImgCustomSizeUnit })
+												}
+											/>
+
+											<RangeControl
+												label={__("Width")}
+												value={WRPbgImgCustomSize}
+												onChange={(WRPbgImgCustomSize) =>
+													setAttributes({ WRPbgImgCustomSize })
+												}
+											/>
+										</>
+									)}
+								</>
+							)}
+						</PanelBody>
+					)}
+				</PanelBody>
+
 				<PanelBody title={__("Infobox Settings")} initialOpen={false}>
 					<SelectControl
 						label={__("Layout Preset ")}
@@ -951,98 +1152,6 @@ function Inspector(props) {
 						controlName={wrapperPadding}
 						baseLabel="Container Padding"
 					/>
-				</PanelBody>
-
-				<PanelBody title={__("Infobox Background")} initialOpen={false}>
-					<BaseControl label={__("Background Type")}>
-						<ButtonGroup>
-							{BACKGROUND_TYPES.map(({ value, label }) => (
-								<Button
-									isPrimary={WRPbackgroundType === value}
-									isSecondary={WRPbackgroundType !== value}
-									onClick={() =>
-										setAttributes({
-											WRPbackgroundType: value,
-										})
-									}
-								>
-									{label}
-								</Button>
-							))}
-						</ButtonGroup>
-					</BaseControl>
-
-					{WRPbackgroundType === "fill" && (
-						<ColorControl
-							label={__("Background Color")}
-							color={WRPbackgroundColor}
-							onChange={(WRPbackgroundColor) =>
-								setAttributes({ WRPbackgroundColor })
-							}
-						/>
-					)}
-
-					{WRPbackgroundType === "gradient" && (
-						<PanelBody title={__("Gradient")} initialOpen={false}>
-							<GradientColorControl
-								gradientColor={WRPgradientColor}
-								onChange={(WRPgradientColor) =>
-									setAttributes({ WRPgradientColor })
-								}
-							/>
-						</PanelBody>
-					)}
-
-					{WRPbackgroundType === "image" && (
-						<PanelBody title={__("Background Image")}>
-							<MediaUpload
-								onSelect={({ url, id }) =>
-									setAttributes({
-										WRPbgImageURL: url,
-										WRPbgImageID: id,
-									})
-								}
-								type="image"
-								value={WRPbgImageID}
-								render={({ open }) =>
-									!WRPbgImageURL && (
-										<Button
-											className="eb-infobox-inspector-panel-img-btn components-button"
-											label={__("Upload Image")}
-											icon="format-image"
-											onClick={open}
-										/>
-									)
-								}
-							/>
-
-							{WRPbgImageURL && (
-								<>
-									<ImageAvatar
-										imageUrl={WRPbgImageURL}
-										onDeleteImage={() => setAttributes({ WRPbgImageURL: null })}
-									/>
-									<BaseControl label={__("Background Size")}>
-										<ButtonGroup>
-											{BACKGROUND_SIZES.map(({ value, label }) => (
-												<Button
-													isPrimary={WRPbackgroundSize === value}
-													isSecondary={WRPbackgroundSize !== value}
-													onClick={() =>
-														setAttributes({
-															WRPbackgroundSize: value,
-														})
-													}
-												>
-													{label}
-												</Button>
-											))}
-										</ButtonGroup>
-									</BaseControl>
-								</>
-							)}
-						</PanelBody>
-					)}
 				</PanelBody>
 
 				<PanelBody title={__("Infobox Border")} initialOpen={false}>

@@ -4046,13 +4046,43 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
     type: "string",
     default: "linear-gradient(45deg,#8200ff,#ff0071)"
   },
-  WRPbackgroundSize: {
-    type: "string"
-  },
   WRPbgImageURL: {
     type: "string"
   },
   WRPbgImageID: {
+    type: "string"
+  },
+  WRPbackgroundSize: {
+    type: "string"
+  },
+  WRPbgImgCustomSize: {
+    type: "number",
+    default: 100
+  },
+  WRPbgImgCustomSizeUnit: {
+    type: "string",
+    default: "%"
+  },
+  WRPbgImgPos: {
+    type: "string"
+  },
+  WRPbgImgcustomPosX: {
+    type: "number",
+    default: 0
+  },
+  WRPbgImgcustomPosXUnit: {
+    type: "string",
+    default: "px"
+  },
+  WRPbgImgcustomPosY: {
+    type: "number",
+    default: 0
+  },
+  WRPbgImgcustomPosYUnit: {
+    type: "string",
+    default: "px"
+  },
+  WRPbgImgAttachment: {
     type: "string"
   },
   // border attributes ⬇
@@ -4565,11 +4595,6 @@ var Edit = function Edit(_ref) {
       buttonBgColor = _attributes$buttonBgC === void 0 ? "#7a137a" : _attributes$buttonBgC,
       mediaAlignment = attributes.mediaAlignment,
       contentsAlignment = attributes.contentsAlignment,
-      WRPbackgroundType = attributes.WRPbackgroundType,
-      WRPbackgroundColor = attributes.WRPbackgroundColor,
-      WRPgradientColor = attributes.WRPgradientColor,
-      WRPbackgroundSize = attributes.WRPbackgroundSize,
-      WRPbgImageURL = attributes.WRPbgImageURL,
       WRPborderColor = attributes.WRPborderColor,
       WRPborderStyle = attributes.WRPborderStyle,
       WRPshadowColor = attributes.WRPshadowColor,
@@ -4592,7 +4617,20 @@ var Edit = function Edit(_ref) {
       WRPhoverBlur = _attributes$WRPhoverB === void 0 ? WRPblur : _attributes$WRPhoverB,
       _attributes$WRPhoverS2 = attributes.WRPhoverSpread,
       WRPhoverSpread = _attributes$WRPhoverS2 === void 0 ? WRPspread : _attributes$WRPhoverS2,
-      WRPtransitionTime = attributes.WRPtransitionTime; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
+      WRPtransitionTime = attributes.WRPtransitionTime,
+      WRPbackgroundType = attributes.WRPbackgroundType,
+      WRPbackgroundColor = attributes.WRPbackgroundColor,
+      WRPgradientColor = attributes.WRPgradientColor,
+      WRPbgImageURL = attributes.WRPbgImageURL,
+      WRPbackgroundSize = attributes.WRPbackgroundSize,
+      WRPbgImgCustomSize = attributes.WRPbgImgCustomSize,
+      WRPbgImgCustomSizeUnit = attributes.WRPbgImgCustomSizeUnit,
+      WRPbgImgPos = attributes.WRPbgImgPos,
+      WRPbgImgcustomPosX = attributes.WRPbgImgcustomPosX,
+      WRPbgImgcustomPosXUnit = attributes.WRPbgImgcustomPosXUnit,
+      WRPbgImgcustomPosY = attributes.WRPbgImgcustomPosY,
+      WRPbgImgcustomPosYUnit = attributes.WRPbgImgcustomPosYUnit,
+      WRPbgImgAttachment = attributes.WRPbgImgAttachment; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var bodyClasses = document.body.className;
@@ -4827,7 +4865,7 @@ var Edit = function Edit(_ref) {
       WRPradiusStylesTab = _generateDimensionsCo12.dimensionStylesTab,
       WRPradiusStylesMobile = _generateDimensionsCo12.dimensionStylesMobile;
 
-  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tposition: relative;\n\t\t\toverflow: hidden;\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\n\t\t\tbackground-image:\n\t\t\t").concat(WRPbackgroundType === "image" && WRPbgImageURL ? "url(\"".concat(WRPbgImageURL, "\")") : WRPbackgroundType === "gradient" ? WRPgradientColor : "none", ";\n\n\t\t\t").concat(WRPbackgroundSize ? "background-size: ".concat(WRPbackgroundSize, ";") : " ", "\n\t\t\t").concat(WRPbackgroundColor ? "background-color: ".concat(WRPbackgroundColor, ";") : " ", "\n\n\t\t\t").concat(WRPborderColor ? "\n\t\t\t\t\t".concat(WRPborderStylesDesktop, "\n\t\t\t\t\tborder-color: ").concat(WRPborderColor, ";\n\t\t\t\t\tborder-style: ").concat(WRPborderStyle, ";\n\t\t\t\t\t") : " ", "\n\t\t\t").concat(WRPradiusStylesDesktop, "\n\n\t\t\t").concat(WRPshadowColor ? "box-shadow: ".concat(WRPshadowColor, " ").concat(WRPhOffset, "px ").concat(WRPvOffset, "px ").concat(WRPblur, "px ").concat(WRPspread, "px ").concat(WRPinset ? "inset" : "", ";") : " ", "\n\n\t\t\ttransition: ").concat(WRPtransitionTime ? "".concat(WRPtransitionTime / 1000, "s") : ".5s", ";\n\t\t}\n\n\t\t\n\n\t\t.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(WRPhoverShadowColor ? "box-shadow: ".concat(WRPhoverShadowColor, " ").concat(WRPhoverHOffset, "px ").concat(WRPhoverVOffset, "px ").concat(WRPhoverBlur, "px ").concat(WRPhoverSpread, "px ").concat(WRPinset ? "inset" : " ", ";") : " ", "\n\t\t}\n\n\t");
+  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tposition: relative;\n\t\t\toverflow: hidden;\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\n\t\t\tbackground-image:\n\t\t\t").concat(WRPbackgroundType === "image" && WRPbgImageURL ? "url(\"".concat(WRPbgImageURL, "\")") : WRPbackgroundType === "gradient" ? WRPgradientColor : "none", ";\n\n\t\t\t").concat(WRPbackgroundSize && WRPbackgroundSize !== "custom" ? "background-size: ".concat(WRPbackgroundSize, ";") : WRPbackgroundSize === "custom" ? "background-size: ".concat(WRPbgImgCustomSize).concat(WRPbgImgCustomSizeUnit, " auto;") : " ", "\n\n\t\t\t").concat(WRPbgImgPos && WRPbgImgPos !== "custom" ? "background-position: ".concat(WRPbgImgPos, ";") : WRPbgImgPos === "custom" ? "background-position: ".concat(WRPbgImgcustomPosX).concat(WRPbgImgcustomPosXUnit, " ").concat(WRPbgImgcustomPosY).concat(WRPbgImgcustomPosYUnit, ";") : " ", "\n\n\t\t\t").concat(WRPbgImgAttachment ? "background-attachment: ".concat(WRPbgImgAttachment, ";") : " ", "\n\t\t\t\n\t\t\t").concat(WRPbackgroundColor ? "background-color: ".concat(WRPbackgroundColor, ";") : " ", "\n\n\t\t\t").concat(WRPborderColor ? "\n\t\t\t\t\t".concat(WRPborderStylesDesktop, "\n\t\t\t\t\tborder-color: ").concat(WRPborderColor, ";\n\t\t\t\t\tborder-style: ").concat(WRPborderStyle, ";\n\t\t\t\t\t") : " ", "\n\t\t\t").concat(WRPradiusStylesDesktop, "\n\n\t\t\t").concat(WRPshadowColor ? "box-shadow: ".concat(WRPshadowColor, " ").concat(WRPhOffset, "px ").concat(WRPvOffset, "px ").concat(WRPblur, "px ").concat(WRPspread, "px ").concat(WRPinset ? "inset" : "", ";") : " ", "\n\n\t\t\ttransition: ").concat(WRPtransitionTime ? "".concat(WRPtransitionTime / 1000, "s") : ".5s", ";\n\t\t}\n\n\t\t\n\n\t\t.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(WRPhoverShadowColor ? "box-shadow: ".concat(WRPhoverShadowColor, " ").concat(WRPhoverHOffset, "px ").concat(WRPhoverVOffset, "px ").concat(WRPhoverBlur, "px ").concat(WRPhoverSpread, "px ").concat(WRPinset ? "inset" : " ", ";") : " ", "\n\t\t}\n\n\t");
   var wrapperStylesTab = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesTab, "\n\t\t\t").concat(wrapperPaddingStylesTab, "\n\n\t\t\t").concat(WRPborderColor ? WRPborderStylesTab : " ", "\n\t\t\t").concat(WRPradiusStylesTab, "\n\t\t}\n\n\t");
   var wrapperStylesMobile = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesMobile, "\n\t\t\t").concat(wrapperPaddingStylesMobile, "\t\t\t\n\n\t\t\t").concat(WRPborderColor ? WRPborderStylesMobile : " ", "\n\t\t\t").concat(WRPradiusStylesMobile, "\n\t\t}\n\n\t");
   var wrapperInnerStylesDesktop = "\t\n\t\t.".concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\t").concat(flexDirection ? "flex-direction: ".concat(flexDirection, ";") : " ", " \n\t\t\t\n\t\t}\n\t\n\t");
@@ -5254,12 +5292,6 @@ function Inspector(props) {
       buttonBgColor = attributes.buttonBgColor,
       mediaAlignment = attributes.mediaAlignment,
       contentsAlignment = attributes.contentsAlignment,
-      WRPbackgroundType = attributes.WRPbackgroundType,
-      WRPbackgroundColor = attributes.WRPbackgroundColor,
-      WRPgradientColor = attributes.WRPgradientColor,
-      WRPbackgroundSize = attributes.WRPbackgroundSize,
-      WRPbgImageURL = attributes.WRPbgImageURL,
-      WRPbgImageID = attributes.WRPbgImageID,
       WRPborderColor = attributes.WRPborderColor,
       WRPborderStyle = attributes.WRPborderStyle,
       WRPhOffset = attributes.WRPhOffset,
@@ -5274,7 +5306,21 @@ function Inspector(props) {
       WRPhoverBlur = attributes.WRPhoverBlur,
       WRPhoverSpread = attributes.WRPhoverSpread,
       WRPhoverShadowColor = attributes.WRPhoverShadowColor,
-      WRPtransitionTime = attributes.WRPtransitionTime; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
+      WRPtransitionTime = attributes.WRPtransitionTime,
+      WRPbackgroundType = attributes.WRPbackgroundType,
+      WRPbackgroundColor = attributes.WRPbackgroundColor,
+      WRPgradientColor = attributes.WRPgradientColor,
+      WRPbgImageURL = attributes.WRPbgImageURL,
+      WRPbgImageID = attributes.WRPbgImageID,
+      WRPbackgroundSize = attributes.WRPbackgroundSize,
+      WRPbgImgCustomSize = attributes.WRPbgImgCustomSize,
+      WRPbgImgCustomSizeUnit = attributes.WRPbgImgCustomSizeUnit,
+      WRPbgImgPos = attributes.WRPbgImgPos,
+      WRPbgImgcustomPosX = attributes.WRPbgImgcustomPosX,
+      WRPbgImgcustomPosXUnit = attributes.WRPbgImgcustomPosXUnit,
+      WRPbgImgcustomPosY = attributes.WRPbgImgcustomPosY,
+      WRPbgImgcustomPosYUnit = attributes.WRPbgImgcustomPosYUnit,
+      WRPbgImgAttachment = attributes.WRPbgImgAttachment; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var bodyClasses = document.body.className; // console.log("----log from inspector useEffect with empty []", {
@@ -5365,6 +5411,229 @@ function Inspector(props) {
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
     className: "eb-panel-control"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox Background") // initialOpen={false}
+
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Background Type")
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], null, _constants__WEBPACK_IMPORTED_MODULE_16__["BACKGROUND_TYPES"].map(function (_ref) {
+    var value = _ref.value,
+        label = _ref.label;
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+      isPrimary: WRPbackgroundType === value,
+      isSecondary: WRPbackgroundType !== value,
+      onClick: function onClick() {
+        return setAttributes({
+          WRPbackgroundType: value
+        });
+      }
+    }, label);
+  }))), WRPbackgroundType === "fill" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Background Color"),
+    color: WRPbackgroundColor,
+    onChange: function onChange(WRPbackgroundColor) {
+      return setAttributes({
+        WRPbackgroundColor: WRPbackgroundColor
+      });
+    }
+  }), WRPbackgroundType === "gradient" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Gradient"),
+    initialOpen: false
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_gradient_color_controller__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    gradientColor: WRPgradientColor,
+    onChange: function onChange(WRPgradientColor) {
+      return setAttributes({
+        WRPgradientColor: WRPgradientColor
+      });
+    }
+  })), WRPbackgroundType === "image" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Background Image")
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["MediaUpload"], {
+    onSelect: function onSelect(_ref2) {
+      var url = _ref2.url,
+          id = _ref2.id;
+      return setAttributes({
+        WRPbgImageURL: url,
+        WRPbgImageID: id
+      });
+    },
+    type: "image",
+    value: WRPbgImageID,
+    render: function render(_ref3) {
+      var open = _ref3.open;
+      return !WRPbgImageURL && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+        className: "eb-infobox-inspector-panel-img-btn components-button",
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Upload Image"),
+        icon: "format-image",
+        onClick: open
+      });
+    }
+  }), WRPbgImageURL && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_image_avatar___WEBPACK_IMPORTED_MODULE_8__["default"], {
+    imageUrl: WRPbgImageURL,
+    onDeleteImage: function onDeleteImage() {
+      return setAttributes({
+        WRPbgImageURL: null
+      });
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Position"),
+    value: WRPbgImgPos,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Default"),
+      value: ""
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Center Center"),
+      value: "center center"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Center Left"),
+      value: "center left"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Center Right"),
+      value: "center right"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Top Center"),
+      value: "top center"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Top Left"),
+      value: "top left"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Top Right"),
+      value: "top right"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Bottom Center"),
+      value: "bottom center"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Bottom Left"),
+      value: "bottom left"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Bottom Right"),
+      value: "bottom right"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Custom"),
+      value: "custom"
+    }],
+    onChange: function onChange(WRPbgImgPos) {
+      return setAttributes({
+        WRPbgImgPos: WRPbgImgPos
+      });
+    }
+  }), WRPbgImgPos === "custom" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    selectedUnit: WRPbgImgcustomPosXUnit,
+    unitTypes: [{
+      label: "px",
+      value: "px"
+    }, {
+      label: "em",
+      value: "em"
+    }, {
+      label: "%",
+      value: "%"
+    }],
+    onClick: function onClick(WRPbgImgcustomPosXUnit) {
+      return setAttributes({
+        WRPbgImgcustomPosXUnit: WRPbgImgcustomPosXUnit
+      });
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("X Position"),
+    value: WRPbgImgcustomPosX,
+    onChange: function onChange(WRPbgImgcustomPosX) {
+      return setAttributes({
+        WRPbgImgcustomPosX: WRPbgImgcustomPosX
+      });
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    selectedUnit: WRPbgImgcustomPosYUnit,
+    unitTypes: [{
+      label: "px",
+      value: "px"
+    }, {
+      label: "em",
+      value: "em"
+    }, {
+      label: "%",
+      value: "%"
+    }],
+    onClick: function onClick(WRPbgImgcustomPosYUnit) {
+      return setAttributes({
+        WRPbgImgcustomPosYUnit: WRPbgImgcustomPosYUnit
+      });
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Y Position"),
+    value: WRPbgImgcustomPosY,
+    onChange: function onChange(WRPbgImgcustomPosY) {
+      return setAttributes({
+        WRPbgImgcustomPosY: WRPbgImgcustomPosY
+      });
+    }
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Attachment"),
+    value: WRPbgImgAttachment,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Default"),
+      value: ""
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Scroll"),
+      value: "scroll"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Fixed"),
+      value: "fixed"
+    }],
+    onChange: function onChange(WRPbgImgAttachment) {
+      return setAttributes({
+        WRPbgImgAttachment: WRPbgImgAttachment
+      });
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Size"),
+    value: WRPbackgroundSize,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Default"),
+      value: ""
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Auto"),
+      value: "auto"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Cover"),
+      value: "cover"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Contain"),
+      value: "contain"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Custom"),
+      value: "custom"
+    }],
+    onChange: function onChange(WRPbackgroundSize) {
+      return setAttributes({
+        WRPbackgroundSize: WRPbackgroundSize
+      });
+    }
+  })), WRPbackgroundSize === "custom" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_unit_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    selectedUnit: WRPbgImgCustomSizeUnit,
+    unitTypes: [{
+      label: "px",
+      value: "px"
+    }, {
+      label: "em",
+      value: "em"
+    }, {
+      label: "%",
+      value: "%"
+    }],
+    onClick: function onClick(WRPbgImgCustomSizeUnit) {
+      return setAttributes({
+        WRPbgImgCustomSizeUnit: WRPbgImgCustomSizeUnit
+      });
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Width"),
+    value: WRPbgImgCustomSize,
+    onChange: function onChange(WRPbgImgCustomSize) {
+      return setAttributes({
+        WRPbgImgCustomSize: WRPbgImgCustomSize
+      });
+    }
+  }))))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox Settings"),
     initialOpen: false
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
@@ -5395,9 +5664,9 @@ function Inspector(props) {
     label: "Media alignments"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
     id: "eb-infobox-alignments"
-  }, _constants__WEBPACK_IMPORTED_MODULE_16__["MEDIA_ALIGNMENTS_ON_FLEX_ROW"].map(function (_ref) {
-    var value = _ref.value,
-        label = _ref.label;
+  }, _constants__WEBPACK_IMPORTED_MODULE_16__["MEDIA_ALIGNMENTS_ON_FLEX_ROW"].map(function (_ref4) {
+    var value = _ref4.value,
+        label = _ref4.label;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
       isLarge: true,
       isSecondary: mediaAlignment !== value,
@@ -5413,9 +5682,9 @@ function Inspector(props) {
     label: "Media alignments"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
     id: "eb-infobox-alignments"
-  }, _constants__WEBPACK_IMPORTED_MODULE_16__["MEDIA_ALIGNMENTS_ON_FLEX_COLUMN"].map(function (_ref2) {
-    var value = _ref2.value,
-        label = _ref2.label;
+  }, _constants__WEBPACK_IMPORTED_MODULE_16__["MEDIA_ALIGNMENTS_ON_FLEX_COLUMN"].map(function (_ref5) {
+    var value = _ref5.value,
+        label = _ref5.label;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
       isLarge: true,
       isSecondary: mediaAlignment !== value,
@@ -5431,9 +5700,9 @@ function Inspector(props) {
     label: "Contents alignments"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
     id: "eb-infobox-alignments"
-  }, _constants__WEBPACK_IMPORTED_MODULE_16__["CONTENTS_ALIGNMENTS"].map(function (_ref3) {
-    var value = _ref3.value,
-        label = _ref3.label;
+  }, _constants__WEBPACK_IMPORTED_MODULE_16__["CONTENTS_ALIGNMENTS"].map(function (_ref6) {
+    var value = _ref6.value,
+        label = _ref6.label;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
       isLarge: true,
       isSecondary: contentsAlignment !== value,
@@ -5561,9 +5830,9 @@ function Inspector(props) {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Background Type")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
     id: "eb-infobox-infobox-background"
-  }, _constants__WEBPACK_IMPORTED_MODULE_16__["ICON_IMAGE_BG_TYPES"].map(function (_ref4) {
-    var value = _ref4.value,
-        label = _ref4.label;
+  }, _constants__WEBPACK_IMPORTED_MODULE_16__["ICON_IMAGE_BG_TYPES"].map(function (_ref7) {
+    var value = _ref7.value,
+        label = _ref7.label;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
       isLarge: true,
       isPrimary: numIconBgType === value,
@@ -5593,9 +5862,9 @@ function Inspector(props) {
       });
     }
   })))), media === "image" && !imageUrl && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["MediaUpload"], {
-    onSelect: function onSelect(_ref5) {
-      var id = _ref5.id,
-          url = _ref5.url;
+    onSelect: function onSelect(_ref8) {
+      var id = _ref8.id,
+          url = _ref8.url;
       return setAttributes({
         imageUrl: url,
         imageId: id
@@ -5603,8 +5872,8 @@ function Inspector(props) {
     },
     type: "image",
     value: imageId,
-    render: function render(_ref6) {
-      var open = _ref6.open;
+    render: function render(_ref9) {
+      var open = _ref9.open;
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
         className: "eb-infobox-inspector-panel-img-btn components-button",
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Upload Image"),
@@ -5911,84 +6180,6 @@ function Inspector(props) {
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["wrapperPadding"],
     baseLabel: "Container Padding"
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox Background"),
-    initialOpen: false
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Background Type")
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], null, _constants__WEBPACK_IMPORTED_MODULE_16__["BACKGROUND_TYPES"].map(function (_ref7) {
-    var value = _ref7.value,
-        label = _ref7.label;
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-      isPrimary: WRPbackgroundType === value,
-      isSecondary: WRPbackgroundType !== value,
-      onClick: function onClick() {
-        return setAttributes({
-          WRPbackgroundType: value
-        });
-      }
-    }, label);
-  }))), WRPbackgroundType === "fill" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Background Color"),
-    color: WRPbackgroundColor,
-    onChange: function onChange(WRPbackgroundColor) {
-      return setAttributes({
-        WRPbackgroundColor: WRPbackgroundColor
-      });
-    }
-  }), WRPbackgroundType === "gradient" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Gradient"),
-    initialOpen: false
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_gradient_color_controller__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    gradientColor: WRPgradientColor,
-    onChange: function onChange(WRPgradientColor) {
-      return setAttributes({
-        WRPgradientColor: WRPgradientColor
-      });
-    }
-  })), WRPbackgroundType === "image" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Background Image")
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["MediaUpload"], {
-    onSelect: function onSelect(_ref8) {
-      var url = _ref8.url,
-          id = _ref8.id;
-      return setAttributes({
-        WRPbgImageURL: url,
-        WRPbgImageID: id
-      });
-    },
-    type: "image",
-    value: WRPbgImageID,
-    render: function render(_ref9) {
-      var open = _ref9.open;
-      return !WRPbgImageURL && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-        className: "eb-infobox-inspector-panel-img-btn components-button",
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Upload Image"),
-        icon: "format-image",
-        onClick: open
-      });
-    }
-  }), WRPbgImageURL && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_image_avatar___WEBPACK_IMPORTED_MODULE_8__["default"], {
-    imageUrl: WRPbgImageURL,
-    onDeleteImage: function onDeleteImage() {
-      return setAttributes({
-        WRPbgImageURL: null
-      });
-    }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Background Size")
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], null, _constants__WEBPACK_IMPORTED_MODULE_16__["BACKGROUND_SIZES"].map(function (_ref10) {
-    var value = _ref10.value,
-        label = _ref10.label;
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-      isPrimary: WRPbackgroundSize === value,
-      isSecondary: WRPbackgroundSize !== value,
-      onClick: function onClick() {
-        return setAttributes({
-          WRPbackgroundSize: value
-        });
-      }
-    }, label);
-  })))))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox Border"),
     initialOpen: false
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -6024,9 +6215,9 @@ function Inspector(props) {
     id: "eb-infobox-shadow-hover-ptions"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
     id: "eb-infobox-shadow-hover-ptions"
-  }, _constants__WEBPACK_IMPORTED_MODULE_16__["SHADOW_HOVER_OPTIONS"].map(function (_ref11) {
-    var value = _ref11.value,
-        label = _ref11.label;
+  }, _constants__WEBPACK_IMPORTED_MODULE_16__["SHADOW_HOVER_OPTIONS"].map(function (_ref10) {
+    var value = _ref10.value,
+        label = _ref10.label;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
       isLarge: true,
       isSecondary: WRPshadowType !== value,

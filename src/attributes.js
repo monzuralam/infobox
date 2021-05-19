@@ -290,13 +290,43 @@ const attributes = {
 		type: "string",
 		default: "linear-gradient(45deg,#8200ff,#ff0071)",
 	},
-	WRPbackgroundSize: {
-		type: "string",
-	},
 	WRPbgImageURL: {
 		type: "string",
 	},
 	WRPbgImageID: {
+		type: "string",
+	},
+	WRPbackgroundSize: {
+		type: "string",
+	},
+	WRPbgImgCustomSize: {
+		type: "number",
+		default: 100,
+	},
+	WRPbgImgCustomSizeUnit: {
+		type: "string",
+		default: "%",
+	},
+	WRPbgImgPos: {
+		type: "string",
+	},
+	WRPbgImgcustomPosX: {
+		type: "number",
+		default: 0,
+	},
+	WRPbgImgcustomPosXUnit: {
+		type: "string",
+		default: "px",
+	},
+	WRPbgImgcustomPosY: {
+		type: "number",
+		default: 0,
+	},
+	WRPbgImgcustomPosYUnit: {
+		type: "string",
+		default: "px",
+	},
+	WRPbgImgAttachment: {
 		type: "string",
 	},
 
