@@ -1,6 +1,6 @@
 {
 	"apiVersion": 2,
-	"name": "create-block/infobox",
+	"name": "infobox/infobox",
 	"title": "Infobox",
 	"category": "widgets",
 	"icon": "smiley",
