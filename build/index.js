@@ -6320,7 +6320,7 @@ var ColorControl = function ColorControl(_ref) {
       setBgColor = _useState2[1];
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
-    if (bgColor) onChange(bgColor);
+    onChange(bgColor);
   }, [bgColor]);
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
     // console.log("----color-useEffect-fired", { color, bgColor });
@@ -6366,7 +6366,6 @@ var ColorControl = function ColorControl(_ref) {
     },
     onClick: function onClick() {
       setBgColor(undefined);
-      onChange(undefined);
     }
   }));
 };
