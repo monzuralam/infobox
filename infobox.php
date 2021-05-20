@@ -4,7 +4,7 @@
  * Plugin Name:     Infobox
  * Plugin URI: 		https://essential-blocks.com
  * Description:     Highlight Your Key Features & Hold Audience Attention with Info Box Block.
- * Version:         1.0.0
+ * Version:         1.1.0
  * Author:          WPDeveloper
  * Author URI: 		https://wpdeveloper.net
  * License:         GPL-3.0-or-later
@@ -53,28 +53,29 @@ function create_block_infobox_block_init()
 	);
 
 
-	$style_css = 'build/style-index.css';
+	/*$style_css = 'build/style-index.css';
 	wp_register_style(
 		'create-block-infobox-block',
 		plugins_url($style_css, __FILE__),
 		array(),
 		filemtime("$dir/$style_css")
-	);
-	$fontpicker_theme = 'src/css/fonticonpicker.base-theme.react.css';
+	);*/
+
+	$fontpicker_theme = 'assets/css/fonticonpicker.base-theme.react.css';
 	wp_enqueue_style(
 		'fontpicker-default-theme',
 		plugins_url($fontpicker_theme, __FILE__),
 		array()
 	);
 
-	$fontpicker_material_theme = 'src/css/fonticonpicker.material-theme.react.css';
+	$fontpicker_material_theme = 'assets/css/fonticonpicker.material-theme.react.css';
 	wp_enqueue_style(
 		'fontpicker-matetial-theme',
 		plugins_url($fontpicker_material_theme, __FILE__),
 		array()
 	);
 
-	$fontawesome_css = 'src/css/font-awesome5.css';
+	$fontawesome_css = 'assets/css/font-awesome5.css';
 	wp_enqueue_style(
 		'fontawesome-frontend-css',
 		plugins_url($fontawesome_css, __FILE__),
@@ -85,13 +86,9 @@ function create_block_infobox_block_init()
 		register_block_type('infobox/infobox', array(
 			'editor_script' => 'create-block-infobox-block-editor',
 			'editor_style'  => 'create-block-infobox-block-editor',
-			'style'         => 'create-block-infobox-block',
+			//'style'         => 'create-block-infobox-block',
 		));
 	}
 }
 add_action('init', 'create_block_infobox_block_init');
 
-// function create_block_infobox_block_init() {
-// 	register_block_type_from_metadata( __DIR__ );
-// }
-// add_action( 'init', 'create_block_infobox_block_init' );
