@@ -14,6 +14,7 @@ import "./editor.scss";
 import {
 	softMinifyCssStrings,
 	isCssExists,
+	generateBackgroundControlStyles,
 	generateDimensionsControlStyles,
 	generateTypographyStyles,
 } from "../util/helpers";
@@ -37,9 +38,11 @@ import {
 	subTitlePadding,
 	wrapperPadding,
 	wrapperMargin,
-	WRPborder,
-	WRPradius,
+	wrp_border,
+	wrp_radius,
 } from "./constants/dimensionsConstants";
+
+import { infoWrapBg } from "./constants/backgroundsConstants";
 
 const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	const {
@@ -155,36 +158,45 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		//
 		contentsAlignment,
 
-		// background attributes ⬇
-		WRPbackgroundType,
-		WRPbackgroundColor,
-		WRPgradientColor,
-		WRPbackgroundSize,
-		WRPbgImageURL,
-
 		// border attributes ⬇
-		WRPborderColor,
-		WRPborderStyle,
-		// WRPborderWidth,
-		// WRPborderRadius,
-		// WRPradiusUnit,
+		wrp_borderColor,
+		wrp_borderStyle,
+		// wrp_borderWidth,
+		// wrp_borderRadius,
+		// wrp_radiusUnit,
 
 		// shadow attributes  ⬇
-		WRPshadowColor,
-		WRPhOffset = 0,
-		WRPvOffset = 0,
-		WRPblur = 0,
-		WRPspread = 0,
-		WRPinset,
+		wrp_shadowColor,
+		wrp_hOffset = 0,
+		wrp_vOffset = 0,
+		wrp_blur = 0,
+		wrp_spread = 0,
+		wrp_inset,
 
-		WRPhoverShadowColor = WRPshadowColor,
-		WRPhoverHOffset = WRPhOffset,
-		WRPhoverVOffset = WRPvOffset,
-		WRPhoverBlur = WRPblur,
-		WRPhoverSpread = WRPspread,
+		wrp_hoverShadowColor = wrp_shadowColor,
+		wrp_hoverHOffset = wrp_hOffset,
+		wrp_hoverVOffset = wrp_vOffset,
+		wrp_hoverBlur = wrp_blur,
+		wrp_hoverSpread = wrp_spread,
 
 		// transition attributes ⬇
-		WRPtransitionTime,
+		wrp_transitionTime,
+
+		// background attributes ⬇
+		wrp_backgroundType,
+		wrp_backgroundColor,
+		wrp_gradientColor,
+		wrp_bgImageURL,
+		wrp_backgroundSize,
+		wrp_bgImgCustomSize,
+		wrp_bgImgCustomSizeUnit,
+		wrp_bgImgPos,
+		wrp_bgImgcustomPosX,
+		wrp_bgImgcustomPosXUnit,
+		wrp_bgImgcustomPosY,
+		wrp_bgImgcustomPosYUnit,
+		wrp_bgImgAttachment,
+		wrp_bgImgRepeat,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
@@ -411,23 +423,32 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	});
 
 	const {
-		dimensionStylesDesktop: WRPborderStylesDesktop,
-		dimensionStylesTab: WRPborderStylesTab,
-		dimensionStylesMobile: WRPborderStylesMobile,
+		dimensionStylesDesktop: wrp_borderStylesDesktop,
+		dimensionStylesTab: wrp_borderStylesTab,
+		dimensionStylesMobile: wrp_borderStylesMobile,
 	} = generateDimensionsControlStyles({
 		attributes,
-		controlName: WRPborder,
+		controlName: wrp_border,
 		styleFor: "border",
 	});
 
 	const {
-		dimensionStylesDesktop: WRPradiusStylesDesktop,
-		dimensionStylesTab: WRPradiusStylesTab,
-		dimensionStylesMobile: WRPradiusStylesMobile,
+		dimensionStylesDesktop: wrp_radiusStylesDesktop,
+		dimensionStylesTab: wrp_radiusStylesTab,
+		dimensionStylesMobile: wrp_radiusStylesMobile,
 	} = generateDimensionsControlStyles({
 		attributes,
-		controlName: WRPradius,
+		controlName: wrp_radius,
 		styleFor: "border-radius",
+	});
+
+	const {
+		backgroundStylesDesktop,
+		backgroundStylesTab,
+		backgroundStylesMobile,
+	} = generateBackgroundControlStyles({
+		attributes,
+		controlName: infoWrapBg,
 	});
 
 	const wrapperStylesDesktop = `
@@ -437,47 +458,35 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${wrapperMarginStylesDesktop}
 			${wrapperPaddingStylesDesktop}
 
-			background-image:
-			${
-				WRPbackgroundType === "image" && WRPbgImageURL
-					? `url("${WRPbgImageURL}")`
-					: WRPbackgroundType === "gradient"
-					? WRPgradientColor
-					: "none"
-			};
-
-			${WRPbackgroundSize ? `background-size: ${WRPbackgroundSize};` : " "}
-			${WRPbackgroundColor ? `background-color: ${WRPbackgroundColor};` : " "}
+			${backgroundStylesDesktop}			
 
 			${
-				WRPborderColor
+				wrp_borderColor
 					? `
-					${WRPborderStylesDesktop}
-					border-color: ${WRPborderColor};
-					border-style: ${WRPborderStyle};
+					${wrp_borderStylesDesktop}
+					border-color: ${wrp_borderColor};
+					border-style: ${wrp_borderStyle};
 					`
 					: " "
 			}
-			${WRPradiusStylesDesktop}
+			${wrp_radiusStylesDesktop}
 
 			${
-				WRPshadowColor
-					? `box-shadow: ${WRPshadowColor} ${WRPhOffset}px ${WRPvOffset}px ${WRPblur}px ${WRPspread}px ${
-							WRPinset ? "inset" : ""
+				wrp_shadowColor
+					? `box-shadow: ${wrp_shadowColor} ${wrp_hOffset}px ${wrp_vOffset}px ${wrp_blur}px ${wrp_spread}px ${
+							wrp_inset ? "inset" : ""
 					  };`
 					: " "
 			}
 
-			transition: ${WRPtransitionTime ? `${WRPtransitionTime / 1000}s` : ".5s"};
+			transition: ${wrp_transitionTime ? `${wrp_transitionTime / 1000}s` : ".5s"};
 		}
-
-		
 
 		.${blockId}:hover{		
 			${
-				WRPhoverShadowColor
-					? `box-shadow: ${WRPhoverShadowColor} ${WRPhoverHOffset}px ${WRPhoverVOffset}px ${WRPhoverBlur}px ${WRPhoverSpread}px ${
-							WRPinset ? "inset" : " "
+				wrp_hoverShadowColor
+					? `box-shadow: ${wrp_hoverShadowColor} ${wrp_hoverHOffset}px ${wrp_hoverVOffset}px ${wrp_hoverBlur}px ${wrp_hoverSpread}px ${
+							wrp_inset ? "inset" : " "
 					  };`
 					: " "
 			}
@@ -490,8 +499,17 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${wrapperMarginStylesTab}
 			${wrapperPaddingStylesTab}
 
-			${WRPborderColor ? WRPborderStylesTab : " "}
-			${WRPradiusStylesTab}
+			${backgroundStylesTab}
+
+			${wrp_borderColor ? wrp_borderStylesTab : " "}
+			${wrp_radiusStylesTab}
+
+
+			${
+				wrp_backgroundType === "image" && wrp_bgImageURL
+					? `background-attachment: scroll;`
+					: " "
+			}
 		}
 
 	`;
@@ -501,8 +519,10 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${wrapperMarginStylesMobile}
 			${wrapperPaddingStylesMobile}			
 
-			${WRPborderColor ? WRPborderStylesMobile : " "}
-			${WRPradiusStylesMobile}
+			${backgroundStylesMobile}
+
+			${wrp_borderColor ? wrp_borderStylesMobile : " "}
+			${wrp_radiusStylesMobile}
 		}
 
 	`;

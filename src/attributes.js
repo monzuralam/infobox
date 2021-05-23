@@ -10,12 +10,16 @@ import {
 	subTitlePadding,
 	wrapperMargin,
 	wrapperPadding,
-	WRPborder,
-	WRPradius,
+	wrp_border,
+	wrp_radius,
 } from "./constants/dimensionsConstants";
+
+import { infoWrapBg } from "./constants/backgroundsConstants";
+
 import {
 	generateDimensionsAttributes,
 	generateTypographyAttributes,
+	generateBackgroundAttributes,
 } from "../util/helpers";
 
 const attributes = {
@@ -278,91 +282,59 @@ const attributes = {
 		type: "string",
 	},
 
-	// background attributes ⬇
-	WRPbackgroundType: {
-		type: "string",
-		default: "gradient",
-	},
-	WRPbackgroundColor: {
-		type: "string",
-	},
-	WRPgradientColor: {
-		type: "string",
-		default: "linear-gradient(45deg,#8200ff,#ff0071)",
-	},
-	WRPbackgroundSize: {
-		type: "string",
-	},
-	WRPbgImageURL: {
-		type: "string",
-	},
-	WRPbgImageID: {
-		type: "string",
-	},
-
 	// border attributes ⬇
-	WRPborderColor: {
+	wrp_borderColor: {
 		type: "string",
 	},
-	WRPborderStyle: {
+	wrp_borderStyle: {
 		type: "string",
 		default: "solid",
 	},
-	// WRPborderWidth: {
-	// 	type: "number",
-	// },
-	// WRPborderRadius: {
-	// 	type: "number",
-	// },
-	// WRPradiusUnit: {
-	// 	type: "string",
-	// 	default: "px",
-	// },
 
 	// shadow attributes  ⬇
-	WRPhOffset: {
+	wrp_hOffset: {
 		type: "number",
 	},
-	WRPvOffset: {
+	wrp_vOffset: {
 		type: "number",
 	},
-	WRPblur: {
+	wrp_blur: {
 		type: "number",
 	},
-	WRPspread: {
+	wrp_spread: {
 		type: "number",
 	},
-	WRPshadowColor: {
+	wrp_shadowColor: {
 		type: "string",
 	},
-	WRPinset: {
+	wrp_inset: {
 		type: "boolean",
 		default: false,
 	},
-	WRPshadowType: {
+	wrp_shadowType: {
 		type: "string",
 		default: "normal",
 	},
-	WRPhoverHOffset: {
+	wrp_hoverHOffset: {
 		type: "number",
 	},
-	WRPhoverVOffset: {
+	wrp_hoverVOffset: {
 		type: "number",
 	},
-	WRPhoverBlur: {
+	wrp_hoverBlur: {
 		type: "number",
 	},
-	WRPhoverSpread: {
+	wrp_hoverSpread: {
 		type: "number",
 	},
-	WRPhoverShadowColor: {
+	wrp_hoverShadowColor: {
 		type: "string",
 	},
-	WRPhoverInset: {
+	wrp_hoverInset: {
 		type: "boolean",
 		default: false,
 	},
-	WRPtransitionTime: {
+	wrp_transitionTime: {
 		type: "string",
 		default: "500",
 	},
@@ -416,13 +388,16 @@ const attributes = {
 		right: 30,
 		left: 30,
 	}),
-	...generateDimensionsAttributes(WRPborder, {
+	...generateDimensionsAttributes(wrp_border, {
 		top: 0,
 		bottom: 0,
 		right: 0,
 		left: 0,
 	}),
-	...generateDimensionsAttributes(WRPradius),
+	...generateDimensionsAttributes(wrp_radius),
+
+	// background attributes ⬇
+	...generateBackgroundAttributes(infoWrapBg),
 };
 
 export default attributes;
