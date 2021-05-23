@@ -5189,7 +5189,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util_reset_control__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../util/reset-control */ "./util/reset-control/index.js");
 /* harmony import */ var _util_withResButtons__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../util/withResButtons */ "./util/withResButtons/index.js");
 /* harmony import */ var _util_withResBtns__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../util/withResBtns */ "./util/withResBtns/index.js");
-/* harmony import */ var _util_backgroundControl__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../util/backgroundControl */ "./util/backgroundControl/index.js");
+/* harmony import */ var _util_background_control__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../util/background-control */ "./util/background-control/index.js");
 /* harmony import */ var _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./constants/backgroundsConstants */ "./src/constants/backgroundsConstants.js");
 /* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/constants/typographyPrefixConstants.js");
 /* harmony import */ var _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./constants/dimensionsConstants */ "./src/constants/dimensionsConstants.js");
@@ -5374,7 +5374,7 @@ function Inspector(props) {
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox Background") // initialOpen={false}
 
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_backgroundControl__WEBPACK_IMPORTED_MODULE_15__["default"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_background_control__WEBPACK_IMPORTED_MODULE_15__["default"], {
     controlName: _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_16__["infoWrapBg"],
     resRequiredProps: resRequiredProps
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
@@ -6204,10 +6204,10 @@ function save(_ref) {
 
 /***/ }),
 
-/***/ "./util/backgroundControl/index.js":
-/*!*****************************************!*\
-  !*** ./util/backgroundControl/index.js ***!
-  \*****************************************/
+/***/ "./util/background-control/index.js":
+/*!******************************************!*\
+  !*** ./util/background-control/index.js ***!
+  \******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -7793,8 +7793,7 @@ var generateBackgroundAttributes = function generateBackgroundAttributes(control
     type: "number",
     default: 0
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "TAB".concat(controlName, "bgImgcustomPosXUnit"), {
-    type: "string",
-    default: "px"
+    type: "string"
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "TAB".concat(controlName, "bgImgcustomPosY"), {
     type: "number",
     default: 0
@@ -7817,8 +7816,7 @@ var generateBackgroundAttributes = function generateBackgroundAttributes(control
     type: "number",
     default: 0
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "MOB".concat(controlName, "bgImgcustomPosXUnit"), {
-    type: "string",
-    default: "px"
+    type: "string"
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "MOB".concat(controlName, "bgImgcustomPosY"), {
     type: "number",
     default: 0
