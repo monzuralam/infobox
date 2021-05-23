@@ -41,6 +41,7 @@ export default function BackgroundControl({ resRequiredProps, controlName }) {
 		[`${controlName}bgImgcustomPosYUnit`]: bgImgcustomPosYUnit,
 		[`${controlName}bgImgAttachment`]: bgImgAttachment,
 		[`${controlName}bgImgRepeat`]: bgImgRepeat,
+
 		[`TAB${controlName}backgroundSize`]: TABbackgroundSize,
 		[`TAB${controlName}bgImgCustomSize`]: TABbgImgCustomSize,
 		[`TAB${controlName}bgImgCustomSizeUnit`]: TABbgImgCustomSizeUnit,
@@ -50,6 +51,7 @@ export default function BackgroundControl({ resRequiredProps, controlName }) {
 		[`TAB${controlName}bgImgcustomPosY`]: TABbgImgcustomPosY,
 		[`TAB${controlName}bgImgcustomPosYUnit`]: TABbgImgcustomPosYUnit,
 		[`TAB${controlName}bgImgRepeat`]: TABbgImgRepeat,
+
 		[`MOB${controlName}backgroundSize`]: MOBbackgroundSize,
 		[`MOB${controlName}bgImgCustomSize`]: MOBbgImgCustomSize,
 		[`MOB${controlName}bgImgCustomSizeUnit`]: MOBbgImgCustomSizeUnit,
@@ -201,6 +203,8 @@ export default function BackgroundControl({ resRequiredProps, controlName }) {
 											>
 												<RangeControl
 													value={bgImgcustomPosX}
+													min={0}
+													max={bgImgcustomPosXUnit === "px" ? 2000 : 100}
 													onChange={(bgImgcustomPosX) =>
 														setAttributes({
 															[`${controlName}bgImgcustomPosX`]: bgImgcustomPosX,
@@ -229,6 +233,9 @@ export default function BackgroundControl({ resRequiredProps, controlName }) {
 											>
 												<RangeControl
 													value={bgImgcustomPosY}
+													min={0}
+													max={bgImgcustomPosYUnit === "px" ? 2000 : 100}
+													step={bgImgcustomPosYUnit === "px" ? 1 : 0.1}
 													onChange={(bgImgcustomPosY) =>
 														setAttributes({
 															[`${controlName}bgImgcustomPosY`]: bgImgcustomPosY,
@@ -326,6 +333,9 @@ export default function BackgroundControl({ resRequiredProps, controlName }) {
 											>
 												<RangeControl
 													value={bgImgCustomSize}
+													min={0}
+													max={bgImgCustomSizeUnit === "px" ? 2000 : 100}
+													step={bgImgCustomSizeUnit === "px" ? 1 : 0.1}
 													onChange={(bgImgCustomSize) =>
 														setAttributes({
 															[`${controlName}bgImgCustomSize`]: bgImgCustomSize,
@@ -401,6 +411,8 @@ export default function BackgroundControl({ resRequiredProps, controlName }) {
 											>
 												<RangeControl
 													value={TABbgImgcustomPosX}
+													min={0}
+													max={TABbgImgcustomPosXUnit === "px" ? 2000 : 100}
 													onChange={(TABbgImgcustomPosX) =>
 														setAttributes({
 															[`TAB${controlName}bgImgcustomPosX`]: TABbgImgcustomPosX,
@@ -429,6 +441,9 @@ export default function BackgroundControl({ resRequiredProps, controlName }) {
 											>
 												<RangeControl
 													value={TABbgImgcustomPosY}
+													min={0}
+													max={TABbgImgcustomPosYUnit === "px" ? 2000 : 100}
+													step={TABbgImgcustomPosYUnit === "px" ? 1 : 0.1}
 													onChange={(TABbgImgcustomPosY) =>
 														setAttributes({
 															[`TAB${controlName}bgImgcustomPosY`]: TABbgImgcustomPosY,
@@ -526,6 +541,9 @@ export default function BackgroundControl({ resRequiredProps, controlName }) {
 											>
 												<RangeControl
 													value={TABbgImgCustomSize}
+													min={0}
+													max={TABbgImgCustomSizeUnit === "px" ? 2000 : 100}
+													step={TABbgImgCustomSizeUnit === "px" ? 1 : 0.1}
 													onChange={(TABbgImgCustomSize) =>
 														setAttributes({
 															[`TAB${controlName}bgImgCustomSize`]: TABbgImgCustomSize,
@@ -601,6 +619,8 @@ export default function BackgroundControl({ resRequiredProps, controlName }) {
 											>
 												<RangeControl
 													value={MOBbgImgcustomPosX}
+													min={0}
+													max={MOBbgImgcustomPosXUnit === "px" ? 2000 : 100}
 													onChange={(MOBbgImgcustomPosX) =>
 														setAttributes({
 															[`MOB${controlName}bgImgcustomPosX`]: MOBbgImgcustomPosX,
@@ -629,6 +649,9 @@ export default function BackgroundControl({ resRequiredProps, controlName }) {
 											>
 												<RangeControl
 													value={MOBbgImgcustomPosY}
+													min={0}
+													max={MOBbgImgcustomPosYUnit === "px" ? 2000 : 100}
+													step={MOBbgImgcustomPosYUnit === "px" ? 1 : 0.1}
 													onChange={(MOBbgImgcustomPosY) =>
 														setAttributes({
 															[`MOB${controlName}bgImgcustomPosY`]: MOBbgImgcustomPosY,
@@ -726,6 +749,9 @@ export default function BackgroundControl({ resRequiredProps, controlName }) {
 											>
 												<RangeControl
 													value={MOBbgImgCustomSize}
+													min={0}
+													max={MOBbgImgCustomSizeUnit === "px" ? 2000 : 100}
+													step={MOBbgImgCustomSizeUnit === "px" ? 1 : 0.1}
 													onChange={(MOBbgImgCustomSize) =>
 														setAttributes({
 															[`MOB${controlName}bgImgCustomSize`]: MOBbgImgCustomSize,

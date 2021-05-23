@@ -14,6 +14,7 @@ import "./editor.scss";
 import {
 	softMinifyCssStrings,
 	isCssExists,
+	generateBackgroundControlStyles,
 	generateDimensionsControlStyles,
 	generateTypographyStyles,
 } from "../util/helpers";
@@ -40,6 +41,8 @@ import {
 	wrp_border,
 	wrp_radius,
 } from "./constants/dimensionsConstants";
+
+import { infoWrapBg } from "./constants/backgroundsConstants";
 
 const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	const {
@@ -439,6 +442,15 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		styleFor: "border-radius",
 	});
 
+	const {
+		backgroundStylesDesktop,
+		backgroundStylesTab,
+		backgroundStylesMobile,
+	} = generateBackgroundControlStyles({
+		attributes,
+		controlName: infoWrapBg,
+	});
+
 	const wrapperStylesDesktop = `
 		.${blockId} {
 			position: relative;
@@ -446,43 +458,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${wrapperMarginStylesDesktop}
 			${wrapperPaddingStylesDesktop}
 
-			background-image:
-			${
-				wrp_backgroundType === "image" && wrp_bgImageURL
-					? `url("${wrp_bgImageURL}")`
-					: wrp_backgroundType === "gradient"
-					? wrp_gradientColor
-					: "none"
-			};
-
-			${
-				wrp_backgroundType === "image" && wrp_bgImageURL
-					? `
-					${
-						wrp_backgroundSize && wrp_backgroundSize !== "custom"
-							? `background-size: ${wrp_backgroundSize};`
-							: wrp_backgroundSize === "custom"
-							? `background-size: ${wrp_bgImgCustomSize}${wrp_bgImgCustomSizeUnit} auto;`
-							: " "
-					}
-
-					${
-						wrp_bgImgPos && wrp_bgImgPos !== "custom"
-							? `background-position: ${wrp_bgImgPos};`
-							: wrp_bgImgPos === "custom"
-							? `background-position: ${wrp_bgImgcustomPosX}${wrp_bgImgcustomPosXUnit} ${wrp_bgImgcustomPosY}${wrp_bgImgcustomPosYUnit};`
-							: " "
-					}
-
-					${wrp_bgImgAttachment ? `background-attachment: ${wrp_bgImgAttachment};` : " "}
-
-					${wrp_bgImgRepeat ? `background-repeat: ${wrp_bgImgRepeat};` : " "}
-
-					`
-					: " "
-			}
-
-			${wrp_backgroundColor ? `background-color: ${wrp_backgroundColor};` : " "}
+			${backgroundStylesDesktop}			
 
 			${
 				wrp_borderColor
@@ -506,8 +482,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			transition: ${wrp_transitionTime ? `${wrp_transitionTime / 1000}s` : ".5s"};
 		}
 
-		
-
 		.${blockId}:hover{		
 			${
 				wrp_hoverShadowColor
@@ -524,6 +498,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		.${blockId} {
 			${wrapperMarginStylesTab}
 			${wrapperPaddingStylesTab}
+
+			${backgroundStylesTab}
 
 			${wrp_borderColor ? wrp_borderStylesTab : " "}
 			${wrp_radiusStylesTab}
@@ -542,6 +518,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		.${blockId} {
 			${wrapperMarginStylesMobile}
 			${wrapperPaddingStylesMobile}			
+
+			${backgroundStylesMobile}
 
 			${wrp_borderColor ? wrp_borderStylesMobile : " "}
 			${wrp_radiusStylesMobile}
