@@ -34,7 +34,7 @@ import ResetControl from "../util/reset-control";
 import WithResButtons from "../util/withResButtons";
 import WithResBtns from "../util/withResBtns";
 
-import BackgroundControl from "../util/backgroundControl";
+import BackgroundControl from "../util/background-control";
 
 import { infoWrapBg } from "./constants/backgroundsConstants";
 

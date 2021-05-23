@@ -25,3 +25,6 @@
 [submodule "util/helpers"]
 	path = util/helpers
 	url = git@github.com:EssentialBlocks/helpers
+[submodule "util/background-control"]
+	path = util/background-control
+	url = git@github.com:EssentialBlocks/background-control.git
