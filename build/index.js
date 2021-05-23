@@ -4268,8 +4268,8 @@ var subTitlePadding = "subTitlePadding";
 var contentPadding = "contentPadding";
 var wrapperMargin = "wrapperMargin";
 var wrapperPadding = "wrapperPadding";
-var wrp_border = "wrp_border";
-var wrp_radius = "wrp_radius";
+var wrp_border = "WRPborder";
+var wrp_radius = "WRPradius";
 
 /***/ }),
 
@@ -7793,7 +7793,8 @@ var generateBackgroundAttributes = function generateBackgroundAttributes(control
     type: "number",
     default: 0
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "TAB".concat(controlName, "bgImgcustomPosXUnit"), {
-    type: "string"
+    type: "string",
+    default: "px"
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "TAB".concat(controlName, "bgImgcustomPosY"), {
     type: "number",
     default: 0
@@ -7816,7 +7817,8 @@ var generateBackgroundAttributes = function generateBackgroundAttributes(control
     type: "number",
     default: 0
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "MOB".concat(controlName, "bgImgcustomPosXUnit"), {
-    type: "string"
+    type: "string",
+    default: "px"
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "MOB".concat(controlName, "bgImgcustomPosY"), {
     type: "number",
     default: 0
