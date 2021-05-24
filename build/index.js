@@ -8150,8 +8150,8 @@ var generateBackgroundControlStyles = function generateBackgroundControlStyles(_
 var generateResponsiveRangeAttributes = function generateResponsiveRangeAttributes(controlName) {
   var _objectSpread5;
 
-  var defaults = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-  var desktop = _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(defaults) !== undefined && defaults !== '' ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, "".concat(controlName, "Range"), {
+  var defaults = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+  var desktop = _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(defaults) !== undefined && defaults !== "" ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, "".concat(controlName, "Range"), {
     type: "string",
     default: "".concat(defaults)
   }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, "".concat(controlName, "Range"), {
@@ -8187,10 +8187,10 @@ var generateResponsiveRangeStyles = function generateResponsiveRangeStyles(_ref1
       TABrange = attributes["TAB".concat(controlName, "Range")],
       MOBsizeUnit = attributes["MOB".concat(controlName, "Unit")],
       MOBrange = attributes["MOB".concat(controlName, "Range")];
-  var size = isNaN(parseFloat(desktopRange)) ? '' : desktopSizeUnit;
-  var rangeStylesDesktop = desktopRange ? property + ':' + desktopRange + size + ';' : '';
-  var rangeStylesTab = TABrange ? property + ':' + TABrange + TABsizeUnit + ';' : '';
-  var rangeStylesMobile = MOBrange ? property + ':' + MOBrange + MOBsizeUnit + ';' : '';
+  var size = isNaN(parseFloat(desktopRange)) ? "" : desktopSizeUnit;
+  var rangeStylesDesktop = desktopRange ? property + ":" + desktopRange + size + ";" : "";
+  var rangeStylesTab = TABrange ? property + ":" + TABrange + TABsizeUnit + ";" : "";
+  var rangeStylesMobile = MOBrange ? property + ":" + MOBrange + MOBsizeUnit + ";" : "";
   return {
     rangeStylesDesktop: rangeStylesDesktop,
     rangeStylesTab: rangeStylesTab,
