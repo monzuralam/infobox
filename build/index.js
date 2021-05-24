@@ -529,6 +529,38 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/typeof.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/typeof.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    module.exports = _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+
+    module.exports["default"] = module.exports, module.exports.__esModule = true;
+  } else {
+    module.exports = _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+
+    module.exports["default"] = module.exports, module.exports.__esModule = true;
+  }
+
+  return _typeof(obj);
+}
+
+module.exports = _typeof;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js":
 /*!***************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js ***!
@@ -7707,7 +7739,7 @@ GradientColorControl.propTypes = {
 /*!*******************************!*\
   !*** ./util/helpers/index.js ***!
   \*******************************/
-/*! exports provided: hasVal, generateBackgroundAttributes, generateDimensionsAttributes, generateTypographyAttributes, textInsideForEdit, generateRandomNumber, hardMinifyCssStrings, softMinifyCssStrings, isCssExists, generateTypographyStyles, generateDimensionsControlStyles, generateBackgroundControlStyles */
+/*! exports provided: hasVal, generateBackgroundAttributes, generateDimensionsAttributes, generateTypographyAttributes, textInsideForEdit, generateRandomNumber, hardMinifyCssStrings, softMinifyCssStrings, isCssExists, generateTypographyStyles, generateDimensionsControlStyles, generateBackgroundControlStyles, generateResponsiveRangeAttributes, generateResponsiveRangeStyles, getFlipTransform, getButtonClasses, getBackgroundImage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7724,13 +7756,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateTypographyStyles", function() { return generateTypographyStyles; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateDimensionsControlStyles", function() { return generateDimensionsControlStyles; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateBackgroundControlStyles", function() { return generateBackgroundControlStyles; });
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateResponsiveRangeAttributes", function() { return generateResponsiveRangeAttributes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateResponsiveRangeStyles", function() { return generateResponsiveRangeStyles; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFlipTransform", function() { return getFlipTransform; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getButtonClasses", function() { return getButtonClasses; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBackgroundImage", function() { return getBackgroundImage; });
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/typeof */ "./node_modules/@babel/runtime/helpers/typeof.js");
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 // check if range controller input numbers  has value
 var hasVal = function hasVal(val) {
@@ -7741,91 +7781,91 @@ var generateBackgroundAttributes = function generateBackgroundAttributes(control
   var _ref;
 
   var defaults = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  return _ref = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(controlName, "backgroundType"), {
+  return _ref = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "backgroundType"), {
     type: "string",
     default: "gradient"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(controlName, "backgroundColor"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "backgroundColor"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(controlName, "gradientColor"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "gradientColor"), {
     type: "string",
-    default: "linear-gradient(45deg,#8200ff,#ff0071)"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(controlName, "bgImageURL"), {
+    default: "linear-gradient(45deg,#7967ff,#c277f2)"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "bgImageURL"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(controlName, "bgImageID"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "bgImageID"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(controlName, "backgroundSize"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "backgroundSize"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(controlName, "bgImgCustomSize"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "bgImgCustomSize"), {
     type: "number",
     default: 100
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(controlName, "bgImgCustomSizeUnit"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "bgImgCustomSizeUnit"), {
     type: "string",
     default: "%"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(controlName, "bgImgPos"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "bgImgPos"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(controlName, "bgImgcustomPosX"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "bgImgcustomPosX"), {
     type: "number",
     default: 0
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(controlName, "bgImgcustomPosXUnit"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "bgImgcustomPosXUnit"), {
     type: "string",
     default: "px"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(controlName, "bgImgcustomPosY"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "bgImgcustomPosY"), {
     type: "number",
     default: 0
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(controlName, "bgImgcustomPosYUnit"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "bgImgcustomPosYUnit"), {
     type: "string",
     default: "px"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(controlName, "bgImgAttachment"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "bgImgAttachment"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "".concat(controlName, "bgImgRepeat"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "bgImgRepeat"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "TAB".concat(controlName, "backgroundSize"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "TAB".concat(controlName, "backgroundSize"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "TAB".concat(controlName, "bgImgCustomSize"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "TAB".concat(controlName, "bgImgCustomSize"), {
     type: "number",
     default: 100
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "TAB".concat(controlName, "bgImgCustomSizeUnit"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "TAB".concat(controlName, "bgImgCustomSizeUnit"), {
     type: "string",
     default: "%"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "TAB".concat(controlName, "bgImgPos"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "TAB".concat(controlName, "bgImgPos"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "TAB".concat(controlName, "bgImgcustomPosX"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "TAB".concat(controlName, "bgImgcustomPosX"), {
     type: "number",
     default: 0
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "TAB".concat(controlName, "bgImgcustomPosXUnit"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "TAB".concat(controlName, "bgImgcustomPosXUnit"), {
     type: "string",
     default: "px"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "TAB".concat(controlName, "bgImgcustomPosY"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "TAB".concat(controlName, "bgImgcustomPosY"), {
     type: "number",
     default: 0
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "TAB".concat(controlName, "bgImgcustomPosYUnit"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "TAB".concat(controlName, "bgImgcustomPosYUnit"), {
     type: "string",
     default: "px"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "TAB".concat(controlName, "bgImgRepeat"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "TAB".concat(controlName, "bgImgRepeat"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "MOB".concat(controlName, "backgroundSize"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "MOB".concat(controlName, "backgroundSize"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "MOB".concat(controlName, "bgImgCustomSize"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "MOB".concat(controlName, "bgImgCustomSize"), {
     type: "number",
     default: 100
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "MOB".concat(controlName, "bgImgCustomSizeUnit"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "MOB".concat(controlName, "bgImgCustomSizeUnit"), {
     type: "string",
     default: "%"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "MOB".concat(controlName, "bgImgPos"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "MOB".concat(controlName, "bgImgPos"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "MOB".concat(controlName, "bgImgcustomPosX"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "MOB".concat(controlName, "bgImgcustomPosX"), {
     type: "number",
     default: 0
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "MOB".concat(controlName, "bgImgcustomPosXUnit"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "MOB".concat(controlName, "bgImgcustomPosXUnit"), {
     type: "string",
     default: "px"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "MOB".concat(controlName, "bgImgcustomPosY"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "MOB".concat(controlName, "bgImgcustomPosY"), {
     type: "number",
     default: 0
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "MOB".concat(controlName, "bgImgcustomPosYUnit"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "MOB".concat(controlName, "bgImgcustomPosYUnit"), {
     type: "string",
     default: "px"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_ref, "MOB".concat(controlName, "bgImgRepeat"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "MOB".concat(controlName, "bgImgRepeat"), {
     type: "string"
   }), _ref;
 }; // function to generate New Dimensions-Control's attributes for multiple Dimensions control based on the array of values(prefixs)
@@ -7838,54 +7878,54 @@ var generateDimensionsAttributes = function generateDimensionsAttributes(control
       right = defaults.right,
       bottom = defaults.bottom,
       left = defaults.left;
-  var desktopTop = hasVal(top) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Top"), {
+  var desktopTop = hasVal(top) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, "".concat(controlName, "Top"), {
     type: "string",
     default: "".concat(top)
-  }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Top"), {
+  }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, "".concat(controlName, "Top"), {
     type: "string"
   });
-  var desktopRight = hasVal(right) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Right"), {
+  var desktopRight = hasVal(right) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, "".concat(controlName, "Right"), {
     type: "string",
     default: "".concat(right)
-  }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Right"), {
+  }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, "".concat(controlName, "Right"), {
     type: "string"
   });
-  var desktopBottom = hasVal(bottom) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Bottom"), {
+  var desktopBottom = hasVal(bottom) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, "".concat(controlName, "Bottom"), {
     type: "string",
     default: "".concat(bottom)
-  }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Bottom"), {
+  }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, "".concat(controlName, "Bottom"), {
     type: "string"
   });
-  var desktopLeft = hasVal(left) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Left"), {
+  var desktopLeft = hasVal(left) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, "".concat(controlName, "Left"), {
     type: "string",
     default: "".concat(left)
-  }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Left"), {
+  }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, "".concat(controlName, "Left"), {
     type: "string"
   });
-  return _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Unit"), {
+  return _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, "".concat(controlName, "Unit"), {
     type: "string",
     default: "px"
-  }), desktopTop), desktopRight), desktopBottom), desktopLeft), {}, (_objectSpread3 = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "TAB".concat(controlName, "Unit"), {
+  }), desktopTop), desktopRight), desktopBottom), desktopLeft), {}, (_objectSpread3 = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread3, "TAB".concat(controlName, "Unit"), {
     type: "string",
     default: "px"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "TAB".concat(controlName, "Top"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread3, "TAB".concat(controlName, "Top"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "TAB".concat(controlName, "Right"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread3, "TAB".concat(controlName, "Right"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "TAB".concat(controlName, "Bottom"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread3, "TAB".concat(controlName, "Bottom"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "TAB".concat(controlName, "Left"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread3, "TAB".concat(controlName, "Left"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "MOB".concat(controlName, "Unit"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread3, "MOB".concat(controlName, "Unit"), {
     type: "string",
     default: "px"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "MOB".concat(controlName, "Top"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread3, "MOB".concat(controlName, "Top"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "MOB".concat(controlName, "Right"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread3, "MOB".concat(controlName, "Right"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "MOB".concat(controlName, "Bottom"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread3, "MOB".concat(controlName, "Bottom"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread3, "MOB".concat(controlName, "Left"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread3, "MOB".concat(controlName, "Left"), {
     type: "string"
   }), _objectSpread3));
 }; // function to generate typography attributes for multiple typography control based on the array of prefix
@@ -7894,58 +7934,58 @@ var generateTypographyAttributes = function generateTypographyAttributes(prefixA
   var typoAttrs = prefixArray.reduce(function (total, current) {
     var _result;
 
-    var result = (_result = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "FontFamily"), {
+    var result = (_result = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "".concat(current, "FontFamily"), {
       type: "string"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "SizeUnit"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "".concat(current, "SizeUnit"), {
       type: "string",
       default: "px"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "FontSize"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "".concat(current, "FontSize"), {
       type: "number"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "FontWeight"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "".concat(current, "FontWeight"), {
       type: "string"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "TextTransform"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "".concat(current, "TextTransform"), {
       type: "string"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "TextDecoration"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "".concat(current, "TextDecoration"), {
       type: "string"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "LetterSpacingUnit"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "".concat(current, "LetterSpacingUnit"), {
       type: "string",
       default: "px"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "LetterSpacing"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "".concat(current, "LetterSpacing"), {
       type: "number"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "LineHeightUnit"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "".concat(current, "LineHeightUnit"), {
       type: "string",
       default: "em"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "".concat(current, "LineHeight"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "".concat(current, "LineHeight"), {
       type: "number"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "TAB".concat(current, "SizeUnit"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "TAB".concat(current, "SizeUnit"), {
       type: "string",
       default: "px"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "TAB".concat(current, "FontSize"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "TAB".concat(current, "FontSize"), {
       type: "number"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "TAB".concat(current, "LetterSpacingUnit"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "TAB".concat(current, "LetterSpacingUnit"), {
       type: "string",
       default: "px"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "TAB".concat(current, "LetterSpacing"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "TAB".concat(current, "LetterSpacing"), {
       type: "number"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "TAB".concat(current, "LineHeightUnit"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "TAB".concat(current, "LineHeightUnit"), {
       type: "string",
       default: "em"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "TAB".concat(current, "LineHeight"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "TAB".concat(current, "LineHeight"), {
       type: "number"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "MOB".concat(current, "SizeUnit"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "MOB".concat(current, "SizeUnit"), {
       type: "string",
       default: "px"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "MOB".concat(current, "FontSize"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "MOB".concat(current, "FontSize"), {
       type: "number"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "MOB".concat(current, "LetterSpacingUnit"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "MOB".concat(current, "LetterSpacingUnit"), {
       type: "string",
       default: "px"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "MOB".concat(current, "LetterSpacing"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "MOB".concat(current, "LetterSpacing"), {
       type: "number"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "MOB".concat(current, "LineHeightUnit"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "MOB".concat(current, "LineHeightUnit"), {
       type: "string",
       default: "em"
-    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_result, "MOB".concat(current, "LineHeight"), {
+    }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_result, "MOB".concat(current, "LineHeight"), {
       type: "number"
     }), _result);
     return _objectSpread(_objectSpread({}, total), result);
@@ -8105,6 +8145,111 @@ var generateBackgroundControlStyles = function generateBackgroundControlStyles(_
     backgroundStylesTab: backgroundStylesTab,
     backgroundStylesMobile: backgroundStylesMobile
   };
+}; // function to generate responsive range controller attributes for multiple range control based on the array of prefix
+
+var generateResponsiveRangeAttributes = function generateResponsiveRangeAttributes(controlName) {
+  var _objectSpread5;
+
+  var defaults = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+  var desktop = _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(defaults) !== undefined && defaults !== '' ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, "".concat(controlName, "Range"), {
+    type: "string",
+    default: "".concat(defaults)
+  }) : _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, "".concat(controlName, "Range"), {
+    type: "string"
+  });
+
+  var result = _objectSpread(_objectSpread(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, "".concat(controlName, "Unit"), {
+    type: "string",
+    default: "px"
+  }), desktop), {}, (_objectSpread5 = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread5, "TAB".concat(controlName, "Unit"), {
+    type: "string",
+    default: "px"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread5, "TAB".concat(controlName, "Range"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread5, "MOB".concat(controlName, "Unit"), {
+    type: "string",
+    default: "px"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread5, "MOB".concat(controlName, "Range"), {
+    type: "string"
+  }), _objectSpread5));
+
+  console.log(result);
+  return _objectSpread({}, result);
+}; // function to generate responsive range control styles for an element based on it's prefix
+
+var generateResponsiveRangeStyles = function generateResponsiveRangeStyles(_ref15) {
+  var controlName = _ref15.controlName,
+      property = _ref15.property,
+      attributes = _ref15.attributes;
+  var desktopSizeUnit = attributes["".concat(controlName, "Unit")],
+      desktopRange = attributes["".concat(controlName, "Range")],
+      TABsizeUnit = attributes["TAB".concat(controlName, "Unit")],
+      TABrange = attributes["TAB".concat(controlName, "Range")],
+      MOBsizeUnit = attributes["MOB".concat(controlName, "Unit")],
+      MOBrange = attributes["MOB".concat(controlName, "Range")];
+  var size = isNaN(parseFloat(desktopRange)) ? '' : desktopSizeUnit;
+  var rangeStylesDesktop = desktopRange ? property + ':' + desktopRange + size + ';' : '';
+  var rangeStylesTab = TABrange ? property + ':' + TABrange + TABsizeUnit + ';' : '';
+  var rangeStylesMobile = MOBrange ? property + ':' + MOBrange + MOBsizeUnit + ';' : '';
+  return {
+    rangeStylesDesktop: rangeStylesDesktop,
+    rangeStylesTab: rangeStylesTab,
+    rangeStylesMobile: rangeStylesMobile
+  };
+}; // Return flilp value based on type
+
+var getFlipTransform = function getFlipTransform(flipType) {
+  switch (flipType) {
+    case "flip-left":
+      return "rotateY(-180deg)";
+
+    case "flip-right":
+      return "rotateY(180deg)";
+
+    case "flip-up":
+      return "rotateX(180deg)";
+
+    case "flip-bottom":
+      return "rotateX(-180deg)";
+
+    case "zoom-in":
+      return "scale(1.1)";
+
+    case "zoom-out":
+      return "scale(0.8)";
+  }
+}; // Return css class names based on button style name
+
+var getButtonClasses = function getButtonClasses(buttonStyle) {
+  switch (buttonStyle) {
+    case "styleOne":
+      return "btn-gradient blue";
+
+    case "styleTwo":
+      return "btn-gradient purple";
+
+    case "styleThree":
+      return "btn-gradient orange";
+
+    case "custom":
+      return "";
+  }
+};
+var getBackgroundImage = function getBackgroundImage(type, gradientValue, imageURL) {
+  switch (type) {
+    case "fill":
+      return "none";
+
+    case "gradient":
+      return gradientValue;
+
+    case "image":
+      if (imageURL) {
+        return "url(".concat(imageURL, ")");
+      }
+
+      return "none";
+  }
 };
 
 /***/ }),
