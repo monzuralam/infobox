@@ -1114,12 +1114,6 @@ function Inspector(props) {
 				</PanelBody>
 
 				<PanelBody title={__("Infobox Border")} initialOpen={false}>
-					<ColorControl
-						label={__("Border Color")}
-						color={wrp_borderColor}
-						onChange={(wrp_borderColor) => setAttributes({ wrp_borderColor })}
-					/>
-
 					<SelectControl
 						label={__("Border Style")}
 						value={wrp_borderStyle}
@@ -1127,11 +1121,23 @@ function Inspector(props) {
 						onChange={(wrp_borderStyle) => setAttributes({ wrp_borderStyle })}
 					/>
 
-					<ResponsiveDimensionsControl
-						resRequiredProps={resRequiredProps}
-						controlName={wrp_border}
-						baseLabel="Border Width"
-					/>
+					{wrp_borderStyle !== "none" && (
+						<>
+							<ColorControl
+								label={__("Border Color")}
+								color={wrp_borderColor}
+								onChange={(wrp_borderColor) =>
+									setAttributes({ wrp_borderColor })
+								}
+							/>
+
+							<ResponsiveDimensionsControl
+								resRequiredProps={resRequiredProps}
+								controlName={wrp_border}
+								baseLabel="Border Width"
+							/>
+						</>
+					)}
 
 					<ResponsiveDimensionsControl
 						forBorderRadius

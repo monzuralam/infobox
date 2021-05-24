@@ -461,7 +461,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${backgroundStylesDesktop}			
 
 			${
-				wrp_borderColor
+				wrp_borderStyle !== "none" && wrp_borderColor
 					? `
 					${wrp_borderStylesDesktop}
 					border-color: ${wrp_borderColor};
