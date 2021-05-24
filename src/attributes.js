@@ -76,19 +76,19 @@ const attributes = {
 	//
 	numIconBgType: {
 		type: "string",
-		default: "gradient",
+		default: "fill",
 	},
 
 	//
 	numIconBgColor: {
 		type: "string",
-		default: "#33FF55",
+		default: "#0003",
 	},
 
 	//
 	numIconBgGradient: {
 		type: "string",
-		default: "linear-gradient(45deg,#ff00a5,#1e268c)",
+		default: "linear-gradient(45deg,#c277f2,#7967ff)",
 	},
 
 	//
