@@ -12,6 +12,7 @@ import {
 	Button,
 	RangeControl,
 	BaseControl,
+	Dropdown,
 	ButtonGroup,
 } from "@wordpress/components";
 
@@ -23,6 +24,7 @@ import FontIconPicker from "@fonticonpicker/react-fonticonpicker";
 import faIcons from "../util/faIcons.js";
 
 import TypographyDropdown from "../util/typography-control-v2";
+import TypographyIcon from "../util/typography-control-v2/Icon";
 
 import ResponsiveDimensionsControl from "../util/dimensions-control-v2";
 import ImageAvatar from "../util/image-avatar/";
@@ -322,6 +324,57 @@ function Inspector(props) {
 		<InspectorControls key="controls">
 			<span className="eb-panel-control">
 				<PanelBody
+					title={__("Infobox Border")}
+					// initialOpen={false}
+				>
+					<SelectControl
+						label={__("Border Style")}
+						value={wrp_borderStyle}
+						options={BORDER_STYLES}
+						onChange={(wrp_borderStyle) => setAttributes({ wrp_borderStyle })}
+					/>
+
+					{wrp_borderStyle !== "none" && (
+						<>
+							<ColorControl
+								label={__("Border Color")}
+								color={wrp_borderColor}
+								onChange={(wrp_borderColor) =>
+									setAttributes({ wrp_borderColor })
+								}
+							/>
+
+							<ResponsiveDimensionsControl
+								resRequiredProps={resRequiredProps}
+								controlName={wrp_border}
+								baseLabel="Border Width"
+							/>
+						</>
+					)}
+
+					<ResponsiveDimensionsControl
+						forBorderRadius
+						resRequiredProps={resRequiredProps}
+						controlName={wrp_radius}
+						baseLabel="Border Radius"
+					/>
+
+					<BaseControl label={__("Box Shadow")} className="eb-typography-base">
+						<Dropdown
+							className="eb-typography-dropdown"
+							contentClassName="my-popover-content-classname"
+							position="bottom right"
+							renderToggle={({ isOpen, onToggle }) => (
+								<Button isSmall onClick={onToggle} aria-expanded={isOpen}>
+									<TypographyIcon />
+								</Button>
+							)}
+							renderContent={() => <p>hello</p>}
+						/>
+					</BaseControl>
+				</PanelBody>
+
+				<PanelBody
 					title={__("Infobox Shadow")}
 					// initialOpen={false}
 				>
@@ -337,7 +390,7 @@ function Inspector(props) {
 									{label}
 								</Button>
 							))}
-						</ButtonGroup>
+						</ButtonGroup>{" "}
 					</BaseControl>
 
 					{wrp_shadowType === "normal" && (
@@ -1110,40 +1163,6 @@ function Inspector(props) {
 						resRequiredProps={resRequiredProps}
 						controlName={wrapperPadding}
 						baseLabel="Container Padding"
-					/>
-				</PanelBody>
-
-				<PanelBody title={__("Infobox Border")} initialOpen={false}>
-					<SelectControl
-						label={__("Border Style")}
-						value={wrp_borderStyle}
-						options={BORDER_STYLES}
-						onChange={(wrp_borderStyle) => setAttributes({ wrp_borderStyle })}
-					/>
-
-					{wrp_borderStyle !== "none" && (
-						<>
-							<ColorControl
-								label={__("Border Color")}
-								color={wrp_borderColor}
-								onChange={(wrp_borderColor) =>
-									setAttributes({ wrp_borderColor })
-								}
-							/>
-
-							<ResponsiveDimensionsControl
-								resRequiredProps={resRequiredProps}
-								controlName={wrp_border}
-								baseLabel="Border Width"
-							/>
-						</>
-					)}
-
-					<ResponsiveDimensionsControl
-						forBorderRadius
-						resRequiredProps={resRequiredProps}
-						controlName={wrp_radius}
-						baseLabel="Border Radius"
 					/>
 				</PanelBody>
 
