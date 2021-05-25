@@ -4375,11 +4375,11 @@ var MEDIA_ALIGNMENTS_ON_FLEX_ROW = [{
   value: "flex-end"
 }];
 var ICON_IMAGE_BG_TYPES = [{
-  label: "Gradient",
-  value: "gradient"
-}, {
   label: "Fill",
   value: "fill"
+}, {
+  label: "Gradient",
+  value: "gradient"
 }];
 var sizeUnitTypes = [{
   label: "px",
@@ -4866,9 +4866,11 @@ var Edit = function Edit(_ref) {
       backgroundStylesTab = _generateBackgroundCo.backgroundStylesTab,
       backgroundStylesMobile = _generateBackgroundCo.backgroundStylesMobile,
       isBgOverly = _generateBackgroundCo.isBgOverly,
-      overlyColor = _generateBackgroundCo.overlyColor;
+      overlyType = _generateBackgroundCo.overlyType,
+      overlyColor = _generateBackgroundCo.overlyColor,
+      overlyGradient = _generateBackgroundCo.overlyGradient;
 
-  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tposition: relative;\n\t\t\toverflow: hidden;\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\n\t\t\t").concat(backgroundStylesDesktop, "\n\t\t\t").concat(isBgOverly ? "z-index: 1;" : " ", "\t\t\t\n\n\t\t\t").concat(wrp_borderStyle !== "none" && wrp_borderColor ? "\n\t\t\t\t\t".concat(wrp_borderStylesDesktop, "\n\t\t\t\t\tborder-color: ").concat(wrp_borderColor, ";\n\t\t\t\t\tborder-style: ").concat(wrp_borderStyle, ";\n\t\t\t\t\t") : " ", "\n\t\t\t").concat(wrp_radiusStylesDesktop, "\n\n\t\t\t").concat(wrp_shadowColor ? "box-shadow: ".concat(wrp_shadowColor, " ").concat(wrp_hOffset, "px ").concat(wrp_vOffset, "px ").concat(wrp_blur, "px ").concat(wrp_spread, "px ").concat(wrp_inset ? "inset" : "", ";") : " ", "\n\n\t\t\ttransition: ").concat(wrp_transitionTime ? "".concat(wrp_transitionTime / 1000, "s") : ".5s", ";\n\t\t}\n\n\t\t.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(wrp_hoverShadowColor ? "box-shadow: ".concat(wrp_hoverShadowColor, " ").concat(wrp_hoverHOffset, "px ").concat(wrp_hoverVOffset, "px ").concat(wrp_hoverBlur, "px ").concat(wrp_hoverSpread, "px ").concat(wrp_inset ? "inset" : " ", ";") : " ", "\n\t\t}\n\n\t\t").concat(isBgOverly ? "\n\t\t\t\t.".concat(blockId, ":before{\n\t\t\t\t\tcontent: \"\";\n\t\t\t\t\tposition: absolute;\n\t\t\t\t\ttop: 0;\n\t\t\t\t\tbottom: 0;\n\t\t\t\t\tright: 0;\n\t\t\t\t\tleft: 0;\n\t\t\t\t\tz-index: -1;\n\t\t\t\t\tbackground-color: ").concat(overlyColor, ";\n\t\t\t\t}\n\t\t\t") : " ", "\n\t\t\n\n\t");
+  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tposition: relative;\n\t\t\toverflow: hidden;\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\n\t\t\t").concat(backgroundStylesDesktop, "\n\t\t\t").concat(isBgOverly ? "z-index: 1;" : " ", "\t\t\t\n\n\t\t\t").concat(wrp_borderStyle !== "none" && wrp_borderColor ? "\n\t\t\t\t\t".concat(wrp_borderStylesDesktop, "\n\t\t\t\t\tborder-color: ").concat(wrp_borderColor, ";\n\t\t\t\t\tborder-style: ").concat(wrp_borderStyle, ";\n\t\t\t\t\t") : " ", "\n\t\t\t").concat(wrp_radiusStylesDesktop, "\n\n\t\t\t").concat(wrp_shadowColor ? "box-shadow: ".concat(wrp_shadowColor, " ").concat(wrp_hOffset, "px ").concat(wrp_vOffset, "px ").concat(wrp_blur, "px ").concat(wrp_spread, "px ").concat(wrp_inset ? "inset" : "", ";") : " ", "\n\n\t\t\ttransition: ").concat(wrp_transitionTime ? "".concat(wrp_transitionTime / 1000, "s") : ".5s", ";\n\t\t}\n\n\t\t.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(wrp_hoverShadowColor ? "box-shadow: ".concat(wrp_hoverShadowColor, " ").concat(wrp_hoverHOffset, "px ").concat(wrp_hoverVOffset, "px ").concat(wrp_hoverBlur, "px ").concat(wrp_hoverSpread, "px ").concat(wrp_inset ? "inset" : " ", ";") : " ", "\n\t\t}\n\n\t\t").concat(isBgOverly ? "\n\t\t\t\t.".concat(blockId, ":before{\n\t\t\t\t\tcontent: \"\";\n\t\t\t\t\tposition: absolute;\n\t\t\t\t\ttop: 0;\n\t\t\t\t\tbottom: 0;\n\t\t\t\t\tright: 0;\n\t\t\t\t\tleft: 0;\n\t\t\t\t\tz-index: -1;\n\n\t\t\t\t\t").concat(overlyType === "fill" ? "background-color: ".concat(overlyColor, ";") : overlyType === "gradient" ? "background-image: ".concat(overlyGradient, ";") : " ", "\n\n\t\t\t\t}\n\t\t\t") : " ", "\n\t\t\n\n\t");
   var wrapperStylesTab = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesTab, "\n\t\t\t").concat(wrapperPaddingStylesTab, "\n\n\t\t\t").concat(backgroundStylesTab, "\n\n\t\t\t").concat(wrp_borderColor ? wrp_borderStylesTab : " ", "\n\t\t\t").concat(wrp_radiusStylesTab, "\n\n\n\t\t\t").concat(wrp_backgroundType === "image" && wrp_bgImageURL ? "background-attachment: scroll;" : " ", "\n\t\t}\n\n\t");
   var wrapperStylesMobile = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesMobile, "\n\t\t\t").concat(wrapperPaddingStylesMobile, "\t\t\t\n\n\t\t\t").concat(backgroundStylesMobile, "\n\n\t\t\t").concat(wrp_borderColor ? wrp_borderStylesMobile : " ", "\n\t\t\t").concat(wrp_radiusStylesMobile, "\n\t\t}\n\n\t");
   var wrapperInnerStylesDesktop = "\t\n\t\t.".concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\t").concat(flexDirection ? "flex-direction: ".concat(flexDirection, ";") : " ", " \n\t\t\t\n\t\t}\n\t\n\t");
@@ -6510,8 +6512,10 @@ function BackgroundControl(_ref) {
       bgImgAttachment = attributes["".concat(controlName, "bgImgAttachment")],
       bgImgRepeat = attributes["".concat(controlName, "bgImgRepeat")],
       isBgOverly = attributes["".concat(controlName, "isBgOverly")],
+      overlyType = attributes["".concat(controlName, "overlyType")],
       _attributes$ = attributes["".concat(controlName, "overlyColor")],
       overlyColor = _attributes$ === void 0 ? "#00000080" : _attributes$,
+      overlyGradient = attributes["".concat(controlName, "overlyGradient")],
       TABbackgroundSize = attributes["TAB".concat(controlName, "backgroundSize")],
       TABbgImgCustomSize = attributes["TAB".concat(controlName, "bgImgCustomSize")],
       TABbgImgCustomSizeUnit = attributes["TAB".concat(controlName, "bgImgCustomSizeUnit")],
@@ -7161,13 +7165,41 @@ function BackgroundControl(_ref) {
     onChange: function onChange() {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "isBgOverly"), !isBgOverly));
     }
-  }), isBgOverly && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_color_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }), isBgOverly && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["BaseControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Overly Type")
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["ButtonGroup"], {
+    id: "eb-infobox-infobox-background"
+  }, [{
+    label: "Fill",
+    value: "fill"
+  }, {
+    label: "Gradient",
+    value: "gradient"
+  }].map(function (_ref5) {
+    var value = _ref5.value,
+        label = _ref5.label;
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
+      isLarge: true,
+      isPrimary: overlyType === value,
+      isSecondary: overlyType !== value,
+      onClick: function onClick() {
+        return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "overlyType"), value));
+      }
+    }, label);
+  }))), overlyType === "fill" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_color_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Overly"),
     color: overlyColor,
     onChange: function onChange(overlyColor) {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "overlyColor"), overlyColor));
     }
-  }))));
+  }), overlyType === "gradient" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_gradient_color_controller__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    gradientColor: overlyGradient,
+    onChange: function onChange(overlyGradient) {
+      return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "overlyGradient"), overlyGradient));
+    }
+  }) //   <PanelBody title={__("Gradient")} initialOpen={false}>
+  // </PanelBody>
+  ))));
 }
 
 /***/ }),
@@ -8046,8 +8078,14 @@ var generateBackgroundAttributes = function generateBackgroundAttributes(control
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "isBgOverly"), {
     type: "boolean",
     default: false
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "overlyType"), {
+    type: "string",
+    default: "fill"
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "overlyColor"), {
     type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "overlyGradient"), {
+    type: "string",
+    default: "linear-gradient(45deg,#000000cc,#00000066)"
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "TAB".concat(controlName, "backgroundSize"), {
     type: "string"
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "TAB".concat(controlName, "bgImgCustomSize"), {
@@ -8348,9 +8386,11 @@ var generateBackgroundControlStyles = function generateBackgroundControlStyles(_
       bgImgcustomPosYUnit = attributes["".concat(controlName, "bgImgcustomPosYUnit")],
       bgImgAttachment = attributes["".concat(controlName, "bgImgAttachment")],
       bgImgRepeat = attributes["".concat(controlName, "bgImgRepeat")],
-      isBgOverly = attributes["".concat(controlName, "isBgOverly")],
       _attributes$2 = attributes["".concat(controlName, "overlyColor")],
       overlyColor = _attributes$2 === void 0 ? "#00000080" : _attributes$2,
+      overlyType = attributes["".concat(controlName, "overlyType")],
+      isBgOverly = attributes["".concat(controlName, "isBgOverly")],
+      overlyGradient = attributes["".concat(controlName, "overlyGradient")],
       TABbackgroundSize = attributes["TAB".concat(controlName, "backgroundSize")],
       TABbgImgCustomSize = attributes["TAB".concat(controlName, "bgImgCustomSize")],
       TABbgImgCustomSizeUnit = attributes["TAB".concat(controlName, "bgImgCustomSizeUnit")],
@@ -8377,7 +8417,9 @@ var generateBackgroundControlStyles = function generateBackgroundControlStyles(_
     backgroundStylesTab: backgroundStylesTab,
     backgroundStylesMobile: backgroundStylesMobile,
     isBgOverly: isBgOverly,
-    overlyColor: overlyColor
+    overlyType: overlyType,
+    overlyColor: overlyColor,
+    overlyGradient: overlyGradient
   };
 }; // function to generate responsive range controller attributes for multiple range control based on the array of prefix
 
