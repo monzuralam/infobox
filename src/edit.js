@@ -447,7 +447,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		backgroundStylesTab,
 		backgroundStylesMobile,
 		isBgOverly,
+		overlyType,
 		overlyColor,
+		overlyGradient,
 	} = generateBackgroundControlStyles({
 		attributes,
 		controlName: infoWrapBg,
@@ -506,7 +508,15 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					right: 0;
 					left: 0;
 					z-index: -1;
-					background-color: ${overlyColor};
+
+					${
+						overlyType === "fill"
+							? `background-color: ${overlyColor};`
+							: overlyType === "gradient"
+							? `background-image: ${overlyGradient};`
+							: " "
+					}
+
 				}
 			`
 				: " "

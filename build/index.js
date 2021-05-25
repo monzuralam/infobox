@@ -4375,11 +4375,11 @@ var MEDIA_ALIGNMENTS_ON_FLEX_ROW = [{
   value: "flex-end"
 }];
 var ICON_IMAGE_BG_TYPES = [{
-  label: "Gradient",
-  value: "gradient"
-}, {
   label: "Fill",
   value: "fill"
+}, {
+  label: "Gradient",
+  value: "gradient"
 }];
 var sizeUnitTypes = [{
   label: "px",
@@ -4866,9 +4866,11 @@ var Edit = function Edit(_ref) {
       backgroundStylesTab = _generateBackgroundCo.backgroundStylesTab,
       backgroundStylesMobile = _generateBackgroundCo.backgroundStylesMobile,
       isBgOverly = _generateBackgroundCo.isBgOverly,
-      overlyColor = _generateBackgroundCo.overlyColor;
+      overlyType = _generateBackgroundCo.overlyType,
+      overlyColor = _generateBackgroundCo.overlyColor,
+      overlyGradient = _generateBackgroundCo.overlyGradient;
 
-  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tposition: relative;\n\t\t\toverflow: hidden;\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\n\t\t\t").concat(backgroundStylesDesktop, "\n\t\t\t").concat(isBgOverly ? "z-index: 1;" : " ", "\t\t\t\n\n\t\t\t").concat(wrp_borderStyle !== "none" && wrp_borderColor ? "\n\t\t\t\t\t".concat(wrp_borderStylesDesktop, "\n\t\t\t\t\tborder-color: ").concat(wrp_borderColor, ";\n\t\t\t\t\tborder-style: ").concat(wrp_borderStyle, ";\n\t\t\t\t\t") : " ", "\n\t\t\t").concat(wrp_radiusStylesDesktop, "\n\n\t\t\t").concat(wrp_shadowColor ? "box-shadow: ".concat(wrp_shadowColor, " ").concat(wrp_hOffset, "px ").concat(wrp_vOffset, "px ").concat(wrp_blur, "px ").concat(wrp_spread, "px ").concat(wrp_inset ? "inset" : "", ";") : " ", "\n\n\t\t\ttransition: ").concat(wrp_transitionTime ? "".concat(wrp_transitionTime / 1000, "s") : ".5s", ";\n\t\t}\n\n\t\t.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(wrp_hoverShadowColor ? "box-shadow: ".concat(wrp_hoverShadowColor, " ").concat(wrp_hoverHOffset, "px ").concat(wrp_hoverVOffset, "px ").concat(wrp_hoverBlur, "px ").concat(wrp_hoverSpread, "px ").concat(wrp_inset ? "inset" : " ", ";") : " ", "\n\t\t}\n\n\t\t").concat(isBgOverly ? "\n\t\t\t\t.".concat(blockId, ":before{\n\t\t\t\t\tcontent: \"\";\n\t\t\t\t\tposition: absolute;\n\t\t\t\t\ttop: 0;\n\t\t\t\t\tbottom: 0;\n\t\t\t\t\tright: 0;\n\t\t\t\t\tleft: 0;\n\t\t\t\t\tz-index: -1;\n\t\t\t\t\tbackground-color: ").concat(overlyColor, ";\n\t\t\t\t}\n\t\t\t") : " ", "\n\t\t\n\n\t");
+  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tposition: relative;\n\t\t\toverflow: hidden;\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\n\t\t\t").concat(backgroundStylesDesktop, "\n\t\t\t").concat(isBgOverly ? "z-index: 1;" : " ", "\t\t\t\n\n\t\t\t").concat(wrp_borderStyle !== "none" && wrp_borderColor ? "\n\t\t\t\t\t".concat(wrp_borderStylesDesktop, "\n\t\t\t\t\tborder-color: ").concat(wrp_borderColor, ";\n\t\t\t\t\tborder-style: ").concat(wrp_borderStyle, ";\n\t\t\t\t\t") : " ", "\n\t\t\t").concat(wrp_radiusStylesDesktop, "\n\n\t\t\t").concat(wrp_shadowColor ? "box-shadow: ".concat(wrp_shadowColor, " ").concat(wrp_hOffset, "px ").concat(wrp_vOffset, "px ").concat(wrp_blur, "px ").concat(wrp_spread, "px ").concat(wrp_inset ? "inset" : "", ";") : " ", "\n\n\t\t\ttransition: ").concat(wrp_transitionTime ? "".concat(wrp_transitionTime / 1000, "s") : ".5s", ";\n\t\t}\n\n\t\t.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(wrp_hoverShadowColor ? "box-shadow: ".concat(wrp_hoverShadowColor, " ").concat(wrp_hoverHOffset, "px ").concat(wrp_hoverVOffset, "px ").concat(wrp_hoverBlur, "px ").concat(wrp_hoverSpread, "px ").concat(wrp_inset ? "inset" : " ", ";") : " ", "\n\t\t}\n\n\t\t").concat(isBgOverly ? "\n\t\t\t\t.".concat(blockId, ":before{\n\t\t\t\t\tcontent: \"\";\n\t\t\t\t\tposition: absolute;\n\t\t\t\t\ttop: 0;\n\t\t\t\t\tbottom: 0;\n\t\t\t\t\tright: 0;\n\t\t\t\t\tleft: 0;\n\t\t\t\t\tz-index: -1;\n\n\t\t\t\t\t").concat(overlyType === "fill" ? "background-color: ".concat(overlyColor, ";") : overlyType === "gradient" ? "background-image: ".concat(overlyGradient, ";") : " ", "\n\n\t\t\t\t}\n\t\t\t") : " ", "\n\t\t\n\n\t");
   var wrapperStylesTab = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesTab, "\n\t\t\t").concat(wrapperPaddingStylesTab, "\n\n\t\t\t").concat(backgroundStylesTab, "\n\n\t\t\t").concat(wrp_borderColor ? wrp_borderStylesTab : " ", "\n\t\t\t").concat(wrp_radiusStylesTab, "\n\n\n\t\t\t").concat(wrp_backgroundType === "image" && wrp_bgImageURL ? "background-attachment: scroll;" : " ", "\n\t\t}\n\n\t");
   var wrapperStylesMobile = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesMobile, "\n\t\t\t").concat(wrapperPaddingStylesMobile, "\t\t\t\n\n\t\t\t").concat(backgroundStylesMobile, "\n\n\t\t\t").concat(wrp_borderColor ? wrp_borderStylesMobile : " ", "\n\t\t\t").concat(wrp_radiusStylesMobile, "\n\t\t}\n\n\t");
   var wrapperInnerStylesDesktop = "\t\n\t\t.".concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\t").concat(flexDirection ? "flex-direction: ".concat(flexDirection, ";") : " ", " \n\t\t\t\n\t\t}\n\t\n\t");
