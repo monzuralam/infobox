@@ -8145,7 +8145,7 @@ var generateBackgroundAttributes = function generateBackgroundAttributes(control
     type: "string"
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "overlyGradient"), {
     type: "string",
-    default: "linear-gradient(45deg,#000000cc,#00000066)"
+    default: "linear-gradient(45deg,#000000cc,#00000000)"
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "TAB".concat(controlName, "backgroundSize"), {
     type: "string"
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "TAB".concat(controlName, "bgImgCustomSize"), {
