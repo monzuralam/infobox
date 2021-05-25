@@ -6510,8 +6510,10 @@ function BackgroundControl(_ref) {
       bgImgAttachment = attributes["".concat(controlName, "bgImgAttachment")],
       bgImgRepeat = attributes["".concat(controlName, "bgImgRepeat")],
       isBgOverly = attributes["".concat(controlName, "isBgOverly")],
+      overlyType = attributes["".concat(controlName, "overlyType")],
       _attributes$ = attributes["".concat(controlName, "overlyColor")],
       overlyColor = _attributes$ === void 0 ? "#00000080" : _attributes$,
+      overlyGradient = attributes["".concat(controlName, "overlyGradient")],
       TABbackgroundSize = attributes["TAB".concat(controlName, "backgroundSize")],
       TABbgImgCustomSize = attributes["TAB".concat(controlName, "bgImgCustomSize")],
       TABbgImgCustomSizeUnit = attributes["TAB".concat(controlName, "bgImgCustomSizeUnit")],
@@ -7161,13 +7163,41 @@ function BackgroundControl(_ref) {
     onChange: function onChange() {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "isBgOverly"), !isBgOverly));
     }
-  }), isBgOverly && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_color_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }), isBgOverly && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["BaseControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Overly Type")
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["ButtonGroup"], {
+    id: "eb-infobox-infobox-background"
+  }, [{
+    label: "Fill",
+    value: "fill"
+  }, {
+    label: "Gradient",
+    value: "gradient"
+  }].map(function (_ref5) {
+    var value = _ref5.value,
+        label = _ref5.label;
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
+      isLarge: true,
+      isPrimary: overlyType === value,
+      isSecondary: overlyType !== value,
+      onClick: function onClick() {
+        return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "overlyType"), value));
+      }
+    }, label);
+  }))), overlyType === "fill" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_color_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Overly"),
     color: overlyColor,
     onChange: function onChange(overlyColor) {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "overlyColor"), overlyColor));
     }
-  }))));
+  }), overlyType === "gradient" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_gradient_color_controller__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    gradientColor: overlyGradient,
+    onChange: function onChange(overlyGradient) {
+      return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "overlyGradient"), overlyGradient));
+    }
+  }) //   <PanelBody title={__("Gradient")} initialOpen={false}>
+  // </PanelBody>
+  ))));
 }
 
 /***/ }),
@@ -8046,8 +8076,14 @@ var generateBackgroundAttributes = function generateBackgroundAttributes(control
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "isBgOverly"), {
     type: "boolean",
     default: false
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "overlyType"), {
+    type: "string",
+    default: "fill"
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "overlyColor"), {
     type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "overlyGradient"), {
+    type: "string",
+    default: "linear-gradient(45deg,#000000cc,#00000066)"
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "TAB".concat(controlName, "backgroundSize"), {
     type: "string"
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "TAB".concat(controlName, "bgImgCustomSize"), {
@@ -8348,9 +8384,11 @@ var generateBackgroundControlStyles = function generateBackgroundControlStyles(_
       bgImgcustomPosYUnit = attributes["".concat(controlName, "bgImgcustomPosYUnit")],
       bgImgAttachment = attributes["".concat(controlName, "bgImgAttachment")],
       bgImgRepeat = attributes["".concat(controlName, "bgImgRepeat")],
-      isBgOverly = attributes["".concat(controlName, "isBgOverly")],
       _attributes$2 = attributes["".concat(controlName, "overlyColor")],
       overlyColor = _attributes$2 === void 0 ? "#00000080" : _attributes$2,
+      overlyType = attributes["".concat(controlName, "overlyType")],
+      isBgOverly = attributes["".concat(controlName, "isBgOverly")],
+      overlyGradient = attributes["".concat(controlName, "overlyGradient")],
       TABbackgroundSize = attributes["TAB".concat(controlName, "backgroundSize")],
       TABbgImgCustomSize = attributes["TAB".concat(controlName, "bgImgCustomSize")],
       TABbgImgCustomSizeUnit = attributes["TAB".concat(controlName, "bgImgCustomSizeUnit")],
@@ -8377,7 +8415,9 @@ var generateBackgroundControlStyles = function generateBackgroundControlStyles(_
     backgroundStylesTab: backgroundStylesTab,
     backgroundStylesMobile: backgroundStylesMobile,
     isBgOverly: isBgOverly,
-    overlyColor: overlyColor
+    overlyType: overlyType,
+    overlyColor: overlyColor,
+    overlyGradient: overlyGradient
   };
 }; // function to generate responsive range controller attributes for multiple range control based on the array of prefix
 
