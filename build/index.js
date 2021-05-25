@@ -6471,7 +6471,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _gradient_color_controller__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../gradient-color-controller */ "./util/gradient-color-controller/index.js");
 /* harmony import */ var _unit_control__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../unit-control */ "./util/unit-control/index.js");
 /* harmony import */ var _color_control__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../color-control */ "./util/color-control/index.js");
-/* harmony import */ var _withResBtns__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../withResBtns */ "./util/withResBtns/index.js");
 
 
 
@@ -6490,9 +6489,72 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function BackgroundControl(_ref) {
-  var resRequiredProps = _ref.resRequiredProps,
-      controlName = _ref.controlName;
+var handleDesktopBtnClick = function handleDesktopBtnClick(_ref) {
+  var setAttributes = _ref.setAttributes;
+  document.body.classList.add("eb-res-option-desktop");
+  document.body.classList.remove("eb-res-option-tab", "eb-res-option-mobile");
+  setAttributes({
+    resOption: "desktop"
+  });
+};
+
+var handleTabBtnClick = function handleTabBtnClick(_ref2) {
+  var setAttributes = _ref2.setAttributes;
+  document.body.classList.add("eb-res-option-tab");
+  document.body.classList.remove("eb-res-option-desktop", "eb-res-option-mobile");
+  setAttributes({
+    resOption: "tab"
+  });
+};
+
+var handleMobileBtnClick = function handleMobileBtnClick(_ref3) {
+  var setAttributes = _ref3.setAttributes;
+  document.body.classList.add("eb-res-option-mobile");
+  document.body.classList.remove("eb-res-option-desktop", "eb-res-option-tab");
+  setAttributes({
+    resOption: "mobile"
+  });
+};
+
+function WithResBtns(_ref4) {
+  var children = _ref4.children,
+      resRequiredProps = _ref4.resRequiredProps,
+      label = _ref4.label;
+  var setAttributes = resRequiredProps.setAttributes,
+      resOption = resRequiredProps.resOption;
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+    className: "newWithResWrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+    className: "resBtns"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+    className: "resLabel"
+  }, label), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+    onClick: function onClick() {
+      return handleDesktopBtnClick({
+        setAttributes: setAttributes
+      });
+    },
+    class: "typoResButton dashicons dashicons-desktop ".concat(resOption === "desktop" ? "active" : " ")
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+    onClick: function onClick() {
+      return handleTabBtnClick({
+        setAttributes: setAttributes
+      });
+    },
+    class: "typoResButton dashicons dashicons-tablet ".concat(resOption === "tab" ? "active" : " ")
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+    onClick: function onClick() {
+      return handleMobileBtnClick({
+        setAttributes: setAttributes
+      });
+    },
+    class: "typoResButton dashicons dashicons-smartphone ".concat(resOption === "mobile" ? "active" : " ")
+  })), children);
+}
+
+function BackgroundControl(_ref5) {
+  var resRequiredProps = _ref5.resRequiredProps,
+      controlName = _ref5.controlName;
   var setAttributes = resRequiredProps.setAttributes,
       attributes = resRequiredProps.attributes,
       resOption = resRequiredProps.resOption;
@@ -6545,9 +6607,9 @@ function BackgroundControl(_ref) {
   }, {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Image"),
     value: "image"
-  }].map(function (_ref2) {
-    var value = _ref2.value,
-        label = _ref2.label;
+  }].map(function (_ref6) {
+    var value = _ref6.value,
+        label = _ref6.label;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
       isPrimary: backgroundType === value,
       isSecondary: backgroundType !== value,
@@ -6572,17 +6634,17 @@ function BackgroundControl(_ref) {
   })), backgroundType === "image" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Background Image")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["MediaUpload"], {
-    onSelect: function onSelect(_ref3) {
+    onSelect: function onSelect(_ref7) {
       var _setAttributes4;
 
-      var url = _ref3.url,
-          id = _ref3.id;
+      var url = _ref7.url,
+          id = _ref7.id;
       return setAttributes((_setAttributes4 = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_setAttributes4, "".concat(controlName, "bgImageURL"), url), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_setAttributes4, "".concat(controlName, "bgImageID"), id), _setAttributes4));
     },
     type: "image",
     value: bgImageID,
-    render: function render(_ref4) {
-      var open = _ref4.open;
+    render: function render(_ref8) {
+      var open = _ref8.open;
       return !bgImageURL && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
         className: "eb-infobox-inspector-panel-img-btn components-button",
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Upload Image"),
@@ -6595,7 +6657,7 @@ function BackgroundControl(_ref) {
     onDeleteImage: function onDeleteImage() {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "bgImageURL"), null));
     }
-  }), resOption === "desktop" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_withResBtns__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), resOption === "desktop" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(WithResBtns, {
     resRequiredProps: resRequiredProps,
     label: "position"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["SelectControl"], {
@@ -6652,7 +6714,7 @@ function BackgroundControl(_ref) {
     onClick: function onClick(bgImgcustomPosXUnit) {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "bgImgcustomPosXUnit"), bgImgcustomPosXUnit));
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_withResBtns__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(WithResBtns, {
     resRequiredProps: resRequiredProps,
     label: "X Position"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["RangeControl"], {
@@ -6677,7 +6739,7 @@ function BackgroundControl(_ref) {
     onClick: function onClick(bgImgcustomPosYUnit) {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "bgImgcustomPosYUnit"), bgImgcustomPosYUnit));
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_withResBtns__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(WithResBtns, {
     resRequiredProps: resRequiredProps,
     label: "Y Position"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["RangeControl"], {
@@ -6709,7 +6771,7 @@ function BackgroundControl(_ref) {
       marginTop: "-10px",
       paddingBottom: "10px"
     }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("i", null, "Note: Attachment Fixed works only on desktop.")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_withResBtns__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("i", null, "Note: Attachment Fixed works only on desktop.")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(WithResBtns, {
     resRequiredProps: resRequiredProps,
     label: "Repeat"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["SelectControl"], {
@@ -6733,7 +6795,7 @@ function BackgroundControl(_ref) {
     onChange: function onChange(bgImgRepeat) {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "bgImgRepeat"), bgImgRepeat));
     }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_withResBtns__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(WithResBtns, {
     resRequiredProps: resRequiredProps,
     label: "Size"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["SelectControl"], {
@@ -6772,7 +6834,7 @@ function BackgroundControl(_ref) {
     onClick: function onClick(bgImgCustomSizeUnit) {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "bgImgCustomSizeUnit"), bgImgCustomSizeUnit));
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_withResBtns__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(WithResBtns, {
     resRequiredProps: resRequiredProps,
     label: "Width"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["RangeControl"], {
@@ -6783,7 +6845,7 @@ function BackgroundControl(_ref) {
     onChange: function onChange(bgImgCustomSize) {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "bgImgCustomSize"), bgImgCustomSize));
     }
-  })))), resOption === "tab" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_withResBtns__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  })))), resOption === "tab" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(WithResBtns, {
     resRequiredProps: resRequiredProps,
     label: "position"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["SelectControl"], {
@@ -6840,7 +6902,7 @@ function BackgroundControl(_ref) {
     onClick: function onClick(TABbgImgcustomPosXUnit) {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "TAB".concat(controlName, "bgImgcustomPosXUnit"), TABbgImgcustomPosXUnit));
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_withResBtns__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(WithResBtns, {
     resRequiredProps: resRequiredProps,
     label: "X Position"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["RangeControl"], {
@@ -6865,7 +6927,7 @@ function BackgroundControl(_ref) {
     onClick: function onClick(TABbgImgcustomPosYUnit) {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "TAB".concat(controlName, "bgImgcustomPosYUnit"), TABbgImgcustomPosYUnit));
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_withResBtns__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(WithResBtns, {
     resRequiredProps: resRequiredProps,
     label: "Y Position"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["RangeControl"], {
@@ -6897,7 +6959,7 @@ function BackgroundControl(_ref) {
       marginTop: "-10px",
       paddingBottom: "10px"
     }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("i", null, "Note: Attachment Fixed works only on desktop.")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_withResBtns__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("i", null, "Note: Attachment Fixed works only on desktop.")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(WithResBtns, {
     resRequiredProps: resRequiredProps,
     label: "Repeat"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["SelectControl"], {
@@ -6921,7 +6983,7 @@ function BackgroundControl(_ref) {
     onChange: function onChange(TABbgImgRepeat) {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "TAB".concat(controlName, "bgImgRepeat"), TABbgImgRepeat));
     }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_withResBtns__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(WithResBtns, {
     resRequiredProps: resRequiredProps,
     label: "Size"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["SelectControl"], {
@@ -6960,7 +7022,7 @@ function BackgroundControl(_ref) {
     onClick: function onClick(TABbgImgCustomSizeUnit) {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "TAB".concat(controlName, "bgImgCustomSizeUnit"), TABbgImgCustomSizeUnit));
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_withResBtns__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(WithResBtns, {
     resRequiredProps: resRequiredProps,
     label: "Width"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["RangeControl"], {
@@ -6971,7 +7033,7 @@ function BackgroundControl(_ref) {
     onChange: function onChange(TABbgImgCustomSize) {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "TAB".concat(controlName, "bgImgCustomSize"), TABbgImgCustomSize));
     }
-  })))), resOption === "mobile" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_withResBtns__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  })))), resOption === "mobile" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(WithResBtns, {
     resRequiredProps: resRequiredProps,
     label: "position"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["SelectControl"], {
@@ -7028,7 +7090,7 @@ function BackgroundControl(_ref) {
     onClick: function onClick(MOBbgImgcustomPosXUnit) {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "MOB".concat(controlName, "bgImgcustomPosXUnit"), MOBbgImgcustomPosXUnit));
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_withResBtns__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(WithResBtns, {
     resRequiredProps: resRequiredProps,
     label: "X Position"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["RangeControl"], {
@@ -7053,7 +7115,7 @@ function BackgroundControl(_ref) {
     onClick: function onClick(MOBbgImgcustomPosYUnit) {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "MOB".concat(controlName, "bgImgcustomPosYUnit"), MOBbgImgcustomPosYUnit));
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_withResBtns__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(WithResBtns, {
     resRequiredProps: resRequiredProps,
     label: "Y Position"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["RangeControl"], {
@@ -7085,7 +7147,7 @@ function BackgroundControl(_ref) {
       marginTop: "-10px",
       paddingBottom: "10px"
     }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("i", null, "Note: Attachment Fixed works only on desktop.")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_withResBtns__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("i", null, "Note: Attachment Fixed works only on desktop.")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(WithResBtns, {
     resRequiredProps: resRequiredProps,
     label: "Repeat"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["SelectControl"], {
@@ -7109,7 +7171,7 @@ function BackgroundControl(_ref) {
     onChange: function onChange(MOBbgImgRepeat) {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "MOB".concat(controlName, "bgImgRepeat"), MOBbgImgRepeat));
     }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_withResBtns__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(WithResBtns, {
     resRequiredProps: resRequiredProps,
     label: "Size"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["SelectControl"], {
@@ -7148,7 +7210,7 @@ function BackgroundControl(_ref) {
     onClick: function onClick(MOBbgImgCustomSizeUnit) {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "MOB".concat(controlName, "bgImgCustomSizeUnit"), MOBbgImgCustomSizeUnit));
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_withResBtns__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(WithResBtns, {
     resRequiredProps: resRequiredProps,
     label: "Width"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["RangeControl"], {
@@ -7175,9 +7237,9 @@ function BackgroundControl(_ref) {
   }, {
     label: "Gradient",
     value: "gradient"
-  }].map(function (_ref5) {
-    var value = _ref5.value,
-        label = _ref5.label;
+  }].map(function (_ref9) {
+    var value = _ref9.value,
+        label = _ref9.label;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
       isLarge: true,
       isPrimary: overlyType === value,
