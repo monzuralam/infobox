@@ -6703,12 +6703,17 @@ function BackgroundControl(_ref6) {
     value: bgImageID,
     render: function render(_ref9) {
       var open = _ref9.open;
-      return !bgImageURL && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["Button"], {
+      return !bgImageURL && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["Button"], {
         className: "eb-infobox-inspector-panel-img-btn components-button",
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])("Upload Image"),
         icon: "format-image",
         onClick: open
-      });
+      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+        style: {
+          padding: "10px 0",
+          display: "block"
+        }
+      }));
     }
   }), bgImageURL && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(ImageAvatar, {
     imageUrl: bgImageURL,
@@ -7279,7 +7284,7 @@ function BackgroundControl(_ref6) {
     onChange: function onChange(MOBbgImgCustomSize) {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "MOB".concat(controlName, "bgImgCustomSize"), MOBbgImgCustomSize));
     }
-  })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["ToggleControl"], {
+  }))))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["ToggleControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])("Enable Overly"),
     checked: isBgOverly,
     onChange: function onChange() {
@@ -7319,7 +7324,7 @@ function BackgroundControl(_ref6) {
     }
   }) //   <PanelBody title={__("Gradient")} initialOpen={false}>
   // </PanelBody>
-  ))));
+  )));
 }
 
 /***/ }),
