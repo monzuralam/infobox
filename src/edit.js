@@ -446,6 +446,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		backgroundStylesDesktop,
 		backgroundStylesTab,
 		backgroundStylesMobile,
+		isBgOverly,
+		overlyColor,
 	} = generateBackgroundControlStyles({
 		attributes,
 		controlName: infoWrapBg,
@@ -458,7 +460,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${wrapperMarginStylesDesktop}
 			${wrapperPaddingStylesDesktop}
 
-			${backgroundStylesDesktop}			
+			${backgroundStylesDesktop}
+			${isBgOverly ? `z-index: 1;` : " "}			
 
 			${
 				wrp_borderStyle !== "none" && wrp_borderColor
@@ -491,6 +494,24 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					: " "
 			}
 		}
+
+		${
+			isBgOverly
+				? `
+				.${blockId}:before{
+					content: "";
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					right: 0;
+					left: 0;
+					z-index: -1;
+					background-color: ${overlyColor};
+				}
+			`
+				: " "
+		}
+		
 
 	`;
 
