@@ -397,7 +397,10 @@ const attributes = {
 	...generateDimensionsAttributes(wrp_radius),
 
 	// background attributes ⬇
-	...generateBackgroundAttributes(infoWrapBg),
+	...generateBackgroundAttributes(infoWrapBg, {
+		// isBgDefaultFill: true,
+		// defaultFillColor: "#400",
+	}),
 };
 
 export default attributes;
