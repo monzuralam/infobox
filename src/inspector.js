@@ -373,7 +373,7 @@ function Inspector(props) {
 								<>
 									<div
 										className="eb-panel-control"
-										style={{ minWidth: "240px", padding: "10px" }}
+										style={{ minWidth: "230px", padding: "10px" }}
 									>
 										<BaseControl id="eb-infobox-shadow-hover-ptions">
 											<ButtonGroup id="eb-infobox-shadow-hover-ptions">
