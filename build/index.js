@@ -6300,6 +6300,9 @@ function BackgroundControl(_ref) {
       bgImgcustomPosYUnit = attributes["".concat(controlName, "bgImgcustomPosYUnit")],
       bgImgAttachment = attributes["".concat(controlName, "bgImgAttachment")],
       bgImgRepeat = attributes["".concat(controlName, "bgImgRepeat")],
+      isBgOverly = attributes["".concat(controlName, "isBgOverly")],
+      _attributes$ = attributes["".concat(controlName, "overlyColor")],
+      overlyColor = _attributes$ === void 0 ? "#00000080" : _attributes$,
       TABbackgroundSize = attributes["TAB".concat(controlName, "backgroundSize")],
       TABbgImgCustomSize = attributes["TAB".concat(controlName, "bgImgCustomSize")],
       TABbgImgCustomSizeUnit = attributes["TAB".concat(controlName, "bgImgCustomSizeUnit")],
@@ -6943,7 +6946,19 @@ function BackgroundControl(_ref) {
     onChange: function onChange(MOBbgImgCustomSize) {
       return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "MOB".concat(controlName, "bgImgCustomSize"), MOBbgImgCustomSize));
     }
-  })))))));
+  })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["ToggleControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Enable Overly"),
+    checked: isBgOverly,
+    onChange: function onChange() {
+      return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "isBgOverly"), !isBgOverly));
+    }
+  }), isBgOverly && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_color_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Overly"),
+    color: overlyColor,
+    onChange: function onChange(overlyColor) {
+      return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "overlyColor"), overlyColor));
+    }
+  }))));
 }
 
 /***/ }),
@@ -7819,6 +7834,11 @@ var generateBackgroundAttributes = function generateBackgroundAttributes(control
     type: "string"
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "bgImgRepeat"), {
     type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "isBgOverly"), {
+    type: "boolean",
+    default: false
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "".concat(controlName, "overlyColor"), {
+    type: "string"
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "TAB".concat(controlName, "backgroundSize"), {
     type: "string"
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_ref, "TAB".concat(controlName, "bgImgCustomSize"), {
@@ -8119,6 +8139,9 @@ var generateBackgroundControlStyles = function generateBackgroundControlStyles(_
       bgImgcustomPosYUnit = attributes["".concat(controlName, "bgImgcustomPosYUnit")],
       bgImgAttachment = attributes["".concat(controlName, "bgImgAttachment")],
       bgImgRepeat = attributes["".concat(controlName, "bgImgRepeat")],
+      isBgOverly = attributes["".concat(controlName, "isBgOverly")],
+      _attributes$2 = attributes["".concat(controlName, "overlyColor")],
+      overlyColor = _attributes$2 === void 0 ? "#00000080" : _attributes$2,
       TABbackgroundSize = attributes["TAB".concat(controlName, "backgroundSize")],
       TABbgImgCustomSize = attributes["TAB".concat(controlName, "bgImgCustomSize")],
       TABbgImgCustomSizeUnit = attributes["TAB".concat(controlName, "bgImgCustomSizeUnit")],
@@ -8143,7 +8166,9 @@ var generateBackgroundControlStyles = function generateBackgroundControlStyles(_
   return {
     backgroundStylesDesktop: backgroundStylesDesktop,
     backgroundStylesTab: backgroundStylesTab,
-    backgroundStylesMobile: backgroundStylesMobile
+    backgroundStylesMobile: backgroundStylesMobile,
+    isBgOverly: isBgOverly,
+    overlyColor: overlyColor
   };
 }; // function to generate responsive range controller attributes for multiple range control based on the array of prefix
 
