@@ -35,7 +35,7 @@ import ResetControl from "../util/reset-control";
 
 import WithResButtons from "../util/withResButtons";
 
-import BorderShadowControl from "../util/shadowControl";
+import BorderShadowControl from "../util/border-shadow-control";
 
 import BackgroundControl from "../util/background-control";
 
