@@ -10,16 +10,17 @@ import {
 	subTitlePadding,
 	wrapperMargin,
 	wrapperPadding,
-	wrp_border,
-	wrp_radius,
 } from "./constants/dimensionsConstants";
 
 import { infoWrapBg } from "./constants/backgroundsConstants";
+
+import { wrpBdShadow } from "./constants/borderShadowConstants";
 
 import {
 	generateDimensionsAttributes,
 	generateTypographyAttributes,
 	generateBackgroundAttributes,
+	generateBorderShadowAttributes,
 } from "../util/helpers";
 
 const attributes = {
@@ -282,63 +283,6 @@ const attributes = {
 		type: "string",
 	},
 
-	// border attributes ⬇
-	wrp_borderColor: {
-		type: "string",
-	},
-	wrp_borderStyle: {
-		type: "string",
-		default: "solid",
-	},
-
-	// shadow attributes  ⬇
-	wrp_hOffset: {
-		type: "number",
-	},
-	wrp_vOffset: {
-		type: "number",
-	},
-	wrp_blur: {
-		type: "number",
-	},
-	wrp_spread: {
-		type: "number",
-	},
-	wrp_shadowColor: {
-		type: "string",
-	},
-	wrp_inset: {
-		type: "boolean",
-		default: false,
-	},
-	wrp_shadowType: {
-		type: "string",
-		default: "normal",
-	},
-	wrp_hoverHOffset: {
-		type: "number",
-	},
-	wrp_hoverVOffset: {
-		type: "number",
-	},
-	wrp_hoverBlur: {
-		type: "number",
-	},
-	wrp_hoverSpread: {
-		type: "number",
-	},
-	wrp_hoverShadowColor: {
-		type: "string",
-	},
-	wrp_hoverInset: {
-		type: "boolean",
-		default: false,
-	},
-	wrp_transitionTime: {
-		type: "string",
-		default: "500",
-	},
-
 	// typography attributes
 	...generateTypographyAttributes(Object.values(typoPrefixs)),
 
@@ -388,13 +332,29 @@ const attributes = {
 		right: 30,
 		left: 30,
 	}),
-	...generateDimensionsAttributes(wrp_border, {
-		top: 0,
-		bottom: 0,
-		right: 0,
-		left: 0,
+
+	// ...generateDimensionsAttributes(wrp_border, {
+	// 	top: 0,
+	// 	bottom: 0,
+	// 	right: 0,
+	// 	left: 0,
+	// }),
+	// ...generateDimensionsAttributes(wrp_radius),
+
+	...generateBorderShadowAttributes(wrpBdShadow, {
+		bdrDefaults: {
+			top: 0,
+			bottom: 0,
+			right: 0,
+			left: 0,
+		},
+		rdsDefaults: {
+			top: 0,
+			bottom: 50,
+			right: 500,
+			left: 1000,
+		},
 	}),
-	...generateDimensionsAttributes(wrp_radius),
 
 	// background attributes ⬇
 	...generateBackgroundAttributes(infoWrapBg, {
