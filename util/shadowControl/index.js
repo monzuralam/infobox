@@ -10,6 +10,8 @@ import {
 	RangeControl,
 	BaseControl,
 	ButtonGroup,
+	SelectControl,
+	Dropdown,
 } from "@wordpress/components";
 
 /**
@@ -18,29 +20,68 @@ import {
 
 import ColorControl from "../color-control";
 import ResetControl from "../reset-control";
+import ResponsiveDimensionsControl from "../dimensions-control-v2";
+import TypographyIcon from "../typography-control-v2/Icon";
 
 export default function ShadowControl({ resRequiredProps, controlName }) {
 	const { setAttributes, attributes } = resRequiredProps;
+
+	const {
+		[`${controlName}borderStyle`]: borderStyle,
+		[`${controlName}borderColor`]: borderColor,
+		[`${controlName}shadowType`]: shadowType,
+		[`${controlName}shadowColor`]: shadowColor,
+		[`${controlName}hOffset`]: hOffset,
+		[`${controlName}vOffset`]: vOffset,
+		[`${controlName}blur`]: blur,
+		[`${controlName}spread`]: spread,
+		[`${controlName}hoverShadowColor`]: hoverShadowColor,
+		[`${controlName}hoverHOffset`]: hoverHOffset,
+		[`${controlName}hoverVOffset`]: hoverVOffset,
+		[`${controlName}hoverBlur`]: hoverBlur,
+		[`${controlName}hoverSpread`]: hoverSpread,
+		[`${controlName}inset`]: inset,
+		[`${controlName}transitionTime`]: transitionTime,
+	} = attributes;
+
 	return (
 		<>
 			<SelectControl
 				label={__("Border Style")}
-				value={wrp_borderStyle}
-				options={BORDER_STYLES}
-				onChange={(wrp_borderStyle) => setAttributes({ wrp_borderStyle })}
+				value={borderStyle}
+				options={[
+					{ label: __("None"), value: "none" },
+					{ label: __("Dashed"), value: "dashed" },
+					{ label: __("Solid"), value: "solid" },
+					{ label: __("Dotted"), value: "dotted" },
+					{ label: __("Double"), value: "double" },
+					{ label: __("Groove"), value: "groove" },
+					{ label: __("Inset"), value: "inset" },
+					{ label: __("Outset"), value: "outset" },
+					{ label: __("Ridge"), value: "ridge" },
+				]}
+				onChange={(borderStyle) =>
+					setAttributes({
+						[`${controlName}borderStyle`]: borderStyle,
+					})
+				}
 			/>
 
-			{wrp_borderStyle !== "none" && (
+			{borderStyle !== "none" && (
 				<>
 					<ColorControl
 						label={__("Border Color")}
-						color={wrp_borderColor}
-						onChange={(wrp_borderColor) => setAttributes({ wrp_borderColor })}
+						color={borderColor}
+						onChange={(borderColor) =>
+							setAttributes({
+								[`${controlName}borderColor`]: borderColor,
+							})
+						}
 					/>
 
 					<ResponsiveDimensionsControl
 						resRequiredProps={resRequiredProps}
-						controlName={wrp_border}
+						controlName={`${controlName}Bdr_`}
 						baseLabel="Border Width"
 					/>
 				</>
@@ -49,7 +90,7 @@ export default function ShadowControl({ resRequiredProps, controlName }) {
 			<ResponsiveDimensionsControl
 				forBorderRadius
 				resRequiredProps={resRequiredProps}
-				controlName={wrp_radius}
+				controlName={`${controlName}Rds_`}
 				baseLabel="Border Radius"
 			/>
 
@@ -71,12 +112,17 @@ export default function ShadowControl({ resRequiredProps, controlName }) {
 							>
 								<BaseControl id="eb-infobox-shadow-hover-ptions">
 									<ButtonGroup id="eb-infobox-shadow-hover-ptions">
-										{SHADOW_HOVER_OPTIONS.map(({ value, label }) => (
+										{[
+											{ label: "Normal", value: "normal" },
+											{ label: "Hover", value: "hover" },
+										].map(({ value, label }) => (
 											<Button
 												isLarge
-												isSecondary={wrp_shadowType !== value}
-												isPrimary={wrp_shadowType === value}
-												onClick={() => setAttributes({ wrp_shadowType: value })}
+												isSecondary={shadowType !== value}
+												isPrimary={shadowType === value}
+												onClick={() =>
+													setAttributes({ [`${controlName}shadowType`]: value })
+												}
 											>
 												{label}
 											</Button>
@@ -84,24 +130,30 @@ export default function ShadowControl({ resRequiredProps, controlName }) {
 									</ButtonGroup>{" "}
 								</BaseControl>
 
-								{wrp_shadowType === "normal" && (
+								{shadowType === "normal" && (
 									<>
 										<ColorControl
 											label={__("Shadow Color")}
-											color={wrp_shadowColor}
-											onChange={(wrp_shadowColor) =>
-												setAttributes({ wrp_shadowColor })
+											color={shadowColor}
+											onChange={(shadowColor) =>
+												setAttributes({
+													[`${controlName}shadowColor`]: shadowColor,
+												})
 											}
 										/>
 
 										<ResetControl
-											onReset={() => setAttributes({ wrp_hOffset: undefined })}
+											onReset={() =>
+												setAttributes({ [`${controlName}hOffset`]: undefined })
+											}
 										>
 											<RangeControl
 												label={__("Horizontal Offset")}
-												value={wrp_hOffset}
-												onChange={(wrp_hOffset) =>
-													setAttributes({ wrp_hOffset })
+												value={hOffset}
+												onChange={(hOffset) =>
+													setAttributes({
+														[`${controlName}hOffset`]: hOffset,
+													})
 												}
 												min={0}
 												max={20}
@@ -109,13 +161,17 @@ export default function ShadowControl({ resRequiredProps, controlName }) {
 										</ResetControl>
 
 										<ResetControl
-											onReset={() => setAttributes({ wrp_vOffset: undefined })}
+											onReset={() =>
+												setAttributes({ [`${controlName}vOffset`]: undefined })
+											}
 										>
 											<RangeControl
 												label={__("Vertical Offset")}
-												value={wrp_vOffset}
-												onChange={(wrp_vOffset) =>
-													setAttributes({ wrp_vOffset })
+												value={vOffset}
+												onChange={(vOffset) =>
+													setAttributes({
+														[`${controlName}vOffset`]: vOffset,
+													})
 												}
 												min={0}
 												max={20}
@@ -123,24 +179,36 @@ export default function ShadowControl({ resRequiredProps, controlName }) {
 										</ResetControl>
 
 										<ResetControl
-											onReset={() => setAttributes({ wrp_blur: undefined })}
+											onReset={() =>
+												setAttributes({ [`${controlName}blur`]: undefined })
+											}
 										>
 											<RangeControl
 												label={__("Shadow Blur")}
-												value={wrp_blur}
-												onChange={(wrp_blur) => setAttributes({ wrp_blur })}
+												value={blur}
+												onChange={(blur) =>
+													setAttributes({
+														[`${controlName}blur`]: blur,
+													})
+												}
 												min={0}
 												max={20}
 											/>
 										</ResetControl>
 
 										<ResetControl
-											onReset={() => setAttributes({ wrp_spread: undefined })}
+											onReset={() =>
+												setAttributes({ [`${controlName}spread`]: undefined })
+											}
 										>
 											<RangeControl
 												label={__("Shadow Spread")}
-												value={wrp_spread}
-												onChange={(wrp_spread) => setAttributes({ wrp_spread })}
+												value={spread}
+												onChange={(spread) =>
+													setAttributes({
+														[`${controlName}spread`]: spread,
+													})
+												}
 												min={0}
 												max={20}
 											/>
@@ -148,26 +216,32 @@ export default function ShadowControl({ resRequiredProps, controlName }) {
 									</>
 								)}
 
-								{wrp_shadowType === "hover" && (
+								{shadowType === "hover" && (
 									<>
 										<ColorControl
 											label={__("Hover Shadow Color")}
-											color={wrp_hoverShadowColor}
-											onChange={(wrp_hoverShadowColor) =>
-												setAttributes({ wrp_hoverShadowColor })
+											color={hoverShadowColor}
+											onChange={(hoverShadowColor) =>
+												setAttributes({
+													[`${controlName}hoverShadowColor`]: hoverShadowColor,
+												})
 											}
 										/>
 
 										<ResetControl
 											onReset={() =>
-												setAttributes({ wrp_hoverHOffset: undefined })
+												setAttributes({
+													[`${controlName}hoverHOffset`]: undefined,
+												})
 											}
 										>
 											<RangeControl
 												label={__("Horizontal Offset")}
-												value={wrp_hoverHOffset}
-												onChange={(wrp_hoverHOffset) =>
-													setAttributes({ wrp_hoverHOffset })
+												value={hoverHOffset}
+												onChange={(hoverHOffset) =>
+													setAttributes({
+														[`${controlName}hoverHOffset`]: hoverHOffset,
+													})
 												}
 												min={0}
 												max={20}
@@ -176,14 +250,18 @@ export default function ShadowControl({ resRequiredProps, controlName }) {
 
 										<ResetControl
 											onReset={() =>
-												setAttributes({ wrp_hoverVOffset: undefined })
+												setAttributes({
+													[`${controlName}hoverVOffset`]: undefined,
+												})
 											}
 										>
 											<RangeControl
 												label={__("Vertical Offset")}
-												value={wrp_hoverVOffset}
-												onChange={(wrp_hoverVOffset) =>
-													setAttributes({ wrp_hoverVOffset })
+												value={hoverVOffset}
+												onChange={(hoverVOffset) =>
+													setAttributes({
+														[`${controlName}hoverVOffset`]: hoverVOffset,
+													})
 												}
 												min={0}
 												max={20}
@@ -192,14 +270,18 @@ export default function ShadowControl({ resRequiredProps, controlName }) {
 
 										<ResetControl
 											onReset={() =>
-												setAttributes({ wrp_hoverBlur: undefined })
+												setAttributes({
+													[`${controlName}hoverBlur`]: undefined,
+												})
 											}
 										>
 											<RangeControl
 												label={__("Shadow Blur")}
-												value={wrp_hoverBlur}
-												onChange={(wrp_hoverBlur) =>
-													setAttributes({ wrp_hoverBlur })
+												value={hoverBlur}
+												onChange={(hoverBlur) =>
+													setAttributes({
+														[`${controlName}hoverBlur`]: hoverBlur,
+													})
 												}
 												min={0}
 												max={20}
@@ -208,14 +290,18 @@ export default function ShadowControl({ resRequiredProps, controlName }) {
 
 										<ResetControl
 											onReset={() =>
-												setAttributes({ wrp_hoverSpread: undefined })
+												setAttributes({
+													[`${controlName}hoverSpread`]: undefined,
+												})
 											}
 										>
 											<RangeControl
 												label={__("Shadow Spread")}
-												value={wrp_hoverSpread}
-												onChange={(wrp_hoverSpread) =>
-													setAttributes({ wrp_hoverSpread })
+												value={hoverSpread}
+												onChange={(hoverSpread) =>
+													setAttributes({
+														[`${controlName}hoverSpread`]: hoverSpread,
+													})
 												}
 												min={0}
 												max={20}
@@ -226,17 +312,21 @@ export default function ShadowControl({ resRequiredProps, controlName }) {
 
 								<ToggleControl
 									label={__("Inset")}
-									checked={wrp_inset}
-									onChange={() => setAttributes({ wrp_inset: !wrp_inset })}
+									checked={inset}
+									onChange={() =>
+										setAttributes({ [`${controlName}inset`]: !inset })
+									}
 								/>
 
 								<BaseControl id="eb-infobox-transition-time">
 									<TextControl
 										label={__("Transition")}
-										value={wrp_transitionTime}
+										value={transitionTime}
 										type="number"
-										onChange={(wrp_transitionTime) =>
-											setAttributes({ wrp_transitionTime })
+										onChange={(transitionTime) =>
+											setAttributes({
+												[`${controlName}transitionTime`]: transitionTime,
+											})
 										}
 									/>
 								</BaseControl>

@@ -3835,7 +3835,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/constants/typographyPrefixConstants.js");
 /* harmony import */ var _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./constants/dimensionsConstants */ "./src/constants/dimensionsConstants.js");
 /* harmony import */ var _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./constants/backgroundsConstants */ "./src/constants/backgroundsConstants.js");
-/* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util/helpers */ "./util/helpers/index.js");
+/* harmony import */ var _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./constants/borderShadowConstants */ "./src/constants/borderShadowConstants.js");
+/* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../util/helpers */ "./util/helpers/index.js");
 
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -3847,7 +3848,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
-var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({
+
+var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({
   // the following 4 attributes is must required for responsive options and asset generation for frontend
   // responsive control attributes ⬇
   resOption: {
@@ -4067,102 +4069,54 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
   //
   contentsAlignment: {
     type: "string"
-  },
-  // border attributes ⬇
-  wrp_borderColor: {
-    type: "string"
-  },
-  wrp_borderStyle: {
-    type: "string",
-    default: "solid"
-  },
-  // shadow attributes  ⬇
-  wrp_hOffset: {
-    type: "number"
-  },
-  wrp_vOffset: {
-    type: "number"
-  },
-  wrp_blur: {
-    type: "number"
-  },
-  wrp_spread: {
-    type: "number"
-  },
-  wrp_shadowColor: {
-    type: "string"
-  },
-  wrp_inset: {
-    type: "boolean",
-    default: false
-  },
-  wrp_shadowType: {
-    type: "string",
-    default: "normal"
-  },
-  wrp_hoverHOffset: {
-    type: "number"
-  },
-  wrp_hoverVOffset: {
-    type: "number"
-  },
-  wrp_hoverBlur: {
-    type: "number"
-  },
-  wrp_hoverSpread: {
-    type: "number"
-  },
-  wrp_hoverShadowColor: {
-    type: "string"
-  },
-  wrp_hoverInset: {
-    type: "boolean",
-    default: false
-  },
-  wrp_transitionTime: {
-    type: "string",
-    default: "500"
   }
-}, Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateTypographyAttributes"])(Object.values(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__))), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["mediaBackground"], {
+}, Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateTypographyAttributes"])(Object.values(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__))), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["mediaBackground"], {
   top: 20,
   bottom: 20,
   right: 20,
   left: 20
-})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["mediaBgRadius"], {
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["mediaBgRadius"], {
   top: 20,
   bottom: 20
-})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["mediaBgMargin"], {
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["mediaBgMargin"], {
   top: 15
-})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["buttonPadding"], {
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["buttonPadding"], {
   top: 15,
   bottom: 15,
   right: 30,
   left: 30
-})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["buttonRadius"], {
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["buttonRadius"], {
   top: 10,
   bottom: 10,
   right: 10,
   left: 10
-})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["titlePadding"], {
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["titlePadding"], {
   top: 10,
   bottom: 10
-})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["subTitlePadding"], {
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["subTitlePadding"], {
   top: 10,
   bottom: 10
-})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["contentPadding"], {
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["contentPadding"], {
   top: 10,
   bottom: 30
-})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["wrapperMargin"])), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["wrapperPadding"], {
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["wrapperMargin"])), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["wrapperPadding"], {
   top: 40,
   bottom: 40,
   right: 30,
   left: 30
-})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["wrp_border"], {
-  top: 0,
-  bottom: 0,
-  right: 0,
-  left: 0
-})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["wrp_radius"])), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateBackgroundAttributes"])(_constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_3__["infoWrapBg"], {// isBgDefaultFill: true,
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateBorderShadowAttributes"])(_constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_4__["wrpBdShadow"], {// bdrDefaults: {
+  // 	top: 0,
+  // 	bottom: 0,
+  // 	right: 0,
+  // 	left: 0,
+  // },
+  // rdsDefaults: {
+  // 	top: 0,
+  // 	bottom: 50,
+  // 	right: 500,
+  // 	left: 1000,
+  // },
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateBackgroundAttributes"])(_constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_3__["infoWrapBg"], {// isBgDefaultFill: true,
   // defaultFillColor: "#400",
 }));
 
@@ -4267,6 +4221,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "infoWrapBg", function() { return infoWrapBg; });
 // each and every const here has to be totally unique from one another
 var infoWrapBg = "wrp_";
+
+/***/ }),
+
+/***/ "./src/constants/borderShadowConstants.js":
+/*!************************************************!*\
+  !*** ./src/constants/borderShadowConstants.js ***!
+  \************************************************/
+/*! exports provided: wrpBdShadow */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrpBdShadow", function() { return wrpBdShadow; });
+var wrpBdShadow = "wrp_";
 
 /***/ }),
 
@@ -4505,6 +4473,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/constants/typographyPrefixConstants.js");
 /* harmony import */ var _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./constants/dimensionsConstants */ "./src/constants/dimensionsConstants.js");
 /* harmony import */ var _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./constants/backgroundsConstants */ "./src/constants/backgroundsConstants.js");
+/* harmony import */ var _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./constants/borderShadowConstants */ "./src/constants/borderShadowConstants.js");
 
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
@@ -4524,6 +4493,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 /**
  * Internal dependencies
  */
+
 
 
 
@@ -4588,44 +4558,7 @@ var Edit = function Edit(_ref) {
       _attributes$buttonBgC = attributes.buttonBgColor,
       buttonBgColor = _attributes$buttonBgC === void 0 ? "#7a137a" : _attributes$buttonBgC,
       mediaAlignment = attributes.mediaAlignment,
-      contentsAlignment = attributes.contentsAlignment,
-      wrp_borderColor = attributes.wrp_borderColor,
-      wrp_borderStyle = attributes.wrp_borderStyle,
-      wrp_shadowColor = attributes.wrp_shadowColor,
-      _attributes$wrp_hOffs = attributes.wrp_hOffset,
-      wrp_hOffset = _attributes$wrp_hOffs === void 0 ? 0 : _attributes$wrp_hOffs,
-      _attributes$wrp_vOffs = attributes.wrp_vOffset,
-      wrp_vOffset = _attributes$wrp_vOffs === void 0 ? 0 : _attributes$wrp_vOffs,
-      _attributes$wrp_blur = attributes.wrp_blur,
-      wrp_blur = _attributes$wrp_blur === void 0 ? 0 : _attributes$wrp_blur,
-      _attributes$wrp_sprea = attributes.wrp_spread,
-      wrp_spread = _attributes$wrp_sprea === void 0 ? 0 : _attributes$wrp_sprea,
-      wrp_inset = attributes.wrp_inset,
-      _attributes$wrp_hover = attributes.wrp_hoverShadowColor,
-      wrp_hoverShadowColor = _attributes$wrp_hover === void 0 ? wrp_shadowColor : _attributes$wrp_hover,
-      _attributes$wrp_hover2 = attributes.wrp_hoverHOffset,
-      wrp_hoverHOffset = _attributes$wrp_hover2 === void 0 ? wrp_hOffset : _attributes$wrp_hover2,
-      _attributes$wrp_hover3 = attributes.wrp_hoverVOffset,
-      wrp_hoverVOffset = _attributes$wrp_hover3 === void 0 ? wrp_vOffset : _attributes$wrp_hover3,
-      _attributes$wrp_hover4 = attributes.wrp_hoverBlur,
-      wrp_hoverBlur = _attributes$wrp_hover4 === void 0 ? wrp_blur : _attributes$wrp_hover4,
-      _attributes$wrp_hover5 = attributes.wrp_hoverSpread,
-      wrp_hoverSpread = _attributes$wrp_hover5 === void 0 ? wrp_spread : _attributes$wrp_hover5,
-      wrp_transitionTime = attributes.wrp_transitionTime,
-      wrp_backgroundType = attributes.wrp_backgroundType,
-      wrp_backgroundColor = attributes.wrp_backgroundColor,
-      wrp_gradientColor = attributes.wrp_gradientColor,
-      wrp_bgImageURL = attributes.wrp_bgImageURL,
-      wrp_backgroundSize = attributes.wrp_backgroundSize,
-      wrp_bgImgCustomSize = attributes.wrp_bgImgCustomSize,
-      wrp_bgImgCustomSizeUnit = attributes.wrp_bgImgCustomSizeUnit,
-      wrp_bgImgPos = attributes.wrp_bgImgPos,
-      wrp_bgImgcustomPosX = attributes.wrp_bgImgcustomPosX,
-      wrp_bgImgcustomPosXUnit = attributes.wrp_bgImgcustomPosXUnit,
-      wrp_bgImgcustomPosY = attributes.wrp_bgImgcustomPosY,
-      wrp_bgImgcustomPosYUnit = attributes.wrp_bgImgcustomPosYUnit,
-      wrp_bgImgAttachment = attributes.wrp_bgImgAttachment,
-      wrp_bgImgRepeat = attributes.wrp_bgImgRepeat; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
+      contentsAlignment = attributes.contentsAlignment; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var bodyClasses = document.body.className;
@@ -4840,25 +4773,25 @@ var Edit = function Edit(_ref) {
   }),
       wrapperMarginStylesDesktop = _generateDimensionsCo10.dimensionStylesDesktop,
       wrapperMarginStylesTab = _generateDimensionsCo10.dimensionStylesTab,
-      wrapperMarginStylesMobile = _generateDimensionsCo10.dimensionStylesMobile;
+      wrapperMarginStylesMobile = _generateDimensionsCo10.dimensionStylesMobile; // const {
+  // 	dimensionStylesDesktop: wrp_borderStylesDesktop,
+  // 	dimensionStylesTab: wrp_borderStylesTab,
+  // 	dimensionStylesMobile: wrp_borderStylesMobile,
+  // } = generateDimensionsControlStyles({
+  // 	attributes,
+  // 	controlName: wrp_border,
+  // 	styleFor: "border",
+  // });
+  // const {
+  // 	dimensionStylesDesktop: wrp_radiusStylesDesktop,
+  // 	dimensionStylesTab: wrp_radiusStylesTab,
+  // 	dimensionStylesMobile: wrp_radiusStylesMobile,
+  // } = generateDimensionsControlStyles({
+  // 	attributes,
+  // 	controlName: wrp_radius,
+  // 	styleFor: "border-radius",
+  // });
 
-  var _generateDimensionsCo11 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
-    attributes: attributes,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["wrp_border"],
-    styleFor: "border"
-  }),
-      wrp_borderStylesDesktop = _generateDimensionsCo11.dimensionStylesDesktop,
-      wrp_borderStylesTab = _generateDimensionsCo11.dimensionStylesTab,
-      wrp_borderStylesMobile = _generateDimensionsCo11.dimensionStylesMobile;
-
-  var _generateDimensionsCo12 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsControlStyles"])({
-    attributes: attributes,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_8__["wrp_radius"],
-    styleFor: "border-radius"
-  }),
-      wrp_radiusStylesDesktop = _generateDimensionsCo12.dimensionStylesDesktop,
-      wrp_radiusStylesTab = _generateDimensionsCo12.dimensionStylesTab,
-      wrp_radiusStylesMobile = _generateDimensionsCo12.dimensionStylesMobile;
 
   var _generateBackgroundCo = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateBackgroundControlStyles"])({
     attributes: attributes,
@@ -4873,9 +4806,18 @@ var Edit = function Edit(_ref) {
       overlyGradient = _generateBackgroundCo.overlyGradient,
       backgroundType = _generateBackgroundCo.backgroundType;
 
-  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tposition: relative;\n\t\t\toverflow: hidden;\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\n\t\t\t").concat(backgroundStylesDesktop, "\n\t\t\t").concat(isBgOverly ? "z-index: 1;" : " ", "\t\t\t\n\n\t\t\t").concat(wrp_borderStyle !== "none" && wrp_borderColor ? "\n\t\t\t\t\t".concat(wrp_borderStylesDesktop, "\n\t\t\t\t\tborder-color: ").concat(wrp_borderColor, ";\n\t\t\t\t\tborder-style: ").concat(wrp_borderStyle, ";\n\t\t\t\t\t") : " ", "\n\t\t\t").concat(wrp_radiusStylesDesktop, "\n\n\t\t\t").concat(wrp_shadowColor ? "box-shadow: ".concat(wrp_shadowColor, " ").concat(wrp_hOffset, "px ").concat(wrp_vOffset, "px ").concat(wrp_blur, "px ").concat(wrp_spread, "px ").concat(wrp_inset ? "inset" : "", ";") : " ", "\n\n\t\t\ttransition: ").concat(wrp_transitionTime ? "".concat(wrp_transitionTime / 1000, "s") : ".5s", ";\n\t\t}\n\n\t\t.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(wrp_hoverShadowColor ? "box-shadow: ".concat(wrp_hoverShadowColor, " ").concat(wrp_hoverHOffset, "px ").concat(wrp_hoverVOffset, "px ").concat(wrp_hoverBlur, "px ").concat(wrp_hoverSpread, "px ").concat(wrp_inset ? "inset" : " ", ";") : " ", "\n\t\t}\n\n\t\t").concat(backgroundType === "image" && isBgOverly ? "\n\t\t\t\t.".concat(blockId, ":before{\n\t\t\t\t\tcontent: \"\";\n\t\t\t\t\tposition: absolute;\n\t\t\t\t\ttop: 0;\n\t\t\t\t\tbottom: 0;\n\t\t\t\t\tright: 0;\n\t\t\t\t\tleft: 0;\n\t\t\t\t\tz-index: -1;\n\n\t\t\t\t\t").concat(overlyType === "fill" ? "background-color: ".concat(overlyColor, ";") : overlyType === "gradient" ? "background-image: ".concat(overlyGradient, ";") : " ", "\n\n\t\t\t\t}\n\t\t\t") : " ", "\n\t\t\n\n\t");
-  var wrapperStylesTab = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesTab, "\n\t\t\t").concat(wrapperPaddingStylesTab, "\n\n\t\t\t").concat(backgroundStylesTab, "\n\n\t\t\t").concat(wrp_borderColor ? wrp_borderStylesTab : " ", "\n\t\t\t").concat(wrp_radiusStylesTab, "\n\n\n\t\t\t").concat(backgroundType === "image" ? "background-attachment: scroll;" : " ", "\n\t\t}\n\n\t");
-  var wrapperStylesMobile = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesMobile, "\n\t\t\t").concat(wrapperPaddingStylesMobile, "\t\t\t\n\n\t\t\t").concat(backgroundStylesMobile, "\n\n\t\t\t").concat(wrp_borderColor ? wrp_borderStylesMobile : " ", "\n\t\t\t").concat(wrp_radiusStylesMobile, "\n\t\t}\n\n\t");
+  var _generateBorderShadow = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateBorderShadowStyles"])({
+    controlName: _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_10__["wrpBdShadow"],
+    attributes: attributes
+  }),
+      bdShadowStyesDesktop = _generateBorderShadow.styesDesktop,
+      bdShadowStyesTab = _generateBorderShadow.styesTab,
+      bdShadowStyesMobile = _generateBorderShadow.styesMobile,
+      bdShadowStylesHover = _generateBorderShadow.stylesHover;
+
+  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tposition: relative;\n\t\t\toverflow: hidden;\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\t\t\t").concat(bdShadowStyesDesktop, "\n\t\t\t").concat(backgroundStylesDesktop, "\n\t\t\t").concat(isBgOverly ? "z-index: 1;" : " ", "\t\t\t\n\n\t\t}\n\n\t\t.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(bdShadowStylesHover, "\n\t\t}\n\n\t\t").concat(backgroundType === "image" && isBgOverly ? "\n\t\t\t\t.".concat(blockId, ":before{\n\t\t\t\t\tcontent: \"\";\n\t\t\t\t\tposition: absolute;\n\t\t\t\t\ttop: 0;\n\t\t\t\t\tbottom: 0;\n\t\t\t\t\tright: 0;\n\t\t\t\t\tleft: 0;\n\t\t\t\t\tz-index: -1;\n\n\t\t\t\t\t").concat(overlyType === "fill" ? "background-color: ".concat(overlyColor, ";") : overlyType === "gradient" ? "background-image: ".concat(overlyGradient, ";") : " ", "\n\n\t\t\t\t}\n\t\t\t") : " ", "\n\t\t\n\n\t");
+  var wrapperStylesTab = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesTab, "\n\t\t\t").concat(wrapperPaddingStylesTab, "\n\t\t\t").concat(backgroundStylesTab, "\n\t\t\t").concat(bdShadowStyesTab, "\n\n\t\t\t").concat(backgroundType === "image" ? "background-attachment: scroll;" : " ", "\n\t\t}\n\n\t");
+  var wrapperStylesMobile = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesMobile, "\n\t\t\t").concat(wrapperPaddingStylesMobile, "\t\t\t\n\t\t\t").concat(backgroundStylesMobile, "\n\t\t\t").concat(bdShadowStyesMobile, "\n\t\t}\n\t");
   var wrapperInnerStylesDesktop = "\t\n\t\t.".concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\t").concat(flexDirection ? "flex-direction: ".concat(flexDirection, ";") : " ", " \n\t\t\t\n\t\t}\n\t\n\t");
   var mediaStylesDesktop = "\n\t".concat(media !== "none" ? " \n\t\t\t\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\n\t\t\t\t").concat(mediaAlignment ? "align-self: ".concat(mediaAlignment, ";") : "align-self: ".concat(mediaAlignSelf || "center", ";"), "\n\n\t\t\t\t").concat(mediaBgMarginStylesDesktop, "\n\n\t\t\t\t").concat(flexDirection === "row" ? "margin-right: ".concat(mediaWrapperMargin, "px;") : flexDirection === "row-reverse" ? "margin-left: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column" ? "margin-bottom: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column-reverse" ? "margin-top: ".concat(mediaWrapperMargin, "px;") : " ", "\n\n\t\t\t\toverflow: hidden;\n\t\t\t}\n\n\n\t\t\t").concat(media === "image" ? "\n\n\t\t\t\t\t\n\t\t\t\t.".concat(blockId, " .infobox-wrapper-inner .icon-img-wrapper{\n\t\t\t\t\tmax-width: 100%;\n\t\t\t\t\t").concat(mediaImgWidthUnit === "%" && mediaImgWidth ? "width: ".concat(mediaImgWidth).concat(mediaImgWidthUnit, ";") : " ", "\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\tmax-width: 100%;\n\t\t\t\t\tobject-fit: cover;\n\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t").concat(imageUrl ? mediaRadiusStylesDesktop : " ", "\n\t\t\t\t\t\n\t\t\t\t\t").concat(mediaImgWidthUnit !== "%" ? mediaImgWidth ? "width: ".concat(mediaImgWidth).concat(mediaImgWidthUnit, ";") : " " : mediaImgWidth ? "width: 100".concat(mediaImgWidthUnit, ";") : " ", "\n\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : mediaImgHeight ? "height: ".concat(mediaImgHeight).concat(mediaImgHeightUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\t.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\toverflow: hidden;\n\t\t\t\t\tdisplay:flex;\n\t\t\t\t\t").concat(imageUrl ? " " : mediaRadiusStylesDesktop, "\n\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\t") : " ", "\n\n\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\n\t\t\t\t\t\t").concat(mediaBgPaddingDesktop, "\n\t\t\t\t\t\t").concat(mediaRadiusStylesDesktop, "\n\t\t\n\t\t\t\t\t\t").concat(useNumIconBg ? "".concat(numIconBgType === "fill" ? "background-color: ".concat(numIconBgColor, ";") : numIconBgType === "gradient" ? "background-image: ".concat(numIconBgGradient, ";") : " ") : " ", "\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\t\t\n\t\t\t\t\t.").concat(blockId, " .number-or-icon > span{\n\t\t\t\t\t\tcolor: ").concat(numIconColor || "#fff", ";\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\t\t\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t").concat(numTypoStylesDesktop, "\n\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t").concat(media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\tfont-size: ").concat(iconSize, "px;\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\n\t\t\t\t\t") : " ", "\n\n\n\t\t") : " ", "\n\n\t");
   var mediaStylesTab = "\n\t".concat(media !== "none" ? "\n\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\n\t\t\t\t").concat(mediaBgMarginStylesTab, "\t\t\t\t\n\t\t\t}\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\t\t\t\n\t\t\t\t\t.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\t").concat(mediaRadiusStylesTab, "\n\t\t\t\t\t\t").concat(mediaBgPaddingTab, "\t\t\t\t\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t\t.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t\t").concat(numTypoStylesTab, "\n\t\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t").concat(media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\tfont-size: ").concat(TABiconSize, "px;\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t").concat(media === "image" ? "\n\t\t\t\t\t\t\n\t\t\t\t.".concat(blockId, " .infobox-wrapper-inner .icon-img-wrapper{\n\t\t\t\t\t").concat(mediaImgWidthUnit === "%" && TABmediaImgWidth ? "width: ".concat(TABmediaImgWidth).concat(mediaImgWidthUnit, ";") : " ", "\n\t\t\t\t}\n\n\t\t\t\t.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\t\n\t\t\t\t\t").concat(mediaImgWidthUnit !== "%" ? TABmediaImgWidth ? "width: ".concat(TABmediaImgWidth).concat(mediaImgWidthUnit, ";") : " " : TABmediaImgWidth ? "width: 100".concat(mediaImgWidthUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : TABmediaImgHeight ? "height: ".concat(TABmediaImgHeight).concat(mediaImgHeightUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t}\n\n\t\t\t\t\n\t\t\t\t.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\t").concat(mediaRadiusStylesTab, "\n\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\n\n\t\t") : " ", "\n\t\n\t");
@@ -5228,12 +5170,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util_color_control__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../util/color-control */ "./util/color-control/index.js");
 /* harmony import */ var _util_reset_control__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../util/reset-control */ "./util/reset-control/index.js");
 /* harmony import */ var _util_withResButtons__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../util/withResButtons */ "./util/withResButtons/index.js");
-/* harmony import */ var _util_withResBtns__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../util/withResBtns */ "./util/withResBtns/index.js");
+/* harmony import */ var _util_shadowControl__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../util/shadowControl */ "./util/shadowControl/index.js");
 /* harmony import */ var _util_background_control__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../util/background-control */ "./util/background-control/index.js");
 /* harmony import */ var _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./constants/backgroundsConstants */ "./src/constants/backgroundsConstants.js");
-/* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/constants/typographyPrefixConstants.js");
-/* harmony import */ var _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./constants/dimensionsConstants */ "./src/constants/dimensionsConstants.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./constants */ "./src/constants/index.js");
+/* harmony import */ var _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./constants/borderShadowConstants */ "./src/constants/borderShadowConstants.js");
+/* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/constants/typographyPrefixConstants.js");
+/* harmony import */ var _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./constants/dimensionsConstants */ "./src/constants/dimensionsConstants.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./constants */ "./src/constants/index.js");
 
 
 /**
@@ -5246,6 +5189,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Internal dependencies
  */
+
 
 
 
@@ -5418,7 +5362,7 @@ function Inspector(props) {
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Layout Preset "),
     value: layoutPreset,
-    options: _constants__WEBPACK_IMPORTED_MODULE_20__["LAYOUT_TYPES"],
+    options: _constants__WEBPACK_IMPORTED_MODULE_21__["LAYOUT_TYPES"],
     onChange: function onChange(layoutPreset) {
       return setAttributes({
         layoutPreset: layoutPreset
@@ -5443,7 +5387,7 @@ function Inspector(props) {
     label: "Media alignments"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
     id: "eb-infobox-alignments"
-  }, _constants__WEBPACK_IMPORTED_MODULE_20__["MEDIA_ALIGNMENTS_ON_FLEX_ROW"].map(function (_ref) {
+  }, _constants__WEBPACK_IMPORTED_MODULE_21__["MEDIA_ALIGNMENTS_ON_FLEX_ROW"].map(function (_ref) {
     var value = _ref.value,
         label = _ref.label;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
@@ -5461,7 +5405,7 @@ function Inspector(props) {
     label: "Media alignments"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
     id: "eb-infobox-alignments"
-  }, _constants__WEBPACK_IMPORTED_MODULE_20__["MEDIA_ALIGNMENTS_ON_FLEX_COLUMN"].map(function (_ref2) {
+  }, _constants__WEBPACK_IMPORTED_MODULE_21__["MEDIA_ALIGNMENTS_ON_FLEX_COLUMN"].map(function (_ref2) {
     var value = _ref2.value,
         label = _ref2.label;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
@@ -5479,7 +5423,7 @@ function Inspector(props) {
     label: "Contents alignments"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
     id: "eb-infobox-alignments"
-  }, _constants__WEBPACK_IMPORTED_MODULE_20__["CONTENTS_ALIGNMENTS"].map(function (_ref3) {
+  }, _constants__WEBPACK_IMPORTED_MODULE_21__["CONTENTS_ALIGNMENTS"].map(function (_ref3) {
     var value = _ref3.value,
         label = _ref3.label;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
@@ -5499,7 +5443,7 @@ function Inspector(props) {
     id: "eb-infobox-image-icon"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
     id: "eb-infobox-image-icon"
-  }, _constants__WEBPACK_IMPORTED_MODULE_20__["MEDIA_TYPES"].map(function (value) {
+  }, _constants__WEBPACK_IMPORTED_MODULE_21__["MEDIA_TYPES"].map(function (value) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
       isLarge: true,
       isSecondary: media !== value,
@@ -5583,7 +5527,7 @@ function Inspector(props) {
     min: 0
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_6__["default"], {
     baseLabel: "Number Typography",
-    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_18__["typoPrefix_number"],
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_19__["typoPrefix_number"],
     resRequiredProps: resRequiredProps
   })), (media === "number" || media === "icon") && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Color"),
@@ -5603,13 +5547,13 @@ function Inspector(props) {
     }
   }), useNumIconBg && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_8__["default"], {
     resRequiredProps: resRequiredProps,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_19__["mediaBackground"],
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_20__["mediaBackground"],
     baseLabel: "Background size"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Background Type")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
     id: "eb-infobox-infobox-background"
-  }, _constants__WEBPACK_IMPORTED_MODULE_20__["ICON_IMAGE_BG_TYPES"].map(function (_ref4) {
+  }, _constants__WEBPACK_IMPORTED_MODULE_21__["ICON_IMAGE_BG_TYPES"].map(function (_ref4) {
     var value = _ref4.value,
         label = _ref4.label;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
@@ -5669,7 +5613,7 @@ function Inspector(props) {
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
     selectedUnit: mediaImgWidthUnit,
-    unitTypes: _constants__WEBPACK_IMPORTED_MODULE_20__["sizeUnitTypes"],
+    unitTypes: _constants__WEBPACK_IMPORTED_MODULE_21__["sizeUnitTypes"],
     onClick: function onClick(mediaImgWidthUnit) {
       return setAttributes({
         mediaImgWidthUnit: mediaImgWidthUnit
@@ -5730,7 +5674,7 @@ function Inspector(props) {
     }
   }), !isMediaImgHeightAuto && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_unit_control__WEBPACK_IMPORTED_MODULE_11__["default"], {
     selectedUnit: mediaImgHeightUnit,
-    unitTypes: _constants__WEBPACK_IMPORTED_MODULE_20__["sizeUnitTypes"],
+    unitTypes: _constants__WEBPACK_IMPORTED_MODULE_21__["sizeUnitTypes"],
     onClick: function onClick(mediaImgHeightUnit) {
       return setAttributes({
         mediaImgHeightUnit: mediaImgHeightUnit
@@ -5784,11 +5728,11 @@ function Inspector(props) {
   }))))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_8__["default"], {
     forBorderRadius: true,
     resRequiredProps: resRequiredProps,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_19__["mediaBgRadius"],
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_20__["mediaBgRadius"],
     baseLabel: "Border Radius"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_8__["default"], {
     resRequiredProps: resRequiredProps,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_19__["mediaBgMargin"],
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_20__["mediaBgMargin"],
     baseLabel: "Margin"
   }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Title"),
@@ -5797,7 +5741,7 @@ function Inspector(props) {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Title Tag")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
     className: "infobox-button-group"
-  }, _constants__WEBPACK_IMPORTED_MODULE_20__["HEADER_TAGS"].map(function (header) {
+  }, _constants__WEBPACK_IMPORTED_MODULE_21__["HEADER_TAGS"].map(function (header) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
       isSecondary: titleTag !== header,
       isPrimary: titleTag === header,
@@ -5809,11 +5753,11 @@ function Inspector(props) {
     }, header.toUpperCase());
   }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_6__["default"], {
     baseLabel: "Typography",
-    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_18__["typoPrefix_title"],
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_19__["typoPrefix_title"],
     resRequiredProps: resRequiredProps
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_8__["default"], {
     resRequiredProps: resRequiredProps,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_19__["titlePadding"],
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_20__["titlePadding"],
     baseLabel: "Title Padding"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Color"),
@@ -5838,7 +5782,7 @@ function Inspector(props) {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Subtitle Tag")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
     className: "infobox-button-group"
-  }, _constants__WEBPACK_IMPORTED_MODULE_20__["HEADER_TAGS"].map(function (header) {
+  }, _constants__WEBPACK_IMPORTED_MODULE_21__["HEADER_TAGS"].map(function (header) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
       isSecondary: subTitleTag !== header,
       isPrimary: subTitleTag === header,
@@ -5850,11 +5794,11 @@ function Inspector(props) {
     }, header.toUpperCase());
   }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_6__["default"], {
     baseLabel: "Typography",
-    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_18__["typoPrefix_subTitle"],
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_19__["typoPrefix_subTitle"],
     resRequiredProps: resRequiredProps
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_8__["default"], {
     resRequiredProps: resRequiredProps,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_19__["subTitlePadding"],
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_20__["subTitlePadding"],
     baseLabel: "Subtitle Padding"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Color"),
@@ -5877,11 +5821,11 @@ function Inspector(props) {
     }
   }), enableDescription && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_6__["default"], {
     baseLabel: "Typography",
-    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_18__["typoPrefix_content"],
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_19__["typoPrefix_content"],
     resRequiredProps: resRequiredProps
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_8__["default"], {
     resRequiredProps: resRequiredProps,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_19__["contentPadding"],
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_20__["contentPadding"],
     baseLabel: "Content Padding"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Color"),
@@ -5921,15 +5865,15 @@ function Inspector(props) {
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_6__["default"], {
     baseLabel: "Typography",
-    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_18__["typoPrefix_buttonText"],
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_19__["typoPrefix_buttonText"],
     resRequiredProps: resRequiredProps
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_8__["default"], {
     resRequiredProps: resRequiredProps,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_19__["buttonPadding"],
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_20__["buttonPadding"],
     baseLabel: "Button Padding"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_8__["default"], {
     resRequiredProps: resRequiredProps,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_19__["buttonRadius"],
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_20__["buttonRadius"],
     baseLabel: "Button Border Radius"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Text Color"),
@@ -5952,436 +5896,25 @@ function Inspector(props) {
     initialOpen: false
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_8__["default"], {
     resRequiredProps: resRequiredProps,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_19__["wrapperMargin"],
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_20__["wrapperMargin"],
     baseLabel: "Container Margin"
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_8__["default"], {
     resRequiredProps: resRequiredProps,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_19__["wrapperPadding"],
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_20__["wrapperPadding"],
     baseLabel: "Container Padding"
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox Background") // initialOpen={false}
-
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox Background"),
+    initialOpen: false
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_background_control__WEBPACK_IMPORTED_MODULE_16__["default"], {
     controlName: _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_17__["infoWrapBg"],
     resRequiredProps: resRequiredProps
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox Border") // initialOpen={false}
-
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Border Style"),
-    value: wrp_borderStyle,
-    options: _constants__WEBPACK_IMPORTED_MODULE_20__["BORDER_STYLES"],
-    onChange: function onChange(wrp_borderStyle) {
-      return setAttributes({
-        wrp_borderStyle: wrp_borderStyle
-      });
-    }
-  }), wrp_borderStyle !== "none" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Border Color"),
-    color: wrp_borderColor,
-    onChange: function onChange(wrp_borderColor) {
-      return setAttributes({
-        wrp_borderColor: wrp_borderColor
-      });
-    }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    resRequiredProps: resRequiredProps,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_19__["wrp_border"],
-    baseLabel: "Border Width"
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    forBorderRadius: true,
-    resRequiredProps: resRequiredProps,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_19__["wrp_radius"],
-    baseLabel: "Border Radius"
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Box Shadow"),
-    className: "eb-typography-base"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Dropdown"], {
-    className: "eb-typography-dropdown",
-    contentClassName: "my-popover-content-classname",
-    position: "bottom right",
-    renderToggle: function renderToggle(_ref7) {
-      var isOpen = _ref7.isOpen,
-          onToggle = _ref7.onToggle;
-      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-        isSmall: true,
-        onClick: onToggle,
-        "aria-expanded": isOpen
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_typography_control_v2_Icon__WEBPACK_IMPORTED_MODULE_7__["default"], null));
-    },
-    renderContent: function renderContent() {
-      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-        className: "eb-panel-control",
-        style: {
-          minWidth: "230px",
-          padding: "10px"
-        }
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-        id: "eb-infobox-shadow-hover-ptions"
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
-        id: "eb-infobox-shadow-hover-ptions"
-      }, _constants__WEBPACK_IMPORTED_MODULE_20__["SHADOW_HOVER_OPTIONS"].map(function (_ref8) {
-        var value = _ref8.value,
-            label = _ref8.label;
-        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-          isLarge: true,
-          isSecondary: wrp_shadowType !== value,
-          isPrimary: wrp_shadowType === value,
-          onClick: function onClick() {
-            return setAttributes({
-              wrp_shadowType: value
-            });
-          }
-        }, label);
-      })), " "), wrp_shadowType === "normal" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Shadow Color"),
-        color: wrp_shadowColor,
-        onChange: function onChange(wrp_shadowColor) {
-          return setAttributes({
-            wrp_shadowColor: wrp_shadowColor
-          });
-        }
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
-        onReset: function onReset() {
-          return setAttributes({
-            wrp_hOffset: undefined
-          });
-        }
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Horizontal Offset"),
-        value: wrp_hOffset,
-        onChange: function onChange(wrp_hOffset) {
-          return setAttributes({
-            wrp_hOffset: wrp_hOffset
-          });
-        },
-        min: 0,
-        max: 20
-      })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
-        onReset: function onReset() {
-          return setAttributes({
-            wrp_vOffset: undefined
-          });
-        }
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Vertical Offset"),
-        value: wrp_vOffset,
-        onChange: function onChange(wrp_vOffset) {
-          return setAttributes({
-            wrp_vOffset: wrp_vOffset
-          });
-        },
-        min: 0,
-        max: 20
-      })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
-        onReset: function onReset() {
-          return setAttributes({
-            wrp_blur: undefined
-          });
-        }
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Shadow Blur"),
-        value: wrp_blur,
-        onChange: function onChange(wrp_blur) {
-          return setAttributes({
-            wrp_blur: wrp_blur
-          });
-        },
-        min: 0,
-        max: 20
-      })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
-        onReset: function onReset() {
-          return setAttributes({
-            wrp_spread: undefined
-          });
-        }
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Shadow Spread"),
-        value: wrp_spread,
-        onChange: function onChange(wrp_spread) {
-          return setAttributes({
-            wrp_spread: wrp_spread
-          });
-        },
-        min: 0,
-        max: 20
-      }))), wrp_shadowType === "hover" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Hover Shadow Color"),
-        color: wrp_hoverShadowColor,
-        onChange: function onChange(wrp_hoverShadowColor) {
-          return setAttributes({
-            wrp_hoverShadowColor: wrp_hoverShadowColor
-          });
-        }
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
-        onReset: function onReset() {
-          return setAttributes({
-            wrp_hoverHOffset: undefined
-          });
-        }
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Horizontal Offset"),
-        value: wrp_hoverHOffset,
-        onChange: function onChange(wrp_hoverHOffset) {
-          return setAttributes({
-            wrp_hoverHOffset: wrp_hoverHOffset
-          });
-        },
-        min: 0,
-        max: 20
-      })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
-        onReset: function onReset() {
-          return setAttributes({
-            wrp_hoverVOffset: undefined
-          });
-        }
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Vertical Offset"),
-        value: wrp_hoverVOffset,
-        onChange: function onChange(wrp_hoverVOffset) {
-          return setAttributes({
-            wrp_hoverVOffset: wrp_hoverVOffset
-          });
-        },
-        min: 0,
-        max: 20
-      })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
-        onReset: function onReset() {
-          return setAttributes({
-            wrp_hoverBlur: undefined
-          });
-        }
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Shadow Blur"),
-        value: wrp_hoverBlur,
-        onChange: function onChange(wrp_hoverBlur) {
-          return setAttributes({
-            wrp_hoverBlur: wrp_hoverBlur
-          });
-        },
-        min: 0,
-        max: 20
-      })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
-        onReset: function onReset() {
-          return setAttributes({
-            wrp_hoverSpread: undefined
-          });
-        }
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Shadow Spread"),
-        value: wrp_hoverSpread,
-        onChange: function onChange(wrp_hoverSpread) {
-          return setAttributes({
-            wrp_hoverSpread: wrp_hoverSpread
-          });
-        },
-        min: 0,
-        max: 20
-      }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ToggleControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Inset"),
-        checked: wrp_inset,
-        onChange: function onChange() {
-          return setAttributes({
-            wrp_inset: !wrp_inset
-          });
-        }
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-        id: "eb-infobox-transition-time"
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["TextControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Transition"),
-        value: wrp_transitionTime,
-        type: "number",
-        onChange: function onChange(wrp_transitionTime) {
-          return setAttributes({
-            wrp_transitionTime: wrp_transitionTime
-          });
-        }
-      }))));
-    }
-  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox Shadow") // initialOpen={false}
-
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-    id: "eb-infobox-shadow-hover-ptions"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
-    id: "eb-infobox-shadow-hover-ptions"
-  }, _constants__WEBPACK_IMPORTED_MODULE_20__["SHADOW_HOVER_OPTIONS"].map(function (_ref9) {
-    var value = _ref9.value,
-        label = _ref9.label;
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-      isLarge: true,
-      isSecondary: wrp_shadowType !== value,
-      isPrimary: wrp_shadowType === value,
-      onClick: function onClick() {
-        return setAttributes({
-          wrp_shadowType: value
-        });
-      }
-    }, label);
-  })), " "), wrp_shadowType === "normal" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Shadow Color"),
-    color: wrp_shadowColor,
-    onChange: function onChange(wrp_shadowColor) {
-      return setAttributes({
-        wrp_shadowColor: wrp_shadowColor
-      });
-    }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        wrp_hOffset: undefined
-      });
-    }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Horizontal Offset"),
-    value: wrp_hOffset,
-    onChange: function onChange(wrp_hOffset) {
-      return setAttributes({
-        wrp_hOffset: wrp_hOffset
-      });
-    },
-    min: 0,
-    max: 20
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        wrp_vOffset: undefined
-      });
-    }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Vertical Offset"),
-    value: wrp_vOffset,
-    onChange: function onChange(wrp_vOffset) {
-      return setAttributes({
-        wrp_vOffset: wrp_vOffset
-      });
-    },
-    min: 0,
-    max: 20
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        wrp_blur: undefined
-      });
-    }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Shadow Blur"),
-    value: wrp_blur,
-    onChange: function onChange(wrp_blur) {
-      return setAttributes({
-        wrp_blur: wrp_blur
-      });
-    },
-    min: 0,
-    max: 20
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        wrp_spread: undefined
-      });
-    }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Shadow Spread"),
-    value: wrp_spread,
-    onChange: function onChange(wrp_spread) {
-      return setAttributes({
-        wrp_spread: wrp_spread
-      });
-    },
-    min: 0,
-    max: 20
-  }))), wrp_shadowType === "hover" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_12__["default"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Hover Shadow Color"),
-    color: wrp_hoverShadowColor,
-    onChange: function onChange(wrp_hoverShadowColor) {
-      return setAttributes({
-        wrp_hoverShadowColor: wrp_hoverShadowColor
-      });
-    }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        wrp_hoverHOffset: undefined
-      });
-    }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Horizontal Offset"),
-    value: wrp_hoverHOffset,
-    onChange: function onChange(wrp_hoverHOffset) {
-      return setAttributes({
-        wrp_hoverHOffset: wrp_hoverHOffset
-      });
-    },
-    min: 0,
-    max: 20
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        wrp_hoverVOffset: undefined
-      });
-    }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Vertical Offset"),
-    value: wrp_hoverVOffset,
-    onChange: function onChange(wrp_hoverVOffset) {
-      return setAttributes({
-        wrp_hoverVOffset: wrp_hoverVOffset
-      });
-    },
-    min: 0,
-    max: 20
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        wrp_hoverBlur: undefined
-      });
-    }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Shadow Blur"),
-    value: wrp_hoverBlur,
-    onChange: function onChange(wrp_hoverBlur) {
-      return setAttributes({
-        wrp_hoverBlur: wrp_hoverBlur
-      });
-    },
-    min: 0,
-    max: 20
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_reset_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        wrp_hoverSpread: undefined
-      });
-    }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Shadow Spread"),
-    value: wrp_hoverSpread,
-    onChange: function onChange(wrp_hoverSpread) {
-      return setAttributes({
-        wrp_hoverSpread: wrp_hoverSpread
-      });
-    },
-    min: 0,
-    max: 20
-  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ToggleControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Inset"),
-    checked: wrp_inset,
-    onChange: function onChange() {
-      return setAttributes({
-        wrp_inset: !wrp_inset
-      });
-    }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-    id: "eb-infobox-transition-time"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["TextControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Transition"),
-    value: wrp_transitionTime,
-    type: "number",
-    onChange: function onChange(wrp_transitionTime) {
-      return setAttributes({
-        wrp_transitionTime: wrp_transitionTime
-      });
-    }
-  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null)));
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox Border "),
+    initialOpen: false
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_shadowControl__WEBPACK_IMPORTED_MODULE_15__["default"], {
+    controlName: _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_18__["wrpBdShadow"],
+    resRequiredProps: resRequiredProps
+  }))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);
@@ -8887,6 +8420,287 @@ var ResetControl = function ResetControl(_ref) {
 
 /***/ }),
 
+/***/ "./util/shadowControl/index.js":
+/*!*************************************!*\
+  !*** ./util/shadowControl/index.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ShadowControl; });
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _color_control__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../color-control */ "./util/color-control/index.js");
+/* harmony import */ var _reset_control__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../reset-control */ "./util/reset-control/index.js");
+/* harmony import */ var _dimensions_control_v2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../dimensions-control-v2 */ "./util/dimensions-control-v2/index.js");
+/* harmony import */ var _typography_control_v2_Icon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../typography-control-v2/Icon */ "./util/typography-control-v2/Icon.js");
+
+
+
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+function ShadowControl(_ref) {
+  var resRequiredProps = _ref.resRequiredProps,
+      controlName = _ref.controlName;
+  var setAttributes = resRequiredProps.setAttributes,
+      attributes = resRequiredProps.attributes;
+  var borderStyle = attributes["".concat(controlName, "borderStyle")],
+      borderColor = attributes["".concat(controlName, "borderColor")],
+      shadowType = attributes["".concat(controlName, "shadowType")],
+      shadowColor = attributes["".concat(controlName, "shadowColor")],
+      hOffset = attributes["".concat(controlName, "hOffset")],
+      vOffset = attributes["".concat(controlName, "vOffset")],
+      blur = attributes["".concat(controlName, "blur")],
+      spread = attributes["".concat(controlName, "spread")],
+      hoverShadowColor = attributes["".concat(controlName, "hoverShadowColor")],
+      hoverHOffset = attributes["".concat(controlName, "hoverHOffset")],
+      hoverVOffset = attributes["".concat(controlName, "hoverVOffset")],
+      hoverBlur = attributes["".concat(controlName, "hoverBlur")],
+      hoverSpread = attributes["".concat(controlName, "hoverSpread")],
+      inset = attributes["".concat(controlName, "inset")],
+      transitionTime = attributes["".concat(controlName, "transitionTime")];
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Border Style"),
+    value: borderStyle,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("None"),
+      value: "none"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Dashed"),
+      value: "dashed"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Solid"),
+      value: "solid"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Dotted"),
+      value: "dotted"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Double"),
+      value: "double"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Groove"),
+      value: "groove"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Inset"),
+      value: "inset"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Outset"),
+      value: "outset"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Ridge"),
+      value: "ridge"
+    }],
+    onChange: function onChange(borderStyle) {
+      return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "borderStyle"), borderStyle));
+    }
+  }), borderStyle !== "none" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_color_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Border Color"),
+    color: borderColor,
+    onChange: function onChange(borderColor) {
+      return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "borderColor"), borderColor));
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    resRequiredProps: resRequiredProps,
+    controlName: "".concat(controlName, "Bdr_"),
+    baseLabel: "Border Width"
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    forBorderRadius: true,
+    resRequiredProps: resRequiredProps,
+    controlName: "".concat(controlName, "Rds_"),
+    baseLabel: "Border Radius"
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Box Shadow"),
+    className: "eb-typography-base"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Dropdown"], {
+    className: "eb-typography-dropdown",
+    contentClassName: "my-popover-content-classname",
+    position: "bottom right",
+    renderToggle: function renderToggle(_ref2) {
+      var isOpen = _ref2.isOpen,
+          onToggle = _ref2.onToggle;
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+        isSmall: true,
+        onClick: onToggle,
+        "aria-expanded": isOpen
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_typography_control_v2_Icon__WEBPACK_IMPORTED_MODULE_7__["default"], null));
+    },
+    renderContent: function renderContent() {
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+        className: "eb-panel-control",
+        style: {
+          minWidth: "230px",
+          padding: "10px"
+        }
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
+        id: "eb-infobox-shadow-hover-ptions"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
+        id: "eb-infobox-shadow-hover-ptions"
+      }, [{
+        label: "Normal",
+        value: "normal"
+      }, {
+        label: "Hover",
+        value: "hover"
+      }].map(function (_ref3) {
+        var value = _ref3.value,
+            label = _ref3.label;
+        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+          isLarge: true,
+          isSecondary: shadowType !== value,
+          isPrimary: shadowType === value,
+          onClick: function onClick() {
+            return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "shadowType"), value));
+          }
+        }, label);
+      })), " "), shadowType === "normal" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_color_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Shadow Color"),
+        color: shadowColor,
+        onChange: function onChange(shadowColor) {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "shadowColor"), shadowColor));
+        }
+      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_reset_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        onReset: function onReset() {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "hOffset"), undefined));
+        }
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Horizontal Offset"),
+        value: hOffset,
+        onChange: function onChange(hOffset) {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "hOffset"), hOffset));
+        },
+        min: 0,
+        max: 20
+      })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_reset_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        onReset: function onReset() {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "vOffset"), undefined));
+        }
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Vertical Offset"),
+        value: vOffset,
+        onChange: function onChange(vOffset) {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "vOffset"), vOffset));
+        },
+        min: 0,
+        max: 20
+      })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_reset_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        onReset: function onReset() {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "blur"), undefined));
+        }
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Shadow Blur"),
+        value: blur,
+        onChange: function onChange(blur) {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "blur"), blur));
+        },
+        min: 0,
+        max: 20
+      })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_reset_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        onReset: function onReset() {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "spread"), undefined));
+        }
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Shadow Spread"),
+        value: spread,
+        onChange: function onChange(spread) {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "spread"), spread));
+        },
+        min: 0,
+        max: 20
+      }))), shadowType === "hover" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_color_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Hover Shadow Color"),
+        color: hoverShadowColor,
+        onChange: function onChange(hoverShadowColor) {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "hoverShadowColor"), hoverShadowColor));
+        }
+      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_reset_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        onReset: function onReset() {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "hoverHOffset"), undefined));
+        }
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Horizontal Offset"),
+        value: hoverHOffset,
+        onChange: function onChange(hoverHOffset) {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "hoverHOffset"), hoverHOffset));
+        },
+        min: 0,
+        max: 20
+      })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_reset_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        onReset: function onReset() {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "hoverVOffset"), undefined));
+        }
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Vertical Offset"),
+        value: hoverVOffset,
+        onChange: function onChange(hoverVOffset) {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "hoverVOffset"), hoverVOffset));
+        },
+        min: 0,
+        max: 20
+      })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_reset_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        onReset: function onReset() {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "hoverBlur"), undefined));
+        }
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Shadow Blur"),
+        value: hoverBlur,
+        onChange: function onChange(hoverBlur) {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "hoverBlur"), hoverBlur));
+        },
+        min: 0,
+        max: 20
+      })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_reset_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        onReset: function onReset() {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "hoverSpread"), undefined));
+        }
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Shadow Spread"),
+        value: hoverSpread,
+        onChange: function onChange(hoverSpread) {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "hoverSpread"), hoverSpread));
+        },
+        min: 0,
+        max: 20
+      }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ToggleControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Inset"),
+        checked: inset,
+        onChange: function onChange() {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "inset"), !inset));
+        }
+      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
+        id: "eb-infobox-transition-time"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["TextControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Transition"),
+        value: transitionTime,
+        type: "number",
+        onChange: function onChange(transitionTime) {
+          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "transitionTime"), transitionTime));
+        }
+      }))));
+    }
+  })));
+}
+
+/***/ }),
+
 /***/ "./util/toggle-button/index.js":
 /*!*************************************!*\
   !*** ./util/toggle-button/index.js ***!
@@ -9738,98 +9552,6 @@ var UnitControl = function UnitControl(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (UnitControl);
-
-/***/ }),
-
-/***/ "./util/withResBtns/helpers.js":
-/*!*************************************!*\
-  !*** ./util/withResBtns/helpers.js ***!
-  \*************************************/
-/*! exports provided: handleDesktopBtnClick, handleTabBtnClick, handleMobileBtnClick */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "handleDesktopBtnClick", function() { return handleDesktopBtnClick; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "handleTabBtnClick", function() { return handleTabBtnClick; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "handleMobileBtnClick", function() { return handleMobileBtnClick; });
-var handleDesktopBtnClick = function handleDesktopBtnClick(_ref) {
-  var setAttributes = _ref.setAttributes;
-  document.body.classList.add("eb-res-option-desktop");
-  document.body.classList.remove("eb-res-option-tab", "eb-res-option-mobile");
-  setAttributes({
-    resOption: "desktop"
-  });
-};
-var handleTabBtnClick = function handleTabBtnClick(_ref2) {
-  var setAttributes = _ref2.setAttributes;
-  document.body.classList.add("eb-res-option-tab");
-  document.body.classList.remove("eb-res-option-desktop", "eb-res-option-mobile");
-  setAttributes({
-    resOption: "tab"
-  });
-};
-var handleMobileBtnClick = function handleMobileBtnClick(_ref3) {
-  var setAttributes = _ref3.setAttributes;
-  document.body.classList.add("eb-res-option-mobile");
-  document.body.classList.remove("eb-res-option-desktop", "eb-res-option-tab");
-  setAttributes({
-    resOption: "mobile"
-  });
-};
-
-/***/ }),
-
-/***/ "./util/withResBtns/index.js":
-/*!***********************************!*\
-  !*** ./util/withResBtns/index.js ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return WithResBtns; });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers */ "./util/withResBtns/helpers.js");
-
-
-function WithResBtns(_ref) {
-  var children = _ref.children,
-      resRequiredProps = _ref.resRequiredProps,
-      label = _ref.label;
-  var setAttributes = resRequiredProps.setAttributes,
-      resOption = resRequiredProps.resOption;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "newWithResWrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "resBtns"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-    className: "resLabel"
-  }, label), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-    onClick: function onClick() {
-      return Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["handleDesktopBtnClick"])({
-        setAttributes: setAttributes
-      });
-    },
-    class: "typoResButton dashicons dashicons-desktop ".concat(resOption === "desktop" ? "active" : " ")
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-    onClick: function onClick() {
-      return Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["handleTabBtnClick"])({
-        setAttributes: setAttributes
-      });
-    },
-    class: "typoResButton dashicons dashicons-tablet ".concat(resOption === "tab" ? "active" : " ")
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-    onClick: function onClick() {
-      return Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["handleMobileBtnClick"])({
-        setAttributes: setAttributes
-      });
-    },
-    class: "typoResButton dashicons dashicons-smartphone ".concat(resOption === "mobile" ? "active" : " ")
-  })), children);
-}
 
 /***/ }),
 
