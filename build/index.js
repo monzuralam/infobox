@@ -8121,7 +8121,7 @@ GradientColorControl.propTypes = {
 /*!*******************************!*\
   !*** ./util/helpers/index.js ***!
   \*******************************/
-/*! exports provided: hasVal, generateBackgroundAttributes, generateDimensionsAttributes, generateTypographyAttributes, textInsideForEdit, generateRandomNumber, hardMinifyCssStrings, softMinifyCssStrings, isCssExists, generateTypographyStyles, generateDimensionsControlStyles, generateBackgroundControlStyles, generateResponsiveRangeAttributes, generateResponsiveRangeStyles, getFlipTransform, getButtonClasses, getBackgroundImage */
+/*! exports provided: hasVal, generateBackgroundAttributes, generateDimensionsAttributes, generateTypographyAttributes, generateBorderShadowAttributes, textInsideForEdit, generateRandomNumber, hardMinifyCssStrings, softMinifyCssStrings, isCssExists, generateTypographyStyles, generateDimensionsControlStyles, generateBorderShadowStyles, generateBackgroundControlStyles, generateResponsiveRangeAttributes, generateResponsiveRangeStyles, getFlipTransform, getButtonClasses, getBackgroundImage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8130,6 +8130,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateBackgroundAttributes", function() { return generateBackgroundAttributes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateDimensionsAttributes", function() { return generateDimensionsAttributes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateTypographyAttributes", function() { return generateTypographyAttributes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateBorderShadowAttributes", function() { return generateBorderShadowAttributes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "textInsideForEdit", function() { return textInsideForEdit; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateRandomNumber", function() { return generateRandomNumber; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hardMinifyCssStrings", function() { return hardMinifyCssStrings; });
@@ -8137,6 +8138,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isCssExists", function() { return isCssExists; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateTypographyStyles", function() { return generateTypographyStyles; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateDimensionsControlStyles", function() { return generateDimensionsControlStyles; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateBorderShadowStyles", function() { return generateBorderShadowStyles; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateBackgroundControlStyles", function() { return generateBackgroundControlStyles; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateResponsiveRangeAttributes", function() { return generateResponsiveRangeAttributes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateResponsiveRangeStyles", function() { return generateResponsiveRangeStyles; });
@@ -8393,6 +8395,59 @@ var generateTypographyAttributes = function generateTypographyAttributes(prefixA
   }, {}); // console.log({ typoAttrs });
 
   return typoAttrs;
+}; // Important: the following "generateBorderShadowAttributes" function must be declared below the "generateDimensionsAttributes" function declaration
+// function to generate BorderShadow control's attributes
+
+var generateBorderShadowAttributes = function generateBorderShadowAttributes(controlName) {
+  var _objectSpread6;
+
+  var defaults = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var _defaults$bdrDefaults = defaults.bdrDefaults,
+      bdrDefaults = _defaults$bdrDefaults === void 0 ? {} : _defaults$bdrDefaults,
+      _defaults$rdsDefaults = defaults.rdsDefaults,
+      rdsDefaults = _defaults$rdsDefaults === void 0 ? {} : _defaults$rdsDefaults;
+
+  var result = _objectSpread(_objectSpread((_objectSpread6 = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread6, "".concat(controlName, "borderColor"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread6, "".concat(controlName, "borderStyle"), {
+    type: "string",
+    default: "none"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread6, "".concat(controlName, "hOffset"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread6, "".concat(controlName, "vOffset"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread6, "".concat(controlName, "blur"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread6, "".concat(controlName, "spread"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread6, "".concat(controlName, "shadowColor"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread6, "".concat(controlName, "inset"), {
+    type: "boolean",
+    default: false
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread6, "".concat(controlName, "shadowType"), {
+    type: "string",
+    default: "normal"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread6, "".concat(controlName, "hoverHOffset"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread6, "".concat(controlName, "hoverVOffset"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread6, "".concat(controlName, "hoverBlur"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread6, "".concat(controlName, "hoverSpread"), {
+    type: "number"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread6, "".concat(controlName, "hoverShadowColor"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread6, "".concat(controlName, "hoverInset"), {
+    type: "boolean",
+    default: false
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread6, "".concat(controlName, "transitionTime"), {
+    type: "string",
+    default: "500"
+  }), _objectSpread6), generateDimensionsAttributes("".concat(controlName, "Bdr_"), bdrDefaults)), generateDimensionsAttributes("".concat(controlName, "Rds_"), rdsDefaults)); // console.log("---generateBorderShadowAttributes:", { result });
+
+
+  return result;
 }; // helper Functions: function 'textInsideForEdit' is for setting the innertext depending on whether separator should be shown and which separator should be shown
 
 var textInsideForEdit = function textInsideForEdit(value, isShowSeparator, separator) {
@@ -8477,7 +8532,8 @@ var generateDimensionsControlStyles = function generateDimensionsControlStyles(_
       MOBdimensionTop = attributes["MOB".concat(controlName, "Top")],
       MOBdimensionRight = attributes["MOB".concat(controlName, "Right")],
       MOBdimensionBottom = attributes["MOB".concat(controlName, "Bottom")],
-      MOBdimensionLeft = attributes["MOB".concat(controlName, "Left")];
+      MOBdimensionLeft = attributes["MOB".concat(controlName, "Left")]; // console.log({ controlName, attributes });
+
   var dimensionStylesDesktop = " ";
   var dimensionStylesTab = " ";
   var dimensionStylesMobile = " ";
@@ -8501,11 +8557,69 @@ var generateDimensionsControlStyles = function generateDimensionsControlStyles(_
     dimensionStylesTab: dimensionStylesTab,
     dimensionStylesMobile: dimensionStylesMobile
   };
-}; // function to generate Background control styles based on the unique controlName(prefix)
+}; // Important: the following "generateBorderShadowStyles" function must be declared below the "generateDimensionsControlStyles" function declaration
+// function to generate BorderShadow control's Styles for an element based on it's controlName(prefix)
 
-var generateBackgroundControlStyles = function generateBackgroundControlStyles(_ref13) {
+var generateBorderShadowStyles = function generateBorderShadowStyles(_ref13) {
   var controlName = _ref13.controlName,
       attributes = _ref13.attributes;
+
+  var _generateDimensionsCo = generateDimensionsControlStyles({
+    controlName: "".concat(controlName, "Bdr_"),
+    styleFor: "border",
+    attributes: attributes
+  }),
+      borderStylesDesktop = _generateDimensionsCo.dimensionStylesDesktop,
+      borderStylesTab = _generateDimensionsCo.dimensionStylesTab,
+      borderStylesMobile = _generateDimensionsCo.dimensionStylesMobile;
+
+  var _generateDimensionsCo2 = generateDimensionsControlStyles({
+    controlName: "".concat(controlName, "Rds_"),
+    styleFor: "border-radius",
+    attributes: attributes
+  }),
+      radiusStylesDesktop = _generateDimensionsCo2.dimensionStylesDesktop,
+      radiusStylesTab = _generateDimensionsCo2.dimensionStylesTab,
+      radiusStylesMobile = _generateDimensionsCo2.dimensionStylesMobile;
+
+  var borderStyle = attributes["".concat(controlName, "borderStyle")],
+      borderColor = attributes["".concat(controlName, "borderColor")],
+      shadowColor = attributes["".concat(controlName, "shadowColor")],
+      _attributes$2 = attributes["".concat(controlName, "hOffset")],
+      hOffset = _attributes$2 === void 0 ? 0 : _attributes$2,
+      _attributes$3 = attributes["".concat(controlName, "vOffset")],
+      vOffset = _attributes$3 === void 0 ? 0 : _attributes$3,
+      _attributes$4 = attributes["".concat(controlName, "blur")],
+      blur = _attributes$4 === void 0 ? 0 : _attributes$4,
+      _attributes$5 = attributes["".concat(controlName, "spread")],
+      spread = _attributes$5 === void 0 ? 0 : _attributes$5,
+      inset = attributes["".concat(controlName, "inset")],
+      _attributes$6 = attributes["".concat(controlName, "hoverShadowColor")],
+      hoverShadowColor = _attributes$6 === void 0 ? shadowColor : _attributes$6,
+      _attributes$7 = attributes["".concat(controlName, "hoverHOffset")],
+      hoverHOffset = _attributes$7 === void 0 ? hOffset : _attributes$7,
+      _attributes$8 = attributes["".concat(controlName, "hoverVOffset")],
+      hoverVOffset = _attributes$8 === void 0 ? vOffset : _attributes$8,
+      _attributes$9 = attributes["".concat(controlName, "hoverBlur")],
+      hoverBlur = _attributes$9 === void 0 ? blur : _attributes$9,
+      _attributes$10 = attributes["".concat(controlName, "hoverSpread")],
+      hoverSpread = _attributes$10 === void 0 ? spread : _attributes$10,
+      transitionTime = attributes["".concat(controlName, "transitionTime")];
+  var styesDesktop = "\n    ".concat(borderStylesDesktop, "\n    ").concat(radiusStylesDesktop, "\n\n\n    ").concat(borderStyle !== "none" && borderColor ? "\n        ".concat(borderStylesDesktop, "\n        border-color: ").concat(borderColor, ";\n        border-style: ").concat(borderStyle, ";\n        ") : " ", "\n\n    ").concat(shadowColor ? "box-shadow: ".concat(shadowColor, " ").concat(hOffset, "px ").concat(vOffset, "px ").concat(blur, "px ").concat(spread, "px ").concat(inset ? "inset" : "", ";") : " ", "\n\n    transition: ").concat(transitionTime ? "".concat(transitionTime / 1000, "s") : ".5s", ";\n\n  ");
+  var styesTab = "  \n    ".concat(borderColor ? borderStylesTab : " ", "\n    ").concat(radiusStylesTab, "\n  ");
+  var styesMobile = "\n    ".concat(borderColor ? borderStylesMobile : " ", "\n    ").concat(radiusStylesMobile, "\n  ");
+  var stylesHover = "\n    ".concat(hoverShadowColor ? "box-shadow: ".concat(hoverShadowColor, " ").concat(hoverHOffset, "px ").concat(hoverVOffset, "px ").concat(hoverBlur, "px ").concat(hoverSpread, "px ").concat(inset ? "inset" : " ", ";") : " ", "\n  ");
+  return {
+    styesDesktop: styesDesktop,
+    styesTab: styesTab,
+    styesMobile: styesMobile,
+    stylesHover: stylesHover
+  };
+}; // function to generate Background control styles based on the unique controlName(prefix)
+
+var generateBackgroundControlStyles = function generateBackgroundControlStyles(_ref14) {
+  var controlName = _ref14.controlName,
+      attributes = _ref14.attributes;
   var backgroundType = attributes["".concat(controlName, "backgroundType")],
       backgroundColor = attributes["".concat(controlName, "backgroundColor")],
       gradientColor = attributes["".concat(controlName, "gradientColor")],
@@ -8520,8 +8634,8 @@ var generateBackgroundControlStyles = function generateBackgroundControlStyles(_
       bgImgcustomPosYUnit = attributes["".concat(controlName, "bgImgcustomPosYUnit")],
       bgImgAttachment = attributes["".concat(controlName, "bgImgAttachment")],
       bgImgRepeat = attributes["".concat(controlName, "bgImgRepeat")],
-      _attributes$2 = attributes["".concat(controlName, "overlyColor")],
-      overlyColor = _attributes$2 === void 0 ? "#00000080" : _attributes$2,
+      _attributes$11 = attributes["".concat(controlName, "overlyColor")],
+      overlyColor = _attributes$11 === void 0 ? "#00000080" : _attributes$11,
       overlyType = attributes["".concat(controlName, "overlyType")],
       isBgOverly = attributes["".concat(controlName, "isBgOverly")],
       overlyGradient = attributes["".concat(controlName, "overlyGradient")],
@@ -8559,7 +8673,7 @@ var generateBackgroundControlStyles = function generateBackgroundControlStyles(_
 }; // function to generate responsive range controller attributes for multiple range control based on the array of prefix
 
 var generateResponsiveRangeAttributes = function generateResponsiveRangeAttributes(controlName) {
-  var _objectSpread7;
+  var _objectSpread8;
 
   var defaults = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
   var desktop = _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(defaults) !== undefined && defaults !== "" ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, "".concat(controlName, "Range"), {
@@ -8572,26 +8686,26 @@ var generateResponsiveRangeAttributes = function generateResponsiveRangeAttribut
   var result = _objectSpread(_objectSpread(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, "".concat(controlName, "Unit"), {
     type: "string",
     default: "px"
-  }), desktop), {}, (_objectSpread7 = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread7, "TAB".concat(controlName, "Unit"), {
+  }), desktop), {}, (_objectSpread8 = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread8, "TAB".concat(controlName, "Unit"), {
     type: "string",
     default: "px"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread7, "TAB".concat(controlName, "Range"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread8, "TAB".concat(controlName, "Range"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread7, "MOB".concat(controlName, "Unit"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread8, "MOB".concat(controlName, "Unit"), {
     type: "string",
     default: "px"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread7, "MOB".concat(controlName, "Range"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_objectSpread8, "MOB".concat(controlName, "Range"), {
     type: "string"
-  }), _objectSpread7));
+  }), _objectSpread8)); // console.log(result);
 
-  console.log(result);
+
   return _objectSpread({}, result);
 }; // function to generate responsive range control styles for an element based on it's prefix
 
-var generateResponsiveRangeStyles = function generateResponsiveRangeStyles(_ref16) {
-  var controlName = _ref16.controlName,
-      property = _ref16.property,
-      attributes = _ref16.attributes;
+var generateResponsiveRangeStyles = function generateResponsiveRangeStyles(_ref17) {
+  var controlName = _ref17.controlName,
+      property = _ref17.property,
+      attributes = _ref17.attributes;
   var desktopSizeUnit = attributes["".concat(controlName, "Unit")],
       desktopRange = attributes["".concat(controlName, "Range")],
       TABsizeUnit = attributes["TAB".concat(controlName, "Unit")],
