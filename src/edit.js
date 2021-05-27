@@ -450,6 +450,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		overlyType,
 		overlyColor,
 		overlyGradient,
+		backgroundType,
 	} = generateBackgroundControlStyles({
 		attributes,
 		controlName: infoWrapBg,
@@ -498,7 +499,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		}
 
 		${
-			isBgOverly
+			backgroundType === "image" && isBgOverly
 				? `
 				.${blockId}:before{
 					content: "";
@@ -536,11 +537,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${wrp_radiusStylesTab}
 
 
-			${
-				wrp_backgroundType === "image" && wrp_bgImageURL
-					? `background-attachment: scroll;`
-					: " "
-			}
+			${backgroundType === "image" ? `background-attachment: scroll;` : " "}
 		}
 
 	`;
