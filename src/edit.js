@@ -17,6 +17,7 @@ import {
 	generateBackgroundControlStyles,
 	generateDimensionsControlStyles,
 	generateTypographyStyles,
+	generateBorderShadowStyles,
 } from "../util/helpers";
 import Inspector from "./inspector";
 import {
@@ -43,6 +44,7 @@ import {
 } from "./constants/dimensionsConstants";
 
 import { infoWrapBg } from "./constants/backgroundsConstants";
+import { wrpBdShadow } from "./constants/borderShadowConstants";
 
 const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	const {
@@ -158,45 +160,45 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		//
 		contentsAlignment,
 
-		// border attributes ⬇
-		wrp_borderColor,
-		wrp_borderStyle,
-		// wrp_borderWidth,
-		// wrp_borderRadius,
-		// wrp_radiusUnit,
+		// // border attributes ⬇
+		// wrp_borderColor,
+		// wrp_borderStyle,
+		// // wrp_borderWidth,
+		// // wrp_borderRadius,
+		// // wrp_radiusUnit,
 
-		// shadow attributes  ⬇
-		wrp_shadowColor,
-		wrp_hOffset = 0,
-		wrp_vOffset = 0,
-		wrp_blur = 0,
-		wrp_spread = 0,
-		wrp_inset,
+		// // shadow attributes  ⬇
+		// wrp_shadowColor,
+		// wrp_hOffset = 0,
+		// wrp_vOffset = 0,
+		// wrp_blur = 0,
+		// wrp_spread = 0,
+		// wrp_inset,
 
-		wrp_hoverShadowColor = wrp_shadowColor,
-		wrp_hoverHOffset = wrp_hOffset,
-		wrp_hoverVOffset = wrp_vOffset,
-		wrp_hoverBlur = wrp_blur,
-		wrp_hoverSpread = wrp_spread,
+		// wrp_hoverShadowColor = wrp_shadowColor,
+		// wrp_hoverHOffset = wrp_hOffset,
+		// wrp_hoverVOffset = wrp_vOffset,
+		// wrp_hoverBlur = wrp_blur,
+		// wrp_hoverSpread = wrp_spread,
 
-		// transition attributes ⬇
-		wrp_transitionTime,
+		// // transition attributes ⬇
+		// wrp_transitionTime,
 
-		// background attributes ⬇
-		wrp_backgroundType,
-		wrp_backgroundColor,
-		wrp_gradientColor,
-		wrp_bgImageURL,
-		wrp_backgroundSize,
-		wrp_bgImgCustomSize,
-		wrp_bgImgCustomSizeUnit,
-		wrp_bgImgPos,
-		wrp_bgImgcustomPosX,
-		wrp_bgImgcustomPosXUnit,
-		wrp_bgImgcustomPosY,
-		wrp_bgImgcustomPosYUnit,
-		wrp_bgImgAttachment,
-		wrp_bgImgRepeat,
+		// // background attributes ⬇
+		// wrp_backgroundType,
+		// wrp_backgroundColor,
+		// wrp_gradientColor,
+		// wrp_bgImageURL,
+		// wrp_backgroundSize,
+		// wrp_bgImgCustomSize,
+		// wrp_bgImgCustomSizeUnit,
+		// wrp_bgImgPos,
+		// wrp_bgImgcustomPosX,
+		// wrp_bgImgcustomPosXUnit,
+		// wrp_bgImgcustomPosY,
+		// wrp_bgImgcustomPosYUnit,
+		// wrp_bgImgAttachment,
+		// wrp_bgImgRepeat,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
@@ -422,25 +424,25 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		styleFor: "margin",
 	});
 
-	const {
-		dimensionStylesDesktop: wrp_borderStylesDesktop,
-		dimensionStylesTab: wrp_borderStylesTab,
-		dimensionStylesMobile: wrp_borderStylesMobile,
-	} = generateDimensionsControlStyles({
-		attributes,
-		controlName: wrp_border,
-		styleFor: "border",
-	});
+	// const {
+	// 	dimensionStylesDesktop: wrp_borderStylesDesktop,
+	// 	dimensionStylesTab: wrp_borderStylesTab,
+	// 	dimensionStylesMobile: wrp_borderStylesMobile,
+	// } = generateDimensionsControlStyles({
+	// 	attributes,
+	// 	controlName: wrp_border,
+	// 	styleFor: "border",
+	// });
 
-	const {
-		dimensionStylesDesktop: wrp_radiusStylesDesktop,
-		dimensionStylesTab: wrp_radiusStylesTab,
-		dimensionStylesMobile: wrp_radiusStylesMobile,
-	} = generateDimensionsControlStyles({
-		attributes,
-		controlName: wrp_radius,
-		styleFor: "border-radius",
-	});
+	// const {
+	// 	dimensionStylesDesktop: wrp_radiusStylesDesktop,
+	// 	dimensionStylesTab: wrp_radiusStylesTab,
+	// 	dimensionStylesMobile: wrp_radiusStylesMobile,
+	// } = generateDimensionsControlStyles({
+	// 	attributes,
+	// 	controlName: wrp_radius,
+	// 	styleFor: "border-radius",
+	// });
 
 	const {
 		backgroundStylesDesktop,
@@ -456,46 +458,30 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		controlName: infoWrapBg,
 	});
 
+	const {
+		styesDesktop: bdShadowStyesDesktop,
+		styesTab: bdShadowStyesTab,
+		styesMobile: bdShadowStyesMobile,
+		stylesHover: bdShadowStylesHover,
+	} = generateBorderShadowStyles({
+		controlName: wrpBdShadow,
+		attributes,
+	});
+
 	const wrapperStylesDesktop = `
 		.${blockId} {
 			position: relative;
 			overflow: hidden;
 			${wrapperMarginStylesDesktop}
 			${wrapperPaddingStylesDesktop}
-
+			${bdShadowStyesDesktop}
 			${backgroundStylesDesktop}
 			${isBgOverly ? `z-index: 1;` : " "}			
 
-			${
-				wrp_borderStyle !== "none" && wrp_borderColor
-					? `
-					${wrp_borderStylesDesktop}
-					border-color: ${wrp_borderColor};
-					border-style: ${wrp_borderStyle};
-					`
-					: " "
-			}
-			${wrp_radiusStylesDesktop}
-
-			${
-				wrp_shadowColor
-					? `box-shadow: ${wrp_shadowColor} ${wrp_hOffset}px ${wrp_vOffset}px ${wrp_blur}px ${wrp_spread}px ${
-							wrp_inset ? "inset" : ""
-					  };`
-					: " "
-			}
-
-			transition: ${wrp_transitionTime ? `${wrp_transitionTime / 1000}s` : ".5s"};
 		}
 
 		.${blockId}:hover{		
-			${
-				wrp_hoverShadowColor
-					? `box-shadow: ${wrp_hoverShadowColor} ${wrp_hoverHOffset}px ${wrp_hoverVOffset}px ${wrp_hoverBlur}px ${wrp_hoverSpread}px ${
-							wrp_inset ? "inset" : " "
-					  };`
-					: " "
-			}
+			${bdShadowStylesHover}
 		}
 
 		${
@@ -530,12 +516,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		.${blockId} {
 			${wrapperMarginStylesTab}
 			${wrapperPaddingStylesTab}
-
 			${backgroundStylesTab}
-
-			${wrp_borderColor ? wrp_borderStylesTab : " "}
-			${wrp_radiusStylesTab}
-
+			${bdShadowStyesTab}
 
 			${backgroundType === "image" ? `background-attachment: scroll;` : " "}
 		}
@@ -546,13 +528,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		.${blockId} {
 			${wrapperMarginStylesMobile}
 			${wrapperPaddingStylesMobile}			
-
 			${backgroundStylesMobile}
-
-			${wrp_borderColor ? wrp_borderStylesMobile : " "}
-			${wrp_radiusStylesMobile}
+			${bdShadowStyesMobile}
 		}
-
 	`;
 
 	const wrapperInnerStylesDesktop = `	

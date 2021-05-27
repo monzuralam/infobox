@@ -342,18 +342,18 @@ const attributes = {
 	// ...generateDimensionsAttributes(wrp_radius),
 
 	...generateBorderShadowAttributes(wrpBdShadow, {
-		bdrDefaults: {
-			top: 0,
-			bottom: 0,
-			right: 0,
-			left: 0,
-		},
-		rdsDefaults: {
-			top: 0,
-			bottom: 50,
-			right: 500,
-			left: 1000,
-		},
+		// bdrDefaults: {
+		// 	top: 0,
+		// 	bottom: 0,
+		// 	right: 0,
+		// 	left: 0,
+		// },
+		// rdsDefaults: {
+		// 	top: 0,
+		// 	bottom: 50,
+		// 	right: 500,
+		// 	left: 1000,
+		// },
 	}),
 
 	// background attributes ⬇

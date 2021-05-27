@@ -27,21 +27,21 @@ export default function ShadowControl({ resRequiredProps, controlName }) {
 	const { setAttributes, attributes } = resRequiredProps;
 
 	const {
-		[`${controlName}borderStyle `]: borderStyle,
-		[`${controlName}borderColor `]: borderColor,
-		[`${controlName}shadowType `]: shadowType,
-		[`${controlName}shadowColor `]: shadowColor,
-		[`${controlName}hOffset `]: hOffset,
-		[`${controlName}vOffset `]: vOffset,
-		[`${controlName}blur `]: blur,
-		[`${controlName}spread `]: spread,
-		[`${controlName}hoverShadowColor `]: hoverShadowColor,
-		[`${controlName}hoverHOffset `]: hoverHOffset,
-		[`${controlName}hoverVOffset `]: hoverVOffset,
-		[`${controlName}hoverBlur `]: hoverBlur,
-		[`${controlName}hoverSpread `]: hoverSpread,
-		[`${controlName}inset `]: inset,
-		[`${controlName}transitionTime `]: transitionTime,
+		[`${controlName}borderStyle`]: borderStyle,
+		[`${controlName}borderColor`]: borderColor,
+		[`${controlName}shadowType`]: shadowType,
+		[`${controlName}shadowColor`]: shadowColor,
+		[`${controlName}hOffset`]: hOffset,
+		[`${controlName}vOffset`]: vOffset,
+		[`${controlName}blur`]: blur,
+		[`${controlName}spread`]: spread,
+		[`${controlName}hoverShadowColor`]: hoverShadowColor,
+		[`${controlName}hoverHOffset`]: hoverHOffset,
+		[`${controlName}hoverVOffset`]: hoverVOffset,
+		[`${controlName}hoverBlur`]: hoverBlur,
+		[`${controlName}hoverSpread`]: hoverSpread,
+		[`${controlName}inset`]: inset,
+		[`${controlName}transitionTime`]: transitionTime,
 	} = attributes;
 
 	return (
