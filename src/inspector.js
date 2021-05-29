@@ -12,7 +12,7 @@ import {
 	Button,
 	RangeControl,
 	BaseControl,
-	Dropdown,
+	// Dropdown,
 	ButtonGroup,
 } from "@wordpress/components";
 
@@ -24,7 +24,7 @@ import FontIconPicker from "@fonticonpicker/react-fonticonpicker";
 import faIcons from "../util/faIcons.js";
 
 import TypographyDropdown from "../util/typography-control-v2";
-import TypographyIcon from "../util/typography-control-v2/Icon";
+// import TypographyIcon from "../util/typography-control-v2/Icon";
 
 import ResponsiveDimensionsControl from "../util/dimensions-control-v2";
 import ImageAvatar from "../util/image-avatar/";
@@ -61,8 +61,8 @@ import {
 	titlePadding,
 	wrapperMargin,
 	wrapperPadding,
-	wrp_border,
-	wrp_radius,
+	// wrp_border,
+	// wrp_radius,
 } from "./constants/dimensionsConstants";
 
 import {
@@ -197,27 +197,27 @@ function Inspector(props) {
 		//
 		contentsAlignment,
 
-		// border attributes ⬇
-		wrp_borderColor,
-		wrp_borderStyle,
+		// // border attributes ⬇
+		// wrp_borderColor,
+		// wrp_borderStyle,
 		// wrp_borderWidth,
 		// wrp_borderRadius,
 		// wrp_radiusUnit,
 
-		// shadow attributes  ⬇
-		wrp_hOffset,
-		wrp_vOffset,
-		wrp_blur,
-		wrp_spread,
-		wrp_shadowColor,
-		wrp_inset,
-		wrp_shadowType,
-		wrp_hoverHOffset,
-		wrp_hoverVOffset,
-		wrp_hoverBlur,
-		wrp_hoverSpread,
-		wrp_hoverShadowColor,
-		wrp_transitionTime,
+		// // shadow attributes  ⬇
+		// wrp_hOffset,
+		// wrp_vOffset,
+		// wrp_blur,
+		// wrp_spread,
+		// wrp_shadowColor,
+		// wrp_inset,
+		// wrp_shadowType,
+		// wrp_hoverHOffset,
+		// wrp_hoverVOffset,
+		// wrp_hoverBlur,
+		// wrp_hoverSpread,
+		// wrp_hoverShadowColor,
+		// wrp_transitionTime,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
