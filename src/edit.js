@@ -448,11 +448,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		backgroundStylesDesktop,
 		backgroundStylesTab,
 		backgroundStylesMobile,
-		isBgOverly,
-		overlyType,
-		overlyColor,
-		overlyGradient,
-		backgroundType,
+		overlyStyles,
 	} = generateBackgroundControlStyles({
 		attributes,
 		controlName: infoWrapBg,
@@ -475,8 +471,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${wrapperMarginStylesDesktop}
 			${wrapperPaddingStylesDesktop}
 			${bdShadowStyesDesktop}
-			${backgroundStylesDesktop}
-			${isBgOverly ? `z-index: 1;` : " "}			
+			${backgroundStylesDesktop}		
 
 		}
 
@@ -484,29 +479,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${bdShadowStylesHover}
 		}
 
-		${
-			backgroundType === "image" && isBgOverly
-				? `
-				.${blockId}:before{
-					content: "";
-					position: absolute;
-					top: 0;
-					bottom: 0;
-					right: 0;
-					left: 0;
-					z-index: -1;
-
-					${
-						overlyType === "fill"
-							? `background-color: ${overlyColor};`
-							: overlyType === "gradient"
-							? `background-image: ${overlyGradient};`
-							: " "
-					}
-
-				}
-			`
-				: " "
+	
+        .${blockId}:before{
+			${overlyStyles}
 		}
 		
 
@@ -518,8 +493,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${wrapperPaddingStylesTab}
 			${backgroundStylesTab}
 			${bdShadowStyesTab}
-
-			${backgroundType === "image" ? `background-attachment: scroll;` : " "}
 		}
 
 	`;
@@ -680,7 +653,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					? `
 				
 					.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
-						font-size: ${iconSize}px;
+						${iconSize ? `font-size: ${iconSize}px;` : " "}
 						
 					}
 
@@ -737,7 +710,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					? `
 				
 					.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
-						font-size: ${TABiconSize}px;
+						${TABiconSize ? `font-size: ${TABiconSize}px;` : " "}
 					}
 				
 				`
@@ -846,7 +819,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					? `
 
 					.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
-						font-size: ${MOBiconSize}px;
+						${MOBiconSize ? `font-size: ${MOBiconSize}px;` : " "}
 					}			
 				
 				`
