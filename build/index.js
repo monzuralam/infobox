@@ -4774,11 +4774,13 @@ var Edit = function Edit(_ref) {
       bdShadowStyesDesktop = _generateBorderShadow.styesDesktop,
       bdShadowStyesTab = _generateBorderShadow.styesTab,
       bdShadowStyesMobile = _generateBorderShadow.styesMobile,
-      bdShadowStylesHover = _generateBorderShadow.stylesHover;
+      bdShadowStylesHoverDesktop = _generateBorderShadow.stylesHoverDesktop,
+      bdShadowStylesHoverTab = _generateBorderShadow.stylesHoverTab,
+      bdShadowStylesHoverMobile = _generateBorderShadow.stylesHoverMobile;
 
-  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tposition: relative;\n\t\t\toverflow: hidden;\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\t\t\t").concat(bdShadowStyesDesktop, "\n\t\t\t").concat(backgroundStylesDesktop, "\t\t\n\n\t\t}\n\n\t\t.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(bdShadowStylesHover, "\n\t\t}\n\n\t\n        .").concat(blockId, ":before{\n\t\t\t").concat(overlyStyles, "\n\t\t}\n\t\t\n\n\t");
-  var wrapperStylesTab = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesTab, "\n\t\t\t").concat(wrapperPaddingStylesTab, "\n\t\t\t").concat(backgroundStylesTab, "\n\t\t\t").concat(bdShadowStyesTab, "\n\t\t}\n\n\t");
-  var wrapperStylesMobile = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesMobile, "\n\t\t\t").concat(wrapperPaddingStylesMobile, "\t\t\t\n\t\t\t").concat(backgroundStylesMobile, "\n\t\t\t").concat(bdShadowStyesMobile, "\n\t\t}\n\t");
+  var wrapperStylesDesktop = "\n\t\t.".concat(blockId, " {\n\t\t\tposition: relative;\n\t\t\toverflow: hidden;\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\t\t\t").concat(bdShadowStyesDesktop, "\n\t\t\t").concat(backgroundStylesDesktop, "\n\t\t}\n\n\t\t.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(bdShadowStylesHoverDesktop, "\n\t\t}\n\n\t\n        .").concat(blockId, ":before{\n\t\t\t").concat(overlyStyles, "\n\t\t}\n\t\t\n\n\t");
+  var wrapperStylesTab = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesTab, "\n\t\t\t").concat(wrapperPaddingStylesTab, "\n\t\t\t").concat(backgroundStylesTab, "\n\t\t\t").concat(bdShadowStyesTab, "\n\t\t}\n\n\t\t.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(bdShadowStylesHoverTab, "\n\t\t}\n\n\n\t");
+  var wrapperStylesMobile = "\n\t\t.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesMobile, "\n\t\t\t").concat(wrapperPaddingStylesMobile, "\t\t\t\n\t\t\t").concat(backgroundStylesMobile, "\n\t\t\t").concat(bdShadowStyesMobile, "\n\t\t}\n\n\t\t.").concat(blockId, ":hover{\n\t\t\t").concat(bdShadowStylesHoverMobile, "\n\t\t}\n\n\t");
   var wrapperInnerStylesDesktop = "\t\n\t\t.".concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\t").concat(flexDirection ? "flex-direction: ".concat(flexDirection, ";") : " ", " \n\t\t\t\n\t\t}\n\t\n\t");
   var mediaStylesDesktop = "\n\t".concat(media !== "none" ? " \n\t\t\t\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\n\t\t\t\t").concat(mediaAlignment ? "align-self: ".concat(mediaAlignment, ";") : "align-self: ".concat(mediaAlignSelf || "center", ";"), "\n\n\t\t\t\t").concat(mediaBgMarginStylesDesktop, "\n\n\t\t\t\t").concat(flexDirection === "row" ? "margin-right: ".concat(mediaWrapperMargin, "px;") : flexDirection === "row-reverse" ? "margin-left: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column" ? "margin-bottom: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column-reverse" ? "margin-top: ".concat(mediaWrapperMargin, "px;") : " ", "\n\n\t\t\t\toverflow: hidden;\n\t\t\t}\n\n\n\t\t\t").concat(media === "image" ? "\n\n\t\t\t\t\t\n\t\t\t\t.".concat(blockId, " .infobox-wrapper-inner .icon-img-wrapper{\n\t\t\t\t\tmax-width: 100%;\n\t\t\t\t\t").concat(mediaImgWidthUnit === "%" && mediaImgWidth ? "width: ".concat(mediaImgWidth).concat(mediaImgWidthUnit, ";") : " ", "\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\tmax-width: 100%;\n\t\t\t\t\tobject-fit: cover;\n\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t").concat(imageUrl ? mediaRadiusStylesDesktop : " ", "\n\t\t\t\t\t\n\t\t\t\t\t").concat(mediaImgWidthUnit !== "%" ? mediaImgWidth ? "width: ".concat(mediaImgWidth).concat(mediaImgWidthUnit, ";") : " " : mediaImgWidth ? "width: 100".concat(mediaImgWidthUnit, ";") : " ", "\n\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : mediaImgHeight ? "height: ".concat(mediaImgHeight).concat(mediaImgHeightUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\t.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\toverflow: hidden;\n\t\t\t\t\tdisplay:flex;\n\t\t\t\t\t").concat(imageUrl ? " " : mediaRadiusStylesDesktop, "\n\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\t") : " ", "\n\n\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\n\t\t\t\t\t\t").concat(mediaBgPaddingDesktop, "\n\t\t\t\t\t\t").concat(mediaRadiusStylesDesktop, "\n\t\t\n\t\t\t\t\t\t").concat(useNumIconBg ? "".concat(numIconBgType === "fill" ? "background-color: ".concat(numIconBgColor, ";") : numIconBgType === "gradient" ? "background-image: ".concat(numIconBgGradient, ";") : " ") : " ", "\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\t\t\n\t\t\t\t\t.").concat(blockId, " .number-or-icon > span{\n\t\t\t\t\t\tcolor: ").concat(numIconColor || "#fff", ";\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\t\t\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t").concat(numTypoStylesDesktop, "\n\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t").concat(media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\t").concat(iconSize ? "font-size: ".concat(iconSize, "px;") : " ", "\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\n\t\t\t\t\t") : " ", "\n\n\n\t\t") : " ", "\n\n\t");
   var mediaStylesTab = "\n\t".concat(media !== "none" ? "\n\n\t\t\t.".concat(blockId, " .icon-img-wrapper {\n\n\t\t\t\t").concat(mediaBgMarginStylesTab, "\t\t\t\t\n\t\t\t}\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\t\t\t\n\t\t\t\t\t.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\t").concat(mediaRadiusStylesTab, "\n\t\t\t\t\t\t").concat(mediaBgPaddingTab, "\t\t\t\t\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t\t.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t\t").concat(numTypoStylesTab, "\n\t\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t").concat(media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\t").concat(TABiconSize ? "font-size: ".concat(TABiconSize, "px;") : " ", "\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t").concat(media === "image" ? "\n\t\t\t\t\t\t\n\t\t\t\t.".concat(blockId, " .infobox-wrapper-inner .icon-img-wrapper{\n\t\t\t\t\t").concat(mediaImgWidthUnit === "%" && TABmediaImgWidth ? "width: ".concat(TABmediaImgWidth).concat(mediaImgWidthUnit, ";") : " ", "\n\t\t\t\t}\n\n\t\t\t\t.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\t\n\t\t\t\t\t").concat(mediaImgWidthUnit !== "%" ? TABmediaImgWidth ? "width: ".concat(TABmediaImgWidth).concat(mediaImgWidthUnit, ";") : " " : TABmediaImgWidth ? "width: 100".concat(mediaImgWidthUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : TABmediaImgHeight ? "height: ".concat(TABmediaImgHeight).concat(mediaImgHeightUnit, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t}\n\n\t\t\t\t\n\t\t\t\t.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\t").concat(mediaRadiusStylesTab, "\n\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\n\n\t\t") : " ", "\n\t\n\t");
@@ -5302,6 +5304,12 @@ function Inspector(props) {
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
     className: "eb-panel-control"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox Border ") // initialOpen={false}
+
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_border_shadow_control__WEBPACK_IMPORTED_MODULE_14__["default"], {
+    controlName: _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_17__["wrpBdShadow"],
+    resRequiredProps: resRequiredProps
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox Settings"),
     initialOpen: false
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
@@ -5852,12 +5860,6 @@ function Inspector(props) {
     initialOpen: false
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_background_control__WEBPACK_IMPORTED_MODULE_15__["default"], {
     controlName: _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_16__["infoWrapBg"],
-    resRequiredProps: resRequiredProps
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox Border "),
-    initialOpen: false
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_border_shadow_control__WEBPACK_IMPORTED_MODULE_14__["default"], {
-    controlName: _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_17__["wrpBdShadow"],
     resRequiredProps: resRequiredProps
   }))));
 }
@@ -6817,7 +6819,7 @@ function BackgroundControl(_ref6) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ShadowControl; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return BorderShadowControl; });
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
@@ -6846,7 +6848,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function ShadowControl(_ref) {
+function BorderShadowControl(_ref) {
   var resRequiredProps = _ref.resRequiredProps,
       controlName = _ref.controlName;
   var setAttributes = resRequiredProps.setAttributes,
@@ -6865,8 +6867,32 @@ function ShadowControl(_ref) {
       hoverBlur = attributes["".concat(controlName, "hoverBlur")],
       hoverSpread = attributes["".concat(controlName, "hoverSpread")],
       inset = attributes["".concat(controlName, "inset")],
-      transitionTime = attributes["".concat(controlName, "transitionTime")];
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
+      transitionTime = attributes["".concat(controlName, "transitionTime")],
+      BorderType = attributes["".concat(controlName, "BorderType")],
+      HborderStyle = attributes["".concat(controlName, "HborderStyle")],
+      HborderColor = attributes["".concat(controlName, "HborderColor")];
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
+    id: "eb-infobox-border-hover-ptions"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
+    id: "eb-infobox-border-hover-ptions"
+  }, [{
+    label: "Normal",
+    value: "normal"
+  }, {
+    label: "Hover",
+    value: "hover"
+  }].map(function (_ref2) {
+    var value = _ref2.value,
+        label = _ref2.label;
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+      isLarge: true,
+      isSecondary: BorderType !== value,
+      isPrimary: BorderType === value,
+      onClick: function onClick() {
+        return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "BorderType"), value));
+      }
+    }, label);
+  }))), BorderType === "normal" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Border Style"),
     value: borderStyle,
     options: [{
@@ -6915,16 +6941,65 @@ function ShadowControl(_ref) {
     resRequiredProps: resRequiredProps,
     controlName: "".concat(controlName, "Rds_"),
     baseLabel: "Border Radius"
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
+  })), BorderType === "hover" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Border Style"),
+    value: HborderStyle,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("None"),
+      value: "none"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Dashed"),
+      value: "dashed"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Solid"),
+      value: "solid"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Dotted"),
+      value: "dotted"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Double"),
+      value: "double"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Groove"),
+      value: "groove"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Inset"),
+      value: "inset"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Outset"),
+      value: "outset"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Ridge"),
+      value: "ridge"
+    }],
+    onChange: function onChange(HborderStyle) {
+      return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "HborderStyle"), HborderStyle));
+    }
+  }), HborderStyle !== "none" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_color_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Border Color"),
+    color: HborderColor,
+    onChange: function onChange(HborderColor) {
+      return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "HborderColor"), HborderColor));
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    resRequiredProps: resRequiredProps,
+    controlName: "".concat(controlName, "HBdr_"),
+    baseLabel: "Border Width"
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    forBorderRadius: true,
+    resRequiredProps: resRequiredProps,
+    controlName: "".concat(controlName, "HRds_"),
+    baseLabel: "Border Radius"
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Box Shadow"),
     className: "eb-typography-base"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Dropdown"], {
     className: "eb-typography-dropdown",
     contentClassName: "my-popover-content-classname",
     position: "bottom right",
-    renderToggle: function renderToggle(_ref2) {
-      var isOpen = _ref2.isOpen,
-          onToggle = _ref2.onToggle;
+    renderToggle: function renderToggle(_ref3) {
+      var isOpen = _ref3.isOpen,
+          onToggle = _ref3.onToggle;
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
         isSmall: true,
         onClick: onToggle,
@@ -6948,9 +7023,9 @@ function ShadowControl(_ref) {
       }, {
         label: "Hover",
         value: "hover"
-      }].map(function (_ref3) {
-        var value = _ref3.value,
-            label = _ref3.label;
+      }].map(function (_ref4) {
+        var value = _ref4.value,
+            label = _ref4.label;
         return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
           isLarge: true,
           isSecondary: shadowType !== value,
@@ -6959,7 +7034,7 @@ function ShadowControl(_ref) {
             return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "shadowType"), value));
           }
         }, label);
-      })), " "), shadowType === "normal" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_color_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }))), shadowType === "normal" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_color_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Shadow Color"),
         color: shadowColor,
         onChange: function onChange(shadowColor) {
@@ -7073,16 +7148,16 @@ function ShadowControl(_ref) {
         onChange: function onChange() {
           return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "inset"), !inset));
         }
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-        id: "eb-infobox-transition-time"
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["TextControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Transition"),
-        value: transitionTime,
-        type: "number",
-        onChange: function onChange(transitionTime) {
-          return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "transitionTime"), transitionTime));
-        }
-      }))));
+      })));
+    }
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
+    id: "eb-infobox-transition-time"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["TextControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Transition"),
+    value: transitionTime,
+    type: "number",
+    onChange: function onChange(transitionTime) {
+      return setAttributes(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "transitionTime"), transitionTime));
     }
   })));
 }
@@ -8163,9 +8238,17 @@ var generateBorderShadowAttributes = function generateBorderShadowAttributes(con
       _defaults$rdsDefaults = defaults.rdsDefaults,
       rdsDefaults = _defaults$rdsDefaults === void 0 ? {} : _defaults$rdsDefaults;
 
-  var result = _objectSpread(_objectSpread((_objectSpread6 = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "borderColor"), {
+  var result = _objectSpread(_objectSpread(_objectSpread(_objectSpread((_objectSpread6 = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "BorderType"), {
+    type: "string",
+    default: "normal"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "borderColor"), {
     type: "string"
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "borderStyle"), {
+    type: "string",
+    default: "none"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "HborderColor"), {
+    type: "string"
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "HborderStyle"), {
     type: "string",
     default: "none"
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "hOffset"), {
@@ -8200,7 +8283,7 @@ var generateBorderShadowAttributes = function generateBorderShadowAttributes(con
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "transitionTime"), {
     type: "string",
     default: "500"
-  }), _objectSpread6), generateDimensionsAttributes("".concat(controlName, "Bdr_"), bdrDefaults)), generateDimensionsAttributes("".concat(controlName, "Rds_"), rdsDefaults)); // console.log("---generateBorderShadowAttributes:", { result });
+  }), _objectSpread6), generateDimensionsAttributes("".concat(controlName, "Bdr_"), bdrDefaults)), generateDimensionsAttributes("".concat(controlName, "Rds_"), rdsDefaults)), generateDimensionsAttributes("".concat(controlName, "HBdr_"))), generateDimensionsAttributes("".concat(controlName, "HRds_"))); // console.log("---generateBorderShadowAttributes:", { result });
 
 
   return result;
@@ -8338,38 +8421,63 @@ var generateBorderShadowStyles = function generateBorderShadowStyles(_ref13) {
       radiusStylesTab = _generateDimensionsCo2.dimensionStylesTab,
       radiusStylesMobile = _generateDimensionsCo2.dimensionStylesMobile;
 
+  var _generateDimensionsCo3 = generateDimensionsControlStyles({
+    controlName: "".concat(controlName, "HBdr_"),
+    styleFor: "border",
+    attributes: attributes
+  }),
+      HborderStylesDesktop = _generateDimensionsCo3.dimensionStylesDesktop,
+      HborderStylesTab = _generateDimensionsCo3.dimensionStylesTab,
+      HborderStylesMobile = _generateDimensionsCo3.dimensionStylesMobile;
+
+  var _generateDimensionsCo4 = generateDimensionsControlStyles({
+    controlName: "".concat(controlName, "HRds_"),
+    styleFor: "border-radius",
+    attributes: attributes
+  }),
+      HradiusStylesDesktop = _generateDimensionsCo4.dimensionStylesDesktop,
+      HradiusStylesTab = _generateDimensionsCo4.dimensionStylesTab,
+      HradiusStylesMobile = _generateDimensionsCo4.dimensionStylesMobile;
+
   var borderStyle = attributes["".concat(controlName, "borderStyle")],
       borderColor = attributes["".concat(controlName, "borderColor")],
+      HborderStyle = attributes["".concat(controlName, "HborderStyle")],
+      _attributes$2 = attributes["".concat(controlName, "HborderColor")],
+      HborderColor = _attributes$2 === void 0 ? borderColor : _attributes$2,
       shadowColor = attributes["".concat(controlName, "shadowColor")],
-      _attributes$2 = attributes["".concat(controlName, "hOffset")],
-      hOffset = _attributes$2 === void 0 ? 0 : _attributes$2,
-      _attributes$3 = attributes["".concat(controlName, "vOffset")],
-      vOffset = _attributes$3 === void 0 ? 0 : _attributes$3,
-      _attributes$4 = attributes["".concat(controlName, "blur")],
-      blur = _attributes$4 === void 0 ? 0 : _attributes$4,
-      _attributes$5 = attributes["".concat(controlName, "spread")],
-      spread = _attributes$5 === void 0 ? 0 : _attributes$5,
+      _attributes$3 = attributes["".concat(controlName, "hOffset")],
+      hOffset = _attributes$3 === void 0 ? 0 : _attributes$3,
+      _attributes$4 = attributes["".concat(controlName, "vOffset")],
+      vOffset = _attributes$4 === void 0 ? 0 : _attributes$4,
+      _attributes$5 = attributes["".concat(controlName, "blur")],
+      blur = _attributes$5 === void 0 ? 0 : _attributes$5,
+      _attributes$6 = attributes["".concat(controlName, "spread")],
+      spread = _attributes$6 === void 0 ? 0 : _attributes$6,
       inset = attributes["".concat(controlName, "inset")],
-      _attributes$6 = attributes["".concat(controlName, "hoverShadowColor")],
-      hoverShadowColor = _attributes$6 === void 0 ? shadowColor : _attributes$6,
-      _attributes$7 = attributes["".concat(controlName, "hoverHOffset")],
-      hoverHOffset = _attributes$7 === void 0 ? hOffset : _attributes$7,
-      _attributes$8 = attributes["".concat(controlName, "hoverVOffset")],
-      hoverVOffset = _attributes$8 === void 0 ? vOffset : _attributes$8,
-      _attributes$9 = attributes["".concat(controlName, "hoverBlur")],
-      hoverBlur = _attributes$9 === void 0 ? blur : _attributes$9,
-      _attributes$10 = attributes["".concat(controlName, "hoverSpread")],
-      hoverSpread = _attributes$10 === void 0 ? spread : _attributes$10,
+      _attributes$7 = attributes["".concat(controlName, "hoverShadowColor")],
+      hoverShadowColor = _attributes$7 === void 0 ? shadowColor : _attributes$7,
+      _attributes$8 = attributes["".concat(controlName, "hoverHOffset")],
+      hoverHOffset = _attributes$8 === void 0 ? hOffset : _attributes$8,
+      _attributes$9 = attributes["".concat(controlName, "hoverVOffset")],
+      hoverVOffset = _attributes$9 === void 0 ? vOffset : _attributes$9,
+      _attributes$10 = attributes["".concat(controlName, "hoverBlur")],
+      hoverBlur = _attributes$10 === void 0 ? blur : _attributes$10,
+      _attributes$11 = attributes["".concat(controlName, "hoverSpread")],
+      hoverSpread = _attributes$11 === void 0 ? spread : _attributes$11,
       transitionTime = attributes["".concat(controlName, "transitionTime")];
   var styesDesktop = "\n    ".concat(borderStylesDesktop, "\n    ").concat(radiusStylesDesktop, "\n\n\n    ").concat(borderStyle !== "none" && borderColor ? "\n        ".concat(borderStylesDesktop, "\n        border-color: ").concat(borderColor, ";\n        border-style: ").concat(borderStyle, ";\n        ") : " ", "\n\n    ").concat(shadowColor ? "box-shadow: ".concat(shadowColor, " ").concat(hOffset, "px ").concat(vOffset, "px ").concat(blur, "px ").concat(spread, "px ").concat(inset ? "inset" : "", ";") : " ", "\n\n    transition: ").concat(transitionTime ? "".concat(transitionTime / 1000, "s") : ".5s", ";\n\n  ");
   var styesTab = "  \n    ".concat(borderColor ? borderStylesTab : " ", "\n    ").concat(radiusStylesTab, "\n  ");
   var styesMobile = "\n    ".concat(borderColor ? borderStylesMobile : " ", "\n    ").concat(radiusStylesMobile, "\n  ");
-  var stylesHover = "\n    ".concat(hoverShadowColor ? "box-shadow: ".concat(hoverShadowColor, " ").concat(hoverHOffset, "px ").concat(hoverVOffset, "px ").concat(hoverBlur, "px ").concat(hoverSpread, "px ").concat(inset ? "inset" : " ", ";") : " ", "\n  ");
+  var stylesHoverDesktop = "\n    ".concat(hoverShadowColor ? "box-shadow: ".concat(hoverShadowColor, " ").concat(hoverHOffset, "px ").concat(hoverVOffset, "px ").concat(hoverBlur, "px ").concat(hoverSpread, "px ").concat(inset ? "inset" : " ", ";") : " ", "\n\n    ").concat(HborderStyle !== "none" ? "\n          ".concat(HborderColor !== borderColor ? "border-color: ".concat(HborderColor, ";") : " ", " \n          ").concat(HborderStyle !== borderStyle ? "border-style: ".concat(HborderStyle, ";") : " ", "\n          ").concat(HborderStylesDesktop, "\n        ") : " ", "\n\n    ").concat(HradiusStylesDesktop, "    \n\n  ");
+  var stylesHoverTab = "\n    ".concat(HborderStyle !== "none" ? HborderStylesTab : " ", "\n    ").concat(HradiusStylesTab, "  \n  ");
+  var stylesHoverMobile = "\n    ".concat(HborderStyle !== "none" ? HborderStylesMobile : " ", "\n    ").concat(HradiusStylesMobile, "  \n  ");
   return {
     styesDesktop: styesDesktop,
     styesTab: styesTab,
     styesMobile: styesMobile,
-    stylesHover: stylesHover
+    stylesHoverDesktop: stylesHoverDesktop,
+    stylesHoverTab: stylesHoverTab,
+    stylesHoverMobile: stylesHoverMobile
   };
 }; // function to generate Background control styles based on the unique controlName(prefix)
 
@@ -8390,8 +8498,8 @@ var generateBackgroundControlStyles = function generateBackgroundControlStyles(_
       bgImgcustomPosYUnit = attributes["".concat(controlName, "bgImgcustomPosYUnit")],
       bgImgAttachment = attributes["".concat(controlName, "bgImgAttachment")],
       bgImgRepeat = attributes["".concat(controlName, "bgImgRepeat")],
-      _attributes$11 = attributes["".concat(controlName, "overlyColor")],
-      overlyColor = _attributes$11 === void 0 ? "#00000080" : _attributes$11,
+      _attributes$12 = attributes["".concat(controlName, "overlyColor")],
+      overlyColor = _attributes$12 === void 0 ? "#00000080" : _attributes$12,
       overlyType = attributes["".concat(controlName, "overlyType")],
       isBgOverly = attributes["".concat(controlName, "isBgOverly")],
       overlyGradient = attributes["".concat(controlName, "overlyGradient")],

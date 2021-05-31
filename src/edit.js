@@ -458,7 +458,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		styesDesktop: bdShadowStyesDesktop,
 		styesTab: bdShadowStyesTab,
 		styesMobile: bdShadowStyesMobile,
-		stylesHover: bdShadowStylesHover,
+		stylesHoverDesktop: bdShadowStylesHoverDesktop,
+		stylesHoverTab: bdShadowStylesHoverTab,
+		stylesHoverMobile: bdShadowStylesHoverMobile,
 	} = generateBorderShadowStyles({
 		controlName: wrpBdShadow,
 		attributes,
@@ -471,12 +473,11 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${wrapperMarginStylesDesktop}
 			${wrapperPaddingStylesDesktop}
 			${bdShadowStyesDesktop}
-			${backgroundStylesDesktop}		
-
+			${backgroundStylesDesktop}
 		}
 
 		.${blockId}:hover{		
-			${bdShadowStylesHover}
+			${bdShadowStylesHoverDesktop}
 		}
 
 	
@@ -495,6 +496,11 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${bdShadowStyesTab}
 		}
 
+		.${blockId}:hover{		
+			${bdShadowStylesHoverTab}
+		}
+
+
 	`;
 
 	const wrapperStylesMobile = `
@@ -504,6 +510,11 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${backgroundStylesMobile}
 			${bdShadowStyesMobile}
 		}
+
+		.${blockId}:hover{
+			${bdShadowStylesHoverMobile}
+		}
+
 	`;
 
 	const wrapperInnerStylesDesktop = `	
