@@ -325,16 +325,6 @@ function Inspector(props) {
 	return (
 		<InspectorControls key="controls">
 			<span className="eb-panel-control">
-				<PanelBody
-					title={__("Infobox Border ")}
-					// initialOpen={false}
-				>
-					<BorderShadowControl
-						controlName={wrpBdShadow}
-						resRequiredProps={resRequiredProps}
-					/>
-				</PanelBody>
-
 				<PanelBody title={__("Infobox Settings")} initialOpen={false}>
 					<SelectControl
 						label={__("Layout Preset ")}
@@ -967,6 +957,13 @@ function Inspector(props) {
 				<PanelBody title={__("Infobox Background")} initialOpen={false}>
 					<BackgroundControl
 						controlName={infoWrapBg}
+						resRequiredProps={resRequiredProps}
+					/>
+				</PanelBody>
+
+				<PanelBody title={__("Infobox Border ")} initialOpen={false}>
+					<BorderShadowControl
+						controlName={wrpBdShadow}
 						resRequiredProps={resRequiredProps}
 					/>
 				</PanelBody>
