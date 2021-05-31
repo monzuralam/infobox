@@ -961,7 +961,7 @@ function Inspector(props) {
 					/>
 				</PanelBody>
 
-				<PanelBody title={__("Infobox Border ")} initialOpen={false}>
+				<PanelBody title={__("Infobox Border & Shadow")} initialOpen={false}>
 					<BorderShadowControl
 						controlName={wrpBdShadow}
 						resRequiredProps={resRequiredProps}
