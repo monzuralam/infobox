@@ -406,12 +406,11 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 	const wrapperStylesDesktop = `
 		.eb-infobox-wrapper.${blockId} {
-			position: relative;
-			overflow: hidden;
 			${wrapperMarginStylesDesktop}
 			${wrapperPaddingStylesDesktop}
 			${bdShadowStyesDesktop}
 			${backgroundStylesDesktop}
+			overflow: hidden;
 		}
 
 		.eb-infobox-wrapper.${blockId}:hover{		
