@@ -6833,7 +6833,9 @@ __webpack_require__.r(__webpack_exports__);
 
 function BorderShadowControl(_ref) {
   var resRequiredProps = _ref.resRequiredProps,
-      controlName = _ref.controlName;
+      controlName = _ref.controlName,
+      noBorder = _ref.noBorder,
+      noShadow = _ref.noShadow;
   var setAttributes = resRequiredProps.setAttributes,
       attributes = resRequiredProps.attributes;
   var borderStyle = attributes["".concat(controlName, "borderStyle")],
@@ -6854,7 +6856,7 @@ function BorderShadowControl(_ref) {
       BorderType = attributes["".concat(controlName, "BorderType")],
       HborderStyle = attributes["".concat(controlName, "HborderStyle")],
       HborderColor = attributes["".concat(controlName, "HborderColor")];
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, noBorder !== true && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
     id: "eb-infobox-border-hover-ptions"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], {
     id: "eb-infobox-border-hover-ptions"
@@ -6973,7 +6975,7 @@ function BorderShadowControl(_ref) {
     resRequiredProps: resRequiredProps,
     controlName: "".concat(controlName, "HRds_"),
     baseLabel: "Border Radius"
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
+  }))), noShadow !== true && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Box Shadow"),
     className: "eb-typography-base"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Dropdown"], {
@@ -7133,7 +7135,7 @@ function BorderShadowControl(_ref) {
         }
       })));
     }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
     id: "eb-infobox-transition-time"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["TextControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Transition"),
@@ -8213,15 +8215,19 @@ var generateTypographyAttributes = function generateTypographyAttributes(prefixA
 // function to generate BorderShadow control's attributes
 
 var generateBorderShadowAttributes = function generateBorderShadowAttributes(controlName) {
-  var _objectSpread6;
+  var _objectSpread6, _shdAttrs;
 
   var defaults = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   var _defaults$bdrDefaults = defaults.bdrDefaults,
       bdrDefaults = _defaults$bdrDefaults === void 0 ? {} : _defaults$bdrDefaults,
       _defaults$rdsDefaults = defaults.rdsDefaults,
-      rdsDefaults = _defaults$rdsDefaults === void 0 ? {} : _defaults$rdsDefaults;
+      rdsDefaults = _defaults$rdsDefaults === void 0 ? {} : _defaults$rdsDefaults,
+      _defaults$noBorder = defaults.noBorder,
+      noBorder = _defaults$noBorder === void 0 ? false : _defaults$noBorder,
+      _defaults$noShadow = defaults.noShadow,
+      noShadow = _defaults$noShadow === void 0 ? false : _defaults$noShadow;
 
-  var result = _objectSpread(_objectSpread(_objectSpread(_objectSpread((_objectSpread6 = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "BorderType"), {
+  var bdrAttrs = _objectSpread(_objectSpread(_objectSpread(_objectSpread((_objectSpread6 = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "BorderType"), {
     type: "string",
     default: "normal"
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "borderColor"), {
@@ -8234,42 +8240,124 @@ var generateBorderShadowAttributes = function generateBorderShadowAttributes(con
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "HborderStyle"), {
     type: "string",
     default: "none"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "hOffset"), {
+  }), _objectSpread6), generateDimensionsAttributes("".concat(controlName, "Bdr_"), bdrDefaults)), generateDimensionsAttributes("".concat(controlName, "Rds_"), rdsDefaults)), generateDimensionsAttributes("".concat(controlName, "HBdr_"))), generateDimensionsAttributes("".concat(controlName, "HRds_")));
+
+  var shdAttrs = (_shdAttrs = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_shdAttrs, "".concat(controlName, "hOffset"), {
     type: "number"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "vOffset"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_shdAttrs, "".concat(controlName, "vOffset"), {
     type: "number"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "blur"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_shdAttrs, "".concat(controlName, "blur"), {
     type: "number"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "spread"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_shdAttrs, "".concat(controlName, "spread"), {
     type: "number"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "shadowColor"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_shdAttrs, "".concat(controlName, "shadowColor"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "inset"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_shdAttrs, "".concat(controlName, "inset"), {
     type: "boolean",
     default: false
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "shadowType"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_shdAttrs, "".concat(controlName, "shadowType"), {
     type: "string",
     default: "normal"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "hoverHOffset"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_shdAttrs, "".concat(controlName, "hoverHOffset"), {
     type: "number"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "hoverVOffset"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_shdAttrs, "".concat(controlName, "hoverVOffset"), {
     type: "number"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "hoverBlur"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_shdAttrs, "".concat(controlName, "hoverBlur"), {
     type: "number"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "hoverSpread"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_shdAttrs, "".concat(controlName, "hoverSpread"), {
     type: "number"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "hoverShadowColor"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_shdAttrs, "".concat(controlName, "hoverShadowColor"), {
     type: "string"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "hoverInset"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_shdAttrs, "".concat(controlName, "hoverInset"), {
     type: "boolean",
     default: false
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread6, "".concat(controlName, "transitionTime"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_shdAttrs, "".concat(controlName, "transitionTime"), {
     type: "string",
     default: "500"
-  }), _objectSpread6), generateDimensionsAttributes("".concat(controlName, "Bdr_"), bdrDefaults)), generateDimensionsAttributes("".concat(controlName, "Rds_"), rdsDefaults)), generateDimensionsAttributes("".concat(controlName, "HBdr_"))), generateDimensionsAttributes("".concat(controlName, "HRds_"))); // console.log("---generateBorderShadowAttributes:", { result });
+  }), _shdAttrs);
 
+  if (noBorder === true) {
+    return _objectSpread({}, shdAttrs);
+  } else if (noShadow === true) {
+    return _objectSpread({}, bdrAttrs);
+  } else {
+    return _objectSpread(_objectSpread({}, bdrAttrs), shdAttrs);
+  } // const result = {
+  //   // Border Shadow attributes ⬇
+  //   // border attributes ⬇
+  //   [`${controlName}BorderType`]: {
+  //     type: "string",
+  //     default: "normal",
+  //   },
+  //   [`${controlName}borderColor`]: {
+  //     type: "string",
+  //   },
+  //   [`${controlName}borderStyle`]: {
+  //     type: "string",
+  //     default: "none",
+  //   },
+  //   [`${controlName}HborderColor`]: {
+  //     type: "string",
+  //   },
+  //   [`${controlName}HborderStyle`]: {
+  //     type: "string",
+  //     default: "none",
+  //   },
+  //   // shadow attributes  ⬇
+  //   [`${controlName}hOffset`]: {
+  //     type: "number",
+  //   },
+  //   [`${controlName}vOffset`]: {
+  //     type: "number",
+  //   },
+  //   [`${controlName}blur`]: {
+  //     type: "number",
+  //   },
+  //   [`${controlName}spread`]: {
+  //     type: "number",
+  //   },
+  //   [`${controlName}shadowColor`]: {
+  //     type: "string",
+  //   },
+  //   [`${controlName}inset`]: {
+  //     type: "boolean",
+  //     default: false,
+  //   },
+  //   [`${controlName}shadowType`]: {
+  //     type: "string",
+  //     default: "normal",
+  //   },
+  //   [`${controlName}hoverHOffset`]: {
+  //     type: "number",
+  //   },
+  //   [`${controlName}hoverVOffset`]: {
+  //     type: "number",
+  //   },
+  //   [`${controlName}hoverBlur`]: {
+  //     type: "number",
+  //   },
+  //   [`${controlName}hoverSpread`]: {
+  //     type: "number",
+  //   },
+  //   [`${controlName}hoverShadowColor`]: {
+  //     type: "string",
+  //   },
+  //   [`${controlName}hoverInset`]: {
+  //     type: "boolean",
+  //     default: false,
+  //   },
+  //   [`${controlName}transitionTime`]: {
+  //     type: "string",
+  //     default: "500",
+  //   },
+  //   ...generateDimensionsAttributes(`${controlName}Bdr_`, bdrDefaults),
+  //   ...generateDimensionsAttributes(`${controlName}Rds_`, rdsDefaults),
+  //   ...generateDimensionsAttributes(`${controlName}HBdr_`),
+  //   ...generateDimensionsAttributes(`${controlName}HRds_`),
+  // };
+  // console.log("---generateBorderShadowAttributes:", { result });
+  // return result;
 
-  return result;
 }; // helper Functions: function 'textInsideForEdit' is for setting the innertext depending on whether separator should be shown and which separator should be shown
 
 var textInsideForEdit = function textInsideForEdit(value, isShowSeparator, separator) {
@@ -8384,43 +8472,108 @@ var generateDimensionsControlStyles = function generateDimensionsControlStyles(_
 
 var generateBorderShadowStyles = function generateBorderShadowStyles(_ref13) {
   var controlName = _ref13.controlName,
-      attributes = _ref13.attributes;
+      attributes = _ref13.attributes,
+      noBorder = _ref13.noBorder,
+      noShadow = _ref13.noShadow;
+  var borderStylesDesktop = "";
+  var borderStylesTab = "";
+  var borderStylesMobile = "";
+  var radiusStylesDesktop = "";
+  var radiusStylesTab = "";
+  var radiusStylesMobile = "";
+  var HborderStylesDesktop = "";
+  var HborderStylesTab = "";
+  var HborderStylesMobile = "";
+  var HradiusStylesDesktop = "";
+  var HradiusStylesTab = "";
+  var HradiusStylesMobile = "";
 
-  var _generateDimensionsCo = generateDimensionsControlStyles({
-    controlName: "".concat(controlName, "Bdr_"),
-    styleFor: "border",
-    attributes: attributes
-  }),
-      borderStylesDesktop = _generateDimensionsCo.dimensionStylesDesktop,
-      borderStylesTab = _generateDimensionsCo.dimensionStylesTab,
-      borderStylesMobile = _generateDimensionsCo.dimensionStylesMobile;
+  if (noBorder !== true) {
+    var _generateDimensionsCo = generateDimensionsControlStyles({
+      controlName: "".concat(controlName, "Bdr_"),
+      styleFor: "border",
+      attributes: attributes
+    }),
+        F_borderStylesDesktop = _generateDimensionsCo.dimensionStylesDesktop,
+        F_borderStylesTab = _generateDimensionsCo.dimensionStylesTab,
+        F_borderStylesMobile = _generateDimensionsCo.dimensionStylesMobile;
 
-  var _generateDimensionsCo2 = generateDimensionsControlStyles({
-    controlName: "".concat(controlName, "Rds_"),
-    styleFor: "border-radius",
-    attributes: attributes
-  }),
-      radiusStylesDesktop = _generateDimensionsCo2.dimensionStylesDesktop,
-      radiusStylesTab = _generateDimensionsCo2.dimensionStylesTab,
-      radiusStylesMobile = _generateDimensionsCo2.dimensionStylesMobile;
+    var _generateDimensionsCo2 = generateDimensionsControlStyles({
+      controlName: "".concat(controlName, "Rds_"),
+      styleFor: "border-radius",
+      attributes: attributes
+    }),
+        F_radiusStylesDesktop = _generateDimensionsCo2.dimensionStylesDesktop,
+        F_radiusStylesTab = _generateDimensionsCo2.dimensionStylesTab,
+        F_radiusStylesMobile = _generateDimensionsCo2.dimensionStylesMobile;
 
-  var _generateDimensionsCo3 = generateDimensionsControlStyles({
-    controlName: "".concat(controlName, "HBdr_"),
-    styleFor: "border",
-    attributes: attributes
-  }),
-      HborderStylesDesktop = _generateDimensionsCo3.dimensionStylesDesktop,
-      HborderStylesTab = _generateDimensionsCo3.dimensionStylesTab,
-      HborderStylesMobile = _generateDimensionsCo3.dimensionStylesMobile;
+    var _generateDimensionsCo3 = generateDimensionsControlStyles({
+      controlName: "".concat(controlName, "HBdr_"),
+      styleFor: "border",
+      attributes: attributes
+    }),
+        F_HborderStylesDesktop = _generateDimensionsCo3.dimensionStylesDesktop,
+        F_HborderStylesTab = _generateDimensionsCo3.dimensionStylesTab,
+        F_HborderStylesMobile = _generateDimensionsCo3.dimensionStylesMobile;
 
-  var _generateDimensionsCo4 = generateDimensionsControlStyles({
-    controlName: "".concat(controlName, "HRds_"),
-    styleFor: "border-radius",
-    attributes: attributes
-  }),
-      HradiusStylesDesktop = _generateDimensionsCo4.dimensionStylesDesktop,
-      HradiusStylesTab = _generateDimensionsCo4.dimensionStylesTab,
-      HradiusStylesMobile = _generateDimensionsCo4.dimensionStylesMobile;
+    var _generateDimensionsCo4 = generateDimensionsControlStyles({
+      controlName: "".concat(controlName, "HRds_"),
+      styleFor: "border-radius",
+      attributes: attributes
+    }),
+        F_HradiusStylesDesktop = _generateDimensionsCo4.dimensionStylesDesktop,
+        F_HradiusStylesTab = _generateDimensionsCo4.dimensionStylesTab,
+        F_HradiusStylesMobile = _generateDimensionsCo4.dimensionStylesMobile;
+
+    borderStylesDesktop = F_borderStylesDesktop;
+    borderStylesTab = F_borderStylesTab;
+    borderStylesMobile = F_borderStylesMobile;
+    radiusStylesDesktop = F_radiusStylesDesktop;
+    radiusStylesTab = F_radiusStylesTab;
+    radiusStylesMobile = F_radiusStylesMobile;
+    HborderStylesDesktop = F_HborderStylesDesktop;
+    HborderStylesTab = F_HborderStylesTab;
+    HborderStylesMobile = F_HborderStylesMobile;
+    HradiusStylesDesktop = F_HradiusStylesDesktop;
+    HradiusStylesTab = F_HradiusStylesTab;
+    HradiusStylesMobile = F_HradiusStylesMobile;
+  } // const {
+  //   dimensionStylesDesktop: borderStylesDesktop,
+  //   dimensionStylesTab: borderStylesTab,
+  //   dimensionStylesMobile: borderStylesMobile,
+  // } = generateDimensionsControlStyles({
+  //   controlName: `${controlName}Bdr_`,
+  //   styleFor: "border",
+  //   attributes,
+  // });
+  // const {
+  //   dimensionStylesDesktop: radiusStylesDesktop,
+  //   dimensionStylesTab: radiusStylesTab,
+  //   dimensionStylesMobile: radiusStylesMobile,
+  // } = generateDimensionsControlStyles({
+  //   controlName: `${controlName}Rds_`,
+  //   styleFor: "border-radius",
+  //   attributes,
+  // });
+  // const {
+  //   dimensionStylesDesktop: HborderStylesDesktop,
+  //   dimensionStylesTab: HborderStylesTab,
+  //   dimensionStylesMobile: HborderStylesMobile,
+  // } = generateDimensionsControlStyles({
+  //   controlName: `${controlName}HBdr_`,
+  //   styleFor: "border",
+  //   attributes,
+  // });
+  // const {
+  //   dimensionStylesDesktop: HradiusStylesDesktop,
+  //   dimensionStylesTab: HradiusStylesTab,
+  //   dimensionStylesMobile: HradiusStylesMobile,
+  // } = generateDimensionsControlStyles({
+  //   controlName: `${controlName}HRds_`,
+  //   styleFor: "border-radius",
+  //   attributes,
+  // });
+
 
   var borderStyle = attributes["".concat(controlName, "borderStyle")],
       borderColor = attributes["".concat(controlName, "borderColor")],
@@ -8448,12 +8601,12 @@ var generateBorderShadowStyles = function generateBorderShadowStyles(_ref13) {
       _attributes$11 = attributes["".concat(controlName, "hoverSpread")],
       hoverSpread = _attributes$11 === void 0 ? spread : _attributes$11,
       transitionTime = attributes["".concat(controlName, "transitionTime")];
-  var styesDesktop = "\n    ".concat(borderStylesDesktop, "\n    ").concat(radiusStylesDesktop, "\n\n\n    ").concat(borderStyle !== "none" && borderColor ? "\n        ".concat(borderStylesDesktop, "\n        border-color: ").concat(borderColor, ";\n        border-style: ").concat(borderStyle, ";\n        ") : " ", "\n\n    ").concat(shadowColor ? "box-shadow: ".concat(shadowColor, " ").concat(hOffset, "px ").concat(vOffset, "px ").concat(blur, "px ").concat(spread, "px ").concat(inset ? "inset" : "", ";") : " ", "\n\n    transition: ").concat(transitionTime ? "".concat(transitionTime / 1000, "s") : ".5s", ";\n\n  ");
-  var styesTab = "  \n    ".concat(borderColor ? borderStylesTab : " ", "\n    ").concat(radiusStylesTab, "\n  ");
-  var styesMobile = "\n    ".concat(borderColor ? borderStylesMobile : " ", "\n    ").concat(radiusStylesMobile, "\n  ");
-  var stylesHoverDesktop = "\n    ".concat(hoverShadowColor ? "box-shadow: ".concat(hoverShadowColor, " ").concat(hoverHOffset, "px ").concat(hoverVOffset, "px ").concat(hoverBlur, "px ").concat(hoverSpread, "px ").concat(inset ? "inset" : " ", ";") : " ", "\n\n    ").concat(HborderStyle !== "none" ? "\n          ".concat(HborderColor !== borderColor ? "border-color: ".concat(HborderColor, ";") : " ", " \n          ").concat(HborderStyle !== borderStyle ? "border-style: ".concat(HborderStyle, ";") : " ", "\n          ").concat(HborderStylesDesktop, "\n        ") : " ", "\n\n    ").concat(HradiusStylesDesktop, "    \n\n  ");
-  var stylesHoverTab = "\n    ".concat(HborderStyle !== "none" ? HborderStylesTab : " ", "\n    ").concat(HradiusStylesTab, "  \n  ");
-  var stylesHoverMobile = "\n    ".concat(HborderStyle !== "none" ? HborderStylesMobile : " ", "\n    ").concat(HradiusStylesMobile, "  \n  ");
+  var styesDesktop = "  \n    ".concat(noBorder !== true ? "      \n        ".concat(borderStylesDesktop, "\n        ").concat(radiusStylesDesktop, "\n        ").concat(borderStyle !== "none" && borderColor ? "\n            ".concat(borderStylesDesktop, "\n            border-color: ").concat(borderColor, ";\n            border-style: ").concat(borderStyle, ";\n            ") : " ", "\n        ") : " ", "\n  \n    ").concat(noShadow !== true ? shadowColor ? "box-shadow: ".concat(shadowColor, " ").concat(hOffset, "px ").concat(vOffset, "px ").concat(blur, "px ").concat(spread, "px ").concat(inset ? "inset" : "", ";") : " " : " ", "\n\n    transition: ").concat(transitionTime ? "".concat(transitionTime / 1000, "s") : ".5s", ";\n\n  ");
+  var styesTab = "  \n  ".concat(noBorder !== true ? "\n      ".concat(borderColor ? borderStylesTab : " ", "\n      ").concat(radiusStylesTab, "\n      ") : " ", "\n    \n  ");
+  var styesMobile = "\n  ".concat(noBorder !== true ? "\n      ".concat(borderColor ? borderStylesMobile : " ", "\n      ").concat(radiusStylesMobile, "\n      ") : " ", "\n  ");
+  var stylesHoverDesktop = "\n  ".concat(noBorder !== true ? "\n      ".concat(HborderStyle !== "none" ? "\n            ".concat(HborderColor !== borderColor ? "border-color: ".concat(HborderColor, ";") : " ", " \n            ").concat(HborderStyle !== borderStyle ? "border-style: ".concat(HborderStyle, ";") : " ", "\n            ").concat(HborderStylesDesktop, "\n          ") : " ", "\n\n      ").concat(HradiusStylesDesktop, "    \n      ") : " ", "   \n   \n  ").concat(noShadow !== true ? hoverShadowColor ? "box-shadow: ".concat(hoverShadowColor, " ").concat(hoverHOffset, "px ").concat(hoverVOffset, "px ").concat(hoverBlur, "px ").concat(hoverSpread, "px ").concat(inset ? "inset" : " ", ";") : " " : " ", "\n\n  ");
+  var stylesHoverTab = "\n  ".concat(noBorder !== true ? "\n      ".concat(HborderStyle !== "none" ? HborderStylesTab : " ", "\n      ").concat(HradiusStylesTab, "  \n      ") : " ", "\n  ");
+  var stylesHoverMobile = "\n  ".concat(noBorder !== true ? "\n      ".concat(HborderStyle !== "none" ? HborderStylesMobile : " ", "\n      ").concat(HradiusStylesMobile, "\n      ") : " ", "\n   \n  ");
   return {
     styesDesktop: styesDesktop,
     styesTab: styesTab,
