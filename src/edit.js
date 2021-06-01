@@ -402,6 +402,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	} = generateBorderShadowStyles({
 		controlName: wrpBdShadow,
 		attributes,
+		// noShadow: true,
+		// noBorder: true,
 	});
 
 	const wrapperStylesDesktop = `

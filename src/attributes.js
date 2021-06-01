@@ -354,6 +354,8 @@ const attributes = {
 		// 	right: 500,
 		// 	left: 1000,
 		// },
+		// noShadow: true,
+		// noBorder: true,
 	}),
 
 	// background attributes ⬇

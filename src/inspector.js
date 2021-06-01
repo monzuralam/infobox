@@ -965,6 +965,8 @@ function Inspector(props) {
 					<BorderShadowControl
 						controlName={wrpBdShadow}
 						resRequiredProps={resRequiredProps}
+						// noShadow
+						// noBorder
 					/>
 				</PanelBody>
 			</span>

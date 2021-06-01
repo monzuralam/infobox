@@ -4084,6 +4084,8 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
   // 	right: 500,
   // 	left: 1000,
   // },
+  // noShadow: true,
+  // noBorder: true,
 })), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateBackgroundAttributes"])(_constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_3__["infoWrapBg"], {// isBgDefaultFill: true,
   // defaultFillColor: "#400",
   // defaultBgGradient: "linear-gradient(45deg,#7967ff,#c277f2)",
@@ -4752,7 +4754,9 @@ var Edit = function Edit(_ref) {
 
   var _generateBorderShadow = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateBorderShadowStyles"])({
     controlName: _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_10__["wrpBdShadow"],
-    attributes: attributes
+    attributes: attributes // noShadow: true,
+    // noBorder: true,
+
   }),
       bdShadowStyesDesktop = _generateBorderShadow.styesDesktop,
       bdShadowStyesTab = _generateBorderShadow.styesTab,
@@ -5843,7 +5847,9 @@ function Inspector(props) {
     initialOpen: false
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_border_shadow_control__WEBPACK_IMPORTED_MODULE_14__["default"], {
     controlName: _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_17__["wrpBdShadow"],
-    resRequiredProps: resRequiredProps
+    resRequiredProps: resRequiredProps // noShadow
+    // noBorder
+
   }))));
 }
 
@@ -8271,17 +8277,23 @@ var generateBorderShadowAttributes = function generateBorderShadowAttributes(con
   }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_shdAttrs, "".concat(controlName, "hoverInset"), {
     type: "boolean",
     default: false
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_shdAttrs, "".concat(controlName, "transitionTime"), {
-    type: "string",
-    default: "500"
   }), _shdAttrs);
 
   if (noBorder === true) {
-    return _objectSpread({}, shdAttrs);
+    return _objectSpread(_objectSpread({}, shdAttrs), {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "transitionTime"), {
+      type: "string",
+      default: "500"
+    }));
   } else if (noShadow === true) {
-    return _objectSpread({}, bdrAttrs);
+    return _objectSpread(_objectSpread({}, bdrAttrs), {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "transitionTime"), {
+      type: "string",
+      default: "500"
+    }));
   } else {
-    return _objectSpread(_objectSpread({}, bdrAttrs), shdAttrs);
+    return _objectSpread(_objectSpread(_objectSpread({}, bdrAttrs), shdAttrs), {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "transitionTime"), {
+      type: "string",
+      default: "500"
+    }));
   } // const result = {
   //   // Border Shadow attributes ⬇
   //   // border attributes ⬇
@@ -8670,7 +8682,7 @@ var generateBackgroundControlStyles = function generateBackgroundControlStyles(_
 }; // function to generate responsive range controller attributes for multiple range control based on the array of prefix
 
 var generateResponsiveRangeAttributes = function generateResponsiveRangeAttributes(controlName) {
-  var _objectSpread8;
+  var _objectSpread11;
 
   var defaultRange = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
   var desktop = defaultRange ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Range"), {
@@ -8683,17 +8695,17 @@ var generateResponsiveRangeAttributes = function generateResponsiveRangeAttribut
   var result = _objectSpread(_objectSpread(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "".concat(controlName, "Unit"), {
     type: "string",
     default: "px"
-  }), desktop), {}, (_objectSpread8 = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread8, "TAB".concat(controlName, "Unit"), {
+  }), desktop), {}, (_objectSpread11 = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread11, "TAB".concat(controlName, "Unit"), {
     type: "string",
     default: "px"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread8, "TAB".concat(controlName, "Range"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread11, "TAB".concat(controlName, "Range"), {
     type: "number"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread8, "MOB".concat(controlName, "Unit"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread11, "MOB".concat(controlName, "Unit"), {
     type: "string",
     default: "px"
-  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread8, "MOB".concat(controlName, "Range"), {
+  }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_objectSpread11, "MOB".concat(controlName, "Range"), {
     type: "number"
-  }), _objectSpread8));
+  }), _objectSpread11));
 
   return _objectSpread({}, result);
 }; // function to generate responsive range control styles for an element based on it's prefix
