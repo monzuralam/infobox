@@ -360,9 +360,8 @@ const attributes = {
 
 	// background attributes ⬇
 	...generateBackgroundAttributes(infoWrapBg, {
-		// isBgDefaultFill: true,
-		// defaultFillColor: "#400",
-		// defaultBgGradient: "linear-gradient(45deg,#7967ff,#c277f2)",
+		isBgDefaultGradient: true,
+		defaultBgGradient: "linear-gradient(45deg,#7967ff,#c277f2)",
 	}),
 };
 
