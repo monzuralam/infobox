@@ -4127,13 +4127,10 @@ function InfoboxContainer(_ref) {
       subTitle = requiredProps.subTitle,
       description = requiredProps.description,
       titleTag = requiredProps.titleTag,
-      subTitleTag = requiredProps.subTitleTag,
-      isOverly = requiredProps.isOverly;
+      subTitleTag = requiredProps.subTitleTag;
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "".concat(blockId, " eb-infobox-wrapper")
-  }, isOverly ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "overly"
-  }) : null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "infobox-wrapper-inner"
   }, media === "icon" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "icon-img-wrapper"
@@ -5892,8 +5889,7 @@ function save(_ref) {
       subTitle = attributes.subTitle,
       description = attributes.description,
       titleTag = attributes.titleTag,
-      subTitleTag = attributes.subTitleTag,
-      isOverly = attributes.isOverly;
+      subTitleTag = attributes.subTitleTag;
   var requiredProps = {
     selectedIcon: selectedIcon,
     blockId: blockId,
@@ -5909,8 +5905,7 @@ function save(_ref) {
     subTitle: subTitle,
     description: description,
     titleTag: titleTag,
-    subTitleTag: subTitleTag,
-    isOverly: isOverly
+    subTitleTag: subTitleTag
   };
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["useBlockProps"].save(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_infobox_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
     requiredProps: requiredProps
