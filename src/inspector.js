@@ -325,7 +325,10 @@ function Inspector(props) {
 	return (
 		<InspectorControls key="controls">
 			<span className="eb-panel-control">
-				<PanelBody title={__("Infobox Settings")} initialOpen={false}>
+				<PanelBody
+					title={__("Infobox Settings")}
+					// initialOpen={false}
+				>
 					<SelectControl
 						label={__("Layout Preset ")}
 						value={layoutPreset}

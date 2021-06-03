@@ -138,7 +138,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		MOBmediaImgHeight,
 
 		//
-		buttonTextColor = "#fff",
+		buttonTextColor = "#30267A",
 
 		//
 		titleColor = "#fff",
@@ -150,7 +150,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		descriptionColor = "#fff",
 
 		//
-		buttonBgColor = "#7a137a",
+		buttonBgColor = "#E1D8FF",
 
 		//
 		mediaAlignment,

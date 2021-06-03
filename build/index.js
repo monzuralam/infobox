@@ -3863,7 +3863,7 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
   //
   numIconBgType: {
     type: "string",
-    default: "fill"
+    default: "gradient"
   },
   //
   numIconBgColor: {
@@ -3873,7 +3873,7 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
   //
   numIconBgGradient: {
     type: "string",
-    default: "linear-gradient(45deg,#c277f2,#7967ff)"
+    default: "linear-gradient(45deg,#ffc2de,#ff46a1)"
   },
   //
   imageUrl: {
@@ -3925,7 +3925,8 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
     source: "attribute",
     selector: ".eb-infobox-icon-data-selector",
     attribute: "data-icon",
-    default: "far fa-gem"
+    default: "far fa-gem" // default: "far fa-sun",
+
   },
   //
   number: {
@@ -3944,7 +3945,7 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
   // this attribute is for checking whether a button should be shown or not ⬇
   enableButton: {
     type: "boolean",
-    default: false
+    default: true
   },
   //
   buttonText: {
@@ -3987,7 +3988,7 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
   description: {
     type: "text",
     selector: ".description",
-    default: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+    default: "Write a short description, that will describe the title or something informational and useful"
   },
   //
   descriptionColor: {
@@ -4066,10 +4067,10 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
   bottom: 10
 })), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["contentPadding"], {
   top: 10,
-  bottom: 30
+  bottom: 50
 })), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["wrapperMargin"])), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["wrapperPadding"], {
-  top: 40,
-  bottom: 40,
+  top: 50,
+  bottom: 70,
   right: 30,
   left: 30
 })), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["generateBorderShadowAttributes"])(_constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_4__["wrpBdShadow"], {// bdrDefaults: {
@@ -4513,7 +4514,7 @@ var Edit = function Edit(_ref) {
       TABmediaImgHeight = attributes.TABmediaImgHeight,
       MOBmediaImgHeight = attributes.MOBmediaImgHeight,
       _attributes$buttonTex = attributes.buttonTextColor,
-      buttonTextColor = _attributes$buttonTex === void 0 ? "#fff" : _attributes$buttonTex,
+      buttonTextColor = _attributes$buttonTex === void 0 ? "#30267A" : _attributes$buttonTex,
       _attributes$titleColo = attributes.titleColor,
       titleColor = _attributes$titleColo === void 0 ? "#fff" : _attributes$titleColo,
       _attributes$subTitleC = attributes.subTitleColor,
@@ -4521,7 +4522,7 @@ var Edit = function Edit(_ref) {
       _attributes$descripti = attributes.descriptionColor,
       descriptionColor = _attributes$descripti === void 0 ? "#fff" : _attributes$descripti,
       _attributes$buttonBgC = attributes.buttonBgColor,
-      buttonBgColor = _attributes$buttonBgC === void 0 ? "#7a137a" : _attributes$buttonBgC,
+      buttonBgColor = _attributes$buttonBgC === void 0 ? "#E1D8FF" : _attributes$buttonBgC,
       mediaAlignment = attributes.mediaAlignment,
       contentsAlignment = attributes.contentsAlignment; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
 
@@ -5288,8 +5289,8 @@ function Inspector(props) {
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
     className: "eb-panel-control"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox Settings"),
-    initialOpen: false
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Infobox Settings") // initialOpen={false}
+
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Layout Preset "),
     value: layoutPreset,

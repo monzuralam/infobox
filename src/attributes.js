@@ -77,7 +77,7 @@ const attributes = {
 	//
 	numIconBgType: {
 		type: "string",
-		default: "fill",
+		default: "gradient",
 	},
 
 	//
@@ -89,7 +89,7 @@ const attributes = {
 	//
 	numIconBgGradient: {
 		type: "string",
-		default: "linear-gradient(45deg,#c277f2,#7967ff)",
+		default: "linear-gradient(45deg,#ffc2de,#ff46a1)",
 	},
 
 	//
@@ -147,6 +147,7 @@ const attributes = {
 		selector: ".eb-infobox-icon-data-selector",
 		attribute: "data-icon",
 		default: "far fa-gem",
+		// default: "far fa-sun",
 	},
 
 	//
@@ -169,7 +170,7 @@ const attributes = {
 	// this attribute is for checking whether a button should be shown or not ⬇
 	enableButton: {
 		type: "boolean",
-		default: false,
+		default: true,
 	},
 
 	//
@@ -222,7 +223,7 @@ const attributes = {
 		type: "text",
 		selector: ".description",
 		default:
-			"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+			"Write a short description, that will describe the title or something informational and useful",
 	},
 
 	//
@@ -322,13 +323,13 @@ const attributes = {
 	}),
 	...generateDimensionsAttributes(contentPadding, {
 		top: 10,
-		bottom: 30,
+		bottom: 50,
 	}),
 
 	...generateDimensionsAttributes(wrapperMargin),
 	...generateDimensionsAttributes(wrapperPadding, {
-		top: 40,
-		bottom: 40,
+		top: 50,
+		bottom: 70,
 		right: 30,
 		left: 30,
 	}),
