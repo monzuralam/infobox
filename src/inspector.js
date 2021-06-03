@@ -642,7 +642,7 @@ function Inspector(props) {
 													setAttributes({ mediaImgWidth })
 												}
 												min={0}
-												max={mediaImgWidthUnit === "%" ? 100 : 2000}
+												max={mediaImgWidthUnit !== "px" ? 100 : 2000}
 											/>
 										)}
 
@@ -659,7 +659,7 @@ function Inspector(props) {
 														setAttributes({ TABmediaImgWidth })
 													}
 													min={0}
-													max={mediaImgWidthUnit === "%" ? 100 : 1030}
+													max={mediaImgWidthUnit !== "px" ? 100 : 1030}
 												/>
 											</ResetControl>
 										)}
@@ -677,7 +677,7 @@ function Inspector(props) {
 														setAttributes({ MOBmediaImgWidth })
 													}
 													min={0}
-													max={mediaImgWidthUnit === "%" ? 100 : 780}
+													max={mediaImgWidthUnit !== "px" ? 100 : 780}
 												/>
 											</ResetControl>
 										)}
