@@ -5530,7 +5530,7 @@ function Inspector(props) {
     render: function render(_ref6) {
       var open = _ref6.open;
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-        className: "eb-infobox-inspector-panel-img-btn components-button",
+        className: "eb-background-control-inspector-panel-img-btn components-button",
         label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Upload Image"),
         icon: "format-image",
         onClick: open

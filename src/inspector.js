@@ -602,7 +602,7 @@ function Inspector(props) {
 									render={({ open }) => {
 										return (
 											<Button
-												className="eb-infobox-inspector-panel-img-btn components-button"
+												className="eb-background-control-inspector-panel-img-btn components-button"
 												label={__("Upload Image")}
 												icon="format-image"
 												onClick={open}

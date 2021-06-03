@@ -711,7 +711,7 @@ body.eb-res-option-mobile .editor-styles-wrapper {
    fix of this issue (https://prnt.sc/111gq2g) start
   */
 
-.eb-panel-control .components-button-group {
+.eb-panel-control .components-button-:not(.eb-unit-control-btn-group) {
 	position: relative;
 	z-index: 0;
 }
