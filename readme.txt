@@ -81,6 +81,9 @@ Yes, it will work with any standard WordPress theme.
 
 == Changelog ==
 
+= 1.1.1 - 06/06/2021 =
+* Improved: Border control and background-control
+
 = 1.1.0 - 19/05/2021 =
 * Added: Dynamic asset generation for inline styles
 * Added: Responsive control
