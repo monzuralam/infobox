@@ -3,8 +3,7 @@
 	"name": "infobox/infobox",
 	"title": "Infobox",
 	"category": "widgets",
-	"icon": "smiley",
-	"description": "Example block written with ESNext standard and JSX support – build step required.",
+	"description": "Deliver your content beautifully to grab attention with an animated Infobox block.",
 	"supports": {
 		"html": false
 	},
