@@ -10,12 +10,17 @@ import {
 	subTitlePadding,
 	wrapperMargin,
 	wrapperPadding,
-	WRPborder,
-	WRPradius,
 } from "./constants/dimensionsConstants";
+
+import { infoWrapBg } from "./constants/backgroundsConstants";
+
+import { wrpBdShadow } from "./constants/borderShadowConstants";
+
 import {
 	generateDimensionsAttributes,
 	generateTypographyAttributes,
+	generateBackgroundAttributes,
+	generateBorderShadowAttributes,
 } from "../util/helpers";
 
 const attributes = {
@@ -78,13 +83,13 @@ const attributes = {
 	//
 	numIconBgColor: {
 		type: "string",
-		default: "#33FF55",
+		default: "#0003",
 	},
 
 	//
 	numIconBgGradient: {
 		type: "string",
-		default: "linear-gradient(45deg,#ff00a5,#1e268c)",
+		default: "linear-gradient(45deg,#ffc2de,#ff46a1)",
 	},
 
 	//
@@ -142,6 +147,7 @@ const attributes = {
 		selector: ".eb-infobox-icon-data-selector",
 		attribute: "data-icon",
 		default: "far fa-gem",
+		// default: "far fa-sun",
 	},
 
 	//
@@ -164,7 +170,7 @@ const attributes = {
 	// this attribute is for checking whether a button should be shown or not ⬇
 	enableButton: {
 		type: "boolean",
-		default: false,
+		default: true,
 	},
 
 	//
@@ -217,7 +223,7 @@ const attributes = {
 		type: "text",
 		selector: ".description",
 		default:
-			"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+			"Write a short description, that will describe the title or something informational and useful",
 	},
 
 	//
@@ -278,95 +284,6 @@ const attributes = {
 		type: "string",
 	},
 
-	// background attributes ⬇
-	WRPbackgroundType: {
-		type: "string",
-		default: "gradient",
-	},
-	WRPbackgroundColor: {
-		type: "string",
-	},
-	WRPgradientColor: {
-		type: "string",
-		default: "linear-gradient(45deg,#8200ff,#ff0071)",
-	},
-	WRPbackgroundSize: {
-		type: "string",
-	},
-	WRPbgImageURL: {
-		type: "string",
-	},
-	WRPbgImageID: {
-		type: "string",
-	},
-
-	// border attributes ⬇
-	WRPborderColor: {
-		type: "string",
-	},
-	WRPborderStyle: {
-		type: "string",
-		default: "solid",
-	},
-	// WRPborderWidth: {
-	// 	type: "number",
-	// },
-	// WRPborderRadius: {
-	// 	type: "number",
-	// },
-	// WRPradiusUnit: {
-	// 	type: "string",
-	// 	default: "px",
-	// },
-
-	// shadow attributes  ⬇
-	WRPhOffset: {
-		type: "number",
-	},
-	WRPvOffset: {
-		type: "number",
-	},
-	WRPblur: {
-		type: "number",
-	},
-	WRPspread: {
-		type: "number",
-	},
-	WRPshadowColor: {
-		type: "string",
-	},
-	WRPinset: {
-		type: "boolean",
-		default: false,
-	},
-	WRPshadowType: {
-		type: "string",
-		default: "normal",
-	},
-	WRPhoverHOffset: {
-		type: "number",
-	},
-	WRPhoverVOffset: {
-		type: "number",
-	},
-	WRPhoverBlur: {
-		type: "number",
-	},
-	WRPhoverSpread: {
-		type: "number",
-	},
-	WRPhoverShadowColor: {
-		type: "string",
-	},
-	WRPhoverInset: {
-		type: "boolean",
-		default: false,
-	},
-	WRPtransitionTime: {
-		type: "string",
-		default: "500",
-	},
-
 	// typography attributes
 	...generateTypographyAttributes(Object.values(typoPrefixs)),
 
@@ -406,23 +323,47 @@ const attributes = {
 	}),
 	...generateDimensionsAttributes(contentPadding, {
 		top: 10,
-		bottom: 30,
+		bottom: 50,
 	}),
 
 	...generateDimensionsAttributes(wrapperMargin),
 	...generateDimensionsAttributes(wrapperPadding, {
-		top: 40,
-		bottom: 40,
+		top: 50,
+		bottom: 70,
 		right: 30,
 		left: 30,
 	}),
-	...generateDimensionsAttributes(WRPborder, {
-		top: 0,
-		bottom: 0,
-		right: 0,
-		left: 0,
+
+	// ...generateDimensionsAttributes(wrp_border, {
+	// 	top: 0,
+	// 	bottom: 0,
+	// 	right: 0,
+	// 	left: 0,
+	// }),
+	// ...generateDimensionsAttributes(wrp_radius),
+
+	...generateBorderShadowAttributes(wrpBdShadow, {
+		// bdrDefaults: {
+		// 	top: 0,
+		// 	bottom: 0,
+		// 	right: 0,
+		// 	left: 0,
+		// },
+		// rdsDefaults: {
+		// 	top: 0,
+		// 	bottom: 50,
+		// 	right: 500,
+		// 	left: 1000,
+		// },
+		// noShadow: true,
+		// noBorder: true,
 	}),
-	...generateDimensionsAttributes(WRPradius),
+
+	// background attributes ⬇
+	...generateBackgroundAttributes(infoWrapBg, {
+		isBgDefaultGradient: true,
+		defaultBgGradient: "linear-gradient(45deg,#7967ff,#c277f2)",
+	}),
 };
 
 export default attributes;

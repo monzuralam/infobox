@@ -3,7 +3,7 @@ Contributors: wpdevteam, re_enter_rupok, Asif2BD, rahat89, hztyfoon
 Tags: block, blocks, infobox, info box, icon box, gutenberg, gutenberg blocks
 Requires at least: 5.0
 Tested up to: 5.7
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -37,7 +37,7 @@ This Block is brought to you by [WPDeveloper](https://wpdeveloper.net), the team
 
 🤝 Join our [Facebook Community](https://www.facebook.com/groups/wpdeveloper.net/) & get connected with expert web creators like yourself.
 
-🧡 LOVED FLIPBOX? Rate us on [WordPress Repository](https://wordpress.org/support/plugin/infobox/reviews/#new-post)
+🧡 LOVED INFOBOX? Rate us on [WordPress Repository](https://wordpress.org/support/plugin/infobox/reviews/#new-post)
 
 🔥 GET FREEBIES FOR YOUR WORDPRESS SITE
 
@@ -81,7 +81,10 @@ Yes, it will work with any standard WordPress theme.
 
 == Changelog ==
 
-= 1.1.0 - 20/05/2021 =
+= 1.1.1 - 07/06/2021 =
+* Improved: Border control and background-control
+
+= 1.1.0 - 19/05/2021 =
 * Added: Dynamic asset generation for inline styles
 * Added: Responsive control
 * Improved: Controls and structure

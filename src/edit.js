@@ -14,8 +14,10 @@ import "./editor.scss";
 import {
 	softMinifyCssStrings,
 	isCssExists,
+	generateBackgroundControlStyles,
 	generateDimensionsControlStyles,
 	generateTypographyStyles,
+	generateBorderShadowStyles,
 } from "../util/helpers";
 import Inspector from "./inspector";
 import {
@@ -37,9 +39,10 @@ import {
 	subTitlePadding,
 	wrapperPadding,
 	wrapperMargin,
-	WRPborder,
-	WRPradius,
 } from "./constants/dimensionsConstants";
+
+import { infoWrapBg } from "./constants/backgroundsConstants";
+import { wrpBdShadow } from "./constants/borderShadowConstants";
 
 const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	const {
@@ -135,7 +138,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		MOBmediaImgHeight,
 
 		//
-		buttonTextColor = "#fff",
+		buttonTextColor = "#30267A",
 
 		//
 		titleColor = "#fff",
@@ -147,44 +150,13 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		descriptionColor = "#fff",
 
 		//
-		buttonBgColor = "#7a137a",
+		buttonBgColor = "#E1D8FF",
 
 		//
 		mediaAlignment,
 
 		//
 		contentsAlignment,
-
-		// background attributes ⬇
-		WRPbackgroundType,
-		WRPbackgroundColor,
-		WRPgradientColor,
-		WRPbackgroundSize,
-		WRPbgImageURL,
-
-		// border attributes ⬇
-		WRPborderColor,
-		WRPborderStyle,
-		// WRPborderWidth,
-		// WRPborderRadius,
-		// WRPradiusUnit,
-
-		// shadow attributes  ⬇
-		WRPshadowColor,
-		WRPhOffset = 0,
-		WRPvOffset = 0,
-		WRPblur = 0,
-		WRPspread = 0,
-		WRPinset,
-
-		WRPhoverShadowColor = WRPshadowColor,
-		WRPhoverHOffset = WRPhOffset,
-		WRPhoverVOffset = WRPvOffset,
-		WRPhoverBlur = WRPblur,
-		WRPhoverSpread = WRPspread,
-
-		// transition attributes ⬇
-		WRPtransitionTime,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
@@ -411,118 +383,86 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	});
 
 	const {
-		dimensionStylesDesktop: WRPborderStylesDesktop,
-		dimensionStylesTab: WRPborderStylesTab,
-		dimensionStylesMobile: WRPborderStylesMobile,
-	} = generateDimensionsControlStyles({
+		backgroundStylesDesktop,
+		backgroundStylesTab,
+		backgroundStylesMobile,
+		overlyStyles,
+	} = generateBackgroundControlStyles({
 		attributes,
-		controlName: WRPborder,
-		styleFor: "border",
+		controlName: infoWrapBg,
 	});
 
 	const {
-		dimensionStylesDesktop: WRPradiusStylesDesktop,
-		dimensionStylesTab: WRPradiusStylesTab,
-		dimensionStylesMobile: WRPradiusStylesMobile,
-	} = generateDimensionsControlStyles({
+		styesDesktop: bdShadowStyesDesktop,
+		styesTab: bdShadowStyesTab,
+		styesMobile: bdShadowStyesMobile,
+		stylesHoverDesktop: bdShadowStylesHoverDesktop,
+		stylesHoverTab: bdShadowStylesHoverTab,
+		stylesHoverMobile: bdShadowStylesHoverMobile,
+	} = generateBorderShadowStyles({
+		controlName: wrpBdShadow,
 		attributes,
-		controlName: WRPradius,
-		styleFor: "border-radius",
+		// noShadow: true,
+		// noBorder: true,
 	});
 
 	const wrapperStylesDesktop = `
-		.${blockId} {
-			position: relative;
-			overflow: hidden;
+		.eb-infobox-wrapper.${blockId} {
 			${wrapperMarginStylesDesktop}
 			${wrapperPaddingStylesDesktop}
-
-			background-image:
-			${
-				WRPbackgroundType === "image" && WRPbgImageURL
-					? `url("${WRPbgImageURL}")`
-					: WRPbackgroundType === "gradient"
-					? WRPgradientColor
-					: "none"
-			};
-
-			${WRPbackgroundSize ? `background-size: ${WRPbackgroundSize};` : " "}
-			${WRPbackgroundColor ? `background-color: ${WRPbackgroundColor};` : " "}
-
-			${
-				WRPborderColor
-					? `
-					${WRPborderStylesDesktop}
-					border-color: ${WRPborderColor};
-					border-style: ${WRPborderStyle};
-					`
-					: " "
-			}
-			${WRPradiusStylesDesktop}
-
-			${
-				WRPshadowColor
-					? `box-shadow: ${WRPshadowColor} ${WRPhOffset}px ${WRPvOffset}px ${WRPblur}px ${WRPspread}px ${
-							WRPinset ? "inset" : ""
-					  };`
-					: " "
-			}
-
-			transition: ${WRPtransitionTime ? `${WRPtransitionTime / 1000}s` : ".5s"};
+			${bdShadowStyesDesktop}
+			${backgroundStylesDesktop}
+			overflow: hidden;
 		}
 
-		
+		.eb-infobox-wrapper.${blockId}:hover{		
+			${bdShadowStylesHoverDesktop}
+		}
 
-		.${blockId}:hover{		
-			${
-				WRPhoverShadowColor
-					? `box-shadow: ${WRPhoverShadowColor} ${WRPhoverHOffset}px ${WRPhoverVOffset}px ${WRPhoverBlur}px ${WRPhoverSpread}px ${
-							WRPinset ? "inset" : " "
-					  };`
-					: " "
-			}
+		.eb-infobox-wrapper.${blockId}:before{
+			${overlyStyles}
 		}
 
 	`;
 
 	const wrapperStylesTab = `
-		.${blockId} {
+		.eb-infobox-wrapper.${blockId} {
 			${wrapperMarginStylesTab}
 			${wrapperPaddingStylesTab}
-
-			${WRPborderColor ? WRPborderStylesTab : " "}
-			${WRPradiusStylesTab}
+			${backgroundStylesTab}
+			${bdShadowStyesTab}
 		}
 
+		.eb-infobox-wrapper.${blockId}:hover{		
+			${bdShadowStylesHoverTab}
+		}
 	`;
 
 	const wrapperStylesMobile = `
-		.${blockId} {
+		.eb-infobox-wrapper.${blockId} {
 			${wrapperMarginStylesMobile}
 			${wrapperPaddingStylesMobile}			
-
-			${WRPborderColor ? WRPborderStylesMobile : " "}
-			${WRPradiusStylesMobile}
+			${backgroundStylesMobile}
+			${bdShadowStyesMobile}
 		}
 
+		.eb-infobox-wrapper.${blockId}:hover{
+			${bdShadowStylesHoverMobile}
+		}
 	`;
 
 	const wrapperInnerStylesDesktop = `	
-		.${blockId} .infobox-wrapper-inner {
+		.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner {
 			display: flex;
 			${flexDirection ? `flex-direction: ${flexDirection};` : " "} 
-			
 		}
-	
 	`;
 
 	const mediaStylesDesktop = `
 	${
 		media !== "none"
-			? ` 
-			
-			.${blockId} .icon-img-wrapper {
-
+			? `
+			.eb-infobox-wrapper.${blockId} .icon-img-wrapper {
 				${
 					mediaAlignment
 						? `align-self: ${mediaAlignment};`
@@ -551,54 +491,47 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				media === "image"
 					? `
 
-					
-				.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
-					max-width: 100%;
-					${
-						mediaImgWidthUnit === "%" && mediaImgWidth
-							? `width: ${mediaImgWidth}${mediaImgWidthUnit};`
-							: " "
-					}
-				}
-				
-				.${blockId} .infobox-wrapper-inner img {
-					max-width: 100%;
-					object-fit: cover;
-					display: inline-block;
-					${imageUrl ? mediaRadiusStylesDesktop : " "}
-					
-					${
-						mediaImgWidthUnit !== "%"
-							? mediaImgWidth
+					.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
+						max-width: 100%;
+						${
+							mediaImgWidthUnit === "%" && mediaImgWidth
 								? `width: ${mediaImgWidth}${mediaImgWidthUnit};`
 								: " "
-							: mediaImgWidth
-							? `width: 100${mediaImgWidthUnit};`
-							: " "
-					}
-
-					
-				
-					${
-						isMediaImgHeightAuto
-							? `height:auto;`
-							: mediaImgHeight
-							? `height: ${mediaImgHeight}${mediaImgHeightUnit};`
-							: " "
+						}
 					}
 					
-				}
-				
+					.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner img {
+						max-width: 100%;
+						object-fit: cover;
+						display: inline-block;
+						${imageUrl ? mediaRadiusStylesDesktop : " "}
+						
+						${
+							mediaImgWidthUnit !== "%"
+								? mediaImgWidth
+									? `width: ${mediaImgWidth}${mediaImgWidthUnit};`
+									: " "
+								: mediaImgWidth
+								? `width: 100${mediaImgWidthUnit};`
+								: " "
+						}
+					
+						${
+							isMediaImgHeightAuto
+								? `height:auto;`
+								: mediaImgHeight
+								? `height: ${mediaImgHeight}${mediaImgHeightUnit};`
+								: " "
+						}
+						
+					}
 
-				.${blockId} .eb-infobox-image-wrapper{
-					overflow: hidden;
-					display:flex;
-					${imageUrl ? " " : mediaRadiusStylesDesktop}
-
-				}
-				
-
-				`
+					.eb-infobox-wrapper.${blockId} .eb-infobox-image-wrapper{
+						overflow: hidden;
+						display:flex;
+						${imageUrl ? " " : mediaRadiusStylesDesktop}
+					}
+					`
 					: " "
 			}
 
@@ -608,7 +541,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				media === "number" || media === "icon"
 					? `
 				
-					.${blockId} .number-or-icon {
+					.eb-infobox-wrapper.${blockId} .number-or-icon {
 					
 						${mediaBgPaddingDesktop}
 						${mediaRadiusStylesDesktop}
@@ -627,7 +560,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 						
 					}
 		
-					.${blockId} .number-or-icon > span{
+					.eb-infobox-wrapper.${blockId} .number-or-icon > span{
 						color: ${numIconColor || "#fff"};
 					}
 					
@@ -641,7 +574,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				media === "number"
 					? `
 
-				.${blockId} span.eb-infobox-number{
+				.eb-infobox-wrapper.${blockId} span.eb-infobox-number{
 					${numTypoStylesDesktop}
 				}				
 				
@@ -653,8 +586,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				media === "icon"
 					? `
 				
-					.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
-						font-size: ${iconSize}px;
+					.eb-infobox-wrapper.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
+						${iconSize ? `font-size: ${iconSize}px;` : " "}
 						
 					}
 
@@ -674,7 +607,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		media !== "none"
 			? `
 
-			.${blockId} .icon-img-wrapper {
+			.eb-infobox-wrapper.${blockId} .icon-img-wrapper {
 
 				${mediaBgMarginStylesTab}				
 			}
@@ -683,7 +616,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				media === "number" || media === "icon"
 					? `
 			
-					.${blockId} .number-or-icon {
+					.eb-infobox-wrapper.${blockId} .number-or-icon {
 						${mediaRadiusStylesTab}
 						${mediaBgPaddingTab}				
 					}
@@ -697,7 +630,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				media === "number"
 					? `
 
-					.${blockId} span.eb-infobox-number{
+					.eb-infobox-wrapper.${blockId} span.eb-infobox-number{
 						${numTypoStylesTab}
 					}				
 				
@@ -710,8 +643,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				media === "icon"
 					? `
 				
-					.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
-						font-size: ${TABiconSize}px;
+					.eb-infobox-wrapper.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
+						${TABiconSize ? `font-size: ${TABiconSize}px;` : " "}
 					}
 				
 				`
@@ -723,7 +656,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				media === "image"
 					? `
 						
-				.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
+				.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
 					${
 						mediaImgWidthUnit === "%" && TABmediaImgWidth
 							? `width: ${TABmediaImgWidth}${mediaImgWidthUnit};`
@@ -731,7 +664,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					}
 				}
 
-				.${blockId} .infobox-wrapper-inner img {
+				.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner img {
 					
 					${
 						mediaImgWidthUnit !== "%"
@@ -754,7 +687,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				}
 
 				
-				.${blockId} .eb-infobox-image-wrapper{
+				.eb-infobox-wrapper.${blockId} .eb-infobox-image-wrapper{
 					${mediaRadiusStylesTab}
 
 				}
@@ -777,18 +710,16 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		media !== "none"
 			? `
 
-			.${blockId} .icon-img-wrapper {
+			.eb-infobox-wrapper.${blockId} .icon-img-wrapper {
 				
 				${mediaBgMarginStylesMobile}
 			}
-
-
 
 			${
 				media === "number" || media === "icon"
 					? `
 
-					.${blockId} .number-or-icon {
+					.eb-infobox-wrapper.${blockId} .number-or-icon {
 						${mediaRadiusStylesMobile}
 						${mediaBgPaddingMobile}				
 					}
@@ -797,15 +728,11 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					: " "
 			}
 
-
-
-
-
 			${
 				media === "number"
 					? `
 
-				.${blockId} span.eb-infobox-number{
+				.eb-infobox-wrapper.${blockId} span.eb-infobox-number{
 					${numTypoStylesMobile}
 				}				
 				
@@ -813,14 +740,12 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					: " "
 			}
 
-
-
 			${
 				media === "icon"
 					? `
 
-					.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
-						font-size: ${MOBiconSize}px;
+					.eb-infobox-wrapper.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
+						${MOBiconSize ? `font-size: ${MOBiconSize}px;` : " "}
 					}			
 				
 				`
@@ -834,7 +759,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					? `
 
 								
-				.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
+				.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
 					${
 						mediaImgWidthUnit === "%" && MOBmediaImgWidth
 							? `width: ${MOBmediaImgWidth}${mediaImgWidthUnit};`
@@ -843,7 +768,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				}
 
 				
-				.${blockId} .infobox-wrapper-inner img {
+				.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner img {
 					
 					${
 						mediaImgWidthUnit !== "%"
@@ -866,7 +791,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				}
 
 				
-				.${blockId} .eb-infobox-image-wrapper{
+				.eb-infobox-wrapper.${blockId} .eb-infobox-image-wrapper{
 					
 					${mediaRadiusStylesMobile}
 
@@ -886,7 +811,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	`;
 
 	const contentStylesDesktop = `
-		.${blockId} .contents-wrapper {
+		.eb-infobox-wrapper.${blockId} .contents-wrapper {
 			flex: 1;
 			${contentAlignment ? `text-align: ${contentAlignment};` : " "} 
 
@@ -897,7 +822,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			}
 		}
 
-		.${blockId} .title {
+		.eb-infobox-wrapper.${blockId} .title {
 			margin: 0;
 			padding: 10px 0;
 			${titleTypoStylesDesktop}
@@ -908,7 +833,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		${
 			enableSubTitle
 				? `			
-				.${blockId} .subtitle {
+				.eb-infobox-wrapper.${blockId} .subtitle {
 					margin: 0;
 					padding: 10px 0;
 					${subTitleTypoStylesDesktop}
@@ -923,7 +848,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			enableDescription
 				? `
 			
-				.${blockId} .description {
+				.eb-infobox-wrapper.${blockId} .description {
 					margin: 0;
 					padding: 10px 0;
 					${contentTypoStylesDesktop}
@@ -941,11 +866,11 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			enableButton
 				? `
 			
-				.${blockId} a{
+				.eb-infobox-wrapper.${blockId} a{
 					text-decoration:none;
 				}
 
-				.${blockId} .contents-wrapper .infobox-btn{
+				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn{
 					${buttonTypoStylesDesktop}
 					${buttonPaddingStylesDesktop}
 					${buttonRadiusStylesDesktop}
@@ -963,7 +888,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	`;
 
 	const contentStylesTab = `
-		.${blockId} .title {
+		.eb-infobox-wrapper.${blockId} .title {
 			${titleTypoStylesTab}
 			${titlePaddingStylesTab}
 
@@ -972,7 +897,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		${
 			enableSubTitle
 				? `			
-				.${blockId} .subtitle {
+				.eb-infobox-wrapper.${blockId} .subtitle {
 					${subTitleTypoStylesTab}
 					${subTitlePaddingStylesTab}
 		
@@ -984,7 +909,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		${
 			enableDescription
 				? `
-				.${blockId} .description {
+				.eb-infobox-wrapper.${blockId} .description {
 					${contentTypoStylesTab}
 					${contentPaddingStylesTab}
 		
@@ -996,7 +921,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		${
 			enableButton
 				? `
-				.${blockId} .contents-wrapper .infobox-btn{
+				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn{
 					${buttonTypoStylesTab}
 					${buttonPaddingStylesTab}
 					${buttonRadiusStylesTab}
@@ -1009,7 +934,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	`;
 
 	const contentStylesMobile = `
-		.${blockId} .title {
+		.eb-infobox-wrapper.${blockId} .title {
 			${titleTypoStylesMobile}
 			${titlePaddingStylesMobile}
 
@@ -1018,7 +943,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		${
 			enableSubTitle
 				? `
-				.${blockId} .subtitle {
+				.eb-infobox-wrapper.${blockId} .subtitle {
 					${subTitleTypoStylesMobile}
 					${subTitlePaddingStylesMobile}
 		
@@ -1030,7 +955,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		${
 			enableDescription
 				? `
-				.${blockId} .description {
+				.eb-infobox-wrapper.${blockId} .description {
 					${contentTypoStylesMobile}
 					${contentPaddingStylesMobile}
 		
@@ -1044,7 +969,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			enableButton
 				? `
 			
-				.${blockId} .contents-wrapper .infobox-btn{
+				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn{
 					${buttonTypoStylesMobile}
 					${buttonPaddingStylesMobile}
 					${buttonRadiusStylesMobile}
@@ -1064,8 +989,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		${isCssExists(wrapperStylesDesktop) ? wrapperStylesDesktop : " "}
 		${isCssExists(wrapperInnerStylesDesktop) ? wrapperInnerStylesDesktop : " "}
 		${isCssExists(mediaStylesDesktop) ? mediaStylesDesktop : " "}
-		${isCssExists(contentStylesDesktop) ? contentStylesDesktop : " "}
-		
+		${isCssExists(contentStylesDesktop) ? contentStylesDesktop : " "}	
 	`);
 
 	// all css styles for Tab in strings ⬇

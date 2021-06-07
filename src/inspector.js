@@ -12,6 +12,7 @@ import {
 	Button,
 	RangeControl,
 	BaseControl,
+	// Dropdown,
 	ButtonGroup,
 } from "@wordpress/components";
 
@@ -23,6 +24,7 @@ import FontIconPicker from "@fonticonpicker/react-fonticonpicker";
 import faIcons from "../util/faIcons.js";
 
 import TypographyDropdown from "../util/typography-control-v2";
+// import TypographyIcon from "../util/typography-control-v2/Icon";
 
 import ResponsiveDimensionsControl from "../util/dimensions-control-v2";
 import ImageAvatar from "../util/image-avatar/";
@@ -32,6 +34,13 @@ import ColorControl from "../util/color-control";
 import ResetControl from "../util/reset-control";
 
 import WithResButtons from "../util/withResButtons";
+
+import BorderShadowControl from "../util/border-shadow-control";
+
+import BackgroundControl from "../util/background-control";
+
+import { infoWrapBg } from "./constants/backgroundsConstants";
+import { wrpBdShadow } from "./constants/borderShadowConstants";
 
 import {
 	typoPrefix_title,
@@ -52,8 +61,8 @@ import {
 	titlePadding,
 	wrapperMargin,
 	wrapperPadding,
-	WRPborder,
-	WRPradius,
+	// wrp_border,
+	// wrp_radius,
 } from "./constants/dimensionsConstants";
 
 import {
@@ -188,35 +197,27 @@ function Inspector(props) {
 		//
 		contentsAlignment,
 
-		// background attributes ⬇
-		WRPbackgroundType,
-		WRPbackgroundColor,
-		WRPgradientColor,
-		WRPbackgroundSize,
-		WRPbgImageURL,
-		WRPbgImageID,
+		// // border attributes ⬇
+		// wrp_borderColor,
+		// wrp_borderStyle,
+		// wrp_borderWidth,
+		// wrp_borderRadius,
+		// wrp_radiusUnit,
 
-		// border attributes ⬇
-		WRPborderColor,
-		WRPborderStyle,
-		// WRPborderWidth,
-		// WRPborderRadius,
-		// WRPradiusUnit,
-
-		// shadow attributes  ⬇
-		WRPhOffset,
-		WRPvOffset,
-		WRPblur,
-		WRPspread,
-		WRPshadowColor,
-		WRPinset,
-		WRPshadowType,
-		WRPhoverHOffset,
-		WRPhoverVOffset,
-		WRPhoverBlur,
-		WRPhoverSpread,
-		WRPhoverShadowColor,
-		WRPtransitionTime,
+		// // shadow attributes  ⬇
+		// wrp_hOffset,
+		// wrp_vOffset,
+		// wrp_blur,
+		// wrp_spread,
+		// wrp_shadowColor,
+		// wrp_inset,
+		// wrp_shadowType,
+		// wrp_hoverHOffset,
+		// wrp_hoverVOffset,
+		// wrp_hoverBlur,
+		// wrp_hoverSpread,
+		// wrp_hoverShadowColor,
+		// wrp_transitionTime,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
@@ -324,7 +325,10 @@ function Inspector(props) {
 	return (
 		<InspectorControls key="controls">
 			<span className="eb-panel-control">
-				<PanelBody title={__("Infobox Settings")} initialOpen={false}>
+				<PanelBody
+					title={__("Infobox Settings")}
+					// initialOpen={false}
+				>
 					<SelectControl
 						label={__("Layout Preset ")}
 						value={layoutPreset}
@@ -598,7 +602,7 @@ function Inspector(props) {
 									render={({ open }) => {
 										return (
 											<Button
-												className="eb-infobox-inspector-panel-img-btn components-button"
+												className="eb-background-control-inspector-panel-img-btn components-button"
 												label={__("Upload Image")}
 												icon="format-image"
 												onClick={open}
@@ -638,7 +642,7 @@ function Inspector(props) {
 													setAttributes({ mediaImgWidth })
 												}
 												min={0}
-												max={mediaImgWidthUnit === "%" ? 100 : 2000}
+												max={mediaImgWidthUnit !== "px" ? 100 : 2000}
 											/>
 										)}
 
@@ -655,7 +659,7 @@ function Inspector(props) {
 														setAttributes({ TABmediaImgWidth })
 													}
 													min={0}
-													max={mediaImgWidthUnit === "%" ? 100 : 1030}
+													max={mediaImgWidthUnit !== "px" ? 100 : 1030}
 												/>
 											</ResetControl>
 										)}
@@ -673,7 +677,7 @@ function Inspector(props) {
 														setAttributes({ MOBmediaImgWidth })
 													}
 													min={0}
-													max={mediaImgWidthUnit === "%" ? 100 : 780}
+													max={mediaImgWidthUnit !== "px" ? 100 : 780}
 												/>
 											</ResetControl>
 										)}
@@ -954,281 +958,19 @@ function Inspector(props) {
 				</PanelBody>
 
 				<PanelBody title={__("Infobox Background")} initialOpen={false}>
-					<BaseControl label={__("Background Type")}>
-						<ButtonGroup>
-							{BACKGROUND_TYPES.map(({ value, label }) => (
-								<Button
-									isPrimary={WRPbackgroundType === value}
-									isSecondary={WRPbackgroundType !== value}
-									onClick={() =>
-										setAttributes({
-											WRPbackgroundType: value,
-										})
-									}
-								>
-									{label}
-								</Button>
-							))}
-						</ButtonGroup>
-					</BaseControl>
-
-					{WRPbackgroundType === "fill" && (
-						<ColorControl
-							label={__("Background Color")}
-							color={WRPbackgroundColor}
-							onChange={(WRPbackgroundColor) =>
-								setAttributes({ WRPbackgroundColor })
-							}
-						/>
-					)}
-
-					{WRPbackgroundType === "gradient" && (
-						<PanelBody title={__("Gradient")} initialOpen={false}>
-							<GradientColorControl
-								gradientColor={WRPgradientColor}
-								onChange={(WRPgradientColor) =>
-									setAttributes({ WRPgradientColor })
-								}
-							/>
-						</PanelBody>
-					)}
-
-					{WRPbackgroundType === "image" && (
-						<PanelBody title={__("Background Image")}>
-							<MediaUpload
-								onSelect={({ url, id }) =>
-									setAttributes({
-										WRPbgImageURL: url,
-										WRPbgImageID: id,
-									})
-								}
-								type="image"
-								value={WRPbgImageID}
-								render={({ open }) =>
-									!WRPbgImageURL && (
-										<Button
-											className="eb-infobox-inspector-panel-img-btn components-button"
-											label={__("Upload Image")}
-											icon="format-image"
-											onClick={open}
-										/>
-									)
-								}
-							/>
-
-							{WRPbgImageURL && (
-								<>
-									<ImageAvatar
-										imageUrl={WRPbgImageURL}
-										onDeleteImage={() => setAttributes({ WRPbgImageURL: null })}
-									/>
-									<BaseControl label={__("Background Size")}>
-										<ButtonGroup>
-											{BACKGROUND_SIZES.map(({ value, label }) => (
-												<Button
-													isPrimary={WRPbackgroundSize === value}
-													isSecondary={WRPbackgroundSize !== value}
-													onClick={() =>
-														setAttributes({
-															WRPbackgroundSize: value,
-														})
-													}
-												>
-													{label}
-												</Button>
-											))}
-										</ButtonGroup>
-									</BaseControl>
-								</>
-							)}
-						</PanelBody>
-					)}
-				</PanelBody>
-
-				<PanelBody title={__("Infobox Border")} initialOpen={false}>
-					<ColorControl
-						label={__("Border Color")}
-						color={WRPborderColor}
-						onChange={(WRPborderColor) => setAttributes({ WRPborderColor })}
-					/>
-
-					<SelectControl
-						label={__("Border Style")}
-						value={WRPborderStyle}
-						options={BORDER_STYLES}
-						onChange={(WRPborderStyle) => setAttributes({ WRPborderStyle })}
-					/>
-
-					<ResponsiveDimensionsControl
+					<BackgroundControl
+						controlName={infoWrapBg}
 						resRequiredProps={resRequiredProps}
-						controlName={WRPborder}
-						baseLabel="Border Width"
-					/>
-
-					<ResponsiveDimensionsControl
-						forBorderRadius
-						resRequiredProps={resRequiredProps}
-						controlName={WRPradius}
-						baseLabel="Border Radius"
 					/>
 				</PanelBody>
 
-				<PanelBody title={__("Infobox Shadow")} initialOpen={false}>
-					<BaseControl id="eb-infobox-shadow-hover-ptions">
-						<ButtonGroup id="eb-infobox-shadow-hover-ptions">
-							{SHADOW_HOVER_OPTIONS.map(({ value, label }) => (
-								<Button
-									isLarge
-									isSecondary={WRPshadowType !== value}
-									isPrimary={WRPshadowType === value}
-									onClick={() => setAttributes({ WRPshadowType: value })}
-								>
-									{label}
-								</Button>
-							))}
-						</ButtonGroup>
-					</BaseControl>
-
-					{WRPshadowType === "normal" && (
-						<>
-							<ColorControl
-								label={__("Shadow Color")}
-								color={WRPshadowColor}
-								onChange={(WRPshadowColor) => setAttributes({ WRPshadowColor })}
-							/>
-
-							<ResetControl
-								onReset={() => setAttributes({ WRPhOffset: undefined })}
-							>
-								<RangeControl
-									label={__("Horizontal Offset")}
-									value={WRPhOffset}
-									onChange={(WRPhOffset) => setAttributes({ WRPhOffset })}
-									min={0}
-									max={20}
-								/>
-							</ResetControl>
-
-							<ResetControl
-								onReset={() => setAttributes({ WRPvOffset: undefined })}
-							>
-								<RangeControl
-									label={__("Vertical Offset")}
-									value={WRPvOffset}
-									onChange={(WRPvOffset) => setAttributes({ WRPvOffset })}
-									min={0}
-									max={20}
-								/>
-							</ResetControl>
-
-							<ResetControl
-								onReset={() => setAttributes({ WRPblur: undefined })}
-							>
-								<RangeControl
-									label={__("Shadow Blur")}
-									value={WRPblur}
-									onChange={(WRPblur) => setAttributes({ WRPblur })}
-									min={0}
-									max={20}
-								/>
-							</ResetControl>
-
-							<ResetControl
-								onReset={() => setAttributes({ WRPspread: undefined })}
-							>
-								<RangeControl
-									label={__("Shadow Spread")}
-									value={WRPspread}
-									onChange={(WRPspread) => setAttributes({ WRPspread })}
-									min={0}
-									max={20}
-								/>
-							</ResetControl>
-						</>
-					)}
-
-					{WRPshadowType === "hover" && (
-						<>
-							<ColorControl
-								label={__("Hover Shadow Color")}
-								color={WRPhoverShadowColor}
-								onChange={(WRPhoverShadowColor) =>
-									setAttributes({ WRPhoverShadowColor })
-								}
-							/>
-
-							<ResetControl
-								onReset={() => setAttributes({ WRPhoverHOffset: undefined })}
-							>
-								<RangeControl
-									label={__("Horizontal Offset")}
-									value={WRPhoverHOffset}
-									onChange={(WRPhoverHOffset) =>
-										setAttributes({ WRPhoverHOffset })
-									}
-									min={0}
-									max={20}
-								/>
-							</ResetControl>
-
-							<ResetControl
-								onReset={() => setAttributes({ WRPhoverVOffset: undefined })}
-							>
-								<RangeControl
-									label={__("Vertical Offset")}
-									value={WRPhoverVOffset}
-									onChange={(WRPhoverVOffset) =>
-										setAttributes({ WRPhoverVOffset })
-									}
-									min={0}
-									max={20}
-								/>
-							</ResetControl>
-
-							<ResetControl
-								onReset={() => setAttributes({ WRPhoverBlur: undefined })}
-							>
-								<RangeControl
-									label={__("Shadow Blur")}
-									value={WRPhoverBlur}
-									onChange={(WRPhoverBlur) => setAttributes({ WRPhoverBlur })}
-									min={0}
-									max={20}
-								/>
-							</ResetControl>
-
-							<ResetControl
-								onReset={() => setAttributes({ WRPhoverSpread: undefined })}
-							>
-								<RangeControl
-									label={__("Shadow Spread")}
-									value={WRPhoverSpread}
-									onChange={(WRPhoverSpread) =>
-										setAttributes({ WRPhoverSpread })
-									}
-									min={0}
-									max={20}
-								/>
-							</ResetControl>
-						</>
-					)}
-
-					<ToggleControl
-						label={__("Inset")}
-						checked={WRPinset}
-						onChange={() => setAttributes({ WRPinset: !WRPinset })}
+				<PanelBody title={__("Infobox Border & Shadow")} initialOpen={false}>
+					<BorderShadowControl
+						controlName={wrpBdShadow}
+						resRequiredProps={resRequiredProps}
+						// noShadow
+						// noBorder
 					/>
-
-					<BaseControl id="eb-infobox-transition-time">
-						<TextControl
-							label={__("Transition")}
-							value={WRPtransitionTime}
-							type="number"
-							onChange={(WRPtransitionTime) =>
-								setAttributes({ WRPtransitionTime })
-							}
-						/>
-					</BaseControl>
 				</PanelBody>
 			</span>
 		</InspectorControls>

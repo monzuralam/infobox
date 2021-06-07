@@ -707,10 +707,18 @@ body.eb-res-option-mobile .editor-styles-wrapper {
 	left: 83px;
 }
 
-// fix of this issue (https://prnt.sc/111gq2g)
-#editor .interface-complementary-area .components-panel__header {
-	z-index: 2;
+/* 
+   fix of this issue (https://prnt.sc/111gq2g) start
+  */
+
+.eb-panel-control .components-button-:not(.eb-unit-control-btn-group) {
+	position: relative;
+	z-index: 0;
 }
+
+/* 
+fix of this issue (https://prnt.sc/111gq2g) end
+*/
 
 // Typography style
 .eb-typography-base div {
@@ -933,7 +941,7 @@ body.eb-res-option-mobile .editor-styles-wrapper {
 
 // image upload button in inspector panel styles start
 
-.eb-infobox-inspector-panel-img-btn {
+.eb-background-control-inspector-panel-img-btn {
 	height: 100px;
 	width: 100%;
 	background-color: #e3e3e3;
@@ -946,3 +954,22 @@ body.eb-res-option-mobile .editor-styles-wrapper {
 	text-transform: capitalize;
 }
 // fix end
+
+// new with res btns style start
+
+.eb-panel-control
+	.newWithResWrapper
+	.eb-range-controller-container
+	.eb-range-reset-button {
+	margin-top: 0;
+}
+
+.resLabel {
+	padding-right: 5px;
+}
+
+.resBtns {
+	padding-bottom: 5px;
+}
+
+// new with res btns style end

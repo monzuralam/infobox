@@ -28,8 +28,8 @@ export const MEDIA_ALIGNMENTS_ON_FLEX_ROW = [
 ];
 
 export const ICON_IMAGE_BG_TYPES = [
-	{ label: "Gradient", value: "gradient" },
 	{ label: "Fill", value: "fill" },
+	{ label: "Gradient", value: "gradient" },
 ];
 
 export const sizeUnitTypes = [
