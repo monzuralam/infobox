@@ -245,27 +245,30 @@ function Inspector(props) {
 		const allEbBlocksWrapper = document.querySelectorAll(
 			".eb-guten-block-main-parent-wrapper:not(.is-selected) > style"
 		);
+
 		// console.log("---inspector", { allEbBlocksWrapper });
 		if (allEbBlocksWrapper.length < 1) return;
 		allEbBlocksWrapper.forEach((styleTag) => {
 			const cssStrings = styleTag.textContent;
 			const minCss = cssStrings.replace(/\s+/g, " ");
+			console.log({ minCss });
 			const regexCssMimmikSpace = /(?<=mimmikcssStart\s\*\/).+(?=\/\*\smimmikcssEnd)/i;
 			let newCssStrings = " ";
 			if (resOption === "tab") {
 				const tabCssStrings = (minCss.match(
-					/(?<=tabcssStart\s\*\/).+(?=\/\*\stabcssEnd)/i
-				) || [" "])[0];
-				// console.log({ tabCssStrings });
+					/tabcssStart\s\*\/(.+)(?=\/\*\stabcssEnd)/i
+				) || [, " "])[1];
+				console.log({ tabCssStrings });
 				newCssStrings = minCss.replace(regexCssMimmikSpace, tabCssStrings);
 			} else if (resOption === "mobile") {
 				const tabCssStrings = (minCss.match(
-					/(?<=tabcssStart\s\*\/).+(?=\/\*\stabcssEnd)/i
-				) || [" "])[0];
+					/tabcssStart\s\*\/(.+)(?=\/\*\stabcssEnd)/i
+				) || [, " "])[1];
 
 				const mobCssStrings = (minCss.match(
-					/(?<=mobcssStart\s\*\/).+(?=\/\*\smobcssEnd)/i
-				) || [" "])[0];
+					// /(?<=mobcssStart\s\*\/).+(?=\/\*\smobcssEnd)/i
+					/mobcssStart\s\*\/(.+)(?=\/\*\smobcssEnd)/i
+				) || [, " "])[1];
 
 				// console.log({ tabCssStrings, mobCssStrings });
 

@@ -980,8 +980,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				: " "
 		}
 		
-		
-
 	`;
 
 	// all css styles for large screen width (desktop/laptop) in strings ⬇
@@ -997,8 +995,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		${isCssExists(wrapperStylesTab) ? wrapperStylesTab : " "}
 		${isCssExists(mediaStylesTab) ? mediaStylesTab : " "}
 		${isCssExists(contentStylesTab) ? contentStylesTab : " "}
-		
-		
 	`);
 
 	// all css styles for Mobile in strings ⬇
@@ -1010,6 +1006,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	`);
 
 	// Set All Style in "blockMeta" Attribute
+	// this useEffect should be at the bottom of edit.js right before the return
 	useEffect(() => {
 		const styleObject = {
 			desktop: desktopAllStyles,
