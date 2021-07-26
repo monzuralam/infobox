@@ -17,10 +17,17 @@ import { infoWrapBg } from "./constants/backgroundsConstants";
 import { wrpBdShadow } from "./constants/borderShadowConstants";
 
 import {
+	mediaIconSize,
+	mediaImageWidth,
+	mediaImageHeight,
+} from "./constants/rangeNames";
+
+import {
 	generateDimensionsAttributes,
 	generateTypographyAttributes,
 	generateBackgroundAttributes,
 	generateBorderShadowAttributes,
+	generateResponsiveRangeAttributes,
 } from "../util/helpers";
 
 const attributes = {
@@ -28,7 +35,7 @@ const attributes = {
 	// responsive control attributes ⬇
 	resOption: {
 		type: "string",
-		default: "desktop",
+		default: "Desktop",
 	},
 
 	// blockId attribute for making unique className and other uniqueness ⬇
@@ -45,8 +52,8 @@ const attributes = {
 		type: "object",
 	},
 
-	// isOverly is to check if a overly on the block's background should exist ⬇
-	isOverly: {
+	// isOverlay is to check if a overlay on the block's background should exist ⬇
+	isOverlay: {
 		type: "boolean",
 		default: false,
 	},
@@ -284,6 +291,15 @@ const attributes = {
 		type: "string",
 	},
 
+	// Responsive Range Controller attributes
+	...generateResponsiveRangeAttributes(mediaIconSize, {
+		defaultRange: 50,
+	}),
+	...generateResponsiveRangeAttributes(mediaImageWidth, {
+		defaultRange: 300,
+	}),
+	...generateResponsiveRangeAttributes(mediaImageHeight),
+
 	// typography attributes
 	...generateTypographyAttributes(Object.values(typoPrefixs)),
 
@@ -297,15 +313,18 @@ const attributes = {
 	...generateDimensionsAttributes(mediaBgRadius, {
 		top: 20,
 		bottom: 20,
+		isLinked: false,
 	}),
 	...generateDimensionsAttributes(mediaBgMargin, {
 		top: 15,
+		isLinked: false,
 	}),
 	...generateDimensionsAttributes(buttonPadding, {
 		top: 15,
 		bottom: 15,
 		right: 30,
 		left: 30,
+		isLinked: false,
 	}),
 	...generateDimensionsAttributes(buttonRadius, {
 		top: 10,
@@ -316,14 +335,17 @@ const attributes = {
 	...generateDimensionsAttributes(titlePadding, {
 		top: 10,
 		bottom: 10,
+		isLinked: false,
 	}),
 	...generateDimensionsAttributes(subTitlePadding, {
 		top: 10,
 		bottom: 10,
+		isLinked: false,
 	}),
 	...generateDimensionsAttributes(contentPadding, {
 		top: 10,
 		bottom: 50,
+		isLinked: false,
 	}),
 
 	...generateDimensionsAttributes(wrapperMargin),
@@ -332,6 +354,7 @@ const attributes = {
 		bottom: 70,
 		right: 30,
 		left: 30,
+		isLinked: false,
 	}),
 
 	// ...generateDimensionsAttributes(wrp_border, {
@@ -363,6 +386,9 @@ const attributes = {
 	...generateBackgroundAttributes(infoWrapBg, {
 		isBgDefaultGradient: true,
 		defaultBgGradient: "linear-gradient(45deg,#7967ff,#c277f2)",
+		// noOverlay: true,
+		// noMainBgi: true,
+		// noOverlayBgi: true, // if 'noOverlay : true' is given then there's no need to give 'noOverlayBgi : true'
 	}),
 };
 

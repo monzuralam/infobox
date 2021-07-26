@@ -1,4 +1,4 @@
-import { __ } from "@wordpress/i18n";
+const { __ } = wp.i18n;
 
 export const LAYOUT_TYPES = [
 	{ label: __("Preset 1"), value: "preset1" },
