@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/style.scss"],"names":[],"mappings":"AAAA;;;;;EAAA,C","file":"style-index.css","sourcesContent":["/**\r\n * The following styles get applied both on the front of your site\r\n * and in the editor.\r\n *\r\n * Replace them with your own styles or remove the file completely.\r\n */\r\n"],"sourceRoot":""}
