@@ -49,3 +49,4 @@ dist/**/*.* export-ignore
 src export-ignore
 util	export-ignore
 .wordpress-org	export-ignore
+.gitmodules export-ignore

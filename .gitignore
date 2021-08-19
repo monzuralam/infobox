@@ -30,3 +30,6 @@ node_modules/
 
 #ide
 .idea
+
+package-lock.json
+yarn.lock
