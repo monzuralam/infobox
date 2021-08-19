@@ -1,5 +1,4 @@
-import { RichText } from "@wordpress/block-editor";
-
+const { RichText } = wp.blockEditor;
 export default function InfoboxContainer({ requiredProps }) {
 	const {
 		blockId,

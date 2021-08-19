@@ -1,15 +1,18 @@
 /**
  * WordPress dependencies
  */
-import { __ } from "@wordpress/i18n";
-import { useBlockProps, MediaUpload, RichText } from "@wordpress/block-editor";
-import { Button } from "@wordpress/components";
-import { useEffect } from "@wordpress/element";
-import "./editor.scss";
+const { __ } = wp.i18n;
+const { useBlockProps, MediaUpload, RichText } = wp.blockEditor;
+const { Button } = wp.components;
+const { useEffect } = wp.element;
+
+const { select } = wp.data;
 
 /**
  * Internal dependencies
  */
+
+import "./editor.scss";
 
 import {
 	softMinifyCssStrings,
@@ -18,6 +21,9 @@ import {
 	generateDimensionsControlStyles,
 	generateTypographyStyles,
 	generateBorderShadowStyles,
+	generateResponsiveRangeStyles,
+	mimmikCssForPreviewBtnClick,
+	duplicateBlockIdFix,
 } from "../util/helpers";
 import Inspector from "./inspector";
 import {
@@ -44,6 +50,12 @@ import {
 import { infoWrapBg } from "./constants/backgroundsConstants";
 import { wrpBdShadow } from "./constants/borderShadowConstants";
 
+import {
+	mediaIconSize,
+	mediaImageWidth,
+	mediaImageHeight,
+} from "./constants/rangeNames";
+
 const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	const {
 		// responsive control attributes ⬇
@@ -55,8 +67,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		// blockId attribute for making unique className and other uniqueness
 		blockId,
 
-		// isOverly is to check if a overly on the block's background should exist
-		isOverly,
+		// isOverlay is to check if a overlay on the block's background should exist
+		isOverlay,
 
 		selectedIcon,
 		media,
@@ -111,7 +123,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		numIconBgGradient,
 
 		//
-		mediaImgWidthUnit,
+		[`${mediaImageWidth}Unit`]: mediaImgWidthUnit,
+		[`TAB${mediaImageWidth}Unit`]: TABmediaImgWidthUnit,
+		[`MOB${mediaImageWidth}Unit`]: MOBmediaImgWidthUnit,
 
 		//
 		mediaImgWidth,
@@ -161,67 +175,29 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
 	useEffect(() => {
-		const bodyClasses = document.body.className;
-
-		if (!/eb\-res\-option\-/i.test(bodyClasses)) {
-			document.body.classList.add("eb-res-option-desktop");
-			setAttributes({
-				resOption: "desktop",
-			});
-		} else {
-			const resOption = bodyClasses
-				.match(/eb-res-option-[^\s]+/g)[0]
-				.split("-")[3];
-			setAttributes({ resOption });
-		}
+		setAttributes({
+			resOption: select("core/edit-post").__experimentalGetPreviewDeviceType(),
+		});
 	}, []);
 
 	// this useEffect is for creating a unique blockId for each block's unique className
 	useEffect(() => {
-		// const current_block_id = attributes.blockId;
-
 		const BLOCK_PREFIX = "eb-infobox";
-		const unique_id =
-			BLOCK_PREFIX + "-" + Math.random().toString(36).substr(2, 7);
+		duplicateBlockIdFix({
+			BLOCK_PREFIX,
+			blockId,
+			setAttributes,
+			select,
+			clientId,
+		});
+	}, []);
 
-		/**
-		 * Define and Generate Unique Block ID
-		 */
-		if (!blockId) {
-			setAttributes({ blockId: unique_id });
-		}
-
-		/**
-		 * Assign New Unique ID when duplicate BlockId found
-		 * Mostly happens when User Duplicate a Block
-		 */
-		const all_blocks = wp.data.select("core/block-editor").getBlocks();
-
-		// console.log({ all_blocks });
-
-		let duplicateFound = false;
-		const fixDuplicateBlockId = (blocks) => {
-			if (duplicateFound) return;
-			for (const item of blocks) {
-				const { innerBlocks } = item;
-				if (item.attributes.blockId === blockId) {
-					if (item.clientId !== clientId) {
-						setAttributes({ blockId: unique_id });
-						// console.log("found a duplicate");
-						duplicateFound = true;
-						return;
-					} else if (innerBlocks.length > 0) {
-						fixDuplicateBlockId(innerBlocks);
-					}
-				} else if (innerBlocks.length > 0) {
-					fixDuplicateBlockId(innerBlocks);
-				}
-			}
-		};
-
-		fixDuplicateBlockId(all_blocks);
-
-		// console.log({ blockId });
+	// this useEffect is for mimmiking css when responsive options clicked from wordpress's 'preview' button
+	useEffect(() => {
+		mimmikCssForPreviewBtnClick({
+			domObj: document,
+			select,
+		});
 	}, []);
 
 	const blockProps = useBlockProps({
@@ -384,12 +360,25 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 	const {
 		backgroundStylesDesktop,
+		hoverBackgroundStylesDesktop,
 		backgroundStylesTab,
+		hoverBackgroundStylesTab,
 		backgroundStylesMobile,
-		overlyStyles,
+		hoverBackgroundStylesMobile,
+		overlayStylesDesktop,
+		hoverOverlayStylesDesktop,
+		overlayStylesTab,
+		hoverOverlayStylesTab,
+		overlayStylesMobile,
+		hoverOverlayStylesMobile,
+		bgTransitionStyle,
+		ovlTransitionStyle,
 	} = generateBackgroundControlStyles({
 		attributes,
 		controlName: infoWrapBg,
+		// noOverlay: true,
+		// noMainBgi: true,
+		// noOverlayBgi: true, // if 'noOverlay : true' is given then there's no need to give 'noOverlayBgi : true'
 	});
 
 	const {
@@ -399,11 +388,43 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		stylesHoverDesktop: bdShadowStylesHoverDesktop,
 		stylesHoverTab: bdShadowStylesHoverTab,
 		stylesHoverMobile: bdShadowStylesHoverMobile,
+		transitionStyle: bdShadowTransitionStyle,
 	} = generateBorderShadowStyles({
 		controlName: wrpBdShadow,
 		attributes,
 		// noShadow: true,
 		// noBorder: true,
+	});
+
+	const {
+		rangeStylesDesktop: iconSizeDesktop,
+		rangeStylesTab: iconSizeTab,
+		rangeStylesMobile: iconSizeMobile,
+	} = generateResponsiveRangeStyles({
+		controlName: mediaIconSize,
+		customUnit: "px",
+		property: "font-size",
+		attributes,
+	});
+
+	const {
+		rangeStylesDesktop: mediaImgHeightDesktop,
+		rangeStylesTab: mediaImgHeightTab,
+		rangeStylesMobile: mediaImgHeightMobile,
+	} = generateResponsiveRangeStyles({
+		controlName: mediaImageHeight,
+		property: "height",
+		attributes,
+	});
+
+	const {
+		rangeStylesDesktop: mediaImgWidthDesktop,
+		rangeStylesTab: mediaImgWidthTab,
+		rangeStylesMobile: mediaImgWidthMobile,
+	} = generateResponsiveRangeStyles({
+		controlName: mediaImageWidth,
+		property: "width",
+		attributes,
 	});
 
 	const wrapperStylesDesktop = `
@@ -413,14 +434,21 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${bdShadowStyesDesktop}
 			${backgroundStylesDesktop}
 			overflow: hidden;
+			transition: ${bgTransitionStyle}, ${bdShadowTransitionStyle};
 		}
 
-		.eb-infobox-wrapper.${blockId}:hover{		
+		.eb-infobox-wrapper.${blockId}:hover{	
+			${hoverBackgroundStylesDesktop}
 			${bdShadowStylesHoverDesktop}
 		}
-
+		
 		.eb-infobox-wrapper.${blockId}:before{
-			${overlyStyles}
+			${overlayStylesDesktop}
+			transition: ${ovlTransitionStyle};
+		}
+
+		.eb-infobox-wrapper.${blockId}:hover:before{	
+			${hoverOverlayStylesDesktop}
 		}
 
 	`;
@@ -434,7 +462,17 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		}
 
 		.eb-infobox-wrapper.${blockId}:hover{		
+			${hoverBackgroundStylesTab}
 			${bdShadowStylesHoverTab}
+		}
+
+		
+		.eb-infobox-wrapper.${blockId}:before{
+			${overlayStylesTab}
+		}
+
+		.eb-infobox-wrapper.${blockId}:hover:before{	
+			${hoverOverlayStylesTab}
 		}
 	`;
 
@@ -447,13 +485,24 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		}
 
 		.eb-infobox-wrapper.${blockId}:hover{
+			${hoverBackgroundStylesMobile}
 			${bdShadowStylesHoverMobile}
+		}
+
+		.eb-infobox-wrapper.${blockId}:before{
+			${overlayStylesMobile}
+		}
+
+		
+		.eb-infobox-wrapper.${blockId}:hover:before{	
+			${hoverOverlayStylesMobile}
 		}
 	`;
 
 	const wrapperInnerStylesDesktop = `	
 		.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner {
 			display: flex;
+			position: relative;
 			${flexDirection ? `flex-direction: ${flexDirection};` : " "} 
 		}
 	`;
@@ -493,11 +542,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 					.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
 						max-width: 100%;
-						${
-							mediaImgWidthUnit === "%" && mediaImgWidth
-								? `width: ${mediaImgWidth}${mediaImgWidthUnit};`
-								: " "
-						}
+						${mediaImgWidthUnit === "%" ? mediaImgWidthDesktop : " "}
 					}
 					
 					.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner img {
@@ -506,23 +551,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 						display: inline-block;
 						${imageUrl ? mediaRadiusStylesDesktop : " "}
 						
-						${
-							mediaImgWidthUnit !== "%"
-								? mediaImgWidth
-									? `width: ${mediaImgWidth}${mediaImgWidthUnit};`
-									: " "
-								: mediaImgWidth
-								? `width: 100${mediaImgWidthUnit};`
-								: " "
-						}
-					
-						${
-							isMediaImgHeightAuto
-								? `height:auto;`
-								: mediaImgHeight
-								? `height: ${mediaImgHeight}${mediaImgHeightUnit};`
-								: " "
-						}
+						${mediaImgWidthUnit === "%" ? `width: 100%;` : mediaImgWidthDesktop}
+						${isMediaImgHeightAuto ? `height:auto;` : mediaImgHeightDesktop}
 						
 					}
 
@@ -587,7 +617,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					? `
 				
 					.eb-infobox-wrapper.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
-						${iconSize ? `font-size: ${iconSize}px;` : " "}
+						${iconSizeDesktop}
 						
 					}
 
@@ -644,7 +674,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					? `
 				
 					.eb-infobox-wrapper.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
-						${TABiconSize ? `font-size: ${TABiconSize}px;` : " "}
+						${iconSizeTab}
 					}
 				
 				`
@@ -658,8 +688,10 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 						
 				.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
 					${
-						mediaImgWidthUnit === "%" && TABmediaImgWidth
-							? `width: ${TABmediaImgWidth}${mediaImgWidthUnit};`
+						TABmediaImgWidthUnit === "%"
+							? mediaImgWidthTab
+							: mediaImgWidthUnit === "%"
+							? `width: auto;`
 							: " "
 					}
 				}
@@ -667,22 +699,14 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner img {
 					
 					${
-						mediaImgWidthUnit !== "%"
-							? TABmediaImgWidth
-								? `width: ${TABmediaImgWidth}${mediaImgWidthUnit};`
-								: " "
-							: TABmediaImgWidth
-							? `width: 100${mediaImgWidthUnit};`
-							: " "
+						TABmediaImgWidthUnit === "%"
+							? mediaImgWidthUnit === "%"
+								? " "
+								: `width: 100%;`
+							: mediaImgWidthTab
 					}
 					
-					${
-						isMediaImgHeightAuto
-							? `height:auto;`
-							: TABmediaImgHeight
-							? `height: ${TABmediaImgHeight}${mediaImgHeightUnit};`
-							: " "
-					}
+					${isMediaImgHeightAuto ? `height:auto;` : mediaImgHeightTab}
 					
 				}
 
@@ -745,7 +769,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 					? `
 
 					.eb-infobox-wrapper.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
-						${MOBiconSize ? `font-size: ${MOBiconSize}px;` : " "}
+						${iconSizeMobile}
 					}			
 				
 				`
@@ -761,8 +785,10 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 								
 				.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
 					${
-						mediaImgWidthUnit === "%" && MOBmediaImgWidth
-							? `width: ${MOBmediaImgWidth}${mediaImgWidthUnit};`
+						MOBmediaImgWidthUnit === "%"
+							? mediaImgWidthMobile
+							: TABmediaImgWidthUnit === "%"
+							? `width: auto;`
 							: " "
 					}
 				}
@@ -771,30 +797,20 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner img {
 					
 					${
-						mediaImgWidthUnit !== "%"
-							? MOBmediaImgWidth
-								? `width: ${MOBmediaImgWidth}${mediaImgWidthUnit};`
-								: " "
-							: MOBmediaImgWidth
-							? `width: 100${mediaImgWidthUnit};`
-							: " "
+						MOBmediaImgWidthUnit === "%"
+							? TABmediaImgWidthUnit === "%"
+								? " "
+								: `width: 100%;`
+							: mediaImgWidthMobile
 					}
 					
-					${
-						isMediaImgHeightAuto
-							? `height:auto;`
-							: MOBmediaImgHeight
-							? `height: ${MOBmediaImgHeight}${mediaImgHeightUnit};`
-							: " "
-					}
+					${isMediaImgHeightAuto ? `height:auto;` : mediaImgHeightMobile}
 
 				}
 
 				
 				.eb-infobox-wrapper.${blockId} .eb-infobox-image-wrapper{
-					
 					${mediaRadiusStylesMobile}
-
 				}
 				
 				`
@@ -1021,8 +1037,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		}
 	}, [attributes]);
 
-	// console.log("--edit theke", { attributes });
-
 	return [
 		isSelected && (
 			<Inspector attributes={attributes} setAttributes={setAttributes} />
@@ -1036,8 +1050,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 				/* mimmikcssStart */
 
-				${resOption === "tab" ? tabAllStyles : " "}
-				${resOption === "mobile" ? tabAllStyles + mobileAllStyles : " "}
+				${resOption === "Tablet" ? tabAllStyles : " "}
+				${resOption === "Mobile" ? tabAllStyles + mobileAllStyles : " "}
 
 				/* mimmikcssEnd */
 
@@ -1060,8 +1074,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			</style>
 
 			<div className={`${blockId} eb-infobox-wrapper`}>
-				{isOverly ? <div className="overly"></div> : null}
-
 				<div className="infobox-wrapper-inner">
 					{media === "icon" ? (
 						<div className="icon-img-wrapper">
