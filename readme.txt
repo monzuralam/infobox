@@ -2,8 +2,8 @@
 Contributors: wpdevteam, re_enter_rupok, Asif2BD, rahat89, hztyfoon
 Tags: block, blocks, infobox, info box, icon box, gutenberg, gutenberg blocks
 Requires at least: 5.0
-Tested up to: 5.7
-Stable tag: 1.1.1
+Tested up to: 5.8
+Stable tag: 1.1.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -80,6 +80,10 @@ Yes, it will work with any standard WordPress theme.
 
 
 == Changelog ==
+
+= 1.1.2 - 19/08/2021 =
+* Improved: Controls with latest version
+* Improved: Security for asset generation
 
 = 1.1.1 - 07/06/2021 =
 * Improved: Border control and background-control
