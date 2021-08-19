@@ -1,18 +1,39 @@
-import { registerBlockType } from "@wordpress/blocks";
-import { __ } from "@wordpress/i18n";
+/**
+ * WordPress dependencies
+ */
+const { __ } = wp.i18n;
+const { registerBlockType } = wp.blocks;
 
-import "./style.scss";
+/**
+ * Internal dependencies
+ */
+import { InfoboxIcon } from "../util/icons";
 import Edit from "./edit";
-import save from "./save";
-import icon from "./icon";
+import Save from "./save";
 import attributes from "./attributes";
+import metadata from "../block.json";
+import "./style.scss";
 
-registerBlockType("block/infobox", {
+import example from "./example";
+
+const { name, category } = metadata;
+
+registerBlockType(name, {
+	apiVersion: 2,
 	title: __("Infobox", "block"),
-	description: __("", "block"),
-	category: "widgets",
-	icon,
+	description: __(
+		"Deliver your content beautifully to grab attention with an animated Infobox block.",
+		"block"
+	),
+	category,
+	keywords: [
+		__("EB infobox", "essential-blocks"),
+		__("info box", "essential-blocks"),
+		__("infobox block", "essential-blocks"),
+	],
+	icon: InfoboxIcon,
 	attributes,
 	edit: Edit,
-	save,
+	save: Save,
+	example: example,
 });

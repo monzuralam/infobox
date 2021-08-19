@@ -1,14 +1,11 @@
 /**
  * WordPress dependencies
  */
-import { __ } from "@wordpress/i18n";
-import { Component, Fragment } from "@wordpress/element";
-import {
-	InspectorControls,
-	PanelColorSettings,
-	MediaUpload,
-} from "@wordpress/block-editor";
-import {
+const { __ } = wp.i18n;
+const { InspectorControls, MediaUpload } = wp.blockEditor;
+const { useEffect } = wp.element;
+const { select } = wp.data;
+const {
 	PanelBody,
 	SelectControl,
 	ToggleControl,
@@ -17,1080 +14,811 @@ import {
 	RangeControl,
 	BaseControl,
 	ButtonGroup,
-	Dropdown,
-} from "@wordpress/components";
+	TabPanel,
+} = wp.components;
 
 /**
  * Internal dependencies
  */
-import faIcons from "../util/faIcons.js";
+
 import FontIconPicker from "@fonticonpicker/react-fonticonpicker";
-import {
-	INFOBOX_TYPES,
-	POSITIONS,
-	HEADER_TAGS,
-	TEXT_TRANSFORM,
-	BUTTON_SIZES,
-	BUTTON_ALIGN,
-	BORDER_STYLES,
-	BACKGROUND_TYPE,
-	FONT_WEIGHTS,
-	TEXT_DECORATION,
-} from "./constants.js";
-import FontPicker from "../util/typography-control/FontPicker";
-import DimensionsControl from "../util/dimensions-control";
-import ImageAvatar from "../util/image-avatar/ImageAvater.js";
+import faIcons from "../util/faIcons.js";
+import TypographyDropdown from "../util/typography-control-v2";
+import ResponsiveDimensionsControl from "../util/dimensions-control-v2";
+import ResponsiveRangeController from "../util/responsive-range-control";
+import ImageAvatar from "../util/image-avatar/";
 import GradientColorControl from "../util/gradient-color-controller";
-import UnitControl from "../util/unit-control";
 import ColorControl from "../util/color-control";
+import BorderShadowControl from "../util/border-shadow-control";
+import BackgroundControl from "../util/background-control";
 
-class Inspector extends Component {
-	changeButtonSize = (newSize) => {
-		switch (newSize) {
-			case "small":
-				this.props.setAttributes({
-					buttonPaddingTop: 5,
-					buttonPaddingRight: 10,
-					buttonPaddingBottom: 5,
-					buttonPaddingLeft: 10,
-					buttonSize: newSize,
-				});
-				break;
+import { infoWrapBg } from "./constants/backgroundsConstants";
+import { wrpBdShadow } from "./constants/borderShadowConstants";
 
-			case "medium":
-				this.props.setAttributes({
-					buttonPaddingTop: 10,
-					buttonPaddingRight: 20,
-					buttonPaddingBottom: 10,
-					buttonPaddingLeft: 30,
-					buttonSize: newSize,
-				});
-				break;
+import objAttributes from "./attributes";
 
-			case "large":
-				this.props.setAttributes({
-					buttonPaddingTop: 20,
-					buttonPaddingRight: 30,
-					buttonPaddingBottom: 20,
-					buttonPaddingLeft: 30,
-					buttonSize: newSize,
-				});
-				break;
+import {
+	mimmikCssForResBtns,
+	mimmikCssOnPreviewBtnClickWhileBlockSelected,
+} from "../util/helpers";
 
-			case "extra-large":
-				this.props.setAttributes({
-					buttonPaddingTop: 20,
-					buttonPaddingRight: 60,
-					buttonPaddingBottom: 20,
-					buttonPaddingLeft: 60,
-					buttonSize: newSize,
-				});
-				break;
-		}
+import {
+	typoPrefix_title,
+	typoPrefix_content,
+	typoPrefix_number,
+	typoPrefix_subTitle,
+	typoPrefix_buttonText,
+} from "./constants/typographyPrefixConstants";
+
+import {
+	mediaIconSize,
+	mediaImageWidth,
+	mediaImageHeight,
+} from "./constants/rangeNames";
+
+import {
+	mediaBackground,
+	mediaBgMargin,
+	mediaBgRadius,
+	buttonPadding,
+	buttonRadius,
+	subTitlePadding,
+	contentPadding,
+	titlePadding,
+	wrapperMargin,
+	wrapperPadding,
+} from "./constants/dimensionsConstants";
+
+import {
+	LAYOUT_TYPES,
+	MEDIA_TYPES,
+	ICON_IMAGE_BG_TYPES,
+	sizeUnitTypes,
+	HEADER_TAGS,
+	CONTENTS_ALIGNMENTS,
+	MEDIA_ALIGNMENTS_ON_FLEX_COLUMN,
+	MEDIA_ALIGNMENTS_ON_FLEX_ROW,
+} from "./constants";
+
+function Inspector(props) {
+	const { attributes, setAttributes } = props;
+
+	const {
+		// responsive control attributes ⬇
+		resOption,
+
+		//
+		layoutPreset,
+
+		//
+		media,
+
+		//
+		enableSubTitle,
+
+		//
+		number,
+
+		//
+		imageUrl,
+
+		//
+		selectedIcon,
+
+		//
+		flexDirection,
+
+		//
+		mediaWrapperMargin,
+
+		//
+		enableDescription,
+
+		//
+		useNumIconBg,
+
+		//
+		numIconColor,
+
+		//
+		numIconBgType,
+
+		//
+		numIconBgColor,
+
+		//
+		numIconBgGradient,
+
+		//
+		imageId,
+
+		//
+		isMediaImgHeightAuto,
+
+		//
+		titleTag,
+		subTitleTag,
+
+		//
+		enableButton,
+
+		//
+		buttonText,
+		infoboxLink,
+
+		//
+		buttonTextColor,
+
+		//
+		titleColor,
+
+		//
+		subTitleColor,
+
+		//
+		descriptionColor,
+
+		//
+		buttonBgColor,
+
+		//
+		mediaAlignment,
+
+		//
+		contentsAlignment,
+	} = attributes;
+
+	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
+	useEffect(() => {
+		setAttributes({
+			resOption: select("core/edit-post").__experimentalGetPreviewDeviceType(),
+		});
+	}, []);
+
+	// this useEffect is for mimmiking css for all the eb blocks on resOption changing
+	useEffect(() => {
+		mimmikCssForResBtns({
+			domObj: document,
+			resOption,
+		});
+	}, [resOption]);
+
+	// this useEffect is to mimmik css for responsive preview in the editor page when clicking the buttons in the 'Preview button of wordpress' located beside the 'update' button while any block is selected and it's inspector panel is mounted in the DOM
+	useEffect(() => {
+		const cleanUp = mimmikCssOnPreviewBtnClickWhileBlockSelected({
+			domObj: document,
+			select,
+			setAttributes,
+		});
+		return () => {
+			cleanUp();
+		};
+	}, []);
+
+	const resRequiredProps = {
+		setAttributes,
+		resOption,
+		attributes,
+		objAttributes,
 	};
 
-	render() {
-		const { attributes, setAttributes } = this.props;
-		const {
-			backgroundType,
-			backgroundImageURL,
-			backgroundImageID,
-			backgroundColor,
-			backgroundGradient,
-			imageOrIcon,
-			iconPosition,
-			selectedIcon,
-			isClickable,
-			clickableLink,
-			header,
-			content,
-			imageUrl,
-			imageId,
-			flexDirection,
-			order,
-			showButton,
-			buttonText,
-			imageHeight,
-			imageWidth,
-			number,
-			headerTag,
-			contentFontSize,
-			contentColor,
-			headerColor,
-			headerTextTransform,
-			numberColor,
-			numberSize,
-			iconSize,
-			iconColor,
-			iconBackground,
-			buttonColor,
-			buttonTextColor,
-			iconPaddingTop,
-			iconPaddingRight,
-			iconPaddingBottom,
-			iconPaddingLeft,
-			headerPaddingTop,
-			headerPaddingRight,
-			headerPaddingBottom,
-			headerPaddingLeft,
-			imageMarginTop,
-			imageMarginRight,
-			imageMarginBottom,
-			imageMarginLeft,
-			buttonPaddingTop,
-			buttonPaddingRight,
-			buttonPaddingBottom,
-			buttonPaddingLeft,
-			buttonSize,
-			buttonAlign,
-			marginTop,
-			marginRight,
-			marginBottom,
-			marginLeft,
-			paddingTop,
-			paddingRight,
-			paddingBottom,
-			paddingLeft,
-			borderWidth,
-			borderStyle,
-			borderColor,
-			borderRadius,
-			shadowColor,
-			shadowHOffset,
-			shadowVOffset,
-			shadowBlur,
-			shadowSpread,
-			contentSizeUnit,
-			iconSizeUnit,
-			marginUnit,
-			paddingUnit,
-			radiusUnit,
-			headerPaddingUnit,
-			iconPaddingUnit,
-			borderWidthUnit,
-			buttonPaddingUnit,
-			headerFontFamily,
-			headerFontSize,
-			headerSizeUnit,
-			headerFontWeight,
-			headerTextDedocation,
-			headerLetterSpacing,
-			headerLetterSpacingUnit,
-			headerLineHeight,
-			headerLineHeightUnit,
-			contentFontFamily,
-			contentFontWeight,
-			contentTextDedocation,
-			contentTextTransform,
-			contentLetterSpacing,
-			contentLetterSpacingUnit,
-			contentLineHeight,
-			contentLineHeightUnit,
-		} = attributes;
+	useEffect(() => {
+		switch (layoutPreset) {
+			case "preset1":
+				setAttributes({
+					flexDirection: "column",
+					contentAlignment: "center",
+					mediaAlignSelf: "center",
+				});
+				break;
 
-		// Change flex order based on icon position
-		if (iconPosition === "top") {
-			setAttributes({ order: 0, flexDirection: "column" });
-		} else if (iconPosition === "bottom") {
-			setAttributes({ order: 1, flexDirection: "column" });
-		} else if (iconPosition === "left") {
-			setAttributes({ order: 0, flexDirection: "row" });
-		} else if (iconPosition === "right") {
-			setAttributes({ order: 1, flexDirection: "row" });
+			case "preset2":
+				setAttributes({
+					flexDirection: "column-reverse",
+					contentAlignment: "center",
+					mediaAlignSelf: "center",
+				});
+				break;
+
+			case "preset3":
+				setAttributes({
+					flexDirection: "row",
+					contentAlignment: "left",
+					mediaAlignSelf: "flex-start",
+				});
+				break;
+
+			case "preset4":
+				setAttributes({
+					flexDirection: "row-reverse",
+					contentAlignment: "right",
+					mediaAlignSelf: "flex-start",
+				});
+				break;
 		}
+	}, [layoutPreset]);
 
-		const HEADER_SIZE_STEP = headerSizeUnit === "em" ? 0.1 : 1;
-		const HEADER_SIZE_MAX = headerSizeUnit === "em" ? 10 : 100;
-
-		const HEADER_SPACING_STEP = headerLetterSpacingUnit === "em" ? 0.1 : 1;
-		const HEADER_SPACING_MAX = headerLetterSpacingUnit === "em" ? 10 : 100;
-
-		const HEADER_LINE_HEIGHT_STEP = headerLineHeightUnit === "em" ? 0.1 : 1;
-		const HEADER_LINE_HEIGHT_MAX = headerLineHeightUnit === "em" ? 10 : 100;
-
-		const CONTENT_SIZE_STEP = contentSizeUnit === "em" ? 0.1 : 1;
-		const CONTENT_SIZE_MAX = contentSizeUnit === "em" ? 10 : 100;
-
-		const CONTENT_SPACING_STEP = contentLetterSpacingUnit === "em" ? 0.1 : 1;
-		const CONTENT_SPACING_MAX = contentLetterSpacingUnit === "em" ? 10 : 100;
-
-		const CONTENT_LINE_HEIGHT_STEP = contentLineHeightUnit === "em" ? 0.1 : 1;
-		const CONTENT_LINE_HEIGHT_MAX = contentLineHeightUnit === "em" ? 10 : 100;
-
-		return (
-			<InspectorControls key="controls">
-				<PanelBody title={__("Infobox Settings")}>
-					<BaseControl
-						id="eb-infobox-background-type"
-						label={__("Infobox Background")}
-					>
-						<ButtonGroup id="eb-infobox-infobox-background">
-							{BACKGROUND_TYPE.map((item) => (
-								<Button
-									isLarge
-									isSecondary={backgroundType !== item.value}
-									isPrimary={backgroundType === item.value}
-									onClick={() =>
-										setAttributes({
-											backgroundType: item.value,
-										})
-									}
-								>
-									{item.label}
-								</Button>
-							))}
-						</ButtonGroup>
-					</BaseControl>
-
-					<BaseControl id="eb-infobox-image-icon" label={__("Image or Icon")}>
-						<ButtonGroup id="eb-infobox-image-icon">
-							{INFOBOX_TYPES.map((value) => (
-								<Button
-									isLarge
-									isSecondary={imageOrIcon !== value}
-									isPrimary={imageOrIcon === value}
-									onClick={() => setAttributes({ imageOrIcon: value })}
-								>
-									{value}
-								</Button>
-							))}
-						</ButtonGroup>
-					</BaseControl>
-
-					<BaseControl
-						id="eb-infobox-position"
-						label={__(`${imageOrIcon}  Position`)}
-					>
-						<ButtonGroup id="eb-infobox-position">
-							{POSITIONS.map((value) => (
-								<Button
-									isLarge
-									isSecondary={iconPosition !== value}
-									isPrimary={iconPosition === value}
-									onClick={() => setAttributes({ iconPosition: value })}
-								>
-									{value}
-								</Button>
-							))}
-						</ButtonGroup>
-					</BaseControl>
-
-					{imageOrIcon === "icon" && (
-						<BaseControl label={__("Select Icon")}>
-							<FontIconPicker
-								icons={faIcons}
-								onChange={(icon) => setAttributes({ selectedIcon: icon })}
-								value={selectedIcon}
-								appendTo="body"
-								isMulti={false}
-							/>
-						</BaseControl>
-					)}
-
-					{imageOrIcon === "image" && imageId && (
-						<Fragment>
-							<RangeControl
-								label={__("Image Height")}
-								value={imageHeight}
-								onChange={(newSize) => setAttributes({ imageHeight: newSize })}
-								min={0}
-								max={400}
-							/>
-
-							<RangeControl
-								label={__("Image Width")}
-								value={imageWidth}
-								onChange={(newSize) => setAttributes({ imageWidth: newSize })}
-								min={0}
-								max={400}
-							/>
-						</Fragment>
-					)}
-
-					{imageOrIcon === "number" && (
-						<BaseControl label={__("Number")} id="eb-infobox-number-id">
-							<input
-								type="number"
-								value={number}
-								id="eb-infobox-number-id"
-								onChange={(event) =>
-									setAttributes({
-										number: parseInt(event.target.value, 10),
-									})
-								}
-								min={0}
-							/>
-						</BaseControl>
-					)}
-
-					{!isClickable && (
-						<ToggleControl
-							label={__("Show Button")}
-							checked={showButton}
-							onChange={() => setAttributes({ showButton: !showButton })}
-						/>
-					)}
-
-					{!showButton && (
-						<ToggleControl
-							label={__("Infobox Clickable")}
-							checked={isClickable}
-							onChange={() => setAttributes({ isClickable: !isClickable })}
-						/>
-					)}
-
-					{showButton && (
-						<PanelBody title={__("Button Settings")}>
-							<TextControl
-								label={__("Button Text")}
-								value={buttonText}
-								onChange={(newText) => setAttributes({ buttonText: newText })}
-							/>
-
-							<TextControl
-								label={__("Link URL")}
-								placeholder="https://your-link.com"
-								value={clickableLink}
-								onChange={(link) => setAttributes({ clickableLink: link })}
-							/>
-
-							<SelectControl
-								label={__("Button Size")}
-								value={buttonSize}
-								options={BUTTON_SIZES}
-								onChange={(newSize) => this.changeButtonSize(newSize)}
-							/>
-
-							<SelectControl
-								label={__("Button Align")}
-								value={buttonAlign}
-								options={BUTTON_ALIGN}
-								onChange={(buttonAlign) => setAttributes({ buttonAlign })}
-							/>
-						</PanelBody>
-					)}
-
-					{isClickable && (
-						<TextControl
-							label={__("Infobox Link")}
-							placeholder="https://your-link.com"
-							value={clickableLink}
-							onChange={(link) => setAttributes({ clickableLink: link })}
-						/>
-					)}
-				</PanelBody>
-
-				{backgroundType === "image" && (
-					<PanelBody title={__("Background Image")}>
-						<MediaUpload
-							onSelect={(media) =>
-								setAttributes({
-									backgroundImageURL: media.url,
-									backgroundImageID: media.id,
-								})
-							}
-							type="image"
-							value={backgroundImageID}
-							render={({ open }) =>
-								!backgroundImageURL && (
-									<Button
-										className="eb-infobox-bg-upload-button components-button"
-										label={__("Upload Image")}
-										icon="format-image"
-										onClick={open}
-									/>
-								)
-							}
-						/>
-
-						{backgroundImageURL && (
-							<ImageAvatar
-								imageUrl={backgroundImageURL}
-								onDeleteImage={() =>
-									setAttributes({ backgroundImageURL: null })
-								}
-							/>
-						)}
-					</PanelBody>
-				)}
-
-				<PanelBody title={__("Typography")} initialOpen={false}>
-					<BaseControl label={__("Header")} className="eb-typography-base">
-						<Dropdown
-							className="eb-typography-dropdown"
-							contentClassName="my-popover-content-classname"
-							position="bottom right"
-							renderToggle={({ isOpen, onToggle }) => (
-								<Button
-									isSmall
-									onClick={onToggle}
-									aria-expanded={isOpen}
-									icon="edit"
-								></Button>
-							)}
-							renderContent={() => (
-								<div style={{ padding: "1rem" }}>
-									<BaseControl label={__("Heading")}>
-										<ButtonGroup className="infobox-button-group">
-											{HEADER_TAGS.map((header) => (
-												<Button
-													isSmall
-													isSecondary={headerTag !== header}
-													isPrimary={headerTag === header}
-													onClick={() => setAttributes({ headerTag: header })}
-												>
-													{header.toUpperCase()}
-												</Button>
-											))}
-										</ButtonGroup>
-									</BaseControl>
-
-									<FontPicker
-										label={__("Font Family")}
-										value={headerFontFamily}
-										onChange={(headerFontFamily) =>
-											setAttributes({ headerFontFamily })
-										}
-									/>
-
-									<UnitControl
-										selectedUnit={headerSizeUnit}
-										unitTypes={[
-											{ label: "px", value: "px" },
-											{ label: "%", value: "%" },
-											{ label: "em", value: "em" },
-										]}
-										onClick={(headerSizeUnit) =>
-											setAttributes({ headerSizeUnit })
-										}
-									/>
-
-									<RangeControl
-										label={__("Font Size")}
-										value={headerFontSize}
-										onChange={(headerFontSize) =>
-											setAttributes({ headerFontSize })
-										}
-										step={HEADER_SIZE_STEP}
-										min={0}
-										max={HEADER_SIZE_MAX}
-									/>
-
-									<SelectControl
-										label={__("Font Weight")}
-										value={headerFontWeight}
-										options={FONT_WEIGHTS}
-										onChange={(headerFontWeight) =>
-											setAttributes({ headerFontWeight })
-										}
-									/>
-
-									<SelectControl
-										label={__("Text Transform")}
-										value={headerTextTransform}
-										options={TEXT_TRANSFORM}
-										onChange={(headerTextTransform) =>
-											setAttributes({ headerTextTransform })
-										}
-									/>
-
-									<SelectControl
-										label={__("Text Decoration")}
-										value={headerTextDedocation}
-										options={TEXT_DECORATION}
-										onChange={(headerTextDecoration) =>
-											setAttributes({ headerTextDecoration })
-										}
-									/>
-
-									<UnitControl
-										selectedUnit={headerLetterSpacingUnit}
-										unitTypes={[
-											{ label: "px", value: "px" },
-											{ label: "em", value: "em" },
-										]}
-										onClick={(headerLetterSpacingUnit) =>
-											setAttributes({ headerLetterSpacingUnit })
-										}
-									/>
-
-									<RangeControl
-										label={__("Letter Spacing")}
-										value={headerLetterSpacing}
-										onChange={(headerLetterSpacing) =>
-											setAttributes({ headerLetterSpacing })
-										}
-										min={0}
-										max={HEADER_SPACING_MAX}
-										step={HEADER_SPACING_STEP}
-									/>
-
-									<UnitControl
-										selectedUnit={headerLineHeightUnit}
-										unitTypes={[
-											{ label: "px", value: "px" },
-											{ label: "em", value: "em" },
-										]}
-										onClick={(headerLineHeightUnit) =>
-											setAttributes({ headerLineHeightUnit })
-										}
-									/>
-
-									<RangeControl
-										label={__("Line Height")}
-										value={headerLineHeight}
-										onChange={(headerLineHeight) =>
-											setAttributes({ headerLineHeight })
-										}
-										min={0}
-										max={HEADER_LINE_HEIGHT_MAX}
-										step={HEADER_LINE_HEIGHT_STEP}
-									/>
-								</div>
-							)}
-						/>
-					</BaseControl>
-
-					<BaseControl label={__("Content")} className="eb-typography-base">
-						<Dropdown
-							className="eb-typography-dropdown"
-							contentClassName="my-popover-content-classname"
-							position="bottom right"
-							renderToggle={({ isOpen, onToggle }) => (
-								<Button
-									isSmall
-									onClick={onToggle}
-									aria-expanded={isOpen}
-									icon="edit"
-								></Button>
-							)}
-							renderContent={() => (
-								<div style={{ padding: "1rem" }}>
-									<FontPicker
-										label={__("Font Family")}
-										value={contentFontFamily}
-										onChange={(contentFontFamily) =>
-											setAttributes({ contentFontFamily })
-										}
-									/>
-
-									<UnitControl
-										selectedUnit={contentSizeUnit}
-										unitTypes={[
-											{ label: "px", value: "px" },
-											{ label: "%", value: "%" },
-											{ label: "em", value: "em" },
-										]}
-										onClick={(contentSizeUnit) =>
-											setAttributes({ contentSizeUnit })
-										}
-									/>
-
-									<RangeControl
-										label={__("Font Size")}
-										value={contentFontSize}
-										onChange={(contentFontSize) =>
-											setAttributes({ contentFontSize })
-										}
-										step={CONTENT_SIZE_STEP}
-										min={0}
-										max={CONTENT_SIZE_MAX}
-									/>
-
-									<SelectControl
-										label={__("Font Weight")}
-										value={contentFontWeight}
-										options={FONT_WEIGHTS}
-										onChange={(contentFontWeight) =>
-											setAttributes({ contentFontWeight })
-										}
-									/>
-
-									<SelectControl
-										label={__("Text Transform")}
-										value={contentTextTransform}
-										options={TEXT_TRANSFORM}
-										onChange={(contentTextTransform) =>
-											setAttributes({ contentTextTransform })
-										}
-									/>
-
-									<SelectControl
-										label={__("Text Decoration")}
-										value={contentTextDedocation}
-										options={TEXT_DECORATION}
-										onChange={(contentTextDecoration) =>
-											setAttributes({ contentTextDecoration })
-										}
-									/>
-
-									<UnitControl
-										selectedUnit={contentLetterSpacingUnit}
-										unitTypes={[
-											{ label: "px", value: "px" },
-											{ label: "em", value: "em" },
-										]}
-										onClick={(contentLetterSpacingUnit) =>
-											setAttributes({ contentLetterSpacingUnit })
-										}
-									/>
-
-									<RangeControl
-										label={__("Letter Spacing")}
-										value={contentLetterSpacing}
-										onChange={(contentLetterSpacing) =>
-											setAttributes({ contentLetterSpacing })
-										}
-										min={0}
-										max={CONTENT_SPACING_MAX}
-										step={CONTENT_SPACING_STEP}
-									/>
-
-									<UnitControl
-										selectedUnit={contentLineHeightUnit}
-										unitTypes={[
-											{ label: "px", value: "px" },
-											{ label: "em", value: "em" },
-										]}
-										onClick={(contentLineHeightUnit) =>
-											setAttributes({ contentLineHeightUnit })
-										}
-									/>
-
-									<RangeControl
-										label={__("Line Height")}
-										value={contentLineHeight}
-										onChange={(contentLineHeight) =>
-											setAttributes({ contentLineHeight })
-										}
-										min={0}
-										max={CONTENT_LINE_HEIGHT_MAX}
-										step={CONTENT_LINE_HEIGHT_STEP}
-									/>
-								</div>
-							)}
-						/>
-					</BaseControl>
-
-					{imageOrIcon === "icon" && selectedIcon && (
-						<BaseControl label={__("Icon")} className="eb-typography-base">
-							<Dropdown
-								className="eb-typography-dropdown"
-								contentClassName="my-popover-content-classname"
-								position="bottom right"
-								renderToggle={({ isOpen, onToggle }) => (
-									<Button
-										isSmall
-										onClick={onToggle}
-										aria-expanded={isOpen}
-										icon="edit"
-									></Button>
-								)}
-								renderContent={() => (
-									<Fragment>
-										<UnitControl
-											selectedUnit={iconSizeUnit}
-											unitTypes={[
-												{ label: "px", value: "px" },
-												{ label: "em", value: "em" },
-												{ label: "%", value: "%" },
-											]}
-											onClick={(iconSizeUnit) =>
-												setAttributes({ iconSizeUnit })
+	return (
+		<InspectorControls key="controls">
+			<div className="eb-panel-control">
+				<TabPanel
+					className="eb-parent-tab-panel"
+					activeClass="active-tab"
+					// onSelect={onSelect}
+					tabs={[
+						{
+							name: "general",
+							title: "General",
+							className: "eb-tab general",
+						},
+						{
+							name: "styles",
+							title: "Styles",
+							className: "eb-tab styles",
+						},
+						{
+							name: "advance",
+							title: "Advance",
+							className: "eb-tab advance",
+						},
+					]}
+				>
+					{(tab) => (
+						<div className={"eb-tab-controls" + tab.name}>
+							{tab.name === "general" && (
+								<>
+									<PanelBody
+										title={__("Infobox Settings")}
+										// initialOpen={false}
+									>
+										<SelectControl
+											label={__("Layout Preset ")}
+											value={layoutPreset}
+											options={LAYOUT_TYPES}
+											onChange={(layoutPreset) =>
+												setAttributes({ layoutPreset })
 											}
 										/>
 
-										<RangeControl
-											label={__("Icon Size")}
-											value={iconSize}
-											allowReset
-											onChange={(newSize) =>
-												setAttributes({ iconSize: newSize })
-											}
-											min={8}
-											max={100}
+										{media !== "none" && (
+											<>
+												<BaseControl label={__("Media & content spacing")}>
+													<RangeControl
+														value={mediaWrapperMargin}
+														onChange={(mediaWrapperMargin) =>
+															setAttributes({ mediaWrapperMargin })
+														}
+														min={0}
+														max={200}
+													/>
+												</BaseControl>
+											</>
+										)}
+									</PanelBody>
+
+									<PanelBody title={__("Alignments")}>
+										{media !== "none" && (
+											<>
+												{(flexDirection === "row" ||
+													flexDirection === "row-reverse") && (
+													<BaseControl
+														id="eb-infobox-alignments"
+														label="Media alignments"
+													>
+														<ButtonGroup id="eb-infobox-alignments">
+															{MEDIA_ALIGNMENTS_ON_FLEX_ROW.map(
+																({ value, label }) => (
+																	<Button
+																		isLarge
+																		isSecondary={mediaAlignment !== value}
+																		isPrimary={mediaAlignment === value}
+																		onClick={() =>
+																			setAttributes({ mediaAlignment: value })
+																		}
+																	>
+																		{label}
+																	</Button>
+																)
+															)}
+														</ButtonGroup>
+													</BaseControl>
+												)}
+
+												{(flexDirection === "column" ||
+													flexDirection === "column-reverse") && (
+													<BaseControl
+														id="eb-infobox-alignments"
+														label="Media alignments"
+													>
+														<ButtonGroup id="eb-infobox-alignments">
+															{MEDIA_ALIGNMENTS_ON_FLEX_COLUMN.map(
+																({ value, label }) => (
+																	<Button
+																		isLarge
+																		isSecondary={mediaAlignment !== value}
+																		isPrimary={mediaAlignment === value}
+																		onClick={() =>
+																			setAttributes({ mediaAlignment: value })
+																		}
+																	>
+																		{label}
+																	</Button>
+																)
+															)}
+														</ButtonGroup>
+													</BaseControl>
+												)}
+											</>
+										)}
+
+										<BaseControl
+											id="eb-infobox-alignments"
+											label="Contents alignments"
+										>
+											<ButtonGroup id="eb-infobox-alignments">
+												{CONTENTS_ALIGNMENTS.map(({ value, label }) => (
+													<Button
+														isLarge
+														isSecondary={contentsAlignment !== value}
+														isPrimary={contentsAlignment === value}
+														onClick={() =>
+															setAttributes({ contentsAlignment: value })
+														}
+													>
+														{label}
+													</Button>
+												))}
+											</ButtonGroup>
+										</BaseControl>
+									</PanelBody>
+								</>
+							)}
+							{tab.name === "styles" && (
+								<>
+									<PanelBody title={__("Media")}>
+										<BaseControl id="eb-infobox-image-icon">
+											<ButtonGroup id="eb-infobox-image-icon">
+												{MEDIA_TYPES.map((value) => (
+													<Button
+														isLarge
+														isSecondary={media !== value}
+														isPrimary={media === value}
+														onClick={() => setAttributes({ media: value })}
+													>
+														{value}
+													</Button>
+												))}
+											</ButtonGroup>
+										</BaseControl>
+
+										{media !== "none" && (
+											<>
+												{media === "icon" && (
+													<BaseControl label={__("Select Icon")}>
+														<FontIconPicker
+															icons={faIcons}
+															onChange={(icon) =>
+																setAttributes({ selectedIcon: icon })
+															}
+															value={selectedIcon}
+															appendTo="body"
+															isMulti={false}
+														/>
+													</BaseControl>
+												)}
+
+												{media === "icon" && selectedIcon && (
+													<ResponsiveRangeController
+														baseLabel={__("Icon Size", "Infobox")}
+														controlName={mediaIconSize}
+														resRequiredProps={resRequiredProps}
+														min={8}
+														max={100}
+														step={1}
+													/>
+												)}
+
+												{media === "number" && (
+													<>
+														<BaseControl
+															label={__("Number")}
+															id="eb-infobox-number-id"
+														>
+															<input
+																type="number"
+																value={number}
+																id="eb-infobox-number-id"
+																onChange={(e) =>
+																	setAttributes({
+																		number: parseInt(e.target.value, 10) || 0,
+																	})
+																}
+																min={0}
+															/>
+														</BaseControl>
+
+														<TypographyDropdown
+															baseLabel="Number Typography"
+															typographyPrefixConstant={typoPrefix_number}
+															resRequiredProps={resRequiredProps}
+														/>
+													</>
+												)}
+
+												{(media === "number" || media === "icon") && (
+													<>
+														<ColorControl
+															label={__("Color")}
+															color={numIconColor}
+															onChange={(numIconColor) =>
+																setAttributes({ numIconColor })
+															}
+														/>
+
+														<ToggleControl
+															label={__("Use Background")}
+															checked={useNumIconBg}
+															onChange={() =>
+																setAttributes({ useNumIconBg: !useNumIconBg })
+															}
+														/>
+
+														{useNumIconBg && (
+															<>
+																<ResponsiveDimensionsControl
+																	resRequiredProps={resRequiredProps}
+																	controlName={mediaBackground}
+																	baseLabel="Background size"
+																/>
+
+																<BaseControl label={__("Background Type")}>
+																	<ButtonGroup id="eb-infobox-infobox-background">
+																		{ICON_IMAGE_BG_TYPES.map(
+																			({ value, label }) => (
+																				<Button
+																					isLarge
+																					isPrimary={numIconBgType === value}
+																					isSecondary={numIconBgType !== value}
+																					onClick={() =>
+																						setAttributes({
+																							numIconBgType: value,
+																						})
+																					}
+																				>
+																					{label}
+																				</Button>
+																			)
+																		)}
+																	</ButtonGroup>
+																</BaseControl>
+
+																{numIconBgType === "fill" && (
+																	<ColorControl
+																		label={__("Background Color")}
+																		color={numIconBgColor}
+																		onChange={(numIconBgColor) =>
+																			setAttributes({ numIconBgColor })
+																		}
+																	/>
+																)}
+
+																{numIconBgType === "gradient" && (
+																	<PanelBody
+																		title={__("Gradient")}
+																		// initialOpen={false}
+																	>
+																		<GradientColorControl
+																			gradientColor={numIconBgGradient}
+																			onChange={(numIconBgGradient) =>
+																				setAttributes({ numIconBgGradient })
+																			}
+																		/>
+																	</PanelBody>
+																)}
+															</>
+														)}
+													</>
+												)}
+
+												{media === "image" && !imageUrl && (
+													<MediaUpload
+														onSelect={({ id, url }) =>
+															setAttributes({ imageUrl: url, imageId: id })
+														}
+														type="image"
+														value={imageId}
+														render={({ open }) => {
+															return (
+																<Button
+																	className="eb-background-control-inspector-panel-img-btn components-button"
+																	label={__("Upload Image")}
+																	icon="format-image"
+																	onClick={open}
+																/>
+															);
+														}}
+													/>
+												)}
+
+												{media === "image" && imageUrl && (
+													<>
+														<ImageAvatar
+															imageUrl={imageUrl}
+															onDeleteImage={() =>
+																setAttributes({
+																	imageUrl: null,
+																})
+															}
+														/>
+														<ResponsiveRangeController
+															baseLabel={__("Image Width", "infobox")}
+															controlName={mediaImageWidth}
+															resRequiredProps={resRequiredProps}
+															units={sizeUnitTypes}
+														/>
+														<ToggleControl
+															label={__("Auto Image Height")}
+															checked={isMediaImgHeightAuto}
+															onChange={() =>
+																setAttributes({
+																	isMediaImgHeightAuto: !isMediaImgHeightAuto,
+																})
+															}
+														/>
+
+														{!isMediaImgHeightAuto && (
+															<>
+																<ResponsiveRangeController
+																	baseLabel={__("Image Height", "infobox")}
+																	controlName={mediaImageHeight}
+																	resRequiredProps={resRequiredProps}
+																	units={sizeUnitTypes}
+																/>
+															</>
+														)}
+													</>
+												)}
+
+												<ResponsiveDimensionsControl
+													forBorderRadius
+													resRequiredProps={resRequiredProps}
+													controlName={mediaBgRadius}
+													baseLabel="Border Radius"
+												/>
+
+												<ResponsiveDimensionsControl
+													resRequiredProps={resRequiredProps}
+													controlName={mediaBgMargin}
+													baseLabel="Margin"
+												/>
+											</>
+										)}
+									</PanelBody>
+
+									<PanelBody title={__("Title")} initialOpen={false}>
+										<BaseControl label={__("Title Tag")}>
+											<ButtonGroup className="infobox-button-group">
+												{HEADER_TAGS.map((header) => (
+													<Button
+														isSecondary={titleTag !== header}
+														isPrimary={titleTag === header}
+														onClick={() => setAttributes({ titleTag: header })}
+													>
+														{header.toUpperCase()}
+													</Button>
+												))}
+											</ButtonGroup>
+										</BaseControl>
+
+										<TypographyDropdown
+											baseLabel="Typography"
+											typographyPrefixConstant={typoPrefix_title}
+											resRequiredProps={resRequiredProps}
 										/>
-									</Fragment>
-								)}
-							/>
-						</BaseControl>
+
+										<ResponsiveDimensionsControl
+											resRequiredProps={resRequiredProps}
+											controlName={titlePadding}
+											baseLabel="Title Padding"
+										/>
+
+										<ColorControl
+											label={__("Color")}
+											color={titleColor}
+											onChange={(titleColor) => setAttributes({ titleColor })}
+										/>
+									</PanelBody>
+
+									<PanelBody title={__("Subtitle")} initialOpen={false}>
+										<ToggleControl
+											label={__("Enable")}
+											checked={enableSubTitle}
+											onChange={() =>
+												setAttributes({ enableSubTitle: !enableSubTitle })
+											}
+										/>
+
+										{enableSubTitle && (
+											<>
+												<BaseControl label={__("Subtitle Tag")}>
+													<ButtonGroup className="infobox-button-group">
+														{HEADER_TAGS.map((header) => (
+															<Button
+																isSecondary={subTitleTag !== header}
+																isPrimary={subTitleTag === header}
+																onClick={() =>
+																	setAttributes({ subTitleTag: header })
+																}
+															>
+																{header.toUpperCase()}
+															</Button>
+														))}
+													</ButtonGroup>
+												</BaseControl>
+
+												<TypographyDropdown
+													baseLabel="Typography"
+													typographyPrefixConstant={typoPrefix_subTitle}
+													resRequiredProps={resRequiredProps}
+												/>
+
+												<ResponsiveDimensionsControl
+													resRequiredProps={resRequiredProps}
+													controlName={subTitlePadding}
+													baseLabel="Subtitle Padding"
+												/>
+
+												<ColorControl
+													label={__("Color")}
+													color={subTitleColor}
+													onChange={(subTitleColor) =>
+														setAttributes({ subTitleColor })
+													}
+												/>
+											</>
+										)}
+									</PanelBody>
+
+									<PanelBody title={__("Content")} initialOpen={false}>
+										<ToggleControl
+											label={__("Show content")}
+											checked={enableDescription}
+											onChange={() =>
+												setAttributes({ enableDescription: !enableDescription })
+											}
+										/>
+
+										{enableDescription && (
+											<>
+												<TypographyDropdown
+													baseLabel="Typography"
+													typographyPrefixConstant={typoPrefix_content}
+													resRequiredProps={resRequiredProps}
+												/>
+
+												<ResponsiveDimensionsControl
+													resRequiredProps={resRequiredProps}
+													controlName={contentPadding}
+													baseLabel="Content Padding"
+												/>
+
+												<ColorControl
+													label={__("Color")}
+													color={descriptionColor}
+													onChange={(descriptionColor) =>
+														setAttributes({ descriptionColor })
+													}
+												/>
+											</>
+										)}
+									</PanelBody>
+
+									<PanelBody title={__("Button")} initialOpen={false}>
+										<ToggleControl
+											label={__("Show button")}
+											checked={enableButton}
+											onChange={() =>
+												setAttributes({ enableButton: !enableButton })
+											}
+										/>
+
+										{enableButton && (
+											<>
+												<TextControl
+													label={__("Button Text")}
+													value={buttonText}
+													onChange={(buttonText) =>
+														setAttributes({ buttonText })
+													}
+												/>
+
+												<TextControl
+													label={__("Link URL")}
+													placeholder="https://your-link.com"
+													value={infoboxLink}
+													onChange={(infoboxLink) =>
+														setAttributes({ infoboxLink })
+													}
+												/>
+
+												<TypographyDropdown
+													baseLabel="Typography"
+													typographyPrefixConstant={typoPrefix_buttonText}
+													resRequiredProps={resRequiredProps}
+												/>
+
+												<ResponsiveDimensionsControl
+													resRequiredProps={resRequiredProps}
+													controlName={buttonPadding}
+													baseLabel="Button Padding"
+												/>
+
+												<ResponsiveDimensionsControl
+													resRequiredProps={resRequiredProps}
+													controlName={buttonRadius}
+													baseLabel="Button Border Radius"
+												/>
+
+												<ColorControl
+													label={__("Text Color")}
+													color={buttonTextColor}
+													onChange={(buttonTextColor) =>
+														setAttributes({ buttonTextColor })
+													}
+												/>
+
+												<ColorControl
+													label={__("Button Color")}
+													color={buttonBgColor}
+													onChange={(buttonBgColor) =>
+														setAttributes({ buttonBgColor })
+													}
+												/>
+											</>
+										)}
+									</PanelBody>
+								</>
+							)}
+							{tab.name === "advance" && (
+								<>
+									<PanelBody title={__("Margin Padding")}>
+										<ResponsiveDimensionsControl
+											resRequiredProps={resRequiredProps}
+											controlName={wrapperMargin}
+											baseLabel="Container Margin"
+										/>
+										<ResponsiveDimensionsControl
+											resRequiredProps={resRequiredProps}
+											controlName={wrapperPadding}
+											baseLabel="Container Padding"
+										/>
+									</PanelBody>
+
+									<PanelBody title={__("Background")} initialOpen={false}>
+										<BackgroundControl
+											controlName={infoWrapBg}
+											resRequiredProps={resRequiredProps}
+											// noOverlay
+											// noMainBgi
+											// noOverlayBgi // if U pass 'noOverlay' prop U don't need to pass 'noOverlayBgi'
+										/>
+									</PanelBody>
+
+									<PanelBody title={__("Border & Shadow")} initialOpen={false}>
+										<BorderShadowControl
+											controlName={wrpBdShadow}
+											resRequiredProps={resRequiredProps}
+											// noShadow
+											// noBorder
+										/>
+									</PanelBody>
+								</>
+							)}
+						</div>
 					)}
-
-					{imageOrIcon === "number" && selectedIcon && (
-						<BaseControl label={__("Number")} className="eb-typography-base">
-							<Dropdown
-								className="eb-typography-dropdown"
-								contentClassName="my-popover-content-classname"
-								position="bottom right"
-								renderToggle={({ isOpen, onToggle }) => (
-									<Button
-										isSmall
-										onClick={onToggle}
-										aria-expanded={isOpen}
-										icon="edit"
-									></Button>
-								)}
-								renderContent={() => (
-									<RangeControl
-										label={__("Number Size")}
-										value={numberSize}
-										onChange={(newSize) =>
-											setAttributes({ numberSize: newSize })
-										}
-										min={8}
-										max={64}
-									/>
-								)}
-							/>
-						</BaseControl>
-					)}
-				</PanelBody>
-
-				{backgroundType === "fill" && (
-					<PanelColorSettings
-						title={__("Background Color")}
-						initialOpen={false}
-						colorSettings={[
-							{
-								value: backgroundColor,
-								onChange: (newColor) =>
-									setAttributes({
-										backgroundColor: newColor,
-									}),
-								label: __("Background Color"),
-							},
-							{
-								value: iconBackground,
-								onChange: (newColor) =>
-									setAttributes({ iconBackground: newColor }),
-								label: __("Icon Background Color"),
-							},
-						]}
-					/>
-				)}
-
-				{backgroundType === "gradient" && (
-					<PanelBody title={__("Gradient Colors")} initialOpen={false}>
-						<GradientColorControl
-							gradientColor={backgroundGradient}
-							onChange={(newValue) =>
-								setAttributes({ backgroundGradient: newValue })
-							}
-						/>
-					</PanelBody>
-				)}
-
-				<PanelBody title={__("Margin & Padding")} initialOpen={false}>
-					<UnitControl
-						selectedUnit={marginUnit}
-						unitTypes={[
-							{ label: "px", value: "px" },
-							{ label: "em", value: "em" },
-							{ label: "%", value: "%" },
-						]}
-						onClick={(marginUnit) => setAttributes({ marginUnit })}
-					/>
-
-					<DimensionsControl
-						label={__("Margin")}
-						top={marginTop}
-						right={marginRight}
-						bottom={marginBottom}
-						left={marginLeft}
-						onChange={({ top, right, bottom, left }) =>
-							setAttributes({
-								marginTop: top,
-								marginRight: right,
-								marginBottom: bottom,
-								marginLeft: left,
-							})
-						}
-					/>
-
-					<UnitControl
-						selectedUnit={paddingUnit}
-						unitTypes={[
-							{ label: "px", value: "px" },
-							{ label: "em", value: "em" },
-							{ label: "%", value: "%" },
-						]}
-						onClick={(paddingUnit) => setAttributes({ paddingUnit })}
-					/>
-
-					<DimensionsControl
-						label={__("Padding")}
-						top={paddingTop}
-						right={paddingRight}
-						bottom={paddingBottom}
-						left={paddingLeft}
-						onChange={({ top, right, bottom, left }) =>
-							setAttributes({
-								paddingTop: top,
-								paddingRight: right,
-								paddingBottom: bottom,
-								paddingLeft: left,
-							})
-						}
-					/>
-				</PanelBody>
-
-				<PanelBody title={__("Colors")} initialOpen={false}>
-					<ColorControl
-						label={__("Header Color")}
-						color={headerColor}
-						onChange={(headerColor) => setAttributes({ headerColor })}
-					/>
-
-					<ColorControl
-						label={__("Content Color")}
-						color={contentColor}
-						onChange={(contentColor) => setAttributes({ contentColor })}
-					/>
-
-					{imageOrIcon === "icon" && (
-						<ColorControl
-							label={__("Icon Color")}
-							color={iconColor}
-							onChange={(iconColor) => setAttributes({ iconColor })}
-						/>
-					)}
-
-					{imageOrIcon === "number" && (
-						<ColorControl
-							label={__("Number Color")}
-							color={numberColor}
-							onChange={(numberColor) => setAttributes({ numberColor })}
-						/>
-					)}
-
-					{showButton && (
-						<>
-							<ColorControl
-								label={__("Button Color")}
-								color={buttonColor}
-								onChange={(buttonColor) => setAttributes({ buttonColor })}
-							/>
-
-							<ColorControl
-								label={__("Button Text Color")}
-								color={buttonTextColor}
-								onChange={(buttonTextColor) =>
-									setAttributes({ buttonTextColor })
-								}
-							/>
-						</>
-					)}
-				</PanelBody>
-
-				<PanelBody title={__("Spacing")} initialOpen={false}>
-					<UnitControl
-						selectedUnit={headerPaddingUnit}
-						unitTypes={[
-							{ label: "px", value: "px" },
-							{ label: "em", value: "em" },
-							{ label: "%", value: "%" },
-						]}
-						onClick={(headerPaddingUnit) =>
-							setAttributes({ headerPaddingUnit })
-						}
-					/>
-
-					<DimensionsControl
-						label={__("Header Padding")}
-						top={headerPaddingTop}
-						right={headerPaddingRight}
-						bottom={headerPaddingBottom}
-						left={headerPaddingLeft}
-						onChange={({ top, right, bottom, left }) =>
-							setAttributes({
-								headerPaddingTop: top,
-								headerPaddingRight: right,
-								headerPaddingBottom: bottom,
-								headerPaddingLeft: left,
-							})
-						}
-					/>
-
-					{imageOrIcon === "image" && (
-						<DimensionsControl
-							label={__("Image Margin")}
-							top={imageMarginTop}
-							right={imageMarginTop}
-							bottom={imageMarginBottom}
-							left={imageMarginLeft}
-							onChange={({ top, right, bottom, left }) =>
-								setAttributes({
-									imageMarginTop: top,
-									imageMarginRight: right,
-									imageMarginBottom: bottom,
-									imageMarginLeft: left,
-								})
-							}
-						/>
-					)}
-
-					{showButton && (
-						<>
-							<UnitControl
-								selectedUnit={buttonPaddingUnit}
-								unitTypes={[
-									{ label: "px", value: "px" },
-									{ label: "em", value: "em" },
-									{ label: "%", value: "%" },
-								]}
-								onClick={(buttonPaddingUnit) =>
-									setAttributes({ buttonPaddingUnit })
-								}
-							/>
-
-							<DimensionsControl
-								label={__("Button Padding")}
-								top={buttonPaddingTop}
-								right={buttonPaddingRight}
-								bottom={buttonPaddingBottom}
-								left={buttonPaddingLeft}
-								onChange={({ top, right, bottom, left }) =>
-									setAttributes({
-										buttonPaddingTop: top,
-										buttonPaddingRight: right,
-										buttonPaddingBottom: bottom,
-										buttonPaddingLeft: left,
-									})
-								}
-							/>
-						</>
-					)}
-
-					{imageOrIcon === "icon" && (
-						<>
-							<UnitControl
-								selectedUnit={iconPaddingUnit}
-								unitTypes={[
-									{ label: "px", value: "px" },
-									{ label: "em", value: "em" },
-									{ label: "%", value: "%" },
-								]}
-								onClick={(iconPaddingUnit) =>
-									setAttributes({ iconPaddingUnit })
-								}
-							/>
-							<DimensionsControl
-								label={__("Icon Padding")}
-								top={iconPaddingTop}
-								right={iconPaddingRight}
-								bottom={iconPaddingBottom}
-								left={iconPaddingLeft}
-								onChange={({ top, right, bottom, left }) =>
-									setAttributes({
-										iconPaddingTop: top,
-										iconPaddingRight: right,
-										iconPaddingBottom: bottom,
-										iconPaddingLeft: left,
-									})
-								}
-							/>
-						</>
-					)}
-				</PanelBody>
-
-				<PanelBody title={__("Border")} initialOpen={false}>
-					<ColorControl
-						label={__("Border Color")}
-						color={borderColor}
-						onChange={(borderColor) => setAttributes({ borderColor })}
-					/>
-
-					<SelectControl
-						label={__("Border Style")}
-						value={borderStyle}
-						options={BORDER_STYLES}
-						onChange={(borderStyle) => setAttributes({ borderStyle })}
-					/>
-
-					<UnitControl
-						selectedUnit={borderWidthUnit}
-						unitTypes={[
-							{ label: "px", value: "px" },
-							{ label: "em", value: "em" },
-							{ label: "%", value: "%" },
-						]}
-						onClick={(borderWidthUnit) => setAttributes({ borderWidthUnit })}
-					/>
-
-					<RangeControl
-						label={__("Border Width")}
-						value={borderWidth}
-						allowReset
-						onChange={(borderWidth) => setAttributes({ borderWidth })}
-						min={0}
-						max={100}
-					/>
-
-					<UnitControl
-						selectedUnit={radiusUnit}
-						unitTypes={[
-							{ label: "px", value: "px" },
-							{ label: "em", value: "em" },
-							{ label: "%", value: "%" },
-						]}
-						onClick={(radiusUnit) => setAttributes({ radiusUnit })}
-					/>
-
-					<RangeControl
-						label={__("Border Radius")}
-						value={borderRadius}
-						allowReset
-						onChange={(borderRadius) => setAttributes({ borderRadius })}
-						min={0}
-						max={100}
-					/>
-				</PanelBody>
-
-				<PanelBody title={__("Shadow")} initialOpen={false}>
-					<ColorControl
-						label={__("Shadow Color")}
-						color={shadowColor}
-						onChange={(shadowColor) => setAttributes({ shadowColor })}
-					/>
-
-					<RangeControl
-						label={__("Horizontal Offset")}
-						value={shadowHOffset}
-						allowReset
-						onChange={(shadowHOffset) => setAttributes({ shadowHOffset })}
-						min={0}
-						max={100}
-					/>
-
-					<RangeControl
-						label={__("Vertical Offset")}
-						value={shadowVOffset}
-						allowReset
-						onChange={(shadowVOffset) => setAttributes({ shadowVOffset })}
-						min={0}
-						max={100}
-					/>
-
-					<RangeControl
-						label={__("Blur")}
-						value={shadowBlur}
-						allowReset
-						onChange={(shadowBlur) => setAttributes({ shadowBlur })}
-						min={0}
-						max={20}
-					/>
-
-					<RangeControl
-						label={__("Spread")}
-						value={shadowSpread}
-						allowReset
-						onChange={(shadowSpread) => setAttributes({ shadowSpread })}
-						min={0}
-						max={20}
-					/>
-				</PanelBody>
-			</InspectorControls>
-		);
-	}
+				</TabPanel>
+			</div>
+		</InspectorControls>
+	);
 }
 export default Inspector;

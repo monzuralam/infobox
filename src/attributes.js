@@ -1,360 +1,395 @@
+import * as typoPrefixs from "./constants/typographyPrefixConstants";
+import {
+	mediaBackground,
+	mediaBgRadius,
+	mediaBgMargin,
+	buttonRadius,
+	buttonPadding,
+	contentPadding,
+	titlePadding,
+	subTitlePadding,
+	wrapperMargin,
+	wrapperPadding,
+} from "./constants/dimensionsConstants";
+
+import { infoWrapBg } from "./constants/backgroundsConstants";
+
+import { wrpBdShadow } from "./constants/borderShadowConstants";
+
+import {
+	mediaIconSize,
+	mediaImageWidth,
+	mediaImageHeight,
+} from "./constants/rangeNames";
+
+import {
+	generateDimensionsAttributes,
+	generateTypographyAttributes,
+	generateBackgroundAttributes,
+	generateBorderShadowAttributes,
+	generateResponsiveRangeAttributes,
+} from "../util/helpers";
+
 const attributes = {
-	backgroundType: {
+	// the following 4 attributes is must required for responsive options and asset generation for frontend
+	// responsive control attributes ⬇
+	resOption: {
 		type: "string",
-		default: "fill",
+		default: "Desktop",
 	},
-	backgroundImageURL: {
+
+	// blockId attribute for making unique className and other uniqueness ⬇
+	blockId: {
 		type: "string",
 	},
-	backgroundColor: {
+	blockRoot: {
 		type: "string",
+		default: "essential_block",
 	},
-	backgroundImageID: {
-		type: "number",
+
+	// blockMeta is for keeping all the styles ⬇
+	blockMeta: {
+		type: "object",
 	},
-	backgroundGradient: {
+
+	// isOverlay is to check if a overlay on the block's background should exist ⬇
+	isOverlay: {
+		type: "boolean",
+		default: false,
+	},
+
+	// this attribute is for selecting the desired design preset from the layout design presets options ⬇
+	layoutPreset: {
 		type: "string",
-		default: "linear-gradient(45deg,#0072ff,#00c6ff)",
+		default: "preset1",
 	},
-	imageOrIcon: {
+
+	// media attribute is for checking which of these (image / icon / number) is chosen for head top media ⬇
+	media: {
 		type: "string",
 		default: "icon",
 	},
-	iconPosition: {
+
+	//
+	numIconColor: {
 		type: "string",
-		default: "top",
 	},
-	selectedIcon: {
-		source: "attribute",
-		selector: ".infobox-icon",
-		attribute: "data-icon",
-		default: "far fa-sun",
-	},
-	isClickable: {
+
+	// should icon number background
+	useNumIconBg: {
 		type: "boolean",
-		default: false,
+		default: true,
 	},
-	clickableLink: {
+
+	//
+	numIconBgType: {
 		type: "string",
+		default: "gradient",
 	},
-	header: {
-		type: "text",
-		selector: ".eb-infobox-header",
-		default: "This is an info box",
+
+	//
+	numIconBgColor: {
+		type: "string",
+		default: "#0003",
 	},
-	content: {
-		type: "text",
-		selector: ".eb-infobox-content",
-		default:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+
+	//
+	numIconBgGradient: {
+		type: "string",
+		default: "linear-gradient(45deg,#ffc2de,#ff46a1)",
 	},
+
+	//
 	imageUrl: {
 		source: "attribute",
-		selector: ".infobox-image-wrapper",
-		attribute: "data-image-url",
+		selector: ".eb-infobox-image",
+		attribute: "src",
+		// default: "https://source.unsplash.com/user/cristofer",
 	},
+
+	//
 	imageId: {
 		type: "string",
 	},
-	flexDirection: {
-		eype: "string",
-		default: "column",
-	},
-	order: {
-		type: "number",
-		default: 0,
-	},
-	showButton: {
-		type: "boolean",
-		default: false,
-	},
-	buttonText: {
+
+	//
+	mediaImgWidthUnit: {
 		type: "string",
-		default: "Click Me",
+		default: "px",
 	},
-	imageHeight: {
+	mediaImgWidth: {
 		type: "number",
-		default: 150,
+		default: 300,
 	},
-	imageWidth: {
+	TABmediaImgWidth: {
 		type: "number",
-		default: 150,
 	},
+	MOBmediaImgWidth: {
+		type: "number",
+	},
+
+	//
+	isMediaImgHeightAuto: {
+		type: "boolean",
+		default: true,
+	},
+	mediaImgHeightUnit: {
+		type: "string",
+		default: "px",
+	},
+	mediaImgHeight: {
+		type: "number",
+	},
+	TABmediaImgHeight: {
+		type: "number",
+	},
+	MOBmediaImgHeight: {
+		type: "number",
+	},
+
+	//
+	selectedIcon: {
+		type: "string",
+		source: "attribute",
+		selector: ".eb-infobox-icon-data-selector",
+		attribute: "data-icon",
+		default: "far fa-gem",
+		// default: "far fa-sun",
+	},
+
+	//
 	number: {
 		type: "number",
-		selector: ".infobox-number",
-		default: 0,
 	},
-	headerTag: {
-		type: "string",
-		default: "h3",
-	},
-	contentFontSize: {
-		type: "number",
-	},
-	contentColor: {
-		type: "string",
-	},
-	headerColor: {
-		type: "string",
-	},
-	headerTextTransform: {
-		type: "string",
-		default: "none",
-	},
-	boxBackground: {
-		type: "string",
-	},
-	numberColor: {
-		type: "string",
-	},
-	numberSize: {
-		type: "number",
-		default: 36,
-	},
-	iconSize: {
-		type: "number",
-	},
-	iconColor: {
-		type: "string",
-	},
-	iconBackground: {
-		type: "string",
-	},
-	linkedIconPadding: {
-		type: "boolean",
-	},
-	iconPaddingTop: {
-		type: "number",
-	},
-	iconPaddingRight: {
-		type: "number",
-	},
-	iconPaddingBottom: {
-		type: "number",
-	},
-	iconPaddingLeft: {
-		type: "number",
-	},
-	linkedHeaderPadding: {
-		type: "boolean",
-	},
-	headerPaddingTop: {
-		type: "number",
-	},
-	headerPaddingRight: {
-		type: "number",
-	},
-	headerPaddingBottom: {
-		type: "number",
-	},
-	headerPaddingLeft: {
-		type: "number",
-	},
-	linkedImagePadding: {
+
+	// this attribute is for checking whether subtitle should be shown or not ⬇
+	enableSubTitle: {
 		type: "boolean",
 		default: false,
 	},
-	imagePaddingTop: {
-		type: "number",
-	},
-	imagePaddingRight: {
-		type: "number",
-	},
-	imagePaddingBottom: {
-		type: "number",
-	},
-	imagePaddingLeft: {
-		type: "number",
-	},
-	linkedButtonPadding: {
+
+	//  this attribute is for checking whether content should be shown or not ⬇
+	enableDescription: {
 		type: "boolean",
-		default: false,
+		default: true,
 	},
-	buttonPaddingTop: {
-		type: "number",
-		default: 12,
+
+	// this attribute is for checking whether a button should be shown or not ⬇
+	enableButton: {
+		type: "boolean",
+		default: true,
 	},
-	buttonPaddingRight: {
-		type: "number",
-		default: 28,
-	},
-	buttonPaddingBottom: {
-		type: "number",
-		default: 12,
-	},
-	buttonPaddingLeft: {
-		type: "number",
-		default: 28,
-	},
-	buttonSize: {
+
+	//
+	buttonText: {
 		type: "string",
-		default: "normal",
+		default: "Learn More",
 	},
-	buttonAlign: {
-		type: "string",
-		default: "center",
-	},
-	buttonColor: {
-		type: "string",
-	},
+
+	//
 	buttonTextColor: {
 		type: "string",
 	},
-	linkedMargin: {
-		type: "boolean",
-		default: false,
+
+	//
+	buttonBgColor: {
+		type: "string",
 	},
-	marginTop: {
+
+	//
+	infoboxLink: {
+		type: "string",
+	},
+
+	//
+	title: {
+		type: "text",
+		selector: ".title",
+		default: "This is an info box",
+	},
+
+	//
+	titleColor: {
+		type: "string",
+	},
+
+	//
+	subTitle: {
+		type: "text",
+		selector: ".subtitle",
+		default: "This is a Sub title",
+	},
+
+	//
+	subTitleColor: {
+		type: "string",
+	},
+
+	//
+	description: {
+		type: "text",
+		selector: ".description",
+		default:
+			"Write a short description, that will describe the title or something informational and useful",
+	},
+
+	//
+	descriptionColor: {
+		type: "string",
+	},
+
+	//
+	iconSize: {
+		type: "number",
+		default: 50,
+	},
+	TABiconSize: {
 		type: "number",
 	},
-	marginRight: {
+	MOBiconSize: {
 		type: "number",
 	},
-	marginBottom: {
+
+	// .infobox-wrapper-inner flex-direction
+	flexDirection: {
+		type: "string",
+	},
+
+	// .icon-img-wrapper align-self property
+	mediaAlignSelf: {
+		type: "string",
+	},
+
+	// .contents-wrapper text-alignment
+	contentAlignment: {
+		type: "string",
+	},
+
+	// .icon-img-wrapper margin
+	mediaWrapperMargin: {
 		type: "number",
+		default: 20,
 	},
-	marginLeft: {
-		type: "number",
-	},
-	linkedPadding: {
-		type: "boolean",
-	},
-	paddingTop: {
-		type: "number",
-	},
-	paddingRight: {
-		type: "number",
-	},
-	paddingBottom: {
-		type: "number",
-	},
-	paddingLeft: {
-		type: "number",
-	},
-	borderWidth: {
-		type: "number",
-	},
-	borderStyle: {
+
+	//
+	titleTag: {
 		type: "string",
-		default: "solid",
+		default: "h2",
 	},
-	borderColor: {
+	subTitleTag: {
+		type: "string",
+		default: "h3",
+	},
+
+	//
+	mediaAlignment: {
 		type: "string",
 	},
-	borderRadius: {
-		type: "number",
-	},
-	shadowColor: {
+
+	//
+	contentsAlignment: {
 		type: "string",
 	},
-	shadowHOffset: {
-		type: "number",
-	},
-	shadowVOffset: {
-		type: "number",
-	},
-	shadowBlur: {
-		type: "number",
-	},
-	shadowSpread: {
-		type: "number",
-	},
-	contentSizeUnit: {
-		type: "string",
-		default: "px",
-	},
-	iconSizeUnit: {
-		type: "string",
-		default: "px",
-	},
-	marginUnit: {
-		type: "string",
-		default: "px",
-	},
-	paddingUnit: {
-		type: "string",
-		default: "px",
-	},
-	radiusUnit: {
-		type: "string",
-		default: "px",
-	},
-	headerPaddingUnit: {
-		type: "string",
-		default: "px",
-	},
-	iconPaddingUnit: {
-		type: "string",
-		default: "px",
-	},
-	borderWidthUnit: {
-		type: "string",
-		default: "px",
-	},
-	buttonPaddingUnit: {
-		type: "string",
-		default: "px",
-	},
-	headerFontFamily: {
-		type: "string",
-	},
-	headerFontSize: {
-		type: "number",
-	},
-	headerSizeUnit: {
-		type: "string",
-		default: "px",
-	},
-	headerFontWeight: {
-		type: "string",
-		default: "normal",
-	},
-	headerTextDecoration: {
-		type: "string",
-	},
-	headerLetterSpacing: {
-		type: "number",
-	},
-	headerLetterSpacingUnit: {
-		type: "string",
-		default: "px",
-	},
-	headerLineHeight: {
-		type: "number",
-	},
-	headerLineHeightUnit: {
-		type: "string",
-		default: "px",
-	},
-	contentFontFamily: {
-		type: "string",
-	},
-	contentFontWeight: {
-		type: "string",
-		default: "normal",
-	},
-	contentTextDecoration: {
-		type: "string",
-	},
-	contentTextTransform: {
-		type: "string",
-		default: "none",
-	},
-	contentLetterSpacing: {
-		type: "number",
-	},
-	contentLetterSpacingUnit: {
-		type: "string",
-		default: "px",
-	},
-	contentLineHeight: {
-		type: "number",
-	},
-	contentLineHeightUnit: {
-		type: "string",
-		default: "px",
-	},
+
+	// Responsive Range Controller attributes
+	...generateResponsiveRangeAttributes(mediaIconSize, {
+		defaultRange: 50,
+	}),
+	...generateResponsiveRangeAttributes(mediaImageWidth, {
+		defaultRange: 300,
+	}),
+	...generateResponsiveRangeAttributes(mediaImageHeight),
+
+	// typography attributes
+	...generateTypographyAttributes(Object.values(typoPrefixs)),
+
+	// dimensions Control related Attributes
+	...generateDimensionsAttributes(mediaBackground, {
+		top: 20,
+		bottom: 20,
+		right: 20,
+		left: 20,
+	}),
+	...generateDimensionsAttributes(mediaBgRadius, {
+		top: 20,
+		bottom: 20,
+		isLinked: false,
+	}),
+	...generateDimensionsAttributes(mediaBgMargin, {
+		top: 15,
+		isLinked: false,
+	}),
+	...generateDimensionsAttributes(buttonPadding, {
+		top: 15,
+		bottom: 15,
+		right: 30,
+		left: 30,
+		isLinked: false,
+	}),
+	...generateDimensionsAttributes(buttonRadius, {
+		top: 10,
+		bottom: 10,
+		right: 10,
+		left: 10,
+	}),
+	...generateDimensionsAttributes(titlePadding, {
+		top: 10,
+		bottom: 10,
+		isLinked: false,
+	}),
+	...generateDimensionsAttributes(subTitlePadding, {
+		top: 10,
+		bottom: 10,
+		isLinked: false,
+	}),
+	...generateDimensionsAttributes(contentPadding, {
+		top: 10,
+		bottom: 50,
+		isLinked: false,
+	}),
+
+	...generateDimensionsAttributes(wrapperMargin),
+	...generateDimensionsAttributes(wrapperPadding, {
+		top: 50,
+		bottom: 70,
+		right: 30,
+		left: 30,
+		isLinked: false,
+	}),
+
+	// ...generateDimensionsAttributes(wrp_border, {
+	// 	top: 0,
+	// 	bottom: 0,
+	// 	right: 0,
+	// 	left: 0,
+	// }),
+	// ...generateDimensionsAttributes(wrp_radius),
+
+	...generateBorderShadowAttributes(wrpBdShadow, {
+		// bdrDefaults: {
+		// 	top: 0,
+		// 	bottom: 0,
+		// 	right: 0,
+		// 	left: 0,
+		// },
+		// rdsDefaults: {
+		// 	top: 0,
+		// 	bottom: 50,
+		// 	right: 500,
+		// 	left: 1000,
+		// },
+		// noShadow: true,
+		// noBorder: true,
+	}),
+
+	// background attributes ⬇
+	...generateBackgroundAttributes(infoWrapBg, {
+		isBgDefaultGradient: true,
+		defaultBgGradient: "linear-gradient(45deg,#7967ff,#c277f2)",
+		// noOverlay: true,
+		// noMainBgi: true,
+		// noOverlayBgi: true, // if 'noOverlay : true' is given then there's no need to give 'noOverlayBgi : true'
+	}),
 };
 
 export default attributes;
