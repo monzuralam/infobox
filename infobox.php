@@ -4,7 +4,7 @@
  * Plugin Name:     Infobox
  * Plugin URI: 		https://essential-blocks.com
  * Description:     Highlight Your Key Features & Hold Audience Attention with Info Box Block.
- * Version:         1.1.1
+ * Version:         1.1.3
  * Author:          WPDeveloper
  * Author URI: 		https://wpdeveloper.net
  * License:         GPL-3.0-or-later
@@ -21,6 +21,7 @@
  * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/applying-styles-with-stylesheets/
  */
 
+require_once __DIR__ . '/includes/admin-enqueue.php';
 require_once __DIR__ . '/includes/font-loader.php';
 require_once __DIR__ . '/includes/post-meta.php';
 require_once __DIR__ . '/lib/style-handler/style-handler.php';
@@ -59,22 +60,31 @@ function create_block_infobox_block_init()
 		filemtime("$dir/$editor_css")
 	);
 
+
+
 	$fontpicker_theme = 'assets/css/fonticonpicker.base-theme.react.css';
-	wp_enqueue_style(
+	wp_register_style(
 		'fontpicker-default-theme',
 		plugins_url($fontpicker_theme, __FILE__),
 		array()
 	);
 
 	$fontpicker_material_theme = 'assets/css/fonticonpicker.material-theme.react.css';
-	wp_enqueue_style(
+	wp_register_style(
 		'fontpicker-matetial-theme',
 		plugins_url($fontpicker_material_theme, __FILE__),
 		array()
 	);
 
+	$hover_css = 'assets/css/hover-min.css';
+	wp_register_style(
+		'essential-blocks-hover-css',
+		plugins_url($hover_css, __FILE__),
+		array()
+	);
+
 	$fontawesome_css = 'assets/css/font-awesome5.css';
-	wp_enqueue_style(
+	wp_register_style(
 		'fontawesome-frontend-css',
 		plugins_url($fontawesome_css, __FILE__),
 		array()
@@ -85,6 +95,13 @@ function create_block_infobox_block_init()
 			'editor_script' => 'create-block-infobox-block-editor',
 			'editor_style'  => 'create-block-infobox-block-editor',
 			//'style'         => 'create-block-infobox-block',
+			'render_callback' => function ($attribs, $content) {
+				if (!is_admin()) {
+					wp_enqueue_style('fontawesome-frontend-css');
+					wp_enqueue_style('essential-blocks-hover-css');
+				}
+				return $content;
+			}
 		));
 	}
 }

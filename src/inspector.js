@@ -32,8 +32,8 @@ import ColorControl from "../util/color-control";
 import BorderShadowControl from "../util/border-shadow-control";
 import BackgroundControl from "../util/background-control";
 
-import { infoWrapBg } from "./constants/backgroundsConstants";
-import { wrpBdShadow } from "./constants/borderShadowConstants";
+import { infoWrapBg, infoBtnBg } from "./constants/backgroundsConstants";
+import { wrpBdShadow, btnBdShd } from "./constants/borderShadowConstants";
 
 import objAttributes from "./attributes";
 
@@ -54,6 +54,7 @@ import {
 	mediaIconSize,
 	mediaImageWidth,
 	mediaImageHeight,
+	mediaContentGap,
 } from "./constants/rangeNames";
 
 import {
@@ -61,7 +62,7 @@ import {
 	mediaBgMargin,
 	mediaBgRadius,
 	buttonPadding,
-	buttonRadius,
+	// buttonRadius,
 	subTitlePadding,
 	contentPadding,
 	titlePadding,
@@ -78,12 +79,16 @@ import {
 	CONTENTS_ALIGNMENTS,
 	MEDIA_ALIGNMENTS_ON_FLEX_COLUMN,
 	MEDIA_ALIGNMENTS_ON_FLEX_ROW,
+	HOVER_EFFECT,
+	imgHeightUnits,
 } from "./constants";
 
 function Inspector(props) {
 	const { attributes, setAttributes } = props;
 
 	const {
+		blockId,
+
 		// responsive control attributes ⬇
 		resOption,
 
@@ -107,9 +112,6 @@ function Inspector(props) {
 
 		//
 		flexDirection,
-
-		//
-		mediaWrapperMargin,
 
 		//
 		enableDescription,
@@ -141,6 +143,7 @@ function Inspector(props) {
 
 		//
 		enableButton,
+		isInfoClick,
 
 		//
 		buttonText,
@@ -148,6 +151,7 @@ function Inspector(props) {
 
 		//
 		buttonTextColor,
+		buttonHvrTextColor,
 
 		//
 		titleColor,
@@ -159,13 +163,16 @@ function Inspector(props) {
 		descriptionColor,
 
 		//
-		buttonBgColor,
+		// buttonBgColor,
 
 		//
 		mediaAlignment,
 
 		//
 		contentsAlignment,
+
+		//
+		btnEffect,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
@@ -253,12 +260,12 @@ function Inspector(props) {
 						},
 						{
 							name: "styles",
-							title: "Styles",
+							title: "Style",
 							className: "eb-tab styles",
 						},
 						{
 							name: "advance",
-							title: "Advance",
+							title: "Advanced",
 							className: "eb-tab advance",
 						},
 					]}
@@ -282,17 +289,48 @@ function Inspector(props) {
 
 										{media !== "none" && (
 											<>
-												<BaseControl label={__("Media & content spacing")}>
-													<RangeControl
-														value={mediaWrapperMargin}
-														onChange={(mediaWrapperMargin) =>
-															setAttributes({ mediaWrapperMargin })
-														}
-														min={0}
-														max={200}
-													/>
-												</BaseControl>
+												<ResponsiveRangeController
+													baseLabel={__("Media & content spacing", "Infobox")}
+													controlName={mediaContentGap}
+													resRequiredProps={resRequiredProps}
+													min={0}
+													max={500}
+													step={1}
+													noUnits
+												/>
 											</>
+										)}
+
+										<ToggleControl
+											label={__("Clickable Infobox")}
+											checked={isInfoClick}
+											onChange={() =>
+												setAttributes({ isInfoClick: !isInfoClick })
+											}
+										/>
+
+										{isInfoClick && (
+											<>
+												<TextControl
+													// id={`info-link-input-${blockId}`}
+													label={__("URL (use https:// at the beginning)")}
+													placeholder="https://your-link.com"
+													value={infoboxLink}
+													onChange={(infoboxLink) =>
+														setAttributes({ infoboxLink })
+													}
+												/>
+											</>
+										)}
+
+										{!isInfoClick && (
+											<ToggleControl
+												label={__("Show button")}
+												checked={enableButton}
+												onChange={() =>
+													setAttributes({ enableButton: !enableButton })
+												}
+											/>
 										)}
 									</PanelBody>
 
@@ -455,6 +493,12 @@ function Inspector(props) {
 															}
 														/>
 
+														<ResponsiveDimensionsControl
+															resRequiredProps={resRequiredProps}
+															controlName={mediaBackground}
+															baseLabel="Padding"
+														/>
+
 														<ToggleControl
 															label={__("Use Background")}
 															checked={useNumIconBg}
@@ -465,12 +509,6 @@ function Inspector(props) {
 
 														{useNumIconBg && (
 															<>
-																<ResponsiveDimensionsControl
-																	resRequiredProps={resRequiredProps}
-																	controlName={mediaBackground}
-																	baseLabel="Background size"
-																/>
-
 																<BaseControl label={__("Background Type")}>
 																	<ButtonGroup id="eb-infobox-infobox-background">
 																		{ICON_IMAGE_BG_TYPES.map(
@@ -572,7 +610,7 @@ function Inspector(props) {
 																	baseLabel={__("Image Height", "infobox")}
 																	controlName={mediaImageHeight}
 																	resRequiredProps={resRequiredProps}
-																	units={sizeUnitTypes}
+																	units={imgHeightUnits}
 																/>
 															</>
 														)}
@@ -713,70 +751,102 @@ function Inspector(props) {
 										)}
 									</PanelBody>
 
-									<PanelBody title={__("Button")} initialOpen={false}>
-										<ToggleControl
-											label={__("Show button")}
-											checked={enableButton}
-											onChange={() =>
-												setAttributes({ enableButton: !enableButton })
-											}
-										/>
+									{enableButton && !isInfoClick && (
+										<PanelBody title={__("Button")} initialOpen={false}>
+											<TextControl
+												label={__("Button Text")}
+												value={buttonText}
+												onChange={(buttonText) => setAttributes({ buttonText })}
+											/>
 
-										{enableButton && (
-											<>
-												<TextControl
-													label={__("Button Text")}
-													value={buttonText}
-													onChange={(buttonText) =>
-														setAttributes({ buttonText })
-													}
-												/>
+											<TextControl
+												label={__("Link URL (use https:// at the beginning)")}
+												placeholder="https://your-site.com"
+												value={infoboxLink}
+												onChange={(infoboxLink) =>
+													setAttributes({ infoboxLink })
+												}
+											/>
 
-												<TextControl
-													label={__("Link URL")}
-													placeholder="https://your-link.com"
-													value={infoboxLink}
-													onChange={(infoboxLink) =>
-														setAttributes({ infoboxLink })
-													}
-												/>
+											<TypographyDropdown
+												baseLabel="Typography"
+												typographyPrefixConstant={typoPrefix_buttonText}
+												resRequiredProps={resRequiredProps}
+											/>
 
-												<TypographyDropdown
-													baseLabel="Typography"
-													typographyPrefixConstant={typoPrefix_buttonText}
+											<ResponsiveDimensionsControl
+												resRequiredProps={resRequiredProps}
+												controlName={buttonPadding}
+												baseLabel="Button Padding"
+											/>
+
+											<ColorControl
+												label={__("Text color")}
+												color={buttonTextColor}
+												onChange={(buttonTextColor) =>
+													setAttributes({ buttonTextColor })
+												}
+											/>
+
+											<ColorControl
+												label={__("Hover text color")}
+												color={buttonHvrTextColor}
+												onChange={(buttonHvrTextColor) =>
+													setAttributes({ buttonHvrTextColor })
+												}
+											/>
+
+											<PanelBody title={__("Background")} initialOpen={false}>
+												<BackgroundControl
+													controlName={infoBtnBg}
 													resRequiredProps={resRequiredProps}
+													forButton
+													// noOverlay
+													// noMainBgi
+													// noOverlayBgi // if U pass 'noOverlay' prop U don't need to pass 'noOverlayBgi'
 												/>
+											</PanelBody>
 
-												<ResponsiveDimensionsControl
+											<PanelBody
+												title={__("Border & Shadow")}
+												initialOpen={false}
+											>
+												<BorderShadowControl
+													controlName={btnBdShd}
 													resRequiredProps={resRequiredProps}
-													controlName={buttonPadding}
-													baseLabel="Button Padding"
+													// noShadow
+													// noBorder
 												/>
+											</PanelBody>
 
-												<ResponsiveDimensionsControl
-													resRequiredProps={resRequiredProps}
-													controlName={buttonRadius}
-													baseLabel="Button Border Radius"
+											<PanelBody title={__("More Effects")} initialOpen={false}>
+												<SelectControl
+													label={__("Button Hover Effect")}
+													value={btnEffect}
+													options={HOVER_EFFECT}
+													// onChange={(preset) => setAttributes({ preset })}
+													onChange={(btnEffect) => {
+														setAttributes({ btnEffect });
+													}}
 												/>
+											</PanelBody>
 
-												<ColorControl
-													label={__("Text Color")}
-													color={buttonTextColor}
-													onChange={(buttonTextColor) =>
-														setAttributes({ buttonTextColor })
-													}
-												/>
+											{/* <ResponsiveDimensionsControl
+												resRequiredProps={resRequiredProps}
+												controlName={buttonRadius}
+												baseLabel="Button Border Radius"
+											/>
 
-												<ColorControl
-													label={__("Button Color")}
-													color={buttonBgColor}
-													onChange={(buttonBgColor) =>
-														setAttributes({ buttonBgColor })
-													}
-												/>
-											</>
-										)}
-									</PanelBody>
+
+											<ColorControl
+												label={__("Button Color")}
+												color={buttonBgColor}
+												onChange={(buttonBgColor) =>
+													setAttributes({ buttonBgColor })
+												}
+											/> */}
+										</PanelBody>
+									)}
 								</>
 							)}
 							{tab.name === "advance" && (

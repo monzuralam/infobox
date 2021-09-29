@@ -2,8 +2,7 @@
  * WordPress dependencies
  */
 const { __ } = wp.i18n;
-const { useBlockProps, MediaUpload, RichText } = wp.blockEditor;
-const { Button } = wp.components;
+const { useBlockProps } = wp.blockEditor;
 const { useEffect } = wp.element;
 
 const { select } = wp.data;
@@ -14,9 +13,10 @@ const { select } = wp.data;
 
 import "./editor.scss";
 
+import InfoboxContainer from "./components/infobox-edit";
+
 import {
 	softMinifyCssStrings,
-	isCssExists,
 	generateBackgroundControlStyles,
 	generateDimensionsControlStyles,
 	generateTypographyStyles,
@@ -38,7 +38,7 @@ import {
 	mediaBackground,
 	mediaBgMargin,
 	mediaBgRadius,
-	buttonRadius,
+	// buttonRadius,
 	buttonPadding,
 	titlePadding,
 	contentPadding,
@@ -47,13 +47,14 @@ import {
 	wrapperMargin,
 } from "./constants/dimensionsConstants";
 
-import { infoWrapBg } from "./constants/backgroundsConstants";
-import { wrpBdShadow } from "./constants/borderShadowConstants";
+import { infoWrapBg, infoBtnBg } from "./constants/backgroundsConstants";
+import { wrpBdShadow, btnBdShd } from "./constants/borderShadowConstants";
 
 import {
 	mediaIconSize,
 	mediaImageWidth,
 	mediaImageHeight,
+	mediaContentGap,
 } from "./constants/rangeNames";
 
 const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
@@ -78,6 +79,10 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		enableSubTitle,
 		enableDescription,
 		enableButton,
+
+		//
+		isInfoClick,
+
 		buttonText,
 		title,
 		subTitle,
@@ -103,9 +108,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 		//
 		contentAlignment,
-
-		//
-		mediaWrapperMargin,
 
 		//
 		useNumIconBg,
@@ -153,6 +155,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 		//
 		buttonTextColor = "#30267A",
+		buttonHvrTextColor,
 
 		//
 		titleColor = "#fff",
@@ -171,6 +174,9 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 		//
 		contentsAlignment,
+
+		//
+		btnEffect,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
@@ -203,6 +209,8 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	const blockProps = useBlockProps({
 		className: `eb-guten-block-main-parent-wrapper`,
 	});
+
+	const buttonThakbe = !isInfoClick && enableButton;
 
 	//
 	// styling codes starts from here
@@ -298,15 +306,15 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		styleFor: "padding",
 	});
 
-	const {
-		dimensionStylesDesktop: buttonRadiusStylesDesktop,
-		dimensionStylesTab: buttonRadiusStylesTab,
-		dimensionStylesMobile: buttonRadiusStylesMobile,
-	} = generateDimensionsControlStyles({
-		attributes,
-		controlName: buttonRadius,
-		styleFor: "border-radius",
-	});
+	// const {
+	// 	dimensionStylesDesktop: buttonRadiusStylesDesktop,
+	// 	dimensionStylesTab: buttonRadiusStylesTab,
+	// 	dimensionStylesMobile: buttonRadiusStylesMobile,
+	// } = generateDimensionsControlStyles({
+	// 	attributes,
+	// 	controlName: buttonRadius,
+	// 	styleFor: "border-radius",
+	// });
 
 	const {
 		dimensionStylesDesktop: titlePaddingStylesDesktop,
@@ -382,6 +390,19 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	});
 
 	const {
+		backgroundStylesDesktop: btnBackgroundStylesDesktop,
+		hoverBackgroundStylesDesktop: btnHoverBackgroundStylesDesktop,
+		bgTransitionStyle: btnBgTransitionStyle,
+	} = generateBackgroundControlStyles({
+		attributes,
+		controlName: infoBtnBg,
+		forButton: true,
+		// noOverlay: true,
+		// noMainBgi: true,
+		// noOverlayBgi: true, // if 'noOverlay : true' is given then there's no need to give 'noOverlayBgi : true'
+	});
+
+	const {
 		styesDesktop: bdShadowStyesDesktop,
 		styesTab: bdShadowStyesTab,
 		styesMobile: bdShadowStyesMobile,
@@ -397,6 +418,21 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	});
 
 	const {
+		styesDesktop: btnBdShadowStyesDesktop,
+		styesTab: btnBdShadowStyesTab,
+		styesMobile: btnBdShadowStyesMobile,
+		stylesHoverDesktop: btnBdShadowStylesHoverDesktop,
+		stylesHoverTab: btnBdShadowStylesHoverTab,
+		stylesHoverMobile: btnBdShadowStylesHoverMobile,
+		transitionStyle: btnBdShadowTransitionStyle,
+	} = generateBorderShadowStyles({
+		controlName: btnBdShd,
+		attributes,
+		// noShadow: true,
+		// noBorder: true,
+	});
+
+	const {
 		rangeStylesDesktop: iconSizeDesktop,
 		rangeStylesTab: iconSizeTab,
 		rangeStylesMobile: iconSizeMobile,
@@ -404,6 +440,17 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		controlName: mediaIconSize,
 		customUnit: "px",
 		property: "font-size",
+		attributes,
+	});
+
+	const {
+		rangeStylesDesktop: contentMediaGapDesktop,
+		rangeStylesTab: contentMediaGapTab,
+		rangeStylesMobile: contentMediaGapMobile,
+	} = generateResponsiveRangeStyles({
+		controlName: mediaContentGap,
+		customUnit: "px",
+		property: "gap",
 		attributes,
 	});
 
@@ -504,6 +551,20 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			display: flex;
 			position: relative;
 			${flexDirection ? `flex-direction: ${flexDirection};` : " "} 
+			${media !== "none" ? `${contentMediaGapDesktop}` : ""}
+			
+		}
+	`;
+
+	const wrapperInnerStylesTab = `	
+		.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner {
+			${media !== "none" ? `${contentMediaGapTab}` : ""}			
+		}
+	`;
+
+	const wrapperInnerStylesMobile = `	
+		.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner {
+			${media !== "none" ? `${contentMediaGapMobile}` : ""}			
 		}
 	`;
 
@@ -519,18 +580,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				}
 
 				${mediaBgMarginStylesDesktop}
-
-				${
-					flexDirection === "row"
-						? `margin-right: ${mediaWrapperMargin}px;`
-						: flexDirection === "row-reverse"
-						? `margin-left: ${mediaWrapperMargin}px;`
-						: flexDirection === "column"
-						? `margin-bottom: ${mediaWrapperMargin}px;`
-						: flexDirection === "column-reverse"
-						? `margin-top: ${mediaWrapperMargin}px;`
-						: " "
-				}
 
 				overflow: hidden;
 			}
@@ -877,9 +926,25 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				: " "
 		}
 
+		${
+			isInfoClick
+				? `
+				a.info-click-link.info-wrap-link,
+				a.info-click-link.info-wrap-link:hover,
+				a.info-click-link.info-wrap-link:focus
+				{
+					color: inherit;
+					display:block;
+					text-decoration:none;
+					cursor:pointer;
+				}
+				`
+				: ""
+		}
+
 		
 		${
-			enableButton
+			buttonThakbe
 				? `
 			
 				.eb-infobox-wrapper.${blockId} a{
@@ -887,14 +952,31 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				}
 
 				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn{
+					display:inline-block;
 					${buttonTypoStylesDesktop}
 					${buttonPaddingStylesDesktop}
-					${buttonRadiusStylesDesktop}
+					${btnBackgroundStylesDesktop}
+					${btnBdShadowStyesDesktop}
 					
-					${buttonBgColor ? `background-color: ${buttonBgColor};` : " "}
+					
 					${buttonTextColor ? `color: ${buttonTextColor};` : " "}
 					
+					transition: all 0.5s, ${btnBgTransitionStyle}, ${btnBdShadowTransitionStyle};
 				}
+				
+				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn:hover{
+					${buttonHvrTextColor ? `color: ${buttonHvrTextColor};` : " "}
+					${btnBdShadowStylesHoverDesktop}
+				}
+
+				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn:hover:before{
+					opacity:1;
+				}
+				
+				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn:before{
+					${btnHoverBackgroundStylesDesktop}
+				}
+
 				
 				`
 				: " "
@@ -935,12 +1017,16 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		}
 		
 		${
-			enableButton
+			buttonThakbe
 				? `
 				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn{
 					${buttonTypoStylesTab}
 					${buttonPaddingStylesTab}
-					${buttonRadiusStylesTab}
+					${btnBdShadowStyesTab}
+				}
+				
+				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn:hover{
+					${btnBdShadowStylesHoverTab}
 				}
 				
 				`
@@ -982,14 +1068,16 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		}
 		
 		${
-			enableButton
+			buttonThakbe
 				? `
 			
 				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn{
-					${buttonTypoStylesMobile}
-					${buttonPaddingStylesMobile}
-					${buttonRadiusStylesMobile}
-		
+					${btnBdShadowStyesMobile}
+				}
+				
+			
+				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn:hover{
+					${btnBdShadowStylesHoverMobile}
 				}
 				
 				`
@@ -1002,26 +1090,28 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 
 	// all css styles for large screen width (desktop/laptop) in strings ⬇
 	const desktopAllStyles = softMinifyCssStrings(`		
-		${isCssExists(wrapperStylesDesktop) ? wrapperStylesDesktop : " "}
-		${isCssExists(wrapperInnerStylesDesktop) ? wrapperInnerStylesDesktop : " "}
-		${isCssExists(mediaStylesDesktop) ? mediaStylesDesktop : " "}
-		${isCssExists(contentStylesDesktop) ? contentStylesDesktop : " "}	
+		${wrapperStylesDesktop}
+		${wrapperInnerStylesDesktop}
+		${mediaStylesDesktop}
+		${contentStylesDesktop}	
 	`);
 
 	// all css styles for Tab in strings ⬇
 	const tabAllStyles = softMinifyCssStrings(`
-		${isCssExists(wrapperStylesTab) ? wrapperStylesTab : " "}
-		${isCssExists(mediaStylesTab) ? mediaStylesTab : " "}
-		${isCssExists(contentStylesTab) ? contentStylesTab : " "}
+		${wrapperStylesTab}
+		${wrapperInnerStylesTab}
+		${mediaStylesTab}
+		${contentStylesTab}
 		
 		
 	`);
 
 	// all css styles for Mobile in strings ⬇
 	const mobileAllStyles = softMinifyCssStrings(`
-		${isCssExists(wrapperStylesMobile) ? wrapperStylesMobile : " "}
-		${isCssExists(mediaStylesMobile) ? mediaStylesMobile : " "}
-		${isCssExists(contentStylesMobile) ? contentStylesMobile : " "}
+		${wrapperStylesMobile}
+		${wrapperInnerStylesMobile}
+		${mediaStylesMobile}
+		${contentStylesMobile}
 	
 	`);
 
@@ -1046,6 +1136,12 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		<div {...blockProps}>
 			<style>
 				{`
+
+				a.info-click-link{
+					pointer-events: none;
+				}
+
+
 				${desktopAllStyles}
 
 				/* mimmikcssStart */
@@ -1073,97 +1169,18 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				`}
 			</style>
 
-			<div className={`${blockId} eb-infobox-wrapper`}>
-				<div className="infobox-wrapper-inner">
-					{media === "icon" ? (
-						<div className="icon-img-wrapper">
-							<div className="eb-icon number-or-icon">
-								<span
-									data-icon={selectedIcon}
-									className={`eb-infobox-icon-data-selector  ${selectedIcon}`}
-								></span>
-							</div>
-						</div>
-					) : null}
-
-					{media === "number" ? (
-						<div className="icon-img-wrapper">
-							<div className="eb-infobox-num-wrapper number-or-icon">
-								<span className="eb-infobox-number">{number}</span>
-							</div>
-						</div>
-					) : null}
-
-					{media === "image" ? (
-						<div className="icon-img-wrapper">
-							<div className="eb-infobox-image-wrapper">
-								<MediaUpload
-									onSelect={({ id, url }) =>
-										setAttributes({ imageUrl: url, imageId: id })
-									}
-									type="image"
-									value={imageId}
-									render={({ open }) => {
-										if (!imageUrl) {
-											return (
-												<Button
-													className="eb-infobox-img-btn components-button"
-													label={__("Upload Image")}
-													icon="format-image"
-													onClick={open}
-												/>
-											);
-										} else {
-											return (
-												<img className="eb-infobox-image" src={imageUrl} />
-											);
-										}
-									}}
-								/>
-							</div>
-						</div>
-					) : null}
-
-					<div className="contents-wrapper">
-						<RichText
-							tagName={titleTag}
-							className="title"
-							value={title}
-							onChange={(title) => setAttributes({ title })}
-						/>
-
-						{enableSubTitle ? (
-							<RichText
-								tagName={subTitleTag}
-								className="subtitle"
-								value={subTitle}
-								onChange={(subTitle) => setAttributes({ subTitle })}
-							/>
-						) : null}
-
-						{enableDescription ? (
-							<RichText
-								tagName="p"
-								className="description"
-								value={description}
-								onChange={(description) => setAttributes({ description })}
-							/>
-						) : null}
-
-						{enableButton ? (
-							<div className="eb-infobox-btn-wrapper">
-								<a
-									href={infoboxLink}
-									// style={{ pointerEvents: "none" }}
-									className="infobox-btn"
-								>
-									{buttonText}
-								</a>
-							</div>
-						) : null}
-					</div>
-				</div>
-			</div>
+			{/* {isInfoClick ? (
+				<a
+					href={infoboxLink || "#"}
+					rel="noopener noreferrer"
+					className="info-click-link info-wrap-link"
+				>
+					<InfoboxContainer attributes={attributes} />
+				</a>
+			) : (
+				<InfoboxContainer attributes={attributes} />
+			)} */}
+			<InfoboxContainer attributes={attributes} />
 		</div>,
 	];
 };

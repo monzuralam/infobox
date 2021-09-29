@@ -3831,9 +3831,21 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+ // console.log("--------ddddddd", generateDimensionsAttributes(buttonRadius));
+// console.log(
+// 	"--------bgbgbgbg",
+// 	generateBackgroundAttributes(infoBtnBg, {
+// 		defaultFillColor: "#E1D8FF",
+// 		defaultBgGradient:
+// 			"linear-gradient(45deg, rgba(120,102,255,0.8) 0% , rgba(195,120,242,0.4) 100%)",
+// 		noOverlay: true,
+// 		noMainBgi: true,
+// 		// noOverlayBgi: true, // if 'noOverlay : true' is given then there's no need to give 'noOverlayBgi : true'
+// 		// isBgDefaultGradient: true,
+// 	})
+// );
 
-
-var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({
+var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({
   // the following 4 attributes is must required for responsive options and asset generation for frontend
   // responsive control attributes ⬇
   resOption: {
@@ -3964,6 +3976,11 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
     default: true
   },
   //
+  isInfoClick: {
+    type: "boolean",
+    default: false
+  },
+  //
   buttonText: {
     type: "string",
     default: "Learn More"
@@ -3973,7 +3990,15 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
     type: "string"
   },
   //
-  buttonBgColor: {
+  buttonHvrTextColor: {
+    type: "string"
+  },
+  // //
+  // buttonBgColor: {
+  // 	type: "string",
+  // },
+  //
+  btnEffect: {
     type: "string"
   },
   //
@@ -4033,11 +4058,6 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
   contentAlignment: {
     type: "string"
   },
-  // .icon-img-wrapper margin
-  mediaWrapperMargin: {
-    type: "number",
-    default: 20
-  },
   //
   titleTag: {
     type: "string",
@@ -4059,7 +4079,10 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
   defaultRange: 50
 })), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_6__["generateResponsiveRangeAttributes"])(_constants_rangeNames__WEBPACK_IMPORTED_MODULE_5__["mediaImageWidth"], {
   defaultRange: 300
-})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_6__["generateResponsiveRangeAttributes"])(_constants_rangeNames__WEBPACK_IMPORTED_MODULE_5__["mediaImageHeight"])), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_6__["generateTypographyAttributes"])(Object.values(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__))), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_6__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["mediaBackground"], {
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_6__["generateResponsiveRangeAttributes"])(_constants_rangeNames__WEBPACK_IMPORTED_MODULE_5__["mediaImageHeight"])), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_6__["generateResponsiveRangeAttributes"])(_constants_rangeNames__WEBPACK_IMPORTED_MODULE_5__["mediaContentGap"], {
+  defaultRange: 20,
+  noUnits: true
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_6__["generateTypographyAttributes"])(Object.values(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__))), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_6__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["mediaBackground"], {
   top: 20,
   bottom: 20,
   right: 20,
@@ -4077,11 +4100,6 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
   right: 30,
   left: 30,
   isLinked: false
-})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_6__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["buttonRadius"], {
-  top: 10,
-  bottom: 10,
-  right: 10,
-  left: 10
 })), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_6__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_2__["titlePadding"], {
   top: 10,
   bottom: 10,
@@ -4100,6 +4118,21 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
   right: 30,
   left: 30,
   isLinked: false
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_6__["generateBorderShadowAttributes"])(_constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_4__["btnBdShd"], {
+  // bdrDefaults: {
+  // 	top: 10,
+  // 	bottom: 10,
+  // 	right: 10,
+  // 	left: 10,
+  // },
+  rdsDefaults: {
+    top: 10,
+    bottom: 10,
+    right: 10,
+    left: 10
+  } // noShadow: true,
+  // noBorder: true,
+
 })), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_6__["generateBorderShadowAttributes"])(_constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_4__["wrpBdShadow"], {// bdrDefaults: {
   // 	top: 0,
   // 	bottom: 0,
@@ -4120,16 +4153,24 @@ var attributes = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_object
   // noMainBgi: true,
   // noOverlayBgi: true, // if 'noOverlay : true' is given then there's no need to give 'noOverlayBgi : true'
 
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_6__["generateBackgroundAttributes"])(_constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_3__["infoBtnBg"], {
+  defaultFillColor: "#E1D8FF",
+  defaultBgGradient: "linear-gradient(45deg, rgba(120,102,255,0.8) 0% , rgba(195,120,242,0.4) 100%)",
+  forButton: true // noOverlay: true,
+  // noMainBgi: true,
+  // noOverlayBgi: true, // if 'noOverlay : true' is given then there's no need to give 'noOverlayBgi : true'
+  // isBgDefaultGradient: true,
+
 }));
 
 /* harmony default export */ __webpack_exports__["default"] = (attributes);
 
 /***/ }),
 
-/***/ "./src/components/infobox-container.js":
-/*!*********************************************!*\
-  !*** ./src/components/infobox-container.js ***!
-  \*********************************************/
+/***/ "./src/components/infobox-edit.js":
+/*!****************************************!*\
+  !*** ./src/components/infobox-edit.js ***!
+  \****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4139,696 +4180,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 
-var RichText = wp.blockEditor.RichText;
-function InfoboxContainer(_ref) {
-  var requiredProps = _ref.requiredProps;
-  var blockId = requiredProps.blockId,
-      selectedIcon = requiredProps.selectedIcon,
-      media = requiredProps.media,
-      number = requiredProps.number,
-      imageUrl = requiredProps.imageUrl,
-      infoboxLink = requiredProps.infoboxLink,
-      enableSubTitle = requiredProps.enableSubTitle,
-      enableDescription = requiredProps.enableDescription,
-      enableButton = requiredProps.enableButton,
-      buttonText = requiredProps.buttonText,
-      title = requiredProps.title,
-      subTitle = requiredProps.subTitle,
-      description = requiredProps.description,
-      titleTag = requiredProps.titleTag,
-      subTitleTag = requiredProps.subTitleTag;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "".concat(blockId, " eb-infobox-wrapper")
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "infobox-wrapper-inner"
-  }, media === "icon" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "icon-img-wrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "eb-icon number-or-icon"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-    "data-icon": selectedIcon,
-    className: "eb-infobox-icon-data-selector  ".concat(selectedIcon)
-  }))) : null, media === "number" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "icon-img-wrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "eb-infobox-num-wrapper number-or-icon"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-    className: "eb-infobox-number"
-  }, number))) : null, media === "image" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "icon-img-wrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "eb-infobox-image-wrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("img", {
-    className: "eb-infobox-image",
-    src: imageUrl,
-    alt: "macbook"
-  }))) : null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "contents-wrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RichText.Content, {
-    tagName: titleTag,
-    className: "title",
-    value: title
-  }), enableSubTitle ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RichText.Content, {
-    tagName: subTitleTag,
-    className: "subtitle",
-    value: subTitle
-  }) : null, enableDescription ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RichText.Content, {
-    tagName: "p",
-    className: "description",
-    value: description
-  }) : null, enableButton ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "eb-infobox-btn-wrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("a", {
-    href: infoboxLink,
-    className: "infobox-btn"
-  }, buttonText)) : null)));
-}
-
-/***/ }),
-
-/***/ "./src/constants/backgroundsConstants.js":
-/*!***********************************************!*\
-  !*** ./src/constants/backgroundsConstants.js ***!
-  \***********************************************/
-/*! exports provided: infoWrapBg */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "infoWrapBg", function() { return infoWrapBg; });
-// each and every const here has to be totally unique from one another
-var infoWrapBg = "wrp_";
-
-/***/ }),
-
-/***/ "./src/constants/borderShadowConstants.js":
-/*!************************************************!*\
-  !*** ./src/constants/borderShadowConstants.js ***!
-  \************************************************/
-/*! exports provided: wrpBdShadow */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrpBdShadow", function() { return wrpBdShadow; });
-var wrpBdShadow = "wrp_";
-
-/***/ }),
-
-/***/ "./src/constants/dimensionsConstants.js":
-/*!**********************************************!*\
-  !*** ./src/constants/dimensionsConstants.js ***!
-  \**********************************************/
-/*! exports provided: mediaBackground, mediaBgRadius, mediaBgMargin, buttonPadding, buttonRadius, titlePadding, subTitlePadding, contentPadding, wrapperMargin, wrapperPadding */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mediaBackground", function() { return mediaBackground; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mediaBgRadius", function() { return mediaBgRadius; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mediaBgMargin", function() { return mediaBgMargin; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buttonPadding", function() { return buttonPadding; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buttonRadius", function() { return buttonRadius; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "titlePadding", function() { return titlePadding; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "subTitlePadding", function() { return subTitlePadding; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "contentPadding", function() { return contentPadding; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrapperMargin", function() { return wrapperMargin; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrapperPadding", function() { return wrapperPadding; });
-// each and every const here has to be totally unique from one another
-var mediaBackground = "mediaBgSize";
-var mediaBgRadius = "mediaBgRadius";
-var mediaBgMargin = "mediaBgMargin";
-var buttonPadding = "buttonPadding";
-var buttonRadius = "buttonRadius";
-var titlePadding = "titlePadding";
-var subTitlePadding = "subTitlePadding";
-var contentPadding = "contentPadding";
-var wrapperMargin = "wrapperMargin";
-var wrapperPadding = "wrapperPadding"; // export const wrp_border = "WRPborder";
-// export const wrp_radius = "WRPradius";
-
-/***/ }),
-
-/***/ "./src/constants/index.js":
-/*!********************************!*\
-  !*** ./src/constants/index.js ***!
-  \********************************/
-/*! exports provided: LAYOUT_TYPES, MEDIA_TYPES, CONTENTS_ALIGNMENTS, MEDIA_ALIGNMENTS_ON_FLEX_COLUMN, MEDIA_ALIGNMENTS_ON_FLEX_ROW, ICON_IMAGE_BG_TYPES, sizeUnitTypes, HEADER_TAGS, BACKGROUND_TYPES, BACKGROUND_SIZES, BORDER_STYLES, SHADOW_HOVER_OPTIONS, LETTER_SPACING_LINE_HEIGHT_UNITS */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LAYOUT_TYPES", function() { return LAYOUT_TYPES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MEDIA_TYPES", function() { return MEDIA_TYPES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CONTENTS_ALIGNMENTS", function() { return CONTENTS_ALIGNMENTS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MEDIA_ALIGNMENTS_ON_FLEX_COLUMN", function() { return MEDIA_ALIGNMENTS_ON_FLEX_COLUMN; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MEDIA_ALIGNMENTS_ON_FLEX_ROW", function() { return MEDIA_ALIGNMENTS_ON_FLEX_ROW; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ICON_IMAGE_BG_TYPES", function() { return ICON_IMAGE_BG_TYPES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sizeUnitTypes", function() { return sizeUnitTypes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HEADER_TAGS", function() { return HEADER_TAGS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BACKGROUND_TYPES", function() { return BACKGROUND_TYPES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BACKGROUND_SIZES", function() { return BACKGROUND_SIZES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BORDER_STYLES", function() { return BORDER_STYLES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHADOW_HOVER_OPTIONS", function() { return SHADOW_HOVER_OPTIONS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LETTER_SPACING_LINE_HEIGHT_UNITS", function() { return LETTER_SPACING_LINE_HEIGHT_UNITS; });
-var __ = wp.i18n.__;
-var LAYOUT_TYPES = [{
-  label: __("Preset 1"),
-  value: "preset1"
-}, {
-  label: __("Preset 2"),
-  value: "preset2"
-}, {
-  label: __("Preset 3"),
-  value: "preset3"
-}, {
-  label: __("Preset 4"),
-  value: "preset4"
-}];
-var MEDIA_TYPES = ["image", "icon", "number", "none"];
-var CONTENTS_ALIGNMENTS = [{
-  label: __("Left"),
-  value: "left"
-}, {
-  label: __("Center"),
-  value: "center"
-}, {
-  label: __("Right"),
-  value: "right"
-}];
-var MEDIA_ALIGNMENTS_ON_FLEX_COLUMN = [{
-  label: __("Left"),
-  value: "flex-start"
-}, {
-  label: __("Center"),
-  value: "center"
-}, {
-  label: __("Right"),
-  value: "flex-end"
-}];
-var MEDIA_ALIGNMENTS_ON_FLEX_ROW = [{
-  label: __("Top"),
-  value: "flex-start"
-}, {
-  label: __("Middle"),
-  value: "center"
-}, {
-  label: __("Bottom"),
-  value: "flex-end"
-}];
-var ICON_IMAGE_BG_TYPES = [{
-  label: "Fill",
-  value: "fill"
-}, {
-  label: "Gradient",
-  value: "gradient"
-}];
-var sizeUnitTypes = [{
-  label: "px",
-  value: "px"
-}, {
-  label: "%",
-  value: "%"
-}, {
-  label: "em",
-  value: "em"
-}];
-var HEADER_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"];
-var BACKGROUND_TYPES = [{
-  label: __("Fill"),
-  value: "fill"
-}, {
-  label: __("Gradient"),
-  value: "gradient"
-}, {
-  label: __("Image"),
-  value: "image"
-}];
-var BACKGROUND_SIZES = [{
-  label: __("Auto"),
-  value: "auto"
-}, {
-  label: __("Cover"),
-  value: "cover"
-}, {
-  label: __("Contain"),
-  value: "contain"
-}];
-var BORDER_STYLES = [{
-  label: __("None"),
-  value: "none"
-}, {
-  label: __("Dashed"),
-  value: "dashed"
-}, {
-  label: __("Solid"),
-  value: "solid"
-}, {
-  label: __("Dotted"),
-  value: "dotted"
-}, {
-  label: __("Double"),
-  value: "double"
-}, {
-  label: __("Groove"),
-  value: "groove"
-}, {
-  label: __("Inset"),
-  value: "inset"
-}, {
-  label: __("Outset"),
-  value: "outset"
-}, {
-  label: __("Ridge"),
-  value: "ridge"
-}];
-var SHADOW_HOVER_OPTIONS = [{
-  label: "Normal",
-  value: "normal"
-}, {
-  label: "Hover",
-  value: "hover"
-}];
-var LETTER_SPACING_LINE_HEIGHT_UNITS = [{
-  label: "px",
-  value: "px"
-}, {
-  label: "em",
-  value: "em"
-}];
-
-/***/ }),
-
-/***/ "./src/constants/rangeNames.js":
-/*!*************************************!*\
-  !*** ./src/constants/rangeNames.js ***!
-  \*************************************/
-/*! exports provided: mediaIconSize, mediaImageWidth, mediaImageHeight */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mediaIconSize", function() { return mediaIconSize; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mediaImageWidth", function() { return mediaImageWidth; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mediaImageHeight", function() { return mediaImageHeight; });
-var mediaIconSize = "mIconZ";
-var mediaImageWidth = "mImgW";
-var mediaImageHeight = "mImgH";
-
-/***/ }),
-
-/***/ "./src/constants/typographyPrefixConstants.js":
-/*!****************************************************!*\
-  !*** ./src/constants/typographyPrefixConstants.js ***!
-  \****************************************************/
-/*! exports provided: typoPrefix_number, typoPrefix_title, typoPrefix_subTitle, typoPrefix_content, typoPrefix_buttonText */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "typoPrefix_number", function() { return typoPrefix_number; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "typoPrefix_title", function() { return typoPrefix_title; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "typoPrefix_subTitle", function() { return typoPrefix_subTitle; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "typoPrefix_content", function() { return typoPrefix_content; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "typoPrefix_buttonText", function() { return typoPrefix_buttonText; });
-// each and every const here has to be totally unique from one another
-var typoPrefix_number = "number";
-var typoPrefix_title = "title";
-var typoPrefix_subTitle = "subTitle";
-var typoPrefix_content = "content";
-var typoPrefix_buttonText = "buttonText";
-
-/***/ }),
-
-/***/ "./src/edit.js":
-/*!*********************!*\
-  !*** ./src/edit.js ***!
-  \*********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
-/* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/helpers */ "./util/helpers/index.js");
-/* harmony import */ var _inspector__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./inspector */ "./src/inspector.js");
-/* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/constants/typographyPrefixConstants.js");
-/* harmony import */ var _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./constants/dimensionsConstants */ "./src/constants/dimensionsConstants.js");
-/* harmony import */ var _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./constants/backgroundsConstants */ "./src/constants/backgroundsConstants.js");
-/* harmony import */ var _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./constants/borderShadowConstants */ "./src/constants/borderShadowConstants.js");
-/* harmony import */ var _constants_rangeNames__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./constants/rangeNames */ "./src/constants/rangeNames.js");
-
-
-/**
- * WordPress dependencies
- */
 var __ = wp.i18n.__;
 var _wp$blockEditor = wp.blockEditor,
-    useBlockProps = _wp$blockEditor.useBlockProps,
     MediaUpload = _wp$blockEditor.MediaUpload,
     RichText = _wp$blockEditor.RichText;
 var Button = wp.components.Button;
-var useEffect = wp.element.useEffect;
-var select = wp.data.select;
-/**
- * Internal dependencies
- */
-
-
-
-
-
-
-
-
-
-
-var Edit = function Edit(_ref) {
-  var attributes = _ref.attributes,
-      setAttributes = _ref.setAttributes,
-      isSelected = _ref.isSelected,
-      clientId = _ref.clientId;
-  var resOption = attributes.resOption,
-      blockMeta = attributes.blockMeta,
-      blockId = attributes.blockId,
-      isOverlay = attributes.isOverlay,
-      selectedIcon = attributes.selectedIcon,
+function InfoboxContainer(_ref) {
+  var attributes = _ref.attributes;
+  var blockId = attributes.blockId,
       media = attributes.media,
-      _attributes$number = attributes.number,
-      number = _attributes$number === void 0 ? 0 : _attributes$number,
+      selectedIcon = attributes.selectedIcon,
+      number = attributes.number,
       imageUrl = attributes.imageUrl,
-      infoboxLink = attributes.infoboxLink,
-      enableSubTitle = attributes.enableSubTitle,
-      enableDescription = attributes.enableDescription,
-      enableButton = attributes.enableButton,
-      buttonText = attributes.buttonText,
-      title = attributes.title,
-      subTitle = attributes.subTitle,
-      description = attributes.description,
-      titleTag = attributes.titleTag,
-      subTitleTag = attributes.subTitleTag,
       imageId = attributes.imageId,
-      iconSize = attributes.iconSize,
-      TABiconSize = attributes.TABiconSize,
-      MOBiconSize = attributes.MOBiconSize,
-      flexDirection = attributes.flexDirection,
-      mediaAlignSelf = attributes.mediaAlignSelf,
-      contentAlignment = attributes.contentAlignment,
-      mediaWrapperMargin = attributes.mediaWrapperMargin,
-      useNumIconBg = attributes.useNumIconBg,
-      numIconColor = attributes.numIconColor,
-      numIconBgType = attributes.numIconBgType,
-      numIconBgColor = attributes.numIconBgColor,
-      numIconBgGradient = attributes.numIconBgGradient,
-      mediaImgWidthUnit = attributes["".concat(_constants_rangeNames__WEBPACK_IMPORTED_MODULE_8__["mediaImageWidth"], "Unit")],
-      TABmediaImgWidthUnit = attributes["TAB".concat(_constants_rangeNames__WEBPACK_IMPORTED_MODULE_8__["mediaImageWidth"], "Unit")],
-      MOBmediaImgWidthUnit = attributes["MOB".concat(_constants_rangeNames__WEBPACK_IMPORTED_MODULE_8__["mediaImageWidth"], "Unit")],
-      mediaImgWidth = attributes.mediaImgWidth,
-      TABmediaImgWidth = attributes.TABmediaImgWidth,
-      MOBmediaImgWidth = attributes.MOBmediaImgWidth,
-      isMediaImgHeightAuto = attributes.isMediaImgHeightAuto,
-      mediaImgHeightUnit = attributes.mediaImgHeightUnit,
-      mediaImgHeight = attributes.mediaImgHeight,
-      TABmediaImgHeight = attributes.TABmediaImgHeight,
-      MOBmediaImgHeight = attributes.MOBmediaImgHeight,
-      _attributes$buttonTex = attributes.buttonTextColor,
-      buttonTextColor = _attributes$buttonTex === void 0 ? "#30267A" : _attributes$buttonTex,
-      _attributes$titleColo = attributes.titleColor,
-      titleColor = _attributes$titleColo === void 0 ? "#fff" : _attributes$titleColo,
-      _attributes$subTitleC = attributes.subTitleColor,
-      subTitleColor = _attributes$subTitleC === void 0 ? "#fff" : _attributes$subTitleC,
-      _attributes$descripti = attributes.descriptionColor,
-      descriptionColor = _attributes$descripti === void 0 ? "#fff" : _attributes$descripti,
-      _attributes$buttonBgC = attributes.buttonBgColor,
-      buttonBgColor = _attributes$buttonBgC === void 0 ? "#E1D8FF" : _attributes$buttonBgC,
-      mediaAlignment = attributes.mediaAlignment,
-      contentsAlignment = attributes.contentsAlignment; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
-
-  useEffect(function () {
-    setAttributes({
-      resOption: select("core/edit-post").__experimentalGetPreviewDeviceType()
-    });
-  }, []); // this useEffect is for creating a unique blockId for each block's unique className
-
-  useEffect(function () {
-    var BLOCK_PREFIX = "eb-infobox";
-    Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["duplicateBlockIdFix"])({
-      BLOCK_PREFIX: BLOCK_PREFIX,
-      blockId: blockId,
-      setAttributes: setAttributes,
-      select: select,
-      clientId: clientId
-    });
-  }, []); // this useEffect is for mimmiking css when responsive options clicked from wordpress's 'preview' button
-
-  useEffect(function () {
-    Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["mimmikCssForPreviewBtnClick"])({
-      domObj: document,
-      select: select
-    });
-  }, []);
-  var blockProps = useBlockProps({
-    className: "eb-guten-block-main-parent-wrapper"
-  }); //
-  // styling codes starts from here
-  //
-
-  var _generateTypographySt = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateTypographyStyles"])({
-    attributes: attributes,
-    prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_4__["typoPrefix_title"],
-    defaultFontSize: 26
-  }),
-      titleTypoStylesDesktop = _generateTypographySt.typoStylesDesktop,
-      titleTypoStylesTab = _generateTypographySt.typoStylesTab,
-      titleTypoStylesMobile = _generateTypographySt.typoStylesMobile;
-
-  var _generateTypographySt2 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateTypographyStyles"])({
-    attributes: attributes,
-    prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_4__["typoPrefix_subTitle"],
-    defaultFontSize: 22
-  }),
-      subTitleTypoStylesDesktop = _generateTypographySt2.typoStylesDesktop,
-      subTitleTypoStylesTab = _generateTypographySt2.typoStylesTab,
-      subTitleTypoStylesMobile = _generateTypographySt2.typoStylesMobile;
-
-  var _generateTypographySt3 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateTypographyStyles"])({
-    attributes: attributes,
-    prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_4__["typoPrefix_content"],
-    defaultFontSize: 20
-  }),
-      contentTypoStylesDesktop = _generateTypographySt3.typoStylesDesktop,
-      contentTypoStylesTab = _generateTypographySt3.typoStylesTab,
-      contentTypoStylesMobile = _generateTypographySt3.typoStylesMobile;
-
-  var _generateTypographySt4 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateTypographyStyles"])({
-    attributes: attributes,
-    prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_4__["typoPrefix_buttonText"],
-    defaultFontSize: 20
-  }),
-      buttonTypoStylesDesktop = _generateTypographySt4.typoStylesDesktop,
-      buttonTypoStylesTab = _generateTypographySt4.typoStylesTab,
-      buttonTypoStylesMobile = _generateTypographySt4.typoStylesMobile;
-
-  var _generateTypographySt5 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateTypographyStyles"])({
-    attributes: attributes,
-    prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_4__["typoPrefix_number"],
-    defaultFontSize: 28
-  }),
-      numTypoStylesDesktop = _generateTypographySt5.typoStylesDesktop,
-      numTypoStylesTab = _generateTypographySt5.typoStylesTab,
-      numTypoStylesMobile = _generateTypographySt5.typoStylesMobile;
-
-  var _generateDimensionsCo = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateDimensionsControlStyles"])({
-    attributes: attributes,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_5__["mediaBackground"],
-    styleFor: "padding"
-  }),
-      mediaBgPaddingDesktop = _generateDimensionsCo.dimensionStylesDesktop,
-      mediaBgPaddingTab = _generateDimensionsCo.dimensionStylesTab,
-      mediaBgPaddingMobile = _generateDimensionsCo.dimensionStylesMobile;
-
-  var _generateDimensionsCo2 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateDimensionsControlStyles"])({
-    attributes: attributes,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_5__["mediaBgRadius"],
-    styleFor: "border-radius"
-  }),
-      mediaRadiusStylesDesktop = _generateDimensionsCo2.dimensionStylesDesktop,
-      mediaRadiusStylesTab = _generateDimensionsCo2.dimensionStylesTab,
-      mediaRadiusStylesMobile = _generateDimensionsCo2.dimensionStylesMobile;
-
-  var _generateDimensionsCo3 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateDimensionsControlStyles"])({
-    attributes: attributes,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_5__["mediaBgMargin"],
-    styleFor: "margin"
-  }),
-      mediaBgMarginStylesDesktop = _generateDimensionsCo3.dimensionStylesDesktop,
-      mediaBgMarginStylesTab = _generateDimensionsCo3.dimensionStylesTab,
-      mediaBgMarginStylesMobile = _generateDimensionsCo3.dimensionStylesMobile;
-
-  var _generateDimensionsCo4 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateDimensionsControlStyles"])({
-    attributes: attributes,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_5__["buttonPadding"],
-    styleFor: "padding"
-  }),
-      buttonPaddingStylesDesktop = _generateDimensionsCo4.dimensionStylesDesktop,
-      buttonPaddingStylesTab = _generateDimensionsCo4.dimensionStylesTab,
-      buttonPaddingStylesMobile = _generateDimensionsCo4.dimensionStylesMobile;
-
-  var _generateDimensionsCo5 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateDimensionsControlStyles"])({
-    attributes: attributes,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_5__["buttonRadius"],
-    styleFor: "border-radius"
-  }),
-      buttonRadiusStylesDesktop = _generateDimensionsCo5.dimensionStylesDesktop,
-      buttonRadiusStylesTab = _generateDimensionsCo5.dimensionStylesTab,
-      buttonRadiusStylesMobile = _generateDimensionsCo5.dimensionStylesMobile;
-
-  var _generateDimensionsCo6 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateDimensionsControlStyles"])({
-    attributes: attributes,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_5__["titlePadding"],
-    styleFor: "padding"
-  }),
-      titlePaddingStylesDesktop = _generateDimensionsCo6.dimensionStylesDesktop,
-      titlePaddingStylesTab = _generateDimensionsCo6.dimensionStylesTab,
-      titlePaddingStylesMobile = _generateDimensionsCo6.dimensionStylesMobile;
-
-  var _generateDimensionsCo7 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateDimensionsControlStyles"])({
-    attributes: attributes,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_5__["subTitlePadding"],
-    styleFor: "padding"
-  }),
-      subTitlePaddingStylesDesktop = _generateDimensionsCo7.dimensionStylesDesktop,
-      subTitlePaddingStylesTab = _generateDimensionsCo7.dimensionStylesTab,
-      subTitlePaddingStylesMobile = _generateDimensionsCo7.dimensionStylesMobile;
-
-  var _generateDimensionsCo8 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateDimensionsControlStyles"])({
-    attributes: attributes,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_5__["contentPadding"],
-    styleFor: "padding"
-  }),
-      contentPaddingStylesDesktop = _generateDimensionsCo8.dimensionStylesDesktop,
-      contentPaddingStylesTab = _generateDimensionsCo8.dimensionStylesTab,
-      contentPaddingStylesMobile = _generateDimensionsCo8.dimensionStylesMobile;
-
-  var _generateDimensionsCo9 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateDimensionsControlStyles"])({
-    attributes: attributes,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_5__["wrapperPadding"],
-    styleFor: "padding"
-  }),
-      wrapperPaddingStylesDesktop = _generateDimensionsCo9.dimensionStylesDesktop,
-      wrapperPaddingStylesTab = _generateDimensionsCo9.dimensionStylesTab,
-      wrapperPaddingStylesMobile = _generateDimensionsCo9.dimensionStylesMobile;
-
-  var _generateDimensionsCo10 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateDimensionsControlStyles"])({
-    attributes: attributes,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_5__["wrapperMargin"],
-    styleFor: "margin"
-  }),
-      wrapperMarginStylesDesktop = _generateDimensionsCo10.dimensionStylesDesktop,
-      wrapperMarginStylesTab = _generateDimensionsCo10.dimensionStylesTab,
-      wrapperMarginStylesMobile = _generateDimensionsCo10.dimensionStylesMobile;
-
-  var _generateBackgroundCo = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateBackgroundControlStyles"])({
-    attributes: attributes,
-    controlName: _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_6__["infoWrapBg"] // noOverlay: true,
-    // noMainBgi: true,
-    // noOverlayBgi: true, // if 'noOverlay : true' is given then there's no need to give 'noOverlayBgi : true'
-
-  }),
-      backgroundStylesDesktop = _generateBackgroundCo.backgroundStylesDesktop,
-      hoverBackgroundStylesDesktop = _generateBackgroundCo.hoverBackgroundStylesDesktop,
-      backgroundStylesTab = _generateBackgroundCo.backgroundStylesTab,
-      hoverBackgroundStylesTab = _generateBackgroundCo.hoverBackgroundStylesTab,
-      backgroundStylesMobile = _generateBackgroundCo.backgroundStylesMobile,
-      hoverBackgroundStylesMobile = _generateBackgroundCo.hoverBackgroundStylesMobile,
-      overlayStylesDesktop = _generateBackgroundCo.overlayStylesDesktop,
-      hoverOverlayStylesDesktop = _generateBackgroundCo.hoverOverlayStylesDesktop,
-      overlayStylesTab = _generateBackgroundCo.overlayStylesTab,
-      hoverOverlayStylesTab = _generateBackgroundCo.hoverOverlayStylesTab,
-      overlayStylesMobile = _generateBackgroundCo.overlayStylesMobile,
-      hoverOverlayStylesMobile = _generateBackgroundCo.hoverOverlayStylesMobile,
-      bgTransitionStyle = _generateBackgroundCo.bgTransitionStyle,
-      ovlTransitionStyle = _generateBackgroundCo.ovlTransitionStyle;
-
-  var _generateBorderShadow = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateBorderShadowStyles"])({
-    controlName: _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_7__["wrpBdShadow"],
-    attributes: attributes // noShadow: true,
-    // noBorder: true,
-
-  }),
-      bdShadowStyesDesktop = _generateBorderShadow.styesDesktop,
-      bdShadowStyesTab = _generateBorderShadow.styesTab,
-      bdShadowStyesMobile = _generateBorderShadow.styesMobile,
-      bdShadowStylesHoverDesktop = _generateBorderShadow.stylesHoverDesktop,
-      bdShadowStylesHoverTab = _generateBorderShadow.stylesHoverTab,
-      bdShadowStylesHoverMobile = _generateBorderShadow.stylesHoverMobile,
-      bdShadowTransitionStyle = _generateBorderShadow.transitionStyle;
-
-  var _generateResponsiveRa = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateResponsiveRangeStyles"])({
-    controlName: _constants_rangeNames__WEBPACK_IMPORTED_MODULE_8__["mediaIconSize"],
-    customUnit: "px",
-    property: "font-size",
-    attributes: attributes
-  }),
-      iconSizeDesktop = _generateResponsiveRa.rangeStylesDesktop,
-      iconSizeTab = _generateResponsiveRa.rangeStylesTab,
-      iconSizeMobile = _generateResponsiveRa.rangeStylesMobile;
-
-  var _generateResponsiveRa2 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateResponsiveRangeStyles"])({
-    controlName: _constants_rangeNames__WEBPACK_IMPORTED_MODULE_8__["mediaImageHeight"],
-    property: "height",
-    attributes: attributes
-  }),
-      mediaImgHeightDesktop = _generateResponsiveRa2.rangeStylesDesktop,
-      mediaImgHeightTab = _generateResponsiveRa2.rangeStylesTab,
-      mediaImgHeightMobile = _generateResponsiveRa2.rangeStylesMobile;
-
-  var _generateResponsiveRa3 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["generateResponsiveRangeStyles"])({
-    controlName: _constants_rangeNames__WEBPACK_IMPORTED_MODULE_8__["mediaImageWidth"],
-    property: "width",
-    attributes: attributes
-  }),
-      mediaImgWidthDesktop = _generateResponsiveRa3.rangeStylesDesktop,
-      mediaImgWidthTab = _generateResponsiveRa3.rangeStylesTab,
-      mediaImgWidthMobile = _generateResponsiveRa3.rangeStylesMobile;
-
-  var wrapperStylesDesktop = "\n\t\t.eb-infobox-wrapper.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\t\t\t").concat(bdShadowStyesDesktop, "\n\t\t\t").concat(backgroundStylesDesktop, "\n\t\t\toverflow: hidden;\n\t\t\ttransition: ").concat(bgTransitionStyle, ", ").concat(bdShadowTransitionStyle, ";\n\t\t}\n\n\t\t.eb-infobox-wrapper.").concat(blockId, ":hover{\t\n\t\t\t").concat(hoverBackgroundStylesDesktop, "\n\t\t\t").concat(bdShadowStylesHoverDesktop, "\n\t\t}\n\t\t\n\t\t.eb-infobox-wrapper.").concat(blockId, ":before{\n\t\t\t").concat(overlayStylesDesktop, "\n\t\t\ttransition: ").concat(ovlTransitionStyle, ";\n\t\t}\n\n\t\t.eb-infobox-wrapper.").concat(blockId, ":hover:before{\t\n\t\t\t").concat(hoverOverlayStylesDesktop, "\n\t\t}\n\n\t");
-  var wrapperStylesTab = "\n\t\t.eb-infobox-wrapper.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesTab, "\n\t\t\t").concat(wrapperPaddingStylesTab, "\n\t\t\t").concat(backgroundStylesTab, "\n\t\t\t").concat(bdShadowStyesTab, "\n\t\t}\n\n\t\t.eb-infobox-wrapper.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(hoverBackgroundStylesTab, "\n\t\t\t").concat(bdShadowStylesHoverTab, "\n\t\t}\n\n\t\t\n\t\t.eb-infobox-wrapper.").concat(blockId, ":before{\n\t\t\t").concat(overlayStylesTab, "\n\t\t}\n\n\t\t.eb-infobox-wrapper.").concat(blockId, ":hover:before{\t\n\t\t\t").concat(hoverOverlayStylesTab, "\n\t\t}\n\t");
-  var wrapperStylesMobile = "\n\t\t.eb-infobox-wrapper.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesMobile, "\n\t\t\t").concat(wrapperPaddingStylesMobile, "\t\t\t\n\t\t\t").concat(backgroundStylesMobile, "\n\t\t\t").concat(bdShadowStyesMobile, "\n\t\t}\n\n\t\t.eb-infobox-wrapper.").concat(blockId, ":hover{\n\t\t\t").concat(hoverBackgroundStylesMobile, "\n\t\t\t").concat(bdShadowStylesHoverMobile, "\n\t\t}\n\n\t\t.eb-infobox-wrapper.").concat(blockId, ":before{\n\t\t\t").concat(overlayStylesMobile, "\n\t\t}\n\n\t\t\n\t\t.eb-infobox-wrapper.").concat(blockId, ":hover:before{\t\n\t\t\t").concat(hoverOverlayStylesMobile, "\n\t\t}\n\t");
-  var wrapperInnerStylesDesktop = "\t\n\t\t.eb-infobox-wrapper.".concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\tposition: relative;\n\t\t\t").concat(flexDirection ? "flex-direction: ".concat(flexDirection, ";") : " ", " \n\t\t}\n\t");
-  var mediaStylesDesktop = "\n\t".concat(media !== "none" ? "\n\t\t\t.eb-infobox-wrapper.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t").concat(mediaAlignment ? "align-self: ".concat(mediaAlignment, ";") : "align-self: ".concat(mediaAlignSelf || "center", ";"), "\n\n\t\t\t\t").concat(mediaBgMarginStylesDesktop, "\n\n\t\t\t\t").concat(flexDirection === "row" ? "margin-right: ".concat(mediaWrapperMargin, "px;") : flexDirection === "row-reverse" ? "margin-left: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column" ? "margin-bottom: ".concat(mediaWrapperMargin, "px;") : flexDirection === "column-reverse" ? "margin-top: ".concat(mediaWrapperMargin, "px;") : " ", "\n\n\t\t\t\toverflow: hidden;\n\t\t\t}\n\n\n\t\t\t").concat(media === "image" ? "\n\n\t\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .infobox-wrapper-inner .icon-img-wrapper{\n\t\t\t\t\t\tmax-width: 100%;\n\t\t\t\t\t\t").concat(mediaImgWidthUnit === "%" ? mediaImgWidthDesktop : " ", "\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\t\tmax-width: 100%;\n\t\t\t\t\t\tobject-fit: cover;\n\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\t").concat(imageUrl ? mediaRadiusStylesDesktop : " ", "\n\t\t\t\t\t\t\n\t\t\t\t\t\t").concat(mediaImgWidthUnit === "%" ? "width: 100%;" : mediaImgWidthDesktop, "\n\t\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : mediaImgHeightDesktop, "\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\n\t\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\t\toverflow: hidden;\n\t\t\t\t\t\tdisplay:flex;\n\t\t\t\t\t\t").concat(imageUrl ? " " : mediaRadiusStylesDesktop, "\n\t\t\t\t\t}\n\t\t\t\t\t") : " ", "\n\n\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\n\t\t\t\t\t\t").concat(mediaBgPaddingDesktop, "\n\t\t\t\t\t\t").concat(mediaRadiusStylesDesktop, "\n\t\t\n\t\t\t\t\t\t").concat(useNumIconBg ? "".concat(numIconBgType === "fill" ? "background-color: ".concat(numIconBgColor, ";") : numIconBgType === "gradient" ? "background-image: ".concat(numIconBgGradient, ";") : " ") : " ", "\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\t\t\n\t\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .number-or-icon > span{\n\t\t\t\t\t\tcolor: ").concat(numIconColor || "#fff", ";\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\t\t\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t").concat(numTypoStylesDesktop, "\n\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t").concat(media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\t").concat(iconSizeDesktop, "\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\n\t\t\t\t\t") : " ", "\n\n\n\t\t") : " ", "\n\n\t");
-  var mediaStylesTab = "\n\t".concat(media !== "none" ? "\n\n\t\t\t.eb-infobox-wrapper.".concat(blockId, " .icon-img-wrapper {\n\n\t\t\t\t").concat(mediaBgMarginStylesTab, "\t\t\t\t\n\t\t\t}\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\t\t\t\n\t\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\t").concat(mediaRadiusStylesTab, "\n\t\t\t\t\t\t").concat(mediaBgPaddingTab, "\t\t\t\t\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t\t").concat(numTypoStylesTab, "\n\t\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t").concat(media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\t").concat(iconSizeTab, "\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t").concat(media === "image" ? "\n\t\t\t\t\t\t\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .infobox-wrapper-inner .icon-img-wrapper{\n\t\t\t\t\t").concat(TABmediaImgWidthUnit === "%" ? mediaImgWidthTab : mediaImgWidthUnit === "%" ? "width: auto;" : " ", "\n\t\t\t\t}\n\n\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\t\n\t\t\t\t\t").concat(TABmediaImgWidthUnit === "%" ? mediaImgWidthUnit === "%" ? " " : "width: 100%;" : mediaImgWidthTab, "\n\t\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : mediaImgHeightTab, "\n\t\t\t\t\t\n\t\t\t\t}\n\n\t\t\t\t\n\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\t").concat(mediaRadiusStylesTab, "\n\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\n\n\t\t") : " ", "\n\t\n\t");
-  var mediaStylesMobile = "\n\t".concat(media !== "none" ? "\n\n\t\t\t.eb-infobox-wrapper.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t\n\t\t\t\t").concat(mediaBgMarginStylesMobile, "\n\t\t\t}\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\n\t\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\t").concat(mediaRadiusStylesMobile, "\n\t\t\t\t\t\t").concat(mediaBgPaddingMobile, "\t\t\t\t\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t").concat(numTypoStylesMobile, "\n\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t").concat(media === "icon" ? "\n\n\t\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\t").concat(iconSizeMobile, "\n\t\t\t\t\t}\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t\n\t\t\t").concat(media === "image" ? "\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .infobox-wrapper-inner .icon-img-wrapper{\n\t\t\t\t\t").concat(MOBmediaImgWidthUnit === "%" ? mediaImgWidthMobile : TABmediaImgWidthUnit === "%" ? "width: auto;" : " ", "\n\t\t\t\t}\n\n\t\t\t\t\n\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\t\n\t\t\t\t\t").concat(MOBmediaImgWidthUnit === "%" ? TABmediaImgWidthUnit === "%" ? " " : "width: 100%;" : mediaImgWidthMobile, "\n\t\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : mediaImgHeightMobile, "\n\n\t\t\t\t}\n\n\t\t\t\t\n\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\t").concat(mediaRadiusStylesMobile, "\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\n\t\t") : " ", "\n\t\t\n\t\n\t");
-  var contentStylesDesktop = "\n\t\t.eb-infobox-wrapper.".concat(blockId, " .contents-wrapper {\n\t\t\tflex: 1;\n\t\t\t").concat(contentAlignment ? "text-align: ".concat(contentAlignment, ";") : " ", " \n\n\t\t\t").concat(contentsAlignment ? "text-align: ".concat(contentsAlignment, ";") : "text-align: ".concat(contentAlignment, ";"), "\n\t\t}\n\n\t\t.eb-infobox-wrapper.").concat(blockId, " .title {\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\t\t\t").concat(titleTypoStylesDesktop, "\n\t\t\t").concat(titlePaddingStylesDesktop, "\n\t\t\t").concat(titleColor ? "color: ".concat(titleColor, ";") : " ", "\n\t\t}\n\n\t\t").concat(enableSubTitle ? "\t\t\t\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .subtitle {\n\t\t\t\t\tmargin: 0;\n\t\t\t\t\tpadding: 10px 0;\n\t\t\t\t\t").concat(subTitleTypoStylesDesktop, "\n\t\t\t\t\t").concat(subTitlePaddingStylesDesktop, "\n\t\t\t\t\t").concat(subTitleColor ? "color: ".concat(subTitleColor, ";") : " ", "\n\t\t\t\t}\t\t\t\n\t\t\t\t") : " ", "\n\t\t\n\t\t").concat(enableDescription ? "\n\t\t\t\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .description {\n\t\t\t\t\tmargin: 0;\n\t\t\t\t\tpadding: 10px 0;\n\t\t\t\t\t").concat(contentTypoStylesDesktop, "\n\t\t\t\t\t").concat(contentPaddingStylesDesktop, "\n\t\t\t\t\t").concat(descriptionColor ? "color: ".concat(descriptionColor, ";") : " ", "\n\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\n\t\t").concat(enableButton ? "\n\t\t\t\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " a{\n\t\t\t\t\ttext-decoration:none;\n\t\t\t\t}\n\n\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .contents-wrapper .infobox-btn{\n\t\t\t\t\t").concat(buttonTypoStylesDesktop, "\n\t\t\t\t\t").concat(buttonPaddingStylesDesktop, "\n\t\t\t\t\t").concat(buttonRadiusStylesDesktop, "\n\t\t\t\t\t\n\t\t\t\t\t").concat(buttonBgColor ? "background-color: ".concat(buttonBgColor, ";") : " ", "\n\t\t\t\t\t").concat(buttonTextColor ? "color: ".concat(buttonTextColor, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\t");
-  var contentStylesTab = "\n\t\t.eb-infobox-wrapper.".concat(blockId, " .title {\n\t\t\t").concat(titleTypoStylesTab, "\n\t\t\t").concat(titlePaddingStylesTab, "\n\n\t\t}\n\t\t\n\t\t").concat(enableSubTitle ? "\t\t\t\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .subtitle {\n\t\t\t\t\t").concat(subTitleTypoStylesTab, "\n\t\t\t\t\t").concat(subTitlePaddingStylesTab, "\n\t\t\n\t\t\t\t}\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t").concat(enableDescription ? "\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .description {\n\t\t\t\t\t").concat(contentTypoStylesTab, "\n\t\t\t\t\t").concat(contentPaddingStylesTab, "\n\t\t\n\t\t\t\t}\t\t\t\t\n\t\t\t\t") : " ", "\n\t\t\n\t\t").concat(enableButton ? "\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .contents-wrapper .infobox-btn{\n\t\t\t\t\t").concat(buttonTypoStylesTab, "\n\t\t\t\t\t").concat(buttonPaddingStylesTab, "\n\t\t\t\t\t").concat(buttonRadiusStylesTab, "\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\t\n\t");
-  var contentStylesMobile = "\n\t\t.eb-infobox-wrapper.".concat(blockId, " .title {\n\t\t\t").concat(titleTypoStylesMobile, "\n\t\t\t").concat(titlePaddingStylesMobile, "\n\n\t\t}\n\t\t\n\t\t").concat(enableSubTitle ? "\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .subtitle {\n\t\t\t\t\t").concat(subTitleTypoStylesMobile, "\n\t\t\t\t\t").concat(subTitlePaddingStylesMobile, "\n\t\t\n\t\t\t\t}\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t").concat(enableDescription ? "\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .description {\n\t\t\t\t\t").concat(contentTypoStylesMobile, "\n\t\t\t\t\t").concat(contentPaddingStylesMobile, "\n\t\t\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\t\t\n\t\t").concat(enableButton ? "\n\t\t\t\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .contents-wrapper .infobox-btn{\n\t\t\t\t\t").concat(buttonTypoStylesMobile, "\n\t\t\t\t\t").concat(buttonPaddingStylesMobile, "\n\t\t\t\t\t").concat(buttonRadiusStylesMobile, "\n\t\t\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\t\t\n\t\t\n\n\t"); // all css styles for large screen width (desktop/laptop) in strings ⬇
-
-  var desktopAllStyles = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["softMinifyCssStrings"])("\t\t\n\t\t".concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["isCssExists"])(wrapperStylesDesktop) ? wrapperStylesDesktop : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["isCssExists"])(wrapperInnerStylesDesktop) ? wrapperInnerStylesDesktop : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["isCssExists"])(mediaStylesDesktop) ? mediaStylesDesktop : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["isCssExists"])(contentStylesDesktop) ? contentStylesDesktop : " ", "\t\n\t")); // all css styles for Tab in strings ⬇
-
-  var tabAllStyles = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["softMinifyCssStrings"])("\n\t\t".concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["isCssExists"])(wrapperStylesTab) ? wrapperStylesTab : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["isCssExists"])(mediaStylesTab) ? mediaStylesTab : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["isCssExists"])(contentStylesTab) ? contentStylesTab : " ", "\n\t\t\n\t\t\n\t")); // all css styles for Mobile in strings ⬇
-
-  var mobileAllStyles = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["softMinifyCssStrings"])("\n\t\t".concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["isCssExists"])(wrapperStylesMobile) ? wrapperStylesMobile : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["isCssExists"])(mediaStylesMobile) ? mediaStylesMobile : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["isCssExists"])(contentStylesMobile) ? contentStylesMobile : " ", "\n\t\n\t")); // Set All Style in "blockMeta" Attribute
-
-  useEffect(function () {
-    var styleObject = {
-      desktop: desktopAllStyles,
-      tab: tabAllStyles,
-      mobile: mobileAllStyles
-    };
-
-    if (JSON.stringify(blockMeta) != JSON.stringify(styleObject)) {
-      setAttributes({
-        blockMeta: styleObject
-      });
-    }
-  }, [attributes]);
-  return [isSelected && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_inspector__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    attributes: attributes,
-    setAttributes: setAttributes
-  }), // Edit view
-  Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", blockProps, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("style", null, "\n\t\t\t\t".concat(desktopAllStyles, "\n\n\t\t\t\t/* mimmikcssStart */\n\n\t\t\t\t").concat(resOption === "Tablet" ? tabAllStyles : " ", "\n\t\t\t\t").concat(resOption === "Mobile" ? tabAllStyles + mobileAllStyles : " ", "\n\n\t\t\t\t/* mimmikcssEnd */\n\n\t\t\t\t@media all and (max-width: 1024px) {\t\n\n\t\t\t\t\t/* tabcssStart */\t\t\t\n\t\t\t\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["softMinifyCssStrings"])(tabAllStyles), "\n\t\t\t\t\t/* tabcssEnd */\t\t\t\n\t\t\t\t\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t@media all and (max-width: 767px) {\n\t\t\t\t\t\n\t\t\t\t\t/* mobcssStart */\t\t\t\n\t\t\t\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["softMinifyCssStrings"])(mobileAllStyles), "\n\t\t\t\t\t/* mobcssEnd */\t\t\t\n\t\t\t\t\n\t\t\t\t}\n\t\t\t\t")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+      titleTag = attributes.titleTag,
+      title = attributes.title,
+      enableSubTitle = attributes.enableSubTitle,
+      subTitleTag = attributes.subTitleTag,
+      subTitle = attributes.subTitle,
+      enableDescription = attributes.enableDescription,
+      description = attributes.description,
+      enableButton = attributes.enableButton,
+      isInfoClick = attributes.isInfoClick,
+      infoboxLink = attributes.infoboxLink,
+      buttonText = attributes.buttonText,
+      btnEffect = attributes.btnEffect;
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "".concat(blockId, " eb-infobox-wrapper")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "infobox-wrapper-inner"
@@ -4906,13 +4283,1119 @@ var Edit = function Edit(_ref) {
         description: description
       });
     }
-  }) : null, enableButton ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }) : null, enableButton && !isInfoClick ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "eb-infobox-btn-wrapper"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("a", {
     href: infoboxLink // style={{ pointerEvents: "none" }}
     ,
-    className: "infobox-btn"
-  }, buttonText)) : null))))];
+    className: "infobox-btn ".concat(btnEffect || " ")
+  }, buttonText)) : null)));
+}
+
+/***/ }),
+
+/***/ "./src/components/infobox-save.js":
+/*!****************************************!*\
+  !*** ./src/components/infobox-save.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return InfoboxContainer; });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+var RichText = wp.blockEditor.RichText;
+function InfoboxContainer(_ref) {
+  var requiredProps = _ref.requiredProps;
+  var blockId = requiredProps.blockId,
+      selectedIcon = requiredProps.selectedIcon,
+      media = requiredProps.media,
+      number = requiredProps.number,
+      imageUrl = requiredProps.imageUrl,
+      infoboxLink = requiredProps.infoboxLink,
+      enableSubTitle = requiredProps.enableSubTitle,
+      enableDescription = requiredProps.enableDescription,
+      enableButton = requiredProps.enableButton,
+      isInfoClick = requiredProps.isInfoClick,
+      buttonText = requiredProps.buttonText,
+      title = requiredProps.title,
+      subTitle = requiredProps.subTitle,
+      description = requiredProps.description,
+      titleTag = requiredProps.titleTag,
+      subTitleTag = requiredProps.subTitleTag,
+      btnEffect = requiredProps.btnEffect;
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "".concat(blockId, " eb-infobox-wrapper")
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "infobox-wrapper-inner"
+  }, media === "icon" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "icon-img-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "eb-icon number-or-icon"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
+    "data-icon": selectedIcon,
+    className: "eb-infobox-icon-data-selector  ".concat(selectedIcon)
+  }))) : null, media === "number" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "icon-img-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "eb-infobox-num-wrapper number-or-icon"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
+    className: "eb-infobox-number"
+  }, number))) : null, media === "image" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "icon-img-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "eb-infobox-image-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("img", {
+    className: "eb-infobox-image",
+    src: imageUrl,
+    alt: "macbook"
+  }))) : null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "contents-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RichText.Content, {
+    tagName: titleTag,
+    className: "title",
+    value: title
+  }), enableSubTitle ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RichText.Content, {
+    tagName: subTitleTag,
+    className: "subtitle",
+    value: subTitle
+  }) : null, enableDescription ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RichText.Content, {
+    tagName: "p",
+    className: "description",
+    value: description
+  }) : null, enableButton && !isInfoClick ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "eb-infobox-btn-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("a", {
+    href: infoboxLink,
+    className: "infobox-btn  ".concat(btnEffect || " ")
+  }, buttonText)) : null)));
+}
+
+/***/ }),
+
+/***/ "./src/constants/backgroundsConstants.js":
+/*!***********************************************!*\
+  !*** ./src/constants/backgroundsConstants.js ***!
+  \***********************************************/
+/*! exports provided: infoWrapBg, infoBtnBg */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "infoWrapBg", function() { return infoWrapBg; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "infoBtnBg", function() { return infoBtnBg; });
+// each and every const here has to be totally unique from one another
+var infoWrapBg = "wrp_";
+var infoBtnBg = "btbg_";
+
+/***/ }),
+
+/***/ "./src/constants/borderShadowConstants.js":
+/*!************************************************!*\
+  !*** ./src/constants/borderShadowConstants.js ***!
+  \************************************************/
+/*! exports provided: wrpBdShadow, btnBdShd */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrpBdShadow", function() { return wrpBdShadow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "btnBdShd", function() { return btnBdShd; });
+var wrpBdShadow = "wrp_";
+var btnBdShd = "btbds_";
+
+/***/ }),
+
+/***/ "./src/constants/dimensionsConstants.js":
+/*!**********************************************!*\
+  !*** ./src/constants/dimensionsConstants.js ***!
+  \**********************************************/
+/*! exports provided: mediaBackground, mediaBgRadius, mediaBgMargin, buttonPadding, buttonRadius, titlePadding, subTitlePadding, contentPadding, wrapperMargin, wrapperPadding */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mediaBackground", function() { return mediaBackground; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mediaBgRadius", function() { return mediaBgRadius; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mediaBgMargin", function() { return mediaBgMargin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buttonPadding", function() { return buttonPadding; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buttonRadius", function() { return buttonRadius; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "titlePadding", function() { return titlePadding; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "subTitlePadding", function() { return subTitlePadding; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "contentPadding", function() { return contentPadding; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrapperMargin", function() { return wrapperMargin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrapperPadding", function() { return wrapperPadding; });
+// each and every const here has to be totally unique from one another
+var mediaBackground = "mediaBgSize";
+var mediaBgRadius = "mediaBgRadius";
+var mediaBgMargin = "mediaBgMargin";
+var buttonPadding = "buttonPadding"; // export const buttonRadius = "buttonRadius";
+// 
+
+var buttonRadius = "buttonRadius"; // 
+
+var titlePadding = "titlePadding";
+var subTitlePadding = "subTitlePadding";
+var contentPadding = "contentPadding";
+var wrapperMargin = "wrapperMargin";
+var wrapperPadding = "wrapperPadding"; // export const wrp_border = "WRPborder";
+// export const wrp_radius = "WRPradius";
+
+/***/ }),
+
+/***/ "./src/constants/index.js":
+/*!********************************!*\
+  !*** ./src/constants/index.js ***!
+  \********************************/
+/*! exports provided: LAYOUT_TYPES, MEDIA_TYPES, CONTENTS_ALIGNMENTS, MEDIA_ALIGNMENTS_ON_FLEX_COLUMN, MEDIA_ALIGNMENTS_ON_FLEX_ROW, ICON_IMAGE_BG_TYPES, sizeUnitTypes, imgHeightUnits, HEADER_TAGS, BACKGROUND_TYPES, BACKGROUND_SIZES, BORDER_STYLES, SHADOW_HOVER_OPTIONS, LETTER_SPACING_LINE_HEIGHT_UNITS, HOVER_EFFECT */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LAYOUT_TYPES", function() { return LAYOUT_TYPES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MEDIA_TYPES", function() { return MEDIA_TYPES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CONTENTS_ALIGNMENTS", function() { return CONTENTS_ALIGNMENTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MEDIA_ALIGNMENTS_ON_FLEX_COLUMN", function() { return MEDIA_ALIGNMENTS_ON_FLEX_COLUMN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MEDIA_ALIGNMENTS_ON_FLEX_ROW", function() { return MEDIA_ALIGNMENTS_ON_FLEX_ROW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ICON_IMAGE_BG_TYPES", function() { return ICON_IMAGE_BG_TYPES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sizeUnitTypes", function() { return sizeUnitTypes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "imgHeightUnits", function() { return imgHeightUnits; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HEADER_TAGS", function() { return HEADER_TAGS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BACKGROUND_TYPES", function() { return BACKGROUND_TYPES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BACKGROUND_SIZES", function() { return BACKGROUND_SIZES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BORDER_STYLES", function() { return BORDER_STYLES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHADOW_HOVER_OPTIONS", function() { return SHADOW_HOVER_OPTIONS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LETTER_SPACING_LINE_HEIGHT_UNITS", function() { return LETTER_SPACING_LINE_HEIGHT_UNITS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HOVER_EFFECT", function() { return HOVER_EFFECT; });
+var __ = wp.i18n.__;
+var LAYOUT_TYPES = [{
+  label: __("Preset 1"),
+  value: "preset1"
+}, {
+  label: __("Preset 2"),
+  value: "preset2"
+}, {
+  label: __("Preset 3"),
+  value: "preset3"
+}, {
+  label: __("Preset 4"),
+  value: "preset4"
+}];
+var MEDIA_TYPES = ["image", "icon", "number", "none"];
+var CONTENTS_ALIGNMENTS = [{
+  label: __("Left"),
+  value: "left"
+}, {
+  label: __("Center"),
+  value: "center"
+}, {
+  label: __("Right"),
+  value: "right"
+}];
+var MEDIA_ALIGNMENTS_ON_FLEX_COLUMN = [{
+  label: __("Left"),
+  value: "flex-start"
+}, {
+  label: __("Center"),
+  value: "center"
+}, {
+  label: __("Right"),
+  value: "flex-end"
+}];
+var MEDIA_ALIGNMENTS_ON_FLEX_ROW = [{
+  label: __("Top"),
+  value: "flex-start"
+}, {
+  label: __("Middle"),
+  value: "center"
+}, {
+  label: __("Bottom"),
+  value: "flex-end"
+}];
+var ICON_IMAGE_BG_TYPES = [{
+  label: "Fill",
+  value: "fill"
+}, {
+  label: "Gradient",
+  value: "gradient"
+}];
+var sizeUnitTypes = [{
+  label: "px",
+  value: "px"
+}, {
+  label: "%",
+  value: "%"
+}, {
+  label: "em",
+  value: "em"
+}];
+var imgHeightUnits = [{
+  label: "px",
+  value: "px"
+}, {
+  label: "em",
+  value: "em"
+}, {
+  label: "vh",
+  value: "vh"
+}];
+var HEADER_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"];
+var BACKGROUND_TYPES = [{
+  label: __("Fill"),
+  value: "fill"
+}, {
+  label: __("Gradient"),
+  value: "gradient"
+}, {
+  label: __("Image"),
+  value: "image"
+}];
+var BACKGROUND_SIZES = [{
+  label: __("Auto"),
+  value: "auto"
+}, {
+  label: __("Cover"),
+  value: "cover"
+}, {
+  label: __("Contain"),
+  value: "contain"
+}];
+var BORDER_STYLES = [{
+  label: __("None"),
+  value: "none"
+}, {
+  label: __("Dashed"),
+  value: "dashed"
+}, {
+  label: __("Solid"),
+  value: "solid"
+}, {
+  label: __("Dotted"),
+  value: "dotted"
+}, {
+  label: __("Double"),
+  value: "double"
+}, {
+  label: __("Groove"),
+  value: "groove"
+}, {
+  label: __("Inset"),
+  value: "inset"
+}, {
+  label: __("Outset"),
+  value: "outset"
+}, {
+  label: __("Ridge"),
+  value: "ridge"
+}];
+var SHADOW_HOVER_OPTIONS = [{
+  label: "Normal",
+  value: "normal"
+}, {
+  label: "Hover",
+  value: "hover"
+}];
+var LETTER_SPACING_LINE_HEIGHT_UNITS = [{
+  label: "px",
+  value: "px"
+}, {
+  label: "em",
+  value: "em"
+}];
+var HOVER_EFFECT = [{
+  label: __("Select Hover Effect", "essential-blocks"),
+  value: ""
+}, {
+  label: __("Grow", "essential-blocks"),
+  value: "hvr-grow"
+}, {
+  label: __("Shrink", "essential-blocks"),
+  value: "hvr-shrink"
+}, {
+  label: __("Pulse", "essential-blocks"),
+  value: "hvr-pulse"
+}, {
+  label: __("Pulse Grow", "essential-blocks"),
+  value: "hvr-pulse-grow"
+}, {
+  label: __("Pulse Shrink", "essential-blocks"),
+  value: "hvr-pulse-shrink"
+}, {
+  label: __("Push", "essential-blocks"),
+  value: "hvr-push"
+}, {
+  label: __("Pop", "essential-blocks"),
+  value: "hvr-pop"
+}, {
+  label: __("Bounce In", "essential-blocks"),
+  value: "hvr-bounce-in"
+}, {
+  label: __("Bounce Out", "essential-blocks"),
+  value: "hvr-bounce-out"
+}, {
+  label: __("Rotate", "essential-blocks"),
+  value: "hvr-rotate"
+}, {
+  label: __("Grow Rotate", "essential-blocks"),
+  value: "hvr-grow-rotate"
+}, {
+  label: __("Float", "essential-blocks"),
+  value: "hvr-float"
+}, {
+  label: __("Sink", "essential-blocks"),
+  value: "hvr-sink"
+}, {
+  label: __("Bob", "essential-blocks"),
+  value: "hvr-bob"
+}, {
+  label: __("Hang", "essential-blocks"),
+  value: "hvr-hang"
+}, {
+  label: __("Skew", "essential-blocks"),
+  value: "hvr-skew"
+}, {
+  label: __("Skew Forward", "essential-blocks"),
+  value: "hvr-skew-forward"
+}, {
+  label: __("Skew Backward", "essential-blocks"),
+  value: "hvr-skew-backward"
+}, {
+  label: __("Wobble Horizontal", "essential-blocks"),
+  value: "hvr-wobble-horizontal"
+}, {
+  label: __("Wobble Vertical", "essential-blocks"),
+  value: "hvr-wobble-vertical"
+}, {
+  label: __("Wobble To Bottom Right", "essential-blocks"),
+  value: "hvr-wobble-to-bottom-right"
+}, {
+  label: __("Wobble To Top Right", "essential-blocks"),
+  value: "hvr-wobble-to-top-right"
+}, {
+  label: __("Wobble Top", "essential-blocks"),
+  value: "hvr-wobble-top"
+}, {
+  label: __("Wobble Bottom", "essential-blocks"),
+  value: "hvr-wobble-bottom"
+}, {
+  label: __("Wobble Skew", "essential-blocks"),
+  value: "hvr-wobble-skew"
+}, {
+  label: __("Buzz", "essential-blocks"),
+  value: "hvr-buzz"
+}, {
+  label: __("Buzz Out", "essential-blocks"),
+  value: "hvr-buzz-out"
+}, {
+  label: __("Forward", "essential-blocks"),
+  value: "hvr-forward"
+}, {
+  label: __("Fade", "essential-blocks"),
+  value: "hvr-fade"
+}, {
+  label: __("Back Pulse", "essential-blocks"),
+  value: "hvr-back-pulse"
+}, {
+  label: __("Sweep To Right", "essential-blocks"),
+  value: "hvr-sweep-to-right"
+}, {
+  label: __("Sweep To Left", "essential-blocks"),
+  value: "hvr-sweep-to-left"
+}, {
+  label: __("Sweep To Bottom", "essential-blocks"),
+  value: "hvr-sweep-to-bottom"
+}, {
+  label: __("Sweep To Top", "essential-blocks"),
+  value: "hvr-sweep-to-top"
+}, {
+  label: __("Bounce To Right", "essential-blocks"),
+  value: "hvr-bounce-to-right"
+}, {
+  label: __("Bounce To Left", "essential-blocks"),
+  value: "hvr-bounce-to-left"
+}, {
+  label: __("Bounce To Bottom", "essential-blocks"),
+  value: "hvr-bounce-to-bottom"
+}, {
+  label: __("Bounce To Top", "essential-blocks"),
+  value: "hvr-bounce-to-top"
+}, {
+  label: __("Radial Out", "essential-blocks"),
+  value: "hvr-radial-out"
+}, {
+  label: __("Radial In", "essential-blocks"),
+  value: "hvr-radial-in"
+}, {
+  label: __("Rectangle In", "essential-blocks"),
+  value: "hvr-rectangle-in"
+}, {
+  label: __("Rectangle Out", "essential-blocks"),
+  value: "hvr-rectangle-out"
+}, {
+  label: __("Shutter In Horizontal", "essential-blocks"),
+  value: "hvr-shutter-in-horizontal"
+}, {
+  label: __("Shutter Out Horizontal", "essential-blocks"),
+  value: "hvr-shutter-out-horizontal"
+}, {
+  label: __("Shutter In Vertical", "essential-blocks"),
+  value: "hvr-shutter-in-vertical"
+}, {
+  label: __("Shutter Out Vertical", "essential-blocks"),
+  value: "hvr-shutter-out-vertical"
+}, {
+  label: __("Curl Top Left", "essential-blocks"),
+  value: "hvr-curl-top-left"
+}, {
+  label: __("Curl Top Right", "essential-blocks"),
+  value: "hvr-curl-top-right"
+}, {
+  label: __("Curl Bottom Right", "essential-blocks"),
+  value: "hvr-curl-bottom-right"
+}, {
+  label: __("Curl Bottom Left", "essential-blocks"),
+  value: "hvr-curl-bottom-left"
+}];
+
+/***/ }),
+
+/***/ "./src/constants/rangeNames.js":
+/*!*************************************!*\
+  !*** ./src/constants/rangeNames.js ***!
+  \*************************************/
+/*! exports provided: mediaIconSize, mediaImageWidth, mediaImageHeight, mediaContentGap */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mediaIconSize", function() { return mediaIconSize; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mediaImageWidth", function() { return mediaImageWidth; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mediaImageHeight", function() { return mediaImageHeight; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mediaContentGap", function() { return mediaContentGap; });
+var mediaIconSize = "mIconZ";
+var mediaImageWidth = "mImgW";
+var mediaImageHeight = "mImgH";
+var mediaContentGap = "mcSp";
+
+/***/ }),
+
+/***/ "./src/constants/typographyPrefixConstants.js":
+/*!****************************************************!*\
+  !*** ./src/constants/typographyPrefixConstants.js ***!
+  \****************************************************/
+/*! exports provided: typoPrefix_number, typoPrefix_title, typoPrefix_subTitle, typoPrefix_content, typoPrefix_buttonText */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "typoPrefix_number", function() { return typoPrefix_number; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "typoPrefix_title", function() { return typoPrefix_title; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "typoPrefix_subTitle", function() { return typoPrefix_subTitle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "typoPrefix_content", function() { return typoPrefix_content; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "typoPrefix_buttonText", function() { return typoPrefix_buttonText; });
+// each and every const here has to be totally unique from one another
+var typoPrefix_number = "number";
+var typoPrefix_title = "title";
+var typoPrefix_subTitle = "subTitle";
+var typoPrefix_content = "content";
+var typoPrefix_buttonText = "buttonText";
+
+/***/ }),
+
+/***/ "./src/deprecated.js":
+/*!***************************!*\
+  !*** ./src/deprecated.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _attributes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./attributes */ "./src/attributes.js");
+/* harmony import */ var _components_infobox_save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/infobox-save */ "./src/components/infobox-save.js");
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+/**
+ * WordPress dependencies
+ */
+var useBlockProps = wp.blockEditor.useBlockProps;
+var _lodash = lodash,
+    omit = _lodash.omit;
+
+
+var deprecated = [{
+  attributes: omit(_objectSpread(_objectSpread({}, _attributes__WEBPACK_IMPORTED_MODULE_2__["default"]), {}, {
+    mediaWrapperMargin: {
+      type: "number",
+      default: 20
+    },
+    buttonBgColor: {
+      type: "string"
+    },
+    //
+    MOBbuttonRadiusBottom: {
+      type: "string"
+    },
+    MOBbuttonRadiusLeft: {
+      type: "string"
+    },
+    MOBbuttonRadiusRight: {
+      type: "string"
+    },
+    MOBbuttonRadiusTop: {
+      type: "string"
+    },
+    MOBbuttonRadiusUnit: {
+      type: "string",
+      default: "px"
+    },
+    TABbuttonRadiusBottom: {
+      type: "string"
+    },
+    TABbuttonRadiusLeft: {
+      type: "string"
+    },
+    TABbuttonRadiusRight: {
+      type: "string"
+    },
+    TABbuttonRadiusTop: {
+      type: "string"
+    },
+    TABbuttonRadiusUnit: {
+      type: "string",
+      default: "px"
+    },
+    buttonRadiusBottom: {
+      type: "string"
+    },
+    buttonRadiusLeft: {
+      type: "string"
+    },
+    buttonRadiusRight: {
+      type: "string"
+    },
+    buttonRadiusTop: {
+      type: "string"
+    },
+    buttonRadiusUnit: {
+      type: "string",
+      default: "px"
+    },
+    buttonRadiusisLinked: {
+      type: "boolean",
+      default: true
+    }
+  }), ["MOBmcSpRange", "TABmcSpRange", "mcSpRange", //
+  "MOBbtbds_Bdr_Bottom", "MOBbtbds_Bdr_Left", "MOBbtbds_Bdr_Right", "MOBbtbds_Bdr_Top", "MOBbtbds_Bdr_Unit", "MOBbtbds_HBdr_Bottom", "MOBbtbds_HBdr_Left", "MOBbtbds_HBdr_Right", "MOBbtbds_HBdr_Top", "MOBbtbds_HBdr_Unit", "MOBbtbds_HRds_Bottom", "MOBbtbds_HRds_Left", "MOBbtbds_HRds_Right", "MOBbtbds_HRds_Top", "MOBbtbds_HRds_Unit", "MOBbtbds_Rds_Bottom", "MOBbtbds_Rds_Left", "MOBbtbds_Rds_Right", "MOBbtbds_Rds_Top", "MOBbtbds_Rds_Unit", "TABbtbds_Bdr_Bottom", "TABbtbds_Bdr_Left", "TABbtbds_Bdr_Right", "TABbtbds_Bdr_Top", "TABbtbds_Bdr_Unit", "TABbtbds_HBdr_Bottom", "TABbtbds_HBdr_Left", "TABbtbds_HBdr_Right", "TABbtbds_HBdr_Top", "TABbtbds_HBdr_Unit", "TABbtbds_HRds_Bottom", "TABbtbds_HRds_Left", "TABbtbds_HRds_Right", "TABbtbds_HRds_Top", "TABbtbds_HRds_Unit", "TABbtbds_Rds_Bottom", "TABbtbds_Rds_Left", "TABbtbds_Rds_Right", "TABbtbds_Rds_Top", "TABbtbds_Rds_Unit", "btbds_Bdr_Bottom", "btbds_Bdr_Left", "btbds_Bdr_Right", "btbds_Bdr_Top", "btbds_Bdr_Unit", "btbds_Bdr_isLinked", "btbds_BorderType", "btbds_HBdr_Bottom", "btbds_HBdr_Left", "btbds_HBdr_Right", "btbds_HBdr_Top", "btbds_HBdr_Unit", "btbds_HBdr_isLinked", "btbds_HRds_Bottom", "btbds_HRds_Left", "btbds_HRds_Right", "btbds_HRds_Top", "btbds_HRds_Unit", "btbds_HRds_isLinked", "btbds_HborderColor", "btbds_HborderStyle", "btbds_Rds_Bottom", "btbds_Rds_Left", "btbds_Rds_Right", "btbds_Rds_Top", "btbds_Rds_Unit", "btbds_Rds_isLinked", "btbds_blur", "btbds_borderColor", "btbds_borderStyle", "btbds_borderTransition", "btbds_hOffset", "btbds_hoverBlur", "btbds_hoverHOffset", "btbds_hoverInset", "btbds_hoverShadowColor", "btbds_hoverSpread", "btbds_hoverVOffset", "btbds_inset", "btbds_radiusTransition", "btbds_shadowColor", "btbds_shadowTransition", "btbds_shadowType", "btbds_spread", "btbds_vOffset", //
+  "btbg_backgroundColor", "btbg_backgroundType", "btbg_bg_hoverType", "btbg_bg_transition", "btbg_gradientColor", "hov_btbg_backgroundColor", "hov_btbg_backgroundType", "hov_btbg_gradientColor", //
+  "btnEffect"]),
+  save: function save(_ref) {
+    var attributes = _ref.attributes;
+    var blockId = attributes.blockId,
+        selectedIcon = attributes.selectedIcon,
+        _attributes$number = attributes.number,
+        number = _attributes$number === void 0 ? 0 : _attributes$number,
+        media = attributes.media,
+        imageUrl = attributes.imageUrl,
+        enableSubTitle = attributes.enableSubTitle,
+        enableDescription = attributes.enableDescription,
+        infoboxLink = attributes.infoboxLink,
+        enableButton = attributes.enableButton,
+        buttonText = attributes.buttonText,
+        title = attributes.title,
+        subTitle = attributes.subTitle,
+        description = attributes.description,
+        titleTag = attributes.titleTag,
+        subTitleTag = attributes.subTitleTag;
+    var requiredProps = {
+      selectedIcon: selectedIcon,
+      blockId: blockId,
+      number: number,
+      media: media,
+      imageUrl: imageUrl,
+      enableSubTitle: enableSubTitle,
+      enableDescription: enableDescription,
+      infoboxLink: infoboxLink,
+      enableButton: enableButton,
+      buttonText: buttonText,
+      title: title,
+      subTitle: subTitle,
+      description: description,
+      titleTag: titleTag,
+      subTitleTag: subTitleTag
+    };
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", useBlockProps.save(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_components_infobox_save__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      requiredProps: requiredProps
+    }));
+  }
+}, {
+  attributes: omit(_objectSpread({}, _attributes__WEBPACK_IMPORTED_MODULE_2__["default"]), ["isInfoClick"]),
+  save: function save(_ref2) {
+    var attributes = _ref2.attributes;
+    var blockId = attributes.blockId,
+        selectedIcon = attributes.selectedIcon,
+        _attributes$number2 = attributes.number,
+        number = _attributes$number2 === void 0 ? 0 : _attributes$number2,
+        media = attributes.media,
+        imageUrl = attributes.imageUrl,
+        enableSubTitle = attributes.enableSubTitle,
+        enableDescription = attributes.enableDescription,
+        infoboxLink = attributes.infoboxLink,
+        enableButton = attributes.enableButton,
+        buttonText = attributes.buttonText,
+        title = attributes.title,
+        subTitle = attributes.subTitle,
+        description = attributes.description,
+        titleTag = attributes.titleTag,
+        subTitleTag = attributes.subTitleTag;
+    var requiredProps = {
+      selectedIcon: selectedIcon,
+      blockId: blockId,
+      number: number,
+      media: media,
+      imageUrl: imageUrl,
+      enableSubTitle: enableSubTitle,
+      enableDescription: enableDescription,
+      infoboxLink: infoboxLink,
+      enableButton: enableButton,
+      buttonText: buttonText,
+      title: title,
+      subTitle: subTitle,
+      description: description,
+      titleTag: titleTag,
+      subTitleTag: subTitleTag
+    };
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", useBlockProps.save(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_components_infobox_save__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      requiredProps: requiredProps
+    }));
+  }
+}];
+/* harmony default export */ __webpack_exports__["default"] = (deprecated);
+
+/***/ }),
+
+/***/ "./src/edit.js":
+/*!*********************!*\
+  !*** ./src/edit.js ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
+/* harmony import */ var _components_infobox_edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/infobox-edit */ "./src/components/infobox-edit.js");
+/* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util/helpers */ "./util/helpers/index.js");
+/* harmony import */ var _inspector__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./inspector */ "./src/inspector.js");
+/* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/constants/typographyPrefixConstants.js");
+/* harmony import */ var _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./constants/dimensionsConstants */ "./src/constants/dimensionsConstants.js");
+/* harmony import */ var _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./constants/backgroundsConstants */ "./src/constants/backgroundsConstants.js");
+/* harmony import */ var _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./constants/borderShadowConstants */ "./src/constants/borderShadowConstants.js");
+/* harmony import */ var _constants_rangeNames__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./constants/rangeNames */ "./src/constants/rangeNames.js");
+
+
+/**
+ * WordPress dependencies
+ */
+var __ = wp.i18n.__;
+var useBlockProps = wp.blockEditor.useBlockProps;
+var useEffect = wp.element.useEffect;
+var select = wp.data.select;
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+
+
+
+
+
+
+var Edit = function Edit(_ref) {
+  var attributes = _ref.attributes,
+      setAttributes = _ref.setAttributes,
+      isSelected = _ref.isSelected,
+      clientId = _ref.clientId;
+  var resOption = attributes.resOption,
+      blockMeta = attributes.blockMeta,
+      blockId = attributes.blockId,
+      isOverlay = attributes.isOverlay,
+      selectedIcon = attributes.selectedIcon,
+      media = attributes.media,
+      _attributes$number = attributes.number,
+      number = _attributes$number === void 0 ? 0 : _attributes$number,
+      imageUrl = attributes.imageUrl,
+      infoboxLink = attributes.infoboxLink,
+      enableSubTitle = attributes.enableSubTitle,
+      enableDescription = attributes.enableDescription,
+      enableButton = attributes.enableButton,
+      isInfoClick = attributes.isInfoClick,
+      buttonText = attributes.buttonText,
+      title = attributes.title,
+      subTitle = attributes.subTitle,
+      description = attributes.description,
+      titleTag = attributes.titleTag,
+      subTitleTag = attributes.subTitleTag,
+      imageId = attributes.imageId,
+      iconSize = attributes.iconSize,
+      TABiconSize = attributes.TABiconSize,
+      MOBiconSize = attributes.MOBiconSize,
+      flexDirection = attributes.flexDirection,
+      mediaAlignSelf = attributes.mediaAlignSelf,
+      contentAlignment = attributes.contentAlignment,
+      useNumIconBg = attributes.useNumIconBg,
+      numIconColor = attributes.numIconColor,
+      numIconBgType = attributes.numIconBgType,
+      numIconBgColor = attributes.numIconBgColor,
+      numIconBgGradient = attributes.numIconBgGradient,
+      mediaImgWidthUnit = attributes["".concat(_constants_rangeNames__WEBPACK_IMPORTED_MODULE_9__["mediaImageWidth"], "Unit")],
+      TABmediaImgWidthUnit = attributes["TAB".concat(_constants_rangeNames__WEBPACK_IMPORTED_MODULE_9__["mediaImageWidth"], "Unit")],
+      MOBmediaImgWidthUnit = attributes["MOB".concat(_constants_rangeNames__WEBPACK_IMPORTED_MODULE_9__["mediaImageWidth"], "Unit")],
+      mediaImgWidth = attributes.mediaImgWidth,
+      TABmediaImgWidth = attributes.TABmediaImgWidth,
+      MOBmediaImgWidth = attributes.MOBmediaImgWidth,
+      isMediaImgHeightAuto = attributes.isMediaImgHeightAuto,
+      mediaImgHeightUnit = attributes.mediaImgHeightUnit,
+      mediaImgHeight = attributes.mediaImgHeight,
+      TABmediaImgHeight = attributes.TABmediaImgHeight,
+      MOBmediaImgHeight = attributes.MOBmediaImgHeight,
+      _attributes$buttonTex = attributes.buttonTextColor,
+      buttonTextColor = _attributes$buttonTex === void 0 ? "#30267A" : _attributes$buttonTex,
+      buttonHvrTextColor = attributes.buttonHvrTextColor,
+      _attributes$titleColo = attributes.titleColor,
+      titleColor = _attributes$titleColo === void 0 ? "#fff" : _attributes$titleColo,
+      _attributes$subTitleC = attributes.subTitleColor,
+      subTitleColor = _attributes$subTitleC === void 0 ? "#fff" : _attributes$subTitleC,
+      _attributes$descripti = attributes.descriptionColor,
+      descriptionColor = _attributes$descripti === void 0 ? "#fff" : _attributes$descripti,
+      _attributes$buttonBgC = attributes.buttonBgColor,
+      buttonBgColor = _attributes$buttonBgC === void 0 ? "#E1D8FF" : _attributes$buttonBgC,
+      mediaAlignment = attributes.mediaAlignment,
+      contentsAlignment = attributes.contentsAlignment,
+      btnEffect = attributes.btnEffect; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
+
+  useEffect(function () {
+    setAttributes({
+      resOption: select("core/edit-post").__experimentalGetPreviewDeviceType()
+    });
+  }, []); // this useEffect is for creating a unique blockId for each block's unique className
+
+  useEffect(function () {
+    var BLOCK_PREFIX = "eb-infobox";
+    Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["duplicateBlockIdFix"])({
+      BLOCK_PREFIX: BLOCK_PREFIX,
+      blockId: blockId,
+      setAttributes: setAttributes,
+      select: select,
+      clientId: clientId
+    });
+  }, []); // this useEffect is for mimmiking css when responsive options clicked from wordpress's 'preview' button
+
+  useEffect(function () {
+    Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["mimmikCssForPreviewBtnClick"])({
+      domObj: document,
+      select: select
+    });
+  }, []);
+  var blockProps = useBlockProps({
+    className: "eb-guten-block-main-parent-wrapper"
+  });
+  var buttonThakbe = !isInfoClick && enableButton; //
+  // styling codes starts from here
+  //
+
+  var _generateTypographySt = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateTypographyStyles"])({
+    attributes: attributes,
+    prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_5__["typoPrefix_title"],
+    defaultFontSize: 26
+  }),
+      titleTypoStylesDesktop = _generateTypographySt.typoStylesDesktop,
+      titleTypoStylesTab = _generateTypographySt.typoStylesTab,
+      titleTypoStylesMobile = _generateTypographySt.typoStylesMobile;
+
+  var _generateTypographySt2 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateTypographyStyles"])({
+    attributes: attributes,
+    prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_5__["typoPrefix_subTitle"],
+    defaultFontSize: 22
+  }),
+      subTitleTypoStylesDesktop = _generateTypographySt2.typoStylesDesktop,
+      subTitleTypoStylesTab = _generateTypographySt2.typoStylesTab,
+      subTitleTypoStylesMobile = _generateTypographySt2.typoStylesMobile;
+
+  var _generateTypographySt3 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateTypographyStyles"])({
+    attributes: attributes,
+    prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_5__["typoPrefix_content"],
+    defaultFontSize: 20
+  }),
+      contentTypoStylesDesktop = _generateTypographySt3.typoStylesDesktop,
+      contentTypoStylesTab = _generateTypographySt3.typoStylesTab,
+      contentTypoStylesMobile = _generateTypographySt3.typoStylesMobile;
+
+  var _generateTypographySt4 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateTypographyStyles"])({
+    attributes: attributes,
+    prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_5__["typoPrefix_buttonText"],
+    defaultFontSize: 20
+  }),
+      buttonTypoStylesDesktop = _generateTypographySt4.typoStylesDesktop,
+      buttonTypoStylesTab = _generateTypographySt4.typoStylesTab,
+      buttonTypoStylesMobile = _generateTypographySt4.typoStylesMobile;
+
+  var _generateTypographySt5 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateTypographyStyles"])({
+    attributes: attributes,
+    prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_5__["typoPrefix_number"],
+    defaultFontSize: 28
+  }),
+      numTypoStylesDesktop = _generateTypographySt5.typoStylesDesktop,
+      numTypoStylesTab = _generateTypographySt5.typoStylesTab,
+      numTypoStylesMobile = _generateTypographySt5.typoStylesMobile;
+
+  var _generateDimensionsCo = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsControlStyles"])({
+    attributes: attributes,
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_6__["mediaBackground"],
+    styleFor: "padding"
+  }),
+      mediaBgPaddingDesktop = _generateDimensionsCo.dimensionStylesDesktop,
+      mediaBgPaddingTab = _generateDimensionsCo.dimensionStylesTab,
+      mediaBgPaddingMobile = _generateDimensionsCo.dimensionStylesMobile;
+
+  var _generateDimensionsCo2 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsControlStyles"])({
+    attributes: attributes,
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_6__["mediaBgRadius"],
+    styleFor: "border-radius"
+  }),
+      mediaRadiusStylesDesktop = _generateDimensionsCo2.dimensionStylesDesktop,
+      mediaRadiusStylesTab = _generateDimensionsCo2.dimensionStylesTab,
+      mediaRadiusStylesMobile = _generateDimensionsCo2.dimensionStylesMobile;
+
+  var _generateDimensionsCo3 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsControlStyles"])({
+    attributes: attributes,
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_6__["mediaBgMargin"],
+    styleFor: "margin"
+  }),
+      mediaBgMarginStylesDesktop = _generateDimensionsCo3.dimensionStylesDesktop,
+      mediaBgMarginStylesTab = _generateDimensionsCo3.dimensionStylesTab,
+      mediaBgMarginStylesMobile = _generateDimensionsCo3.dimensionStylesMobile;
+
+  var _generateDimensionsCo4 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsControlStyles"])({
+    attributes: attributes,
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_6__["buttonPadding"],
+    styleFor: "padding"
+  }),
+      buttonPaddingStylesDesktop = _generateDimensionsCo4.dimensionStylesDesktop,
+      buttonPaddingStylesTab = _generateDimensionsCo4.dimensionStylesTab,
+      buttonPaddingStylesMobile = _generateDimensionsCo4.dimensionStylesMobile; // const {
+  // 	dimensionStylesDesktop: buttonRadiusStylesDesktop,
+  // 	dimensionStylesTab: buttonRadiusStylesTab,
+  // 	dimensionStylesMobile: buttonRadiusStylesMobile,
+  // } = generateDimensionsControlStyles({
+  // 	attributes,
+  // 	controlName: buttonRadius,
+  // 	styleFor: "border-radius",
+  // });
+
+
+  var _generateDimensionsCo5 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsControlStyles"])({
+    attributes: attributes,
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_6__["titlePadding"],
+    styleFor: "padding"
+  }),
+      titlePaddingStylesDesktop = _generateDimensionsCo5.dimensionStylesDesktop,
+      titlePaddingStylesTab = _generateDimensionsCo5.dimensionStylesTab,
+      titlePaddingStylesMobile = _generateDimensionsCo5.dimensionStylesMobile;
+
+  var _generateDimensionsCo6 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsControlStyles"])({
+    attributes: attributes,
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_6__["subTitlePadding"],
+    styleFor: "padding"
+  }),
+      subTitlePaddingStylesDesktop = _generateDimensionsCo6.dimensionStylesDesktop,
+      subTitlePaddingStylesTab = _generateDimensionsCo6.dimensionStylesTab,
+      subTitlePaddingStylesMobile = _generateDimensionsCo6.dimensionStylesMobile;
+
+  var _generateDimensionsCo7 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsControlStyles"])({
+    attributes: attributes,
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_6__["contentPadding"],
+    styleFor: "padding"
+  }),
+      contentPaddingStylesDesktop = _generateDimensionsCo7.dimensionStylesDesktop,
+      contentPaddingStylesTab = _generateDimensionsCo7.dimensionStylesTab,
+      contentPaddingStylesMobile = _generateDimensionsCo7.dimensionStylesMobile;
+
+  var _generateDimensionsCo8 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsControlStyles"])({
+    attributes: attributes,
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_6__["wrapperPadding"],
+    styleFor: "padding"
+  }),
+      wrapperPaddingStylesDesktop = _generateDimensionsCo8.dimensionStylesDesktop,
+      wrapperPaddingStylesTab = _generateDimensionsCo8.dimensionStylesTab,
+      wrapperPaddingStylesMobile = _generateDimensionsCo8.dimensionStylesMobile;
+
+  var _generateDimensionsCo9 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateDimensionsControlStyles"])({
+    attributes: attributes,
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_6__["wrapperMargin"],
+    styleFor: "margin"
+  }),
+      wrapperMarginStylesDesktop = _generateDimensionsCo9.dimensionStylesDesktop,
+      wrapperMarginStylesTab = _generateDimensionsCo9.dimensionStylesTab,
+      wrapperMarginStylesMobile = _generateDimensionsCo9.dimensionStylesMobile;
+
+  var _generateBackgroundCo = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateBackgroundControlStyles"])({
+    attributes: attributes,
+    controlName: _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_7__["infoWrapBg"] // noOverlay: true,
+    // noMainBgi: true,
+    // noOverlayBgi: true, // if 'noOverlay : true' is given then there's no need to give 'noOverlayBgi : true'
+
+  }),
+      backgroundStylesDesktop = _generateBackgroundCo.backgroundStylesDesktop,
+      hoverBackgroundStylesDesktop = _generateBackgroundCo.hoverBackgroundStylesDesktop,
+      backgroundStylesTab = _generateBackgroundCo.backgroundStylesTab,
+      hoverBackgroundStylesTab = _generateBackgroundCo.hoverBackgroundStylesTab,
+      backgroundStylesMobile = _generateBackgroundCo.backgroundStylesMobile,
+      hoverBackgroundStylesMobile = _generateBackgroundCo.hoverBackgroundStylesMobile,
+      overlayStylesDesktop = _generateBackgroundCo.overlayStylesDesktop,
+      hoverOverlayStylesDesktop = _generateBackgroundCo.hoverOverlayStylesDesktop,
+      overlayStylesTab = _generateBackgroundCo.overlayStylesTab,
+      hoverOverlayStylesTab = _generateBackgroundCo.hoverOverlayStylesTab,
+      overlayStylesMobile = _generateBackgroundCo.overlayStylesMobile,
+      hoverOverlayStylesMobile = _generateBackgroundCo.hoverOverlayStylesMobile,
+      bgTransitionStyle = _generateBackgroundCo.bgTransitionStyle,
+      ovlTransitionStyle = _generateBackgroundCo.ovlTransitionStyle;
+
+  var _generateBackgroundCo2 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateBackgroundControlStyles"])({
+    attributes: attributes,
+    controlName: _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_7__["infoBtnBg"],
+    forButton: true // noOverlay: true,
+    // noMainBgi: true,
+    // noOverlayBgi: true, // if 'noOverlay : true' is given then there's no need to give 'noOverlayBgi : true'
+
+  }),
+      btnBackgroundStylesDesktop = _generateBackgroundCo2.backgroundStylesDesktop,
+      btnHoverBackgroundStylesDesktop = _generateBackgroundCo2.hoverBackgroundStylesDesktop,
+      btnBgTransitionStyle = _generateBackgroundCo2.bgTransitionStyle;
+
+  var _generateBorderShadow = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateBorderShadowStyles"])({
+    controlName: _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_8__["wrpBdShadow"],
+    attributes: attributes // noShadow: true,
+    // noBorder: true,
+
+  }),
+      bdShadowStyesDesktop = _generateBorderShadow.styesDesktop,
+      bdShadowStyesTab = _generateBorderShadow.styesTab,
+      bdShadowStyesMobile = _generateBorderShadow.styesMobile,
+      bdShadowStylesHoverDesktop = _generateBorderShadow.stylesHoverDesktop,
+      bdShadowStylesHoverTab = _generateBorderShadow.stylesHoverTab,
+      bdShadowStylesHoverMobile = _generateBorderShadow.stylesHoverMobile,
+      bdShadowTransitionStyle = _generateBorderShadow.transitionStyle;
+
+  var _generateBorderShadow2 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateBorderShadowStyles"])({
+    controlName: _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_8__["btnBdShd"],
+    attributes: attributes // noShadow: true,
+    // noBorder: true,
+
+  }),
+      btnBdShadowStyesDesktop = _generateBorderShadow2.styesDesktop,
+      btnBdShadowStyesTab = _generateBorderShadow2.styesTab,
+      btnBdShadowStyesMobile = _generateBorderShadow2.styesMobile,
+      btnBdShadowStylesHoverDesktop = _generateBorderShadow2.stylesHoverDesktop,
+      btnBdShadowStylesHoverTab = _generateBorderShadow2.stylesHoverTab,
+      btnBdShadowStylesHoverMobile = _generateBorderShadow2.stylesHoverMobile,
+      btnBdShadowTransitionStyle = _generateBorderShadow2.transitionStyle;
+
+  var _generateResponsiveRa = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateResponsiveRangeStyles"])({
+    controlName: _constants_rangeNames__WEBPACK_IMPORTED_MODULE_9__["mediaIconSize"],
+    customUnit: "px",
+    property: "font-size",
+    attributes: attributes
+  }),
+      iconSizeDesktop = _generateResponsiveRa.rangeStylesDesktop,
+      iconSizeTab = _generateResponsiveRa.rangeStylesTab,
+      iconSizeMobile = _generateResponsiveRa.rangeStylesMobile;
+
+  var _generateResponsiveRa2 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateResponsiveRangeStyles"])({
+    controlName: _constants_rangeNames__WEBPACK_IMPORTED_MODULE_9__["mediaContentGap"],
+    customUnit: "px",
+    property: "gap",
+    attributes: attributes
+  }),
+      contentMediaGapDesktop = _generateResponsiveRa2.rangeStylesDesktop,
+      contentMediaGapTab = _generateResponsiveRa2.rangeStylesTab,
+      contentMediaGapMobile = _generateResponsiveRa2.rangeStylesMobile;
+
+  var _generateResponsiveRa3 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateResponsiveRangeStyles"])({
+    controlName: _constants_rangeNames__WEBPACK_IMPORTED_MODULE_9__["mediaImageHeight"],
+    property: "height",
+    attributes: attributes
+  }),
+      mediaImgHeightDesktop = _generateResponsiveRa3.rangeStylesDesktop,
+      mediaImgHeightTab = _generateResponsiveRa3.rangeStylesTab,
+      mediaImgHeightMobile = _generateResponsiveRa3.rangeStylesMobile;
+
+  var _generateResponsiveRa4 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["generateResponsiveRangeStyles"])({
+    controlName: _constants_rangeNames__WEBPACK_IMPORTED_MODULE_9__["mediaImageWidth"],
+    property: "width",
+    attributes: attributes
+  }),
+      mediaImgWidthDesktop = _generateResponsiveRa4.rangeStylesDesktop,
+      mediaImgWidthTab = _generateResponsiveRa4.rangeStylesTab,
+      mediaImgWidthMobile = _generateResponsiveRa4.rangeStylesMobile;
+
+  var wrapperStylesDesktop = "\n\t\t.eb-infobox-wrapper.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t\t").concat(wrapperPaddingStylesDesktop, "\n\t\t\t").concat(bdShadowStyesDesktop, "\n\t\t\t").concat(backgroundStylesDesktop, "\n\t\t\toverflow: hidden;\n\t\t\ttransition: ").concat(bgTransitionStyle, ", ").concat(bdShadowTransitionStyle, ";\n\t\t}\n\n\t\t.eb-infobox-wrapper.").concat(blockId, ":hover{\t\n\t\t\t").concat(hoverBackgroundStylesDesktop, "\n\t\t\t").concat(bdShadowStylesHoverDesktop, "\n\t\t}\n\t\t\n\t\t.eb-infobox-wrapper.").concat(blockId, ":before{\n\t\t\t").concat(overlayStylesDesktop, "\n\t\t\ttransition: ").concat(ovlTransitionStyle, ";\n\t\t}\n\n\t\t.eb-infobox-wrapper.").concat(blockId, ":hover:before{\t\n\t\t\t").concat(hoverOverlayStylesDesktop, "\n\t\t}\n\n\t");
+  var wrapperStylesTab = "\n\t\t.eb-infobox-wrapper.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesTab, "\n\t\t\t").concat(wrapperPaddingStylesTab, "\n\t\t\t").concat(backgroundStylesTab, "\n\t\t\t").concat(bdShadowStyesTab, "\n\t\t}\n\n\t\t.eb-infobox-wrapper.").concat(blockId, ":hover{\t\t\n\t\t\t").concat(hoverBackgroundStylesTab, "\n\t\t\t").concat(bdShadowStylesHoverTab, "\n\t\t}\n\n\t\t\n\t\t.eb-infobox-wrapper.").concat(blockId, ":before{\n\t\t\t").concat(overlayStylesTab, "\n\t\t}\n\n\t\t.eb-infobox-wrapper.").concat(blockId, ":hover:before{\t\n\t\t\t").concat(hoverOverlayStylesTab, "\n\t\t}\n\t");
+  var wrapperStylesMobile = "\n\t\t.eb-infobox-wrapper.".concat(blockId, " {\n\t\t\t").concat(wrapperMarginStylesMobile, "\n\t\t\t").concat(wrapperPaddingStylesMobile, "\t\t\t\n\t\t\t").concat(backgroundStylesMobile, "\n\t\t\t").concat(bdShadowStyesMobile, "\n\t\t}\n\n\t\t.eb-infobox-wrapper.").concat(blockId, ":hover{\n\t\t\t").concat(hoverBackgroundStylesMobile, "\n\t\t\t").concat(bdShadowStylesHoverMobile, "\n\t\t}\n\n\t\t.eb-infobox-wrapper.").concat(blockId, ":before{\n\t\t\t").concat(overlayStylesMobile, "\n\t\t}\n\n\t\t\n\t\t.eb-infobox-wrapper.").concat(blockId, ":hover:before{\t\n\t\t\t").concat(hoverOverlayStylesMobile, "\n\t\t}\n\t");
+  var wrapperInnerStylesDesktop = "\t\n\t\t.eb-infobox-wrapper.".concat(blockId, " .infobox-wrapper-inner {\n\t\t\tdisplay: flex;\n\t\t\tposition: relative;\n\t\t\t").concat(flexDirection ? "flex-direction: ".concat(flexDirection, ";") : " ", " \n\t\t\t").concat(media !== "none" ? "".concat(contentMediaGapDesktop) : "", "\n\t\t\t\n\t\t}\n\t");
+  var wrapperInnerStylesTab = "\t\n\t\t.eb-infobox-wrapper.".concat(blockId, " .infobox-wrapper-inner {\n\t\t\t").concat(media !== "none" ? "".concat(contentMediaGapTab) : "", "\t\t\t\n\t\t}\n\t");
+  var wrapperInnerStylesMobile = "\t\n\t\t.eb-infobox-wrapper.".concat(blockId, " .infobox-wrapper-inner {\n\t\t\t").concat(media !== "none" ? "".concat(contentMediaGapMobile) : "", "\t\t\t\n\t\t}\n\t");
+  var mediaStylesDesktop = "\n\t".concat(media !== "none" ? "\n\t\t\t.eb-infobox-wrapper.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t").concat(mediaAlignment ? "align-self: ".concat(mediaAlignment, ";") : "align-self: ".concat(mediaAlignSelf || "center", ";"), "\n\n\t\t\t\t").concat(mediaBgMarginStylesDesktop, "\n\n\t\t\t\toverflow: hidden;\n\t\t\t}\n\n\n\t\t\t").concat(media === "image" ? "\n\n\t\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .infobox-wrapper-inner .icon-img-wrapper{\n\t\t\t\t\t\tmax-width: 100%;\n\t\t\t\t\t\t").concat(mediaImgWidthUnit === "%" ? mediaImgWidthDesktop : " ", "\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\t\tmax-width: 100%;\n\t\t\t\t\t\tobject-fit: cover;\n\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\t").concat(imageUrl ? mediaRadiusStylesDesktop : " ", "\n\t\t\t\t\t\t\n\t\t\t\t\t\t").concat(mediaImgWidthUnit === "%" ? "width: 100%;" : mediaImgWidthDesktop, "\n\t\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : mediaImgHeightDesktop, "\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\n\t\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\t\toverflow: hidden;\n\t\t\t\t\t\tdisplay:flex;\n\t\t\t\t\t\t").concat(imageUrl ? " " : mediaRadiusStylesDesktop, "\n\t\t\t\t\t}\n\t\t\t\t\t") : " ", "\n\n\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\n\t\t\t\t\t\t").concat(mediaBgPaddingDesktop, "\n\t\t\t\t\t\t").concat(mediaRadiusStylesDesktop, "\n\t\t\n\t\t\t\t\t\t").concat(useNumIconBg ? "".concat(numIconBgType === "fill" ? "background-color: ".concat(numIconBgColor, ";") : numIconBgType === "gradient" ? "background-image: ".concat(numIconBgGradient, ";") : " ") : " ", "\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\t\t\n\t\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .number-or-icon > span{\n\t\t\t\t\t\tcolor: ").concat(numIconColor || "#fff", ";\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\t\t\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t").concat(numTypoStylesDesktop, "\n\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t").concat(media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\t").concat(iconSizeDesktop, "\n\t\t\t\t\t\t\n\t\t\t\t\t}\n\n\t\t\t\t\t") : " ", "\n\n\n\t\t") : " ", "\n\n\t");
+  var mediaStylesTab = "\n\t".concat(media !== "none" ? "\n\n\t\t\t.eb-infobox-wrapper.".concat(blockId, " .icon-img-wrapper {\n\n\t\t\t\t").concat(mediaBgMarginStylesTab, "\t\t\t\t\n\t\t\t}\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\t\t\t\n\t\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\t").concat(mediaRadiusStylesTab, "\n\t\t\t\t\t\t").concat(mediaBgPaddingTab, "\t\t\t\t\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t\t").concat(numTypoStylesTab, "\n\t\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t").concat(media === "icon" ? "\n\t\t\t\t\n\t\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\t").concat(iconSizeTab, "\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t").concat(media === "image" ? "\n\t\t\t\t\t\t\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .infobox-wrapper-inner .icon-img-wrapper{\n\t\t\t\t\t").concat(TABmediaImgWidthUnit === "%" ? mediaImgWidthTab : mediaImgWidthUnit === "%" ? "width: auto;" : " ", "\n\t\t\t\t}\n\n\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\t\n\t\t\t\t\t").concat(TABmediaImgWidthUnit === "%" ? mediaImgWidthUnit === "%" ? " " : "width: 100%;" : mediaImgWidthTab, "\n\t\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : mediaImgHeightTab, "\n\t\t\t\t\t\n\t\t\t\t}\n\n\t\t\t\t\n\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\t").concat(mediaRadiusStylesTab, "\n\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\n\n\t\t") : " ", "\n\t\n\t");
+  var mediaStylesMobile = "\n\t".concat(media !== "none" ? "\n\n\t\t\t.eb-infobox-wrapper.".concat(blockId, " .icon-img-wrapper {\n\t\t\t\t\n\t\t\t\t").concat(mediaBgMarginStylesMobile, "\n\t\t\t}\n\n\t\t\t").concat(media === "number" || media === "icon" ? "\n\n\t\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .number-or-icon {\n\t\t\t\t\t\t").concat(mediaRadiusStylesMobile, "\n\t\t\t\t\t\t").concat(mediaBgPaddingMobile, "\t\t\t\t\n\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\t\t") : " ", "\n\n\t\t\t").concat(media === "number" ? "\n\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " span.eb-infobox-number{\n\t\t\t\t\t").concat(numTypoStylesMobile, "\n\t\t\t\t}\t\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t").concat(media === "icon" ? "\n\n\t\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .icon-img-wrapper .eb-infobox-icon-data-selector {\n\t\t\t\t\t\t").concat(iconSizeMobile, "\n\t\t\t\t\t}\t\t\t\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t\t\n\t\t\t\n\t\t\t").concat(media === "image" ? "\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .infobox-wrapper-inner .icon-img-wrapper{\n\t\t\t\t\t").concat(MOBmediaImgWidthUnit === "%" ? mediaImgWidthMobile : TABmediaImgWidthUnit === "%" ? "width: auto;" : " ", "\n\t\t\t\t}\n\n\t\t\t\t\n\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .infobox-wrapper-inner img {\n\t\t\t\t\t\n\t\t\t\t\t").concat(MOBmediaImgWidthUnit === "%" ? TABmediaImgWidthUnit === "%" ? " " : "width: 100%;" : mediaImgWidthMobile, "\n\t\t\t\t\t\n\t\t\t\t\t").concat(isMediaImgHeightAuto ? "height:auto;" : mediaImgHeightMobile, "\n\n\t\t\t\t}\n\n\t\t\t\t\n\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .eb-infobox-image-wrapper{\n\t\t\t\t\t").concat(mediaRadiusStylesMobile, "\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\n\t\t") : " ", "\n\t\t\n\t\n\t");
+  var contentStylesDesktop = "\n\t\t.eb-infobox-wrapper.".concat(blockId, " .contents-wrapper {\n\t\t\tflex: 1;\n\t\t\t").concat(contentAlignment ? "text-align: ".concat(contentAlignment, ";") : " ", " \n\n\t\t\t").concat(contentsAlignment ? "text-align: ".concat(contentsAlignment, ";") : "text-align: ".concat(contentAlignment, ";"), "\n\t\t}\n\n\t\t.eb-infobox-wrapper.").concat(blockId, " .title {\n\t\t\tmargin: 0;\n\t\t\tpadding: 10px 0;\n\t\t\t").concat(titleTypoStylesDesktop, "\n\t\t\t").concat(titlePaddingStylesDesktop, "\n\t\t\t").concat(titleColor ? "color: ".concat(titleColor, ";") : " ", "\n\t\t}\n\n\t\t").concat(enableSubTitle ? "\t\t\t\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .subtitle {\n\t\t\t\t\tmargin: 0;\n\t\t\t\t\tpadding: 10px 0;\n\t\t\t\t\t").concat(subTitleTypoStylesDesktop, "\n\t\t\t\t\t").concat(subTitlePaddingStylesDesktop, "\n\t\t\t\t\t").concat(subTitleColor ? "color: ".concat(subTitleColor, ";") : " ", "\n\t\t\t\t}\t\t\t\n\t\t\t\t") : " ", "\n\t\t\n\t\t").concat(enableDescription ? "\n\t\t\t\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .description {\n\t\t\t\t\tmargin: 0;\n\t\t\t\t\tpadding: 10px 0;\n\t\t\t\t\t").concat(contentTypoStylesDesktop, "\n\t\t\t\t\t").concat(contentPaddingStylesDesktop, "\n\t\t\t\t\t").concat(descriptionColor ? "color: ".concat(descriptionColor, ";") : " ", "\n\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t").concat(isInfoClick ? "\n\t\t\t\ta.info-click-link.info-wrap-link,\n\t\t\t\ta.info-click-link.info-wrap-link:hover,\n\t\t\t\ta.info-click-link.info-wrap-link:focus\n\t\t\t\t{\n\t\t\t\t\tcolor: inherit;\n\t\t\t\t\tdisplay:block;\n\t\t\t\t\ttext-decoration:none;\n\t\t\t\t\tcursor:pointer;\n\t\t\t\t}\n\t\t\t\t" : "", "\n\n\t\t\n\t\t").concat(buttonThakbe ? "\n\t\t\t\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " a{\n\t\t\t\t\ttext-decoration:none;\n\t\t\t\t}\n\n\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .contents-wrapper .infobox-btn{\n\t\t\t\t\tdisplay:inline-block;\n\t\t\t\t\t").concat(buttonTypoStylesDesktop, "\n\t\t\t\t\t").concat(buttonPaddingStylesDesktop, "\n\t\t\t\t\t").concat(btnBackgroundStylesDesktop, "\n\t\t\t\t\t").concat(btnBdShadowStyesDesktop, "\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t").concat(buttonTextColor ? "color: ".concat(buttonTextColor, ";") : " ", "\n\t\t\t\t\t\n\t\t\t\t\ttransition: all 0.5s, ").concat(btnBgTransitionStyle, ", ").concat(btnBdShadowTransitionStyle, ";\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .contents-wrapper .infobox-btn:hover{\n\t\t\t\t\t").concat(buttonHvrTextColor ? "color: ".concat(buttonHvrTextColor, ";") : " ", "\n\t\t\t\t\t").concat(btnBdShadowStylesHoverDesktop, "\n\t\t\t\t}\n\n\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .contents-wrapper .infobox-btn:hover:before{\n\t\t\t\t\topacity:1;\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .contents-wrapper .infobox-btn:before{\n\t\t\t\t\t").concat(btnHoverBackgroundStylesDesktop, "\n\t\t\t\t}\n\n\t\t\t\t\n\t\t\t\t") : " ", "\n\n\n\t");
+  var contentStylesTab = "\n\t\t.eb-infobox-wrapper.".concat(blockId, " .title {\n\t\t\t").concat(titleTypoStylesTab, "\n\t\t\t").concat(titlePaddingStylesTab, "\n\n\t\t}\n\t\t\n\t\t").concat(enableSubTitle ? "\t\t\t\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .subtitle {\n\t\t\t\t\t").concat(subTitleTypoStylesTab, "\n\t\t\t\t\t").concat(subTitlePaddingStylesTab, "\n\t\t\n\t\t\t\t}\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t").concat(enableDescription ? "\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .description {\n\t\t\t\t\t").concat(contentTypoStylesTab, "\n\t\t\t\t\t").concat(contentPaddingStylesTab, "\n\t\t\n\t\t\t\t}\t\t\t\t\n\t\t\t\t") : " ", "\n\t\t\n\t\t").concat(buttonThakbe ? "\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .contents-wrapper .infobox-btn{\n\t\t\t\t\t").concat(buttonTypoStylesTab, "\n\t\t\t\t\t").concat(buttonPaddingStylesTab, "\n\t\t\t\t\t").concat(btnBdShadowStyesTab, "\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .contents-wrapper .infobox-btn:hover{\n\t\t\t\t\t").concat(btnBdShadowStylesHoverTab, "\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\t\n\t");
+  var contentStylesMobile = "\n\t\t.eb-infobox-wrapper.".concat(blockId, " .title {\n\t\t\t").concat(titleTypoStylesMobile, "\n\t\t\t").concat(titlePaddingStylesMobile, "\n\n\t\t}\n\t\t\n\t\t").concat(enableSubTitle ? "\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .subtitle {\n\t\t\t\t\t").concat(subTitleTypoStylesMobile, "\n\t\t\t\t\t").concat(subTitlePaddingStylesMobile, "\n\t\t\n\t\t\t\t}\t\t\t\t\n\t\t\t\t") : " ", "\n\n\t\t").concat(enableDescription ? "\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .description {\n\t\t\t\t\t").concat(contentTypoStylesMobile, "\n\t\t\t\t\t").concat(contentPaddingStylesMobile, "\n\t\t\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\t\t\n\t\t").concat(buttonThakbe ? "\n\t\t\t\n\t\t\t\t.eb-infobox-wrapper.".concat(blockId, " .contents-wrapper .infobox-btn{\n\t\t\t\t\t").concat(btnBdShadowStyesMobile, "\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\n\t\t\t\t.eb-infobox-wrapper.").concat(blockId, " .contents-wrapper .infobox-btn:hover{\n\t\t\t\t\t").concat(btnBdShadowStylesHoverMobile, "\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t") : " ", "\n\t\t\n\t\t\n\n\t"); // all css styles for large screen width (desktop/laptop) in strings ⬇
+
+  var desktopAllStyles = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["softMinifyCssStrings"])("\t\t\n\t\t".concat(wrapperStylesDesktop, "\n\t\t").concat(wrapperInnerStylesDesktop, "\n\t\t").concat(mediaStylesDesktop, "\n\t\t").concat(contentStylesDesktop, "\t\n\t")); // all css styles for Tab in strings ⬇
+
+  var tabAllStyles = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["softMinifyCssStrings"])("\n\t\t".concat(wrapperStylesTab, "\n\t\t").concat(wrapperInnerStylesTab, "\n\t\t").concat(mediaStylesTab, "\n\t\t").concat(contentStylesTab, "\n\t\t\n\t\t\n\t")); // all css styles for Mobile in strings ⬇
+
+  var mobileAllStyles = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["softMinifyCssStrings"])("\n\t\t".concat(wrapperStylesMobile, "\n\t\t").concat(wrapperInnerStylesMobile, "\n\t\t").concat(mediaStylesMobile, "\n\t\t").concat(contentStylesMobile, "\n\t\n\t")); // Set All Style in "blockMeta" Attribute
+
+  useEffect(function () {
+    var styleObject = {
+      desktop: desktopAllStyles,
+      tab: tabAllStyles,
+      mobile: mobileAllStyles
+    };
+
+    if (JSON.stringify(blockMeta) != JSON.stringify(styleObject)) {
+      setAttributes({
+        blockMeta: styleObject
+      });
+    }
+  }, [attributes]);
+  return [isSelected && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_inspector__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    attributes: attributes,
+    setAttributes: setAttributes
+  }), // Edit view
+  Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", blockProps, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("style", null, "\n\n\t\t\t\ta.info-click-link{\n\t\t\t\t\tpointer-events: none;\n\t\t\t\t}\n\n\n\t\t\t\t".concat(desktopAllStyles, "\n\n\t\t\t\t/* mimmikcssStart */\n\n\t\t\t\t").concat(resOption === "Tablet" ? tabAllStyles : " ", "\n\t\t\t\t").concat(resOption === "Mobile" ? tabAllStyles + mobileAllStyles : " ", "\n\n\t\t\t\t/* mimmikcssEnd */\n\n\t\t\t\t@media all and (max-width: 1024px) {\t\n\n\t\t\t\t\t/* tabcssStart */\t\t\t\n\t\t\t\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["softMinifyCssStrings"])(tabAllStyles), "\n\t\t\t\t\t/* tabcssEnd */\t\t\t\n\t\t\t\t\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t@media all and (max-width: 767px) {\n\t\t\t\t\t\n\t\t\t\t\t/* mobcssStart */\t\t\t\n\t\t\t\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["softMinifyCssStrings"])(mobileAllStyles), "\n\t\t\t\t\t/* mobcssEnd */\t\t\t\n\t\t\t\t\n\t\t\t\t}\n\t\t\t\t")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_infobox_edit__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    attributes: attributes
+  }))];
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Edit);
@@ -4964,12 +5447,13 @@ var example = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util_icons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/icons */ "./util/icons.js");
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/save.js");
-/* harmony import */ var _attributes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./attributes */ "./src/attributes.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../block.json */ "./block.json");
-var _block_json__WEBPACK_IMPORTED_MODULE_4___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../block.json */ "./block.json", 1);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
-/* harmony import */ var _example__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./example */ "./src/example.js");
+/* harmony import */ var _deprecated__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./deprecated */ "./src/deprecated.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/save.js");
+/* harmony import */ var _attributes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./attributes */ "./src/attributes.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../block.json */ "./block.json");
+var _block_json__WEBPACK_IMPORTED_MODULE_5___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../block.json */ "./block.json", 1);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
+/* harmony import */ var _example__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./example */ "./src/example.js");
 /**
  * WordPress dependencies
  */
@@ -4986,8 +5470,9 @@ var registerBlockType = wp.blocks.registerBlockType;
 
 
 
-var name = _block_json__WEBPACK_IMPORTED_MODULE_4__.name,
-    category = _block_json__WEBPACK_IMPORTED_MODULE_4__.category;
+
+var name = _block_json__WEBPACK_IMPORTED_MODULE_5__.name,
+    category = _block_json__WEBPACK_IMPORTED_MODULE_5__.category;
 registerBlockType(name, {
   apiVersion: 2,
   title: __("Infobox", "block"),
@@ -4995,10 +5480,11 @@ registerBlockType(name, {
   category: category,
   keywords: [__("EB infobox", "essential-blocks"), __("info box", "essential-blocks"), __("infobox block", "essential-blocks")],
   icon: _util_icons__WEBPACK_IMPORTED_MODULE_0__["InfoboxIcon"],
-  attributes: _attributes__WEBPACK_IMPORTED_MODULE_3__["default"],
+  attributes: _attributes__WEBPACK_IMPORTED_MODULE_4__["default"],
   edit: _edit__WEBPACK_IMPORTED_MODULE_1__["default"],
-  save: _save__WEBPACK_IMPORTED_MODULE_2__["default"],
-  example: _example__WEBPACK_IMPORTED_MODULE_6__["default"]
+  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"],
+  example: _example__WEBPACK_IMPORTED_MODULE_7__["default"],
+  deprecated: _deprecated__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 
 /***/ }),
@@ -5080,7 +5566,8 @@ var _wp$components = wp.components,
 function Inspector(props) {
   var attributes = props.attributes,
       setAttributes = props.setAttributes;
-  var resOption = attributes.resOption,
+  var blockId = attributes.blockId,
+      resOption = attributes.resOption,
       layoutPreset = attributes.layoutPreset,
       media = attributes.media,
       enableSubTitle = attributes.enableSubTitle,
@@ -5088,7 +5575,6 @@ function Inspector(props) {
       imageUrl = attributes.imageUrl,
       selectedIcon = attributes.selectedIcon,
       flexDirection = attributes.flexDirection,
-      mediaWrapperMargin = attributes.mediaWrapperMargin,
       enableDescription = attributes.enableDescription,
       useNumIconBg = attributes.useNumIconBg,
       numIconColor = attributes.numIconColor,
@@ -5100,15 +5586,17 @@ function Inspector(props) {
       titleTag = attributes.titleTag,
       subTitleTag = attributes.subTitleTag,
       enableButton = attributes.enableButton,
+      isInfoClick = attributes.isInfoClick,
       buttonText = attributes.buttonText,
       infoboxLink = attributes.infoboxLink,
       buttonTextColor = attributes.buttonTextColor,
+      buttonHvrTextColor = attributes.buttonHvrTextColor,
       titleColor = attributes.titleColor,
       subTitleColor = attributes.subTitleColor,
       descriptionColor = attributes.descriptionColor,
-      buttonBgColor = attributes.buttonBgColor,
       mediaAlignment = attributes.mediaAlignment,
-      contentsAlignment = attributes.contentsAlignment; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
+      contentsAlignment = attributes.contentsAlignment,
+      btnEffect = attributes.btnEffect; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
 
   useEffect(function () {
     setAttributes({
@@ -5188,11 +5676,11 @@ function Inspector(props) {
       className: "eb-tab general"
     }, {
       name: "styles",
-      title: "Styles",
+      title: "Style",
       className: "eb-tab styles"
     }, {
       name: "advance",
-      title: "Advance",
+      title: "Advanced",
       className: "eb-tab advance"
     }]
   }, function (tab) {
@@ -5210,18 +5698,41 @@ function Inspector(props) {
           layoutPreset: layoutPreset
         });
       }
-    }), media !== "none" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(BaseControl, {
-      label: __("Media & content spacing")
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RangeControl, {
-      value: mediaWrapperMargin,
-      onChange: function onChange(mediaWrapperMargin) {
-        return setAttributes({
-          mediaWrapperMargin: mediaWrapperMargin
-        });
-      },
+    }), media !== "none" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_responsive_range_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      baseLabel: __("Media & content spacing", "Infobox"),
+      controlName: _constants_rangeNames__WEBPACK_IMPORTED_MODULE_16__["mediaContentGap"],
+      resRequiredProps: resRequiredProps,
       min: 0,
-      max: 200
-    })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(PanelBody, {
+      max: 500,
+      step: 1,
+      noUnits: true
+    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(ToggleControl, {
+      label: __("Clickable Infobox"),
+      checked: isInfoClick,
+      onChange: function onChange() {
+        return setAttributes({
+          isInfoClick: !isInfoClick
+        });
+      }
+    }), isInfoClick && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl // id={`info-link-input-${blockId}`}
+    , {
+      label: __("URL (use https:// at the beginning)"),
+      placeholder: "https://your-link.com",
+      value: infoboxLink,
+      onChange: function onChange(infoboxLink) {
+        return setAttributes({
+          infoboxLink: infoboxLink
+        });
+      }
+    })), !isInfoClick && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(ToggleControl, {
+      label: __("Show button"),
+      checked: enableButton,
+      onChange: function onChange() {
+        return setAttributes({
+          enableButton: !enableButton
+        });
+      }
+    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(PanelBody, {
       title: __("Alignments")
     }, media !== "none" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, (flexDirection === "row" || flexDirection === "row-reverse") && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(BaseControl, {
       id: "eb-infobox-alignments",
@@ -5338,6 +5849,10 @@ function Inspector(props) {
           numIconColor: numIconColor
         });
       }
+    }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      resRequiredProps: resRequiredProps,
+      controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_17__["mediaBackground"],
+      baseLabel: "Padding"
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(ToggleControl, {
       label: __("Use Background"),
       checked: useNumIconBg,
@@ -5346,11 +5861,7 @@ function Inspector(props) {
           useNumIconBg: !useNumIconBg
         });
       }
-    }), useNumIconBg && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      resRequiredProps: resRequiredProps,
-      controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_17__["mediaBackground"],
-      baseLabel: "Background size"
-    }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(BaseControl, {
+    }), useNumIconBg && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(BaseControl, {
       label: __("Background Type")
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(ButtonGroup, {
       id: "eb-infobox-infobox-background"
@@ -5429,7 +5940,7 @@ function Inspector(props) {
       baseLabel: __("Image Height", "infobox"),
       controlName: _constants_rangeNames__WEBPACK_IMPORTED_MODULE_16__["mediaImageHeight"],
       resRequiredProps: resRequiredProps,
-      units: _constants__WEBPACK_IMPORTED_MODULE_18__["sizeUnitTypes"]
+      units: _constants__WEBPACK_IMPORTED_MODULE_18__["imgHeightUnits"]
     }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_4__["default"], {
       forBorderRadius: true,
       resRequiredProps: resRequiredProps,
@@ -5540,18 +6051,10 @@ function Inspector(props) {
           descriptionColor: descriptionColor
         });
       }
-    }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(PanelBody, {
+    }))), enableButton && !isInfoClick && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(PanelBody, {
       title: __("Button"),
       initialOpen: false
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(ToggleControl, {
-      label: __("Show button"),
-      checked: enableButton,
-      onChange: function onChange() {
-        return setAttributes({
-          enableButton: !enableButton
-        });
-      }
-    }), enableButton && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl, {
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl, {
       label: __("Button Text"),
       value: buttonText,
       onChange: function onChange(buttonText) {
@@ -5560,8 +6063,8 @@ function Inspector(props) {
         });
       }
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl, {
-      label: __("Link URL"),
-      placeholder: "https://your-link.com",
+      label: __("Link URL (use https:// at the beginning)"),
+      placeholder: "https://your-site.com",
       value: infoboxLink,
       onChange: function onChange(infoboxLink) {
         return setAttributes({
@@ -5576,12 +6079,8 @@ function Inspector(props) {
       resRequiredProps: resRequiredProps,
       controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_17__["buttonPadding"],
       baseLabel: "Button Padding"
-    }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      resRequiredProps: resRequiredProps,
-      controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_17__["buttonRadius"],
-      baseLabel: "Button Border Radius"
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
-      label: __("Text Color"),
+      label: __("Text color"),
       color: buttonTextColor,
       onChange: function onChange(buttonTextColor) {
         return setAttributes({
@@ -5589,11 +6088,42 @@ function Inspector(props) {
         });
       }
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_color_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
-      label: __("Button Color"),
-      color: buttonBgColor,
-      onChange: function onChange(buttonBgColor) {
+      label: __("Hover text color"),
+      color: buttonHvrTextColor,
+      onChange: function onChange(buttonHvrTextColor) {
         return setAttributes({
-          buttonBgColor: buttonBgColor
+          buttonHvrTextColor: buttonHvrTextColor
+        });
+      }
+    }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(PanelBody, {
+      title: __("Background"),
+      initialOpen: false
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_background_control__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      controlName: _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_11__["infoBtnBg"],
+      resRequiredProps: resRequiredProps,
+      forButton: true // noOverlay
+      // noMainBgi
+      // noOverlayBgi // if U pass 'noOverlay' prop U don't need to pass 'noOverlayBgi'
+
+    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(PanelBody, {
+      title: __("Border & Shadow"),
+      initialOpen: false
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_util_border_shadow_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      controlName: _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_12__["btnBdShd"],
+      resRequiredProps: resRequiredProps // noShadow
+      // noBorder
+
+    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(PanelBody, {
+      title: __("More Effects"),
+      initialOpen: false
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(SelectControl, {
+      label: __("Button Hover Effect"),
+      value: btnEffect,
+      options: _constants__WEBPACK_IMPORTED_MODULE_18__["HOVER_EFFECT"] // onChange={(preset) => setAttributes({ preset })}
+      ,
+      onChange: function onChange(btnEffect) {
+        setAttributes({
+          btnEffect: btnEffect
         });
       }
     })))), tab.name === "advance" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(PanelBody, {
@@ -5643,7 +6173,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return save; });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_infobox_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/infobox-container */ "./src/components/infobox-container.js");
+/* harmony import */ var _components_infobox_save__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/infobox-save */ "./src/components/infobox-save.js");
 
 var useBlockProps = wp.blockEditor.useBlockProps;
 
@@ -5659,12 +6189,14 @@ function save(_ref) {
       enableDescription = attributes.enableDescription,
       infoboxLink = attributes.infoboxLink,
       enableButton = attributes.enableButton,
+      isInfoClick = attributes.isInfoClick,
       buttonText = attributes.buttonText,
       title = attributes.title,
       subTitle = attributes.subTitle,
       description = attributes.description,
       titleTag = attributes.titleTag,
-      subTitleTag = attributes.subTitleTag;
+      subTitleTag = attributes.subTitleTag,
+      btnEffect = attributes.btnEffect;
   var requiredProps = {
     selectedIcon: selectedIcon,
     blockId: blockId,
@@ -5675,14 +6207,23 @@ function save(_ref) {
     enableDescription: enableDescription,
     infoboxLink: infoboxLink,
     enableButton: enableButton,
+    isInfoClick: isInfoClick,
     buttonText: buttonText,
     title: title,
     subTitle: subTitle,
     description: description,
     titleTag: titleTag,
-    subTitleTag: subTitleTag
+    subTitleTag: subTitleTag,
+    //
+    btnEffect: btnEffect
   };
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", useBlockProps.save(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_infobox_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", useBlockProps.save(), isInfoClick ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("a", {
+    href: infoboxLink,
+    rel: "noopener noreferrer",
+    className: "info-click-link info-wrap-link"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_infobox_save__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    requiredProps: requiredProps
+  })) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_infobox_save__WEBPACK_IMPORTED_MODULE_1__["default"], {
     requiredProps: requiredProps
   }));
 }
