@@ -1,9 +1,9 @@
 === Infobox ===
 Contributors: wpdevteam, re_enter_rupok, Asif2BD, rahat89, hztyfoon
 Tags: block, blocks, infobox, info box, icon box, gutenberg, gutenberg blocks
-Requires at least: 5.0
+Requires at least: 5.6
 Tested up to: 5.8
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 

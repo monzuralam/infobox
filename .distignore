@@ -49,3 +49,4 @@ dist/**/*.*
 src
 util
 .wordpress-org
+.gitmodules
