@@ -3,7 +3,7 @@ import {
 	mediaBackground,
 	mediaBgRadius,
 	mediaBgMargin,
-	buttonRadius,
+	// buttonRadius,
 	buttonPadding,
 	contentPadding,
 	titlePadding,
@@ -12,14 +12,15 @@ import {
 	wrapperPadding,
 } from "./constants/dimensionsConstants";
 
-import { infoWrapBg } from "./constants/backgroundsConstants";
+import { infoWrapBg, infoBtnBg } from "./constants/backgroundsConstants";
 
-import { wrpBdShadow } from "./constants/borderShadowConstants";
+import { wrpBdShadow, btnBdShd } from "./constants/borderShadowConstants";
 
 import {
 	mediaIconSize,
 	mediaImageWidth,
 	mediaImageHeight,
+	mediaContentGap,
 } from "./constants/rangeNames";
 
 import {
@@ -29,6 +30,21 @@ import {
 	generateBorderShadowAttributes,
 	generateResponsiveRangeAttributes,
 } from "../util/helpers";
+
+// console.log("--------ddddddd", generateDimensionsAttributes(buttonRadius));
+// console.log(
+// 	"--------bgbgbgbg",
+
+// 	generateBackgroundAttributes(infoBtnBg, {
+// 		defaultFillColor: "#E1D8FF",
+// 		defaultBgGradient:
+// 			"linear-gradient(45deg, rgba(120,102,255,0.8) 0% , rgba(195,120,242,0.4) 100%)",
+// 		noOverlay: true,
+// 		noMainBgi: true,
+// 		// noOverlayBgi: true, // if 'noOverlay : true' is given then there's no need to give 'noOverlayBgi : true'
+// 		// isBgDefaultGradient: true,
+// 	})
+// );
 
 const attributes = {
 	// the following 4 attributes is must required for responsive options and asset generation for frontend
@@ -181,6 +197,12 @@ const attributes = {
 	},
 
 	//
+	isInfoClick: {
+		type: "boolean",
+		default: false,
+	},
+
+	//
 	buttonText: {
 		type: "string",
 		default: "Learn More",
@@ -192,7 +214,17 @@ const attributes = {
 	},
 
 	//
-	buttonBgColor: {
+	buttonHvrTextColor: {
+		type: "string",
+	},
+
+	// //
+	// buttonBgColor: {
+	// 	type: "string",
+	// },
+
+	//
+	btnEffect: {
 		type: "string",
 	},
 
@@ -265,12 +297,6 @@ const attributes = {
 		type: "string",
 	},
 
-	// .icon-img-wrapper margin
-	mediaWrapperMargin: {
-		type: "number",
-		default: 20,
-	},
-
 	//
 	titleTag: {
 		type: "string",
@@ -299,6 +325,10 @@ const attributes = {
 		defaultRange: 300,
 	}),
 	...generateResponsiveRangeAttributes(mediaImageHeight),
+	...generateResponsiveRangeAttributes(mediaContentGap, {
+		defaultRange: 20,
+		noUnits: true,
+	}),
 
 	// typography attributes
 	...generateTypographyAttributes(Object.values(typoPrefixs)),
@@ -326,12 +356,12 @@ const attributes = {
 		left: 30,
 		isLinked: false,
 	}),
-	...generateDimensionsAttributes(buttonRadius, {
-		top: 10,
-		bottom: 10,
-		right: 10,
-		left: 10,
-	}),
+	// ...generateDimensionsAttributes(buttonRadius, {
+	// 	top: 10,
+	// 	bottom: 10,
+	// 	right: 10,
+	// 	left: 10,
+	// }),
 	...generateDimensionsAttributes(titlePadding, {
 		top: 10,
 		bottom: 10,
@@ -365,6 +395,23 @@ const attributes = {
 	// }),
 	// ...generateDimensionsAttributes(wrp_radius),
 
+	...generateBorderShadowAttributes(btnBdShd, {
+		// bdrDefaults: {
+		// 	top: 10,
+		// 	bottom: 10,
+		// 	right: 10,
+		// 	left: 10,
+		// },
+		rdsDefaults: {
+			top: 10,
+			bottom: 10,
+			right: 10,
+			left: 10,
+		},
+		// noShadow: true,
+		// noBorder: true,
+	}),
+
 	...generateBorderShadowAttributes(wrpBdShadow, {
 		// bdrDefaults: {
 		// 	top: 0,
@@ -389,6 +436,18 @@ const attributes = {
 		// noOverlay: true,
 		// noMainBgi: true,
 		// noOverlayBgi: true, // if 'noOverlay : true' is given then there's no need to give 'noOverlayBgi : true'
+	}),
+
+	// background attributes ⬇
+	...generateBackgroundAttributes(infoBtnBg, {
+		defaultFillColor: "#E1D8FF",
+		defaultBgGradient:
+			"linear-gradient(45deg, rgba(120,102,255,0.8) 0% , rgba(195,120,242,0.4) 100%)",
+		forButton: true,
+		// noOverlay: true,
+		// noMainBgi: true,
+		// noOverlayBgi: true, // if 'noOverlay : true' is given then there's no need to give 'noOverlayBgi : true'
+		// isBgDefaultGradient: true,
 	}),
 };
 

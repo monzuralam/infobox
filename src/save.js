@@ -1,6 +1,6 @@
 const { useBlockProps } = wp.blockEditor;
 
-import InfoboxContainer from "./components/infobox-container";
+import InfoboxContainer from "./components/infobox-save";
 
 export default function save({ attributes }) {
 	const {
@@ -14,6 +14,9 @@ export default function save({ attributes }) {
 		enableDescription,
 		infoboxLink,
 		enableButton,
+		//
+		isInfoClick,
+
 		buttonText,
 		title,
 		subTitle,
@@ -21,6 +24,9 @@ export default function save({ attributes }) {
 		//
 		titleTag,
 		subTitleTag,
+
+		//
+		btnEffect,
 	} = attributes;
 
 	const requiredProps = {
@@ -33,17 +39,31 @@ export default function save({ attributes }) {
 		enableDescription,
 		infoboxLink,
 		enableButton,
+		isInfoClick,
 		buttonText,
 		title,
 		subTitle,
 		description,
 		titleTag,
 		subTitleTag,
+
+		//
+		btnEffect,
 	};
 
 	return (
 		<div {...useBlockProps.save()}>
-			<InfoboxContainer requiredProps={requiredProps} />
+			{isInfoClick ? (
+				<a
+					href={infoboxLink}
+					rel="noopener noreferrer"
+					className="info-click-link info-wrap-link"
+				>
+					<InfoboxContainer requiredProps={requiredProps} />
+				</a>
+			) : (
+				<InfoboxContainer requiredProps={requiredProps} />
+			)}
 		</div>
 	);
 }

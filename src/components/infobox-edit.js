@@ -1,22 +1,31 @@
-const { RichText } = wp.blockEditor;
-export default function InfoboxContainer({ requiredProps }) {
+const { __ } = wp.i18n;
+const { MediaUpload, RichText } = wp.blockEditor;
+const { Button } = wp.components;
+
+export default function InfoboxContainer({ attributes }) {
 	const {
 		blockId,
-		selectedIcon,
+
 		media,
+		selectedIcon,
 		number,
 		imageUrl,
-		infoboxLink,
-		enableSubTitle,
-		enableDescription,
-		enableButton,
-		buttonText,
-		title,
-		subTitle,
-		description,
+		imageId,
 		titleTag,
+		title,
+		enableSubTitle,
 		subTitleTag,
-	} = requiredProps;
+		subTitle,
+		enableDescription,
+		description,
+		enableButton,
+		isInfoClick,
+		infoboxLink,
+		buttonText,
+
+		//
+		btnEffect,
+	} = attributes;
 
 	return (
 		<div className={`${blockId} eb-infobox-wrapper`}>
@@ -43,37 +52,64 @@ export default function InfoboxContainer({ requiredProps }) {
 				{media === "image" ? (
 					<div className="icon-img-wrapper">
 						<div className="eb-infobox-image-wrapper">
-							<img className="eb-infobox-image" src={imageUrl} alt="macbook" />
+							<MediaUpload
+								onSelect={({ id, url }) =>
+									setAttributes({ imageUrl: url, imageId: id })
+								}
+								type="image"
+								value={imageId}
+								render={({ open }) => {
+									if (!imageUrl) {
+										return (
+											<Button
+												className="eb-infobox-img-btn components-button"
+												label={__("Upload Image")}
+												icon="format-image"
+												onClick={open}
+											/>
+										);
+									} else {
+										return <img className="eb-infobox-image" src={imageUrl} />;
+									}
+								}}
+							/>
 						</div>
 					</div>
 				) : null}
 
 				<div className="contents-wrapper">
-					<RichText.Content
+					<RichText
 						tagName={titleTag}
 						className="title"
 						value={title}
+						onChange={(title) => setAttributes({ title })}
 					/>
 
 					{enableSubTitle ? (
-						<RichText.Content
+						<RichText
 							tagName={subTitleTag}
 							className="subtitle"
 							value={subTitle}
+							onChange={(subTitle) => setAttributes({ subTitle })}
 						/>
 					) : null}
 
 					{enableDescription ? (
-						<RichText.Content
+						<RichText
 							tagName="p"
 							className="description"
 							value={description}
+							onChange={(description) => setAttributes({ description })}
 						/>
 					) : null}
 
-					{enableButton ? (
+					{enableButton && !isInfoClick ? (
 						<div className="eb-infobox-btn-wrapper">
-							<a href={infoboxLink} className="infobox-btn">
+							<a
+								href={infoboxLink}
+								// style={{ pointerEvents: "none" }}
+								className={`infobox-btn ${btnEffect || " "}`}
+							>
 								{buttonText}
 							</a>
 						</div>
