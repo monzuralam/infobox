@@ -9,6 +9,7 @@ const { registerBlockType } = wp.blocks;
  */
 import { InfoboxIcon } from "../util/icons";
 import Edit from "./edit";
+import deprecated from "./deprecated";
 import Save from "./save";
 import attributes from "./attributes";
 import metadata from "../block.json";
@@ -36,4 +37,5 @@ registerBlockType(name, {
 	edit: Edit,
 	save: Save,
 	example: example,
+	deprecated,
 });
