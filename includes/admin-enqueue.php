@@ -10,7 +10,7 @@ class InfoboxEbBlockAdminEnqueue
     public function enqueue_scripts()
     {
         if ($this->eb_is_edit_page()) {
-            wp_enqueue_style('fontpicker-default-theme',);
+            wp_enqueue_style('fontpicker-default-theme');
             wp_enqueue_style('fontpicker-matetial-theme');
             wp_enqueue_style('fontawesome-frontend-css');
             wp_enqueue_style('essential-blocks-hover-css');
@@ -34,7 +34,7 @@ class InfoboxEbBlockAdminEnqueue
 
 
         if ($new_edit == "edit")
-            return in_array($pagenow, array('post.php',));
+            return in_array($pagenow, array('post.php'));
         elseif ($new_edit == "new") //check for new post page
             return in_array($pagenow, array('post-new.php'));
         else //check for either new or edit
