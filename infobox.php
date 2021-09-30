@@ -94,7 +94,6 @@ function create_block_infobox_block_init()
 		register_block_type('infobox/infobox', array(
 			'editor_script' => 'create-block-infobox-block-editor',
 			'editor_style'  => 'create-block-infobox-block-editor',
-			//'style'         => 'create-block-infobox-block',
 			'render_callback' => function ($attribs, $content) {
 				if (!is_admin()) {
 					wp_enqueue_style('fontawesome-frontend-css');

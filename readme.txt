@@ -83,11 +83,11 @@ Yes, it will work with any standard WordPress theme.
 
 = 1.1.3 - 30/09/2021 =
 * Added: Option to make the whole infobox clickable
-* Added: responsive option for 'Media & content spacing'
-* Added: gradient background, border, shadow, hover effect options given to Infobox's button
+* Added: Responsive option for 'Media & content spacing'
+* Added: Gradient background, border, shadow, hover effect options given to Infobox's button
 * Fixed: Responsive Range Controller unit changing to '%' or 'em' from 'px' not changing value to 100 correctly if the value is more than 100.
 * Fixed: PHP 5.6 compatibility issue
-* Improved: Minify css by removing unnecessary css for all blocks
+* Improved: Minify css by removing unnecessary css
 
 = 1.1.2 - 23/08/2021 =
 * Improved: Controls with latest version

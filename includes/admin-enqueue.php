@@ -1,6 +1,6 @@
 <?php
 
-class InfoboxEbBlockAdminEnqueue
+final class InfoboxEbBlockAdminEnqueue
 {
     public function __construct()
     {
@@ -18,11 +18,11 @@ class InfoboxEbBlockAdminEnqueue
     }
 
     /**
-     * eb_is_edit_page 
+     * eb_is_edit_page
      * function to check if the current page is a post edit page
-     * 
+     *
      * @author Ohad Raz <admin@bainternet.info>
-     * 
+     *
      * @param  string  $new_edit what page to check for accepts new - new post page ,edit - edit post page, null for either
      * @return boolean
      */
