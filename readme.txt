@@ -81,7 +81,7 @@ Yes, it will work with any standard WordPress theme.
 
 == Changelog ==
 
-= 1.1.4 - (hanzala-dev) =
+= 1.1.4 - 11/10/2021 =
 * Fixed: Infobox not saving title & Description
 
 = 1.1.3 - 30/09/2021 =
@@ -108,4 +108,4 @@ Yes, it will work with any standard WordPress theme.
 * Initial Release
 
 == Upgrade Notice ==
-[Minor Update] Bugfix and stability.
+[Important Update] Bugfix and stability.
