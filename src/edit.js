@@ -1180,7 +1180,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			) : (
 				<InfoboxContainer attributes={attributes} />
 			)} */}
-			<InfoboxContainer attributes={attributes} />
+			<InfoboxContainer attributes={attributes} setAttributes={setAttributes} />
 		</div>,
 	];
 };

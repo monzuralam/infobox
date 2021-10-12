@@ -3,7 +3,7 @@ Contributors: wpdevteam, re_enter_rupok, Asif2BD, rahat89, hztyfoon
 Tags: block, blocks, infobox, info box, icon box, gutenberg, gutenberg blocks
 Requires at least: 5.6
 Tested up to: 5.8
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -81,6 +81,9 @@ Yes, it will work with any standard WordPress theme.
 
 == Changelog ==
 
+= 1.1.4 - 12/10/2021 =
+* Fixed: Infobox not saving title & Description
+
 = 1.1.3 - 30/09/2021 =
 * Added: Option to make the whole infobox clickable
 * Added: Responsive option for 'Media & content spacing'
@@ -105,4 +108,4 @@ Yes, it will work with any standard WordPress theme.
 * Initial Release
 
 == Upgrade Notice ==
-[Minor Update] Bugfix and stability.
+[Important Update] Bugfix and stability.

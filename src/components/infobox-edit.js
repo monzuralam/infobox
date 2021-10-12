@@ -2,7 +2,7 @@ const { __ } = wp.i18n;
 const { MediaUpload, RichText } = wp.blockEditor;
 const { Button } = wp.components;
 
-export default function InfoboxContainer({ attributes }) {
+export default function InfoboxContainer({ attributes, setAttributes }) {
 	const {
 		blockId,
 
