@@ -81,7 +81,7 @@ Yes, it will work with any standard WordPress theme.
 
 == Changelog ==
 
-= 1.1.4 - 11/10/2021 =
+= 1.1.4 - 12/10/2021 =
 * Fixed: Infobox not saving title & Description
 
 = 1.1.3 - 30/09/2021 =
