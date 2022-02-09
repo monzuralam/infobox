@@ -1,6 +1,6 @@
-const { __ } = wp.i18n;
-const { MediaUpload, RichText } = wp.blockEditor;
-const { Button } = wp.components;
+import { __ } from "@wordpress/i18n";
+import { MediaUpload, RichText } from "@wordpress/block-editor";
+import { Button } from "@wordpress/components";
 
 export default function InfoboxContainer({ attributes, setAttributes }) {
 	const {
@@ -63,7 +63,7 @@ export default function InfoboxContainer({ attributes, setAttributes }) {
 										return (
 											<Button
 												className="eb-infobox-img-btn components-button"
-												label={__("Upload Image")}
+												label={__("Upload Image", "essential-blocks")}
 												icon="format-image"
 												onClick={open}
 											/>

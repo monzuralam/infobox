@@ -23,28 +23,13 @@ import {
 	mediaContentGap,
 } from "./constants/rangeNames";
 
-import {
+const {
 	generateDimensionsAttributes,
 	generateTypographyAttributes,
 	generateBackgroundAttributes,
 	generateBorderShadowAttributes,
 	generateResponsiveRangeAttributes,
-} from "../util/helpers";
-
-// console.log("--------ddddddd", generateDimensionsAttributes(buttonRadius));
-// console.log(
-// 	"--------bgbgbgbg",
-
-// 	generateBackgroundAttributes(infoBtnBg, {
-// 		defaultFillColor: "#E1D8FF",
-// 		defaultBgGradient:
-// 			"linear-gradient(45deg, rgba(120,102,255,0.8) 0% , rgba(195,120,242,0.4) 100%)",
-// 		noOverlay: true,
-// 		noMainBgi: true,
-// 		// noOverlayBgi: true, // if 'noOverlay : true' is given then there's no need to give 'noOverlayBgi : true'
-// 		// isBgDefaultGradient: true,
-// 	})
-// );
+} = window.EBInfoboxControls;
 
 const attributes = {
 	// the following 4 attributes is must required for responsive options and asset generation for frontend
@@ -175,7 +160,7 @@ const attributes = {
 
 	//
 	number: {
-		type: "number",
+		type: "string",
 	},
 
 	// this attribute is for checking whether subtitle should be shown or not ⬇
@@ -317,6 +302,10 @@ const attributes = {
 		type: "string",
 	},
 
+	btnAlignment: {
+		type: "string",
+	},
+
 	// Responsive Range Controller attributes
 	...generateResponsiveRangeAttributes(mediaIconSize, {
 		defaultRange: 50,
@@ -414,19 +403,23 @@ const attributes = {
 
 	...generateBorderShadowAttributes(wrpBdShadow, {
 		// bdrDefaults: {
-		// 	top: 0,
+		// 	top: 10,
 		// 	bottom: 0,
-		// 	right: 0,
+		// 	right: 10,
 		// 	left: 0,
+		// 	isLinked: false,
 		// },
 		// rdsDefaults: {
 		// 	top: 0,
 		// 	bottom: 50,
 		// 	right: 500,
 		// 	left: 1000,
+		// 	isLinked: false,
 		// },
 		// noShadow: true,
 		// noBorder: true,
+		// defaultBdrColor: "#f2f",
+		// defaultBdrStyle: "solid",
 	}),
 
 	// background attributes ⬇

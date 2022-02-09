@@ -1,46 +1,64 @@
 /**
  * WordPress dependencies
  */
-const { __ } = wp.i18n;
-const { InspectorControls, MediaUpload } = wp.blockEditor;
-const { useEffect } = wp.element;
-const { select } = wp.data;
-const {
+import { __ } from "@wordpress/i18n";
+import { useEffect } from "@wordpress/element";
+import { InspectorControls, MediaUpload } from "@wordpress/block-editor";
+import {
 	PanelBody,
 	SelectControl,
 	ToggleControl,
 	TextControl,
 	Button,
-	RangeControl,
 	BaseControl,
 	ButtonGroup,
-	TabPanel,
-} = wp.components;
+	TabPanel
+} from "@wordpress/components";
+import { select } from "@wordpress/data";
 
 /**
  * Internal dependencies
  */
 
 import FontIconPicker from "@fonticonpicker/react-fonticonpicker";
-import faIcons from "../util/faIcons.js";
-import TypographyDropdown from "../util/typography-control-v2";
-import ResponsiveDimensionsControl from "../util/dimensions-control-v2";
-import ResponsiveRangeController from "../util/responsive-range-control";
-import ImageAvatar from "../util/image-avatar/";
-import GradientColorControl from "../util/gradient-color-controller";
-import ColorControl from "../util/color-control";
-import BorderShadowControl from "../util/border-shadow-control";
-import BackgroundControl from "../util/background-control";
+// import faIcons from "../../../util/faIcons.js";
+// import TypographyDropdown from "../../../util/typography-control-v2";
+// import ResponsiveDimensionsControl from "../../../util/dimensions-control-v2";
+// import ResponsiveRangeController from "../../../util/responsive-range-control";
+// import ImageAvatar from "../../../util/image-avatar/";
+// import GradientColorControl from "../../../util/gradient-color-controller";
+// import ColorControl from "../../../util/color-control";
+// import BorderShadowControl from "../../../util/border-shadow-control";
+// import BackgroundControl from "../../../util/background-control";
 
 import { infoWrapBg, infoBtnBg } from "./constants/backgroundsConstants";
 import { wrpBdShadow, btnBdShd } from "./constants/borderShadowConstants";
 
 import objAttributes from "./attributes";
 
-import {
-	mimmikCssForResBtns,
-	mimmikCssOnPreviewBtnClickWhileBlockSelected,
-} from "../util/helpers";
+// import {
+// 	mimmikCssForResBtns,
+// 	mimmikCssOnPreviewBtnClickWhileBlockSelected,
+// } from "../../../util/helpers";
+
+const {
+	BackgroundControl,
+	BorderShadowControl,
+	GradientColorControl,
+	ColorControl,
+	ImageAvatar,
+	ResponsiveRangeController,
+	ResponsiveDimensionsControl,
+	TypographyDropdown,
+	faIcons,
+	// mimmikCssForResBtns,
+	// mimmikCssOnPreviewBtnClickWhileBlockSelected,
+} = window.EBInfoboxControls;
+
+const editorStoreForGettingPreivew =
+	eb_style_handler.editor_type === "edit-site"
+		? "core/edit-site"
+		: "core/edit-post";
 
 import {
 	typoPrefix_title,
@@ -170,6 +188,7 @@ function Inspector(props) {
 
 		//
 		contentsAlignment,
+		btnAlignment,
 
 		//
 		btnEffect,
@@ -178,29 +197,29 @@ function Inspector(props) {
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
 	useEffect(() => {
 		setAttributes({
-			resOption: select("core/edit-post").__experimentalGetPreviewDeviceType(),
+			resOption: select(editorStoreForGettingPreivew).__experimentalGetPreviewDeviceType(),
 		});
 	}, []);
 
-	// this useEffect is for mimmiking css for all the eb blocks on resOption changing
-	useEffect(() => {
-		mimmikCssForResBtns({
-			domObj: document,
-			resOption,
-		});
-	}, [resOption]);
+	// // this useEffect is for mimmiking css for all the eb blocks on resOption changing
+	// useEffect(() => {
+	// 	mimmikCssForResBtns({
+	// 		domObj: document,
+	// 		resOption,
+	// 	});
+	// }, [resOption]);
 
-	// this useEffect is to mimmik css for responsive preview in the editor page when clicking the buttons in the 'Preview button of wordpress' located beside the 'update' button while any block is selected and it's inspector panel is mounted in the DOM
-	useEffect(() => {
-		const cleanUp = mimmikCssOnPreviewBtnClickWhileBlockSelected({
-			domObj: document,
-			select,
-			setAttributes,
-		});
-		return () => {
-			cleanUp();
-		};
-	}, []);
+	// // this useEffect is to mimmik css for responsive preview in the editor page when clicking the buttons in the 'Preview button of wordpress' located beside the 'update' button while any block is selected and it's inspector panel is mounted in the DOM
+	// useEffect(() => {
+	// 	const cleanUp = mimmikCssOnPreviewBtnClickWhileBlockSelected({
+	// 		domObj: document,
+	// 		select,
+	// 		setAttributes,
+	// 	});
+	// 	return () => {
+	// 		cleanUp();
+	// 	};
+	// }, []);
 
 	const resRequiredProps = {
 		setAttributes,
@@ -275,11 +294,11 @@ function Inspector(props) {
 							{tab.name === "general" && (
 								<>
 									<PanelBody
-										title={__("Infobox Settings")}
-										// initialOpen={false}
+										title={__("Infobox Settings", "essential-blocks")}
+									// initialOpen={false}
 									>
 										<SelectControl
-											label={__("Layout Preset ")}
+											label={__("Layout Preset ", "essential-blocks")}
 											value={layoutPreset}
 											options={LAYOUT_TYPES}
 											onChange={(layoutPreset) =>
@@ -302,7 +321,7 @@ function Inspector(props) {
 										)}
 
 										<ToggleControl
-											label={__("Clickable Infobox")}
+											label={__("Clickable Infobox", "essential-blocks")}
 											checked={isInfoClick}
 											onChange={() =>
 												setAttributes({ isInfoClick: !isInfoClick })
@@ -325,7 +344,7 @@ function Inspector(props) {
 
 										{!isInfoClick && (
 											<ToggleControl
-												label={__("Show button")}
+												label={__("Show button", "essential-blocks")}
 												checked={enableButton}
 												onChange={() =>
 													setAttributes({ enableButton: !enableButton })
@@ -334,58 +353,58 @@ function Inspector(props) {
 										)}
 									</PanelBody>
 
-									<PanelBody title={__("Alignments")}>
+									<PanelBody title={__("Alignments", "essential-blocks")}>
 										{media !== "none" && (
 											<>
 												{(flexDirection === "row" ||
 													flexDirection === "row-reverse") && (
-													<BaseControl
-														id="eb-infobox-alignments"
-														label="Media alignments"
-													>
-														<ButtonGroup id="eb-infobox-alignments">
-															{MEDIA_ALIGNMENTS_ON_FLEX_ROW.map(
-																({ value, label }) => (
-																	<Button
-																		isLarge
-																		isSecondary={mediaAlignment !== value}
-																		isPrimary={mediaAlignment === value}
-																		onClick={() =>
-																			setAttributes({ mediaAlignment: value })
-																		}
-																	>
-																		{label}
-																	</Button>
-																)
-															)}
-														</ButtonGroup>
-													</BaseControl>
-												)}
+														<BaseControl
+															id="eb-infobox-alignments"
+															label="Media alignments"
+														>
+															<ButtonGroup id="eb-infobox-alignments">
+																{MEDIA_ALIGNMENTS_ON_FLEX_ROW.map(
+																	({ value, label }) => (
+																		<Button
+																			// isLarge
+																			isSecondary={mediaAlignment !== value}
+																			isPrimary={mediaAlignment === value}
+																			onClick={() =>
+																				setAttributes({ mediaAlignment: value })
+																			}
+																		>
+																			{label}
+																		</Button>
+																	)
+																)}
+															</ButtonGroup>
+														</BaseControl>
+													)}
 
 												{(flexDirection === "column" ||
 													flexDirection === "column-reverse") && (
-													<BaseControl
-														id="eb-infobox-alignments"
-														label="Media alignments"
-													>
-														<ButtonGroup id="eb-infobox-alignments">
-															{MEDIA_ALIGNMENTS_ON_FLEX_COLUMN.map(
-																({ value, label }) => (
-																	<Button
-																		isLarge
-																		isSecondary={mediaAlignment !== value}
-																		isPrimary={mediaAlignment === value}
-																		onClick={() =>
-																			setAttributes({ mediaAlignment: value })
-																		}
-																	>
-																		{label}
-																	</Button>
-																)
-															)}
-														</ButtonGroup>
-													</BaseControl>
-												)}
+														<BaseControl
+															id="eb-infobox-alignments"
+															label="Media alignments"
+														>
+															<ButtonGroup id="eb-infobox-alignments">
+																{MEDIA_ALIGNMENTS_ON_FLEX_COLUMN.map(
+																	({ value, label }) => (
+																		<Button
+																			// isLarge
+																			isSecondary={mediaAlignment !== value}
+																			isPrimary={mediaAlignment === value}
+																			onClick={() =>
+																				setAttributes({ mediaAlignment: value })
+																			}
+																		>
+																			{label}
+																		</Button>
+																	)
+																)}
+															</ButtonGroup>
+														</BaseControl>
+													)}
 											</>
 										)}
 
@@ -396,7 +415,7 @@ function Inspector(props) {
 											<ButtonGroup id="eb-infobox-alignments">
 												{CONTENTS_ALIGNMENTS.map(({ value, label }) => (
 													<Button
-														isLarge
+														// isLarge
 														isSecondary={contentsAlignment !== value}
 														isPrimary={contentsAlignment === value}
 														onClick={() =>
@@ -408,22 +427,44 @@ function Inspector(props) {
 												))}
 											</ButtonGroup>
 										</BaseControl>
+
+										{enableButton && !isInfoClick && (
+											<BaseControl
+												id="eb-infobox-alignments"
+												label="Button alignments"
+											>
+												<ButtonGroup id="eb-infobox-alignments">
+													{CONTENTS_ALIGNMENTS.map(({ value, label }) => (
+														<Button
+															// isLarge
+															isSecondary={btnAlignment !== value}
+															isPrimary={btnAlignment === value}
+															onClick={() =>
+																setAttributes({ btnAlignment: value })
+															}
+														>
+															{label}
+														</Button>
+													))}
+												</ButtonGroup>
+											</BaseControl>
+										)}
 									</PanelBody>
 								</>
 							)}
 							{tab.name === "styles" && (
 								<>
-									<PanelBody title={__("Media")}>
+									<PanelBody title={__("Media", "essential-blocks")}>
 										<BaseControl id="eb-infobox-image-icon">
 											<ButtonGroup id="eb-infobox-image-icon">
-												{MEDIA_TYPES.map((value) => (
+												{MEDIA_TYPES.map(({ label, value }) => (
 													<Button
-														isLarge
+														// isLarge
 														isSecondary={media !== value}
 														isPrimary={media === value}
 														onClick={() => setAttributes({ media: value })}
 													>
-														{value}
+														{label}
 													</Button>
 												))}
 											</ButtonGroup>
@@ -432,7 +473,9 @@ function Inspector(props) {
 										{media !== "none" && (
 											<>
 												{media === "icon" && (
-													<BaseControl label={__("Select Icon")}>
+													<BaseControl
+														label={__("Select Icon", "essential-blocks")}
+													>
 														<FontIconPicker
 															icons={faIcons}
 															onChange={(icon) =>
@@ -447,11 +490,11 @@ function Inspector(props) {
 
 												{media === "icon" && selectedIcon && (
 													<ResponsiveRangeController
-														baseLabel={__("Icon Size", "Infobox")}
+														baseLabel={__("Icon Size", "essential-blocks")}
 														controlName={mediaIconSize}
 														resRequiredProps={resRequiredProps}
 														min={8}
-														max={100}
+														max={200}
 														step={1}
 													/>
 												)}
@@ -459,24 +502,23 @@ function Inspector(props) {
 												{media === "number" && (
 													<>
 														<BaseControl
-															label={__("Number")}
+															label={__("Text", "essential-blocks")}
 															id="eb-infobox-number-id"
 														>
 															<input
-																type="number"
-																value={number}
+																type="text"
+																value={`${number}`}
 																id="eb-infobox-number-id"
 																onChange={(e) =>
 																	setAttributes({
-																		number: parseInt(e.target.value, 10) || 0,
+																		number: `${e.target.value}`,
 																	})
 																}
-																min={0}
 															/>
 														</BaseControl>
 
 														<TypographyDropdown
-															baseLabel="Number Typography"
+															baseLabel="Text Typography"
 															typographyPrefixConstant={typoPrefix_number}
 															resRequiredProps={resRequiredProps}
 														/>
@@ -486,7 +528,7 @@ function Inspector(props) {
 												{(media === "number" || media === "icon") && (
 													<>
 														<ColorControl
-															label={__("Color")}
+															label={__("Color", "essential-blocks")}
 															color={numIconColor}
 															onChange={(numIconColor) =>
 																setAttributes({ numIconColor })
@@ -500,7 +542,7 @@ function Inspector(props) {
 														/>
 
 														<ToggleControl
-															label={__("Use Background")}
+															label={__("Use Background", "essential-blocks")}
 															checked={useNumIconBg}
 															onChange={() =>
 																setAttributes({ useNumIconBg: !useNumIconBg })
@@ -509,12 +551,17 @@ function Inspector(props) {
 
 														{useNumIconBg && (
 															<>
-																<BaseControl label={__("Background Type")}>
+																<BaseControl
+																	label={__(
+																		"Background Type",
+																		"essential-blocks"
+																	)}
+																>
 																	<ButtonGroup id="eb-infobox-infobox-background">
 																		{ICON_IMAGE_BG_TYPES.map(
 																			({ value, label }) => (
 																				<Button
-																					isLarge
+																					// isLarge
 																					isPrimary={numIconBgType === value}
 																					isSecondary={numIconBgType !== value}
 																					onClick={() =>
@@ -532,7 +579,10 @@ function Inspector(props) {
 
 																{numIconBgType === "fill" && (
 																	<ColorControl
-																		label={__("Background Color")}
+																		label={__(
+																			"Background Color",
+																			"essential-blocks"
+																		)}
 																		color={numIconBgColor}
 																		onChange={(numIconBgColor) =>
 																			setAttributes({ numIconBgColor })
@@ -542,8 +592,8 @@ function Inspector(props) {
 
 																{numIconBgType === "gradient" && (
 																	<PanelBody
-																		title={__("Gradient")}
-																		// initialOpen={false}
+																		title={__("Gradient", "essential-blocks")}
+																	// initialOpen={false}
 																	>
 																		<GradientColorControl
 																			gradientColor={numIconBgGradient}
@@ -569,7 +619,7 @@ function Inspector(props) {
 															return (
 																<Button
 																	className="eb-background-control-inspector-panel-img-btn components-button"
-																	label={__("Upload Image")}
+																	label={__("Upload Image", "essential-blocks")}
 																	icon="format-image"
 																	onClick={open}
 																/>
@@ -589,13 +639,19 @@ function Inspector(props) {
 															}
 														/>
 														<ResponsiveRangeController
-															baseLabel={__("Image Width", "infobox")}
+															baseLabel={__("Image Width", "essential-blocks")}
 															controlName={mediaImageWidth}
 															resRequiredProps={resRequiredProps}
 															units={sizeUnitTypes}
+															min={0}
+															max={500}
+															step={1}
 														/>
 														<ToggleControl
-															label={__("Auto Image Height")}
+															label={__(
+																"Auto Image Height",
+																"essential-blocks"
+															)}
 															checked={isMediaImgHeightAuto}
 															onChange={() =>
 																setAttributes({
@@ -607,15 +663,23 @@ function Inspector(props) {
 														{!isMediaImgHeightAuto && (
 															<>
 																<ResponsiveRangeController
-																	baseLabel={__("Image Height", "infobox")}
+																	baseLabel={__(
+																		"Image Height",
+																		"essential-blocks"
+																	)}
 																	controlName={mediaImageHeight}
 																	resRequiredProps={resRequiredProps}
 																	units={imgHeightUnits}
+																	min={0}
+																	max={500}
+																	step={1}
 																/>
 															</>
 														)}
 													</>
 												)}
+
+												<hr />
 
 												<ResponsiveDimensionsControl
 													forBorderRadius
@@ -633,8 +697,11 @@ function Inspector(props) {
 										)}
 									</PanelBody>
 
-									<PanelBody title={__("Title")} initialOpen={false}>
-										<BaseControl label={__("Title Tag")}>
+									<PanelBody
+										title={__("Title", "essential-blocks")}
+										initialOpen={false}
+									>
+										<BaseControl label={__("Title Tag", "essential-blocks")}>
 											<ButtonGroup className="infobox-button-group">
 												{HEADER_TAGS.map((header) => (
 													<Button
@@ -661,15 +728,18 @@ function Inspector(props) {
 										/>
 
 										<ColorControl
-											label={__("Color")}
+											label={__("Color", "essential-blocks")}
 											color={titleColor}
 											onChange={(titleColor) => setAttributes({ titleColor })}
 										/>
 									</PanelBody>
 
-									<PanelBody title={__("Subtitle")} initialOpen={false}>
+									<PanelBody
+										title={__("Subtitle", "essential-blocks")}
+										initialOpen={false}
+									>
 										<ToggleControl
-											label={__("Enable")}
+											label={__("Enable", "essential-blocks")}
 											checked={enableSubTitle}
 											onChange={() =>
 												setAttributes({ enableSubTitle: !enableSubTitle })
@@ -678,7 +748,9 @@ function Inspector(props) {
 
 										{enableSubTitle && (
 											<>
-												<BaseControl label={__("Subtitle Tag")}>
+												<BaseControl
+													label={__("Subtitle Tag", "essential-blocks")}
+												>
 													<ButtonGroup className="infobox-button-group">
 														{HEADER_TAGS.map((header) => (
 															<Button
@@ -707,7 +779,7 @@ function Inspector(props) {
 												/>
 
 												<ColorControl
-													label={__("Color")}
+													label={__("Color", "essential-blocks")}
 													color={subTitleColor}
 													onChange={(subTitleColor) =>
 														setAttributes({ subTitleColor })
@@ -717,9 +789,12 @@ function Inspector(props) {
 										)}
 									</PanelBody>
 
-									<PanelBody title={__("Content")} initialOpen={false}>
+									<PanelBody
+										title={__("Content", "essential-blocks")}
+										initialOpen={false}
+									>
 										<ToggleControl
-											label={__("Show content")}
+											label={__("Show content", "essential-blocks")}
 											checked={enableDescription}
 											onChange={() =>
 												setAttributes({ enableDescription: !enableDescription })
@@ -741,7 +816,7 @@ function Inspector(props) {
 												/>
 
 												<ColorControl
-													label={__("Color")}
+													label={__("Color", "essential-blocks")}
 													color={descriptionColor}
 													onChange={(descriptionColor) =>
 														setAttributes({ descriptionColor })
@@ -752,9 +827,12 @@ function Inspector(props) {
 									</PanelBody>
 
 									{enableButton && !isInfoClick && (
-										<PanelBody title={__("Button")} initialOpen={false}>
+										<PanelBody
+											title={__("Button", "essential-blocks")}
+											initialOpen={false}
+										>
 											<TextControl
-												label={__("Button Text")}
+												label={__("Button Text", "essential-blocks")}
 												value={buttonText}
 												onChange={(buttonText) => setAttributes({ buttonText })}
 											/>
@@ -781,7 +859,7 @@ function Inspector(props) {
 											/>
 
 											<ColorControl
-												label={__("Text color")}
+												label={__("Text color", "essential-blocks")}
 												color={buttonTextColor}
 												onChange={(buttonTextColor) =>
 													setAttributes({ buttonTextColor })
@@ -789,21 +867,24 @@ function Inspector(props) {
 											/>
 
 											<ColorControl
-												label={__("Hover text color")}
+												label={__("Hover text color", "essential-blocks")}
 												color={buttonHvrTextColor}
 												onChange={(buttonHvrTextColor) =>
 													setAttributes({ buttonHvrTextColor })
 												}
 											/>
 
-											<PanelBody title={__("Background")} initialOpen={false}>
+											<PanelBody
+												title={__("Background", "essential-blocks")}
+												initialOpen={false}
+											>
 												<BackgroundControl
 													controlName={infoBtnBg}
 													resRequiredProps={resRequiredProps}
 													forButton
-													// noOverlay
-													// noMainBgi
-													// noOverlayBgi // if U pass 'noOverlay' prop U don't need to pass 'noOverlayBgi'
+												// noOverlay
+												// noMainBgi
+												// noOverlayBgi // if U pass 'noOverlay' prop U don't need to pass 'noOverlayBgi'
 												/>
 											</PanelBody>
 
@@ -814,14 +895,16 @@ function Inspector(props) {
 												<BorderShadowControl
 													controlName={btnBdShd}
 													resRequiredProps={resRequiredProps}
-													// noShadow
-													// noBorder
+												// noShadow
+												// noBorder
 												/>
 											</PanelBody>
-
-											<PanelBody title={__("More Effects")} initialOpen={false}>
+											<PanelBody
+												title={__("More Effects", "essential-blocks")}
+												initialOpen={false}
+											>
 												<SelectControl
-													label={__("Button Hover Effect")}
+													label={__("Button Hover Effect", "essential-blocks")}
 													value={btnEffect}
 													options={HOVER_EFFECT}
 													// onChange={(preset) => setAttributes({ preset })}
@@ -832,45 +915,48 @@ function Inspector(props) {
 											</PanelBody>
 
 											{/* <ResponsiveDimensionsControl
-												resRequiredProps={resRequiredProps}
-												controlName={buttonRadius}
-												baseLabel="Button Border Radius"
-											/>
-
-
-											<ColorControl
-												label={__("Button Color")}
-												color={buttonBgColor}
-												onChange={(buttonBgColor) =>
-													setAttributes({ buttonBgColor })
-												}
-											/> */}
+												 resRequiredProps={resRequiredProps}
+												 controlName={buttonRadius}
+												 baseLabel="Button Border Radius"
+											 />
+ 
+ 
+											 <ColorControl
+												 label={__("Button Color", "essential-blocks")}
+												 color={buttonBgColor}
+												 onChange={(buttonBgColor) =>
+													 setAttributes({ buttonBgColor })
+												 }
+											 /> */}
 										</PanelBody>
 									)}
 								</>
 							)}
 							{tab.name === "advance" && (
 								<>
-									<PanelBody title={__("Margin Padding")}>
+									<PanelBody title={__("Margin Padding", "essential-blocks")}>
 										<ResponsiveDimensionsControl
 											resRequiredProps={resRequiredProps}
 											controlName={wrapperMargin}
-											baseLabel="Container Margin"
+											baseLabel="Margin"
 										/>
 										<ResponsiveDimensionsControl
 											resRequiredProps={resRequiredProps}
 											controlName={wrapperPadding}
-											baseLabel="Container Padding"
+											baseLabel="Padding"
 										/>
 									</PanelBody>
 
-									<PanelBody title={__("Background")} initialOpen={false}>
+									<PanelBody
+										title={__("Background", "essential-blocks")}
+										initialOpen={false}
+									>
 										<BackgroundControl
 											controlName={infoWrapBg}
 											resRequiredProps={resRequiredProps}
-											// noOverlay
-											// noMainBgi
-											// noOverlayBgi // if U pass 'noOverlay' prop U don't need to pass 'noOverlayBgi'
+										// noOverlay
+										// noMainBgi
+										// noOverlayBgi // if U pass 'noOverlay' prop U don't need to pass 'noOverlayBgi'
 										/>
 									</PanelBody>
 
@@ -878,8 +964,8 @@ function Inspector(props) {
 										<BorderShadowControl
 											controlName={wrpBdShadow}
 											resRequiredProps={resRequiredProps}
-											// noShadow
-											// noBorder
+										// noShadow
+										// noBorder
 										/>
 									</PanelBody>
 								</>

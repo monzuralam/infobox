@@ -1,30 +1,48 @@
 /**
  * WordPress dependencies
  */
-const { __ } = wp.i18n;
-const { useBlockProps } = wp.blockEditor;
-const { useEffect } = wp.element;
-
-const { select } = wp.data;
+import { __ } from "@wordpress/i18n";
+import { useEffect } from "@wordpress/element";
+import { useBlockProps } from "@wordpress/block-editor";
+import { select } from "@wordpress/data";
 
 /**
  * Internal dependencies
  */
 
-import "./editor.scss";
-
-import InfoboxContainer from "./components/infobox-edit";
-
-import {
+const {
+	//
 	softMinifyCssStrings,
 	generateBackgroundControlStyles,
 	generateDimensionsControlStyles,
 	generateTypographyStyles,
 	generateBorderShadowStyles,
 	generateResponsiveRangeStyles,
-	mimmikCssForPreviewBtnClick,
+	// mimmikCssForPreviewBtnClick,
 	duplicateBlockIdFix,
-} from "../util/helpers";
+} = window.EBInfoboxControls;
+
+const editorStoreForGettingPreivew =
+	eb_style_handler.editor_type === "edit-site"
+		? "core/edit-site"
+		: "core/edit-post";
+
+
+import InfoboxContainer from "./components/infobox-edit";
+
+// import {
+// 	softMinifyCssStrings,
+// 	generateBackgroundControlStyles,
+// 	generateDimensionsControlStyles,
+// 	generateTypographyStyles,
+// 	generateBorderShadowStyles,
+// 	generateResponsiveRangeStyles,
+// 	mimmikCssForPreviewBtnClick,
+// 	duplicateBlockIdFix,
+// } from "../../../util/helpers";
+
+ import classnames from "classnames";
+
 import Inspector from "./inspector";
 import {
 	typoPrefix_content,
@@ -57,7 +75,7 @@ import {
 	mediaContentGap,
 } from "./constants/rangeNames";
 
-const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
+const Edit = ({ attributes, setAttributes, className, isSelected, clientId }) => {
 	const {
 		// responsive control attributes ⬇
 		resOption,
@@ -69,13 +87,13 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		blockId,
 
 		// isOverlay is to check if a overlay on the block's background should exist
-		isOverlay,
+		// isOverlay,
 
-		selectedIcon,
+		// selectedIcon,
 		media,
-		number = 0,
+		number,
 		imageUrl,
-		infoboxLink,
+		// infoboxLink,
 		enableSubTitle,
 		enableDescription,
 		enableButton,
@@ -83,22 +101,22 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		//
 		isInfoClick,
 
-		buttonText,
-		title,
-		subTitle,
-		description,
+		// buttonText,
+		// title,
+		// subTitle,
+		// description,
 
-		//
-		titleTag,
-		subTitleTag,
+		// //
+		// titleTag,
+		// subTitleTag,
 
-		//
-		imageId,
+		// //
+		// imageId,
 
-		//
-		iconSize,
-		TABiconSize,
-		MOBiconSize,
+		// //
+		// iconSize,
+		// TABiconSize,
+		// MOBiconSize,
 
 		//
 		flexDirection,
@@ -129,29 +147,29 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		[`TAB${mediaImageWidth}Unit`]: TABmediaImgWidthUnit,
 		[`MOB${mediaImageWidth}Unit`]: MOBmediaImgWidthUnit,
 
-		//
-		mediaImgWidth,
+		// //
+		// mediaImgWidth,
 
-		//
-		TABmediaImgWidth,
+		// //
+		// TABmediaImgWidth,
 
-		//
-		MOBmediaImgWidth,
+		// //
+		// MOBmediaImgWidth,
 
 		//
 		isMediaImgHeightAuto,
 
-		//
-		mediaImgHeightUnit,
+		// //
+		// mediaImgHeightUnit,
 
-		//
-		mediaImgHeight,
+		// //
+		// mediaImgHeight,
 
-		//
-		TABmediaImgHeight,
+		// //
+		// TABmediaImgHeight,
 
-		//
-		MOBmediaImgHeight,
+		// //
+		// MOBmediaImgHeight,
 
 		//
 		buttonTextColor = "#30267A",
@@ -166,28 +184,49 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		//
 		descriptionColor = "#fff",
 
-		//
-		buttonBgColor = "#E1D8FF",
+		// //
+		// buttonBgColor = "#E1D8FF",
 
 		//
 		mediaAlignment,
 
 		//
 		contentsAlignment,
+		btnAlignment,
 
 		//
-		btnEffect,
+		// btnEffect,
+
+		//
+		//
+		//
+		numberFontSize,
+		TABnumberFontSize,
+		MOBnumberFontSize,
+
+		//
+		mIconZRange,
+		TABmIconZRange,
+		MOBmIconZRange,
+
+		//
+		mIconZUnit,
+		TABmIconZUnit,
+		MOBmIconZUnit,
+
+		//
+		numberSizeUnit,
+		TABnumberSizeUnit,
+		MOBnumberSizeUnit,
 	} = attributes;
 
-	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
 	useEffect(() => {
+		// this codes is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
 		setAttributes({
-			resOption: select("core/edit-post").__experimentalGetPreviewDeviceType(),
+			resOption: select(editorStoreForGettingPreivew).__experimentalGetPreviewDeviceType(),
 		});
-	}, []);
 
-	// this useEffect is for creating a unique blockId for each block's unique className
-	useEffect(() => {
+		// this codes is for creating a unique blockId for each block's unique className
 		const BLOCK_PREFIX = "eb-infobox";
 		duplicateBlockIdFix({
 			BLOCK_PREFIX,
@@ -196,18 +235,21 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			select,
 			clientId,
 		});
-	}, []);
 
-	// this useEffect is for mimmiking css when responsive options clicked from wordpress's 'preview' button
-	useEffect(() => {
-		mimmikCssForPreviewBtnClick({
-			domObj: document,
-			select,
-		});
+		// // this codes is for mimmiking css when responsive options clicked from wordpress's 'preview' button
+		// mimmikCssForPreviewBtnClick({
+		// 	domObj: document,
+		// 	select,
+		// });
+
+		//
+		if (number === undefined) {
+			setAttributes({ number: "01" });
+		}
 	}, []);
 
 	const blockProps = useBlockProps({
-		className: `eb-guten-block-main-parent-wrapper`,
+		className: classnames(className, `eb-guten-block-main-parent-wrapper`),
 	});
 
 	const buttonThakbe = !isInfoClick && enableButton;
@@ -480,7 +522,6 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${wrapperPaddingStylesDesktop}
 			${bdShadowStyesDesktop}
 			${backgroundStylesDesktop}
-			overflow: hidden;
 			transition: ${bgTransitionStyle}, ${bdShadowTransitionStyle};
 		}
 
@@ -498,7 +539,205 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			${hoverOverlayStylesDesktop}
 		}
 
-	`;
+		.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner {	
+			${flexDirection ? `flex-direction: ${flexDirection};` : " "} 
+			${media !== "none" ? `${contentMediaGapDesktop}` : ""}
+		}
+
+		${
+			media !== "none"
+				? `
+				.eb-infobox-wrapper.${blockId} .icon-img-wrapper {
+					${
+						mediaAlignment
+							? `align-self: ${mediaAlignment};`
+							: `align-self: ${mediaAlignSelf || "center"};`
+					}
+	
+					${mediaBgMarginStylesDesktop}
+	
+				}
+	
+	
+				${
+					media === "image"
+						? `
+	
+						.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
+							${mediaImgWidthUnit === "%" ? mediaImgWidthDesktop : " "}
+						}
+						
+						.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner img {
+							
+							${imageUrl ? mediaRadiusStylesDesktop : " "}
+							
+							${mediaImgWidthUnit === "%" ? `width: 100%;` : mediaImgWidthDesktop}
+							${isMediaImgHeightAuto ? `height:auto;` : mediaImgHeightDesktop}
+							
+						}
+	
+						.eb-infobox-wrapper.${blockId} .eb-infobox-image-wrapper{
+							${imageUrl ? " " : mediaRadiusStylesDesktop}
+						}
+						`
+						: " "
+				}
+	
+	
+	
+				${
+					media === "number" || media === "icon"
+						? `
+					
+						.eb-infobox-wrapper.${blockId} .number-or-icon {
+						
+							${mediaBgPaddingDesktop}
+							${mediaRadiusStylesDesktop}
+			
+							${
+								useNumIconBg
+									? `${
+											numIconBgType === "fill"
+												? `background-color: ${numIconBgColor};`
+												: numIconBgType === "gradient"
+												? `background-image: ${numIconBgGradient};`
+												: " "
+									  }`
+									: " "
+							}						
+							
+						}
+			
+						.eb-infobox-wrapper.${blockId} .number-or-icon > span{
+							color: ${numIconColor || "#fff"};
+						}
+						
+						`
+						: " "
+				}
+	
+			
+	
+				${
+					media === "number"
+						? `
+	
+					.eb-infobox-wrapper.${blockId} span.eb-infobox-number{
+						${numTypoStylesDesktop}
+						height:${numberFontSize || 28}${numberSizeUnit};
+						width:${numberFontSize || 28}${numberSizeUnit};
+						display:flex;
+						justify-content:center;
+						align-items:center;
+					}				
+					
+					`
+						: " "
+				}
+	
+				${
+					media === "icon"
+						? `
+					
+						.eb-infobox-wrapper.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
+							${iconSizeDesktop}
+							height:${mIconZRange}${mIconZUnit};
+							width:${mIconZRange}${mIconZUnit};
+							display:flex;
+							justify-content:center;
+							align-items:center;
+						}
+	
+						`
+						: " "
+				}
+	
+	
+			`
+				: " "
+		}
+
+		.eb-infobox-wrapper.${blockId} .contents-wrapper {
+			flex: 1;
+			${contentAlignment ? `text-align: ${contentAlignment};` : " "} 
+
+			${
+				contentsAlignment
+					? `text-align: ${contentsAlignment};`
+					: `text-align: ${contentAlignment};`
+			}
+		}
+
+		.eb-infobox-wrapper.${blockId} .title {
+			${titleTypoStylesDesktop}
+			${titlePaddingStylesDesktop}
+			${titleColor ? `color: ${titleColor};` : " "}
+		}
+
+		${
+			enableSubTitle
+				? `			
+				.eb-infobox-wrapper.${blockId} .subtitle {
+					${subTitleTypoStylesDesktop}
+					${subTitlePaddingStylesDesktop}
+					${subTitleColor ? `color: ${subTitleColor};` : " "}
+				}			
+				`
+				: " "
+		}
+		
+		${
+			enableDescription
+				? `
+			
+				.eb-infobox-wrapper.${blockId} .description {
+					
+					${contentTypoStylesDesktop}
+					${contentPaddingStylesDesktop}
+					${descriptionColor ? `color: ${descriptionColor};` : " "}
+
+				}
+				
+				`
+				: " "
+		}
+
+		${
+			buttonThakbe
+				? `
+			
+				.eb-infobox-wrapper.${blockId} .contents-wrapper .eb-infobox-btn-wrapper{
+					${btnAlignment ? `text-align:${btnAlignment};` : ""}
+				}
+
+				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn{
+					${buttonTypoStylesDesktop}
+					${buttonPaddingStylesDesktop}
+					${btnBackgroundStylesDesktop}
+					${btnBdShadowStyesDesktop}
+					
+					
+					${buttonTextColor ? `color: ${buttonTextColor};` : " "}
+					
+					transition: all 0.5s, ${btnBgTransitionStyle}, ${btnBdShadowTransitionStyle};
+				}
+				
+				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn:hover{
+					${buttonHvrTextColor ? `color: ${buttonHvrTextColor};` : " "}
+					${btnBdShadowStylesHoverDesktop}
+				}
+
+				
+				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn:before{
+					${btnHoverBackgroundStylesDesktop}
+				}
+
+				
+				`
+				: " "
+		}
+
+		`;
 
 	const wrapperStylesTab = `
 		.eb-infobox-wrapper.${blockId} {
@@ -521,471 +760,110 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 		.eb-infobox-wrapper.${blockId}:hover:before{	
 			${hoverOverlayStylesTab}
 		}
-	`;
 
-	const wrapperStylesMobile = `
-		.eb-infobox-wrapper.${blockId} {
-			${wrapperMarginStylesMobile}
-			${wrapperPaddingStylesMobile}			
-			${backgroundStylesMobile}
-			${bdShadowStyesMobile}
-		}
-
-		.eb-infobox-wrapper.${blockId}:hover{
-			${hoverBackgroundStylesMobile}
-			${bdShadowStylesHoverMobile}
-		}
-
-		.eb-infobox-wrapper.${blockId}:before{
-			${overlayStylesMobile}
-		}
-
-		
-		.eb-infobox-wrapper.${blockId}:hover:before{	
-			${hoverOverlayStylesMobile}
-		}
-	`;
-
-	const wrapperInnerStylesDesktop = `	
-		.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner {
-			display: flex;
-			position: relative;
-			${flexDirection ? `flex-direction: ${flexDirection};` : " "} 
-			${media !== "none" ? `${contentMediaGapDesktop}` : ""}
-			
-		}
-	`;
-
-	const wrapperInnerStylesTab = `	
 		.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner {
 			${media !== "none" ? `${contentMediaGapTab}` : ""}			
 		}
-	`;
 
-	const wrapperInnerStylesMobile = `	
-		.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner {
-			${media !== "none" ? `${contentMediaGapMobile}` : ""}			
-		}
-	`;
-
-	const mediaStylesDesktop = `
-	${
-		media !== "none"
-			? `
-			.eb-infobox-wrapper.${blockId} .icon-img-wrapper {
+		${
+			media !== "none"
+				? `
+	
+				.eb-infobox-wrapper.${blockId} .icon-img-wrapper {
+	
+					${mediaBgMarginStylesTab}				
+				}
+	
 				${
-					mediaAlignment
-						? `align-self: ${mediaAlignment};`
-						: `align-self: ${mediaAlignSelf || "center"};`
+					media === "number" || media === "icon"
+						? `
+				
+						.eb-infobox-wrapper.${blockId} .number-or-icon {
+							${mediaRadiusStylesTab}
+							${mediaBgPaddingTab}				
+						}
+						
+						`
+						: " "
 				}
-
-				${mediaBgMarginStylesDesktop}
-
-				overflow: hidden;
-			}
-
-
-			${
-				media === "image"
-					? `
-
+	
+	
+				${
+					media === "number"
+						? `
+	
+						.eb-infobox-wrapper.${blockId} span.eb-infobox-number{
+							${numTypoStylesTab}
+							${TABnumberFontSize ? `height:${TABnumberFontSize}${TABnumberSizeUnit};` : ""}
+							${TABnumberFontSize ? `width:${TABnumberFontSize}${TABnumberSizeUnit};` : ""}
+						}				
+					
+					`
+						: " "
+				}
+	
+				
+				${
+					media === "icon"
+						? `
+					
+						.eb-infobox-wrapper.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
+							${iconSizeTab}
+							${TABmIconZRange ? `height:${TABmIconZRange}${TABmIconZUnit};` : ""}
+							${TABmIconZRange ? `width:${TABmIconZRange}${TABmIconZUnit};` : ""}
+						}
+					
+					`
+						: " "
+				}
+	
+				
+				${
+					media === "image"
+						? `
+							
 					.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
-						max-width: 100%;
-						${mediaImgWidthUnit === "%" ? mediaImgWidthDesktop : " "}
-					}
-					
-					.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner img {
-						max-width: 100%;
-						object-fit: cover;
-						display: inline-block;
-						${imageUrl ? mediaRadiusStylesDesktop : " "}
-						
-						${mediaImgWidthUnit === "%" ? `width: 100%;` : mediaImgWidthDesktop}
-						${isMediaImgHeightAuto ? `height:auto;` : mediaImgHeightDesktop}
-						
-					}
-
-					.eb-infobox-wrapper.${blockId} .eb-infobox-image-wrapper{
-						overflow: hidden;
-						display:flex;
-						${imageUrl ? " " : mediaRadiusStylesDesktop}
-					}
-					`
-					: " "
-			}
-
-
-
-			${
-				media === "number" || media === "icon"
-					? `
-				
-					.eb-infobox-wrapper.${blockId} .number-or-icon {
-					
-						${mediaBgPaddingDesktop}
-						${mediaRadiusStylesDesktop}
-		
 						${
-							useNumIconBg
-								? `${
-										numIconBgType === "fill"
-											? `background-color: ${numIconBgColor};`
-											: numIconBgType === "gradient"
-											? `background-image: ${numIconBgGradient};`
-											: " "
-								  }`
+							TABmediaImgWidthUnit === "%"
+								? mediaImgWidthTab
+								: mediaImgWidthUnit === "%"
+								? `width: auto;`
 								: " "
-						}						
+						}
+					}
+	
+					.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner img {
+						
+						${
+							TABmediaImgWidthUnit === "%"
+								? mediaImgWidthUnit === "%"
+									? " "
+									: `width: 100%;`
+								: mediaImgWidthTab
+						}
+						
+						${isMediaImgHeightAuto ? "" : mediaImgHeightTab}
 						
 					}
-		
-					.eb-infobox-wrapper.${blockId} .number-or-icon > span{
-						color: ${numIconColor || "#fff"};
-					}
+	
 					
-					`
-					: " "
-			}
-
-		
-
-			${
-				media === "number"
-					? `
-
-				.eb-infobox-wrapper.${blockId} span.eb-infobox-number{
-					${numTypoStylesDesktop}
-				}				
-				
-				`
-					: " "
-			}
-
-			${
-				media === "icon"
-					? `
-				
-					.eb-infobox-wrapper.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
-						${iconSizeDesktop}
-						
-					}
-
-					`
-					: " "
-			}
-
-
-		`
-			: " "
-	}
-
-	`;
-
-	const mediaStylesTab = `
-	${
-		media !== "none"
-			? `
-
-			.eb-infobox-wrapper.${blockId} .icon-img-wrapper {
-
-				${mediaBgMarginStylesTab}				
-			}
-
-			${
-				media === "number" || media === "icon"
-					? `
-			
-					.eb-infobox-wrapper.${blockId} .number-or-icon {
+					.eb-infobox-wrapper.${blockId} .eb-infobox-image-wrapper{
 						${mediaRadiusStylesTab}
-						${mediaBgPaddingTab}				
+	
 					}
 					
 					`
-					: " "
-			}
-
-
-			${
-				media === "number"
-					? `
-
-					.eb-infobox-wrapper.${blockId} span.eb-infobox-number{
-						${numTypoStylesTab}
-					}				
-				
-				`
-					: " "
-			}
-
-			
-			${
-				media === "icon"
-					? `
-				
-					.eb-infobox-wrapper.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
-						${iconSizeTab}
-					}
-				
-				`
-					: " "
-			}
-
-			
-			${
-				media === "image"
-					? `
-						
-				.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
-					${
-						TABmediaImgWidthUnit === "%"
-							? mediaImgWidthTab
-							: mediaImgWidthUnit === "%"
-							? `width: auto;`
-							: " "
-					}
+						: " "
 				}
-
-				.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner img {
-					
-					${
-						TABmediaImgWidthUnit === "%"
-							? mediaImgWidthUnit === "%"
-								? " "
-								: `width: 100%;`
-							: mediaImgWidthTab
-					}
-					
-					${isMediaImgHeightAuto ? `height:auto;` : mediaImgHeightTab}
-					
-				}
-
-				
-				.eb-infobox-wrapper.${blockId} .eb-infobox-image-wrapper{
-					${mediaRadiusStylesTab}
-
-				}
-				
-				`
-					: " "
-			}
-
-
-
-
-		`
-			: " "
-	}
 	
-	`;
-
-	const mediaStylesMobile = `
-	${
-		media !== "none"
-			? `
-
-			.eb-infobox-wrapper.${blockId} .icon-img-wrapper {
-				
-				${mediaBgMarginStylesMobile}
-			}
-
-			${
-				media === "number" || media === "icon"
-					? `
-
-					.eb-infobox-wrapper.${blockId} .number-or-icon {
-						${mediaRadiusStylesMobile}
-						${mediaBgPaddingMobile}				
-					}
-					
-					`
-					: " "
-			}
-
-			${
-				media === "number"
-					? `
-
-				.eb-infobox-wrapper.${blockId} span.eb-infobox-number{
-					${numTypoStylesMobile}
-				}				
-				
-				`
-					: " "
-			}
-
-			${
-				media === "icon"
-					? `
-
-					.eb-infobox-wrapper.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
-						${iconSizeMobile}
-					}			
-				
-				`
-					: " "
-			}
-
-			
-			
-			${
-				media === "image"
-					? `
-
-								
-				.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
-					${
-						MOBmediaImgWidthUnit === "%"
-							? mediaImgWidthMobile
-							: TABmediaImgWidthUnit === "%"
-							? `width: auto;`
-							: " "
-					}
-				}
-
-				
-				.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner img {
-					
-					${
-						MOBmediaImgWidthUnit === "%"
-							? TABmediaImgWidthUnit === "%"
-								? " "
-								: `width: 100%;`
-							: mediaImgWidthMobile
-					}
-					
-					${isMediaImgHeightAuto ? `height:auto;` : mediaImgHeightMobile}
-
-				}
-
-				
-				.eb-infobox-wrapper.${blockId} .eb-infobox-image-wrapper{
-					${mediaRadiusStylesMobile}
-				}
-				
-				`
-					: " "
-			}
-
-
-
-		`
-			: " "
-	}
-		
 	
-	`;
-
-	const contentStylesDesktop = `
-		.eb-infobox-wrapper.${blockId} .contents-wrapper {
-			flex: 1;
-			${contentAlignment ? `text-align: ${contentAlignment};` : " "} 
-
-			${
-				contentsAlignment
-					? `text-align: ${contentsAlignment};`
-					: `text-align: ${contentAlignment};`
-			}
-		}
-
-		.eb-infobox-wrapper.${blockId} .title {
-			margin: 0;
-			padding: 10px 0;
-			${titleTypoStylesDesktop}
-			${titlePaddingStylesDesktop}
-			${titleColor ? `color: ${titleColor};` : " "}
-		}
-
-		${
-			enableSubTitle
-				? `			
-				.eb-infobox-wrapper.${blockId} .subtitle {
-					margin: 0;
-					padding: 10px 0;
-					${subTitleTypoStylesDesktop}
-					${subTitlePaddingStylesDesktop}
-					${subTitleColor ? `color: ${subTitleColor};` : " "}
-				}			
-				`
+	
+	
+			`
 				: " "
 		}
 		
-		${
-			enableDescription
-				? `
-			
-				.eb-infobox-wrapper.${blockId} .description {
-					margin: 0;
-					padding: 10px 0;
-					${contentTypoStylesDesktop}
-					${contentPaddingStylesDesktop}
-					${descriptionColor ? `color: ${descriptionColor};` : " "}
 
-				}
-				
-				`
-				: " "
-		}
-
-		${
-			isInfoClick
-				? `
-				a.info-click-link.info-wrap-link,
-				a.info-click-link.info-wrap-link:hover,
-				a.info-click-link.info-wrap-link:focus
-				{
-					color: inherit;
-					display:block;
-					text-decoration:none;
-					cursor:pointer;
-				}
-				`
-				: ""
-		}
-
-		
-		${
-			buttonThakbe
-				? `
-			
-				.eb-infobox-wrapper.${blockId} a{
-					text-decoration:none;
-				}
-
-				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn{
-					display:inline-block;
-					${buttonTypoStylesDesktop}
-					${buttonPaddingStylesDesktop}
-					${btnBackgroundStylesDesktop}
-					${btnBdShadowStyesDesktop}
-					
-					
-					${buttonTextColor ? `color: ${buttonTextColor};` : " "}
-					
-					transition: all 0.5s, ${btnBgTransitionStyle}, ${btnBdShadowTransitionStyle};
-				}
-				
-				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn:hover{
-					${buttonHvrTextColor ? `color: ${buttonHvrTextColor};` : " "}
-					${btnBdShadowStylesHoverDesktop}
-				}
-
-				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn:hover:before{
-					opacity:1;
-				}
-				
-				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn:before{
-					${btnHoverBackgroundStylesDesktop}
-				}
-
-				
-				`
-				: " "
-		}
-
-
-	`;
-
-	const contentStylesTab = `
 		.eb-infobox-wrapper.${blockId} .title {
 			${titleTypoStylesTab}
 			${titlePaddingStylesTab}
@@ -1035,7 +913,127 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	
 	`;
 
-	const contentStylesMobile = `
+	const wrapperStylesMobile = `
+		.eb-infobox-wrapper.${blockId} {
+			${wrapperMarginStylesMobile}
+			${wrapperPaddingStylesMobile}			
+			${backgroundStylesMobile}
+			${bdShadowStyesMobile}
+		}
+
+		.eb-infobox-wrapper.${blockId}:hover{
+			${hoverBackgroundStylesMobile}
+			${bdShadowStylesHoverMobile}
+		}
+
+		.eb-infobox-wrapper.${blockId}:before{
+			${overlayStylesMobile}
+		}
+
+		
+		.eb-infobox-wrapper.${blockId}:hover:before{	
+			${hoverOverlayStylesMobile}
+		}
+
+		.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner {
+			${media !== "none" ? `${contentMediaGapMobile}` : ""}			
+		}
+
+		${
+			media !== "none"
+				? `
+	
+				.eb-infobox-wrapper.${blockId} .icon-img-wrapper {
+					
+					${mediaBgMarginStylesMobile}
+				}
+	
+				${
+					media === "number" || media === "icon"
+						? `
+	
+						.eb-infobox-wrapper.${blockId} .number-or-icon {
+							${mediaRadiusStylesMobile}
+							${mediaBgPaddingMobile}				
+						}
+						
+						`
+						: " "
+				}
+	
+				${
+					media === "number"
+						? `
+	
+					.eb-infobox-wrapper.${blockId} span.eb-infobox-number{
+						${numTypoStylesMobile}
+						${MOBnumberFontSize ? `height:${MOBnumberFontSize}${MOBnumberSizeUnit};` : ""}
+						${MOBnumberFontSize ? `width:${MOBnumberFontSize}${MOBnumberSizeUnit};` : ""}
+					}				
+					
+					`
+						: " "
+				}
+	
+				${
+					media === "icon"
+						? `
+	
+						.eb-infobox-wrapper.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
+							${iconSizeMobile}
+							${MOBmIconZRange ? `height:${MOBmIconZRange}${MOBmIconZUnit};` : ""}
+							${MOBmIconZRange ? `width:${MOBmIconZRange}${MOBmIconZUnit};` : ""}
+						}			
+					
+					`
+						: " "
+				}
+				
+				${
+					media === "image"
+						? `
+	
+									
+					.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
+						${
+							MOBmediaImgWidthUnit === "%"
+								? mediaImgWidthMobile
+								: TABmediaImgWidthUnit === "%"
+								? `width: auto;`
+								: " "
+						}
+					}
+	
+					
+					.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner img {
+						
+						${
+							MOBmediaImgWidthUnit === "%"
+								? TABmediaImgWidthUnit === "%"
+									? " "
+									: `width: 100%;`
+								: mediaImgWidthMobile
+						}
+						
+						${isMediaImgHeightAuto ? "" : mediaImgHeightMobile}
+	
+					}
+	
+					
+					.eb-infobox-wrapper.${blockId} .eb-infobox-image-wrapper{
+						${mediaRadiusStylesMobile}
+					}
+					
+					`
+						: " "
+				}
+	
+	
+	
+			`
+				: " "
+		}
+		
 		.eb-infobox-wrapper.${blockId} .title {
 			${titleTypoStylesMobile}
 			${titlePaddingStylesMobile}
@@ -1072,6 +1070,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 				? `
 			
 				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn{
+					${buttonTypoStylesMobile}
 					${btnBdShadowStyesMobile}
 				}
 				
@@ -1091,28 +1090,16 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 	// all css styles for large screen width (desktop/laptop) in strings ⬇
 	const desktopAllStyles = softMinifyCssStrings(`		
 		${wrapperStylesDesktop}
-		${wrapperInnerStylesDesktop}
-		${mediaStylesDesktop}
-		${contentStylesDesktop}	
 	`);
 
 	// all css styles for Tab in strings ⬇
 	const tabAllStyles = softMinifyCssStrings(`
 		${wrapperStylesTab}
-		${wrapperInnerStylesTab}
-		${mediaStylesTab}
-		${contentStylesTab}
-		
-		
 	`);
 
 	// all css styles for Mobile in strings ⬇
 	const mobileAllStyles = softMinifyCssStrings(`
 		${wrapperStylesMobile}
-		${wrapperInnerStylesMobile}
-		${mediaStylesMobile}
-		${contentStylesMobile}
-	
 	`);
 
 	// Set All Style in "blockMeta" Attribute
@@ -1180,7 +1167,7 @@ const Edit = ({ attributes, setAttributes, isSelected, clientId }) => {
 			) : (
 				<InfoboxContainer attributes={attributes} />
 			)} */}
-			<InfoboxContainer attributes={attributes} setAttributes={setAttributes} />
+			<InfoboxContainer setAttributes={setAttributes} attributes={attributes} />
 		</div>,
 	];
 };

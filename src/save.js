@@ -1,4 +1,4 @@
-const { useBlockProps } = wp.blockEditor;
+import { useBlockProps } from "@wordpress/block-editor";
 
 import InfoboxContainer from "./components/infobox-save";
 
