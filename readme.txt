@@ -2,8 +2,8 @@
 Contributors: wpdevteam, re_enter_rupok, Asif2BD, rahat89, hztyfoon
 Tags: block, blocks, infobox, info box, icon box, gutenberg, gutenberg blocks
 Requires at least: 5.6
-Tested up to: 5.8
-Stable tag: 1.1.4
+Tested up to: 5.9
+Stable tag: 1.1.5
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -80,6 +80,15 @@ Yes, it will work with any standard WordPress theme.
 
 
 == Changelog ==
+
+= 1.1.5 - (dev) =
+* Added: Wide width & full width support
+* Added: Option for button alignment
+* Added: Support for full site editing & wp5.9
+* fixed: IconPicker model auto closing on first page & last page issue
+* fixed: Icon size auto changes for different icons
+* Improved: In media panel, 'number' replaced 'text' beside 'icon' & 'image' to allow both number or text there
+* Improved: Controls and structure.
 
 = 1.1.4 - 12/10/2021 =
 * Fixed: Infobox not saving title & Description
