@@ -1,30 +1,36 @@
-const { __ } = wp.i18n;
+import { __ } from "@wordpress/i18n";
 
 export const LAYOUT_TYPES = [
-	{ label: __("Preset 1"), value: "preset1" },
-	{ label: __("Preset 2"), value: "preset2" },
-	{ label: __("Preset 3"), value: "preset3" },
-	{ label: __("Preset 4"), value: "preset4" },
+	{ label: __("Preset 1", "essential-blocks"), value: "preset1" },
+	{ label: __("Preset 2", "essential-blocks"), value: "preset2" },
+	{ label: __("Preset 3", "essential-blocks"), value: "preset3" },
+	{ label: __("Preset 4", "essential-blocks"), value: "preset4" },
 ];
 
-export const MEDIA_TYPES = ["image", "icon", "number", "none"];
+// export const MEDIA_TYPES = ["image", "icon", "number", "none"];
+export const MEDIA_TYPES = [
+	{ label: __("image", "essential-blocks"), value: "image" },
+	{ label: __("icon", "essential-blocks"), value: "icon" },
+	{ label: __("Text", "essential-blocks"), value: "number" },
+	{ label: __("none", "essential-blocks"), value: "none" },
+];
 
 export const CONTENTS_ALIGNMENTS = [
-	{ label: __("Left"), value: "left" },
-	{ label: __("Center"), value: "center" },
-	{ label: __("Right"), value: "right" },
+	{ label: __("Left", "essential-blocks"), value: "left" },
+	{ label: __("Center", "essential-blocks"), value: "center" },
+	{ label: __("Right", "essential-blocks"), value: "right" },
 ];
 
 export const MEDIA_ALIGNMENTS_ON_FLEX_COLUMN = [
-	{ label: __("Left"), value: "flex-start" },
-	{ label: __("Center"), value: "center" },
-	{ label: __("Right"), value: "flex-end" },
+	{ label: __("Left", "essential-blocks"), value: "flex-start" },
+	{ label: __("Center", "essential-blocks"), value: "center" },
+	{ label: __("Right", "essential-blocks"), value: "flex-end" },
 ];
 
 export const MEDIA_ALIGNMENTS_ON_FLEX_ROW = [
-	{ label: __("Top"), value: "flex-start" },
-	{ label: __("Middle"), value: "center" },
-	{ label: __("Bottom"), value: "flex-end" },
+	{ label: __("Top", "essential-blocks"), value: "flex-start" },
+	{ label: __("Middle", "essential-blocks"), value: "center" },
+	{ label: __("Bottom", "essential-blocks"), value: "flex-end" },
 ];
 
 export const ICON_IMAGE_BG_TYPES = [
@@ -47,27 +53,27 @@ export const imgHeightUnits = [
 export const HEADER_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"];
 
 export const BACKGROUND_TYPES = [
-	{ label: __("Fill"), value: "fill" },
-	{ label: __("Gradient"), value: "gradient" },
-	{ label: __("Image"), value: "image" },
+	{ label: __("Fill", "essential-blocks"), value: "fill" },
+	{ label: __("Gradient", "essential-blocks"), value: "gradient" },
+	{ label: __("Image", "essential-blocks"), value: "image" },
 ];
 
 export const BACKGROUND_SIZES = [
-	{ label: __("Auto"), value: "auto" },
-	{ label: __("Cover"), value: "cover" },
-	{ label: __("Contain"), value: "contain" },
+	{ label: __("Auto", "essential-blocks"), value: "auto" },
+	{ label: __("Cover", "essential-blocks"), value: "cover" },
+	{ label: __("Contain", "essential-blocks"), value: "contain" },
 ];
 
 export const BORDER_STYLES = [
-	{ label: __("None"), value: "none" },
-	{ label: __("Dashed"), value: "dashed" },
-	{ label: __("Solid"), value: "solid" },
-	{ label: __("Dotted"), value: "dotted" },
-	{ label: __("Double"), value: "double" },
-	{ label: __("Groove"), value: "groove" },
-	{ label: __("Inset"), value: "inset" },
-	{ label: __("Outset"), value: "outset" },
-	{ label: __("Ridge"), value: "ridge" },
+	{ label: __("None", "essential-blocks"), value: "none" },
+	{ label: __("Dashed", "essential-blocks"), value: "dashed" },
+	{ label: __("Solid", "essential-blocks"), value: "solid" },
+	{ label: __("Dotted", "essential-blocks"), value: "dotted" },
+	{ label: __("Double", "essential-blocks"), value: "double" },
+	{ label: __("Groove", "essential-blocks"), value: "groove" },
+	{ label: __("Inset", "essential-blocks"), value: "inset" },
+	{ label: __("Outset", "essential-blocks"), value: "outset" },
+	{ label: __("Ridge", "essential-blocks"), value: "ridge" },
 ];
 
 export const SHADOW_HOVER_OPTIONS = [

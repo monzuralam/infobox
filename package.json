@@ -4,7 +4,7 @@
 	"description": "Highlight Your Key Features & Hold Audience Attention with Info Box Block.",
 	"author": "WPDeveloper",
 	"license": "GPL-3.0-or-later",
-	"main": "build/index.js",
+	"main": "Gruntfile.js",
 	"scripts": {
 		"build": "wp-scripts build",
 		"format": "wp-scripts format",
@@ -14,17 +14,14 @@
 		"packages-update": "wp-scripts packages-update"
 	},
 	"dependencies": {
-		"@fonticonpicker/react-fonticonpicker": "^1.2.0",
-		"classnames": "^2.2.6",
-		"prop-types": "^15.7.2",
-		"react-transition-group": "^4.4.1"
+		"@fonticonpicker/react-fonticonpicker": "hz-tyfoon/react-fonticonpicker#master",
+		"classnames": "^2.3.1",
+		"react-transition-group": "^4.4.2"
 	},
 	"devDependencies": {
-		"@wordpress/block-editor": "^5.3.3",
-		"@wordpress/blocks": "^8.0.3",
-		"@wordpress/i18n": "^3.20.0",
-		"@wordpress/scripts": "^15.0.1",
-		"node-sass": "^6.0.1",
-		"postcss-loader": "^5.3.0"
+		"@wordpress/block-editor": "^8.0.12",
+		"@wordpress/blocks": "^11.1.5",
+		"@wordpress/i18n": "^4.2.4",
+		"@wordpress/scripts": "^19.2.2"
 	}
 }
