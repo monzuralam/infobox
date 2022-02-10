@@ -4,7 +4,7 @@
  * Plugin Name:     Infobox
  * Plugin URI: 		https://essential-blocks.com
  * Description:     Highlight Your Key Features & Hold Audience Attention with Info Box Block.
- * Version:         1.1.5
+ * Version:         1.2.0
  * Author:          WPDeveloper
  * Author URI: 		https://wpdeveloper.net
  * License:         GPL-3.0-or-later
@@ -21,7 +21,7 @@
  * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/applying-styles-with-stylesheets/
  */
 
-define('INFOBOX_VERSION', "1.1.0");
+define('INFOBOX_VERSION', "1.2.0");
 define('INFOBOX_ADMIN_URL', plugin_dir_url(__FILE__));
 define('INFOBOX_ADMIN_PATH', dirname(__FILE__));
 
@@ -66,9 +66,9 @@ function create_block_infobox_block_init()
 		"all"
 	);
 
-	// 
-	// 
-	// 
+	//
+	//
+	//
 	$controls_dependencies = require INFOBOX_ADMIN_PATH . '/dist/controls.asset.php';
 
 	wp_register_script(
