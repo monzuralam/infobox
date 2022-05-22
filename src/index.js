@@ -11,6 +11,7 @@ import { InfoboxIcon } from "./icon";
 import Edit from "./edit";
 import Save from "./save";
 import attributes from "./attributes";
+import deprecated from "./deprecated";
 import metadata from "../block.json";
 import "./style.scss";
 import example from "./example";
@@ -27,4 +28,5 @@ ebConditionalRegisterBlockType(metadata, {
 	edit: Edit,
 	save: Save,
 	example: example,
+	deprecated,
 });

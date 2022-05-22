@@ -46,6 +46,7 @@ function create_block_infobox_block_init()
 		'wp-element',
 		'wp-block-editor',
 		'infobox-controls-util',
+		'essential-blocks-eb-animation'
 	));
 
 	$index_js     = INFOBOX_ADMIN_URL . 'dist/index.js';
@@ -57,32 +58,31 @@ function create_block_infobox_block_init()
 		true
 	);
 
+	$animate_css = INFOBOX_ADMIN_URL . 'assets/css/animate.min.css';
+	wp_register_style(
+		'essential-blocks-animation',
+		$animate_css,
+		array(),
+		INFOBOX_VERSION
+	);
+
 	$style_css     = INFOBOX_ADMIN_URL . 'dist/style.css';
 	wp_register_style(
 		'create-block-infobox-block-editor',
 		$style_css,
-		array(),
+		array('essential-blocks-animation'),
 		INFOBOX_VERSION,
 		"all"
 	);
 
-	//
-	//
-	//
-	$controls_dependencies = require INFOBOX_ADMIN_PATH . '/dist/controls.asset.php';
-
+	$load_animation_js = INFOBOX_ADMIN_URL . 'assets/js/eb-animation-load.js';
 	wp_register_script(
-		"infobox-controls-util",
-		INFOBOX_ADMIN_URL . '/dist/controls.js',
-		array_merge($controls_dependencies['dependencies'], array("essential-blocks-edit-post")),
-		$controls_dependencies['version'],
+		'essential-blocks-eb-animation',
+		$load_animation_js,
+		array(),
+		INFOBOX_VERSION,
 		true
 	);
-
-	wp_localize_script('infobox-controls-util', 'EssentialBlocksLocalize', array(
-		'eb_wp_version' => (float) get_bloginfo('version'),
-		'rest_rootURL' => get_rest_url(),
-	));
 
 	wp_register_style(
 		'fontpicker-default-theme',
@@ -117,20 +117,6 @@ function create_block_infobox_block_init()
 		"all"
 	);
 
-	wp_register_style(
-		'infobox-editor-css',
-		INFOBOX_ADMIN_URL . '/dist/controls.css',
-		array(
-			'essential-blocks-hover-css',
-			'fontpicker-default-theme',
-			'fontpicker-matetial-theme',
-			'fontawesome-frontend-css',
-			"create-block-infobox-block-editor"
-		),
-		$controls_dependencies['version'],
-		'all'
-	);
-
 	if (!WP_Block_Type_Registry::get_instance()->is_registered('essential-blocks/infobox')) {
 		register_block_type(
 			Infobox_Helper::get_block_register_path("infobox/infobox", INFOBOX_ADMIN_PATH),
@@ -141,7 +127,9 @@ function create_block_infobox_block_init()
 					if (!is_admin()) {
 						wp_enqueue_style('fontawesome-frontend-css');
 						wp_enqueue_style('essential-blocks-hover-css');
+						wp_enqueue_style('essential-blocks-hover-css');
 						wp_enqueue_style('create-block-infobox-block-editor');
+						wp_enqueue_script('essential-blocks-eb-animation');
 					}
 					return $content;
 				}
@@ -150,4 +138,4 @@ function create_block_infobox_block_init()
 	}
 }
 
-add_action('init', 'create_block_infobox_block_init');
+add_action('init', 'create_block_infobox_block_init', 99);
