@@ -39,7 +39,7 @@ class Infobox_Helper
         /**
          * Only for Admin Add/Edit Pages 
          */
-        if ($hook == 'post-new.php' || $hook == 'post.php' || $hook == 'site-editor.php') {
+        if ($hook == 'post-new.php' || $hook == 'post.php' || $hook == 'site-editor.php' || ($hook == 'themes.php' && !empty($_SERVER['QUERY_STRING']) && str_contains($_SERVER['QUERY_STRING'], 'gutenberg-edit-site'))) {
 
             $controls_dependencies = require INFOBOX_ADMIN_PATH . '/dist/controls.asset.php';
 
