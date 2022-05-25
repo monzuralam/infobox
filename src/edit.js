@@ -23,25 +23,13 @@ const {
 } = window.EBInfoboxControls;
 
 const editorStoreForGettingPreivew =
-	eb_style_handler.editor_type === "edit-site"
+	eb_conditional_localize.editor_type === "edit-site"
 		? "core/edit-site"
 		: "core/edit-post";
 
-
 import InfoboxContainer from "./components/infobox-edit";
 
-// import {
-// 	softMinifyCssStrings,
-// 	generateBackgroundControlStyles,
-// 	generateDimensionsControlStyles,
-// 	generateTypographyStyles,
-// 	generateBorderShadowStyles,
-// 	generateResponsiveRangeStyles,
-// 	mimmikCssForPreviewBtnClick,
-// 	duplicateBlockIdFix,
-// } from "../../../util/helpers";
-
- import classnames from "classnames";
+import classnames from "classnames";
 
 import Inspector from "./inspector";
 import {
@@ -75,7 +63,13 @@ import {
 	mediaContentGap,
 } from "./constants/rangeNames";
 
-const Edit = ({ attributes, setAttributes, className, isSelected, clientId }) => {
+const Edit = ({
+	attributes,
+	setAttributes,
+	className,
+	isSelected,
+	clientId,
+}) => {
 	const {
 		// responsive control attributes ⬇
 		resOption,
@@ -85,136 +79,42 @@ const Edit = ({ attributes, setAttributes, className, isSelected, clientId }) =>
 
 		// blockId attribute for making unique className and other uniqueness
 		blockId,
-
-		// isOverlay is to check if a overlay on the block's background should exist
-		// isOverlay,
-
-		// selectedIcon,
 		media,
 		number,
 		imageUrl,
-		// infoboxLink,
 		enableSubTitle,
 		enableDescription,
 		enableButton,
-
-		//
 		isInfoClick,
-
-		// buttonText,
-		// title,
-		// subTitle,
-		// description,
-
-		// //
-		// titleTag,
-		// subTitleTag,
-
-		// //
-		// imageId,
-
-		// //
-		// iconSize,
-		// TABiconSize,
-		// MOBiconSize,
-
-		//
 		flexDirection,
-
-		//
 		mediaAlignSelf,
-
-		//
 		contentAlignment,
-
-		//
 		useNumIconBg,
-
-		//
 		numIconColor,
-
-		//
 		numIconBgType,
-
-		//
 		numIconBgColor,
-
-		//
 		numIconBgGradient,
-
-		//
 		[`${mediaImageWidth}Unit`]: mediaImgWidthUnit,
 		[`TAB${mediaImageWidth}Unit`]: TABmediaImgWidthUnit,
 		[`MOB${mediaImageWidth}Unit`]: MOBmediaImgWidthUnit,
-
-		// //
-		// mediaImgWidth,
-
-		// //
-		// TABmediaImgWidth,
-
-		// //
-		// MOBmediaImgWidth,
-
-		//
 		isMediaImgHeightAuto,
-
-		// //
-		// mediaImgHeightUnit,
-
-		// //
-		// mediaImgHeight,
-
-		// //
-		// TABmediaImgHeight,
-
-		// //
-		// MOBmediaImgHeight,
-
-		//
 		buttonTextColor = "#30267A",
 		buttonHvrTextColor,
-
-		//
 		titleColor = "#fff",
-
-		//
 		subTitleColor = "#fff",
-
-		//
 		descriptionColor = "#fff",
-
-		// //
-		// buttonBgColor = "#E1D8FF",
-
-		//
 		mediaAlignment,
-
-		//
 		contentsAlignment,
 		btnAlignment,
-
-		//
-		// btnEffect,
-
-		//
-		//
-		//
 		numberFontSize,
 		TABnumberFontSize,
 		MOBnumberFontSize,
-
-		//
 		mIconZRange,
 		TABmIconZRange,
 		MOBmIconZRange,
-
-		//
 		mIconZUnit,
 		TABmIconZUnit,
 		MOBmIconZUnit,
-
-		//
 		numberSizeUnit,
 		TABnumberSizeUnit,
 		MOBnumberSizeUnit,
@@ -223,7 +123,9 @@ const Edit = ({ attributes, setAttributes, className, isSelected, clientId }) =>
 	useEffect(() => {
 		// this codes is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
 		setAttributes({
-			resOption: select(editorStoreForGettingPreivew).__experimentalGetPreviewDeviceType(),
+			resOption: select(
+				editorStoreForGettingPreivew
+			).__experimentalGetPreviewDeviceType(),
 		});
 
 		// this codes is for creating a unique blockId for each block's unique className
@@ -235,12 +137,6 @@ const Edit = ({ attributes, setAttributes, className, isSelected, clientId }) =>
 			select,
 			clientId,
 		});
-
-		// // this codes is for mimmiking css when responsive options clicked from wordpress's 'preview' button
-		// mimmikCssForPreviewBtnClick({
-		// 	domObj: document,
-		// 	select,
-		// });
 
 		//
 		if (number === undefined) {
@@ -1114,15 +1010,14 @@ const Edit = ({ attributes, setAttributes, className, isSelected, clientId }) =>
 		}
 	}, [attributes]);
 
-	return [
-		isSelected && (
-			<Inspector attributes={attributes} setAttributes={setAttributes} />
-		),
-
-		// Edit view
-		<div {...blockProps}>
-			<style>
-				{`
+	return (
+		<>
+			{isSelected && (
+				<Inspector attributes={attributes} setAttributes={setAttributes} />
+			)}
+			<div {...blockProps}>
+				<style>
+					{`
 
 				a.info-click-link{
 					pointer-events: none;
@@ -1154,22 +1049,15 @@ const Edit = ({ attributes, setAttributes, className, isSelected, clientId }) =>
 				
 				}
 				`}
-			</style>
+				</style>
 
-			{/* {isInfoClick ? (
-				<a
-					href={infoboxLink || "#"}
-					rel="noopener noreferrer"
-					className="info-click-link info-wrap-link"
-				>
-					<InfoboxContainer attributes={attributes} />
-				</a>
-			) : (
-				<InfoboxContainer attributes={attributes} />
-			)} */}
-			<InfoboxContainer setAttributes={setAttributes} attributes={attributes} />
-		</div>,
-	];
+				<InfoboxContainer
+					setAttributes={setAttributes}
+					attributes={attributes}
+				/>
+			</div>
+		</>
+	);
 };
 
 export default Edit;
