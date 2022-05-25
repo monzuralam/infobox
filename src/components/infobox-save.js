@@ -11,83 +11,86 @@ export default function InfoboxContainer({ requiredProps }) {
 		enableSubTitle,
 		enableDescription,
 		enableButton,
-		//
 		isInfoClick,
-
 		buttonText,
 		title,
 		subTitle,
 		description,
 		titleTag,
 		subTitleTag,
-
-		//
 		btnEffect,
+		classHook,
 	} = requiredProps;
 
 	return (
-		<div className={`${blockId} eb-infobox-wrapper`}>
-			<div className="infobox-wrapper-inner">
-				{media === "icon" ? (
-					<div className="icon-img-wrapper">
-						<div className="eb-icon number-or-icon">
-							<span
-								data-icon={selectedIcon}
-								className={`eb-infobox-icon-data-selector  ${selectedIcon}`}
-							></span>
+		<div className={`eb-parent-wrapper eb-parent-${blockId} ${classHook}`}>
+			<div className={`${blockId} eb-infobox-wrapper`}>
+				<div className="infobox-wrapper-inner">
+					{media === "icon" ? (
+						<div className="icon-img-wrapper">
+							<div className="eb-icon number-or-icon">
+								<span
+									data-icon={selectedIcon}
+									className={`eb-infobox-icon-data-selector  ${selectedIcon}`}
+								></span>
+							</div>
 						</div>
-					</div>
-				) : null}
+					) : null}
 
-				{media === "number" ? (
-					<div className="icon-img-wrapper">
-						<div className="eb-infobox-num-wrapper number-or-icon">
-							<span className="eb-infobox-number">{number}</span>
+					{media === "number" ? (
+						<div className="icon-img-wrapper">
+							<div className="eb-infobox-num-wrapper number-or-icon">
+								<span className="eb-infobox-number">{number}</span>
+							</div>
 						</div>
-					</div>
-				) : null}
+					) : null}
 
-				{media === "image" ? (
-					<div className="icon-img-wrapper">
-						<div className="eb-infobox-image-wrapper">
-							<img className="eb-infobox-image" src={imageUrl} alt="macbook" />
+					{media === "image" ? (
+						<div className="icon-img-wrapper">
+							<div className="eb-infobox-image-wrapper">
+								<img
+									className="eb-infobox-image"
+									src={imageUrl}
+									alt="macbook"
+								/>
+							</div>
 						</div>
-					</div>
-				) : null}
+					) : null}
 
-				<div className="contents-wrapper">
-					<RichText.Content
-						tagName={titleTag}
-						className="title"
-						value={title}
-					/>
-
-					{enableSubTitle ? (
+					<div className="contents-wrapper">
 						<RichText.Content
-							tagName={subTitleTag}
-							className="subtitle"
-							value={subTitle}
+							tagName={titleTag}
+							className="title"
+							value={title}
 						/>
-					) : null}
 
-					{enableDescription ? (
-						<RichText.Content
-							tagName="p"
-							className="description"
-							value={description}
-						/>
-					) : null}
+						{enableSubTitle ? (
+							<RichText.Content
+								tagName={subTitleTag}
+								className="subtitle"
+								value={subTitle}
+							/>
+						) : null}
 
-					{enableButton && !isInfoClick ? (
-						<div className="eb-infobox-btn-wrapper">
-							<a
-								href={infoboxLink}
-								className={`infobox-btn  ${btnEffect || " "}`}
-							>
-								{buttonText}
-							</a>
-						</div>
-					) : null}
+						{enableDescription ? (
+							<RichText.Content
+								tagName="p"
+								className="description"
+								value={description}
+							/>
+						) : null}
+
+						{enableButton && !isInfoClick ? (
+							<div className="eb-infobox-btn-wrapper">
+								<a
+									href={infoboxLink}
+									className={`infobox-btn  ${btnEffect || " "}`}
+								>
+									{buttonText}
+								</a>
+							</div>
+						) : null}
+					</div>
 				</div>
 			</div>
 		</div>

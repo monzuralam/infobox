@@ -424,6 +424,7 @@ const attributes = {
 
 	// background attributes ⬇
 	...generateBackgroundAttributes(infoWrapBg, {
+		defaultFillColor: "#7967ff",
 		isBgDefaultGradient: true,
 		defaultBgGradient: "linear-gradient(45deg,#7967ff,#c277f2)",
 		// noOverlay: true,

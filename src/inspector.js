@@ -12,7 +12,7 @@ import {
 	Button,
 	BaseControl,
 	ButtonGroup,
-	TabPanel
+	TabPanel,
 } from "@wordpress/components";
 import { select } from "@wordpress/data";
 
@@ -21,25 +21,11 @@ import { select } from "@wordpress/data";
  */
 
 import FontIconPicker from "@fonticonpicker/react-fonticonpicker";
-// import faIcons from "../../../util/faIcons.js";
-// import TypographyDropdown from "../../../util/typography-control-v2";
-// import ResponsiveDimensionsControl from "../../../util/dimensions-control-v2";
-// import ResponsiveRangeController from "../../../util/responsive-range-control";
-// import ImageAvatar from "../../../util/image-avatar/";
-// import GradientColorControl from "../../../util/gradient-color-controller";
-// import ColorControl from "../../../util/color-control";
-// import BorderShadowControl from "../../../util/border-shadow-control";
-// import BackgroundControl from "../../../util/background-control";
 
 import { infoWrapBg, infoBtnBg } from "./constants/backgroundsConstants";
 import { wrpBdShadow, btnBdShd } from "./constants/borderShadowConstants";
 
 import objAttributes from "./attributes";
-
-// import {
-// 	mimmikCssForResBtns,
-// 	mimmikCssOnPreviewBtnClickWhileBlockSelected,
-// } from "../../../util/helpers";
 
 const {
 	BackgroundControl,
@@ -51,12 +37,11 @@ const {
 	ResponsiveDimensionsControl,
 	TypographyDropdown,
 	faIcons,
-	// mimmikCssForResBtns,
-	// mimmikCssOnPreviewBtnClickWhileBlockSelected,
+	AdvancedControls,
 } = window.EBInfoboxControls;
 
 const editorStoreForGettingPreivew =
-	eb_style_handler.editor_type === "edit-site"
+	eb_conditional_localize.editor_type === "edit-site"
 		? "core/edit-site"
 		: "core/edit-post";
 
@@ -197,7 +182,9 @@ function Inspector(props) {
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
 	useEffect(() => {
 		setAttributes({
-			resOption: select(editorStoreForGettingPreivew).__experimentalGetPreviewDeviceType(),
+			resOption: select(
+				editorStoreForGettingPreivew
+			).__experimentalGetPreviewDeviceType(),
 		});
 	}, []);
 
@@ -306,19 +293,7 @@ function Inspector(props) {
 											}
 										/>
 
-										{media !== "none" && (
-											<>
-												<ResponsiveRangeController
-													baseLabel={__("Media & content spacing", "Infobox")}
-													controlName={mediaContentGap}
-													resRequiredProps={resRequiredProps}
-													min={0}
-													max={500}
-													step={1}
-													noUnits
-												/>
-											</>
-										)}
+							
 
 										<ToggleControl
 											label={__("Clickable Infobox", "essential-blocks")}
@@ -364,9 +339,9 @@ function Inspector(props) {
 														>
 															<ButtonGroup id="eb-infobox-alignments">
 																{MEDIA_ALIGNMENTS_ON_FLEX_ROW.map(
-																	({ value, label }) => (
+																	({ value, label }, index) => (
 																		<Button
-																			// isLarge
+																			key={index}
 																			isSecondary={mediaAlignment !== value}
 																			isPrimary={mediaAlignment === value}
 																			onClick={() =>
@@ -389,9 +364,9 @@ function Inspector(props) {
 														>
 															<ButtonGroup id="eb-infobox-alignments">
 																{MEDIA_ALIGNMENTS_ON_FLEX_COLUMN.map(
-																	({ value, label }) => (
+																	({ value, label }, index) => (
 																		<Button
-																			// isLarge
+																			key={index}
 																			isSecondary={mediaAlignment !== value}
 																			isPrimary={mediaAlignment === value}
 																			onClick={() =>
@@ -413,9 +388,9 @@ function Inspector(props) {
 											label="Contents alignments"
 										>
 											<ButtonGroup id="eb-infobox-alignments">
-												{CONTENTS_ALIGNMENTS.map(({ value, label }) => (
+												{CONTENTS_ALIGNMENTS.map(({ value, label }, index) => (
 													<Button
-														// isLarge
+														key={index}
 														isSecondary={contentsAlignment !== value}
 														isPrimary={contentsAlignment === value}
 														onClick={() =>
@@ -434,18 +409,20 @@ function Inspector(props) {
 												label="Button alignments"
 											>
 												<ButtonGroup id="eb-infobox-alignments">
-													{CONTENTS_ALIGNMENTS.map(({ value, label }) => (
-														<Button
-															// isLarge
-															isSecondary={btnAlignment !== value}
-															isPrimary={btnAlignment === value}
-															onClick={() =>
-																setAttributes({ btnAlignment: value })
-															}
-														>
-															{label}
-														</Button>
-													))}
+													{CONTENTS_ALIGNMENTS.map(
+														({ value, label }, index) => (
+															<Button
+																key={index}
+																isSecondary={btnAlignment !== value}
+																isPrimary={btnAlignment === value}
+																onClick={() =>
+																	setAttributes({ btnAlignment: value })
+																}
+															>
+																{label}
+															</Button>
+														)
+													)}
 												</ButtonGroup>
 											</BaseControl>
 										)}
@@ -457,9 +434,9 @@ function Inspector(props) {
 									<PanelBody title={__("Media", "essential-blocks")}>
 										<BaseControl id="eb-infobox-image-icon">
 											<ButtonGroup id="eb-infobox-image-icon">
-												{MEDIA_TYPES.map(({ label, value }) => (
+												{MEDIA_TYPES.map(({ label, value }, index) => (
 													<Button
-														// isLarge
+														key={index}
 														isSecondary={media !== value}
 														isPrimary={media === value}
 														onClick={() => setAttributes({ media: value })}
@@ -559,9 +536,9 @@ function Inspector(props) {
 																>
 																	<ButtonGroup id="eb-infobox-infobox-background">
 																		{ICON_IMAGE_BG_TYPES.map(
-																			({ value, label }) => (
+																			({ value, label }, index) => (
 																				<Button
-																					// isLarge
+																					key={index}
 																					isPrimary={numIconBgType === value}
 																					isSecondary={numIconBgType !== value}
 																					onClick={() =>
@@ -681,6 +658,20 @@ function Inspector(props) {
 
 												<hr />
 
+												{media !== "none" && (
+													<>
+														<ResponsiveRangeController
+															baseLabel={__("Media & content spacing", "Infobox")}
+															controlName={mediaContentGap}
+															resRequiredProps={resRequiredProps}
+															min={0}
+															max={500}
+															step={1}
+															noUnits
+														/>
+													</>
+												)}
+
 												<ResponsiveDimensionsControl
 													forBorderRadius
 													resRequiredProps={resRequiredProps}
@@ -703,8 +694,9 @@ function Inspector(props) {
 									>
 										<BaseControl label={__("Title Tag", "essential-blocks")}>
 											<ButtonGroup className="infobox-button-group">
-												{HEADER_TAGS.map((header) => (
+												{HEADER_TAGS.map((header, index) => (
 													<Button
+														key={index}
 														isSecondary={titleTag !== header}
 														isPrimary={titleTag === header}
 														onClick={() => setAttributes({ titleTag: header })}
@@ -752,8 +744,9 @@ function Inspector(props) {
 													label={__("Subtitle Tag", "essential-blocks")}
 												>
 													<ButtonGroup className="infobox-button-group">
-														{HEADER_TAGS.map((header) => (
+														{HEADER_TAGS.map((header, index) => (
 															<Button
+																key={index}
 																isSecondary={subTitleTag !== header}
 																isPrimary={subTitleTag === header}
 																onClick={() =>
@@ -968,6 +961,8 @@ function Inspector(props) {
 										// noBorder
 										/>
 									</PanelBody>
+
+									<AdvancedControls attributes={attributes} setAttributes={setAttributes} />
 								</>
 							)}
 						</div>
