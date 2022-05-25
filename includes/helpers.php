@@ -73,8 +73,6 @@ class Infobox_Helper
                     'essential-blocks-hover-css',
                     'fontpicker-default-theme',
                     'fontpicker-matetial-theme',
-                    'fontawesome-frontend-css',
-                    "create-block-infobox-block-editor"
                 ),
                 $controls_dependencies['version'],
                 'all'
