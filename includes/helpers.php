@@ -70,9 +70,9 @@ class Infobox_Helper
                 'infobox-editor-css',
                 INFOBOX_ADMIN_URL . 'dist/controls.css',
                 array(
-                    'essential-blocks-hover-css',
                     'fontpicker-default-theme',
                     'fontpicker-matetial-theme',
+                    'create-block-infobox-block-css',
                 ),
                 $controls_dependencies['version'],
                 'all'
