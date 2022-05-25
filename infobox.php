@@ -86,7 +86,7 @@ function create_block_infobox_block_init()
 
 	wp_register_style(
 		'fontpicker-default-theme',
-		INFOBOX_ADMIN_URL . '/assets/css/fonticonpicker.base-theme.react.css',
+		INFOBOX_ADMIN_URL . 'assets/css/fonticonpicker.base-theme.react.css',
 		array(),
 		INFOBOX_VERSION,
 		"all"
@@ -94,7 +94,7 @@ function create_block_infobox_block_init()
 
 	wp_register_style(
 		'fontpicker-matetial-theme',
-		INFOBOX_ADMIN_URL . '/assets/css/fonticonpicker.material-theme.react.css',
+		INFOBOX_ADMIN_URL . 'assets/css/fonticonpicker.material-theme.react.css',
 		array(),
 		INFOBOX_VERSION,
 		"all"
@@ -102,7 +102,7 @@ function create_block_infobox_block_init()
 
 	wp_register_style(
 		'fontawesome-frontend-css',
-		INFOBOX_ADMIN_URL . '/assets/css/font-awesome5.css',
+		INFOBOX_ADMIN_URL . 'assets/css/font-awesome5.css',
 		array(),
 		INFOBOX_VERSION,
 		"all"
@@ -111,7 +111,7 @@ function create_block_infobox_block_init()
 
 	wp_register_style(
 		'essential-blocks-hover-css',
-		INFOBOX_ADMIN_URL . '/assets/css/hover-min.css',
+		INFOBOX_ADMIN_URL . 'assets/css/hover-min.css',
 		array(),
 		INFOBOX_VERSION,
 		"all"

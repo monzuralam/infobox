@@ -45,7 +45,7 @@ class Infobox_Helper
 
             wp_register_script(
                 "infobox-controls-util",
-                INFOBOX_ADMIN_URL . '/dist/controls.js',
+                INFOBOX_ADMIN_URL . 'dist/controls.js',
                 array_merge($controls_dependencies['dependencies'], array("essential-blocks-edit-post")),
                 $controls_dependencies['version'],
                 true
@@ -68,7 +68,7 @@ class Infobox_Helper
 
             wp_register_style(
                 'infobox-editor-css',
-                INFOBOX_ADMIN_URL . '/dist/controls.css',
+                INFOBOX_ADMIN_URL . 'dist/controls.css',
                 array(
                     'essential-blocks-hover-css',
                     'fontpicker-default-theme',
