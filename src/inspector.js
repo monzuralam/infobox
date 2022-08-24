@@ -40,11 +40,6 @@ const {
 	AdvancedControls,
 } = window.EBInfoboxControls;
 
-const editorStoreForGettingPreivew =
-	eb_conditional_localize.editor_type === "edit-site"
-		? "core/edit-site"
-		: "core/edit-post";
-
 import {
 	typoPrefix_title,
 	typoPrefix_content,
@@ -177,36 +172,8 @@ function Inspector(props) {
 
 		//
 		btnEffect,
+		linkNewTab,
 	} = attributes;
-
-	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
-	useEffect(() => {
-		setAttributes({
-			resOption: select(
-				editorStoreForGettingPreivew
-			).__experimentalGetPreviewDeviceType(),
-		});
-	}, []);
-
-	// // this useEffect is for mimmiking css for all the eb blocks on resOption changing
-	// useEffect(() => {
-	// 	mimmikCssForResBtns({
-	// 		domObj: document,
-	// 		resOption,
-	// 	});
-	// }, [resOption]);
-
-	// // this useEffect is to mimmik css for responsive preview in the editor page when clicking the buttons in the 'Preview button of wordpress' located beside the 'update' button while any block is selected and it's inspector panel is mounted in the DOM
-	// useEffect(() => {
-	// 	const cleanUp = mimmikCssOnPreviewBtnClickWhileBlockSelected({
-	// 		domObj: document,
-	// 		select,
-	// 		setAttributes,
-	// 	});
-	// 	return () => {
-	// 		cleanUp();
-	// 	};
-	// }, []);
 
 	const resRequiredProps = {
 		setAttributes,
@@ -282,7 +249,7 @@ function Inspector(props) {
 								<>
 									<PanelBody
 										title={__("Infobox Settings", "essential-blocks")}
-									// initialOpen={false}
+										// initialOpen={false}
 									>
 										<SelectControl
 											label={__("Layout Preset ", "essential-blocks")}
@@ -292,8 +259,6 @@ function Inspector(props) {
 												setAttributes({ layoutPreset })
 											}
 										/>
-
-							
 
 										<ToggleControl
 											label={__("Clickable Infobox", "essential-blocks")}
@@ -312,6 +277,13 @@ function Inspector(props) {
 													value={infoboxLink}
 													onChange={(infoboxLink) =>
 														setAttributes({ infoboxLink })
+													}
+												/>
+												<ToggleControl
+													label={__("Open in New Tab", "essential-blocks")}
+													checked={linkNewTab}
+													onChange={() =>
+														setAttributes({ linkNewTab: !linkNewTab })
 													}
 												/>
 											</>
@@ -333,53 +305,53 @@ function Inspector(props) {
 											<>
 												{(flexDirection === "row" ||
 													flexDirection === "row-reverse") && (
-														<BaseControl
-															id="eb-infobox-alignments"
-															label="Media alignments"
-														>
-															<ButtonGroup id="eb-infobox-alignments">
-																{MEDIA_ALIGNMENTS_ON_FLEX_ROW.map(
-																	({ value, label }, index) => (
-																		<Button
-																			key={index}
-																			isSecondary={mediaAlignment !== value}
-																			isPrimary={mediaAlignment === value}
-																			onClick={() =>
-																				setAttributes({ mediaAlignment: value })
-																			}
-																		>
-																			{label}
-																		</Button>
-																	)
-																)}
-															</ButtonGroup>
-														</BaseControl>
-													)}
+													<BaseControl
+														id="eb-infobox-alignments"
+														label="Media alignments"
+													>
+														<ButtonGroup id="eb-infobox-alignments">
+															{MEDIA_ALIGNMENTS_ON_FLEX_ROW.map(
+																({ value, label }, index) => (
+																	<Button
+																		key={index}
+																		isSecondary={mediaAlignment !== value}
+																		isPrimary={mediaAlignment === value}
+																		onClick={() =>
+																			setAttributes({ mediaAlignment: value })
+																		}
+																	>
+																		{label}
+																	</Button>
+																)
+															)}
+														</ButtonGroup>
+													</BaseControl>
+												)}
 
 												{(flexDirection === "column" ||
 													flexDirection === "column-reverse") && (
-														<BaseControl
-															id="eb-infobox-alignments"
-															label="Media alignments"
-														>
-															<ButtonGroup id="eb-infobox-alignments">
-																{MEDIA_ALIGNMENTS_ON_FLEX_COLUMN.map(
-																	({ value, label }, index) => (
-																		<Button
-																			key={index}
-																			isSecondary={mediaAlignment !== value}
-																			isPrimary={mediaAlignment === value}
-																			onClick={() =>
-																				setAttributes({ mediaAlignment: value })
-																			}
-																		>
-																			{label}
-																		</Button>
-																	)
-																)}
-															</ButtonGroup>
-														</BaseControl>
-													)}
+													<BaseControl
+														id="eb-infobox-alignments"
+														label="Media alignments"
+													>
+														<ButtonGroup id="eb-infobox-alignments">
+															{MEDIA_ALIGNMENTS_ON_FLEX_COLUMN.map(
+																({ value, label }, index) => (
+																	<Button
+																		key={index}
+																		isSecondary={mediaAlignment !== value}
+																		isPrimary={mediaAlignment === value}
+																		onClick={() =>
+																			setAttributes({ mediaAlignment: value })
+																		}
+																	>
+																		{label}
+																	</Button>
+																)
+															)}
+														</ButtonGroup>
+													</BaseControl>
+												)}
 											</>
 										)}
 
@@ -570,7 +542,7 @@ function Inspector(props) {
 																{numIconBgType === "gradient" && (
 																	<PanelBody
 																		title={__("Gradient", "essential-blocks")}
-																	// initialOpen={false}
+																		// initialOpen={false}
 																	>
 																		<GradientColorControl
 																			gradientColor={numIconBgGradient}
@@ -661,7 +633,10 @@ function Inspector(props) {
 												{media !== "none" && (
 													<>
 														<ResponsiveRangeController
-															baseLabel={__("Media & content spacing", "Infobox")}
+															baseLabel={__(
+																"Media & content spacing",
+																"Infobox"
+															)}
 															controlName={mediaContentGap}
 															resRequiredProps={resRequiredProps}
 															min={0}
@@ -839,6 +814,14 @@ function Inspector(props) {
 												}
 											/>
 
+											<ToggleControl
+												label={__("Open in New Tab", "essential-blocks")}
+												checked={linkNewTab}
+												onChange={() =>
+													setAttributes({ linkNewTab: !linkNewTab })
+												}
+											/>
+
 											<TypographyDropdown
 												baseLabel="Typography"
 												typographyPrefixConstant={typoPrefix_buttonText}
@@ -875,9 +858,9 @@ function Inspector(props) {
 													controlName={infoBtnBg}
 													resRequiredProps={resRequiredProps}
 													forButton
-												// noOverlay
-												// noMainBgi
-												// noOverlayBgi // if U pass 'noOverlay' prop U don't need to pass 'noOverlayBgi'
+													// noOverlay
+													// noMainBgi
+													// noOverlayBgi // if U pass 'noOverlay' prop U don't need to pass 'noOverlayBgi'
 												/>
 											</PanelBody>
 
@@ -888,8 +871,8 @@ function Inspector(props) {
 												<BorderShadowControl
 													controlName={btnBdShd}
 													resRequiredProps={resRequiredProps}
-												// noShadow
-												// noBorder
+													// noShadow
+													// noBorder
 												/>
 											</PanelBody>
 											<PanelBody
@@ -947,9 +930,9 @@ function Inspector(props) {
 										<BackgroundControl
 											controlName={infoWrapBg}
 											resRequiredProps={resRequiredProps}
-										// noOverlay
-										// noMainBgi
-										// noOverlayBgi // if U pass 'noOverlay' prop U don't need to pass 'noOverlayBgi'
+											// noOverlay
+											// noMainBgi
+											// noOverlayBgi // if U pass 'noOverlay' prop U don't need to pass 'noOverlayBgi'
 										/>
 									</PanelBody>
 
@@ -957,12 +940,15 @@ function Inspector(props) {
 										<BorderShadowControl
 											controlName={wrpBdShadow}
 											resRequiredProps={resRequiredProps}
-										// noShadow
-										// noBorder
+											// noShadow
+											// noBorder
 										/>
 									</PanelBody>
 
-									<AdvancedControls attributes={attributes} setAttributes={setAttributes} />
+									<AdvancedControls
+										attributes={attributes}
+										setAttributes={setAttributes}
+									/>
 								</>
 							)}
 						</div>

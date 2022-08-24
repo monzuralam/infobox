@@ -22,11 +22,6 @@ const {
 	duplicateBlockIdFix,
 } = window.EBInfoboxControls;
 
-const editorStoreForGettingPreivew =
-	eb_conditional_localize.editor_type === "edit-site"
-		? "core/edit-site"
-		: "core/edit-post";
-
 import InfoboxContainer from "./components/infobox-edit";
 
 import classnames from "classnames";
@@ -121,13 +116,6 @@ const Edit = ({
 	} = attributes;
 
 	useEffect(() => {
-		// this codes is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
-		setAttributes({
-			resOption: select(
-				editorStoreForGettingPreivew
-			).__experimentalGetPreviewDeviceType(),
-		});
-
 		// this codes is for creating a unique blockId for each block's unique className
 		const BLOCK_PREFIX = "eb-infobox";
 		duplicateBlockIdFix({
