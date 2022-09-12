@@ -82,7 +82,7 @@ Yes, it will work with any standard WordPress theme.
 == Changelog ==
 
 = 1.2.2 - 12/09/2022 =
-* Fixed: Open in new tab optin in URL
+* Fixed: Open in new tab option in URL
 * Improved: Controls and structure.
 
 = 1.2.1 - 25/05/2022 =
