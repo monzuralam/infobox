@@ -46,7 +46,7 @@ class Infobox_Helper
             wp_register_script(
                 "infobox-controls-util",
                 INFOBOX_ADMIN_URL . 'dist/controls.js',
-                array_merge($controls_dependencies['dependencies'], array("essential-blocks-edit-post")),
+                array_merge($controls_dependencies['dependencies']),
                 $controls_dependencies['version'],
                 true
             );

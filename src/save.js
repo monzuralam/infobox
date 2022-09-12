@@ -12,6 +12,7 @@ export default function save({ attributes }) {
 		enableSubTitle,
 		enableDescription,
 		infoboxLink,
+		linkNewTab,
 		enableButton,
 		isInfoClick,
 		buttonText,
@@ -33,6 +34,7 @@ export default function save({ attributes }) {
 		enableSubTitle,
 		enableDescription,
 		infoboxLink,
+		linkNewTab,
 		enableButton,
 		isInfoClick,
 		buttonText,
@@ -50,6 +52,7 @@ export default function save({ attributes }) {
 			{isInfoClick ? (
 				<a
 					href={infoboxLink}
+					target={linkNewTab ? "_blank" : "_self"}
 					rel="noopener noreferrer"
 					className="info-click-link info-wrap-link"
 				>

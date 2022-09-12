@@ -1,6 +1,6 @@
 import { RichText } from "@wordpress/block-editor";
 
-export default function InfoboxContainer({ requiredProps }) {
+export default function InfoboxContainer2({ requiredProps }) {
 	const {
 		blockId,
 		selectedIcon,
@@ -8,7 +8,6 @@ export default function InfoboxContainer({ requiredProps }) {
 		number,
 		imageUrl,
 		infoboxLink,
-		linkNewTab,
 		enableSubTitle,
 		enableDescription,
 		enableButton,
@@ -85,8 +84,6 @@ export default function InfoboxContainer({ requiredProps }) {
 							<div className="eb-infobox-btn-wrapper">
 								<a
 									href={infoboxLink}
-									target={linkNewTab ? "_blank" : "_self"}
-									rel="noopener noreferrer"
 									className={`infobox-btn  ${btnEffect || " "}`}
 								>
 									{buttonText}
