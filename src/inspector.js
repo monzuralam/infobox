@@ -13,6 +13,7 @@ import {
 	BaseControl,
 	ButtonGroup,
 	TabPanel,
+	__experimentalDivider as Divider,
 } from "@wordpress/components";
 import { select } from "@wordpress/data";
 
@@ -264,7 +265,9 @@ function Inspector(props) {
 											label={__("Clickable Infobox", "essential-blocks")}
 											checked={isInfoClick}
 											onChange={() =>
-												setAttributes({ isInfoClick: !isInfoClick })
+												setAttributes({
+													isInfoClick: !isInfoClick,
+												})
 											}
 										/>
 
@@ -276,14 +279,18 @@ function Inspector(props) {
 													placeholder="https://your-link.com"
 													value={infoboxLink}
 													onChange={(infoboxLink) =>
-														setAttributes({ infoboxLink })
+														setAttributes({
+															infoboxLink,
+														})
 													}
 												/>
 												<ToggleControl
 													label={__("Open in New Tab", "essential-blocks")}
 													checked={linkNewTab}
 													onChange={() =>
-														setAttributes({ linkNewTab: !linkNewTab })
+														setAttributes({
+															linkNewTab: !linkNewTab,
+														})
 													}
 												/>
 											</>
@@ -294,7 +301,9 @@ function Inspector(props) {
 												label={__("Show button", "essential-blocks")}
 												checked={enableButton}
 												onChange={() =>
-													setAttributes({ enableButton: !enableButton })
+													setAttributes({
+														enableButton: !enableButton,
+													})
 												}
 											/>
 										)}
@@ -317,7 +326,9 @@ function Inspector(props) {
 																		isSecondary={mediaAlignment !== value}
 																		isPrimary={mediaAlignment === value}
 																		onClick={() =>
-																			setAttributes({ mediaAlignment: value })
+																			setAttributes({
+																				mediaAlignment: value,
+																			})
 																		}
 																	>
 																		{label}
@@ -342,7 +353,9 @@ function Inspector(props) {
 																		isSecondary={mediaAlignment !== value}
 																		isPrimary={mediaAlignment === value}
 																		onClick={() =>
-																			setAttributes({ mediaAlignment: value })
+																			setAttributes({
+																				mediaAlignment: value,
+																			})
 																		}
 																	>
 																		{label}
@@ -366,7 +379,9 @@ function Inspector(props) {
 														isSecondary={contentsAlignment !== value}
 														isPrimary={contentsAlignment === value}
 														onClick={() =>
-															setAttributes({ contentsAlignment: value })
+															setAttributes({
+																contentsAlignment: value,
+															})
 														}
 													>
 														{label}
@@ -388,7 +403,9 @@ function Inspector(props) {
 																isSecondary={btnAlignment !== value}
 																isPrimary={btnAlignment === value}
 																onClick={() =>
-																	setAttributes({ btnAlignment: value })
+																	setAttributes({
+																		btnAlignment: value,
+																	})
 																}
 															>
 																{label}
@@ -411,7 +428,11 @@ function Inspector(props) {
 														key={index}
 														isSecondary={media !== value}
 														isPrimary={media === value}
-														onClick={() => setAttributes({ media: value })}
+														onClick={() =>
+															setAttributes({
+																media: value,
+															})
+														}
 													>
 														{label}
 													</Button>
@@ -428,7 +449,9 @@ function Inspector(props) {
 														<FontIconPicker
 															icons={faIcons}
 															onChange={(icon) =>
-																setAttributes({ selectedIcon: icon })
+																setAttributes({
+																	selectedIcon: icon,
+																})
 															}
 															value={selectedIcon}
 															appendTo="body"
@@ -480,7 +503,9 @@ function Inspector(props) {
 															label={__("Color", "essential-blocks")}
 															color={numIconColor}
 															onChange={(numIconColor) =>
-																setAttributes({ numIconColor })
+																setAttributes({
+																	numIconColor,
+																})
 															}
 														/>
 
@@ -494,7 +519,9 @@ function Inspector(props) {
 															label={__("Use Background", "essential-blocks")}
 															checked={useNumIconBg}
 															onChange={() =>
-																setAttributes({ useNumIconBg: !useNumIconBg })
+																setAttributes({
+																	useNumIconBg: !useNumIconBg,
+																})
 															}
 														/>
 
@@ -534,7 +561,9 @@ function Inspector(props) {
 																		)}
 																		color={numIconBgColor}
 																		onChange={(numIconBgColor) =>
-																			setAttributes({ numIconBgColor })
+																			setAttributes({
+																				numIconBgColor,
+																			})
 																		}
 																	/>
 																)}
@@ -547,7 +576,9 @@ function Inspector(props) {
 																		<GradientColorControl
 																			gradientColor={numIconBgGradient}
 																			onChange={(numIconBgGradient) =>
-																				setAttributes({ numIconBgGradient })
+																				setAttributes({
+																					numIconBgGradient,
+																				})
 																			}
 																		/>
 																	</PanelBody>
@@ -560,7 +591,10 @@ function Inspector(props) {
 												{media === "image" && !imageUrl && (
 													<MediaUpload
 														onSelect={({ id, url }) =>
-															setAttributes({ imageUrl: url, imageId: id })
+															setAttributes({
+																imageUrl: url,
+																imageId: id,
+															})
 														}
 														type="image"
 														value={imageId}
@@ -628,7 +662,7 @@ function Inspector(props) {
 													</>
 												)}
 
-												<hr />
+												<Divider />
 
 												{media !== "none" && (
 													<>
@@ -674,7 +708,11 @@ function Inspector(props) {
 														key={index}
 														isSecondary={titleTag !== header}
 														isPrimary={titleTag === header}
-														onClick={() => setAttributes({ titleTag: header })}
+														onClick={() =>
+															setAttributes({
+																titleTag: header,
+															})
+														}
 													>
 														{header.toUpperCase()}
 													</Button>
@@ -709,7 +747,9 @@ function Inspector(props) {
 											label={__("Enable", "essential-blocks")}
 											checked={enableSubTitle}
 											onChange={() =>
-												setAttributes({ enableSubTitle: !enableSubTitle })
+												setAttributes({
+													enableSubTitle: !enableSubTitle,
+												})
 											}
 										/>
 
@@ -725,7 +765,9 @@ function Inspector(props) {
 																isSecondary={subTitleTag !== header}
 																isPrimary={subTitleTag === header}
 																onClick={() =>
-																	setAttributes({ subTitleTag: header })
+																	setAttributes({
+																		subTitleTag: header,
+																	})
 																}
 															>
 																{header.toUpperCase()}
@@ -750,7 +792,9 @@ function Inspector(props) {
 													label={__("Color", "essential-blocks")}
 													color={subTitleColor}
 													onChange={(subTitleColor) =>
-														setAttributes({ subTitleColor })
+														setAttributes({
+															subTitleColor,
+														})
 													}
 												/>
 											</>
@@ -765,7 +809,9 @@ function Inspector(props) {
 											label={__("Show content", "essential-blocks")}
 											checked={enableDescription}
 											onChange={() =>
-												setAttributes({ enableDescription: !enableDescription })
+												setAttributes({
+													enableDescription: !enableDescription,
+												})
 											}
 										/>
 
@@ -787,7 +833,9 @@ function Inspector(props) {
 													label={__("Color", "essential-blocks")}
 													color={descriptionColor}
 													onChange={(descriptionColor) =>
-														setAttributes({ descriptionColor })
+														setAttributes({
+															descriptionColor,
+														})
 													}
 												/>
 											</>
@@ -802,7 +850,11 @@ function Inspector(props) {
 											<TextControl
 												label={__("Button Text", "essential-blocks")}
 												value={buttonText}
-												onChange={(buttonText) => setAttributes({ buttonText })}
+												onChange={(buttonText) =>
+													setAttributes({
+														buttonText,
+													})
+												}
 											/>
 
 											<TextControl
@@ -810,7 +862,9 @@ function Inspector(props) {
 												placeholder="https://your-site.com"
 												value={infoboxLink}
 												onChange={(infoboxLink) =>
-													setAttributes({ infoboxLink })
+													setAttributes({
+														infoboxLink,
+													})
 												}
 											/>
 
@@ -818,7 +872,9 @@ function Inspector(props) {
 												label={__("Open in New Tab", "essential-blocks")}
 												checked={linkNewTab}
 												onChange={() =>
-													setAttributes({ linkNewTab: !linkNewTab })
+													setAttributes({
+														linkNewTab: !linkNewTab,
+													})
 												}
 											/>
 
@@ -838,7 +894,9 @@ function Inspector(props) {
 												label={__("Text color", "essential-blocks")}
 												color={buttonTextColor}
 												onChange={(buttonTextColor) =>
-													setAttributes({ buttonTextColor })
+													setAttributes({
+														buttonTextColor,
+													})
 												}
 											/>
 
@@ -846,7 +904,9 @@ function Inspector(props) {
 												label={__("Hover text color", "essential-blocks")}
 												color={buttonHvrTextColor}
 												onChange={(buttonHvrTextColor) =>
-													setAttributes({ buttonHvrTextColor })
+													setAttributes({
+														buttonHvrTextColor,
+													})
 												}
 											/>
 
@@ -885,7 +945,9 @@ function Inspector(props) {
 													options={HOVER_EFFECT}
 													// onChange={(preset) => setAttributes({ preset })}
 													onChange={(btnEffect) => {
-														setAttributes({ btnEffect });
+														setAttributes({
+															btnEffect,
+														});
 													}}
 												/>
 											</PanelBody>
@@ -895,8 +957,8 @@ function Inspector(props) {
 												 controlName={buttonRadius}
 												 baseLabel="Button Border Radius"
 											 />
- 
- 
+
+
 											 <ColorControl
 												 label={__("Button Color", "essential-blocks")}
 												 color={buttonBgColor}
@@ -910,7 +972,7 @@ function Inspector(props) {
 							)}
 							{tab.name === "advance" && (
 								<>
-									<PanelBody title={__("Margin Padding", "essential-blocks")}>
+									<PanelBody title={__("Margin & Padding", "essential-blocks")}>
 										<ResponsiveDimensionsControl
 											resRequiredProps={resRequiredProps}
 											controlName={wrapperMargin}
