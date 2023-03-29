@@ -48,5 +48,6 @@ dist/**/*.*
 **/*.zip
 src
 util
+/controls/
 .wordpress-org
 .gitmodules

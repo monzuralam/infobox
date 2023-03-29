@@ -409,22 +409,22 @@ const Edit = ({
 			transition: ${bgTransitionStyle}, ${bdShadowTransitionStyle};
 		}
 
-		.eb-infobox-wrapper.${blockId}:hover{	
+		.eb-infobox-wrapper.${blockId}:hover{
 			${hoverBackgroundStylesDesktop}
 			${bdShadowStylesHoverDesktop}
 		}
-		
+
 		.eb-infobox-wrapper.${blockId}:before{
 			${overlayStylesDesktop}
 			transition: ${ovlTransitionStyle};
 		}
 
-		.eb-infobox-wrapper.${blockId}:hover:before{	
+		.eb-infobox-wrapper.${blockId}:hover:before{
 			${hoverOverlayStylesDesktop}
 		}
 
-		.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner {	
-			${flexDirection ? `flex-direction: ${flexDirection};` : " "} 
+		.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner {
+			${flexDirection ? `flex-direction: ${flexDirection};` : " "}
 			${media !== "none" ? `${contentMediaGapDesktop}` : ""}
 		}
 
@@ -437,47 +437,47 @@ const Edit = ({
 							? `align-self: ${mediaAlignment};`
 							: `align-self: ${mediaAlignSelf || "center"};`
 					}
-	
+
 					${mediaBgMarginStylesDesktop}
-	
+
 				}
-	
-	
+
+
 				${
 					media === "image"
 						? `
-	
+
 						.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
 							${mediaImgWidthUnit === "%" ? mediaImgWidthDesktop : " "}
 						}
-						
+
 						.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner img {
-							
+
 							${imageUrl ? mediaRadiusStylesDesktop : " "}
-							
+
 							${mediaImgWidthUnit === "%" ? `width: 100%;` : mediaImgWidthDesktop}
 							${isMediaImgHeightAuto ? `height:auto;` : mediaImgHeightDesktop}
-							
+
 						}
-	
+
 						.eb-infobox-wrapper.${blockId} .eb-infobox-image-wrapper{
 							${imageUrl ? " " : mediaRadiusStylesDesktop}
 						}
 						`
 						: " "
 				}
-	
-	
-	
+
+
+
 				${
 					media === "number" || media === "icon"
 						? `
-					
+
 						.eb-infobox-wrapper.${blockId} .number-or-icon {
-						
+
 							${mediaBgPaddingDesktop}
 							${mediaRadiusStylesDesktop}
-			
+
 							${
 								useNumIconBg
 									? `${
@@ -488,24 +488,24 @@ const Edit = ({
 												: " "
 									  }`
 									: " "
-							}						
-							
+							}
+
 						}
-			
+
 						.eb-infobox-wrapper.${blockId} .number-or-icon > span{
 							color: ${numIconColor || "#fff"};
 						}
-						
+
 						`
 						: " "
 				}
-	
-			
-	
+
+
+
 				${
 					media === "number"
 						? `
-	
+
 					.eb-infobox-wrapper.${blockId} span.eb-infobox-number{
 						${numTypoStylesDesktop}
 						height:${numberFontSize || 28}${numberSizeUnit};
@@ -513,16 +513,16 @@ const Edit = ({
 						display:flex;
 						justify-content:center;
 						align-items:center;
-					}				
-					
+					}
+
 					`
 						: " "
 				}
-	
+
 				${
 					media === "icon"
 						? `
-					
+
 						.eb-infobox-wrapper.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
 							${iconSizeDesktop}
 							height:${mIconZRange}${mIconZUnit};
@@ -531,19 +531,19 @@ const Edit = ({
 							justify-content:center;
 							align-items:center;
 						}
-	
+
 						`
 						: " "
 				}
-	
-	
+
+
 			`
 				: " "
 		}
 
 		.eb-infobox-wrapper.${blockId} .contents-wrapper {
 			flex: 1;
-			${contentAlignment ? `text-align: ${contentAlignment};` : " "} 
+			${contentAlignment ? `text-align: ${contentAlignment};` : " "}
 
 			${
 				contentsAlignment
@@ -560,28 +560,28 @@ const Edit = ({
 
 		${
 			enableSubTitle
-				? `			
+				? `
 				.eb-infobox-wrapper.${blockId} .subtitle {
 					${subTitleTypoStylesDesktop}
 					${subTitlePaddingStylesDesktop}
 					${subTitleColor ? `color: ${subTitleColor};` : " "}
-				}			
+				}
 				`
 				: " "
 		}
-		
+
 		${
 			enableDescription
 				? `
-			
+
 				.eb-infobox-wrapper.${blockId} .description {
-					
+
 					${contentTypoStylesDesktop}
 					${contentPaddingStylesDesktop}
 					${descriptionColor ? `color: ${descriptionColor};` : " "}
 
 				}
-				
+
 				`
 				: " "
 		}
@@ -589,7 +589,7 @@ const Edit = ({
 		${
 			buttonThakbe
 				? `
-			
+
 				.eb-infobox-wrapper.${blockId} .contents-wrapper .eb-infobox-btn-wrapper{
 					${btnAlignment ? `text-align:${btnAlignment};` : ""}
 				}
@@ -599,24 +599,24 @@ const Edit = ({
 					${buttonPaddingStylesDesktop}
 					${btnBackgroundStylesDesktop}
 					${btnBdShadowStyesDesktop}
-					
-					
+
+
 					${buttonTextColor ? `color: ${buttonTextColor};` : " "}
-					
+
 					transition: all 0.5s, ${btnBgTransitionStyle}, ${btnBdShadowTransitionStyle};
 				}
-				
+
 				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn:hover{
 					${buttonHvrTextColor ? `color: ${buttonHvrTextColor};` : " "}
 					${btnBdShadowStylesHoverDesktop}
 				}
 
-				
+
 				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn:before{
 					${btnHoverBackgroundStylesDesktop}
 				}
 
-				
+
 				`
 				: " "
 		}
@@ -631,81 +631,81 @@ const Edit = ({
 			${bdShadowStyesTab}
 		}
 
-		.eb-infobox-wrapper.${blockId}:hover{		
+		.eb-infobox-wrapper.${blockId}:hover{
 			${hoverBackgroundStylesTab}
 			${bdShadowStylesHoverTab}
 		}
 
-		
+
 		.eb-infobox-wrapper.${blockId}:before{
 			${overlayStylesTab}
 		}
 
-		.eb-infobox-wrapper.${blockId}:hover:before{	
+		.eb-infobox-wrapper.${blockId}:hover:before{
 			${hoverOverlayStylesTab}
 		}
 
 		.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner {
-			${media !== "none" ? `${contentMediaGapTab}` : ""}			
+			${media !== "none" ? `${contentMediaGapTab}` : ""}
 		}
 
 		${
 			media !== "none"
 				? `
-	
+
 				.eb-infobox-wrapper.${blockId} .icon-img-wrapper {
-	
-					${mediaBgMarginStylesTab}				
+
+					${mediaBgMarginStylesTab}
 				}
-	
+
 				${
 					media === "number" || media === "icon"
 						? `
-				
+
 						.eb-infobox-wrapper.${blockId} .number-or-icon {
 							${mediaRadiusStylesTab}
-							${mediaBgPaddingTab}				
+							${mediaBgPaddingTab}
 						}
-						
+
 						`
 						: " "
 				}
-	
-	
+
+
 				${
 					media === "number"
 						? `
-	
+
 						.eb-infobox-wrapper.${blockId} span.eb-infobox-number{
 							${numTypoStylesTab}
 							${TABnumberFontSize ? `height:${TABnumberFontSize}${TABnumberSizeUnit};` : ""}
 							${TABnumberFontSize ? `width:${TABnumberFontSize}${TABnumberSizeUnit};` : ""}
-						}				
-					
+						}
+
 					`
 						: " "
 				}
-	
-				
+
+
 				${
 					media === "icon"
 						? `
-					
+
 						.eb-infobox-wrapper.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
 							${iconSizeTab}
 							${TABmIconZRange ? `height:${TABmIconZRange}${TABmIconZUnit};` : ""}
 							${TABmIconZRange ? `width:${TABmIconZRange}${TABmIconZUnit};` : ""}
 						}
-					
+
 					`
 						: " "
 				}
-	
-				
+
+
 				${
 					media === "image"
 						? `
-							
+
 					.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
 						${
 							TABmediaImgWidthUnit === "%"
@@ -715,9 +715,9 @@ const Edit = ({
 								: " "
 						}
 					}
-	
+
 					.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner img {
-						
+
 						${
 							TABmediaImgWidthUnit === "%"
 								? mediaImgWidthUnit === "%"
@@ -725,43 +725,43 @@ const Edit = ({
 									: `width: 100%;`
 								: mediaImgWidthTab
 						}
-						
+
 						${isMediaImgHeightAuto ? "" : mediaImgHeightTab}
-						
+
 					}
-	
-					
+
+
 					.eb-infobox-wrapper.${blockId} .eb-infobox-image-wrapper{
 						${mediaRadiusStylesTab}
-	
+
 					}
-					
+
 					`
 						: " "
 				}
-	
-	
-	
-	
+
+
+
+
 			`
 				: " "
 		}
-		
+
 
 		.eb-infobox-wrapper.${blockId} .title {
 			${titleTypoStylesTab}
 			${titlePaddingStylesTab}
 
 		}
-		
+
 		${
 			enableSubTitle
-				? `			
+				? `
 				.eb-infobox-wrapper.${blockId} .subtitle {
 					${subTitleTypoStylesTab}
 					${subTitlePaddingStylesTab}
-		
-				}			
+
+				}
 				`
 				: " "
 		}
@@ -772,12 +772,12 @@ const Edit = ({
 				.eb-infobox-wrapper.${blockId} .description {
 					${contentTypoStylesTab}
 					${contentPaddingStylesTab}
-		
-				}				
+
+				}
 				`
 				: " "
 		}
-		
+
 		${
 			buttonThakbe
 				? `
@@ -786,21 +786,21 @@ const Edit = ({
 					${buttonPaddingStylesTab}
 					${btnBdShadowStyesTab}
 				}
-				
+
 				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn:hover{
 					${btnBdShadowStylesHoverTab}
 				}
-				
+
 				`
 				: " "
 		}
-	
+
 	`;
 
 	const wrapperStylesMobile = `
 		.eb-infobox-wrapper.${blockId} {
 			${wrapperMarginStylesMobile}
-			${wrapperPaddingStylesMobile}			
+			${wrapperPaddingStylesMobile}
 			${backgroundStylesMobile}
 			${bdShadowStyesMobile}
 		}
@@ -814,70 +814,70 @@ const Edit = ({
 			${overlayStylesMobile}
 		}
 
-		
-		.eb-infobox-wrapper.${blockId}:hover:before{	
+
+		.eb-infobox-wrapper.${blockId}:hover:before{
 			${hoverOverlayStylesMobile}
 		}
 
 		.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner {
-			${media !== "none" ? `${contentMediaGapMobile}` : ""}			
+			${media !== "none" ? `${contentMediaGapMobile}` : ""}
 		}
 
 		${
 			media !== "none"
 				? `
-	
+
 				.eb-infobox-wrapper.${blockId} .icon-img-wrapper {
-					
+
 					${mediaBgMarginStylesMobile}
 				}
-	
+
 				${
 					media === "number" || media === "icon"
 						? `
-	
+
 						.eb-infobox-wrapper.${blockId} .number-or-icon {
 							${mediaRadiusStylesMobile}
-							${mediaBgPaddingMobile}				
+							${mediaBgPaddingMobile}
 						}
-						
+
 						`
 						: " "
 				}
-	
+
 				${
 					media === "number"
 						? `
-	
+
 					.eb-infobox-wrapper.${blockId} span.eb-infobox-number{
 						${numTypoStylesMobile}
 						${MOBnumberFontSize ? `height:${MOBnumberFontSize}${MOBnumberSizeUnit};` : ""}
 						${MOBnumberFontSize ? `width:${MOBnumberFontSize}${MOBnumberSizeUnit};` : ""}
-					}				
-					
+					}
+
 					`
 						: " "
 				}
-	
+
 				${
 					media === "icon"
 						? `
-	
+
 						.eb-infobox-wrapper.${blockId} .icon-img-wrapper .eb-infobox-icon-data-selector {
 							${iconSizeMobile}
 							${MOBmIconZRange ? `height:${MOBmIconZRange}${MOBmIconZUnit};` : ""}
 							${MOBmIconZRange ? `width:${MOBmIconZRange}${MOBmIconZUnit};` : ""}
-						}			
-					
+						}
+
 					`
 						: " "
 				}
-				
+
 				${
 					media === "image"
 						? `
-	
-									
+
+
 					.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner .icon-img-wrapper{
 						${
 							MOBmediaImgWidthUnit === "%"
@@ -887,10 +887,10 @@ const Edit = ({
 								: " "
 						}
 					}
-	
-					
+
+
 					.eb-infobox-wrapper.${blockId} .infobox-wrapper-inner img {
-						
+
 						${
 							MOBmediaImgWidthUnit === "%"
 								? TABmediaImgWidthUnit === "%"
@@ -898,40 +898,40 @@ const Edit = ({
 									: `width: 100%;`
 								: mediaImgWidthMobile
 						}
-						
+
 						${isMediaImgHeightAuto ? "" : mediaImgHeightMobile}
-	
+
 					}
-	
-					
+
+
 					.eb-infobox-wrapper.${blockId} .eb-infobox-image-wrapper{
 						${mediaRadiusStylesMobile}
 					}
-					
+
 					`
 						: " "
 				}
-	
-	
-	
+
+
+
 			`
 				: " "
 		}
-		
+
 		.eb-infobox-wrapper.${blockId} .title {
 			${titleTypoStylesMobile}
 			${titlePaddingStylesMobile}
 
 		}
-		
+
 		${
 			enableSubTitle
 				? `
 				.eb-infobox-wrapper.${blockId} .subtitle {
 					${subTitleTypoStylesMobile}
 					${subTitlePaddingStylesMobile}
-		
-				}				
+
+				}
 				`
 				: " "
 		}
@@ -942,37 +942,37 @@ const Edit = ({
 				.eb-infobox-wrapper.${blockId} .description {
 					${contentTypoStylesMobile}
 					${contentPaddingStylesMobile}
-		
+
 				}
-				
+
 				`
 				: " "
 		}
-		
+
 		${
 			buttonThakbe
 				? `
-			
+
 				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn{
 					${buttonTypoStylesMobile}
 					${btnBdShadowStyesMobile}
 				}
-				
-			
+
+
 				.eb-infobox-wrapper.${blockId} .contents-wrapper .infobox-btn:hover{
 					${btnBdShadowStylesHoverMobile}
 				}
-				
+
 				`
 				: " "
 		}
-		
-		
+
+
 
 	`;
 
 	// all css styles for large screen width (desktop/laptop) in strings ⬇
-	const desktopAllStyles = softMinifyCssStrings(`		
+	const desktopAllStyles = softMinifyCssStrings(`
 		${wrapperStylesDesktop}
 	`);
 
@@ -1021,20 +1021,20 @@ const Edit = ({
 
 				/* mimmikcssEnd */
 
-				@media all and (max-width: 1024px) {	
+				@media all and (max-width: 1024px) {
 
-					/* tabcssStart */			
+					/* tabcssStart */
 					${softMinifyCssStrings(tabAllStyles)}
-					/* tabcssEnd */			
-				
+					/* tabcssEnd */
+
 				}
-				
+
 				@media all and (max-width: 767px) {
-					
-					/* mobcssStart */			
+
+					/* mobcssStart */
 					${softMinifyCssStrings(mobileAllStyles)}
-					/* mobcssEnd */			
-				
+					/* mobcssEnd */
+
 				}
 				`}
 				</style>
