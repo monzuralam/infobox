@@ -14,6 +14,11 @@
  * @package         infobox
  */
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 /**
  * Registers all block assets so that they can be enqueued through the block editor
  * in the corresponding context.
